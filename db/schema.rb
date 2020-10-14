@@ -10,10 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_130452) do
+ActiveRecord::Schema.define(version: 2020_10_14_161234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "country"
+    t.string "city"
+    t.string "zipcode"
+    t.string "street"
+    t.string "street_number"
+    t.string "floor"
+    t.string "internet_status"
+    t.string "phone"
+    t.string "mobile_phone"
+    t.string "building"
+    t.string "stairs"
+    t.string "door"
+    t.string "gate_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "billings", force: :cascade do |t|
+    t.string "address"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "bic"
+    t.string "iban"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "company"
+    t.string "name"
+    t.string "description"
+    t.integer "price"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.date "start_date"
+    t.boolean "state"
+    t.bigint "address_id", null: false
+    t.bigint "billing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_subscriptions_on_address_id"
+    t.index ["billing_id"], name: "index_subscriptions_on_billing_id"
+    t.index ["product_id"], name: "index_subscriptions_on_product_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +83,21 @@ ActiveRecord::Schema.define(version: 2020_10_13_130452) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "already_moved", default: false
+    t.date "moving_date"
+    t.string "phone"
+    t.string "city"
+    t.boolean "housed", default: false
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "products", "categories"
+  add_foreign_key "subscriptions", "addresses"
+  add_foreign_key "subscriptions", "billings"
+  add_foreign_key "subscriptions", "products"
 end
