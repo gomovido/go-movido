@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# Users & Adresses
+
 5.times do
   user = User.new(
     email: Faker::Internet.email,
@@ -43,4 +45,27 @@
   p "#{user.first_name} created with #{user.addresses.count} addresses" if user and user.addresses
 end
 
+# Categories & Products
 
+category = Category.create(name: 'WIFI')
+2.times do
+  product = Product.create(
+    company: Faker::Company.name,
+    name: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.number(digits: 2).to_f,
+    category: category
+  )
+end
+p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
+category = Category.create(name: 'Mobile')
+2.times do
+  product = Product.create(
+    company: Faker::Company.name,
+    name: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.number(digits: 2).to_f,
+    category: category
+  )
+end
+p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
