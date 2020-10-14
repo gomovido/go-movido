@@ -69,3 +69,55 @@ category = Category.create(name: 'Mobile')
   )
 end
 p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
+
+
+# Billings & Subscriptions
+
+2.times do
+  billing = Billing.create(
+    address: Faker::Address.full_address,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    bic: Faker::Bank.swift_bic,
+    iban: Faker::Bank.iban(country_code: "fr")
+  )
+end
+
+10.times do
+  subscription = Subscription.create(
+    product: Product.all.sample,
+    start_date: Date.today,
+    state: 'pending',
+    address: Address.all.sample,
+    billing: Billing.all.sample
+  )
+  p "Subscription to #{subscription.product.name} created"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
