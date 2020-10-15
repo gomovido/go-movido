@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :addresses
-  has_many :subscriptions, through: :address
+  has_many :subscriptions, through: :addresses
 end
