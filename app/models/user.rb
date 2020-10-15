@@ -10,9 +10,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
-  validates :housed, presence: true, unless: :address
-  validates :address, presence: true, unless: { housed: false }
-  validates :already_moved, presence: true, unless: :moving_date
-  validates :moving_date, presence: true, unless: :already_moved
-
+  validates :address, presence: true if: { housed: false }
+  validates :moving_date, presence: true if: { alread_moved: false }
+  validates :housed, :acceptance => true unless: :address?
+  validates :already_moved, :acceptance => true unless: :moving_date?
 end
