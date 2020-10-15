@@ -9,28 +9,21 @@
 
 # Users & Adresses
 
-5.times do
-  already_moved = [true, false].sample
-  moving_date = Faker::Date.between(from: Date.today, to: 1.year.from_now) unless already_moved
-  housed = [true, false].sample
-  address = Faker::Address.street_address if housed
-  user = User.new(
-    email: Faker::Internet.email,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    already_moved: already_moved,
-    moving_date: moving_date,
-    phone: "+33#{Faker::Number.number(digits: 9)}",
-    city: Faker::Address.city,
-    housed: housed,
-    address: address,
-    password: 'movido123456',
-    password_confirmation: 'movido123456'
-  )
-  user.save
+user1 = User.new(
+  email: Faker::Internet.email,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  already_moved: true,
+  phone: "+33#{Faker::Number.number(digits: 9)}",
+  city: Faker::Address.city,
+  housed: true,
+  password: 'movido123456',
+  password_confirmation: 'movido123456'
+)
+user1.save
   2.times do
     Address.create(
-      user: user,
+      user: user1,
       country: Faker::Address.country,
       city: Faker::Address.city,
       zipcode: Faker::Address.zip_code,
@@ -46,12 +39,44 @@
       gate_code: Faker::Number.number(digits: 4)
     )
   end
-  p "#{user.first_name} created with #{user.addresses.count} addresses" if user and user.addresses
-end
+p "#{user1.first_name} created with #{user1.addresses.count} addresses" if user1 and user1.addresses
+user2 = User.new(
+  email: Faker::Internet.email,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  already_moved: true,
+  moving_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
+  phone: "+33#{Faker::Number.number(digits: 9)}",
+  city: Faker::Address.city,
+  housed: false,
+  address: Faker::Address.full_address,
+  password: 'movido123456',
+  password_confirmation: 'movido123456'
+)
+user2.save
+  2.times do
+    Address.create(
+      user: user2,
+      country: Faker::Address.country,
+      city: Faker::Address.city,
+      zipcode: Faker::Address.zip_code,
+      street: Faker::Address.street_name,
+      street_number: Faker::Address.building_number,
+      floor: Faker::Number.number(digits: 8),
+      internet_status: [true, false].sample,
+      phone: "+33#{Faker::Number.number(digits: 9)}",
+      mobile_phone: "+33#{Faker::Number.number(digits: 9)}",
+      building: Faker::Address.building_number,
+      stairs: ['A', 'B', 'C', 'D'].sample,
+      door: ['Gauche', 'Face', 'Droite'].sample,
+      gate_code: Faker::Number.number(digits: 4)
+    )
+  end
+p "#{user2.first_name} created with #{user2.addresses.count} addresses" if user2 and user2.addresses
 
 # Categories & Products
 
-category = Category.create(name: 'WIFI')
+category = Category.create(name: 'wifi')
 2.times do
   product = Product.create(
     company: Faker::Company.name,
@@ -62,7 +87,7 @@ category = Category.create(name: 'WIFI')
   )
 end
 p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
-category = Category.create(name: 'Mobile')
+category = Category.create(name: 'mobile')
 2.times do
   product = Product.create(
     company: Faker::Company.name,
