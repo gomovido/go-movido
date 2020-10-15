@@ -3,7 +3,6 @@ class Category < ApplicationRecord
 
   CATEGORIES = %w[wifi mobile flat bank gym transportation]
 
-  validates :name, presence: true
-  enum name: { wifi: 0, mobile: 1, flat: 2, bank: 3, gym: 4, transportation: 5 }
+  validates :name, presence: true, inclusion: { in: CATEGORIES }
 
 end
