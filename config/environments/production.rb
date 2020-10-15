@@ -1,16 +1,12 @@
 Rails.application.configure do
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL")}
 
-  config.session_store :redis_session_store, {
-    key: Rails.application.credentials.app_session_key,
-    serializer: :json,
-    redis: {
-      expire_after: 1.year,
-      ttl: 1.year,
-      key_prefix: "app:session:",
-      url: ENV.fetch("REDIS_URL")
-    }
-  }
+  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }}
+  config.session_store :cache_store,
+  key: "_session",
+  compress: true,
+  pool_size: 5,
+  expire_after: 1.year
+
   config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
   # Settings specified here will take precedence over those in config/application.rb.
 
