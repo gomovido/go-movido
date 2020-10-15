@@ -11,7 +11,7 @@
 
 5.times do
   already_moved = [true, false].sample
-  moving_date = Faker::Date.between(from: '2019-11-18', to: '2021-09-25') if already_moved
+  moving_date = Faker::Date.between(from: Date.today, to: 1.year.from_now) unless already_moved
   housed = [true, false].sample
   address = Faker::Address.street_address if housed
   user = User.new(
