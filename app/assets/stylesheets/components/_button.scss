@@ -1,0 +1,18 @@
+.btn-main {
+  color: white;
+  border: 1px solid #EC9A4A;
+  background: #EC9A4A;
+  padding: 8px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0px 4px 30px rgba(236, 154, 74, 0.3);
+  border-radius: 20px;
+  position: relative;
+  transition: transform 0.1s ease;
+}
+
+
+.btn-main:hover {
+  transform: translateY(-3px);
+  color: white;
+}
