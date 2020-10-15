@@ -24,14 +24,12 @@ require("flatpickr")
 
 // External imports
 import "bootstrap";
-import datepicker from "./datepicker.js";
-
 import "flatpickr/dist/flatpickr.min.css"
+import "controllers"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  datepicker();
 });
 
-import "controllers"
+
