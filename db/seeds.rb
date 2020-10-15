@@ -44,7 +44,7 @@ user2 = User.new(
   email: Faker::Internet.email,
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  already_moved: true,
+  already_moved: false,
   moving_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
   phone: "+33#{Faker::Number.number(digits: 9)}",
   city: Faker::Address.city,
