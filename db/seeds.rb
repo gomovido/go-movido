@@ -10,16 +10,20 @@
 # Users & Adresses
 
 5.times do
+  already_moved = [true, false].sample
+  moving_date = Faker::Date.between(from: '2019-11-18', to: '2021-09-25') if already_moved
+  housed = [true, false].sample
+  address = Faker::Address.street_address if housed
   user = User.new(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    already_moved: [true, false].sample,
-    moving_date: Faker::Date.between(from: '2019-11-18', to: '2021-09-25'),
+    already_moved: already_moved,
+    moving_date: moving_date,
     phone: "+33#{Faker::Number.number(digits: 9)}",
     city: Faker::Address.city,
-    housed: [true, false].sample,
-    address: Faker::Address.street_address,
+    housed: housed,
+    address: address,
     password: 'movido123456',
     password_confirmation: 'movido123456'
   )
@@ -72,7 +76,6 @@ p "Category - #{category.name} created with #{category.products.count} products"
 
 
 # Billings & Subscriptions
-
 2.times do
   billing = Billing.create(
     address: Faker::Address.full_address,
