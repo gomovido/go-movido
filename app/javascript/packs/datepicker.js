@@ -1,8 +1,5 @@
-export default function datepicker() {
-  const input = $('.datepicker')
-  if (input) {
-    input.flatpickr({dateFormat: "d-m-Y"})
-  }
+export default function datepicker(element) {
+  element.flatpickr({dateFormat: "d-m-Y"});
 }
 
 
