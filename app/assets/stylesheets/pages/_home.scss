@@ -6,4 +6,13 @@
   font-size: 64px;
   line-height: 120%;
   letter-spacing: -0.04em;
+  margin-bottom: 4rem;
+}
+
+
+
+@include media-breakpoint-only(xs) {
+  .main-title h1 {
+    font-size: 38px;
+  }
 }

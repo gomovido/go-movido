@@ -1,0 +1,32 @@
+.explanation-card {
+  background: white;
+  border: none;
+  margin-bottom: 2rem;
+  .illustration {
+    margin-bottom: 1rem;
+    img {
+      max-height: 149px;
+    }
+  }
+  .title {
+    span {
+      font-size: 24px;
+      color: $blue;
+      font-weight: 800;
+    }
+    .step {
+      color: $white;
+      border-radius: 10px;
+      padding: 0px 6px;
+      background: $blue;
+      font-size: 16px;
+      margin-right: 0.5rem;
+    }
+  }
+  .desc {
+    color: $black;
+    font-size: 16px;
+    padding: 2% 13%;
+    height: 100%;
+  }
+}

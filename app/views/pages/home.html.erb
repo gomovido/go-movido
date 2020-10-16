@@ -1,1 +1,20 @@
 <%= render 'shared/home/banner' %>
+<section id="how-it-works">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='main-title text-center'>
+          <h1>How it works</h1>
+        </div>
+      </div>
+      <%= render 'shared/home/explanation-card', img: 'select-service.png', step: '1', title: 'Select services', desc: 'Select all services you need from a variety of offerings – from WiFi to gym, movido has all you need to get started in your new city' %>
+      <%= render 'shared/home/explanation-card', img: 'compare.png', step: '2', title: 'Compare', desc: 'movido lists your selected services and compares different providers – this guarantees you will get the best package for the best price' %>
+      <%= render 'shared/home/explanation-card', img: 'choose.png', step: '3', title: 'Choose', desc: 'You can now choose your preferred package – intuitively complete your subscriptions within minutes' %>
+      <%= render 'shared/home/explanation-card', img: 'manage.png', step: '4', title: 'Manage', desc: 'movido provides a personalized overview of all your active admin services – easily manage your payments, contract duration and many more' %>
+      <div class="col-md-12 d-flex justify-content-center top-marged">
+        <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
+      </div>
+    </div>
+  </div>
+</section>
+
