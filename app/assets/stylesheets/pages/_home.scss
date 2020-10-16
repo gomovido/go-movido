@@ -9,7 +9,17 @@
   margin-bottom: 4rem;
 }
 
-
+#about-us {
+  .wrapper {
+    padding: 0 10%;
+    .desc {
+      p {
+        color: $black;
+        font-size: 14px;
+      }
+    }
+  }
+}
 
 @include media-breakpoint-only(xs) {
   .main-title h1 {
