@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
-body {
- background: $white;
+.main-title h1 {
+  color: $blue;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
 }
