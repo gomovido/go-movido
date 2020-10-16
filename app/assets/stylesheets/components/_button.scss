@@ -14,3 +14,11 @@
   transform: translateY(-3px);
   color: $white;
 }
+
+.btn-minor {
+  color: $orange !important;
+  background: $light-pink;
+  border: 1px solid $light-pink;
+  border-radius: 13px;
+  font-size: 14px;
+}
