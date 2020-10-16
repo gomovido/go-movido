@@ -1,0 +1,28 @@
+.hamburger {
+  span {
+    height: 3px;
+    background: $orange;
+    display: block;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  #h-1 {
+    width: 15px;
+  }
+  #h-2 {
+    width: 9px;
+  }
+}
+
+.cross {
+  .text {
+    color: $orange;
+  }
+  #h-1 {
+    transform: translateY(4px) rotate(45deg);
+  }
+  #h-2 {
+    transform: translateY(-3px) rotate(-45deg);
+    width: 15px;
+  }
+}
