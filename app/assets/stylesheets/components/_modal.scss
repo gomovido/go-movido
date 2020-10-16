@@ -59,6 +59,11 @@
       float: left;
   }
 
+  .modal-product:hover, .modal-action:hover {
+    background: $light-blue;
+    border-radius: 4px;
+  }
+
   hr {
     width: 100%;
     border-top: 2px solid $light-blue;
