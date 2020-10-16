@@ -18,7 +18,12 @@
 .btn-minor {
   color: $orange !important;
   background: $light-pink;
-  border: 1px solid $light-pink;
   border-radius: 13px;
+  font-weight: 800;
   font-size: 14px;
+  transition: 0.2s;
+  &:hover {
+    background: $orange;
+    color: $white !important;
+  }
 }
