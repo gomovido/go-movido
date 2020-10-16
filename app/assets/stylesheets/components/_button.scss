@@ -27,3 +27,11 @@
     color: $white !important;
   }
 }
+
+@include media-breakpoint-down(xs) {
+  .btn-minor {
+    text-align: center;
+    border-radius: 0px;
+    width: 100%;
+  }
+}
