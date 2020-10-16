@@ -1,0 +1,66 @@
+.modal-dialog {
+  margin: 3.75rem auto;
+  max-width: 730px;
+}
+
+.modal-content {
+  background: $white;
+  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+  border-radius: 30px;
+  border: 0;
+
+  .modal-actions {
+    height: 100%;
+  }
+
+  .modal-right {
+    padding-right: 13rem;
+    border-left: 2px solid $light-blue;
+  }
+  .modal-infos {
+    color: $dark-grey;
+    font-size: 14px;
+    text-align: center;
+    background: $light-blue;
+    font-weight: 400;
+    width: 100%;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .modal-title {
+    font-weight: 800;
+    font-size: 18px;
+    color: $blue !important;
+  }
+
+  .modal-action {
+    color: $black !important;
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .modal-product-infos span {
+    font-weight: 800;
+    font-size: 16px;
+    color: $black !important;
+  }
+
+  .modal-product-infos p {
+    font-weight: 400;
+    font-size: 14px;
+    color: $dark-grey !important;
+    margin: 0;
+  }
+
+  .modal-breaker{
+      width: 1px;
+      background-color: $light-blue;
+      height: 100%;
+      float: left;
+  }
+
+  hr {
+    width: 100%;
+    border-top: 2px solid $light-blue;
+  }
+}
