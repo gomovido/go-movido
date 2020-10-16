@@ -1,0 +1,27 @@
+.why-cards-wrapper {
+  .left {
+    border-right: 1px solid #EEF1F4;
+  }
+  .why-card {
+    padding: 2%;
+    color: $blue;
+    margin: 1rem;
+    .illustration {
+      margin-bottom: 1rem;
+      img {
+        width: 50px;
+      }
+    }
+    .title {
+      span {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+    .desc span {
+      font-size: 14px;
+      padding-right: 20%;
+    }
+  }
+}

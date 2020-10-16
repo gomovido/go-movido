@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class='main-title text-center'>
+        <div class='main-title text-center bot-marged'>
           <h1>How it works</h1>
         </div>
       </div>
@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col-md-6 d-flex flex-column justify-content-center">
       <div class="wrapper">
-        <div class="main-title">
+        <div class="main-title bot-marged">
           <h1>About movido</h1>
         </div>
         <div class="desc">
@@ -41,6 +41,42 @@
   </div>
 </div>
 </section>
+<section id="partners">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag(asset_path('partners.png')) %>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-
+<section id="why-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="main-title">
+          <h1>Why movido?</h1>
+        </div>
+        <div class="desc">
+          <p>Making moving simple is our philosophy. Easy, fast and intuitive - sign up to movido to get set in your new city in no time and 100% for free</p>
+        </div>
+        <div class="call-to-action">
+          <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="why-cards-wrapper d-flex">
+          <div class='left'>
+            <%= render 'shared/home/why-card', img: 'fast.png', title: 'Fast', desc: 'get set-up in your new city in only 10 minutes instead of the usual 4 hours' %>
+            <%= render 'shared/home/why-card', img: 'simple.png', title: 'Simple', desc: 'simply choose your preferred subscription from a variety of offerings' %>
+          </div>
+          <div class='right'>
+            <%= render 'shared/home/why-card', img: 'smart.png', title: 'Smart', desc: 'compare services and benefit from the best prices and offers available' %>
+            <%= render 'shared/home/why-card', img: 'free.png', title: 'Free', desc: 'use movido to choose and manage your subscriptions completely free of charge' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
