@@ -1,0 +1,83 @@
+<section>
+  <div class="container">
+    <div class="banner" style="background-image:url(<%= asset_path 'banner-bg.png' %>);">
+      <div class="container">
+        <div class="content">
+          <div class="headline">
+            <h1>Get set up<br> in your new home<br> <span>in only 10 mins</span></h1>
+            <p>movido takes care of your admin work</p>
+          </div>
+          <div class="form-wrapper mt-4 mt-lg-0">
+            <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="services-cards-wrapper">
+      <div class="row">
+        <div class="col-md-2 d-flex justify-content-center">
+          <div class="service-card d-flex align-items-center flex-column justify-content-center">
+            <div class="picto">
+              <%= image_tag(asset_path('home-1.png')) %>
+            </div>
+            <div class="desc text-center">
+              <span>see top Real Estate listings in your city</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <div class="service-card d-flex align-items-center flex-column justify-content-center">
+            <div class="picto">
+              <%= image_tag(asset_path('credit-card-1.png')) %>
+            </div>
+            <div class="desc text-center">
+              <span>we open your bank account for you</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <div class="service-card d-flex align-items-center flex-column justify-content-center">
+            <div class="picto">
+              <%= image_tag(asset_path('phone-call-1.png')) %>
+            </div>
+            <div class="desc text-center">
+              <span>get your local phone number</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <div class="service-card d-flex align-items-center flex-column justify-content-center">
+            <div class="picto">
+              <%= image_tag(asset_path('wifi.png')) %>
+            </div>
+            <div class="desc text-center">
+              <span>get WiFi set up at home</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <div class="service-card d-flex align-items-center flex-column justify-content-center">
+            <div class="picto">
+              <%= image_tag(asset_path('dumbbell.png')) %>
+            </div>
+            <div class="desc text-center">
+              <span>see the best gym offers in your area</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <div class="service-card d-flex align-items-center flex-column justify-content-center">
+            <div class="picto">
+              <%= image_tag(asset_path('tram-1.png')) %>
+            </div>
+            <div class="desc text-center">
+              <span>get your local transportation card</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
