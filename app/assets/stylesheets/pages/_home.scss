@@ -9,6 +9,9 @@
 }
 
 #about-us {
+  img {
+    width: 100%;
+  }
   .wrapper {
     padding: 0 10%;
     .desc {
@@ -25,6 +28,17 @@
     font-size: 14px;
   }
 }
+
+#partners .partner {
+  border-right: 1px solid $light-gray;
+  img {
+    width: 50%;
+  }
+}
+#partners .partner:last-child {
+  border: none;
+}
+
 
 @include media-breakpoint-only(xs) {
   .main-title h1 {
