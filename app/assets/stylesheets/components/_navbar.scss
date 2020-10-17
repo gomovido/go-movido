@@ -1,5 +1,4 @@
 .navbar-lewagon {
-  justify-content: space-around;
   background: $white;
 }
 
@@ -36,3 +35,9 @@
   }
 }
 
+.avatar {
+  border-radius: 20px;
+  background: $light-blue;
+  font-weight: 600;
+  cursor: pointer;
+}

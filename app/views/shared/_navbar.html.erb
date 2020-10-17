@@ -1,11 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-around">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag(asset_path('logo.png'), width: "130", height: "45") %>
   <% end %>
 
   <% if user_signed_in? %>
-    <span class="d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarSupportedContent">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar cursor-pointer navbar-toggler border-0 p-0" %>
+    <span class="d-lg-none cursor-pointer navbar-toggler avatar border-0 p-2" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarSupportedContent">
+      <%= "#{current_user.first_name[0].upcase}#{current_user.last_name[0].upcase}" %>
     </span>
   <% else %>
     <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
     </button>
   <% end %>
 
-  <%= render 'shared/modal' %>
+  <%= render 'shared/modal-navbar' %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
