@@ -1,6 +1,5 @@
-
-<h2>Stimulus Reflex Test</h2>
-<a href="#" data-reflex="click->CounterReflex#increment" data-step="1" data-count="<%= @count.to_i %>">Increment <%= @count.to_i %></a>
-<div class="container-fluid">
-  <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
-</div>
+<ul>
+  <li><%= link_to 'French', root_path(locale: :fr) %></li>
+  <li><%= link_to 'English', root_path(locale: :en) %></li>
+</ul>
+<h1><%= t('.hello') %></h1>
