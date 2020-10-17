@@ -95,3 +95,22 @@
   </div>
 </section>
 <%= render 'shared/home/testimonials' %>
+<section id="get-started">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="get-started-wrapper d-flex align-items-center justify-content-around"  style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">
+          <div class="title">
+            <h3>movido will simply your move</h3>
+          </div>
+          <div class="desc">
+            <span>Spend time on things that matter – let movido deal with your admin work</span>
+          </div>
+          <div class="call-to-action">
+            <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
