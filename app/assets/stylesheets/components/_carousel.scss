@@ -8,3 +8,16 @@
 .control-icon i {
   color: $blue;
 }
+
+.carousel-indicators {
+  margin: -2rem;
+  li {
+    background-color: $blue;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: .2;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
