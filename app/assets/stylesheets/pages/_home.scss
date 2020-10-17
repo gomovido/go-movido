@@ -35,8 +35,31 @@
     width: 50%;
   }
 }
+
 #partners .partner:last-child {
   border: none;
+}
+
+
+.get-started-wrapper {
+  border-radius: 20px;
+  padding: 5%;
+  background-color: $blue;
+  .title {
+    padding: 0 6%;
+    h3 {
+      font-size: 30px;
+      font-weight: 800;
+      color: $white;
+    }
+  }
+  .desc {
+    padding: 3%
+  }
+  .call-to-action {
+    width: 35%;
+    text-align: right;
+  }
 }
 
 
