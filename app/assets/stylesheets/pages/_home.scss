@@ -60,6 +60,7 @@
 @include media-breakpoint-only(xs) {
   .main-title h1 {
     font-size: 38px;
+    text-align: center;
   }
   #partners .partner img {
       width: 20%;
@@ -67,5 +68,17 @@
   }
   #about-us .wrapper {
     padding: 0;
+  }
+  .desc {
+    text-align: center;
+  }
+  .get-started-wrapper {
+    .desc  {
+      text-align: left;
+      font-size: 14px;
+    }
+    .title h3 {
+      font-size: 16px;
+    }
   }
 }
