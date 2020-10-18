@@ -36,11 +36,6 @@
   }
 }
 
-#partners .partner:last-child {
-  border: none;
-}
-
-
 .get-started-wrapper {
   border-radius: 20px;
   padding: 5%;
@@ -65,5 +60,12 @@
 @include media-breakpoint-only(xs) {
   .main-title h1 {
     font-size: 38px;
+  }
+  #partners .partner img {
+      width: 20%;
+      margin: 2rem;
+  }
+  #about-us .wrapper {
+    padding: 0;
   }
 }

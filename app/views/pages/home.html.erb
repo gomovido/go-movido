@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 d-flex align-items-center">
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
       <%= image_tag(asset_path('about-us.png'))%>
     </div>
   </div>
@@ -59,7 +59,7 @@
       <div class="col-md-2 partner d-flex align-items-center justify-content-center">
         <%= image_tag(asset_path('veolia.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center">
+      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-0">
         <%= image_tag(asset_path('sorbonne.png')) %>
       </div>
     </div>
@@ -75,7 +75,7 @@
         <div class="desc">
           <p>Making moving simple is our philosophy. Easy, fast and intuitive - sign up to movido to get set in your new city in no time and 100% for free</p>
         </div>
-        <div class="call-to-action">
+        <div class="call-to-action d-none d-sm-block">
           <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
         </div>
       </div>
@@ -106,7 +106,7 @@
           <div class="desc">
             <span>Spend time on things that matter – let movido deal with your admin work</span>
           </div>
-          <div class="call-to-action text-right">
+          <div class="call-to-action text-right d-none d-sm-block">
             <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
           </div>
         </div>
