@@ -67,3 +67,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "stimulus_reflex", "~> 3.3"
 
 gem "phony_rails", "~> 0.14.13"
+gem 'rails-i18n'
