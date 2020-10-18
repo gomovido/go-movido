@@ -1,7 +1,6 @@
 .explanation-card {
-  background: white;
+  background: $white;
   border: none;
-  margin-bottom: 2rem;
   .illustration {
     margin-bottom: 1rem;
     img {
@@ -9,11 +8,9 @@
     }
   }
   .title {
-    span {
-      font-size: 24px;
-      color: $blue;
-      font-weight: 800;
-    }
+    font-size: 24px;
+    color: $blue;
+    font-weight: 800;
     .step {
       color: $white;
       border-radius: 10px;

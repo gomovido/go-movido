@@ -1,3 +1,4 @@
+
 .carousel-card {
   .user {
     width: 100%;
@@ -17,9 +18,7 @@
   .sentence {
     text-align: center;
     width: 50%;
-    span {
-      color: $blue;
-      font-style: italic;
-    }
+    color: $blue;
+    font-style: italic;
   }
 }
