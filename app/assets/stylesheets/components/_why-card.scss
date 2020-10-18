@@ -13,13 +13,11 @@
       }
     }
     .title {
-      span {
-        font-weight: 800;
-        font-size: 16px;
-        line-height: 22px;
-      }
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 22px;
     }
-    .desc span {
+    .desc {
       font-size: 14px;
       padding-right: 20%;
       color: $black;
