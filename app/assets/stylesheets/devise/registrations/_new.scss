@@ -1,0 +1,25 @@
+.registration-wrapper {
+  height: 100%;
+  h2 {
+    color: $blue;
+    font-weight: 800;
+  }
+  .desc {
+    color: $dark-grey;
+    font-size: 14px;
+  }
+  img {
+    width: 80%
+  }
+}
+
+.registration-form-wrapper {
+  background-color: $very-light-gray;
+  border-radius: 20px;
+  width: 100%;
+  h4 {
+    color: $blue;
+    font-weight: 800;
+    font-size: 22px;
+  }
+}

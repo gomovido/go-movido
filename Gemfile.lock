@@ -112,6 +112,11 @@ GEM
       activesupport (> 3.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    json (2.3.1)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -137,6 +142,12 @@ GEM
     phony_rails (0.14.13)
       activesupport (>= 3.0)
       phony (> 2.15)
+    postmark (1.7.1)
+      json
+      rake
+    postmark-rails (0.12.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.7.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -270,9 +281,11 @@ DEPENDENCIES
   hiredis
   intercom-rails (~> 0.4.2)
   jbuilder (~> 2.7)
+  letter_opener
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   phony_rails (~> 0.14.13)
+  postmark-rails (~> 0.12.0)
   pry-byebug
   pry-rails
   puma (~> 4.1)

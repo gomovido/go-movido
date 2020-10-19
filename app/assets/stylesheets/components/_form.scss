@@ -1,0 +1,43 @@
+.form-control {
+  border-radius: 10px;
+  height: calc(1.5em + 0.75rem + 13px);
+  border-color: $gray;
+}
+
+form input {
+  font-size: 12px !important;
+}
+
+form input::placeholder {
+  color: $dark-grey !important;
+  font-size: 12px;
+}
+
+label {
+  color: $blue;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+select {
+  color: $dark-grey !important;
+  font-size: 12px !important;
+  height: calc(1.5em + 0.75rem + 13px) !important;
+}
+
+.form-control[readonly]  {
+  background-color: $white;
+}
+
+.form-b-links {
+  span {
+    font-size: 12px;
+  }
+  a {
+    font-size: 12px;
+  }
+}
+
+.iti {
+  width: 100%;
+}
