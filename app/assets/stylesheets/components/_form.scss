@@ -8,3 +8,13 @@ form input::placeholder {
   color: $dark-grey !important;
   font-size: 12px;
 }
+
+label {
+  color: $blue;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.form-control[readonly]  {
+  background-color: white;
+}
