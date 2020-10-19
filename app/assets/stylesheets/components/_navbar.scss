@@ -1,12 +1,41 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  background: $white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  color: $black !important;
+  font-weight: 600;
+}
+
+.profile-link{
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $black;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    width: 100%;
+  }
+}
+
+.logo {
+  width: 130px;
+  height: 45px;
 }
