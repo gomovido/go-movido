@@ -9,6 +9,7 @@
    email: Faker::Internet.email,
    first_name: Faker::Name.first_name,
    last_name: Faker::Name.last_name,
+   username: Faker::Name.unique.name,
    already_moved: already_moved,
    moving_date: moving_date,
    phone: "+33#{Faker::Number.number(digits: 9)}",
