@@ -1,0 +1,32 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+}
+
+.banner h1 {
+  color: $blue;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.banner span {
+  color: $dark-blue;
+}
+
+.banner p {
+  font-size: 24px;
+  color: $black;
+  font-weight: 300;
+}
+
+@include media-breakpoint-only(xs) {
+  .banner {
+    height: 83vh !important;
+    background-position: 19%;
+  }
+
+  .banner h1 {
+    font-size: 38px;
+  }
+}

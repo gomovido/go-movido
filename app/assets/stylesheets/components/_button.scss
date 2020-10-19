@@ -2,7 +2,7 @@
   color: $white;
   border: 1px solid $orange;
   background: $orange;
-  padding: 8px 24px;
+  padding: 15px 30px;
   font-weight: 800;
   font-size: 16px;
   box-shadow: 0px 4px 30px rgba(236, 154, 74, 0.3);
@@ -13,4 +13,25 @@
 .btn-main:hover {
   transform: translateY(-3px);
   color: $white;
+}
+
+.btn-minor {
+  color: $orange !important;
+  background: $light-pink;
+  border-radius: 13px;
+  font-weight: 800;
+  font-size: 14px;
+  transition: 0.2s;
+  &:hover {
+    background: $orange;
+    color: $white !important;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .btn-minor {
+    text-align: center;
+    border-radius: 0px;
+    width: 100%;
+  }
 }
