@@ -1,0 +1,29 @@
+.carousel-card {
+  .user {
+    width: 100%;
+    .img {
+      margin: 2%;
+    }
+    .infos {
+      .name {
+        font-weight: 800;
+        color: $blue;
+      }
+      .destination {
+        font-size: 14px;
+      }
+    }
+  }
+  .sentence {
+    width: 40%;
+    color: $blue;
+    font-style: italic;
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  .carousel-card .sentence {
+    width: 100%;
+  }
+}
+
