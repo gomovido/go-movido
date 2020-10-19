@@ -29,6 +29,15 @@ select {
   background-color: white;
 }
 
+.form-b-links {
+  span {
+    font-size: 12px;
+  }
+  a {
+    font-size: 12px;
+  }
+}
+
 @include media-breakpoint-only(xs) {
   .form-actions {
     text-align: center;
