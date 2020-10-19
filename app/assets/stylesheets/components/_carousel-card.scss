@@ -15,8 +15,18 @@
     }
   }
   .sentence {
-    width: 50%;
+    width: 40%;
     color: $blue;
     font-style: italic;
   }
 }
+
+
+
+
+@include media-breakpoint-only(xs) {
+  .carousel-card .sentence {
+    width: 100%;
+  }
+}
+
