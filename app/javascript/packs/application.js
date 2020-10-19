@@ -22,10 +22,12 @@ require("flatpickr")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+
 // External imports
 import "bootstrap";
 import "flatpickr/dist/flatpickr.min.css"
 import "controllers"
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

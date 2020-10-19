@@ -1,0 +1,30 @@
+.carousel-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.carousel-inner {
+  padding: 5% 0;
+}
+.control-icon i {
+  color: $blue;
+}
+
+.carousel-indicators {
+  max-width: 100%;
+  li {
+    background-color: $blue;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: .2;
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  .carousel-indicators {
+    margin-bottom: -2.5rem !important;
+  }
+}
+
+
+

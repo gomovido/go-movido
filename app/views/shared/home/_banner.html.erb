@@ -1,0 +1,18 @@
+<section>
+  <div class="container-fluid">
+    <div class="banner d-flex justify-content-center align-items-center" style="background-image:url(<%= asset_path 'banner-bg.png' %>);">
+      <div class="container">
+        <div class="content">
+          <div class="headline mb-2">
+            <h1 class="m-0">Get set up<br> in your new home<br> <span>in only 10 mins</span></h1>
+            <p>movido takes care of your admin work</p>
+          </div>
+          <div>
+            <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/home/services-cards' %>
+</section>

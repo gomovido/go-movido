@@ -1,4 +1,80 @@
 // Specific CSS for your home-page
-body {
- background: $white;
+.main-title h1 {
+  color: $blue;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
 }
+
+#about-us {
+  img {
+    width: 100%;
+  }
+  .wrapper {
+    padding: 0 10%;
+    .desc {
+      p {
+        color: $black;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+#why-us {
+  .desc {
+    font-size: 14px;
+  }
+}
+
+#partners .partner {
+  img {
+    width: 50%;
+  }
+}
+
+.get-started-wrapper {
+  border-radius: 20px;
+  background-color: $blue;
+  .title {
+    padding: 0 6%;
+    h3 {
+      font-size: 30px;
+      font-weight: 800;
+      color: $white;
+    }
+  }
+  .call-to-action {
+    width: 35%;
+  }
+}
+
+
+@include media-breakpoint-only(xs) {
+  .main-title h1 {
+    font-size: 38px;
+    text-align: center;
+  }
+  #partners .partner img {
+      width: 20%;
+      margin: 2rem;
+  }
+  #about-us .wrapper {
+    padding: 0;
+  }
+  .desc {
+    text-align: center;
+  }
+  .get-started-wrapper {
+    .desc  {
+      text-align: left;
+      font-size: 14px;
+    }
+    .title h3 {
+      font-size: 16px;
+    }
+  }
+}
+
