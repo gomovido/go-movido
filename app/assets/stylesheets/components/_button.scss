@@ -14,3 +14,24 @@
   transform: translateY(-3px);
   color: $white;
 }
+
+.btn-minor {
+  color: $orange !important;
+  background: $light-pink;
+  border-radius: 13px;
+  font-weight: 800;
+  font-size: 14px;
+  transition: 0.2s;
+  &:hover {
+    background: $orange;
+    color: $white !important;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .btn-minor {
+    text-align: center;
+    border-radius: 0px;
+    width: 100%;
+  }
+}
