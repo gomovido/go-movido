@@ -30,7 +30,6 @@
 }
 
 #partners .partner {
-  border-right: 1px solid $light-gray;
   img {
     width: 50%;
   }
@@ -38,7 +37,6 @@
 
 .get-started-wrapper {
   border-radius: 20px;
-  padding: 5%;
   background-color: $blue;
   .title {
     padding: 0 6%;
@@ -47,9 +45,6 @@
       font-weight: 800;
       color: $white;
     }
-  }
-  .desc {
-    padding: 3%
   }
   .call-to-action {
     width: 35%;
