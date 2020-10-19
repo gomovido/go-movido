@@ -12,5 +12,11 @@ class User < ApplicationRecord
   validates_plausible_phone :phone, presence: true
   validates :address, presence: true, if: -> { :not_housed == false }
   validates :moving_date, presence: true, if: -> { :alread_moved == false }
+  after_create :send_welcome_email
 
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
 end

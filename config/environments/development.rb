@@ -1,9 +1,10 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  config.action_mailer.delivery_method = :letter_opener
   # Settings specified here will take precedence over those in config/application.rb.
   config.session_store :cookie_store, key: "_eqipia_session_#{Rails.env}", domain: :all
 
-
+  config.action_mailer.perform_deliveries = true
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
