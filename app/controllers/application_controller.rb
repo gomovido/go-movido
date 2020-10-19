@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :set_locale
 
   private
 
@@ -21,17 +21,17 @@ class ApplicationController < ActionController::Base
  protected
 
  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,
-      keys: [
-        :email, :first_name, :last_name,
-        :already_moved, :moving_date, :phone,
-        :city, :not_housed, :address
-      ]
-    )
-    devise_parameter_sanitizer.permit(:sign_in,
-      keys: [
-        :email, :password, :password_confirmation
-      ]
-    )
+  devise_parameter_sanitizer.permit(:sign_up,
+    keys: [
+      :email, :first_name, :last_name,
+      :already_moved, :moving_date, :phone,
+      :city, :not_housed, :address
+    ]
+  )
+  devise_parameter_sanitizer.permit(:sign_in,
+    keys: [
+      :email, :password, :password_confirmation
+    ]
+  )
  end
 end
