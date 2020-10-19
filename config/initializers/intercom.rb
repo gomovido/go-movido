@@ -1,7 +1,7 @@
 IntercomRails.config do |config|
   # == Intercom app_id
   #
-  config.app_id = ENV["INTERCOM_APP_ID"] || "adflyppi"
+  config.app_id = Rails.application.credentials.production[:intercom][:app_id]
   config.include_for_logged_out_users = true
 
   # == Intercom session_duration
