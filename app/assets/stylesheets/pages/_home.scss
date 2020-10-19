@@ -4,6 +4,17 @@ body {
  height: -webkit-fill-available;
 }
 
+section {
+  margin-bottom: 8rem;
+}
+
+@include media-breakpoint-only(xs) {
+  section {
+    margin-bottom: 4rem;
+  }
+}
+
+
 .main-title h1 {
   color: $blue;
   font-style: normal;
