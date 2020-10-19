@@ -71,3 +71,5 @@ gem "phony_rails", "~> 0.14.13"
 gem "intercom-rails", "~> 0.4.2"
 
 gem 'rails-i18n'
+
+gem "friendly_id", "~> 5.4"
