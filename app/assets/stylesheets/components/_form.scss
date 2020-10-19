@@ -1,7 +1,11 @@
 .form-control {
   border-radius: 10px;
-  height: calc(1.5em + 0.75rem + 7px);
+  height: calc(1.5em + 0.75rem + 13px);
   border-color: $gray;
+}
+
+form input {
+  font-size: 12px !important;
 }
 
 form input::placeholder {
@@ -15,6 +19,18 @@ label {
   font-weight: 800;
 }
 
+select {
+  color: $dark-grey !important;
+  font-size: 12px !important;
+  height: calc(1.5em + 0.75rem + 13px) !important;
+}
+
 .form-control[readonly]  {
   background-color: white;
+}
+
+@include media-breakpoint-only(xs) {
+  .form-actions {
+    text-align: center;
+  }
 }
