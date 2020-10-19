@@ -41,9 +41,3 @@ select {
 .iti {
   width: 100%;
 }
-
-@include media-breakpoint-only(xs) {
-  .form-actions {
-    text-align: center;
-  }
-}
