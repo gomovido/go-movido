@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-around">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag(asset_path('logo.png'), class: "logo") %>
+    <%= image_tag(asset_path('logo.png')) %>
   <% end %>
 
   <% if user_signed_in? %>
@@ -19,6 +19,9 @@
       <% if user_signed_in? %>
         <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
             <%= link_to "My Profile", '#', class: "nav-link profile-link" %>
+        </li>
+        <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link profile-link" %>
         </li>
       <% else %>
         <li class="nav-item d-flex align-items-center mt-2">
