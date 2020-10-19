@@ -7,13 +7,14 @@ section {
   margin-bottom: 8rem;
 }
 
+.blue-bg {
+  background-color: $light-blue;
+  border-radius: 20px;
+}
+
+
 @include media-breakpoint-only(xs) {
   section {
     margin-bottom: 4rem;
   }
-}
-
-.blue-bg {
-  background-color: $light-blue;
-  border-radius: 20px;
 }
