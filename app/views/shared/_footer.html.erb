@@ -1,0 +1,38 @@
+<footer class="py-5 px-5 d-flex flex-column flex-lg-row justify-content-around">
+  <div class="part-1 mb-3 mb-lg-0">
+    <%= link_to root_path do %>
+      <%= image_tag(asset_path('logo.png'), class: "logo mb-3") %>
+    <% end %>
+    <p class="m-0">
+      © 2020 movido<br><br>
+      All rights reserved<br><br>
+      Made in London, UK
+    </p>
+  </div>
+  <div class="part-2 d-flex flex-lg-column justify-content-center justify-content-lg-between mb-3 mb-lg-0">
+    <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "text-center mr-3 mr-lg-0", target: "_blank" do %>
+      <i class='fab fa-facebook-f'></i>
+    <% end %>
+    <%= link_to "#", class: "text-center mr-3 mr-lg-0", target: "_blank"  do %>
+      <i class='fab fa-twitter'></i>
+    <% end %>
+    <%= link_to "https://www.instagram.com/go_movido/", class: "text-center ", target: "_blank" do %>
+      <i class='fab fa-instagram'></i>
+    <% end %>
+  </div>
+  <div class="part-3 d-flex flex-column mb-3 mb-lg-0">
+    <%= link_to "About us", '#' %>
+    <br>
+    <%= link_to "Support", '#' %>
+  </div>
+  <div class="part-4 d-flex flex-column mb-3 mb-lg-0">
+    <%= link_to "Terms of service", '#' %>
+    <br>
+    <%= link_to "Privacy Policy", '#' %>
+  </div>
+  <div class="part-5 d-flex flex-lg-column">
+    <span class="mr-3 mr-lg-0"><i class="far fa-envelope mr-2"></i>info@go-movido.com</span>
+    <br>
+    <span><i class="fas fa-map-marker-alt mr-2"></i>52 Upper Berkeley Street <br>London W1H 7QW, UK</span>
+  </div>
+</footer>
