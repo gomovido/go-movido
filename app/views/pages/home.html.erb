@@ -44,19 +44,19 @@
 <section id="partners">
   <div class="container">
     <div class="row">
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center">
+      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('orange.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center">
+      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('escp.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center">
+      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('revolut.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center">
+      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('hult.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center">
+      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('veolia.png')) %>
       </div>
       <div class="col-md-2 partner d-flex align-items-center justify-content-center border-0">
@@ -99,13 +99,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="get-started-wrapper d-flex align-items-center justify-content-around"  style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">
+        <div class="get-started-wrapper d-flex align-items-center justify-content-around p-5"  style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">
           <div class="title">
-            <h3>movido will simply your move</h3>
+            <h3>movido will simplify your move</h3>
           </div>
-          <div class="desc">
-            <span>Spend time on things that matter – let movido deal with your admin work</span>
-          </div>
+          <span class="desc p-2">Spend time on things that matter – let movido deal with your admin work</span>
           <div class="call-to-action text-right d-none d-sm-block">
             <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
           </div>
