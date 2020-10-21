@@ -1,10 +1,14 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ "button", "title"]
+  static targets = [ "menuButton", "profileButton"]
 
-  toggle() {
-    this.buttonTarget.classList.toggle('cross');
-    $('#exampleModal').modal('toggle');
+  toggleMenu() {
+    this.menuButtonTarget.classList.toggle('cross');
+    $('#menuModal').modal('toggle');
+  }
+
+  toggleProfile() {
+    this.profileButtonTarget.classList.toggle('rotate');
   }
 }
