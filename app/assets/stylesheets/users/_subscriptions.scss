@@ -1,0 +1,46 @@
+.subscriptions-container {
+  .headers {
+    width: 100%;
+    background: $light-blue;
+    border-radius: 20px;
+  }
+  .header {
+    font-size: 14px;
+    color: $dark-grey;
+    letter-spacing: 0.3px;
+    font-weight: 800;
+  }
+  .column {
+    width: 20%;
+    text-align: center;
+    .img {
+      width: 100%;
+    }
+  }
+  .picto {
+    background: $light-blue;
+    border-radius: 10px;
+  }
+  .price {
+    color: $dark-grey;
+    font-size: 14px;
+    .amount {
+      font-weight: 800;
+      font-size: 16px;
+    }
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  .subscriptions-container {
+    .btn-minor {
+      border-radius: 10px;
+    }
+    .price {
+      font-size: 13px !important;
+    }
+    .amount {
+      font-size: 15px !important;
+    }
+  }
+}
