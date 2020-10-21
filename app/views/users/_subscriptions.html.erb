@@ -1,0 +1,16 @@
+<div class="col-md-7 col-12 p-lg-5 p-4 subscriptions-container">
+  <h4 class="mb-3 section-title">My subscriptions</h4>
+  <div class="table">
+    <div class="headers px-lg-1 px-3 py-3 d-flex align-items-center justify-content-between">
+      <span class="header column">Service</span>
+      <span class="header column">Provider</span>
+      <span class="header column">Rate</span>
+      <span class="header column"></span>
+    </div>
+    <div class="rows px-lg-1 px-3">
+      <% User.first.subscriptions.each do |sub| %>
+      <%= render 'subscription', sub: sub %>
+      <% end %>
+    </div>
+  </div>
+</div>
