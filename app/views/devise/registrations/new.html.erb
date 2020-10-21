@@ -61,7 +61,9 @@
             <%= f.input :moving_date, as: :string,
                         required: true,
                         label: false,
-                        input_html: { placeholder: 'When are you moving | DD/MM/YYYY', class:'datepicker', data: { target: 'registration.date' } } %>
+                        input_html: { placeholder: 'When are you moving | DD/MM/YYYY', class:'datepicker', data: {
+                          controller: "flatpickr",
+                          flatpickr_min_date: Time.zone.now} } %>
             <%= f.input :password,
                         required: true,
                         label: false,
