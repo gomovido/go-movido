@@ -1,12 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-around">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-around pt-4">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag(asset_path('logo.png')) %>
   <% end %>
 
   <% if user_signed_in? %>
-    <span class="d-lg-none cursor-pointer navbar-toggler avatar-bordered border-0 p-2" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarSupportedContent">
-      <%= "#{current_user.first_name[0].upcase}#{current_user.last_name[0].upcase}" %>
-    </span>
+    <div class="d-lg-none">
+      <%= render 'shared/profile-dropdown' %>
+    </div>
   <% else %>
     <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,12 +17,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
-            <%= link_to "My Profile", user_path(current_user), class: "nav-link profile-link" %>
-        </li>
-        <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link profile-link" %>
-        </li>
+        <%= render 'shared/profile-dropdown' %>
       <% else %>
         <li class="nav-item d-flex align-items-center mt-2">
           <%= link_to ("<i class='fas fa-user pl-3 pr-4 d-lg-inline d-none'> &nbsp&nbsp|</i> Login").html_safe, new_user_session_path, class: "nav-link btn-minor pr-lg-4" %>
