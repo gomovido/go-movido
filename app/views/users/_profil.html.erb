@@ -1,0 +1,91 @@
+<div class="col-md-6 p-5">
+  <h4 class="mb-3 section-title">My profile</h4>
+  <div class="profil-form-wrapper pl-4 pr-4 pb-2">
+    <div class="user d-flex align-items-center pr-3 pt-3 pb-3 pl-1">
+      <div class="img mr-4">
+        <%= image_tag(asset_path('testi_image_1.png')) %>
+      </div>
+      <div class="infos">
+        <div class="name d-flex flex-column">
+          <span><%= current_user.first_name %></span>
+          <span><%= current_user.last_name %></span>
+        </div>
+        <div class="destination d-flex flex-column">
+          <span>from: <%= current_user.city %></span>
+          <span>moved to: London</span>
+        </div>
+      </div>
+    </div>
+    <%= form_with(model: @user, data: {controller: "profil-form", profil_form_reflex: "UserReflex#submit", reflex: "submit->UserReflex#submit" }, id:"profil-form") do |form| %>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 profil-input-wrapper">
+        <label for="first_name" class="m-0 pl-3">First name</label>
+        <div class="profil-input">
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="0"><%= @user.first_name %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="firstName"></i>
+        </div>
+      </div>
+      <div data-target="profil-form.input" id="firstName" class="form-input d-none p-1">
+        <%= form.text_field :first_name, class:'form-control' %>
+        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+      </div>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 profil-input-wrapper">
+        <label for="last_name" class="m-0 pl-3">Last name</label>
+        <div class="profil-input">
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="1"><%= @user.last_name %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="lastName"></i>
+        </div>
+      </div>
+      <div data-target="profil-form.input" id="lastName" class="form-input d-none p-1">
+        <%= form.text_field :last_name, class:'form-control'   %>
+        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+      </div>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 profil-input-wrapper">
+        <label for="phone" class="m-0 pl-3">Phone</label>
+        <div class="profil-input">
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="2"><%= @user.phone %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="phone"></i>
+        </div>
+      </div>
+      <div data-target="profil-form.input" id="phone" class="form-input d-none p-1">
+        <%= form.text_field :phone, data: {target: "profil-form.phone", value: @user.phone}, class:'phone form-control
+        '  %>
+        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+      </div>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 profil-input-wrapper">
+        <label for="city" class="m-0 pl-3">City</label>
+        <div class="profil-input">
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="3"><%= @user.city %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id=city></i>
+        </div>
+      </div>
+      <div data-target="profil-form.input" id="city" class="form-input d-none p-1">
+        <%= form.select :city, [['Paris'], ['London']], class:'form-control'  %>
+        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+      </div>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 profil-input-wrapper">
+        <label for="address" class="m-0 pl-3">Address</label>
+        <div class="profil-input">
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="4"><%= @user.address %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="address"></i>
+        </div>
+      </div>
+      <div data-target="profil-form.input" id="address" class="form-input d-none p-1">
+        <%= form.text_field :address, class:'form-control'  %>
+        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+      </div>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 profil-input-wrapper">
+        <label for="moving_date" class="m-0 pl-3">Moving date</label>
+        <div class="profil-input">
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="5"><%= @user.moving_date %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="moving_date"></i>
+        </div>
+      </div>
+      <div data-target="profil-form.input" id="moving_date" class="form-input d-none p-1">
+        <%= form.text_field :moving_date, class:'form-control' , data: {
+          controller: "flatpickr",
+          flatpickr_min_date: Time.zone.now}  %>
+        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>

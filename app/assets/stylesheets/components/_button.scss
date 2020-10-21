@@ -28,6 +28,17 @@
   }
 }
 
+.btn-submit {
+  color: $orange !important;
+  text-transform: none;
+  border: none;
+  padding: 3px 30px;
+  border-radius: 7px;
+  background: #ffa5002b;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 @include media-breakpoint-down(xs) {
   .btn-minor {
     text-align: center;
