@@ -1,8 +1,8 @@
 class UserReflex < ApplicationReflex
+  delegate :current_user, to: :connection
   include ActionController::Flash
   before_reflex do
-    @user = GlobalID::Locator.locate_signed(element.dataset.signed_id)
-    @user.assign_attributes(user_params)
+    current_user.assign_attributes(user_params)
   end
 
   after_reflex do
@@ -10,7 +10,7 @@ class UserReflex < ApplicationReflex
   end
 
   def submit
-    @user.save
+    current_user.save
   end
 
   private
