@@ -1,0 +1,67 @@
+#profil-form {
+  input {
+    border: none;
+    height: calc(1.5em + 0.75rem + 13px);
+  }
+  label {
+    font-size: 14px;
+    color: $dark-grey;
+    letter-spacing: 0.3px;
+  }
+  select {
+    width: 100%;
+    border: none;
+  }
+  span {
+    font-size: 14px;
+    color: $dark-blue;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  i {
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .profil-input-wrapper {
+    border-top: 1px solid $light-grey;
+  }
+  .form-input {
+    position: absolute;
+    background: $white;
+    width: 350px;
+    display: flex;
+    border-radius: 5px;
+  }
+}
+.section-title {
+  color: $blue;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.profil-form-wrapper {
+  background-color: $light-blue;
+  border-radius: 20px;
+  width: 100%;
+  .user {
+    width: 100%;
+    .img {
+      img {
+        height: 100px;
+      }
+    }
+    .infos {
+      .name {
+        font-weight: 800;
+        color: $black;
+        font-size: 16px;
+      }
+      .destination {
+        font-size: 14px;
+        color: $grey;
+        font-weight: 800;
+      }
+    }
+  }
+
+}
