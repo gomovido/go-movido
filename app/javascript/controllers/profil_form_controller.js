@@ -3,23 +3,21 @@ import phoneInput from '../packs/phone-input';
 
 
 export default class extends ApplicationController {
-  static targets = ['phone', 'submit']
-
-
-  connect() {
-    phoneInput(this.phoneTarget);
-    this.phoneTarget.value = document.getElementById('user_phone').getAttribute('data-value')
-  }
+  static targets = ['phone', 'submit', 'input']
 
   toggleInput(event) {
     const activeElement = document.getElementsByClassName('active')[0]
-    const element = document.getElementById(event.target.getAttribute('data-id'))
-    if (activeElement && activeElement != element) {
+    const input = this.inputTargets.find(input => input.id == event.target.dataset.id)
+    if (event.target.dataset.id === 'phone') {
+      phoneInput(this.phoneTarget);
+      this.phoneTarget.value = document.getElementById('user_phone').dataset.value
+    }
+    if (activeElement && activeElement != input) {
       activeElement.classList.add('d-none')
       activeElement.classList.remove('active')
     }
-    element.classList.toggle('d-none')
-    element.classList.toggle('active')
+    input.classList.toggle('d-none');
+    input.classList.toggle('active');
   }
 
   togglePen(event) {
@@ -28,4 +26,5 @@ export default class extends ApplicationController {
     });
     document.getElementsByClassName('fa-pen')[event.target.getAttribute('data-id')].classList.remove('d-none')
   }
+
 }
