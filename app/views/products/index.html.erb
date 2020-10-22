@@ -1,0 +1,7 @@
+<h1>Welcome to the <%= @products.first.category.name %> category</h1>
+<p>Choose your product</p>
+<% @products.each do |product| %>
+  <ul>
+    <li><%= link_to product.name, new_category_product_subscription_path(product.category, product) %></li>
+  </ul>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_225846) do
+ActiveRecord::Schema.define(version: 2020_10_22_140940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 2020_10_19_225846) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.string "sku"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -73,17 +76,20 @@ ActiveRecord::Schema.define(version: 2020_10_19_225846) do
     t.integer "rating"
     t.integer "reviews"
     t.string "logo_url"
+    t.string "slug"
+    t.string "sku"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.date "start_date"
     t.string "state"
-    t.bigint "address_id", null: false
-    t.bigint "billing_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "address_id"
+    t.bigint "billing_id"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["billing_id"], name: "index_subscriptions_on_billing_id"
     t.index ["product_id"], name: "index_subscriptions_on_product_id"

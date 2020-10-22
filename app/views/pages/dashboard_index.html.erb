@@ -1,2 +1,7 @@
-<h1><%= current_user.first_name %> Welcome to the dasboard</h1>
-
+<h1>Welcome to the dasboard</h1>
+<p>Choose your category</p>
+<% @categories.each do |category| %>
+  <ul>
+    <li><%= link_to category.name, category_products_path(category) %></li>
+  </ul>
+<% end %>
