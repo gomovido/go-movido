@@ -5,12 +5,14 @@ body {
 }
 
 section {
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
+  padding: 3rem;
 }
 
 @include media-breakpoint-only(xs) {
   section {
     margin-bottom: 4rem;
+    padding: 5% 0% !important;
   }
 }
 
@@ -58,14 +60,14 @@ section {
 }
 
 #get-started {
+  background-color: $blue;
   img {
       position: absolute;
       bottom: 11%;
       left: 33%;
     }
   .get-started-wrapper {
-    border-radius: 20px;
-    background-color: $blue;
+
     .title {
       padding: 0 6%;
       h3 {
