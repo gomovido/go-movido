@@ -29,6 +29,7 @@ section {
 }
 
 #about-us {
+  background: $light-blue;
   img {
     width: 100%;
   }
@@ -44,6 +45,7 @@ section {
 }
 
 #why-us {
+  background: $light-blue;
   .desc {
     font-size: 14px;
   }
@@ -55,31 +57,54 @@ section {
   }
 }
 
-.get-started-wrapper {
-  border-radius: 20px;
-  background-color: $blue;
-  .title {
-    padding: 0 6%;
-    h3 {
-      font-size: 30px;
-      font-weight: 800;
-      color: $white;
+#get-started {
+  img {
+      position: absolute;
+      bottom: 11%;
+      left: 33%;
     }
-  }
-  .call-to-action {
-    width: 35%;
+  .get-started-wrapper {
+    border-radius: 20px;
+    background-color: $blue;
+    .title {
+      padding: 0 6%;
+      h3 {
+        font-size: 30px;
+        font-weight: 800;
+        color: $white;
+      }
+    }
+    .desc {
+      width: 100%;
+    }
+    .call-to-action {
+      width: 35%;
+    }
   }
 }
 
-
 @include media-breakpoint-only(xs) {
+  #get-started {
+    img {
+      display: none;
+    }
+    h3 {
+      font-size: 16px !important;
+    }
+    br {
+      display: none;
+    }
+    .desc {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
   .main-title h1 {
     font-size: 38px;
     text-align: center;
   }
   #partners .partner img {
-      width: 20%;
-      margin: 2rem;
+      width: 100%;
   }
   #about-us .wrapper {
     padding: 0;
