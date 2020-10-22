@@ -12,8 +12,12 @@
     font-weight: 800;
     .step {
       color: $white;
-      border-radius: 10px;
-      padding: 0px 6px;
+      border-radius: 50%;
+      background: #0D4D90;
+      width: 29px;
+      height: 29px;
+      padding: 2px;
+      text-align: center;
       background: $blue;
       font-size: 16px;
       margin-right: 0.5rem;
@@ -22,7 +26,15 @@
   .desc {
     color: $black;
     font-size: 14px;
-    padding: 2% 13%;
+    padding-right :23%;
     height: 100%;
   }
 }
+@include media-breakpoint-down(md) {
+  .explanation-card {
+    .desc {
+      padding: 0 23%;
+    }
+  }
+}
+

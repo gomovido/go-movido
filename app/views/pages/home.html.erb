@@ -11,13 +11,13 @@
       <%= render 'shared/home/explanation-card', img: 'compare.png', step: '2', title: 'Compare', desc: 'movido lists your selected services and compares different providers – this guarantees you will get the best package for the best price' %>
       <%= render 'shared/home/explanation-card', img: 'choose.png', step: '3', title: 'Choose', desc: 'You can now choose your preferred package – intuitively complete your subscriptions within minutes' %>
       <%= render 'shared/home/explanation-card', img: 'manage.png', step: '4', title: 'Manage', desc: 'movido provides a personalized overview of all your active admin services – easily manage your payments, contract duration and many more' %>
-      <div class="col-md-12 d-flex justify-content-center top-marged">
+      <div class="col-md-12 d-lg-flex d-none justify-content-center top-marged">
         <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
       </div>
     </div>
   </div>
 </section>
-<section id="about-us">
+<section id="about-us" class="d-lg-block d-none">
 <div class="container">
   <div class="row">
     <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -44,29 +44,29 @@
 <section id="partners">
   <div class="container">
     <div class="row">
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('orange.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('escp.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('revolut.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('hult.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
         <%= image_tag(asset_path('veolia.png')) %>
       </div>
-      <div class="col-md-2 partner d-flex align-items-center justify-content-center border-0">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-0">
         <%= image_tag(asset_path('sorbonne.png')) %>
       </div>
     </div>
   </div>
 </section>
 <section id="why-us">
-  <div class="container">
+  <div class="container pt-2">
     <div class="row">
       <div class="col-md-4">
         <div class="main-title">
@@ -97,15 +97,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="get-started-wrapper d-flex align-items-center justify-content-around p-5"  style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">
+        <div class="get-started-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-around py-3 p-lg-5"  style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">
           <div class="title">
             <h3>movido will simplify your move</h3>
           </div>
-          <span class="desc p-2">Spend time on things that matter – let movido deal with your admin work</span>
+          <span class="desc p-2">Spend time on things that matter – let movido <br> deal with your admin work</span>
           <div class="call-to-action text-right d-none d-sm-block">
-            <%= link_to 'Get started !', new_user_registration_path, class:'btn btn-main' %>
+            <%= link_to 'Get started', new_user_registration_path, class:'btn btn-main' %>
           </div>
         </div>
+        <%= image_tag(asset_path('box-getting-started.png'))%>
       </div>
     </div>
   </div>
