@@ -8,7 +8,7 @@
       <span class="header column"></span>
     </div>
     <div class="rows px-lg-1 px-3">
-      <% User.first.subscriptions.each do |sub| %>
+      <% current_user.subscriptions.each do |sub| %>
       <%= render 'subscription', sub: sub %>
       <% end %>
     </div>
