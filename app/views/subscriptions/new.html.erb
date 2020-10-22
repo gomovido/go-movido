@@ -1,0 +1,8 @@
+<h1>Vous y êtes presque <%= current_user.first_name %></h1>
+<p>Ces infos aideront <%= @product.company %> à vous retrouver lors du suivi client</p>
+<p>Voulez vous utiliser une addresse existante? </p>
+<% current_user.addresses.each do |address| %>
+  <ul>
+    <li><%= link_to address.street, address_product_subscriptions_path(address, @product), method: :post %></li>
+  </ul>
+<% end %>

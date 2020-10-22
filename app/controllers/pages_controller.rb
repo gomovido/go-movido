@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
 
   def dashboard_index
+    @categories = Category.all
   end
 
 end
