@@ -86,9 +86,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_140940) do
     t.bigint "product_id", null: false
     t.date "start_date"
     t.string "state"
+    t.bigint "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "address_id"
     t.bigint "billing_id"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["billing_id"], name: "index_subscriptions_on_billing_id"
