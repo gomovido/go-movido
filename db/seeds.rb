@@ -43,25 +43,30 @@ end
 
   # Categories & Products
 
-  category = Category.create(name: 'wifi')
+  category = Category.create(name: 'wifi', sku: 'wify')
+  p "Category - #{category.name} created !"
  2.times do
+  name = Faker::Company.name
    product = Product.create(
-     company: Faker::Company.name,
+     company: name,
      name: Faker::Commerce.product_name,
      description: Faker::Lorem.paragraph,
      price: Faker::Number.number(digits: 2).to_f,
-     category: category
+     category: category,
+     sku: name
    )
  end
  p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
- category = Category.create(name: 'mobile')
+ category = Category.create(name: 'mobile', sku: 'mobile')
  2.times do
+  name = Faker::Company.name
    product = Product.create(
-     company: Faker::Company.name,
+     company: name,
      name: Faker::Commerce.product_name,
      description: Faker::Lorem.paragraph,
      price: Faker::Number.number(digits: 2).to_f,
-     category: category
+     category: category,
+     sku: name
    )
  end
  p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
