@@ -43,7 +43,7 @@ end
 
   # Categories & Products
 
-  category = Category.create(name: 'wifi', sku: 'wify')
+  category = Category.create(name: 'wifi', sku: 'wifi')
   p "Category - #{category.name} created !"
  2.times do
   name = Faker::Company.name
