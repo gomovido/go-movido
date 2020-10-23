@@ -5,7 +5,6 @@ export default class extends Controller {
 
 
   toggleAddressForm(event) {
-    console.log('hello')
     this.addressFormTarget.classList.toggle('d-none');
   }
 
