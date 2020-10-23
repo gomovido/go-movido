@@ -1,8 +1,72 @@
+<div class="container step-2-container" data-controller="subscriptions">
 <h1>Vous y êtes presque <%= current_user.first_name %></h1>
 <p>Ces infos aideront <%= @product.company %> à vous retrouver lors du suivi client</p>
-<p>Voulez vous utiliser une addresse existante? </p>
-<% current_user.addresses.each do |address| %>
+<% if !current_user.addresses.blank? %>
+  <p>Voulez vous utiliser une addresse existante? </p>
   <ul>
-    <li><%= link_to address.street, address_product_subscriptions_path(address, @product), method: :post %></li>
+    <% current_user.addresses.each do |address| %>
+      <li><%= link_to address.street, address_product_subscriptions_path(address, @product), method: :post %></li>
+    <% end %>
   </ul>
+  <p data-action='click->subscriptions#toggleAddressForm'>Utiliser une autre adresse</p>
 <% end %>
+  <div class="<%= current_user.subscriptions.blank? ? '' : 'd-none' %>" data-target="subscriptions.addressForm">
+    <h2>Please fill your new address</h2>
+    <%= simple_form_for @address, id:"subscription-form" do |form|%>
+      <%= form.hidden_field :product_id, value: @product.id %>
+      <label for="country" class="m-0 pl-3">Country</label>
+      <div class="form-input p-1">
+        <%= form.text_field :country, class:'form-control' %>
+      </div>
+      <label for="city" class="m-0 pl-3">city</label>
+      <div class="form-input p-1">
+        <%= form.text_field :city, class:'form-control' %>
+      </div>
+      <label for="zipcode" class="m-0 pl-3">zipcode</label>
+      <div class="form-input p-1">
+        <%= form.text_field :zipcode, class:'form-control' %>
+      </div>
+      <label for="street" class="m-0 pl-3">street</label>
+      <div class="form-input p-1">
+        <%= form.text_field :street, class:'form-control' %>
+      </div>
+      <label for="street_number" class="m-0 pl-3">street_number</label>
+      <div class="form-input p-1">
+        <%= form.text_field :street_number, class:'form-control' %>
+      </div>
+      <label for="floor" class="m-0 pl-3">floor</label>
+      <div class="form-input p-1">
+        <%= form.text_field :floor, class:'form-control' %>
+      </div>
+      <label for="internet_status" class="m-0 pl-3">internet_status</label>
+      <div class="form-input p-1">
+        <%= form.text_field :internet_status, class:'form-control' %>
+      </div>
+      <label for="phone" class="m-0 pl-3">phone</label>
+      <div class="form-input p-1">
+        <%= form.text_field :phone, class:'form-control' %>
+      </div>
+      <label for="mobile_phone" class="m-0 pl-3">mobile_phone</label>
+      <div class="form-input p-1">
+        <%= form.text_field :mobile_phone, class:'form-control' %>
+      </div>
+      <label for="building" class="m-0 pl-3">building</label>
+      <div class="form-input p-1">
+        <%= form.text_field :building, class:'form-control' %>
+      </div>
+      <label for="stairs" class="m-0 pl-3">stairs</label>
+      <div class="form-input p-1">
+        <%= form.text_field :stairs, class:'form-control' %>
+      </div>
+      <label for="door" class="m-0 pl-3">door</label>
+      <div class="form-input p-1">
+        <%= form.text_field :door, class:'form-control' %>
+      </div>
+      <label for="gate_code" class="m-0 pl-3">gate_code</label>
+      <div class="form-input p-1">
+        <%= form.text_field :gate_code, class:'form-control' %>
+      </div>
+      <%= form.submit 'Save' %>
+    <% end %>
+  </div>
+</div>
