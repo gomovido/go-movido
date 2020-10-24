@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
     @product = Product.find(params[:address][:product_id])
     subscription = Subscription.new(product: @product, address: address, state: 'draft')
     if subscription.save
-      redirect_to new_address_product_billing_path(@address, @product)
+      redirect_to new_address_product_billing_path(@address, @product, subscription_id: subscription.id)
     else
       flash[:alert] = "An error has occured. Please contact the support team."
       redirect_back(fallback_location: root_path)

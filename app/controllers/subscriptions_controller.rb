@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
       flash[:alert] = "You already have a pending subscription for #{@product} on this #{@address}"
       redirect_to subscription_path(subscriptions[0])
     elsif subscription.save
-      redirect_to new_address_product_billing_path(@address, @product)
+      redirect_to new_address_product_billing_path(@address, @product, subscription_id: subscription.id)
     else
       flash[:alert] = "An error has occured. Please contact the support team."
       redirect_back(fallback_location: root_path)
@@ -19,7 +19,7 @@ class SubscriptionsController < ApplicationController
 
   def update
     @address = Address.find(params[:address_id])
-    @subscription = Subscription.where(product: @product, address: @address, state: 'draft').first
+    @subscription = Subscription.find(params[:id])
     if @subscription.update(subscription_params)
       @subscription.update(state: 'processed')
       flash[:notice] = "Your subscription is being processed"

@@ -2,19 +2,20 @@ class BillingsController < ApplicationController
   before_action :set_address, only: [:new, :create]
   before_action :set_product, only: [:new, :create]
 
+
   def new
-    @subscription = Subscription.all.where(product: @product, address: @address, state: 'draft').first
+    @subscription = Subscription.find(params[:subscription_id])
     @billing = Billing.new
   end
 
   def create
+    @subscription = Subscription.find(params[:billing][:subscription_id])
     @billing = Billing.new(billing_params)
-    @subscription = Subscription.all.where(product: @product, address: @address, state: 'draft').first
     if @billing.save
       @subscription.update(billing_id: @billing.id)
     else
-      redirect_to new_address_product_billing_path(@address, @product)
       flash[:alert] = 'Error'
+      redirect_to new_address_product_billing_path(@address, @product)
     end
   end
 
