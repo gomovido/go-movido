@@ -15,7 +15,7 @@ class BillingsController < ApplicationController
       @subscription.update(billing_id: @billing.id)
     else
       flash[:alert] = 'Error'
-      redirect_to new_address_product_billing_path(@address, @product)
+      redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id)
     end
   end
 
