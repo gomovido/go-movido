@@ -33,6 +33,12 @@
 }
 @include media-breakpoint-down(md) {
   .explanation-card {
+  .illustration {
+    img {
+      max-height: 100%;
+      width: 100%;
+    }
+  }
     .desc {
       padding: 0 15%;
     }
