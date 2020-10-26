@@ -41,28 +41,30 @@
                         required: true,
                         label: false,
                         collection: ['Paris', 'London'],
-                        prompt: "City I am Moving to" %>
+                        prompt: "City I am moving to" %>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,
                         required: true,
-                        label: false %>
+                        label: false, data: { action: 'click->registration#toggleAddress'} %>
               <label class="m-0 pl-2">I don’t have an address yet</label>
             </div>
             <%= f.input :address,
                         required: true,
                         label: false,
-                        input_html: { placeholder: 'Address' } %>
+                        input_html: { placeholder: 'Address', data: {
+                          target: 'registration.addressInput'
+                        } } %>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :already_moved,
                         required: true,
-                        label: false %>
+                        label: false, data: { action: 'click->registration#toggleDate'} %>
               <label class="m-0 pl-2">I have already moved</label>
             </div>
             <%= f.input :moving_date, as: :string,
                         required: true,
                         label: false,
                         input_html: { placeholder: 'When are you moving | DD/MM/YYYY', class:'datepicker', data: {
-                          controller: "flatpickr",
+                          controller: "flatpickr", target: 'registration.dateInput',
                           flatpickr_min_date: Time.zone.now} } %>
             <%= f.input :password,
                         required: true,
