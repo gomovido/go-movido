@@ -32,7 +32,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
-  def new;
+  def new
     @address = Address.new
   end
 
