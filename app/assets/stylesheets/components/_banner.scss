@@ -20,6 +20,10 @@
   font-weight: 300;
 }
 
+.banner .container, .container .content {
+  height: 100%;
+}
+
 @include media-breakpoint-only(xs) {
   .banner {
     height: 65vh !important;

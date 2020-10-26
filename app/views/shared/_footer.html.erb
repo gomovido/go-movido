@@ -4,8 +4,8 @@
       <%= image_tag(asset_path('logo.png'), class: "mb-3") %>
     <% end %>
     <p class="m-0">
-      <span class="mb-3 d-block">© 2020 movido</span>
-     <span class="mb-3 d-block">All rights reserved</span>
+      <span class="mb-2 d-block">© 2020 movido</span>
+     <span class="mb-2 d-block">All rights reserved</span>
       <span class="d-block">Made in London, UK</span>
     </p>
   </div>
@@ -22,8 +22,6 @@
   </div>
     <div class="part-3 d-flex flex-column mb-3 mb-lg-0">
       <%= link_to "About us", '#' %>
-      <br>
-      <%= link_to "Support", '#' %>
     </div>
     <div class="part-4 d-flex flex-column mb-3 mb-lg-0">
       <%= link_to "Terms of service", '#' %>
@@ -31,7 +29,7 @@
       <%= link_to "Privacy Policy", '#' %>
     </div>
   <div class="part-5 d-flex flex-lg-column">
-    <span class="mr-3 mr-lg-0"><i class="far fa-envelope mr-2"></i>info@go-movido.com</span>
+    <span class="mr-3 mr-lg-0"><i class="far fa-envelope mr-2"></i><%= mail_to "info@go-movido.com", "info@go-movido.com" %></span>
     <br>
     <span><i class="fas fa-map-marker-alt mr-2"></i>52 Upper Berkeley Street <br>London W1H 7QW, UK</span>
   </div>
