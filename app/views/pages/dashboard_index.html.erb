@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <div class="row cards-wrapper">
-    <% @categories.each do |category| %>
-      <div class="col-md-6">
-        <div class="category-cards-wapper text-center d-flex align-items justify-content-center flex-column p-4">
+    <% @categories.each_with_index do |category, index| %>
+      <div class="col-md-6 d-flex align-items-center <%= index.even? ? 'justify-content-end' : 'justify-content-start'%>">
+        <div class="category-cards-wapper text-center d-flex align-items-center justify-content-center flex-column p-4">
           <div class="title d-flex justify-content-center flex-column align-items-center p-4">
             <%= image_tag(asset_path("#{category.name}-white.png")) %>
             <span><%= category.name %></span>
