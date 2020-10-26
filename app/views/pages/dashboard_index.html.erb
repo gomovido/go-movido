@@ -1,7 +1,20 @@
-<h1>Welcome to the dasboard</h1>
-<p>Choose your category</p>
-<% @categories.each do |category| %>
-  <ul>
-    <li><%= link_to category.name, category_products_path(category) %></li>
-  </ul>
-<% end %>
+<div class="container mt-5">
+  <div class="row cards-wrapper">
+    <% @categories.each_with_index do |category, index| %>
+      <div class="col-md-6 d-flex align-items-center <%= index.even? ? 'justify-content-end' : 'justify-content-start'%>">
+        <div class="category-cards-wapper text-center d-flex align-items-center justify-content-center flex-column p-4">
+          <div class="title d-flex justify-content-center flex-column align-items-center p-4">
+            <%= image_tag(asset_path("#{category.name}-white.png")) %>
+            <span><%= category.name %></span>
+            <span><%= category.subtitle %></span>
+          </div>
+          <div class="description d-flex flex-column p-5">
+            <span><%= category.form_timer %> mins</span>
+            <span><%= category.description %></span>
+            <%= link_to 'Get started', category_products_path(category), class:'btn-main' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

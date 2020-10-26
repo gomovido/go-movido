@@ -43,7 +43,12 @@ end
 
   # Categories & Products
 
-  category = Category.create(name: 'wifi', sku: 'wifi')
+  category = Category.create(
+    name: 'wifi',
+    sku: 'wify',
+    form_timer: Faker::Number.number(digits: 1),
+    subtitle: 'See top Real Estate listings',
+    description: 'Find the perfect place for you to stay in your new hometown')
   p "Category - #{category.name} created !"
  2.times do
   name = Faker::Company.name
@@ -57,7 +62,11 @@ end
    )
  end
  p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
- category = Category.create(name: 'mobile', sku: 'mobile')
+ category = Category.create(name: 'mobile',
+  sku: 'mobile',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'See top Real Estate listings',
+  description: 'Find the perfect place for you to stay in your new hometown')
  2.times do
   name = Faker::Company.name
    product = Product.create(

@@ -4,6 +4,7 @@
   .illustration {
     img {
       max-height: 149px;
+      width: 100%;
     }
   }
   .title {
@@ -32,8 +33,14 @@
 }
 @include media-breakpoint-down(md) {
   .explanation-card {
+  .illustration {
+    img {
+      max-height: 100%;
+      width: 100%;
+    }
+  }
     .desc {
-      padding: 0 15%;
+      padding: 0 23%;
     }
   }
 }
