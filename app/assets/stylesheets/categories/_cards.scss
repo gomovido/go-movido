@@ -1,0 +1,14 @@
+.category-cards-wapper {
+  background: $dark-blue;
+  height: 100%;
+  border-radius: 20px;
+  .title {
+    color: white;
+    font-size: 24px;
+  }
+  .description {
+    background: white;
+    border-radius: 20px;
+    color: $blue;
+  }
+}
