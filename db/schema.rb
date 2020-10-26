@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_140940) do
+ActiveRecord::Schema.define(version: 2020_10_26_133105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_140940) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.string "sku"
+    t.integer "form_timer"
+    t.text "description"
+    t.string "subtitle"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
@@ -86,9 +89,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_140940) do
     t.bigint "product_id", null: false
     t.date "start_date"
     t.string "state"
-    t.bigint "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "address_id"
     t.bigint "billing_id"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["billing_id"], name: "index_subscriptions_on_billing_id"
