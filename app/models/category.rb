@@ -7,6 +7,7 @@ class Category < ApplicationRecord
 
 
   validates :name, presence: true, inclusion: { in: CATEGORIES }
-  validates :sku, presence: true
+  validates :sku, :form_timer, :description, :subtitle, presence: true
+
 
 end
