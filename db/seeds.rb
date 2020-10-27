@@ -15,7 +15,6 @@
    phone: "+33#{Faker::Number.number(digits: 9)}",
    city: Faker::Address.city,
    not_housed: not_housed,
-   address: address,
    password: 'movido123456',
    password_confirmation: 'movido123456'
  )
@@ -27,7 +26,6 @@
      city: Faker::Address.city,
      zipcode: Faker::Address.zip_code,
      street: Faker::Address.street_name,
-     street_number: Faker::Address.building_number,
      floor: Faker::Number.number(digits: 8),
      internet_status: [true, false].sample,
      phone: "+33#{Faker::Number.number(digits: 9)}",
