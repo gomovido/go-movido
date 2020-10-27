@@ -1,0 +1,23 @@
+ <div class="top-part d-flex flex-column align-items-center justify-content-center" data-target="subscriptions.addressSummary">
+  <h2 class="mb-4">Please confirm your address details, <%= current_user.first_name %></h2>
+  <div class="last-billing d-flex flex-column justify-content-center mb-4 p-5">
+     <div class="row">
+      <span class="col-3 left">Country</span>
+      <span class="col-9 right"><%= address.country %></span>
+    </div>
+    <hr>
+     <div class="row">
+      <span class="col-3 left">City</span>
+      <span class="col-9 right"><%= address.city %></span>
+    </div>
+    <hr>
+     <div class="row">
+      <span class="col-3 left">Zipcode</span>
+      <span class="col-9 right"><%= address.zipcode %></span>
+    </div>
+  </div>
+  <div class="actions d-flex justify-content-around">
+    <span data-action='click->subscriptions#toggleAddressForm' class="btn-minor">Modify address</span>
+    <%= link_to 'Confirm', address_product_subscriptions_path(address, @product), method: :post, class: 'btn-main' %>
+  </div>
+</div>

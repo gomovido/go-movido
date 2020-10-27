@@ -1,7 +1,12 @@
-<h1>Welcome to the <%= @products.first.category.name %> category</h1>
-<p>Choose your product</p>
-<% @products.each do |product| %>
-  <ul>
-    <li><%= link_to product.name, new_category_product_subscription_path(product.category, product) %></li>
-  </ul>
-<% end %>
+<div class="container billings-container">
+  <div class="step-1 mt-3 d-flex flex-column align-items-center justify-content-center">
+    <%= render 'billings/steps', step: 1, title: 'Choose your product' %>
+    <h1>Welcome to the <%= @products.first.category.name %> category</h1>
+    <p>Choose your product</p>
+    <% @products.each do |product| %>
+      <ul>
+        <li><%= link_to product.name, new_category_product_subscription_path(product.category, product) %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
