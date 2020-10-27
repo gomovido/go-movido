@@ -1,4 +1,4 @@
-var places = require('places.js');
+const places = require('places.js');
 export default function displayAddressAutocomplete(element) {
     document.querySelector('#address-input').value = ''
     var placesAutocomplete = places({
