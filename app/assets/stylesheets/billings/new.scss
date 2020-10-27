@@ -1,0 +1,55 @@
+.billings-container {
+  h2 {
+    color: $blue;
+    font-weight: 800;
+    font-size: 36px;
+  }
+  .last-billing {
+    border-radius: 20px;
+    border: 1px solid $blue;
+    width: 70%;
+  }
+  .step-forms {
+    width: 100%;
+  }
+  .line {
+    width: 255px;
+    height: 6px;
+    border: 1px solid $orange;
+    border-radius: 20px;
+  }
+  .line.orange {
+    background: $orange;
+  }
+  .step-header {
+    font-size: 14px;
+    color: $dark-grey;
+  }
+  .more-details {
+    font-size: 18px;
+    font-weight: 800;
+    color: $black;
+  }
+  i {
+    font-size: 27px;
+  }
+  .left {
+    font-size: 16px;
+    color: $blue;
+    font-weight: 800;
+  }
+  .right {
+    color: $black;
+    font-weight: 400;
+  }
+  hr {
+    width: 100%;
+    border-top: 2px solid $light-blue;
+  }
+  .actions {
+    width: 100%;
+  }
+  .btn-minor, .btn-main {
+    font-size: 16px !important;
+  }
+}
