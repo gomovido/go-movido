@@ -6,16 +6,23 @@ class BillingsController < ApplicationController
   def new
     @subscription = Subscription.find(params[:subscription_id])
     @billing = Billing.new
+    @last_billing = current_user.billings.last
   end
 
   def create
-    @subscription = Subscription.find(params[:billing][:subscription_id])
-    @billing = Billing.new(billing_params)
-    if @billing.save
-      @subscription.update(billing_id: @billing.id)
+    if params[:billing_id]
+      @subscription = Subscription.find(params[:subscription_id])
+      @subscription.update(billing_id: params[:billing_id])
     else
-      flash[:alert] = 'Error'
-      redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id)
+      @subscription = Subscription.find(params[:billing][:subscription_id])
+      @billing = Billing.new(billing_params)
+      @billing.user = current_user
+      if @billing.save
+        @subscription.update(billing_id: @billing.id)
+      else
+        flash[:alert] = 'Error'
+        redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id, errorForm: 'toggle')
+      end
     end
   end
 

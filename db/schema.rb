@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_142505) do
     t.string "iban"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_billings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -121,6 +123,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_142505) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "billings", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "subscriptions", "addresses"
   add_foreign_key "subscriptions", "billings"

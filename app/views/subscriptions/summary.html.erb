@@ -1,0 +1,4 @@
+<%= @subscription.address.street %>
+<%= @subscription.billing.iban %>
+<%= @subscription.product.name %>
+<%= link_to "Validate", validate_subscription_path(@subscription), method: :patch %>
