@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
+  has_many :billings, dependent: :destroy
 
   extend FriendlyId
   friendly_id :username, use: :slugged
