@@ -44,6 +44,7 @@ class SubscriptionsController < ApplicationController
 
   def new
     @address = Address.new
+    @active_address = Address.find_by(user: current_user, active: true)
   end
 
   private

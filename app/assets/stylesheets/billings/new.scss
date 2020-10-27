@@ -11,6 +11,12 @@
   }
   .step-forms {
     width: 100%;
+    .line {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0rem;
+      }
+    }
   }
   .line {
     width: 255px;

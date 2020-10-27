@@ -1,21 +1,12 @@
-<div class="container step-2-container" data-controller="subscriptions">
-<h1>Vous y êtes presque <%= current_user.first_name %></h1>
-<p>Ces infos aideront <%= @product.company %> à vous retrouver lors du suivi client</p>
-<% if !current_user.addresses.blank? %>
-  <p>Voulez vous utiliser une addresse existante? </p>
-  <ul>
-    <% current_user.addresses.each do |address| %>
-      <li><%= link_to address.street, address_product_subscriptions_path(address, @product), method: :post %></li>
+<div class="container billings-container" data-controller="subscriptions">
+  <div class="step-2 mt-3 d-flex flex-column align-items-center justify-content-center">
+    <%= render 'billings/steps', step: 2, title: 'Address infos' %>
+    <% if @active_address %>
+      <%= render 'addresses/summary', address: @active_address %>
     <% end %>
-  </ul>
-  <p data-action='click->subscriptions#toggleAddressForm'>Utiliser une autre adresse</p>
-<% end %>
-  <div class="<%= current_user.subscriptions.blank? ? '' : 'd-none' %>" data-target="subscriptions.addressForm">
-    <h2>Please fill your new address</h2>
-    <% if @product.category.name == 'wifi' %>
-      <%= render 'subscriptions/forms/wifi' %>
-    <% elsif @product.category.name == 'mobile' %>
-      <%= render 'subscriptions/forms/mobile' %>
-    <% end %>
+    <div data-target="subscriptions.addressForm" class="<%= @active_address ? 'd-none' : '' %> billing-form flex-column align-items-center justify-content-center">
+      <h2 class="mb-5">Please confirm your address details, <%= current_user.first_name %></h2>
+      <%= render 'addresses/forms', product: @product %>
+    </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ "firstStep", "secondStep", "addressForm", "billingForm", "billingSummary"]
+  static targets = [ "firstStep", "secondStep", "addressForm", "billingForm", "billingSummary", "addressSummary"]
 
   connect() {
     if (window.location.search.split('=').includes('?errorForm')) {
@@ -13,6 +13,8 @@ export default class extends Controller {
 
 
   toggleAddressForm(event) {
+    this.addressSummaryTarget.classList.remove('d-flex');
+    this.addressSummaryTarget.classList.add('d-none');
     this.addressFormTarget.classList.toggle('d-none');
   }
 
@@ -25,8 +27,10 @@ export default class extends Controller {
 
   nextStep(event) {
     setTimeout(() => {
+      this.firstStepTarget.classList.remove('d-flex');
       this.firstStepTarget.classList.add('d-none');
       this.secondStepTarget.classList.remove('d-none');
+      this.secondStepTarget.classList.add('d-flex');
     }, 50);
   }
 }
