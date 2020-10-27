@@ -12,62 +12,10 @@
 <% end %>
   <div class="<%= current_user.subscriptions.blank? ? '' : 'd-none' %>" data-target="subscriptions.addressForm">
     <h2>Please fill your new address</h2>
-    <%= simple_form_for @address do |form|%>
-      <%= form.error_notification %>
-      <%= form.hidden_field :product_id, value: @product.id %>
-      <label for="country" class="m-0 pl-3">Country</label>
-      <div class="form-input p-1">
-        <%= form.input :country, as: :select, collection: ['France', 'England'], class:'form-control', required: true, label: false %>
-      </div>
-      <label for="city" class="m-0 pl-3">city</label>
-      <div class="form-input p-1">
-        <%= form.input :city, as: :select, collection: ['Paris', 'London'], class:'form-control', label: false %>
-      </div>
-      <label for="zipcode" class="m-0 pl-3">zipcode</label>
-      <div class="form-input p-1">
-        <%= form.input :zipcode, class:'form-control', label: false, required: true %>
-      </div>
-      <label for="street" class="m-0 pl-3">street</label>
-      <div class="form-input p-1">
-        <%= form.input :street, class:'form-control', label: false, error: 'Your name is required', required: true %>
-      </div>
-      <label for="street_number" class="m-0 pl-3">street_number</label>
-      <div class="form-input p-1">
-        <%= form.input :street_number, class:'form-control', label: false %>
-      </div>
-      <label for="floor" class="m-0 pl-3">floor</label>
-      <div class="form-input p-1">
-        <%= form.input :floor, class:'form-control', label: false %>
-      </div>
-      <label for="internet_status" class="m-0 pl-3">internet_status</label>
-      <div class="form-input p-1">
-        <%= form.input :internet_status, class:'form-control', label: false %>
-      </div>
-      <label for="phone" class="m-0 pl-3">phone</label>
-      <div class="form-input p-1">
-        <%= form.input :phone, class:'form-control', label: false %>
-      </div>
-      <label for="mobile_phone" class="m-0 pl-3">mobile_phone</label>
-      <div class="form-input p-1">
-        <%= form.input :mobile_phone, class:'form-control', label: false %>
-      </div>
-      <label for="building" class="m-0 pl-3">building</label>
-      <div class="form-input p-1">
-        <%= form.input :building, class:'form-control', label: false %>
-      </div>
-      <label for="stairs" class="m-0 pl-3">stairs</label>
-      <div class="form-input p-1">
-        <%= form.input :stairs, class:'form-control', label: false %>
-      </div>
-      <label for="door" class="m-0 pl-3">door</label>
-      <div class="form-input p-1">
-        <%= form.input :door, class:'form-control', label: false %>
-      </div>
-      <label for="gate_code" class="m-0 pl-3">gate_code</label>
-      <div class="form-input p-1">
-        <%= form.input :gate_code, class:'form-control', label: false %>
-      </div>
-      <%= form.button :submit, "Save", class:'btn btn-main' %>
+    <% if @product.category.name == 'wifi' %>
+      <%= render 'subscriptions/forms/wifi' %>
+    <% elsif @product.category.name == 'mobile' %>
+      <%= render 'subscriptions/forms/mobile' %>
     <% end %>
   </div>
 </div>

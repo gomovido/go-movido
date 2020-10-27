@@ -21,7 +21,7 @@ class SubscriptionsController < ApplicationController
     @address = Address.find(params[:address_id])
     @subscription = Subscription.find(params[:id])
     if @subscription.update(subscription_params)
-      @subscription.update(state: 'processed')
+      @subscription.update(state: 'pending_processed')
       flash[:notice] = "Your subscription is being processed"
       redirect_to dashboard_index_path
     end

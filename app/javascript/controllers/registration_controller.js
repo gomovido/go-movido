@@ -1,7 +1,6 @@
 import { Controller } from "stimulus";
 import phoneInput from '../packs/phone-input';
-import Flatpickr from "stimulus-flatpickr";
-import "flatpickr/dist/themes/dark.css";
+import displayAddressAutocomplete from '../packs/algolia';
 
 
 
@@ -10,6 +9,7 @@ export default class extends Controller {
 
   connect() {
     phoneInput(this.phoneTarget);
+    displayAddressAutocomplete(this.addressInputTarget);
   }
 
   toggleAddress() {
