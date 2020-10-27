@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
+  has_many :billings, dependent: :destroy
 
   accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
 

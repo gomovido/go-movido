@@ -83,6 +83,7 @@ end
  2.times do
    billing = Billing.create(
      address: Faker::Address.full_address,
+     user_id: User.all.sample.id,
      first_name: Faker::Name.first_name,
      last_name: Faker::Name.last_name,
      bic: Faker::Bank.swift_bic,

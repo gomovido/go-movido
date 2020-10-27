@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
     subscription = Subscription.new(product: @product, address: @address, state: 'draft')
     subscriptions = Subscription.where(product: @product, address: @address, state: 'draft')
     if subscriptions.length > 1
-      flash[:alert] = "You already have a pending subscription for #{@product} on this #{@address}"
+      flash[:alert] = "You already have a pending subscription for #{@product.name} on this #{@address.street}"
       redirect_to subscription_path(subscriptions[0])
     elsif subscription.save
       redirect_to new_address_product_billing_path(@address, @product, subscription_id: subscription.id)
@@ -17,13 +17,23 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def summary
+    @subscription = Subscription.find(params[:subscription_id])
+  end
+
+  def validate_subscription
+    @subscription = Subscription.find(params[:subscription_id])
+    if @subscription.update(state: 'pending_processed')
+      flash[:notice] = "Your subscription is being processed"
+      redirect_to dashboard_index_path
+    end
+  end
+
   def update
     @address = Address.find(params[:address_id])
     @subscription = Subscription.find(params[:id])
     if @subscription.update(subscription_params)
-      @subscription.update(state: 'pending_processed')
-      flash[:notice] = "Your subscription is being processed"
-      redirect_to dashboard_index_path
+      redirect_to subscription_summary_path(@subscription)
     end
   end
 

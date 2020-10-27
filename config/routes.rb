@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard_index', as: 'dashboard_index'
-  resources :users, only: [:show, :update, :create]
+  get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
+  patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
+  resources :users, only: [:show, :update]
 
   resources :addresses, only: [:create] do
     resources :products, only: [:index] do
