@@ -1,12 +1,12 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ "firstStep", "secondStep", "addressForm", "billingForm", "topPart"]
+  static targets = [ "firstStep", "secondStep", "addressForm", "billingForm", "billingSummary"]
 
   connect() {
     if (window.location.search.split('=').includes('?errorForm')) {
-      this.topPartTarget.classList.remove('d-flex');
-      this.topPartTarget.classList.add('d-none');
+      this.billingSummaryTarget.classList.remove('d-flex');
+      this.billingSummaryTarget.classList.add('d-none');
       this.billingFormTarget.classList.remove('d-none');
     }
   }
@@ -17,8 +17,8 @@ export default class extends Controller {
   }
 
   toggleBillingForm() {
-    this.topPartTarget.classList.remove('d-flex');
-    this.topPartTarget.classList.add('d-none');
+    this.billingSummaryTarget.classList.remove('d-flex');
+    this.billingSummaryTarget.classList.add('d-none');
     this.billingFormTarget.classList.toggle('d-none');
   }
 
