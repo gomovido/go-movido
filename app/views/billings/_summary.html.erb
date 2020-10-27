@@ -1,0 +1,33 @@
+ <div class="top-part d-flex flex-column align-items-center justify-content-center" data-target="subscriptions.billingSummary">
+  <h2 class="mb-4">Please confirm your billing details, <%= current_user.first_name %></h2>
+  <div class="last-billing d-flex flex-column justify-content-center mb-4 p-5" data-target="subscriptions.lastBilling">
+     <div class="row">
+      <span class="col-3 left">Name</span>
+      <span class="col-9 right"><%= @last_billing.first_name %></span>
+    </div>
+    <hr>
+     <div class="row">
+      <span class="col-3 left">Last name</span>
+      <span class="col-9 right"><%= @last_billing.last_name %></span>
+    </div>
+    <hr>
+     <div class="row">
+      <span class="col-3 left">Address</span>
+      <span class="col-9 right"><%= @last_billing.address %></span>
+    </div>
+    <hr>
+     <div class="row">
+      <span class="col-3 left">IBAN</span>
+      <span class="col-9 right"><%= @last_billing.iban %></span>
+    </div>
+    <hr>
+     <div class="row">
+      <span class="col-3 left">BIC</span>
+      <span class="col-9 right"><%= @last_billing.bic %></span>
+    </div>
+  </div>
+  <div class="actions d-flex justify-content-around">
+    <span data-action='click->subscriptions#toggleBillingForm' class="btn-minor">Modify billing</span>
+    <%= link_to 'Confirm', address_product_billings_path(@address, @product, subscription_id: @subscription.id, billing_id: @last_billing.id), method: :post, class: 'btn-main', data: {action: 'click->subscriptions#nextStep'} %>
+  </div>
+</div>

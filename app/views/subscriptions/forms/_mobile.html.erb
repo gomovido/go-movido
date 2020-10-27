@@ -3,11 +3,11 @@
   <%= form.hidden_field :product_id, value: @product.id %>
   <label for="country" class="m-0 pl-3">Country</label>
   <div class="form-input p-1">
-    <%= form.input :country, as: :select, collection: ['France', 'England'], class:'form-control', required: true, label: false %>
+    <%= form.input :country, as: :select, collection: ['France', 'England'], selected: ['France', 'England'].first, class:'form-control', required: true, label: false %>
   </div>
   <label for="city" class="m-0 pl-3">city</label>
   <div class="form-input p-1">
-    <%= form.input :city, as: :select, collection: ['Paris', 'London'], class:'form-control', label: false %>
+    <%= form.input :city, as: :select, collection: ['Paris', 'London'], selected: ['Paris', 'London'].first, class:'form-control', label: false %>
   </div>
   <label for="zipcode" class="m-0 pl-3">zipcode</label>
   <div class="form-input p-1">
