@@ -1,0 +1,21 @@
+<div class="container step-2-container" data-controller="subscriptions">
+  <div class="billing" data-target="subscriptions.firstStep">
+    <h2>Please fill your billing informations for <%= @subscription.id %></h2>
+    <%= simple_form_for [@address, @product, @billing], html: {data: {action: 'submit->subscriptions#nextStep'}} do |f| %>
+      <%= f.hidden_field :subscription_id, value: @subscription.id %>
+      <%= f.input :address, required: true, input_html: {value: "#{@address.street_number} #{@address.street}"}%>
+      <%= f.input :first_name, required: true, input_html: {value: current_user.first_name}%>
+      <%= f.input :last_name, required: true, input_html: {value: current_user.last_name} %>
+      <%= f.input :iban, label: 'IBAN', required: true %>
+      <%= f.input :bic, label: 'BIC', required: true %>
+      <%= f.button :submit, 'Next' %>
+    <% end %>
+  </div>
+  <div class="subscription d-none" data-target="subscriptions.secondStep">
+    <h2>When do you want the subscription to start ?</h2>
+    <%= simple_form_for [@address, @product, @subscription], method: :put do |f| %>
+      <%= f.input :start_date %>
+      <%= f.button :submit, 'Validate your subscription' %>
+    <% end %>
+  </div>
+</div>
