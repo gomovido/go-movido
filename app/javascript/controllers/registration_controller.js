@@ -3,13 +3,12 @@ import phoneInput from '../packs/phone-input';
 import displayAddressAutocomplete from '../packs/algolia';
 
 
-
 export default class extends Controller {
   static targets = [ "date", "phone", "dateInput", "addressInput" ]
 
   connect() {
     phoneInput(this.phoneTarget);
-    displayAddressAutocomplete(this.addressInputTarget);
+    displayAddressAutocomplete(this.addressInputTarget)
   }
 
   toggleAddress() {

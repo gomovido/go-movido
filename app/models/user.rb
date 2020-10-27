@@ -3,9 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
   has_many :billings, dependent: :destroy
+
+  accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
+
 
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -14,11 +18,11 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, :username
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
-  validates :address, presence: true, if: -> { :not_housed == false }
   validates :moving_date, presence: true, if: -> { :alread_moved == false }
   #after_create :send_welcome_email
 
   private
+
 
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now

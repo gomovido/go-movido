@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_091842) do
+ActiveRecord::Schema.define(version: 2020_10_27_142505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_091842) do
     t.string "city"
     t.string "zipcode"
     t.string "street"
-    t.string "street_number"
     t.string "floor"
     t.string "internet_status"
     t.string "phone"
@@ -92,9 +91,9 @@ ActiveRecord::Schema.define(version: 2020_10_27_091842) do
     t.bigint "product_id", null: false
     t.date "start_date"
     t.string "state"
-    t.bigint "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "address_id"
     t.bigint "billing_id"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["billing_id"], name: "index_subscriptions_on_billing_id"
@@ -116,7 +115,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_091842) do
     t.string "phone"
     t.string "city"
     t.boolean "not_housed"
-    t.string "address"
     t.string "slug"
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
