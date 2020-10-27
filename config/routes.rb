@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "sessions" }
+  devise_for :users, controllers: { sessions: "sessions", registrations: "registrations"}
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+  end
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard_index', as: 'dashboard_index'
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :create]
 
   resources :addresses, only: [:create] do
     resources :products, only: [:index] do

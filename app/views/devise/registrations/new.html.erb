@@ -12,7 +12,7 @@
     <div class="col-md-6">
       <div class="registration-form-wrapper p-md-5 p-4" data-controller="registration">
         <h4 class="mb-3">Sign up</h4>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
@@ -48,12 +48,19 @@
                         label: false, data: { action: 'click->registration#toggleAddress'} %>
               <label class="m-0 pl-2">I don’t have an address yet</label>
             </div>
-            <%= f.input :address,
+
+            <%= f.simple_fields_for :addresses do |s| %>
+                <%= s.input :street,
                         required: true,
                         label: false,
                         input_html: { placeholder: 'Address', data: {
-                          target: 'registration.addressInput'
-                        }, id:"address-input" } %>
+                          target: 'registration.addressInput', action: 'change->registration#updateForm'
+                        }, id:"address-input" }
+                %>
+                <%= s.hidden_field :zipcode %>
+                <%= s.hidden_field :country %>
+                <%= s.hidden_field :city %>
+            <% end %>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :already_moved,
                         required: true,

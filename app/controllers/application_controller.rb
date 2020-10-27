@@ -18,20 +18,6 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
- protected
 
- def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up,
-    keys: [
-      :email, :first_name, :last_name, :username,
-      :already_moved, :moving_date, :phone,
-      :city, :not_housed, :address
-    ]
-  )
-  devise_parameter_sanitizer.permit(:sign_in,
-    keys: [
-      :email, :password, :password_confirmation
-    ]
-  )
- end
+
 end
