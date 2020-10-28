@@ -8,7 +8,7 @@ export default class extends Controller {
 
   connect() {
     phoneInput(this.phoneTarget);
-    displayAddressAutocomplete(this.addressInputTarget)
+    displayAddressAutocomplete(this.addressInputTarget);
   }
 
   toggleAddress() {
