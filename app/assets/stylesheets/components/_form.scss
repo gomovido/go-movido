@@ -19,11 +19,7 @@ label {
   font-weight: 800;
 }
 
-select {
-  color: $dark-grey !important;
-  font-size: 12px !important;
-  height: calc(1.5em + 0.75rem + 13px) !important;
-}
+
 
 .form-control[readonly]  {
   background-color: $white;
