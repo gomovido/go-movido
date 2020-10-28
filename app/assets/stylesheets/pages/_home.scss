@@ -4,9 +4,18 @@ body {
  height: -webkit-fill-available;
 }
 
+body.app {
+ background: $light-blue;
+}
+
 section {
   margin-bottom: 5rem;
   padding: 3rem;
+}
+
+
+.height {
+  height: 100vh;
 }
 
 @include media-breakpoint-only(xs) {
