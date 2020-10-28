@@ -45,7 +45,7 @@
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,
                         required: true,
-                        label: false, data: { action: 'click->registration#toggleAddress'} %>
+                        label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'} %>
               <label class="m-0 pl-2">I don’t have an address yet</label>
             </div>
 
@@ -64,7 +64,7 @@
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :already_moved,
                         required: true,
-                        label: false, data: { action: 'click->registration#toggleDate'} %>
+                        label: false, data: { action: 'click->registration#toggleDate', target: 'registration.checkboxDate'} %>
               <label class="m-0 pl-2">I have already moved</label>
             </div>
             <%= f.input :moving_date, as: :string,
