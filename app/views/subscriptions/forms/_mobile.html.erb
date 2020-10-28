@@ -14,8 +14,11 @@
     <%= form.input :zipcode, class:'form-control', label: false, required: true %>
   </div>
   <label for="street" class="m-0 pl-3">street</label>
-  <div class="form-input p-1">
-    <%= form.input :street, class:'form-control', label: false, error: 'Your name is required', required: true %>
+  <div class="form-input p-1"  data-controller="algolia">
+    <%= form.input :street,
+            label: false,
+            input_html: { placeholder: 'Address', data: {
+            target: 'algolia.addressInput' } } %>
   </div>
   <label for="mobile_phone" class="m-0 pl-3">mobile_phone</label>
   <div class="form-input p-1">

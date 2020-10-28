@@ -12,6 +12,8 @@ class Address < ApplicationRecord
 
 
   def set_has_active
+    address = Address.find_by(active: true, user: self.user)
+    address.update(active: false) if address
     self.update(active: true)
   end
 end
