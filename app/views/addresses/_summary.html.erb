@@ -40,14 +40,14 @@
         </div>
       </div>
       <div data-target="address-form.input" id="zipcode" class="form-input d-none p-1">
-        <%= form.text_field :zipcode, class:'form-control' %>
+        <%= form.text_field :zipcode, class:'form-control', value: address.zipcode %>
         <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
       </div>
 
       <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
         <div class="row">
           <label for="street" class="m-0 pl-3 col-3">Street</label>
-          <div class="address-input col-9 text-right">
+          <div class="address-input col-9 text-right d-flex justify-content-end">
             <span class="pr-3"><%= address.street %></span>
             <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="street"></i>
           </div>
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div data-target="address-form.input" id="phone" class="form-input d-none p-1">
-        <%= form.text_field :phone, data: {target: "address-form.phone", value: address.phone}, class:'phone form-control
+        <%= form.text_field :phone, data: {target: "address-form.phone", value: address.phone}, html_input: {id: 'phone'}, class:'phone form-control
         '  %>
         <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
       </div>
@@ -79,7 +79,7 @@
       <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
         <div class="row">
           <label for="mobile_phone" class="m-0 pl-3 col-3">Mobile phone</label>
-          <div class="address-input col-9 text-right">
+          <div class="address-input col-9 text-right d-flex justify-content-end">
             <span class="pr-3"><%= address.mobile_phone %></span>
             <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="mobile_phone"></i>
           </div>
@@ -104,7 +104,8 @@
         <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
       </div>
     <% end %>
-  <div class="actions d-flex justify-content-around">
-    <%= link_to 'Confirm', address_product_subscriptions_path(address, @product), method: :post, class: 'btn-main' %>
+    <div class="actions d-flex justify-content-around">
+      <%= link_to 'Confirm', address_product_subscriptions_path(address, @product), method: :post, class: 'btn-main' %>
+    </div>
   </div>
 </div>
