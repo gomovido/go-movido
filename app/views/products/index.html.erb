@@ -44,8 +44,10 @@
                     <span>14 day returns policy</span>
                   </div>
                 </div>
-                <span>Details -></span>
-                <%= link_to 'Select', new_category_product_subscription_path(product.category, product), class:'btn-card' %>
+                <div class="actions d-flex align-items-center justify-content-end">
+                  <a href="" class="mr-4 detail">Details <i class='fas fa-arrow-right'></i></a>
+                  <%= link_to 'Select', new_category_product_subscription_path(product.category, product), class:'btn-card' %>
+                </div>
               </div>
             </div>
           <% end %>
