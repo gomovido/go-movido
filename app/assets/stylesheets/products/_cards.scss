@@ -30,9 +30,19 @@
     }
     .details-wrapper {
       .infos {
+        width: 100%;
         .info {
           color: $blue;
           font-weight: bold;
+        }
+      }
+      .actions {
+        i {
+          font-size: 12px;
+        }
+        .detail {
+          color: $orange;
+          font-size: 14px;
         }
       }
     }
