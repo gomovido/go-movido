@@ -4,7 +4,7 @@
     <% if @active_address %>
       <%= render 'addresses/summary', address: @active_address %>
     <% end %>
-    <div data-target="subscriptions.addressForm" class="<%= @active_address ? 'd-none' : '' %> billing-form flex-column align-items-center justify-content-center">
+    <div data-target="subscriptions.addressForm" class="<%= @active_address ? 'd-none' : '' %> billing-form">
       <h2 class="mb-5">Please confirm your address details, <%= current_user.first_name %></h2>
       <%= render 'addresses/forms', product: @product %>
     </div>
