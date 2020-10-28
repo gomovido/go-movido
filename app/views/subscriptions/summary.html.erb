@@ -21,12 +21,12 @@
         <hr>
         <div class="row">
           <span class="col-3 left">Price</span>
-          <span class="col-9 right"><%= @subscription.product.price %></span>
+          <span class="col-9 right"><%= @subscription.product.price %>€/month</span>
         </div>
         <hr>
         <div class="row">
           <span class="col-3 left">Star date</span>
-          <span class="col-9 right"><%= @subscription.start_date %></span>
+          <span class="col-9 right"><%= @subscription.start_date.strftime("%d/%m/%Y") %></span>
         </div>
       </div>
         <%= link_to "Validate", validate_subscription_path(@subscription), method: :patch, class: 'btn-main'%>
