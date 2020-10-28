@@ -7,11 +7,11 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    super
-  end
-
-  def update
-    super
+    super do |user|
+      if params[:user][:addresses_attributes]['0']['street'].blank? && !user.save
+        user.addresses.build
+      end
+    end
   end
 
   protected
