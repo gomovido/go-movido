@@ -23,5 +23,6 @@ export default class extends Controller {
 
   toggleDate() {
     this.dateInputTarget.classList.toggle('d-none');
+    this.dateInputTarget.value = '';
   }
 }
