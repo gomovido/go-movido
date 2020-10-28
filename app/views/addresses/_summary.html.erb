@@ -1,23 +1,110 @@
  <div class="top-part d-flex flex-column align-items-center justify-content-center" data-target="subscriptions.addressSummary">
   <h2 class="mb-4">Please confirm your address details, <%= current_user.first_name %></h2>
-  <div class="last-billing d-flex flex-column justify-content-center mb-4 p-5">
-     <div class="row">
-      <span class="col-3 left">Country</span>
-      <span class="col-9 right"><%= address.country %></span>
-    </div>
-    <hr>
-     <div class="row">
-      <span class="col-3 left">City</span>
-      <span class="col-9 right"><%= address.city %></span>
-    </div>
-    <hr>
-     <div class="row">
-      <span class="col-3 left">Zipcode</span>
-      <span class="col-9 right"><%= address.zipcode %></span>
-    </div>
-  </div>
+  <div class="summary d-flex flex-column justify-content-center mb-4 p-4">
+    <%= form_with(model: @address, data: {controller: "address-form", address_form_reflex: "AddressReflex#submit", reflex: "submit->AddressReflex#submit", signed_id: address.to_sgid.to_s }, id:"address-form") do |form| %>
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="country" class="m-0 pl-3 col-3">Country</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.country %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="country"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="country" class="form-input d-none p-1">
+        <%= form.select :country, [['France'], ['England']], selected: address.country, class:'form-control' %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="city" class="m-0 pl-3 col-3">City</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.city %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="city"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="city" class="form-input d-none p-1">
+        <%= form.select :city, [['Paris'], ['London']], selected: address.city, class:'form-control' %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="zipcode" class="m-0 pl-3 col-3">Zip code</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.zipcode %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="zipcode"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="zipcode" class="form-input d-none p-1">
+        <%= form.text_field :zipcode, class:'form-control' %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="street" class="m-0 pl-3 col-3">Street</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.street %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="street"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="street" class="form-input d-none p-1" data-controller="algolia">
+        <%= form.text_field :street, class:'form-control',
+            label: false, data: { target: 'algolia.addressInput' }, value: address.street,
+            input_html: { placeholder: 'Address' } %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="phone" class="m-0 pl-3 col-3">Phone</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.phone %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="phone"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="phone" class="form-input d-none p-1">
+        <%= form.text_field :phone, data: {target: "address-form.phone", value: address.phone}, class:'phone form-control
+        '  %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+
+
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="mobile_phone" class="m-0 pl-3 col-3">Mobile phone</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.mobile_phone %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="mobile_phone"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="mobile_phone" class="form-input d-none p-1">
+        <%= form.text_field :mobile_phone, class:'form-control', value: address.mobile_phone %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between pb-4 pt-4 address-input-wrapper">
+        <div class="row">
+          <label for="floor" class="m-0 pl-3 col-3">Floor</label>
+          <div class="address-input col-9 text-right">
+            <span class="pr-3"><%= address.floor %></span>
+            <i class= "fas fa-pen" data-action="click->address-form#toggleInput" data-id="floor"></i>
+          </div>
+        </div>
+      </div>
+      <div data-target="address-form.input" id="floor" class="form-input d-none p-1">
+        <%= form.text_field :floor, class:'form-control', value: address.floor %>
+        <%= form.button 'Save', data: {target: "address-form.submit"}, class:'btn-submit' %>
+      </div>
+    <% end %>
   <div class="actions d-flex justify-content-around">
-    <span data-action='click->subscriptions#toggleAddressForm' class="btn-minor">Modify address</span>
     <%= link_to 'Confirm', address_product_subscriptions_path(address, @product), method: :post, class: 'btn-main' %>
   </div>
 </div>

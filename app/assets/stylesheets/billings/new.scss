@@ -9,10 +9,11 @@
     font-weight: 800;
     font-size: 36px;
   }
-  .last-billing {
+  .summary {
     border-radius: 20px;
     border: 1px solid $blue;
-    width: 70%;
+    width: 100%;
+    background-color: $white;
   }
   .step-forms {
     width: 100%;
@@ -41,9 +42,6 @@
     font-weight: 800;
     color: $black;
   }
-  i {
-    font-size: 27px;
-  }
   .left {
     font-size: 16px;
     color: $blue;
@@ -59,6 +57,7 @@
   }
   .actions {
     width: 100%;
+    justify-content: space-evenly;
   }
   .btn-minor, .btn-main {
     font-size: 16px !important;
