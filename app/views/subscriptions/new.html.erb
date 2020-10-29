@@ -1,6 +1,6 @@
-<div class="container subscriptions-container" data-controller="subscriptions">
-  <div class="step-2 mt-3 mb-4 d-flex flex-column align-items-center justify-content-center">
-    <%= render 'billings/steps', step: 2, title: 'Address infos' %>
+<div class="container subscriptions-container" data-controller="subscriptions" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
+  <div class="step-2 mt-5 mb-4 d-flex flex-column align-items-center justify-content-center">
+    <%= render 'billings/steps', step: 2, title: 'More details' %>
     <% if @active_address %>
       <%= render 'addresses/summary', address: @active_address %>
     <% end %>

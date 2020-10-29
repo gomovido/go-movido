@@ -1,13 +1,5 @@
 #address-form {
-  input {
-    border: none;
-    height: calc(1.5em + 0.75rem + 13px);
-  }
-  label {
-    font-size: 14px;
-    color: $dark-grey;
-    letter-spacing: 0.3px;
-  }
+
   select {
     color: $dark-grey !important;
     font-size: 12px !important;
@@ -45,3 +37,25 @@
     box-shadow: none;
   }
 }
+
+
+.form {
+  hr {
+    width: 85% !important;
+    border-top: 1px solid $grey !important;
+  }
+  .input-wrapper {
+    width: 90%;
+    label {
+      font-size: 14px;
+      color: $black;
+      letter-spacing: 0.3px;
+    }
+    input {
+      border: 1px solid $grey;
+      height: calc(1.5em + 1.2rem + 13px);
+      border-radius: 1.2rem;
+    }
+  }
+}
+
