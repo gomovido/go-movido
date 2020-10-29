@@ -1,8 +1,13 @@
-.subscriptions-container {
+.subscriptions-index-container {
+  .subscriptions-wrapper {
+    background: $white;
+    border: 1px solid $grey;
+    border-radius: 20px;
+
+  }
   .headers {
     width: 100%;
     background: $light-blue;
-    border-radius: 20px;
   }
   .header {
     font-size: 14px;
@@ -32,7 +37,7 @@
 }
 
 @include media-breakpoint-only(xs) {
-  .subscriptions-container {
+  .subscriptions-index-container {
     .btn-minor {
       border-radius: 10px;
     }
