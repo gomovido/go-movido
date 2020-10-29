@@ -8,6 +8,10 @@ body.app {
  background: $light-blue;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 section {
   margin-bottom: 5rem;
   padding: 3rem;
