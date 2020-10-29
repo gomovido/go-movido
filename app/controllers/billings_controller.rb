@@ -7,15 +7,18 @@ class BillingsController < ApplicationController
     @subscription = Subscription.find(params[:subscription_id])
     @billing = Billing.new
     @last_billing = current_user.billings.last
+    @billing.build_subscription
   end
 
   def create
-    @subscription = Subscription.find(params[:billing][:subscription][:id])
-    @billing = Billing.new(billing_params)
+    @subscription = Subscription.find(params[:billing][:subscription_attributes][:id])
+    @billing = Billing.new
+    @billing.subscription = @subscription
+    @billing.update(billing_params)
     @billing.user = current_user
     if @billing.save
       @subscription.update(billing_id: @billing.id)
-      redirect_to subscription_summary_path(params[:billing][:subscription][:id])
+      redirect_to subscription_summary_path(params[:billing][:subscription_attributes][:id])
     else
       flash[:alert] = 'All fields are required'
       redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id)
