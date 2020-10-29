@@ -1,11 +1,10 @@
-<div class="container billings-container" data-controller="subscriptions">
-  <div class="step-2 mt-3 d-flex flex-column align-items-center justify-content-center">
+<div class="container subscriptions-container" data-controller="subscriptions">
+  <div class="step-2 mt-3 mb-4 d-flex flex-column align-items-center justify-content-center">
     <%= render 'billings/steps', step: 2, title: 'Address infos' %>
     <% if @active_address %>
       <%= render 'addresses/summary', address: @active_address %>
     <% end %>
     <div data-target="subscriptions.addressForm" class="<%= @active_address ? 'd-none' : '' %> billing-form">
-      <h2 class="mb-5">Please confirm your address details, <%= current_user.first_name %></h2>
       <%= render 'addresses/forms', product: @product %>
     </div>
   </div>
