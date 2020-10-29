@@ -1,7 +1,7 @@
 const places = require('places.js');
 export default function displayAddressAutocomplete(element) {
-    document.querySelector('#address-input').value = ''
-    var placesAutocomplete = places({
+    document.querySelector('#address-input').value = '';
+    const placesAutocomplete = places({
       appId: 'pl32PKK41FYV',
       apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
       container: element
