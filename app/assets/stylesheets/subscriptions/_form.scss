@@ -52,6 +52,11 @@
   }
   .input-wrapper {
     width: 90%;
+    .input {
+      .form-group {
+        width: 100%;
+      }
+    }
     label {
       font-size: 14px;
       color: $black;
@@ -61,6 +66,7 @@
       border: 1px solid $grey;
       height: calc(1.5em + 1.2rem + 13px);
       border-radius: 1.2rem;
+      width: 100%;
     }
   }
 }

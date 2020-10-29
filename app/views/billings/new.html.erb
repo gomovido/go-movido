@@ -1,8 +1,8 @@
-<div class="container subscriptions-container py-5" data-controller="subscriptions">
+<div class="container subscriptions-container py-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
   <div class="step-3 mt-3 d-flex flex-column align-items-center justify-content-center">
     <%= render 'steps', step: 3, title: 'Billing infos' %>
     <div class="billing-form">
-      <h2 class="mb-3">Please confirm your billing details, <%= current_user.first_name %></h2>
+      <h2 class="mb-3">Please confirm your billing details</h2>
       <%= render 'form' %>
     </div>
   </div>
