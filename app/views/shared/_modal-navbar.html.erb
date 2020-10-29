@@ -12,10 +12,12 @@
               <span class="modal-title">Tincidunt elit in</span>
               <div class="modal-product d-flex align-items-center my-5 p-2">
                 <%= image_tag(asset_path('menu-icon.png'), width: "36", height: "36", class: "mr-3")  %>
-                <div class="modal-product-infos">
-                  <span>Dui, dui seed</span>
-                  <p>Fames mauris, a venenatis</p>
-                </div>
+                <%= link_to dashboard_index_path do %>
+                  <div class="modal-product-infos">
+                    <span>Dasboard</span>
+                    <p>Create and discover new subscriptions</p>
+                  </div>
+                <% end %>
               </div>
               <hr>
               <div class="modal-product d-flex align-items-center my-5 p-2">
