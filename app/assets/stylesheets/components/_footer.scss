@@ -1,5 +1,6 @@
 footer {
   max-width: 100%;
+  background-color: $white;
 
   .part-1 p{
     font-size: 12px;
@@ -27,8 +28,4 @@ footer {
     color: $dark-grey;
     font-size: 14px;
   }
-}
-
-@include media-breakpoint-down(xs) {
-
 }

@@ -1,0 +1,50 @@
+.products-cards-wrapper {
+  .product-card {
+    background: $white;
+    border-radius: 1rem;
+    border: 2px solid $blue;
+    .infos-wrapper {
+      .info {
+        .top {
+          font-weight: bold;
+          color: $black;
+        }
+        .bot {
+          color: $dark-grey;
+          font-weight: 300;
+          font-size: 14px;
+        }
+      }
+      .price {
+        .top {
+          font-weight: 800;
+          color: $blue;
+          font-size: 16px;
+        }
+        .bot {
+          color: $dark-grey;
+          font-weight: 300;
+          font-size: 14px;
+        }
+      }
+    }
+    .details-wrapper {
+      .infos {
+        width: 100%;
+        .info {
+          color: $blue;
+          font-weight: bold;
+        }
+      }
+      .actions {
+        i {
+          font-size: 12px;
+        }
+        .detail {
+          color: $orange;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

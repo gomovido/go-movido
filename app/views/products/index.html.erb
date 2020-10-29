@@ -1,12 +1,58 @@
-<div class="container billings-container">
-  <div class="step-1 mt-3 d-flex flex-column align-items-center justify-content-center">
-    <%= render 'billings/steps', step: 1, title: 'Choose your product' %>
-    <h1>Welcome to the <%= @products.first.category.name %> category</h1>
-    <p>Choose your product</p>
-    <% @products.each do |product| %>
-      <ul>
-        <li><%= link_to product.name, new_category_product_subscription_path(product.category, product) %></li>
-      </ul>
-    <% end %>
+<div class="container subscriptions-container height mt-5">
+  <div class="step-1 mt-3">
+    <%= render 'billings/steps', step: 1, title: 'Choose your offer' %>
+    <div class="row">
+      <div class="col-md-4 d-flex justify-content-center">
+        <p>Filters</p>
+      </div>
+      <div class="col-md-8">
+        <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name %> offers</h1>
+        <div class="products-cards-wrapper">
+          <% @products.each do |product| %>
+            <div class="product-card d-flex flex-column pl-3 pr-3 pb-4 pt-4 mb-4">
+              <div class="infos-wrapper d-flex align-items-center justify-content-between">
+                <div class="info d-flex flex-column p-2 border-right">
+                  <%= image_tag(asset_path('sfr.png'), style:"width: 35px; height: 35px;", class:"mr-4") %>
+                </div>
+                <div class="info d-flex flex-column p-2">
+                  <span class="top">1 month</span>
+                  <span class="bot">contract</span>
+                </div>
+                <div class="info d-flex flex-column p-2">
+                  <span class="top">10gb</span>
+                  <span class="bot">for 4G data</span>
+                </div>
+                <div class="info d-flex flex-column p-2">
+                  <span class="top">Unlimited</span>
+                  <span class="bot">minutes</span>
+                </div>
+                <div class="info d-flex flex-column p-2">
+                  <span class="top">Unlimited</span>
+                  <span class="bot">texts</span>
+                </div>
+                <div class="price d-flex flex-column p-2">
+                  <span class="top">€15.00</span>
+                  <span class="bot">per month</span>
+                </div>
+              </div>
+              <div class="details-wrapper d-flex align-items-center justify-content-between">
+                <div class="infos d-flex">
+                  <div class="info d-flex flex-column p-2 border-right">
+                    <span>Free delivery</span>
+                  </div>
+                  <div class="info d-flex flex-column p-2">
+                    <span>14 day returns policy</span>
+                  </div>
+                </div>
+                <div class="actions d-flex align-items-center justify-content-end">
+                  <a href="" class="mr-4 detail">Details <i class='fas fa-arrow-right'></i></a>
+                  <%= link_to 'Select', new_category_product_subscription_path(product.category, product), class:'btn-card' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

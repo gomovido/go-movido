@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   belongs_to :user
   has_many :subscriptions, dependent: :destroy
 
-  validates_presence_of :street
+  validates_presence_of :street, :country
   #phony_normalize :phone, default_country_code: 'FR'
   #phony_normalize :mobile_phone, default_country_code: 'FR'
   #validates_plausible_phone :phone, presence: true
