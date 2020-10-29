@@ -1,7 +1,7 @@
-<div class="subscription py-4 d-flex justify-content-between align-items-center">
+<div class="subscription py-2 d-flex justify-content-between align-items-center">
   <div class="column"><%= image_tag(asset_path("#{sub.product.category.name}.png"), class: "picto px-2 py-2") %></div>
   <div class="column"><%= image_tag(asset_path("#{sub.product.category.name}-logo.png"), class:"img")%></div>
   <span class="price column"><strong class="amount"><i>€<%= sub.product.price %></i></strong>/month</span>
-  <%= link_to "Details", '#', class: "btn-minor px-lg-4 py-1 column" %>
+  <%= link_to "Details", '#', class: "btn-minor py-1 column" %>
 </div>
 <hr>
