@@ -1,9 +1,13 @@
-<%= simple_form_for [@address, @product, @billing], html: {data: {action: 'submit->subscriptions#nextStep'}} do |f| %>
-  <%= f.hidden_field :subscription_id, value: @subscription.id %>
-  <%= f.input :address, required: true, input_html: {value: "#{@address.street}"}%>
-  <%= f.input :first_name, required: true, input_html: {value: current_user.first_name}%>
-  <%= f.input :last_name, required: true, input_html: {value: current_user.last_name} %>
-  <%= f.input :iban, label: 'IBAN', required: true %>
-  <%= f.input :bic, label: 'BIC', required: true %>
-  <%= f.button :submit, 'Save', class: 'btn-main' %>
+<%= simple_form_for [@address, @product, @billing], html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
+  <%= f.input :address, required: true, input_html: {value: "#{@address.street}", data: {target: 'subscriptions.addressInput'}}%>
+  <%= f.hidden_field :first_name, required: true, value: current_user.first_name%>
+  <%= f.hidden_field :last_name, required: true, value: current_user.last_name %>
+  <%= f.input :iban, label: 'IBAN', required: true, input_html: {value: "#{@last_billing.iban || nil}"} %>
+  <%= f.input :bic, label: 'BIC', required: true, input_html: {value: "#{@last_billing.bic || nil}"} %>
+  <%= f.simple_fields_for @subscription, method: :put do |s| %>
+    <%= s.hidden_field :id, value: @subscription.id %>
+    <%= s.input :start_date, as: :string, required: true, input_html: { placeholder: 'Start date | DD/MM/YYYY', class:'datepicker',
+                      data: { controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now + 5.days, flatpickr_default_date: Time.zone.now + 5.days} } %>
+  <% end %>
+  <%= f.button :submit, 'Save', class: 'btn-main'%>
 <% end %>

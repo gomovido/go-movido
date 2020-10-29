@@ -1,14 +1,15 @@
 import { Controller } from "stimulus";
+const places = require('places.js');
 
 export default class extends Controller {
-  static targets = [ "firstStep", "secondStep", "addressForm", "billingForm", "billingSummary", "addressSummary"]
+  static targets = [ "addressForm", "addressSummary", "addressInput"]
 
   connect() {
-    if (window.location.search.split('=').includes('?errorForm')) {
-      this.billingSummaryTarget.classList.remove('d-flex');
-      this.billingSummaryTarget.classList.add('d-none');
-      this.billingFormTarget.classList.remove('d-none');
-    }
+    const placesAutocomplete = places({
+      appId: 'pl32PKK41FYV',
+      apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
+      container: this.addressInputTarget
+    });
   }
 
 
@@ -16,21 +17,5 @@ export default class extends Controller {
     this.addressSummaryTarget.classList.remove('d-flex');
     this.addressSummaryTarget.classList.add('d-none');
     this.addressFormTarget.classList.toggle('d-none');
-  }
-
-  toggleBillingForm() {
-    this.billingSummaryTarget.classList.remove('d-flex');
-    this.billingSummaryTarget.classList.add('d-none');
-    this.billingFormTarget.classList.toggle('d-none');
-  }
-
-
-  nextStep(event) {
-    setTimeout(() => {
-      this.firstStepTarget.classList.remove('d-flex');
-      this.firstStepTarget.classList.add('d-none');
-      this.secondStepTarget.classList.remove('d-none');
-      this.secondStepTarget.classList.add('d-flex');
-    }, 50);
   }
 }

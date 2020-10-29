@@ -10,19 +10,15 @@ class BillingsController < ApplicationController
   end
 
   def create
-    if params[:billing_id]
-      @subscription = Subscription.find(params[:subscription_id])
-      @subscription.update(billing_id: params[:billing_id])
+    @subscription = Subscription.find(params[:billing][:subscription][:id])
+    @billing = Billing.new(billing_params)
+    @billing.user = current_user
+    if @billing.save
+      @subscription.update(billing_id: @billing.id)
+      redirect_to subscription_summary_path(params[:billing][:subscription][:id])
     else
-      @subscription = Subscription.find(params[:billing][:subscription_id])
-      @billing = Billing.new(billing_params)
-      @billing.user = current_user
-      if @billing.save
-        @subscription.update(billing_id: @billing.id)
-      else
-        flash[:alert] = 'Error'
-        redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id, errorForm: 'toggle')
-      end
+      flash[:alert] = 'All fields are required'
+      redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id)
     end
   end
 
@@ -37,6 +33,6 @@ class BillingsController < ApplicationController
   end
 
   def billing_params
-    params.require(:billing).permit(:address, :first_name, :last_name, :bic, :iban)
+    params.require(:billing).permit(:address, :first_name, :last_name, :bic, :iban, subscription_attributes: [:start_date, :id])
   end
 end

@@ -26,7 +26,7 @@
       <span class="col-9 right"><%= @last_billing.bic %></span>
     </div>
   </div>
-  <div class="actions d-flex justify-content-around mb-5">
+  <div class="actions d-flex justify-content-around">
     <span data-action='click->subscriptions#toggleBillingForm' class="btn-minor">Modify billing</span>
     <%= link_to 'Confirm', address_product_billings_path(@address, @product, subscription_id: @subscription.id, billing_id: @last_billing.id), method: :post, class: 'btn-main', data: {action: 'click->subscriptions#nextStep'} %>
   </div>
