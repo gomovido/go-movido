@@ -1,5 +1,4 @@
 #address-form {
-
   select {
     color: $dark-grey !important;
     font-size: 12px !important;
@@ -72,6 +71,30 @@
       border-radius: 1.2rem;
       width: 100%;
     }
+  }
+}
+
+.bg-pic-left {
+  position: absolute;
+  width: 280px;
+  top: 74%;
+  left: 8%;
+}
+
+.bg-pic-right {
+  position: absolute;
+  width: 220px;
+  top: 74%;
+  right: 8%;
+}
+
+
+@include media-breakpoint-down(md) {
+  .bg-pic-right {
+    display: none !important;
+  }
+  .bg-pic-left {
+    display: none !important;
   }
 }
 
