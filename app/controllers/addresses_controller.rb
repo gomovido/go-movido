@@ -24,12 +24,15 @@ class AddressesController < ApplicationController
 
   def create_subscription(address)
     @product = Product.find(params[:address][:product_id])
-    subscription = Subscription.new(product: @product, address: address, state: 'draft')
-    if subscription.save
+    draft_subscription = Subscription.find_by(product: @product, address: address, state: 'draft')
+    subscription = Subscription.new(product: @product, address: address, state: 'draft') unless draft_subscription
+    if !subscription
+      redirect_to new_address_product_billing_path(address, @product, subscription_id: draft_subscription.id)
+    elsif Subscription.find_by(address: @address, product: @product, state: 'pending_processed').nil? && subscription.save
       redirect_to new_address_product_billing_path(@address, @product, subscription_id: subscription.id)
     else
-      flash[:alert] = "An error has occured. Please contact the support team."
-      redirect_back(fallback_location: root_path)
+      flash[:alert] = "You already have a subscription on #{@address.street}"
+      redirect_to dashboard_index_path
     end
   end
 
