@@ -5,7 +5,7 @@
         <%= f.hidden_field :first_name, required: true, value: current_user.first_name%>
         <%= f.hidden_field :last_name, required: true, value: current_user.last_name %>
         <div class="input-wrapper mb-3">
-          <label for="address" class="mb-3">Address</label>
+          <label for="address" class="mb-3">Billing address</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3">
             <%= f.text_field :address, class:'form-control', label: false, value: "#{@address.street}", data: {target: 'algolia.addressInput'} %>
           </div>
@@ -14,7 +14,7 @@
         <div class="input-wrapper mb-2">
           <label for="iban" class="mb-3">IBAN</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-            <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false, input_html: {value: @last_billing ? @last_billing.iban : nil} %>
+            <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false, input_html: {value: @last_billing ? @last_billing.iban : nil}, error: f.object.errors.full_messages_for(:iban).to_sentence%>
           </div>
         </div>
         <div class="input-wrapper mb-2">
