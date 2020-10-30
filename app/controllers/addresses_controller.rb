@@ -11,6 +11,16 @@ class AddressesController < ApplicationController
     end
   end
 
+  def update
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      create_subscription(@address)
+    else
+      flash[:alert] = "All fields are required"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
 
   def create_subscription(address)
     @product = Product.find(params[:address][:product_id])
