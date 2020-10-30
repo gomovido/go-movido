@@ -8,6 +8,10 @@ body.app {
  background: $light-blue;
 }
 
+.ap-input-icon {
+  display: none;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -17,6 +21,11 @@ section {
   padding: 3rem;
 }
 
+
+.ap-suggestion {
+  text-align: left;
+  color: black;
+}
 
 .height {
   height: 100vh;

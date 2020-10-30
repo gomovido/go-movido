@@ -1,22 +1,9 @@
-<div class="container subscriptions-container" data-controller="subscriptions">
-  <div class="step-3 mt-3 d-flex flex-column align-items-center justify-content-center" data-target="subscriptions.firstStep">
+<div class="container subscriptions-container py-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
+  <div class="step-3 mt-3 d-flex flex-column align-items-center justify-content-center">
     <%= render 'steps', step: 3, title: 'Billing infos' %>
-    <% if @last_billing %>
-      <%= render 'summary' %>
-    <% end %>
-    <div data-target="subscriptions.billingForm" class="<%= @last_billing ? 'd-none' : '' %> billing-form">
-      <h2 class="mb-5">Please confirm your billing details, <%= current_user.first_name %></h2>
+    <div class="billing-form">
+      <h2 class="mb-3">Please confirm your billing details</h2>
       <%= render 'form' %>
     </div>
-  </div>
-
-  <div class="subscription step-4 mt-3 d-none flex-column align-items-center justify-content-center" data-target="subscriptions.secondStep">
-    <%= render 'steps', step: 4, title: 'Start date' %>
-    <h2 class="mb-5">When do you want the subscription to start ?</h2>
-    <%= simple_form_for [@address, @product, @subscription] , method: :put do |f| %>
-      <%= f.input :start_date, as: :string, label: false, input_html: { placeholder: 'Start date | DD/MM/YYYY', class:'datepicker',
-                      data: { controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now + 5.days, flatpickr_default_date: Time.zone.now + 5.days} } %>
-      <%= f.button :submit, 'Continue', class: 'btn-main' %>
-    <% end %>
   </div>
 </div>

@@ -28,15 +28,6 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  def update
-    @address = Address.find(params[:address_id])
-    @subscription = Subscription.find(params[:id])
-    if @subscription.update(subscription_params)
-      redirect_to subscription_summary_path(@subscription)
-    end
-  end
-
-
   def show
     @subscription = Subscription.find(params[:id])
   end
@@ -50,10 +41,6 @@ class SubscriptionsController < ApplicationController
 
   def set_product
     @product = Product.friendly.find(params[:product_id])
-  end
-
-  def subscription_params
-    params.require(:subscription).permit(:start_date)
   end
 
 end
