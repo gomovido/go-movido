@@ -1,5 +1,5 @@
  <div class="row">
-  <div class="col-md-8 offset-md-2">
+  <div class="col-md-6 offset-md-3">
     <div class="form d-flex flex-column justify-content-center mb-0 p-4">
       <%= simple_form_for address, data: {controller: "address-form"}, id:"address-form",  html: {class:"d-flex flex-column align-items-center"}, method: :put do |form| %>
         <%= form.hidden_field :product_id, value: @product.id %>

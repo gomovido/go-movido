@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 offset-md-3">
     <div class="form d-flex flex-column mb-4 p-4">
       <%= simple_form_for [@address, @product, @billing], data: {controller: "algolia"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
         <%= f.hidden_field :first_name, required: true, value: current_user.first_name%>
