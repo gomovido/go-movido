@@ -1,7 +1,8 @@
 <div class="container subscriptions-container" data-controller="subscriptions" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <div class="step-2 mt-5 mb-4 d-flex flex-column align-items-center justify-content-center">
+  <div class="step-2 mt-5 mb-4">
     <%= render 'billings/steps', step: 2, title: 'More details' %>
     <% if @active_address %>
+      <h2 class="mb-4 text-center">We just need a couple more details to get you set up</h2>
       <%= render 'addresses/summary', address: @active_address %>
     <% end %>
     <div data-target="subscriptions.addressForm" class="<%= @active_address ? 'd-none' : '' %> billing-form">

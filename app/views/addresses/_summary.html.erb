@@ -1,35 +1,31 @@
  <div class="row">
-  <div class="top-part d-flex flex-column align-items-center justify-content-center" data-target="subscriptions.addressSummary">
-    <div class="col-md-12">
-      <h2 class="mb-4">We just need a couple more details to get you set up</h2>
-    </div>
-    <div class="col-md-8 offset-md-1">
-      <div class="form d-flex flex-column justify-content-center mb-4 p-4">
-        <%= form_with(model: @address, data: {controller: "address-form", address_form_reflex: "AddressReflex#submit", reflex: "submit->AddressReflex#submit", signed_id: address.to_sgid.to_s }, id:"address-form", class:"d-flex flex-column align-items-center") do |form| %>
-          <div class="input-wrapper mb-3">
-            <label for="street" class="mb-3">Address</label>
-            <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-              <%= form.text_field :street, class:'form-control', disabled: true, label: false, value: address.street  %>
-            </div>
+  <div class="col-md-8 offset-md-2">
+    <div class="form d-flex flex-column justify-content-center mb-0 p-4">
+      <%= simple_form_for address, data: {controller: "address-form"}, id:"address-form",  html: {class:"d-flex flex-column align-items-center"}, method: :put do |form| %>
+        <%= form.hidden_field :product_id, value: @product.id %>
+        <div class="input-wrapper mb-3">
+          <label for="street" class="mb-3">Address</label>
+          <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+            <%= form.text_field :street, class:'form-control', disabled: true, label: false, value: address.street  %>
           </div>
-          <hr>
-          <div class="input-wrapper mb-5 mt-3" data-target="address-form.input" id="phone">
-            <label for="phone" class="mb-3">Phone</label>
-            <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-              <%= form.text_field :phone, data: {target: "address-form.phone", value: address.phone}, html_input: {id: 'phone'}, class:'phone form-control'  %>
-            </div>
-          </div>
-          <div class="input-wrapper mb-5">
-            <label for="mobile_phone" class="mb-3">Mobile Phone</label>
-            <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
-              <%= form.text_field :mobile_phone, data: {target: "address-form.mobilePhone", value: address.mobile_phone},
-              html_input: {id: 'mobile_phone'}, class:'phone form-control'  %>
-            </div>
-          </div>
-        <% end %>
-        <div class="actions d-flex justify-content-around">
-          <%= link_to 'Confirm', address_product_subscriptions_path(address, @product), method: :post, class: 'btn-main' %>
         </div>
+        <hr>
+        <div class="input-wrapper mb-5 mt-3">
+          <label for="phone" class="mb-3">Phone</label>
+          <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+            <%= form.text_field :phone, data: {target: "address-form.phone"}, value: address.phone, html_input: {id: 'phone'}, class:'phone form-control'  %>
+          </div>
+        </div>
+        <div class="input-wrapper mb-5">
+          <label for="mobile_phone" class="mb-3">Mobile Phone</label>
+          <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
+            <%= form.text_field :mobile_phone, data: {target: "address-form.mobilePhone"}, value: address.mobile_phone, html_input: {id: 'mobile_phone'}, class:'phone form-control'  %>
+          </div>
+        </div>
+         <div class="actions d-flex justify-content-around">
+          <%= form.submit 'Confirm', class: 'btn-main' %>
+        </div>
+      <% end %>
       </div>
     </div>
   </div>
