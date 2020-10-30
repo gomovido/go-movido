@@ -14,13 +14,13 @@
         <div class="input-wrapper mb-5 mt-3">
           <label for="iban" class="mb-3">IBAN</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-            <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false, input_html: {value: "#{@last_billing.iban || nil}"} %>
+            <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false, input_html: {value: @last_billing ? @last_billing.iban : nil} %>
           </div>
         </div>
         <div class="input-wrapper mb-5">
           <label for="bic" class="mb-3">BIC</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
-            <%= f.input :bic, class:'form-control', label: 'BIC', required: true, label: false, input_html: {value: "#{@last_billing.bic || nil}"} %>
+            <%= f.input :bic, class:'form-control', label: 'BIC', required: true, label: false, input_html: {value: @last_billing ? @last_billing.bic : nil} %>
           </div>
         </div>
         <hr>

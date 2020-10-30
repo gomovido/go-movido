@@ -28,7 +28,6 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-
   def show
     @subscription = Subscription.find(params[:id])
   end
