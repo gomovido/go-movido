@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="form d-flex flex-column justify-content-center mb-4 p-4">
+    <div class="form d-flex flex-column mb-4 p-4">
       <%= simple_form_for [@address, @product, @billing], data: {controller: "algolia"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
         <%= f.hidden_field :first_name, required: true, value: current_user.first_name%>
         <%= f.hidden_field :last_name, required: true, value: current_user.last_name %>
@@ -11,13 +11,13 @@
           </div>
         </div>
         <hr>
-        <div class="input-wrapper mb-5 mt-3">
+        <div class="input-wrapper mb-2">
           <label for="iban" class="mb-3">IBAN</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3">
             <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false, input_html: {value: @last_billing ? @last_billing.iban : nil} %>
           </div>
         </div>
-        <div class="input-wrapper mb-5">
+        <div class="input-wrapper mb-2">
           <label for="bic" class="mb-3">BIC</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
             <%= f.input :bic, class:'form-control', label: 'BIC', required: true, label: false, input_html: {value: @last_billing ? @last_billing.bic : nil} %>
@@ -26,7 +26,7 @@
         <hr>
         <%= f.simple_fields_for :subscription do |s| %>
           <%= s.hidden_field :id, value: @subscription.id %>
-          <div class="input-wrapper mb-5">
+          <div class="input-wrapper mb-3">
             <label for="start_date" class="mb-3">Start date</label>
             <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
               <%= s.input :start_date, as: :string, class:'form-control', required: true, label: false, input_html: { placeholder: 'Start date | DD/MM/YYYY', class:'datepicker', data: { controller: "flatpickr", flatpickr_date_format: "d-m-Y",
