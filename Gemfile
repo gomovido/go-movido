@@ -75,3 +75,5 @@ gem "intercom-rails", "~> 0.4.2"
 gem 'rails-i18n'
 
 gem "friendly_id", "~> 5.4"
+
+gem "iban-tools", "~> 1.1"

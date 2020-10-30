@@ -18,8 +18,8 @@ class BillingsController < ApplicationController
       @subscription.update(billing_id: @billing.id)
       redirect_to subscription_summary_path(params[:billing][:subscription_attributes][:id])
     else
-      flash[:alert] = 'All fields are required'
-      redirect_to new_address_product_billing_path(@address, @product, subscription_id: @subscription.id)
+      @last_billing = current_user.billings.last
+      render 'new'
     end
   end
 
