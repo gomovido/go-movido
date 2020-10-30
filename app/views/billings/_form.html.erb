@@ -14,7 +14,13 @@
         <div class="input-wrapper mb-2">
           <label for="iban" class="mb-3">IBAN</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-            <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false, input_html: {value: @last_billing ? @last_billing.iban : nil}, error: f.object.errors.full_messages_for(:iban).to_sentence%>
+            <% if @last_billing %>
+              <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false,
+            input_html: {value: @last_billing.iban }, error: f.object.errors.full_messages_for(:iban).to_sentence%>
+            <% else %>
+              <%= f.input :iban, class:'form-control', label: 'IBAN', required: true, label: false,
+             error: f.object.errors.full_messages_for(:iban).to_sentence%>
+            <% end %>
           </div>
         </div>
         <div class="input-wrapper mb-2">
