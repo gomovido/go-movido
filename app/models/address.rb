@@ -3,10 +3,10 @@ class Address < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
 
   validates_presence_of :street, :country
-  phony_normalize :phone, default_country_code: 'FR'
-  phony_normalize :mobile_phone, default_country_code: 'FR'
-  validates_plausible_phone :phone, presence: true
-  validates_plausible_phone :mobile_phone, presence: true
+  #phony_normalize :phone, default_country_code: 'FR'
+  #phony_normalize :mobile_phone, default_country_code: 'FR'
+  #validates_plausible_phone :phone, presence: true
+  #validates_plausible_phone :mobile_phone, presence: true
   after_create :set_has_active
 
 
