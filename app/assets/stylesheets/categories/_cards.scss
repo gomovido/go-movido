@@ -20,18 +20,22 @@
     opacity: 0;
     transition: visibility 0.2s, opacity 0.5s linear;
     transition: 0.5s;
+    img {
+      position: absolute;
+      top: -15px;
+      right: 45%;
+      width: 20px;
+    }
     .description {
-      background: $white;
-      border-radius: 18px;
-      color: $blue;
+      color: $white;
       display: flex;
       font-size: 14px;
     }
   }
 }
 
-
 .category-card:hover {
+  background: $dark-blue;
   .title {
     min-height: 0px;
     height: 0px;
@@ -53,5 +57,12 @@
     top: -20px;
     transition: 0.5s;
   }
-
 }
+
+
+@include media-breakpoint-down(md) {
+  .category-card {
+    width: 100%;
+  }
+}
+
