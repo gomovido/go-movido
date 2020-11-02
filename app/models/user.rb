@@ -19,12 +19,19 @@ class User < ApplicationRecord
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
   validates :moving_date, presence: true, if: -> { :alread_moved == false }
+  before_create :generate_username
   #after_create :send_welcome_email
 
   private
 
-
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now
+  end
+
+  protected
+
+  def generate_username
+    self.username =  (self.first_name + '-' + self.last_name).gsub(' ', '-') + '-' + Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]
+    generate_username if User.exists?(username: self.username)
   end
 end
