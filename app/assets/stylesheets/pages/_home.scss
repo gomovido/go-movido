@@ -21,7 +21,6 @@ section {
   padding: 3rem;
 }
 
-
 .ap-suggestion {
   text-align: left;
   color: black;
@@ -29,6 +28,10 @@ section {
 
 .height {
   height: 100vh;
+}
+
+.font-weight {
+  font-weight: 800;
 }
 
 @include media-breakpoint-only(xs) {
