@@ -27,7 +27,8 @@
 
 @include media-breakpoint-only(xs) {
   .why-cards-wrapper .why-card {
-   align-items: center;
+    padding: 5%;
+    align-items: center;
     .desc {
       padding: 0
     }
