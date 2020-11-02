@@ -1,0 +1,18 @@
+<div class="col-md-6 d-flex mb-4 <%= index.even? ? 'justify-content-end' : 'justify-content-start'%>">
+  <div class="category-card d-flex text-center align-items-center justify-content-center flex-column p-4">
+    <div class="title justify-content-center flex-column align-items-center p-4">
+      <div class="border-bottom pb-3 mb-4">
+        <%= image_tag(asset_path("#{category.name}-white.png")) %>
+      </div>
+      <span class="mb-2"><%= category.subtitle %></span>
+      <i class="fas fa-caret-down"></i>
+    </div>
+    <div class="description-wrapper flex-column">
+      <div class="description p-3 d-flex flex-column mb-4">
+        <span class='font-weight mb-3'><%= category.form_timer %> mins</span>
+        <span><%= category.description %></span>
+      </div>
+        <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>
+    </div>
+  </div>
+</div>
