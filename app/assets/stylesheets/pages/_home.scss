@@ -55,14 +55,14 @@ section {
 #about-us {
   background: $light-blue;
   img {
-    width: 100%;
+    width: 170%;
   }
   .wrapper {
     padding: 0 10%;
     .desc {
       p {
         color: $black;
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   }
@@ -71,7 +71,8 @@ section {
 #why-us {
   background: $light-blue;
   .desc {
-    font-size: 14px;
+    font-size: 16px;
+    color: $dark-grey;
   }
 }
 
