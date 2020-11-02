@@ -67,3 +67,11 @@
     width: 100%;
   }
 }
+
+
+@include media-breakpoint-down(md) {
+  .btn-card {
+    font-size: 12px;
+  }
+}
+
