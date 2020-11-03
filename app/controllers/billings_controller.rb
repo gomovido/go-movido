@@ -34,6 +34,6 @@ class BillingsController < ApplicationController
   end
 
   def billing_params
-    params.require(:billing).permit(:address, :first_name, :last_name, :bic, :iban, subscription_attributes: [:start_date, :id])
+    params.require(:billing).permit(:address, :first_name, :last_name, :bic, :iban, :bank, subscription_attributes: [:start_date, :id])
   end
 end

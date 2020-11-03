@@ -2,8 +2,7 @@
   <div class="step-5 mt-5 d-flex flex-column align-items-center justify-content-center">
     <%= render 'billings/steps', step: 5, title: 'Confirmation' %>
     <div class="top-part d-flex flex-column align-items-center justify-content-center">
-      <h2 class="mb-4">Thank you for your purchase! You’re all set!</h2>
-      <p class='mb-5'>You will receive a confirmation email with your purchase summary within 24h</p>
+      <h2 class="mb-4">Please confirm that we have your right details, <%= current_user.first_name %> !</h2>
       <div class="summary d-flex flex-column justify-content-center mb-4 p-5 mb-5">
         <div class="row">
           <span class="col-4 left">Choosen provider</span>
@@ -43,6 +42,16 @@
          <div class="row">
           <span class="col-4 left">IBAN</span>
           <span class="col-8 right"><%= @subscription.billing.iban_prettify %></span>
+        </div>
+        <hr>
+        <div class="row">
+          <span class="col-4 left">BIC</span>
+          <span class="col-8 right"><%= @subscription.billing.bic %></span>
+        </div>
+        <hr>
+        <div class="row">
+          <span class="col-4 left">Banking Institution</span>
+          <span class="col-8 right"><%= @subscription.billing.bank %></span>
         </div>
         <hr>
         <div class="row">

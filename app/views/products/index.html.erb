@@ -6,7 +6,7 @@
         <p>Filters</p>
       </div>
       <div class="col-md-8">
-        <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name %> offers</h1>
+        <h1 class="main-title mb-5 text-center">Find the best <%= @category_name == 'mobile' ? "#{@category_name} phone" : @category_name%> offers</h1>
         <div class="products-cards-wrapper">
           <% @products.each do |product| %>
             <div class="product-card d-flex flex-column pl-3 pr-3 pb-4 pt-4 mb-4">
