@@ -59,6 +59,7 @@ section {
   background: $light-blue;
   img {
     width: 170%;
+    image-orientation: none !important;
   }
   .wrapper {
     padding: 0 10%;
