@@ -29,14 +29,21 @@
           <span class="col-8 right"><%= @subscription.address.user.email %></span>
         </div>
         <hr>
+        <% if @subscription.address.mobile_phone %>
         <div class="row">
           <span class="col-4 left">Phone</span>
           <span class="col-8 right"><%= @subscription.address.mobile_phone %></span>
         </div>
         <hr>
+        <% end %>
         <div class="row">
           <span class="col-4 left d-flex align-items-center">Address</span>
           <span class="col-8 right"><%= @subscription.address.street %></span>
+        </div>
+        <hr>
+        <div class="row">
+          <span class="col-4 left d-flex align-items-center">Billing address</span>
+          <span class="col-8 right"><%= @subscription.billing.address %></span>
         </div>
         <hr>
          <div class="row">
