@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body class="<%= controller_name == "pages" && action_name == 'home' ? '' : 'blue-bg' %>">
+  <body class="<%= blue_bg_is_active? ? 'blue-bg' : '' %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
