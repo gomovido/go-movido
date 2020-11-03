@@ -16,6 +16,7 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
+            <%= resource.errors.full_messages %>
             <%= f.input :email,
                         required: true,
                         label: false,
