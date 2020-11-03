@@ -1,0 +1,45 @@
+.checkround {
+  width: 20px;
+  height: 20px;
+  background-color: $orange;
+  border-radius: 40%;
+  vertical-align: middle;
+  border: 3px solid #orange;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkround:checked {
+  background: $white;
+  padding: 2px;
+  border: 6px solid $orange;
+  border-radius: 50%;
+}
+
+.filters-wrapper {
+    height: 400px;
+    width: 250px;
+    border-radius: 8%;
+    background: $white;
+    border: 1px solid $grey;
+  .title {
+    font-size: 18px;
+    color: $blue;
+    font-weight: 800;
+  }
+  .products-count {
+    color: $dark-grey;
+    font-size: 14px;
+  }
+  .filter-title {
+    font-size: 14px;
+    color: $black;
+    font-weight: 800;
+  }
+  .label {
+    color: $black;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
