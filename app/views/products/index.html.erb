@@ -1,9 +1,33 @@
-<div class="container subscriptions-container height mt-5">
+<div class="container subscriptions-container mt-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
   <div class="step-1 mt-3">
     <%= render 'billings/steps', step: 1, title: 'Choose your offer' %>
+    <div class="container">
     <div class="row">
-      <div class="col-md-4 d-flex justify-content-center">
-        <p>Filters</p>
+      <div class="col-md-4 d-flex justify-content-center justify-content-center">
+        <div class="filters-wrapper d-flex flex-column p-4">
+          <span class="title font-weight">Filter your results</span>
+          <span class='products-count'><%= @products.count %> deals of <%= @category.products.count %> deals</span>
+          <hr>
+          <%= search_form_for @q, class:'d-flex flex-column' do |f| %>
+            <%= f.hidden_field :category_id, value: @products.first.category.slug %>
+            <div class="input mb-1">
+              <%= check_box_tag('q[unlimited_data_true]', 1, params[:q] && params[:q][:unlimited_data_true].present?,
+              onclick: ("this.form.submit();"), class:'checkround') %>
+              <span class='label ml-2'>Unlimited Data</span>
+            </div>
+            <div class="input mb-1">
+              <%= check_box_tag('q[unlimited_call_true]', 1, params[:q] && params[:q][:unlimited_call_true].present?,
+              onclick: ("this.form.submit();"), class:'checkround') %>
+              <span class='label ml-2'>Unlimited Call</span>
+            </div>
+            <div class="input mb-1">
+              <%= check_box_tag('q[obligation_true]', 1, params[:q] && params[:q][:obligation_true].present?,
+              onclick: ("this.form.submit();"), class:'checkround') %>
+              <span class='label ml-2'>Obligation</span>
+            </div>
+            <span class='filter-title text-center mt-3'>Filter by price</span>
+          <% end %>
+        </div>
       </div>
       <div class="col-md-8">
         <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name %> offers</h1>
@@ -15,11 +39,11 @@
                   <%= image_tag(asset_path('sfr.png'), style:"width: 35px; height: 35px;", class:"mr-4") %>
                 </div>
                 <div class="info d-flex flex-column p-2">
-                  <span class="top">1 month</span>
+                  <span class="top"><%= product.time_contract %> month</span>
                   <span class="bot">contract</span>
                 </div>
                 <div class="info d-flex flex-column p-2">
-                  <span class="top">10gb</span>
+                  <span class="top"><%= product.data_limit %> Gb</span>
                   <span class="bot">for 4G data</span>
                 </div>
                 <div class="info d-flex flex-column p-2">
@@ -31,7 +55,7 @@
                   <span class="bot">texts</span>
                 </div>
                 <div class="price d-flex flex-column p-2">
-                  <span class="top">€15.00</span>
+                  <span class="top">€<%= product.price%></span>
                   <span class="bot">per month</span>
                 </div>
               </div>
@@ -54,5 +78,6 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
