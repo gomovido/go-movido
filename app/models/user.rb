@@ -14,7 +14,7 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
 
-  validates_presence_of :first_name, :last_name, :email, :phone, :city, :username
+  validates_presence_of :first_name, :last_name, :email, :phone, :city
   validates_uniqueness_of :email, :username
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
