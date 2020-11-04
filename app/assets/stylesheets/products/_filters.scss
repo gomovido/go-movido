@@ -42,4 +42,17 @@
     font-size: 14px;
     font-weight: 600;
   }
+  .input .number-field {
+    width: 70px;
+    height: 40px;
+    border-radius: 18%;
+    border: 1px solid $grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.noUi-connect {
+  background: $orange !important;
 }
