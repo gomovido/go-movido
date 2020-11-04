@@ -24,7 +24,6 @@
      street: Faker::Address.street_name,
      floor: Faker::Number.number(digits: 8),
      internet_status: [true, false].sample,
-     phone: "+33#{Faker::Number.number(digits: 9)}",
      mobile_phone: "+33#{Faker::Number.number(digits: 9)}",
      building: Faker::Address.building_number,
      stairs: ['A', 'B', 'C', 'D'].sample,
