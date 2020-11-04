@@ -33,11 +33,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    @address = Address.new
-    @active_address = Address.find_by(user: current_user, active: true)
+    @active_address = current_user.active_address
+    @subscription = Subscription.new
+    @subscription.build_billing
   end
 
   private
+
+  def subscription_params
+    params.require(:subscription).permit(:delivery_address, billing_attributes: [:address, :first_name, :last_name, :bic, :iban, :bank])
+  end
 
   def set_product
     @product = Product.friendly.find(params[:product_id])

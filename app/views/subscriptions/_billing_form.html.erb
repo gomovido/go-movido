@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="form d-flex flex-column mb-4 p-4">
+      <%= simple_form_for @subscription, data: {controller: "algolia"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
+        <%= f.hidden_field :product_id, @product.id %>
+        <%= f.simple_fields_for :billing do |s| %>
+          <div class="input-wrapper mb-3">
+            <label for="address" class="mb-3">Billing address</label>
+            <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+              <%= s.text_field :address, class:'form-control', label: false, value: "#{@active_address.street}", data: {target: 'algolia.addressInput'} %>
+            </div>
+          </div>
+          <hr>
+          <div class="input-wrapper mb-2">
+            <label for="iban" class="mb-3">IBAN</label>
+            <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+                <%= s.input :iban, class:'form-control', label: 'IBAN', required: true, label: false %>
+            </div>
+          </div>
+          <div class="input-wrapper mb-2">
+            <label for="bic" class="mb-3">BIC</label>
+            <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
+                <%= s.input :bic, class:'form-control', required: true, label: false %>
+            </div>
+          </div>
+          <div class="input-wrapper mb-2">
+            <label for="bank" class="mb-3">Banking Institution</label>
+            <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
+                <%= s.input :bank, class:'form-control', required: true, label: false %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        <div class="input-wrapper mb-3">
+          <label for="delivery_address" class="mb-3">Delivery address</label>
+          <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+            <%= s.text_field :delivery_address, class:'form-control', label: false, data: {target: 'algolia.addressInput'} %>
+          </div>
+        </div>
+        <div class="actions d-flex justify-content-around">
+          <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
+          <%= f.button :submit, 'Confirm', class: 'btn-main'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
