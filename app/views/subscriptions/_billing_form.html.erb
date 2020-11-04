@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <div class="form d-flex flex-column mb-4 p-4">
-      <%= simple_form_for [@category, @product, @subscription], data: {controller: "subscription"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
+      <%= simple_form_for [@category, @product, @subscription], data: {controller: "subscription"}, html: {id: '
+        billing-form', class:"d-flex flex-column"} do |f| %>
         <%= f.simple_fields_for :billing do |s| %>
           <div class="input-wrapper mb-2">
             <label for="iban" class="mb-3">IBAN</label>
@@ -25,7 +26,7 @@
           <div class="input-wrapper mb-3">
             <label for="address" class="mb-3">Billing address</label>
             <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-              <%= s.text_field :address, class:'form-control', label: false, value: "#{@active_address.street}", data: {target: 'subscription.billingAddressInput'} %>
+              <%= s.text_field :address, class:'form-control', label: false, value: "#{current_user.active_address.street}", data: {target: 'subscription.billingAddressInput'} %>
             </div>
           </div>
         <% end %>

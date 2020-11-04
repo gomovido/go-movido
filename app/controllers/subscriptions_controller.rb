@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
 
-  before_action :set_product, only: [:new, :create, :update]
+  before_action :set_product, only: [:new, :create]
 
   def create
     if @product.category.name == 'mobile'
@@ -10,23 +10,28 @@ class SubscriptionsController < ApplicationController
       if subscription.save
         redirect_to subscription_summary(@subscription)
       else
-        render 'new'
+        redirect_to new_category_product_subscription_path(address, @product)
       end
     end
   end
 
   def create_mobile_subcription(product, address)
-    draft_subscription = Subscription.find_by(product: @product, address: @address, state: 'draft')
-    subscription = Subscription.new(subscription_params) unless draft_subscription
-    if !subscription
-      redirect_to new_category_product_subscription_path(@address, @product)
-    elsif Subscription.find_by(address: @address, product: @product, state: 'pending_processed').nil? && subscription.save
+    draft_subscription = Subscription.find_by(product: @product, address: address, state: 'draft')
+    @subscription = Subscription.new(subscription_params) unless draft_subscription
+    if !@subscription
+      flash[:alert] = "You already have a subscription on #{address.street}"
+      redirect_to new_category_product_subscription_path(address, @product)
+    elsif Subscription.find_by(address: address, product: @product, state: 'pending_processed').nil? && @subscription.save
       subscription.update(state: 'draft')
       redirect_to subscription_summary(@subscription)
     else
-      flash[:alert] = "You already have a subscription on #{@address.street}"
-      render 'new'
+      @category = product.category
+      render :new
     end
+  end
+
+  def update
+    @subscription = Subscription.new
   end
 
   def summary
@@ -46,7 +51,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    @active_address = current_user.active_address
     @subscription = Subscription.new
     @subscription.build_billing
     @category = @product.category
