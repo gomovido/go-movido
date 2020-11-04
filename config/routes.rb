@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
 
   resources :addresses, only: [:create, :update] do
-    resources :products, only: [:index] do
+    resources :products, only: [:index ] do
       resources :billings, only: [:new, :create]
       resources :subscriptions, only: [:create, :update]
     end
   end
 
   resources :subscriptions, only: [:show ]
+
+  resources :products, only: [:index]
 
   resources :categories, only: [:index] do
     resources :products, only: [:index] do

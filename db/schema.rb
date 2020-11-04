@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_173724) do
-
+ActiveRecord::Schema.define(version: 2020_11_03_223529) do
+  
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,13 @@ ActiveRecord::Schema.define(version: 2020_11_03_173724) do
     t.string "logo_url"
     t.string "slug"
     t.string "sku"
+    t.boolean "unlimited_data"
+    t.boolean "unlimited_call"
+    t.boolean "obligation"
+    t.string "time_contract"
+    t.string "data_limit"
+    t.string "delivery_price"
+    t.string "delivery_time"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
