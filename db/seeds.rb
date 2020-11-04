@@ -98,7 +98,7 @@ end
    subscription = Subscription.create(
      product: Product.all.sample,
      delivery_address: Faker::Address.full_address,
-     state: 'pending',
+     state: 'pending_processed',
      address: Address.all.sample
    )
    p "Subscription to #{subscription.product.name} created"

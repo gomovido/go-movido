@@ -1,72 +1,77 @@
-<div class="container subscriptions-container py-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <div class="step-5 mt-5 d-flex flex-column align-items-center justify-content-center">
-    <%= render 'billings/steps', step: 5, title: 'Confirmation' %>
-    <div class="top-part d-flex flex-column align-items-center justify-content-center">
-      <h2 class="mb-4">Please confirm that we have your right details, <%= current_user.first_name %> !</h2>
-      <div class="summary d-flex flex-column justify-content-center mb-4 p-5 mb-5">
-        <div class="row">
-          <span class="col-4 left">Choosen provider</span>
-          <span class="col-8 right"><%= @subscription.product.company %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Choosen plan</span>
-          <span class="col-8 right"><%= @subscription.product.name %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Name</span>
-          <span class="col-8 right"><%= @subscription.address.user.first_name %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Surname</span>
-          <span class="col-8 right"><%= @subscription.address.user.last_name %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Email</span>
-          <span class="col-8 right"><%= @subscription.address.user.email %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left d-flex align-items-center">Address</span>
-          <span class="col-8 right"><%= @subscription.address.street %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left d-flex align-items-center">Billing address</span>
-          <span class="col-8 right"><%= @subscription.billing.address %></span>
-        </div>
-        <hr>
-         <div class="row">
-          <span class="col-4 left">IBAN</span>
-          <span class="col-8 right"><%= @subscription.billing.iban_prettify %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">BIC</span>
-          <span class="col-8 right"><%= @subscription.billing.bic %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Banking Institution</span>
-          <span class="col-8 right"><%= @subscription.billing.bank %></span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Price</span>
-          <span class="col-8 right"><%= @subscription.product.price %>€/month</span>
-        </div>
-        <hr>
-        <div class="row">
-          <span class="col-4 left">Start date</span>
-          <span class="col-8 right"><%= @subscription.start_date.strftime("%d/%m/%Y") %></span>
-        </div>
-      </div>
-      <%= link_to "Confirm", validate_subscription_path(@subscription), method: :patch, class: 'btn-main'%>
-    </div>
-  </div>
-</div>
+<div class="container subscriptions-container" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
   <%= image_tag(asset_path('bg-listing.png'), class:'bg-pic-left') %>
   <%= image_tag(asset_path('bg-listing-2.png'), class:'bg-pic-right') %>
+    <%= render 'steps', step: 3, title: 'Confirmation' %>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 class="mb-4">Please confirm that we have your right details, <%= current_user.first_name %> !</h2>
+        </div>
+        <div class="summary col-md-6 offset-3 mb-4 p-5 mb-5">
+          <div class="row">
+            <span class="col-4 left">Choosen provider</span>
+            <span class="col-8 right"><%= @subscription.product.company %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">Choosen plan</span>
+            <span class="col-8 right"><%= @subscription.product.name %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">Name</span>
+            <span class="col-8 right"><%= @subscription.address.user.first_name %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">Surname</span>
+            <span class="col-8 right"><%= @subscription.address.user.last_name %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">Email</span>
+            <span class="col-8 right"><%= @subscription.address.user.email %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left d-flex align-items-center">Address</span>
+            <span class="col-8 right"><%= @subscription.address.street %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left d-flex align-items-center">Billing address</span>
+            <span class="col-8 right"><%= @subscription.billing.address %></span>
+          </div>
+          <hr>
+          <% if @subscription.delivery_address %>
+          <div class="row">
+            <span class="col-4 left d-flex align-items-center">Billing address</span>
+            <span class="col-8 right"><%= @subscription.delivery_address %></span>
+          </div>
+          <hr>
+          <% end %>
+           <div class="row">
+            <span class="col-4 left">IBAN</span>
+            <span class="col-8 right"><%= @subscription.billing.iban_prettify %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">BIC</span>
+            <span class="col-8 right"><%= @subscription.billing.bic %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">Banking Institution</span>
+            <span class="col-8 right"><%= @subscription.billing.bank %></span>
+          </div>
+          <hr>
+          <div class="row">
+            <span class="col-4 left">Price</span>
+            <span class="col-8 right"><%= @subscription.product.price %>€/month</span>
+          </div>
+      </div>
+      <div class="col-md-12 text-center py-3">
+        <%= link_to "Confirm", validate_subscription_path(@subscription), method: :patch, class: 'btn-main'%>
+      </div>
+    </div>
+</div>
+
