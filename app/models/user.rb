@@ -21,6 +21,11 @@ class User < ApplicationRecord
   before_create :generate_username
   #after_create :send_welcome_email
 
+
+  def active_address
+    Address.find_by(user: self, active: true)
+  end
+
   private
 
   def send_welcome_email

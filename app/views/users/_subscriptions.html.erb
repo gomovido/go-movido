@@ -6,11 +6,13 @@
         <span class="header column">Service</span>
         <span class="header column">Provider</span>
         <span class="header column">Rate</span>
+        <span class="header column">Susbcrition date</span>
+        <span class="header column">Get in touch</span>
         <span class="header column"></span>
       </div>
       <div class="rows px-lg-1 px-3">
-        <% current_user.subscriptions.each do |sub| %>
-        <%= render 'subscription', sub: sub %>
+        <% current_user.subscriptions.each do |subscription| %>
+        <%= render 'subscription', subscription: subscription %>
         <% end %>
       </div>
     </div>
