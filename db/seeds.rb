@@ -10,6 +10,8 @@
    username: Faker::Name.unique.name,
    phone: "+33#{Faker::Number.number(digits: 9)}",
    city: Faker::Address.city,
+   birthdate: Time.now,
+   birth_city: 'Paris',
    not_housed: not_housed,
    password: 'movido123456',
    password_confirmation: 'movido123456'
@@ -91,24 +93,24 @@ end
 
 
   # Billings & Subscriptions
- 2.times do
-   billing = Billing.create(
-     address: Faker::Address.full_address,
-     user_id: User.all.sample.id,
-     first_name: Faker::Name.first_name,
-     last_name: Faker::Name.last_name,
-     bic: Faker::Bank.swift_bic,
-     iban: Faker::Bank.iban(country_code: "fr")
-   )
- end
 
   10.times do
    subscription = Subscription.create(
      product: Product.all.sample,
-     start_date: Date.today,
-     state: 'pending',
-     address: Address.all.sample,
-     billing: Billing.all.sample
+     delivery_address: Faker::Address.full_address,
+     state: 'pending_processed',
+     address: Address.all.sample
    )
    p "Subscription to #{subscription.product.name} created"
+ end
+
+ 10.times do
+   billing = Billing.create(
+     address: Faker::Address.full_address,
+     user_id: User.all.sample.id,
+     bic: Faker::Bank.swift_bic,
+     iban: Faker::Bank.iban(country_code: "fr"),
+     bank: Faker::Bank.name,
+     subscription: Subscription.all.sample
+   )
  end

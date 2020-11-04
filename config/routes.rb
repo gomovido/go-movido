@@ -5,24 +5,17 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard_index', as: 'dashboard_index'
+  get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
   resources :users, only: [:show, :update]
 
-  resources :addresses, only: [:create, :update] do
-    resources :products, only: [:index ] do
-      resources :billings, only: [:new, :create]
-      resources :subscriptions, only: [:create, :update]
-    end
-  end
-
   resources :subscriptions, only: [:show ]
-
   resources :products, only: [:index]
 
   resources :categories, only: [:index] do
     resources :products, only: [:index] do
-      resources :subscriptions, only: [:new]
+      resources :subscriptions, only: [:new, :create, :update]
     end
   end
 end
