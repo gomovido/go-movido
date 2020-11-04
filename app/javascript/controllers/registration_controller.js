@@ -9,7 +9,6 @@ export default class extends Controller {
   connect() {
     phoneInput(this.phoneTarget);
     displayAddressAutocomplete(this.addressInputTarget);
-    this.addressInputTarget.value = this.addressInputTarget.getAttribute("value");
     this.checkboxAddressTarget.checked ? document.querySelector('.user_addresses_street').classList.add('d-none') : document.querySelector('.user_addresses_street').classList.remove('d-none');
 
   }
