@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_110624) do
+ActiveRecord::Schema.define(version: 2020_11_04_152126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 2020_11_04_110624) do
 
   create_table "billings", force: :cascade do |t|
     t.string "address"
-    t.string "first_name"
-    t.string "last_name"
     t.string "bic"
     t.string "iban"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.string "bank"
+    t.bigint "subscription_id", null: false
+    t.index ["subscription_id"], name: "index_billings_on_subscription_id"
     t.index ["user_id"], name: "index_billings_on_user_id"
   end
 
@@ -97,14 +97,12 @@ ActiveRecord::Schema.define(version: 2020_11_04_110624) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "product_id", null: false
-    t.date "start_date"
     t.string "state"
     t.bigint "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "billing_id"
+    t.string "delivery_address"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
-    t.index ["billing_id"], name: "index_subscriptions_on_billing_id"
     t.index ["product_id"], name: "index_subscriptions_on_product_id"
   end
 
@@ -131,9 +129,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_110624) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "subscriptions", "addresses"
-  add_foreign_key "subscriptions", "billings"
   add_foreign_key "subscriptions", "products"
 end

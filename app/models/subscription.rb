@@ -1,5 +1,6 @@
 class Subscription < ApplicationRecord
   belongs_to :product
   belongs_to :address
-  belongs_to :billing, optional: true
+  has_one :billing, dependent: :destroy
+  accepts_nested_attributes_for :billing
 end
