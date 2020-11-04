@@ -28,6 +28,16 @@
                         required: true,
                         label: false,
                         input_html: { placeholder: 'Last name' } %>
+            <%= f.input :birth_city,
+                        required: true,
+                        label: false,
+                        input_html: { placeholder: 'City of birth',data: {
+                        target: 'registration.cityInput'}}%>
+            <%= f.input :birthdate, as: :string,
+                         required: true,
+                         label: false,
+                         input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker', data: {
+                          controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} } %>
             <%= f.input :phone,
                         required: true,
                         label: false,
