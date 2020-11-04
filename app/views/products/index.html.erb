@@ -28,8 +28,8 @@
             <span class='filter-title text-center mt-3'>Filter by price</span>
             <div >
               <div class="input d-flex justify-content-around mt-3 mb-4">
-                <%= f.text_field :price_gteq, onchange: ("this.form.submit();"), class:'number-field  text-center', value: 20 %>
-                <%= f.text_field :price_lteq, onchange: ("this.form.submit();"), class:'number-field  text-center', value: 80  %>
+                <%= f.text_field :price_gteq, class:'number-field  text-center', value: 1 %>
+                <%= f.text_field :price_lteq, class:'number-field  text-center', value: 80  %>
               </div>
               <div id="slider-range" data-target="range-slider.input" onclick="document.getElementById('product_search').submit();"></div>
             </div>
