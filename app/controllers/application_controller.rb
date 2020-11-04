@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
       keys: [
         :email, :first_name, :last_name, :phone,
-        :city, :not_housed, addresses_attributes: [:street, :zipcode, :country, :city, :phoned]
+        :city, :not_housed, addresses_attributes: [:street, :zipcode, :country, :city]
       ]
     )
     devise_parameter_sanitizer.permit(:sign_in,
