@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_11_03_223529) do
     t.string "street"
     t.string "floor"
     t.string "internet_status"
-    t.string "phone"
     t.string "mobile_phone"
     t.string "building"
     t.string "stairs"
@@ -32,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_223529) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "active"
+    t.boolean "phoned"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_223529) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "bank"
     t.index ["user_id"], name: "index_billings_on_user_id"
   end
 
@@ -117,8 +118,6 @@ ActiveRecord::Schema.define(version: 2020_11_03_223529) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.boolean "already_moved"
-    t.date "moving_date"
     t.string "phone"
     t.string "city"
     t.boolean "not_housed"
