@@ -1,8 +1,6 @@
 # Users & Adresses
 
 5.times do
- already_moved = [true, false].sample
- moving_date = Faker::Date.between(from: Date.today, to: 1.year.from_now) unless already_moved
  not_housed = [true, false].sample
  address = Faker::Address.street_address if not_housed
  user = User.new(
@@ -10,8 +8,6 @@
    first_name: Faker::Name.first_name,
    last_name: Faker::Name.last_name,
    username: Faker::Name.unique.name,
-   already_moved: already_moved,
-   moving_date: moving_date,
    phone: "+33#{Faker::Number.number(digits: 9)}",
    city: Faker::Address.city,
    not_housed: not_housed,

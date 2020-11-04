@@ -18,7 +18,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, :username
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
-  validates :moving_date, presence: true, if: -> { :alread_moved == false }
   before_create :generate_username
   #after_create :send_welcome_email
 

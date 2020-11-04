@@ -6,7 +6,6 @@ export default class extends ApplicationController {
   static targets = ['phone', 'submit', 'input', 'mobilePhone']
 
   connect() {
-    phoneInput(this.phoneTarget);
     phoneInput(this.mobilePhoneTarget);
   }
 }

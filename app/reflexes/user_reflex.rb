@@ -16,8 +16,7 @@ class UserReflex < ApplicationReflex
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :username,
-      :already_moved, :moving_date, :phone,
+    params.require(:user).permit(:email, :first_name, :last_name, :username, :phone,
       :city, :not_housed, :address
     )
   end
