@@ -10,16 +10,6 @@
           </div>
         </div>
         <hr>
-        <div class="input-wrapper d-flex align-items-center mb-3">
-          <label class="mb-0">I don’t have a phone number yet</label>
-          <%= form.check_box :phoned, required: true, label: false, class: 'w-auto ml-5', data: { action: 'click->address-form#toggleMobile'} %>
-        </div>
-        <div class="input-wrapper mb-5 <%= @active_address.phoned ? 'd-none' : '' %>" data-target="address-form.phoneField">
-          <label for="mobile_phone" class="mb-3">Mobile Phone</label>
-          <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
-            <%= form.text_field :mobile_phone, data: {target: "address-form.mobilePhone"}, value: address.mobile_phone, html_input: {id: 'mobile_phone'}, class:'phone form-control'  %>
-          </div>
-        </div>
          <div class="actions d-flex justify-content-around">
           <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
           <%= form.submit 'Confirm', class: 'btn-main' %>
