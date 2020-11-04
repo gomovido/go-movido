@@ -48,32 +48,48 @@ end
     subtitle: 'See top Real Estate listings',
     description: 'Find the perfect place for you to stay in your new hometown')
   p "Category - #{category.name} created !"
- 2.times do
+ 8.times do
   name = Faker::Company.name
+  unlimited_data = [true, false].sample
+  unlimited_data ?  data_limit = 'Unlimited' : data_limit = Faker::Number.number(digits: 2)
    product = Product.create(
-     company: name,
-     name: Faker::Commerce.product_name,
-     description: Faker::Lorem.paragraph,
-     price: Faker::Number.number(digits: 2).to_f,
-     category: category,
-     sku: name
+    company: name,
+    name: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.number(digits: 2).to_f,
+    category: category,
+    sku: name,
+    unlimited_data: unlimited_data,
+    unlimited_call: [true, false].sample,
+    obligation: [true, false].sample,
+    time_contract: Faker::Number.number(digits: 2),
+    data_limit: data_limit,
+    delivery_price: Faker::Number.number(digits: 2)
    )
  end
  p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
  category = Category.create(name: 'mobile',
-  sku: 'mobile',
+  sku: 'mobile_phone',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'See top Real Estate listings',
   description: 'Find the perfect place for you to stay in your new hometown')
- 2.times do
+ 8.times do
   name = Faker::Company.name
+  unlimited_data = [true, false].sample
+  unlimited_data ?  data_limit = 'Unlimited' : data_limit = Faker::Number.number(digits: 2)
    product = Product.create(
-     company: name,
-     name: Faker::Commerce.product_name,
-     description: Faker::Lorem.paragraph,
-     price: Faker::Number.number(digits: 2).to_f,
-     category: category,
-     sku: name
+    company: name,
+    name: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.number(digits: 2).to_f,
+    category: category,
+    sku: name,
+    unlimited_data: unlimited_data,
+    unlimited_call: [true, false].sample,
+    obligation: [true, false].sample,
+    time_contract: Faker::Number.number(digits: 2),
+    data_limit: data_limit,
+    delivery_price: Faker::Number.number(digits: 2)
    )
  end
  p "Category - #{category.name} created with #{category.products.count} products" if category and category.products
