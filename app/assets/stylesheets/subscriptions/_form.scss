@@ -70,17 +70,22 @@
 .bg-pic-left {
   position: absolute;
   width: 280px;
-  top: 54%;
+  top: 630px;
   left: 8%;
 }
 
 .bg-pic-right {
   position: absolute;
   width: 220px;
-  top: 54%;
+  top: 630px;
   right: 8%;
 }
 
+.congratulations-container {
+  .bg-pic-left, .bg-pic-right {
+    top: 555px;
+  }
+}
 
 @include media-breakpoint-down(md) {
   .bg-pic-right {

@@ -53,6 +53,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def congratulations
+    @subscription = Subscription.find(params[:subscription_id])
   end
 
   def show
