@@ -1,5 +1,5 @@
 <div class="step-forms mb-5">
-  <span class="step-header">Step <%= step %> of 4</span>
+  <span class="step-header">Step <%= step %> of 3</span>
   <div class="detail-arrows mb-3 d-flex justify-content-between align-items-center">
     <span class="more-details"><strong><%= title %></strong></span>
     <span><i class="fas fa-long-arrow-alt-left mr-2"></i><i class="fas fa-long-arrow-alt-right"></i></span>
@@ -8,7 +8,7 @@
     <% step.times do  %>
       <span class="line orange"></span>
     <% end %>
-    <% (4 - step).times do %>
+    <% (3 - step).times do %>
       <span class="line"></span>
     <% end %>
   </div>
