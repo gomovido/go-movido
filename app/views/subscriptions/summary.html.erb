@@ -2,11 +2,11 @@
   <%= image_tag(asset_path('bg-listing.png'), class:'bg-pic-left') %>
   <%= image_tag(asset_path('bg-listing-2.png'), class:'bg-pic-right') %>
     <%= render 'steps', step: 3, title: 'Confirmation' %>
-      <div class="row">
+      <div class="row mx-0">
         <div class="col-md-12 text-center">
           <h2 class="mb-4">Please confirm that we have your right details, <%= current_user.first_name %> !</h2>
         </div>
-        <div class="summary col-md-6 offset-3 mb-5 p-5">
+        <div class="summary col-12 col-md-6 offset-lg-3 mb-5 p-5">
           <div class="row">
             <span class="col-4 left">Choosen provider</span>
             <span class="col-8 right"><%= @subscription.product.company %></span>
@@ -69,7 +69,7 @@
             <span class="col-8 right"><%= @subscription.product.price %>€/month</span>
           </div>
       </div>
-      <div class="col-md-12 mb-5 text-center">
+      <div class="col-md-12 mb-5 d-flex justify-content-center">
         <%= link_to "Confirm", validate_subscription_path(@subscription), method: :patch, class: 'btn-main'%>
       </div>
     </div>
