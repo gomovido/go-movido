@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users', to: 'registrations#new'
   end
-  root to: 'pages#home'
-  get 'dashboard', to: 'pages#dashboard_index', as: 'dashboard_index'
+  unauthenticated do
+    root 'pages#home'
+  end
+  authenticated do
+    root 'pages#dashboard_index', as: 'dashboard_index'
+  end
+
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
