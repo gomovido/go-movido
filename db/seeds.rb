@@ -40,7 +40,7 @@ end
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
 form_timer: Faker::Number.number(digits: 1),
-subtitle: 'See top Real Estate listings',
+subtitle: 'Get your local phone number',
 description: 'Find the perfect place for you to stay in your new hometown')
 product = Product.create(
   company: "SFR",
@@ -204,3 +204,39 @@ product = Product.create(
      subscription: Subscription.all.sample
    )
  end
+
+category = Category.create(
+  name: 'housing',
+  sku: 'housing',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'See top Real Estate listings',
+  description: 'Find the perfect place for you to stay in your new hometown')
+
+category = Category.create(
+  name: 'bank',
+  sku: 'mobile_phone',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'Open a bank account',
+  description: 'Find the perfect place for you to stay in your new hometown')
+
+category = Category.create(
+  name: 'gym',
+  sku: 'gym',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'See the best workout offers',
+  description: 'Find the perfect place for you to stay in your new hometown')
+
+category = Category.create(
+  name: 'transportation',
+  sku: 'transportation',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'Get your local transportation',
+  description: 'Find the perfect place for you to stay in your new hometown')
+
+
+category = Category.create(
+  name: 'wifi',
+  sku: 'wifi',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'Set-up WiFi at home',
+  description: 'Find the perfect place for you to stay in your new hometown')
