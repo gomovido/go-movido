@@ -1,5 +1,13 @@
 .navbar-lewagon {
   background: $white;
+  .btn-minor {
+    color: $white !important;
+    background-color: $orange;
+    &:hover {
+      background: $light-pink;
+      color: $orange !important;
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,6 +23,10 @@ a.navbar-brand {
   color: $blue;
   font-size: 24px;
   font-weight: bold !important;
+}
+
+.logo {
+  width: 110px;
 }
 
 @include media-breakpoint-down(xs) {
