@@ -10,16 +10,11 @@
     display: flex;
     visibility: visible;
     opacity: 1;
-    transition: 0.5s;
   }
-  i {
-    transition: 0.5s;
-  }
+
   .description-wrapper {
     height: 0px;
     opacity: 0;
-    transition: visibility 0.2s, opacity 0.5s linear;
-    transition: 0.5s;
     img {
       position: absolute;
       top: -15px;
@@ -40,12 +35,6 @@
     min-height: 0px;
     height: 0px;
     opacity: 0;
-    transition: visibility 0.2s, opacity 0.5s linear;
-    transition: 0.5s;
-  }
-  i {
-    transform: rotate(180deg);
-    transition: 0.5s;
   }
   .description-wrapper {
     min-height: 200px;
@@ -55,7 +44,6 @@
     opacity: 1;
     position: relative;
     top: -20px;
-    transition: 0.5s;
   }
 }
 
