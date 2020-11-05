@@ -1,6 +1,7 @@
 .subscriptions-container {
   background-size: cover;
   background-position: center;
+  z-index: -100;
   h1 {
     color: $blue;
     font-weight: 800;
