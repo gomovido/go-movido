@@ -16,6 +16,6 @@ class Address < ApplicationRecord
   end
 
   def check_country
-    self.country == 'France' || 'Royaume-Uni'
+    self.country == self.user.country
   end
 end
