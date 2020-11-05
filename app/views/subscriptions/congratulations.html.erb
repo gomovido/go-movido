@@ -28,7 +28,7 @@
         </div>
         <hr>
         <div class="row">
-          <span class="col-4 left">Email</span>
+          <span class="col-4 left">Email address</span>
           <span class="col-8 right"><%= @subscription.address.user.email %></span>
         </div>
         <hr>
@@ -44,7 +44,7 @@
         <hr>
         <% if @subscription.delivery_address %>
         <div class="row">
-          <span class="col-4 left d-flex align-items-center">Billing address</span>
+          <span class="col-4 left d-flex align-items-center">Delivery address</span>
           <span class="col-8 right"><%= @subscription.delivery_address %></span>
         </div>
         <hr>
