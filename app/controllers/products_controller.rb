@@ -13,4 +13,11 @@ class ProductsController < ApplicationController
       @products = Product.where(category: @category)
     end
   end
+
+  def modal
+    @product = Product.friendly.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+  end
 end
