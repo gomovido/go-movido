@@ -5,4 +5,9 @@ class Product < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :product_features, dependent: :destroy
   validates :sku, presence: true
+
+
+  def eligible?
+    self.category.name == 'mobile' ? true : current_user.active_address.valid_address
+  end
 end

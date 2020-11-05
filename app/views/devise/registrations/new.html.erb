@@ -52,6 +52,12 @@
                         required: true,
                         label: false,
                         input_html: { placeholder: 'City I am moving to', data: { target: 'registration.cityMoving' } } %>
+            <div class="d-flex align-items-center mb-2">
+              <%= f.check_box :not_housed,
+                        required: true,
+                        label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'} %>
+              <label class="m-0 pl-2">I don’t have an address yet</label>
+            </div>
             <%= f.simple_fields_for :addresses do |s| %>
                 <%= s.input :street,
                         required: true,
@@ -63,12 +69,6 @@
                 <%= s.hidden_field :country %>
                 <%= s.hidden_field :city %>
             <% end %>
-            <div class="d-flex align-items-center mb-2">
-              <%= f.check_box :not_housed,
-                        required: true,
-                        label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'} %>
-              <label class="m-0 pl-2">I don’t have an address yet</label>
-            </div>
             <%= f.input :password,
                         required: true,
                         label: false,
