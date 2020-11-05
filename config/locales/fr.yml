@@ -1,4 +1,8 @@
-fr:
+en:
   pages:
     home:
-      hello: 'Bonjour le monde !'
+      hello: 'Hello world !'
+  devise:
+    new:
+      fr: 'France'
+      uk: 'Royaume-Uni'

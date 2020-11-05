@@ -43,20 +43,22 @@
                         required: true,
                         label: false,
                         input_html: { placeholder: 'Mobile Phone', data: { target: 'registration.phone' } } %>
+            <%= f.input :country,
+                        required: true,
+                        label: false,
+                        collection: ['France', 'United Kingdom'],
+                        prompt: "Country I am moving to", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}} %>
             <%= f.input :city,
                         required: true,
                         label: false,
-                        collection: ['Paris', 'London'],
-                        prompt: "City I am moving to" %>
-
+                        input_html: { placeholder: 'City I am moving to', data: { target: 'registration.cityMoving' } } %>
             <%= f.simple_fields_for :addresses do |s| %>
                 <%= s.input :street,
                         required: true,
                         label: false,
                         input_html: { placeholder: 'Address I am moving to', data: {
                           target: 'registration.addressInput'
-                        }, id:"address-input" }
-                %>
+                        }}%>
                 <%= s.hidden_field :zipcode %>
                 <%= s.hidden_field :country %>
                 <%= s.hidden_field :city %>

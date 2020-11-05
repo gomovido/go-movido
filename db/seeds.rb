@@ -9,7 +9,7 @@
    last_name: Faker::Name.last_name,
    username: Faker::Name.unique.name,
    phone: "+33#{Faker::Number.number(digits: 9)}",
-   city: Faker::Address.city,
+   country: ['France', 'United Kingdom'].sample,
    birthdate: Time.now,
    birth_city: 'Paris',
    not_housed: not_housed,
