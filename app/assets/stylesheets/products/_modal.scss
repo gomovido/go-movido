@@ -1,0 +1,61 @@
+.modal-product {
+  hr {
+    border-top: 1px solid $grey !important;
+  }
+  .modal-dialog {
+    max-width: 1110px;
+    .modal-content {
+      .modal-body {
+        .content {
+          max-height: 600px;
+          .left {
+            overflow: scroll;
+            .modal-img {
+              width: 100px;
+              margin-right: 3rem;
+              border-right: 1px solid $grey;
+              padding-right: 2rem;
+            }
+            .main-title {
+              color: $black;
+              font-size: 20px;
+            }
+            .title {
+              color: $blue;
+              font-size: 18px;
+            }
+            .desc {
+              color: $black;
+              font-weight: 400;
+              font-size: 16px;
+            }
+          }
+          .right {
+            width: 40%;
+            background-color: $light-blue;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            .bottom {
+              height: 100%;
+            }
+            .price {
+              font-weight: 800;
+              color: $blue;
+              font-size: 36px;
+            }
+            .desc-grey {
+              color: $grey;
+            }
+            .sub-price {
+              color: $grey;
+            }
+            .features-lite-wrapper {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

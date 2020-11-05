@@ -53,6 +53,31 @@
   }
 }
 
+.number-field {
+  color: $dark-grey;
+}
+
 .noUi-connect {
   background: $orange !important;
+}
+
+.noUi-horizontal {
+  height: 10px !important;
+}
+
+.noUi-horizontal .noUi-handle {
+  border-radius: 50% !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.noUi-touch-area {
+  background: $white !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  border: 4px solid $orange !important;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+  display: none !important;
 }

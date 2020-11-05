@@ -1,0 +1,39 @@
+<div class="product-card d-flex flex-column pl-3 pr-3 pb-4 pt-4 mb-4">
+  <div class="infos-wrapper d-flex align-items-center justify-content-between">
+    <div class="info d-flex flex-column p-2 border-right">
+      <%= image_tag(asset_path(product.logo_url), style:"height: 35px;", class:"mr-4") %>
+    </div>
+    <div class="info d-flex flex-column p-2">
+      <span class="top"><%= product.time_contract %></span>
+      <span class="bot">contract</span>
+    </div>
+    <div class="info d-flex flex-column p-2">
+      <span class="top"><%= product.data_limit %></span>
+      <span class="bot">for 4G data</span>
+    </div>
+    <div class="info d-flex flex-column p-2">
+      <span class="top"><%= product.call_limit %></span>
+      <span class="bot">minutes</span>
+    </div>
+    <div class="info d-flex flex-column p-2">
+      <span class="top">Unlimited</span>
+      <span class="bot">texts</span>
+    </div>
+    <div class="price d-flex flex-column p-2">
+      <span class="top">€<%= product.price%></span>
+      <span class="bot">per month</span>
+    </div>
+  </div>
+  <div class="details-wrapper d-flex align-items-center justify-content-between">
+    <div class="infos d-flex">
+      <div class="info d-flex flex-column p-2">
+        <span><%= product.description %></span>
+      </div>
+    </div>
+    <div class="actions d-flex align-items-center justify-content-end">
+      <%= link_to 'Details', modal_product_path(product), data: {controller: 'product', target: '#exampleModal',
+        action: 'click->product#loadProduct', href: modal_product_path(product), toggle: 'modal'}, class:"mr-4 detail" %>
+      <%= link_to 'Select', new_category_product_subscription_path(product.category, product), class:'btn-card' %>
+    </div>
+  </div>
+</div>
