@@ -42,15 +42,15 @@
         <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
       </div>
       <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="city" class="m-0">City I am moving to</label>
+        <label for="country" class="m-0">Country I am moving to</label>
         <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="3"><%= current_user.city %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="city"></i>
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="3"><%= current_user.country %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="country"></i>
         </div>
       </div>
       <hr>
-      <div data-target="profil-form.input" id="city" class="form-input d-none p-1">
-        <%= form.select :city, [['Paris'], ['London']], class:'form-control'  %>
+      <div data-target="profil-form.input" id="country" class="form-input d-none p-1">
+        <%= form.select :country, [['France'], ['United Kingdom']], class:'form-control'  %>
         <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
       </div>
       <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
