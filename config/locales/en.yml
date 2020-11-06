@@ -1,8 +1,6 @@
 en:
-  pages:
-    home:
-      hello: 'Hello world !'
   devise:
-    new:
-      fr: 'France'
-      uk: 'United Kingdom'
+    registrations:
+      new:
+        uk: 'United Kindom'
+        fr: 'France'

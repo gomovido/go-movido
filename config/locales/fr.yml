@@ -1,8 +1,6 @@
-en:
-  pages:
-    home:
-      hello: 'Hello world !'
+fr:
   devise:
-    new:
-      fr: 'France'
-      uk: 'Royaume-Uni'
+    registrations:
+      new:
+        uk: 'Royaume-Uni'
+        fr: 'France'
