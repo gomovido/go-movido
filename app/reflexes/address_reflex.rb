@@ -6,8 +6,7 @@ class AddressReflex < ApplicationReflex
   end
 
   def submit
-    p "I'm in the reflex submit"
-    p @address
+    @address.valid_address = true 
     @address.user = current_user
     @address.save
   end
