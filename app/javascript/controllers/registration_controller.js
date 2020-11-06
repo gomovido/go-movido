@@ -11,12 +11,12 @@ export default class extends Controller {
     displayAddressAutocomplete(this.addressInputTarget);
     displayBirthCityAutocomplete(this.cityInputTarget);
     this.placeInstance = displayBirthCityAutocomplete(this.cityMovingTarget);
-    this.checkboxAddressTarget.checked ? document.querySelector('.user_addresses_street').classList.add('d-none') : document.querySelector('.user_addresses_street').classList.remove('d-none');
+    this.checkboxAddressTarget.checked ? document.querySelector('#addressInput').classList.add('d-none') : document.querySelector('#addressInput').classList.remove('d-none');
 
   }
 
   toggleAddress() {
-    document.querySelector('.user_addresses_street').classList.toggle('d-none');
+    document.querySelector('#addressInput').classList.toggle('d-none');
     this.addressInputTarget.value = '';
   }
 

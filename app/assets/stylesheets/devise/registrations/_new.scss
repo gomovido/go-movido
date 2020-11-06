@@ -20,6 +20,7 @@
     color: $dark-grey;
     font-size: 14px;
     line-height: 19.07px;
+    width: 50%;
   }
   select {
     border-radius: 0;
@@ -27,6 +28,7 @@
     height: calc(1.5em + 0.70rem + 10px);
     color: $grey;
     font-size: 14px;
+    -webkit-appearance:none;
   }
   border-radius: 10px;
   height: calc(1.5em + 0.75rem + 13px);

@@ -67,7 +67,7 @@
                         required: true,
                         label: false,
                         collection: ['France', 'United Kingdom'],
-                        prompt: "Choise", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}} %>
+                        prompt: "Choose", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}} %>
             </div>
             <div class="registration-input">
               <span>City I am moving to</span>
@@ -75,6 +75,7 @@
                         required: true,
                         label: false,
                         input_html: { placeholder: 'City I am moving to', data: { target: 'registration.cityMoving' } } %>
+            </div>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,
                         required: true,
@@ -82,7 +83,7 @@
               <label class="m-0 pl-2">I don’t have an address yet</label>
             </div>
             <%= f.simple_fields_for :addresses do |s| %>
-              <div class="registration-input">
+              <div class="registration-input" id="addressInput">
                 <span>Address I am moving to</span>
                   <%= s.input :street,
                         required: true,
@@ -95,12 +96,6 @@
                 <%= s.hidden_field :country, id:'address_country' %>
                 <%= s.hidden_field :city, id:'address_city' %>
             <% end %>
-            <div class="d-flex align-items-center mb-2">
-              <%= f.check_box :not_housed,
-                        required: true,
-                        label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'} %>
-              <label class="m-0 pl-2">I don’t have an address yet</label>
-            </div>
             <div class="registration-input">
               <span>Password</span>
                 <%= f.input :password,
