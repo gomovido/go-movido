@@ -242,3 +242,5 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'Set-up WiFi at home',
   description: 'Find the perfect place for you to stay in your new hometown')
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
