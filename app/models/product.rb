@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   validates :sku, presence: true
 
 
-  def eligible?
-    self.category.name == 'mobile' ? true : current_user.active_address.valid_address
+  def eligible?(user)
+    self.category.name == 'mobile' ? true : user.active_address.valid_address
   end
 end
