@@ -5,7 +5,7 @@ export default function phoneInput(element) {
     preferredCountries: ['fr']
   });
   if (!element.value) {
-    element.value = `+${document.querySelector('.iti__active').getAttribute('data-dial-code')}`;
+    element.value = document.querySelector('.iti__selected-flag').getAttribute('title').split(' ')[1];
   }
   const countries = document.querySelectorAll('.iti__country');
   countries.forEach((country) => {
