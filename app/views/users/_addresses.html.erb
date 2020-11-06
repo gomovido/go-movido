@@ -1,0 +1,49 @@
+<div class="py-4 subscriptions-index-container">
+  <div class="subscriptions-wrapper">
+    <h4 class="section-title text-center py-3 mb-0 border-bottom">Addresses</h4>
+    <div class="rows px-lg-1 px-3">
+      <% current_user.addresses.order("active DESC").each do |address| %>
+        <div class="addresses-card-wrapper">
+          <div class="address-card d-flex align-items-center m-3">
+            <i class="fas fa-map-marker-alt p-3"></i>
+            <div class="d-flex flex-column">
+              <span>logement</span>
+              <span class="address"> <%= address.street %> </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="addresses-card-wrapper" data-controller="profil-form">
+        <div class="address-card d-flex align-items-center m-3 add-card-border" data-target="profil-form.addAddressButton"
+        data-action='click->profil-form#toggleAddressAutocomplete'
+        >
+          <i class="far fa-plus-square p-3"></i>
+          <div class="d-flex flex-column">
+            <span></span>
+            <span class="address"> Add new address </span>
+          </div>
+        </div>
+        <div class="address-card align-items-center m-3 d-none" data-target="profil-form.addAddressInput">
+          <i class="fas fa-map-marker-alt p-3"></i>
+          <div class="flex align-items-center w-100">
+            <%= simple_form_for(@address) do |f| %>
+            <div class="d-flex align-items-center">
+              <%= f.input :street,
+                    required: true,
+                    label: false,
+                    input_html: { data: {
+                      target: 'profil-form.addressInput',
+                      reflex_dataset:'combined'
+                    }}%>
+                <%= f.hidden_field :zipcode, id:'address_zipcode' %>
+                <%= f.hidden_field :country, id:'address_country' %>
+                <%= f.hidden_field :city, id:'address_city' %>
+                <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-input">Add address</span>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
