@@ -26,7 +26,6 @@ export function displayBillingAutocomplete(element) {
 }
 
 export function displayBirthCityAutocomplete(element) {
-  console.log();
   return places({
     language: language,
     appId: 'pl32PKK41FYV',
