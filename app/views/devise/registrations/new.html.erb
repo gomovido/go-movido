@@ -17,7 +17,7 @@
           <%= f.error_notification %>
           <div class="form-inputs">
             <div class="registration-input">
-              <span>Email address</span>
+              <span class="placeholder-left">Email address</span>
               <%= f.input :email,
                           required: true,
                           label: false,
@@ -25,21 +25,21 @@
                           input_html: { autocomplete: "email", class:'input-clear'}%>
             </div>
             <div class="registration-input">
-              <span>First name</span>
+              <span class="placeholder-left">First name</span>
               <%= f.input :first_name,
                         required: true,
                         label: false,
                         input_html: { class:'input-clear' }%>
             </div>
             <div class="registration-input">
-              <span>Last name</span>
+              <span class="placeholder-left">Last name</span>
               <%= f.input :last_name,
                         required: true,
                         label: false,
                         input_html: { class:'input-clear' }%>
             </div>
             <div class="registration-input">
-              <span>City of birth</span>
+              <span class="placeholder-left">City of birth</span>
               <%= f.input :birth_city,
                         required: true,
                         label: false,
@@ -47,22 +47,22 @@
                         target: 'registration.cityInput'}}%>
             </div>
             <div class="registration-input">
-              <span>Birthdate</span>
+              <span class="placeholder-left">Birthdate</span>
               <%= f.input :birthdate, as: :string,
                          required: true,
                          label: false,
-                         input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker', data: {
+                         input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker p-xs-0 ml-xs-2', data: {
                           controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} } %>
             </div>
             <div class="registration-input">
-              <span>Phone</span>
+              <span class="placeholder-left">Phone</span>
                 <%= f.input :phone,
                         required: true,
                         label: false,
                         input_html: { placeholder: 'Mobile Phone', data: { target: 'registration.phone' } } %>
             </div>
             <div class="registration-input">
-              <span>Country I am moving to</span>
+              <span class="placeholder-left">Country I am moving to</span>
               <%= f.input :country,
                         required: true,
                         label: false,
@@ -70,7 +70,7 @@
                         prompt: "Choose", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}} %>
             </div>
             <div class="registration-input">
-              <span>City I am moving to</span>
+              <span class="placeholder-left">City I am moving to</span>
               <%= f.input :city,
                         required: true,
                         label: false,
@@ -84,7 +84,7 @@
             </div>
             <%= f.simple_fields_for :addresses do |s| %>
               <div class="registration-input" id="addressInput">
-                <span>Address I am moving to</span>
+                <span class="placeholder-left">Address I am moving to</span>
                   <%= s.input :street,
                         required: true,
                         label: false,
@@ -97,14 +97,14 @@
                 <%= s.hidden_field :city, id:'address_city' %>
             <% end %>
             <div class="registration-input">
-              <span>Password</span>
+              <span class="placeholder-left">Password</span>
                 <%= f.input :password,
                       required: true,
                       label: false,
                       input_html: { autocomplete: "new-password", placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) } %>
             </div>
             <div class="registration-input">
-              <span>Password confirmation</span>
+              <span class="placeholder-left">Password confirmation</span>
                 <%= f.input :password_confirmation,
                       required: true,
                       label: false,
