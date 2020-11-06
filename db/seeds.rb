@@ -42,6 +42,7 @@ sku: 'mobile_phone',
 form_timer: Faker::Number.number(digits: 1),
 subtitle: 'See top Real Estate listings',
 description: 'Find the perfect place for you to stay in your new hometown')
+
 product = Product.create(
   company: "SFR",
   name: "5 Go 4G+",

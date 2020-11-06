@@ -1,53 +1,52 @@
 <div class="content d-flex">
-  <div class="left p-5">
+  <div class="left p-lg-5 px-4 py-3">
     <div class="d-flex align-items-center">
       <%= image_tag(asset_path(@product.logo_url), class:'modal-img') %>
       <span class='main-title'><%= @product.company %> <%= @product.name %></span>
     </div>
     <hr>
     <div class="features-wrapper">
-      <% @product.product_features.each do |feature| %>
+      <% @product.product_features.each do |feature, index| %>
         <div class="feature py-4 d-flex flex-column">
           <p class="title"><%= feature.name %></p>
           <span class='desc'><%= feature.description %></span>
         </div>
-        <hr>
+        <% if feature != @product.product_features.last %>
+          <hr>
+        <% end %>
       <% end %>
     </div>
   </div>
-  <div class="right d-flex flex-column">
+  <div class="right d-flex flex-column px-2 px-lg-0">
     <div class="top d-flex flex-column justify-content-around my-5 align-items-center">
-      <div class="d-flex flex-column mb-4">
-        <span class='price text-center'>€ <%= @product.price %></span>
-        <span class="sub-price text-center">per month</span>
-      </div>
-      <%= link_to 'Select', new_category_product_subscription_path(@product.category, @product), class:'btn-card' %>
+      <span class='price text-center'>€ <%= @product.price %></span>
+      <span class="sub-price text-center">per month</span>
+      <%= link_to 'Select', new_category_product_subscription_path(@product.category, @product), class:'btn-card mt-3' %>
     </div>
     <hr>
     <div class="bottom d-flex align-items-center flex-column">
-      <div class="features-lite-wrapper pl-4 pr-4 d-flex flex-column justify-content-around">
-        <div class="feature-lite d-flex justify-content-between px-5 py-2">
+      <div class="features-lite-wrapper px-lg-4 px-3 py-lg-4 d-flex flex-column justify-content-around">
+        <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
           <span><strong><%= @product.data_limit %></strong></span>
-          <span class="desc-grey">for 4G data</span>
+          <span class="desc-grey">4G data</span>
         </div>
         <hr>
-        <div class="feature-lite d-flex justify-content-between px-5 py-2">
+        <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
           <span><strong>Sim card</strong></span>
           <span class="desc-grey"><%= @product.sim_card_price %>€</span>
         </div>
         <hr>
         <% if @product.obligation %>
-          <div class="feature-lite d-flex justify-content-between px-5 py-2">
+          <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
             <span><strong><%= @product.time_contract %></strong></span>
             <span class="desc-grey">contract</span>
           </div>
         <% else %>
-          <div class="feature-lite d-flex justify-content-between px-5 py-2">
+          <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
             <span><strong>No obligation</strong></span>
             <span class="desc-grey">contract</span>
           </div>
         <% end %>
-        <hr>
       </div>
     </div>
   </div>
