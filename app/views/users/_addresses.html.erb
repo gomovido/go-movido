@@ -25,19 +25,20 @@
         </div>
         <div class="address-card align-items-center m-3 d-none" data-target="profil-form.addAddressInput">
           <i class="fas fa-map-marker-alt p-3"></i>
-          <div class="flex align-items-center width">
+          <div class="flex align-items-center w-100">
             <%= simple_form_for(@address) do |f| %>
             <div class="d-flex align-items-center">
               <%= f.input :street,
                     required: true,
                     label: false,
                     input_html: { data: {
-                      target: 'profil-form.addressInput'
+                      target: 'profil-form.addressInput',
+                      reflex_dataset:'combined'
                     }}%>
                 <%= f.hidden_field :zipcode, id:'address_zipcode' %>
                 <%= f.hidden_field :country, id:'address_country' %>
                 <%= f.hidden_field :city, id:'address_city' %>
-                <%= f.button :submit, "Add address", class:'btn-input font-weight ml-2' %>
+                <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-input">Add address</span>
             </div>
             <% end %>
           </div>

@@ -1,11 +1,10 @@
-import { Controller } from "stimulus";
+import ApplicationController from './application_controller'
 import phoneInput from '../packs/phone-input';
 import displayAddressAutocomplete,{displayBirthCityAutocomplete} from '../packs/algolia';
 const places = require('places.js');
 
-export default class extends Controller {
+export default class extends ApplicationController {
   static targets = ['phone', 'submit', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'cityInput']
-
 
   toggleAddressAutocomplete() {
     this.addAddressInputTarget.classList.remove('d-none')
