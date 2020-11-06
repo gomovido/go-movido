@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :subscriptions, only: [:show ]
   resources :products, only: [:index]
+  resources :addresses, only: [:create]
   get 'products/modal/:id', to: 'products#modal', as: 'modal_product'
 
   resources :categories, only: [:index] do

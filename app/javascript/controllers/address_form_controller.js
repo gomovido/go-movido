@@ -1,8 +1,8 @@
-import ApplicationController from './application_controller'
+import { Controller } from "stimulus";
 import phoneInput from '../packs/phone-input';
 
 
-export default class extends ApplicationController {
+export default class extends Controller {
   static targets = ['phone', 'submit', 'input', 'mobilePhone']
 
   connect() {

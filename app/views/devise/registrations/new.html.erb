@@ -87,9 +87,9 @@
                           target: 'registration.addressInput'
                         }}%>
               </div>
-                <%= s.hidden_field :zipcode %>
-                <%= s.hidden_field :country %>
-                <%= s.hidden_field :city %>
+                <%= s.hidden_field :zipcode, id:'address_zipcode' %>
+                <%= s.hidden_field :country, id:'address_country' %>
+                <%= s.hidden_field :city, id:'address_city' %>
             <% end %>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,

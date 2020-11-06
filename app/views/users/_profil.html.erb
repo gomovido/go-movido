@@ -1,6 +1,6 @@
 <div class="col-md-4 col-12 p-lg-5 p-4">
   <div class="profil-form-wrapper px-4 pb-2">
-    <h4 class="section-title text-center py-3 mb-0">My profile</h4>
+    <h4 class="section-title text-center py-3 mb-0">Profile</h4>
     <hr class="mt-2">
     <%= form_with(model: @user, data: {controller: "profil-form", profil_form_reflex: "UserReflex#submit", reflex: "submit->UserReflex#submit" }, id:"profil-form") do |form| %>
       <div class="d-flex justify-content-between pl-3 pr-3">
@@ -68,7 +68,7 @@
       <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
         <label for="address" class="m-0">Current Address</label>
         <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"><%= current_user.active_address.street %></span>
+          <span class="pr-3"><%= current_user.active_address.street %></span>
           <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="address"></i>
         </div>
       </div>

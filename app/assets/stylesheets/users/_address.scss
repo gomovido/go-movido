@@ -1,0 +1,33 @@
+.addresses-card-wrapper {
+  .address-card {
+      border: 1px solid $grey;
+      border-radius: 10px;
+      cursor: pointer;
+    i {
+      font-size: 30px;
+      color: $dark-grey;
+    }
+    .address {
+      color: $dark-grey;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    &:hover {
+      background-color: $light-blue;
+      border: 1px solid $light-blue;
+    }
+  }
+}
+.add-card-border {
+  border-style: dashed !important;
+  .address {
+    color: $grey !important;
+  }
+}
+
+
+#new_address .form-group {
+  margin: 0 !important;
+  width: 100%;
+}
