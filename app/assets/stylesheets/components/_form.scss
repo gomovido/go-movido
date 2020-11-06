@@ -13,6 +13,10 @@ form input::placeholder {
   font-size: 12px;
 }
 
+select {
+  -webkit-appearance: none !important;
+}
+
 label {
   color: $blue;
   font-size: 12px;

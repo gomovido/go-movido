@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :billings, dependent: :destroy
 
   accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
-
+  COUNTRIES = [:fr, :uk]
 
   extend FriendlyId
   friendly_id :username, use: :slugged
