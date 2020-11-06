@@ -1,9 +1,18 @@
 import ApplicationController from './application_controller'
 import phoneInput from '../packs/phone-input';
-
+import displayAddressAutocomplete from '../packs/algolia';
+const places = require('places.js');
 
 export default class extends ApplicationController {
-  static targets = ['phone', 'submit', 'input']
+  static targets = ['phone', 'submit', 'input', 'addressInput', 'addAddressInput', 'addAddressButton']
+
+  toggleAddressAutocomplete() {
+    this.addAddressInputTarget.classList.remove('d-none')
+    this.addAddressInputTarget.classList.add('d-flex')
+    this.addAddressButtonTarget.classList.add('d-none')
+    this.addAddressButtonTarget.classList.remove('d-flex')
+    displayAddressAutocomplete(this.addressInputTarget);
+  }
 
   toggleInput(event) {
     const activeElement = document.getElementsByClassName('active')[0]
