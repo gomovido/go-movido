@@ -214,7 +214,7 @@ category = Category.create(
 
 category = Category.create(
   name: 'bank',
-  sku: 'mobile_phone',
+  sku: 'bank',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'Open a bank account',
   description: 'Find the perfect place for you to stay in your new hometown')
