@@ -29,6 +29,10 @@
   }
 }
 
+.disabled-card {
+  background: #80808061 !important;
+}
+
 .category-card:hover {
   background: $dark-blue;
   .title {

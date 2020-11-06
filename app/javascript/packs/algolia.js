@@ -10,9 +10,9 @@ export default function displayAddressAutocomplete(element) {
       countries: ['FR', 'GB']
     });
     placesAutocomplete.on('change', (e) => {
-      document.querySelector('#user_addresses_attributes_0_zipcode').value = e.suggestion.postcode
-      document.querySelector('#user_addresses_attributes_0_country').value = e.suggestion.country
-      document.querySelector('#user_addresses_attributes_0_city').value = e.suggestion.county
+      document.querySelector('#address_zipcode').value = e.suggestion.postcode
+      document.querySelector('#address_country').value = e.suggestion.country
+      document.querySelector('#address_city').value = e.suggestion.county
     });
 }
 
@@ -26,7 +26,6 @@ export function displayBillingAutocomplete(element) {
 }
 
 export function displayBirthCityAutocomplete(element) {
-  console.log();
   return places({
     language: language,
     appId: 'pl32PKK41FYV',
