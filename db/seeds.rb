@@ -243,4 +243,22 @@ category = Category.create(
   subtitle: 'Set-up WiFi at home',
   description: 'Find the perfect place for you to stay in your new hometown')
 
+product = Product.create(
+  company: "Free",
+  name: "Free wifi",
+  description: 'France & Europe 3month Spotify Premium for free',
+  price: 19.99,
+  category: category,
+  sku: "b&u_100_go",
+  unlimited_data: false,
+  unlimited_call: true,
+  obligation: false,
+  time_contract: 'no',
+  data_limit: '100go',
+  delivery_price: '0',
+  delivery: false,
+  sim_card_price: 1.00,
+  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/B%26YOU_logo.jpeg'
+)
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -1,5 +1,5 @@
 <div class="col-md-6 col-6 d-flex mb-4 <%= index.even? ? 'justify-content-end' : 'justify-content-start'%>">
-  <div class="category-card d-flex text-center align-items-center justify-content-center flex-column p-md-4 <%= 'disabled-card' if category.name != 'mobile' %>">
+  <div class="category-card d-flex text-center align-items-center justify-content-center flex-column p-md-4 <%= 'disabled-card' unless category.name == 'mobile' || category.name == 'wifi' %>">
     <div class="title justify-content-center flex-column align-items-center p-4">
       <div class="border-bottom pb-3 mb-4">
         <%= image_tag(asset_path("#{category.name}-white.png")) %>
@@ -13,7 +13,7 @@
         <span class='font-weight mb-1'><%= category.form_timer %> mins</span>
         <span><%= category.description %></span>
       </div>
-        <% if category.name == 'mobile' %>
+        <% if category.name == 'mobile' || category.name == 'wifi' %>
           <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>
         <% else %>
           <%= link_to 'Coming soon', '', class:'btn-card disabled' %>

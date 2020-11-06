@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users', to: 'registrations#new'
   end
-  unauthenticated do
+  unauthenticated :user do
     root 'pages#home'
   end
-  authenticated do
+  authenticated :user do
     root 'pages#dashboard_index', as: 'dashboard_index'
   end
 
