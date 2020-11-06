@@ -16,7 +16,7 @@
         <% if category.name == 'mobile' || category.name == 'wifi' %>
           <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>
         <% else %>
-          <%= link_to 'Coming soon', '', class:'btn-card disabled' %>
+          <span class='coming-soon'>Coming soon</span>
         <% end %>
     </div>
   </div>

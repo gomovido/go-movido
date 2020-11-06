@@ -1,8 +1,8 @@
 class UserReflex < ApplicationReflex
-  delegate :current_user, to: :connection
   include ActionController::Flash
   before_reflex do
-    current_user.assign_attributes(user_params)
+    @user = User.friendly.find(params[:id])
+    @user.assign_attributes(user_params)
   end
 
   after_reflex do
@@ -10,7 +10,7 @@ class UserReflex < ApplicationReflex
   end
 
   def submit
-    current_user.save
+    @user.save
   end
 
   private

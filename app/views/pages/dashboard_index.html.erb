@@ -1,5 +1,5 @@
 <div class="container-fluid subscriptions-container py-5" style="background-image:url(<%= asset_path 'illus.png' %>);">
-  <div class="container mt-5 height">
+  <div class="container mt-5">
     <div class="row cards-wrapper">
       <% @categories.each_with_index do |category, index| %>
         <%= render 'categories/card', index: index, category: category %>
