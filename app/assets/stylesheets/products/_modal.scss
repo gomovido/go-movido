@@ -59,3 +59,17 @@
     }
   }
 }
+
+
+@include media-breakpoint-only(xs) {
+
+  .modal-product {
+    .modal-img {
+      margin: 0 !important;
+      border: none !important;
+    }
+  .desc {
+    text-align: left;
+  }
+  }
+}
