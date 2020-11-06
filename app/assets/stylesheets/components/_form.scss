@@ -19,11 +19,6 @@ label {
   font-weight: 800;
 }
 
-
-.algolia-places {
-  width: 100% !important;
-}
-
 .form-control[readonly]  {
   background-color: $white;
 }
@@ -39,4 +34,18 @@ label {
 
 .iti {
   width: 100%;
+}
+
+
+
+@include media-breakpoint-down(md) {
+  .registration-input {
+    .placeholder-left {
+      width: 50%;
+    }
+    .ap-with-places {
+      width: 95vw !important;
+      left: -145px !important;
+    }
+  }
 }
