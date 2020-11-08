@@ -34,7 +34,7 @@
         <div class="input-wrapper mb-3">
           <label for="delivery_address" class="mb-3">Delivery address</label>
           <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-            <%= f.text_field :delivery_address, class:'form-control', label: false, data: {target: 'subscription.deliveryAddressInput'} %>
+            <%= f.text_field :delivery_address, class:'form-control', value: "#{current_user.active_address.street}", label: false, data: {target: 'subscription.deliveryAddressInput'} %>
           </div>
         </div>
         <div class="actions d-flex justify-content-around">
