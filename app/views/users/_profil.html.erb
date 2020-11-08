@@ -2,7 +2,7 @@
   <div class="profil-form-wrapper px-4 pb-2">
     <h4 class="section-title text-center py-3 mb-0">Profile</h4>
     <hr class="mt-2">
-    <%= form_with(model: @user, data: {controller: "profil-form", profil_form_reflex: "UserReflex#submit", reflex: "submit->UserReflex#submit" }, id:"profil-form") do |form| %>
+    <%= form_with(model: @user, data: {controller: "profil-form", reflex: "submit->UserReflex#submit" }, id:"profil-form") do |form| %>
       <div class="d-flex justify-content-between pl-3 pr-3">
         <div class="d-flex pt-2 profil-input-wrapper flex-column">
           <label for="first_name" class="m-0">First name</label>

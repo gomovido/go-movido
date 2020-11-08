@@ -1,4 +1,7 @@
 .addresses-card-wrapper {
+  .address-card.active {
+    background: $light-blue;
+  }
   .address-card {
       border: 1px solid $grey;
       border-radius: 10px;
