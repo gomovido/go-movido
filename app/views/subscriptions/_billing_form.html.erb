@@ -29,14 +29,14 @@
             <div class="input-wrapper mb-3">
               <label for="address" class="mb-3">Billing address</label>
               <div class="input text-right d-flex justify-content-end pr-3">
-                <%= s.text_field :address, required: true, label: false, data: {target: 'subscription.billingAddressInput'}, input_html: {class:'form-control'} %>
+                <%= s.input :address, required: true, label: false, input_html: {class:'form-control', data: {target: 'subscription.billingAddressInput'}} %>
               </div>
             </div>
           <% end %>
           <div class="input-wrapper mb-3">
             <label for="delivery_address" class="mb-3">Delivery address</label>
             <div class="input text-right d-flex justify-content-end pr-3">
-              <%= f.text_field :delivery_address, required: true, label: false, data: {target: 'subscription.deliveryAddressInput'}, input_html: {class:'form-control'}  %>
+              <%= f.input :delivery_address, required: true, label: false, hint: 'Billing and delivery addresses need to be the same', readonly: true, input_html: { class: 'form-control', data: {target: 'subscription.deliveryAddressInput'}} %>
             </div>
           </div>
            <div class="actions d-flex justify-content-around">
