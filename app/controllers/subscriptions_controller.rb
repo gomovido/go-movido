@@ -32,12 +32,8 @@ class SubscriptionsController < ApplicationController
       redirect_to subscription_summary_path(@subscription)
     else
       @category = product.category
-      render 'new'
+      render :new
     end
-  end
-
-  def update
-    @subscription = Subscription.new
   end
 
   def summary
@@ -69,7 +65,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, billing_attributes: [:address, :first_name, :last_name, :bic, :iban, :bank, :user_id])
+    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id])
   end
 
   def set_product
