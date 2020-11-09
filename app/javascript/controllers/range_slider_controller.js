@@ -7,7 +7,7 @@ export default class extends ApplicationController {
 
   connect() {
     let l = 1
-    let h = 80
+    let h = 50
     var url = document.location.search.split('=')
     if (url.length > 2) {
       l = url[url.length - 2].slice(0,2).replace(/[^a-zA-Z0-9]/g, '')
@@ -22,7 +22,7 @@ export default class extends ApplicationController {
         step: 1,
         range: {
             'min': 1,
-            'max': 100
+            'max': 50
         }
     });
     slider.noUiSlider.on('change.one', function (e) {
