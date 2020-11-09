@@ -17,6 +17,13 @@
           <span class="col-8 right"><%= @subscription.product.name %></span>
         </div>
         <hr>
+        <% if @subscription.sim %>
+          <div class="row">
+            <span class="col-4 left">SIM Card</span>
+            <span class="col-8 right"><%= @subscription.sim %></span>
+          </div>
+          <hr>
+        <% end %>
         <div class="row">
           <span class="col-4 left">Name</span>
           <span class="col-8 right"><%= @subscription.address.user.first_name %></span>
