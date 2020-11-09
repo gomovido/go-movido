@@ -16,6 +16,9 @@ form input::placeholder {
 select {
   -webkit-appearance: none !important;
 }
+.invalid-feedback {
+  display: block !important;
+}
 
 label {
   color: $blue;
