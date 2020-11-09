@@ -10,8 +10,7 @@ class Address < ApplicationRecord
   #after_update :clean_number, if: -> { self.phoned }
 
   def set_has_active
-    address = Address.find_by(active: true, user: self.user)
-    address.update(active: false) if address
+    Address.where(active: true, user: self.user).each {|address| address.update_columns(active: false)}
     self.update_columns(active: true)
   end
 
