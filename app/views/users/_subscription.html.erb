@@ -1,6 +1,6 @@
 <div class="subscription py-2 d-flex justify-content-between align-items-center">
   <div class="column"><%= image_tag(asset_path("#{subscription.product.category.name}.png"), class: "picto px-2 py-2") %></div>
-  <div class="column"><%= image_tag(asset_path("#{subscription.product.category.name}-logo.png"), class:"img")%></div>
+  <div class="column"><%= image_tag(asset_path(subscription.product.logo_url), class:"img") %></div>
   <span class="price column"><strong class="amount">€<%= subscription.product.price %></strong>/month</span>
   <span class="column d-lg-block d-none"><%= subscription.product.created_at.strftime('%m/%d/%Y') %></span>
   <span class="column d-lg-block d-none">info@revolut.com<br> +1 202 2554 566</span>
