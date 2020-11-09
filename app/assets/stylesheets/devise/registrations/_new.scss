@@ -12,6 +12,9 @@
   img {
     width: 80%
   }
+  .box-movido {
+    width: 100px;
+  }
 }
 
 
@@ -25,7 +28,6 @@
     border-radius: 0;
     border: none;
     height: calc(1.5em + 0.70rem + 10px);
-    color: $grey;
     font-size: 14px;
   }
   border-radius: 10px;
