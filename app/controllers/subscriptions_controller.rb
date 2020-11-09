@@ -32,7 +32,7 @@ class SubscriptionsController < ApplicationController
       redirect_to subscription_summary_path(@subscription)
     else
       @category = product.category
-      render :new
+      render new
     end
   end
 
