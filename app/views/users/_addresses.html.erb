@@ -4,12 +4,9 @@
     <div class="rows px-lg-1 px-3">
       <% current_user.addresses.order("active DESC").each do |address| %>
         <div class="addresses-card-wrapper">
-          <div class="address-card d-flex align-items-center m-3">
+          <div class="address-card d-flex align-items-center m-3 <%= address.active ? 'active' : '' %>" data-reflex="click->AddressReflex#default" data-address-id=<%= address.id %>>
             <i class="fas fa-map-marker-alt p-3"></i>
-            <div class="d-flex flex-column">
-              <span>logement</span>
-              <span class="address"> <%= address.street %> </span>
-            </div>
+            <span class="address"> <%= address.street %> </span>
           </div>
         </div>
       <% end %>
