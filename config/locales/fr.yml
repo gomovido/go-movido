@@ -2,7 +2,6 @@ fr:
   shared:
     cta:
       start: "C'est parti"
-
   pages:
     home:
       banner:
@@ -68,7 +67,6 @@ fr:
       bottom-banner:
         headline: 'movido simplifie<br> votre déménagement'
         text: 'Laissez movido prendre en charge votre travail administratif'
-
   devise:
     registrations:
       new:

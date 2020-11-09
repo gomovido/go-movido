@@ -13,7 +13,8 @@ class RegistrationsController < Devise::RegistrationsController
       end
       if user.save
         if params[:user][:addresses_attributes]['0']['street'].blank?
-          Address.create(user: user, country: params[:user]['country'], city: params[:user]['city'].split(',')[0], street: 'MOVIDO', valid_address: 'false')
+          street = params[:user]['city'].split(',')[0] + ', ' + params[:user]['country']
+          Address.create(user: user, country: params[:user]['country'], city: params[:user]['city'].split(',')[0], street: street, valid_address: 'false')
         else
           user.addresses.first.update(valid_address: true)
         end

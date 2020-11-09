@@ -1,9 +1,7 @@
 en:
-
   shared:
     cta:
       start: 'Get Started'
-
   pages:
     home:
       banner:
@@ -69,7 +67,6 @@ en:
       bottom-banner:
         headline: 'movido will simplify<br> your move'
         text: 'Spend time on things that matter –  <br>let movido deal with your admin work'
-
   devise:
     registrations:
       new:

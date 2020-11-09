@@ -1,6 +1,6 @@
 <div class="filters-wrapper d-lg-flex flex-column p-4 d-none">
   <span class="title font-weight">Filter your results</span>
-  <span class='products-count'><%= products.count %> deals of <%= @category.products.count %> deals</span>
+  <span class='products-count'><%= products.count %> out of <%= @category.products.count %> offers</span>
   <hr>
   <%= search_form_for @q, class:'d-flex flex-column', data: {controller: 'range-slider'} do |f| %>
     <%= f.hidden_field :category_id, value: products.first.category.slug %>
@@ -15,15 +15,17 @@
       <span class='label ml-2'>Unlimited Call</span>
     </div>
     <div class="input mb-1">
-      <%= check_box_tag('q[obligation_true]', 1, params[:q] && params[:q][:obligation_true].present?,
+      <%= check_box_tag('q[obligation_false]', 1, params[:q] && params[:q][:obligation_false].present?,
       onclick: ("this.form.submit();"), class:'checkround') %>
-      <span class='label ml-2'>Obligation</span>
+      <span class='label ml-2'>No contract</span>
     </div>
     <span class='filter-title text-center mt-3'>Filter by price</span>
     <div >
       <div class="input d-flex justify-content-around mt-3 mb-4">
         <%= f.text_field :price_gteq, class:'number-field  text-center', value: 1 %>
-        <%= f.text_field :price_lteq, class:'number-field  text-center', value: 80  %>
+        <span>€</span>
+        <%= f.text_field :price_lteq, class:'number-field  text-center', value: 50  %>
+        <span>€</span>
       </div>
       <div id="slider-range" data-target="range-slider.input" onclick="document.getElementById('product_search').submit();"></div>
     </div>
