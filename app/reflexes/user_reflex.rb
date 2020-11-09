@@ -1,16 +1,12 @@
 class UserReflex < ApplicationReflex
-  include ActionController::Flash
-  before_reflex do
-    @user = User.friendly.find(params[:id])
-    @user.assign_attributes(user_params)
-  end
+  delegate :current_user, to: :connection
 
-  after_reflex do
-    ##flash[:notice] = 'saved'
+  before_reflex do
+    current_user.assign_attributes(user_params)
   end
 
   def submit
-    @user.save
+    current_user.save
   end
 
   private

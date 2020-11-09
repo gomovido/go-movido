@@ -21,7 +21,7 @@
  2.times do
    Address.create(
      user: user,
-     country: Faker::Address.country,
+     country: 'France',
      city: Faker::Address.city,
      zipcode: Faker::Address.zip_code,
      street: Faker::Address.street_name,

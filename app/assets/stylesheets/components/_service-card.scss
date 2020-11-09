@@ -34,3 +34,16 @@
     opacity: 1;
   }
 }
+
+
+@include media-breakpoint-only(xs) {
+  .services-cards-wrapper {
+    top : 0;
+    .service-card {
+      margin: 10%;
+    }
+  }
+  #services-cards-responsive {
+    background-color: $blue;
+  }
+}
