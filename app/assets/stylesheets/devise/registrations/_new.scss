@@ -12,6 +12,9 @@
   img {
     width: 80%
   }
+  .box-movido {
+    width: 100px;
+  }
 }
 
 
@@ -25,7 +28,6 @@
     border-radius: 0;
     border: none;
     height: calc(1.5em + 0.70rem + 10px);
-    color: $grey;
     font-size: 14px;
   }
   border-radius: 10px;
@@ -66,11 +68,5 @@
     color: $blue;
     font-weight: 800;
     font-size: 22px;
-  }
-  .form-group-invalid {
-    .invalid-feedback {
-      display: block !important;
-      position: absolute;
-    }
   }
 }
