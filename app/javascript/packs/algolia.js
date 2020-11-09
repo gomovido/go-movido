@@ -17,7 +17,7 @@ export default function displayAddressAutocomplete(element) {
 }
 
 export function displayBillingAutocomplete(element) {
-  places({
+  return places({
     language: language,
     appId: 'pl32PKK41FYV',
     apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',

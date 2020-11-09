@@ -6,8 +6,11 @@ export default class extends Controller {
   static targets = [ "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
 
   connect() {
-    displayBillingAutocomplete(this.billingAddressInputTarget);
+    displayBillingAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
+      this.deliveryAddressInputTarget.value = e.suggestion.value
+    });
     displayBillingAutocomplete(this.deliveryAddressInputTarget);
+    $('[data-toggle="tooltip"]').tooltip();
     this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value);
   }
 
@@ -22,7 +25,7 @@ export default class extends Controller {
     window.scroll({top: 0});
     this.firstPartTarget.classList.remove('d-none');
     this.secondPartTarget.classList.add('d-none');
-    document.querySelector('.step-title').innerText = 'Please complete your payment details';
+    document.querySelector('.step-title').innerText = 'We just need a couple of more details';
   }
 
   fillBank() {
