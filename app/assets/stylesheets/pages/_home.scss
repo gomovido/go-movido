@@ -34,6 +34,13 @@ section {
   font-weight: 800;
 }
 
+.green {
+  color: $green;
+}
+
+.grey {
+  color: $grey;
+}
 
 @include media-breakpoint-only(xs) {
   section {

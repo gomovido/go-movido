@@ -152,7 +152,7 @@ ProductFeature.create(
 product = Product.create(
   company: "Bouygues Telecom",
   name: "100 go",
-  description: 'France & Europe 3month Spotify Premium for free',
+  description: 'France & Europe',
   price: 19.99,
   category: category,
   sku: "b&u_100_go",
@@ -162,9 +162,11 @@ product = Product.create(
   time_contract: 'no',
   data_limit: '100go',
   delivery_price: '0',
+  call_limit: 'unlimited',
   delivery: false,
   sim_card_price: 1.00,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/B%26YOU_logo.jpeg'
+  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/B%26YOU_logo.jpeg',
+  special_offer: '3month Spotify Premium for free'
 )
 
   ProductFeature.create(

@@ -10,7 +10,7 @@
     <div class="description-wrapper flex-column p-2">
       <%= image_tag(asset_path("#{category.name}-white.png")) %>
       <div class="description p-3 d-flex flex-column mb-2">
-        <span class='font-weight mb-1'><%= category.form_timer %> mins</span>
+        <span class='font-weight mb-1 green'><%= category.form_timer %> mins</span>
         <span><%= category.description %></span>
       </div>
         <% if category.name == 'mobile' || category.name == 'wifi' %>

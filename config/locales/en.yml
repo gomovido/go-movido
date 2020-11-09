@@ -1,4 +1,5 @@
 en:
+  currency: '£'
   devise:
     registrations:
       new:
