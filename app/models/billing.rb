@@ -10,6 +10,6 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-     errors.add(:country, 'You have to select an address in the same country') unless self.address.split(',')[-1].strip == self.user.country
+     self.errors.add(:address, "needs to be in #{self.user.country}") unless self.address.split(',')[-1].strip == self.user.country
   end
 end
