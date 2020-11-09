@@ -4,11 +4,11 @@
     <%= render 'product-details'%>
     <div class="container">
     <div class="row">
-      <div class="col-md-4 d-flex justify-content-center justify-content-center">
+      <div class="col-md-4 d-flex justify-content-start">
         <%= render 'filters', products: @products %>
       </div>
       <div class="col-md-8">
-        <h1 class="main-title mb-5 text-center">Find the best <%= @category_name == 'mobile' ? "#{@category_name} phone" : @category_name%> offers</h1>
+        <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name == 'mobile' ? "#{@products.first.category.name} phone" : @products.first.category.name %> offers</h1>
         <div class="products-cards-wrapper">
           <% @products.each do |product| %>
             <%= render 'card', product: product %>
