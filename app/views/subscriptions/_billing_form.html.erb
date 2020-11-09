@@ -27,14 +27,14 @@
             <div class="input-wrapper mb-3">
               <label for="address" class="mb-3">Billing address</label>
               <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-                <%= s.text_field :address, class:'form-control', label: false, value: "#{current_user.active_address.street}", data: {target: 'subscription.billingAddressInput'} %>
+                <%= s.input :address, required: true, label: false, input_html: {class:'form-control', data: {target: 'subscription.billingAddressInput'}} %>
               </div>
             </div>
           <% end %>
           <div class="input-wrapper mb-3">
             <label for="delivery_address" class="mb-3">Delivery address</label>
             <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-              <%= f.text_field :delivery_address, class:'form-control', value: "#{current_user.active_address.street}", label: false, data: {target: 'subscription.deliveryAddressInput'} %>
+              <%= f.input :delivery_address, required: true, label: false, input_html: {data: {target: 'subscription.deliveryAddressInput'}, class:'form-control'} %>
             </div>
           </div>
            <div class="actions d-flex justify-content-around">
