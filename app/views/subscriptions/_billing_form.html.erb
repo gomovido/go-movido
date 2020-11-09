@@ -1,45 +1,57 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <div class="form d-flex flex-column mb-4 p-4">
-      <%= simple_form_for [@category, @product, @subscription], data: {controller: "subscription"}, html: {id: '
-        billing-form', class:"d-flex flex-column"} do |f| %>
+      <%= simple_form_for [@category, @product, @subscription], data: {controller: "subscription"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
         <%= f.simple_fields_for :billing do |s| %>
           <%= s.hidden_field :user_id, value: current_user.id %>
-          <div class="input-wrapper mb-2">
-            <label for="iban" class="mb-3">IBAN</label>
-            <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-                <%= s.input :iban, class:'form-control', label: 'IBAN', required: true, label: false %>
+          <div data-target="subscription.firstPart">
+            <div class="input-wrapper mb-2">
+              <label for="iban" class="mb-3">IBAN</label>
+              <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+                  <%= s.input :iban, class:'form-control', label: 'IBAN', required: true, label: false %>
+              </div>
             </div>
-          </div>
-          <div class="input-wrapper mb-2">
-            <label for="bic" class="mb-3">BIC</label>
-            <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
-                <%= s.input :bic, class:'form-control', required: true, label: false %>
+            <div class="input-wrapper mb-2">
+              <label for="bic" class="mb-3">BIC</label>
+              <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
+                  <%= s.input :bic, class:'form-control', required: true, label: false %>
+              </div>
             </div>
-          </div>
-          <div class="input-wrapper mb-2">
-            <label for="bank" class="mb-3">Banking Institution</label>
-            <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
-                <%= s.input :bank, class:'form-control', required: true, label: false %>
+            <div class="input-wrapper mb-2">
+              <label for="bank" class="mb-3">Banking Institution</label>
+              <div class="input text-right d-flex justify-content-end pl-3 pr-3" >
+                  <%= s.input :bank, class:'form-control', required: true, label: false %>
+              </div>
             </div>
-          </div>
-          <hr>
+            <hr>
+            <div class="input-wrapper mb-3">
+              <label for="address" class="mb-3">Billing address</label>
+              <div class="input text-right d-flex justify-content-end pl-3 pr-3">
+                <%= s.text_field :address, class:'form-control', label: false, value: "#{current_user.active_address.street}", data: {target: 'subscription.billingAddressInput'} %>
+              </div>
+            </div>
+          <% end %>
           <div class="input-wrapper mb-3">
-            <label for="address" class="mb-3">Billing address</label>
+            <label for="delivery_address" class="mb-3">Delivery address</label>
             <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-              <%= s.text_field :address, class:'form-control', label: false, value: "#{current_user.active_address.street}", data: {target: 'subscription.billingAddressInput'} %>
+              <%= f.text_field :delivery_address, class:'form-control', value: "#{current_user.active_address.street}", label: false, data: {target: 'subscription.deliveryAddressInput'} %>
             </div>
           </div>
-        <% end %>
-        <div class="input-wrapper mb-3">
-          <label for="delivery_address" class="mb-3">Delivery address</label>
-          <div class="input text-right d-flex justify-content-end pl-3 pr-3">
-            <%= f.text_field :delivery_address, class:'form-control', label: false, data: {target: 'subscription.deliveryAddressInput'} %>
+           <div class="actions d-flex justify-content-around">
+            <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
+            <span class="btn-main" data-action="click->subscription#stepForward">Confirm</span>
           </div>
         </div>
-        <div class="actions d-flex justify-content-around">
-          <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
-          <%= f.button :submit, 'Confirm', class: 'btn-main'%>
+        <div class="d-none" data-target="subscription.secondPart">
+          <div class="d-flex sim-cards justify-content-around align-items-baseline">
+            <%= f.collection_radio_buttons(:sim, [['Nano SIM', 'nano'], ['Micro/Mini SIM', 'micro']], :first, :last, checked: 'Nano SIM') do |b| %>
+              <%= b.label { b.radio_button + b.value + image_tag(asset_path"#{b.text}.png") } %>
+            <% end %>
+          </div>
+          <div class="actions d-flex justify-content-around align-items-center mt-4">
+            <span class="btn-minor" data-action="click->subscription#stepBackward">Back</span>
+            <%= f.button :submit, 'Confirm', class: 'btn-main'%>
+          </div>
         </div>
       <% end %>
     </div>

@@ -37,6 +37,23 @@
   }
 }
 
+.sim-cards {
+  img {
+    width: 40%;
+    margin-bottom: 10px;
+  }
+  label {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 14px;
+    color: $dark-blue;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin-top: 10px,
+  }
+}
+
 .form-wrapper {
   width: 100%;
 }
