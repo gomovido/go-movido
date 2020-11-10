@@ -4,11 +4,11 @@
       <div class="container">
         <div class="content d-flex flex-column justify-content-around">
           <div class="headline mb-2">
-            <h1 class="m-0">Get set up<br> in your new home<br> <span>in only 10 mins</span></h1>
-            <p>movido takes care of your admin work</p>
+            <h1 class="m-0"><%= t('pages.home.banner.headline1').html_safe %><br><span><%= t('pages.home.banner.headline2') %></span></h1>
+            <p><%= t('pages.home.banner.subheadline') %></p>
           </div>
           <div>
-            <%= link_to 'Get started', new_user_registration_path, class:'btn btn-main' %>
+            <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
           </div>
         </div>
       </div>

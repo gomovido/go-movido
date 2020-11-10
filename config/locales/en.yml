@@ -1,5 +1,72 @@
 en:
-  currency: '£'
+  shared:
+    cta:
+      start: 'Get Started'
+  pages:
+    home:
+      banner:
+        headline1: 'Get set up</br> in your new home'
+        headline2: 'in only 10 mins'
+        subheadline: 'movido takes care of your admin work'
+      services-cards:
+        housing: 'see top Real Estate listings in your city'
+        bank: 'we open your bank account for you'
+        mobile: 'get your local phone number'
+        wifi: 'set up WiFi at your home'
+        gym: 'see the best gym offers in your area'
+        transportation: 'get your local transportation card'
+      how-it-works:
+        title: 'How it works'
+        card1:
+          title: 'Select services'
+          description: 'Select all services you need from a variety of offerings – from WiFi to gym, movido has all you need to get started in your new city'
+        card2:
+          title: 'Compare'
+          description: 'movido lists your selected services and compares different providers – this guarantees you will get the best package for the best price'
+        card3:
+          title: 'Choose'
+          description: 'You can now choose your preferred package – intuitively complete your subscriptions within minutes'
+        card4:
+          title: 'Manage'
+          description: 'movido provides a personalized overview of all your active admin services – easily manage your payments, contract duration and many more'
+      about-us:
+        title: 'About movido'
+        text: 'movido will help you set up all you need for your new home - from your local mobile number to your gym abo - and everything within 10 mins, so you can focus on the really important things in your new city. <br> <br>movido lists and compares all services you need in your new city - entirely free of charge - to make sure you always get the best offer at the best price. Once signed up, you can manage your service bundle on your personalized account'
+      why:
+        title: 'Why movido?'
+        text: 'Making moving simple is our philosophy. Easy, fast and intuitive - sign up to movido to get set in your new city in no time and 100% for free'
+        card1:
+          title: 'Fast'
+          description: 'get set-up in your new city in only 10 minutes instead of the usual 4 hours'
+        card2:
+          title: 'Smart'
+          description: 'compare services and benefit from the best prices and offers available'
+        card3:
+          title: 'Simple'
+          description: 'simply choose your preferred subscription from a variety of offerings'
+        card4:
+          title: 'Free'
+          description: 'use movido to choose and manage your subscriptions completely free of charge'
+      testimonials:
+        testimonial1:
+          from: 'Sweden'
+          to: 'Paris'
+          sentence: '"Most of the admin was in French. movido saved me time and money for my semester abroad in Paris"'
+        testimonial2:
+          from: 'Argentina'
+          to: 'Paris'
+          sentence: '"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi abo on top"'
+        testimonial3:
+          from: 'France'
+          to: 'London'
+          sentence: '"I struggled to find a good gym in my area – with movido I found the perfect one"'
+        testimonial4:
+          from: 'Japan'
+          to: 'Paris'
+          sentence: '"With movido I found the perfect flat in London before even moving there"'
+      bottom-banner:
+        headline: 'movido will simplify<br> your move'
+        text: 'Spend time on things that matter –  <br>let movido deal with your admin work'
   devise:
     registrations:
       new:
