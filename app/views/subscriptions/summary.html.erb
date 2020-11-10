@@ -1,10 +1,11 @@
 <div class="container subscriptions-container" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
   <%= render 'steps', step: 3, title: 'Confirmation' %>
     <div class="row mx-0">
-      <div class="col-md-12 text-center">
-        <h2 class="mb-4">Please confirm that we have your right details, <%= current_user.first_name %> !</h2>
+      <div class="col-md-12 text-center my-4">
+        <h2>Please confirm that we have your right details, <%= current_user.first_name %> !</h2>
+        <p>You can make modifications by clicking on the back button</p>
       </div>
-      <div class="summary col-12 col-md-6 offset-lg-3 mb-5 p-5">
+      <div class="summary col-12 col-md-6 offset-lg-3 mb-5 p-5 mt-4">
         <div class="row">
           <span class="col-4 left">Choosen provider</span>
           <span class="col-8 right"><%= @subscription.product.company %></span>
@@ -75,6 +76,7 @@
         </div>
     </div>
     <div class="col-md-12 mb-5 d-flex justify-content-center">
+      <%= link_to 'Back', url_for(:back), class: 'btn btn-minor mr-4' %>
       <%= link_to "Confirm", validate_subscription_path(@subscription), method: :patch, class: 'btn-main'%>
     </div>
   </div>
