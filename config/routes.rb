@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "sessions", registrations: "registrations"}
   devise_scope :user do
     get '/users', to: 'registrations#new'
+    get '/users', to: 'registrations#edit'
   end
   unauthenticated :user do
     root 'pages#home'
