@@ -13,11 +13,11 @@
         <span class='font-weight mb-1 green'><%= category.form_timer %> mins</span>
         <span><%= category.description %></span>
       </div>
-        <% if category.name == 'mobile' || category.name == 'wifi' %>
-          <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>
-        <% else %>
-          <span class='coming-soon'>Coming soon</span>
-        <% end %>
+      <% if category.name == 'mobile' || category.name == 'wifi' %>
+      <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>
+      <% else %>
+      <span class='coming-soon'>Coming soon</span>
+      <% end %>
     </div>
   </div>
 </div>
