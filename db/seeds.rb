@@ -49,6 +49,7 @@ product = Product.create(
   name: "5 Go 4G+",
   description: 'France & Europe',
   price: 12.00,
+  sim_needed: true,
   category: category,
   sku: "5_Go_4G+",
   unlimited_data: false,
