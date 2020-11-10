@@ -41,9 +41,18 @@
     top : 0;
     .service-card {
       margin: 10%;
+      .picto {
+        top: 0rem;
+        margin-bottom: 4px;
+      }
+      .desc {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
   #services-cards-responsive {
     background-color: $blue;
+    height: 100vh;
   }
 }
