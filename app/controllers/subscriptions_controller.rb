@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
 
   before_action :set_product, only: [:new, :create]
+  before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations]
 
   def create
     if @product.category.name != 'mobile'
@@ -32,25 +33,20 @@ class SubscriptionsController < ApplicationController
       redirect_to subscription_summary_path(@subscription)
     else
       @category = product.category
-      render new
+      render :new
     end
   end
 
-  def summary
-    @subscription = Subscription.find(params[:subscription_id])
-  end
+  def summary; end
 
   def validate_subscription
-    @subscription = Subscription.find(params[:subscription_id])
     if @subscription.update(state: 'pending_processed')
       flash[:notice] = "Your subscription is being processed"
       redirect_to subscription_congratulations_path
     end
   end
 
-  def congratulations
-    @subscription = Subscription.find(params[:subscription_id])
-  end
+  def congratulations; end
 
   def show
     @subscription = Subscription.find(params[:id])
@@ -63,6 +59,10 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def set_subscription
+    @subscription = Subscription.find(params[:subscription_id])
+  end
 
   def subscription_params
     params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id])

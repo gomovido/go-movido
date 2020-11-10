@@ -2,39 +2,33 @@
   background-size: cover;
   background-position: 0% 36%;
   height: 70vh;
-}
-
-.banner h1 {
-  color: $blue;
-  font-size: 64px;
-  font-weight: bold;
-}
-
-.banner span {
-  color: $dark-blue;
-}
-
-.banner p {
-  font-size: 24px;
-  color: $black;
-  font-weight: 300;
+  h1 {
+    color: $blue;
+    font-size: 64px;
+    font-weight: bold;
+  }
+  span {
+    color: $dark-blue;
+  }
+  p {
+    font-size: 24px;
+    color: $black;
+    font-weight: 300;
+  }
 }
 
 @include media-breakpoint-only(xs) {
   .banner {
-    height: 65vh !important;
+    height: 83vh;
     background-position: 19%;
-  }
-
-  .banner h1 {
-    font-size: 35px;
-  }
-
-  .banner p {
-    font-size: 19px;
-  }
-
-  .banner .container, .container .content {
-    height: 100%;
+    h1 {
+      font-size: 35px;
+    }
+    p {
+      font-size: 19px;
+    }
+    .container, .content {
+      height: 100%;
+    }
   }
 }
