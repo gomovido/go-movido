@@ -14,74 +14,82 @@
       <div class="registration-form-wrapper p-md-5 p-4" data-controller="registration">
         <h4 class="mb-3">Sign up</h4>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
           <div class="form-inputs">
             <div class="registration-input">
               <span class="placeholder-left">First name</span>
               <%= f.input :first_name,
                         required: true,
                         label: false,
-                        input_html: { class:'input-clear' }%>
+                        input_html: { class:'input-clear' }, error: false%>
             </div>
+            <%= f.full_error :first_name, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">Last name</span>
               <%= f.input :last_name,
                         required: true,
                         label: false,
-                        input_html: { class:'input-clear' }%>
+                        input_html: { class:'input-clear' }, error: false%>
             </div>
+            <%= f.full_error :last_name, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">City of birth</span>
               <%= f.input :birth_city,
                         required: true,
                         label: false,
                         input_html: { data: {
-                        target: 'registration.cityInput'}}%>
+                        target: 'registration.cityInput'}}, error: false%>
             </div>
+            <%= f.full_error :last_name, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">Date of birth</span>
               <%= f.input :birthdate, as: :string,
                          required: true,
                          label: false,
                          input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker p-xs-0 ml-xs-2', data: {
-                          controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} } %>
+                          controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} }, error: false %>
             </div>
+            <%= f.full_error :birthdate, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">Email address</span>
               <%= f.input :email,
                           required: true,
                           label: false,
                           autofocus: true,
-                          input_html: { autocomplete: "email", class:'input-clear'}%>
+                          input_html: { autocomplete: "email", class:'input-clear'}, error: false%>
             </div>
+            <%= f.full_error :email, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">Phone</span>
                 <%= f.input :phone,
                         required: true,
                         label: false,
-                        input_html: { placeholder: 'Mobile Phone', data: { target: 'registration.phone' } } %>
+                        input_html: { placeholder: 'Mobile Phone', data: { target: 'registration.phone' } }, error: false %>
             </div>
+            <%= f.full_error :phone, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">Country I am moving to</span>
               <%= f.input :country,
                         required: true,
                         label: false,
                         collection: t(User::COUNTRIES, scope: 'devise.registrations.new'),
-                        prompt: "Choose", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}} %>
+                        prompt: "Choose", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}}, error: false %>
             </div>
+            <%= f.full_error :country, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">City I am moving to</span>
               <%= f.input :city,
                         required: true,
                         label: false,
-                        input_html: { data: { target: 'registration.cityMoving' } } %>
+                        input_html: { data: { target: 'registration.cityMoving' } }, error: false %>
             </div>
+            <%= f.full_error :city, class: 'invalid-feedback text-right' %>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,
                         required: true,
-                        label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'} %>
+                        label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'}, error: false %>
               <label class="m-0 pl-2">I don’t have an address yet</label>
             </div>
+            <%= f.full_error :not_housed, class: 'invalid-feedback mb-3 text-right' %>
             <%= f.simple_fields_for :addresses do |s| %>
               <div class="registration-input" id="addressInput">
                 <span class="placeholder-left">Address I am moving to</span>
@@ -90,8 +98,9 @@
                         label: false,
                         input_html: { data: {
                           target: 'registration.addressInput'
-                        }}%>
+                        }}, error: false%>
               </div>
+              <%= s.full_error :street, class: 'invalid-feedback mb-3 text-right' %>
                 <%= s.hidden_field :zipcode, id:'address_zipcode' %>
                 <%= s.hidden_field :country, id:'address_country' %>
                 <%= s.hidden_field :city, id:'address_city' %>
@@ -101,15 +110,17 @@
                 <%= f.input :password,
                       required: true,
                       label: false,
-                      input_html: { autocomplete: "new-password", placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) } %>
+                      input_html: { autocomplete: "new-password", placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) }, error: false %>
             </div>
+            <%= f.full_error :password, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
               <span class="placeholder-left">Password confirmation</span>
                 <%= f.input :password_confirmation,
                       required: true,
                       label: false,
-                      input_html: { autocomplete: "new-password"} %>
+                      input_html: { autocomplete: "new-password"}, error: false %>
             </div>
+            <%= f.full_error :password_confirmation, class: 'invalid-feedback text-right' %>
           </div>
           <div class="form-actions text-lg-left text-center">
             <%= f.button :submit, "Register now", class:'btn btn-main' %>
