@@ -49,20 +49,8 @@
           </div>
         </div>
         <% if @product.sim_needed %>
-        <div class="d-none" data-target="subscription.secondPart">
-          <label for="sim" class="sim-label mr-2">Sim card size</label>
-          <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Tip:</strong> You can always take a pair of scissors and cut the plastic of your SIM card to turn your Standard / Micro SIM into a Nano SIM"></i>
-          <div class="d-flex sim-cards justify-content-around align-items-baseline">
-            <%= f.collection_radio_buttons(:sim, [['Nano', 'nano'], ['Standard / Micro', 'micro']], :first, :last, checked: 'Nano SIM') do |b| %>
-              <%= b.label { b.radio_button + b.value + image_tag(asset_path"#{b.text}.png") } %>
-            <% end %>
-          </div>
-          <div class="actions d-flex justify-content-around align-items-center mt-4">
-            <span class="btn-minor" data-action="click->subscription#stepBackward">Back</span>
-            <%= f.button :submit, 'Confirm', class: 'btn-main'%>
-          </div>
-        </div>
-      <% end %>
+          <%= render 'sim_form', f: f %>
+        <% end %>
       <% end %>
     </div>
   </div>
