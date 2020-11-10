@@ -7,6 +7,6 @@ class Subscription < ApplicationRecord
 
 
   def delivery_address_country
-     self.errors.add(:delivery_address, "needs to be in #{self.address.country}") unless self.delivery_address.split(',')[-1].strip == self.address.country
+     self.errors.add(:delivery_address, "needs to be in #{self.address.country}") unless !self.delivery_address.blank? && self.delivery_address.split(',')[-1].strip == self.address.country
   end
 end
