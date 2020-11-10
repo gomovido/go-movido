@@ -41,9 +41,14 @@
           </div>
            <div class="actions d-flex justify-content-around">
             <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
-            <span class="btn-main" data-action="click->subscription#stepForward">Confirm</span>
+            <% if @product.sim_needed %>
+              <span class="btn-main" data-action="click->subscription#stepForward">Confirm</span>
+            <% else %>
+              <%= f.button :submit, 'Confirm', class: 'btn-main'%>
+            <% end %>
           </div>
         </div>
+        <% if @product.sim_needed %>
         <div class="d-none" data-target="subscription.secondPart">
           <label for="sim" class="sim-label mr-2">Sim card size</label>
           <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Tip:</strong> You can always take a pair of scissors and cut the plastic of your SIM card to turn your Standard / Micro SIM into a Nano SIM"></i>
@@ -57,6 +62,7 @@
             <%= f.button :submit, 'Confirm', class: 'btn-main'%>
           </div>
         </div>
+      <% end %>
       <% end %>
     </div>
   </div>
