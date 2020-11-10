@@ -2,6 +2,7 @@ class Billing < ApplicationRecord
   belongs_to :subscription
   belongs_to :user
   validates_presence_of :address, :bic, :iban, :bank
+  validates_format_of :bic, with: /\A[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$\z/i
   validates_with IbanValidator
   validate :billing_address_country
 
