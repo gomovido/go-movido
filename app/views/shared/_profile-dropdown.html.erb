@@ -9,6 +9,8 @@
   <div class="dropdown-menu p-4 mt-2" aria-labelledby="dropdownMenuLink">
     <%= link_to "My profile", user_path(current_user), class: "action" %>
     <hr>
+    <%= link_to "Account", edit_user_registration_path(current_user), class: "action" %>
+    <hr>
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "action"%>
   </div>
 </div>
