@@ -1,5 +1,72 @@
 fr:
-  currency: '€'
+  shared:
+    cta:
+      start: "C'est parti"
+  pages:
+    home:
+      banner:
+        headline1: 'Installez-vous<br> dans votre<br> nouveau domicile'
+        headline2: 'en seulement 10 minutes'
+        subheadline: "movido s'occupe de vos démarches travail administratives"
+      services-cards:
+        housing: 'voir les meilleures annonces immobilières dans votre ville'
+        bank: 'ouvrez votre compte bancaire'
+        mobile: 'obtenez votre numéro de téléphone local'
+        wifi: 'installez le WiFi à la maison'
+        gym: 'voir les meilleures offres de gym dans votre région'
+        transportation: 'obtenez votre carte de transport local'
+      how-it-works:
+        title: 'Comment ça marche?'
+        card1:
+          title: 'Selectionner'
+          description: "Sélectionnez tous les services dont vous avez besoin parmi une variété d'offres - du WiFi à la salle de gym, movido a tout ce qu'il faut pour démarrer dans votre nouvelle ville"
+        card2:
+          title: 'Comparer'
+          description: "movido compare les différents prestataires par service sélectionné, ce qui vous garantit d'obtenir la meilleure offre au meilleur prix"
+        card3:
+          title: 'Choisir'
+          description: "Vous pouvez maintenant choisir votre forfait préféré - souscrivez intuitivement à vos abonnements en quelques minutes"
+        card4:
+          title: 'Gérer'
+          description: "Suivez et gérez vos abonnements actifs facilement sur votre compte movido personnalisé"
+      about-us:
+        title: 'Qui sommes nous?'
+        text: "movido vous aide à mettre en place tout ce dont vous avez besoin en arrivant dans votre nouveau domicile - du numéro de téléphone portable local à l'abonnement à la salle de sport - et tout ça en moins de 10 minutes, afin que vous puissiez vous concentrer sur les choses vraiment importantes dans votre nouvelle ville <br> <br>movido consolide et compare tous les services dont vous avez besoin dans votre nouvelle ville – un service entièrement gratuit - pour s'assurer que vous obtenez toujours la meilleure offre au meilleur prix. Une fois inscrit, vous pouvez gérer abonnement sur votre compte personnalisé"
+      why:
+        title: 'Pourquoi movido?'
+        text: 'Notre philosophie consiste à simplifier les déplacements. Facile, rapide et intuitif - inscrivez-vous à movido pour vous installer dans votre nouvelle ville en un quelques minutes.<br>Et c’est 100 % gratuit!'
+        card1:
+          title: 'Rapide'
+          description: 'vous installer dans votre nouvelle ville en 10 minutes seulement au lieu des 4 heures habituelles'
+        card2:
+          title: 'Intelligent'
+          description: 'comparez les services dont vous avez besoin et bénéficiez des meilleures offres et prix disponibles'
+        card3:
+          title: 'Simple'
+          description: "choisissez simplement votre abonnement préféré parmi une variété d'offres"
+        card4:
+          title: 'Gratuit'
+          description: 'Avec movido pour choisissez et gérez vos abonnements entièrement gratuitement'
+      testimonials:
+        testimonial1:
+          from: 'Suède'
+          to: 'Paris'
+          sentence: "''La plupart des démarches administratives étaient en français - movido m'a fait gagner du temps et de l'argent lors de mon semestre à l'échange à Paris''"
+        testimonial2:
+          from: 'Argentine'
+          to: 'Paris'
+          sentence: "''Ça m'a pris 10 minutes et tout était fait - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
+        testimonial3:
+          from: 'France'
+          to: 'Londres'
+          sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
+        testimonial4:
+          from: 'Japon'
+          to: 'Paris'
+          sentence: "''Avec movido, j'ai trouvé l'appartement parfait à Londres avant même d’arriver sur place''"
+      bottom-banner:
+        headline: 'movido simplifie<br> votre déménagement'
+        text: 'Laissez movido prendre en charge votre travail administratif'
   devise:
     registrations:
       new:
