@@ -1,8 +1,10 @@
-.category-card {
-  background: $blue;
-  border-radius: 20px;
-  width: 220px;
-  height: 260px;
+.category-card-wrapper {
+  .category-card {
+    background: $blue;
+    border-radius: 20px;
+    width: 220px;
+    height: 260px;
+  }
   .title {
     height: 100%;
     color: $white;
@@ -11,7 +13,6 @@
     visibility: visible;
     opacity: 1;
   }
-
   .description-wrapper {
     height: 0px;
     opacity: 0;
@@ -27,32 +28,29 @@
       font-size: 14px;
     }
   }
-}
-
-.coming-soon {
-  font-weight: 600;
-  color: $blue;
-}
-
-.disabled-card {
-  background: #80808061 !important;
-}
-
-.category-card:hover {
-  background: $dark-blue;
-  .title {
-    min-height: 0px;
-    height: 0px;
-    opacity: 0;
+  .coming-soon {
+    font-weight: 600;
+    color: $blue;
   }
-  .description-wrapper {
-    min-height: 200px;
-    height: 100%;
-    display: flex;
-    visibility: visible;
-    opacity: 1;
-    position: relative;
-    top: -20px;
+  .disabled-card {
+    background: #80808061 !important;
+  }
+  .category-card:hover {
+    background: $dark-blue;
+    .title {
+      min-height: 0px;
+      height: 0px;
+      opacity: 0;
+    }
+    .description-wrapper {
+      min-height: 200px;
+      height: 100%;
+      display: flex;
+      visibility: visible;
+      opacity: 1;
+      position: relative;
+      top: -20px;
+    }
   }
 }
 

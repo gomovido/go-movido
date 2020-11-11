@@ -8,14 +8,14 @@ export default class extends ApplicationController {
   connect() {
     let l = 1
     let h = 50
-    var url = document.location.search.split('=')
+    let url = document.location.search.split('=')
     if (url.length > 2) {
       l = url[url.length - 2].slice(0,2).replace(/[^a-zA-Z0-9]/g, '')
       h = url[url.length - 1].slice(0,2).replace(/[^a-zA-Z0-9]/g, '')
       document.getElementById('q_price_gteq').value = l
       document.getElementById('q_price_lteq').value = h
     }
-    var slider = this.inputTarget;
+    let slider = this.inputTarget;
     noUiSlider.create(slider, {
         start: [l, h],
         connect: true,
@@ -25,7 +25,7 @@ export default class extends ApplicationController {
             'max': 50
         }
     });
-    slider.noUiSlider.on('change.one', function (e) {
+    slider.noUiSlider.on('change.one', e => {
       document.getElementById('q_price_gteq').value = parseInt(e[0])
       document.getElementById('q_price_lteq').value = parseInt(e[1])
      });

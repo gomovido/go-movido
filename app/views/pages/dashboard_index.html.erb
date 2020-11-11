@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <div class="row cards-wrapper">
       <% @categories.each_with_index do |category, index| %>
-        <%= render 'categories/card', index: index, category: category %>
+      <%= render 'categories/card', index: index, category: category %>
       <% end %>
     </div>
   </div>
