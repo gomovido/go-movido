@@ -1,17 +1,3 @@
-.checkround {
-  width: 20px;
-  height: 20px;
-  outline: none;
-  cursor: pointer;
-}
-
-.checkround:checked {
-  background: $white;
-  padding: 2px;
-  border: 6px solid $orange;
-  border-radius: 50%;
-}
-
 .filters-wrapper {
     margin-top: 5.5rem !important;
     height: 400px;
@@ -53,33 +39,47 @@
     justify-content: center;
     }
   }
+  .checkround {
+    width: 20px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .checkround:checked {
+    background: $white;
+    padding: 2px;
+    border: 6px solid $orange;
+    border-radius: 50%;
+  }
+  .number-field {
+    color: $dark-grey;
+  }
+
+  .noUi-connect {
+    background: $orange !important;
+  }
+
+  .noUi-horizontal {
+    height: 10px !important;
+  }
+
+  .noUi-horizontal .noUi-handle {
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .noUi-touch-area {
+    background: $white !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    border: 4px solid $orange !important;
+  }
+
+  .noUi-handle:before, .noUi-handle:after {
+    display: none !important;
+  }
 }
 
-.number-field {
-  color: $dark-grey;
-}
 
-.noUi-connect {
-  background: $orange !important;
-}
-
-.noUi-horizontal {
-  height: 10px !important;
-}
-
-.noUi-horizontal .noUi-handle {
-  border-radius: 50% !important;
-  width: 20px !important;
-  height: 20px !important;
-}
-
-.noUi-touch-area {
-  background: $white !important;
-  border-radius: 50% !important;
-  padding: 0 !important;
-  border: 4px solid $orange !important;
-}
-
-.noUi-handle:before, .noUi-handle:after {
-  display: none !important;
-}

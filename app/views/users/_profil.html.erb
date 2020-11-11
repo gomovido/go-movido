@@ -3,121 +3,121 @@
     <h4 class="section-title text-center py-3 mb-0">Profile</h4>
     <hr class="mt-2">
     <%= form_with(model: @user, data: {controller: "profil-form", reflex: "submit->UserReflex#submit" }, id:"profil-form") do |form| %>
-      <div class="d-flex justify-content-between pl-3 pr-3">
-        <div class="d-flex pt-2 profil-input-wrapper flex-column">
-          <label for="first_name" class="m-0">First name</label>
-          <div class="profil-input">
-            <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="0"><%= current_user.first_name %></span>
-            <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="firstName"></i>
-          </div>
-        </div>
-        <div data-target="profil-form.input" id="firstName" class="form-input d-none p-1">
-          <%= form.text_field :first_name, class:'form-control' %>
-          <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
-        </div>
-        <div class="d-flex pt-2 profil-input-wrapper flex-column">
-          <label for="last_name" class="m-0">Last name</label>
-          <div class="profil-input">
-            <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="1"><%= current_user.last_name %></span>
-            <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="lastName"></i>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div data-target="profil-form.input" id="lastName" class="form-input d-none p-1">
-        <%= form.text_field :last_name, class:'form-control'   %>
-        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
-      </div>
-      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="phone" class="m-0">Current mobile number</label>
+    <div class="d-flex justify-content-between pl-3 pr-3">
+      <div class="d-flex pt-2 profil-input-wrapper flex-column">
+        <label for="first_name" class="m-0">First name</label>
         <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="2"><%= current_user.phone %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="phone"></i>
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="0"><%= current_user.first_name %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="firstName"></i>
         </div>
       </div>
-      <hr>
-      <div data-target="profil-form.input" id="phone" class="form-input d-none p-1">
-        <%= form.text_field :phone, data: {target: "profil-form.phone", value: current_user.phone}, class:'phone form-control
-        '  %>
+      <div data-target="profil-form.input" id="firstName" class="form-input d-none p-1">
+        <%= form.text_field :first_name, class:'form-control' %>
         <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
       </div>
-      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="country" class="m-0">Country I am moving to</label>
+      <div class="d-flex pt-2 profil-input-wrapper flex-column">
+        <label for="last_name" class="m-0">Last name</label>
         <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="3"><%= current_user.country %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="country"></i>
+          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="1"><%= current_user.last_name %></span>
+          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="lastName"></i>
         </div>
       </div>
-      <hr>
-      <div data-target="profil-form.input" id="country" class="form-input d-none p-1">
-        <%= form.select :country, t(User::COUNTRIES, scope: 'devise.registrations.new'), class:'form-control'  %>
-        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="lastName" class="form-input d-none p-1">
+      <%= form.text_field :last_name, class:'form-control'   %>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+      <label for="phone" class="m-0">Current mobile number</label>
+      <div class="profil-input">
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="2"><%= current_user.phone %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="phone"></i>
       </div>
-      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="city" class="m-0">City I am moving to</label>
-        <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="4"><%= current_user.city %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="city"></i>
-        </div>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="phone" class="form-input d-none p-1">
+      <%= form.text_field :phone, data: {target: "profil-form.phone", value: current_user.phone}, class:'phone form-control
+      '  %>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+      <label for="country" class="m-0">Country I am moving to</label>
+      <div class="profil-input">
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="3"><%= current_user.country %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="country"></i>
       </div>
-      <hr>
-      <div data-target="profil-form.input" id="city" class="form-input d-none p-1">
-        <%= form.select :city, [['Paris'], ['London']], class:'form-control'  %>
-        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="country" class="form-input d-none p-1">
+      <%= form.select :country, t(User::COUNTRIES, scope: 'devise.registrations.new'), class:'form-control'  %>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+      <label for="city" class="m-0">City I am moving to</label>
+      <div class="profil-input">
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="4"><%= current_user.city %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="city"></i>
       </div>
-      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="email" class="m-0">Email Address</label>
-        <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="5"><%= current_user.email %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="email"></i>
-        </div>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="city" class="form-input d-none p-1">
+      <%= form.select :city, [['Paris'], ['London']], class:'form-control'  %>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+      <label for="email" class="m-0">Email Address</label>
+      <div class="profil-input">
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="5"><%= current_user.email %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="email"></i>
       </div>
-      <hr>
-      <div data-target="profil-form.input" id="email" class="form-input d-none p-1">
-        <%= form.text_field :email, class:'form-control'   %>
-        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="email" class="form-input d-none p-1">
+      <%= form.text_field :email, class:'form-control'   %>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+      <label for="birthdate" class="m-0">Birthdate</label>
+      <div class="profil-input">
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="6"><%= current_user.birthdate %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="birthdate"></i>
       </div>
-      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="birthdate" class="m-0">Birthdate</label>
-        <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="6"><%= current_user.birthdate %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="birthdate"></i>
-        </div>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="birthdate" class="form-input d-none p-1 w-100">
+      <%= form.date_field :birthdate, as: :string,
+      required: true,
+      label: false,
+      input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker width'}, data: {
+      controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} %>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+      <label for="birth_city" class="m-0">Place of birth</label>
+      <div class="profil-input">
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="7"><%= current_user.birth_city %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="birth_city"></i>
       </div>
-      <hr>
-      <div data-target="profil-form.input" id="birthdate" class="form-input d-none p-1 w-100">
-        <%= form.date_field :birthdate, as: :string,
-           required: true,
-           label: false,
-           input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker width'}, data: {
-            controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} %>
-        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <hr>
+    <div data-target="profil-form.input" id="birth_city" class="form-input d-none p-1">
+      <%= form.text_field :birth_city,
+      required: true,
+      label: false,
+      data: {
+      target: 'profil-form.cityInput'}%>
+      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
+    </div>
+    <% if current_user.active_address %>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
+      <label for="address" class="m-0">Current Address</label>
+      <div class="profil-input">
+        <span class="pr-3"><%= current_user.active_address.street %></span>
+        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="address"></i>
       </div>
-      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-        <label for="birth_city" class="m-0">Place of birth</label>
-        <div class="profil-input">
-          <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="7"><%= current_user.birth_city %></span>
-          <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="birth_city"></i>
-        </div>
-      </div>
-      <hr>
-      <div data-target="profil-form.input" id="birth_city" class="form-input d-none p-1">
-        <%= form.text_field :birth_city,
-                  required: true,
-                  label: false,
-                  data: {
-                  target: 'profil-form.cityInput'}%>
-        <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
-      </div>
-      <% if current_user.active_address %>
-        <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
-          <label for="address" class="m-0">Current Address</label>
-          <div class="profil-input">
-            <span class="pr-3"><%= current_user.active_address.street %></span>
-            <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="address"></i>
-          </div>
-        </div>
-      <% end %>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>

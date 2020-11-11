@@ -21,24 +21,22 @@
       border: 1px solid $light-blue;
     }
   }
-}
-.add-card-border {
-  border-style: dashed !important;
-  .address {
-    color: $grey !important;
+  .add-card-border {
+    border-style: dashed !important;
+    .address {
+      color: $grey !important;
+    }
+  }
+  .btn-input {
+    font-size: 12px;
+    font-weight: 800;
+    margin: 2%;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  #new_address .form-group {
+    margin: 0 !important;
+    width: 100%;
   }
 }
 
-
-.btn-input {
-  font-size: 12px;
-  font-weight: 800;
-  margin: 2%;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-#new_address .form-group {
-  margin: 0 !important;
-  width: 100%;
-}
