@@ -10,6 +10,8 @@ class SubscriptionsController < ApplicationController
       @subscription = Subscription.new(subscription_params)
       @subscription.address = current_user.active_address
       @subscription.product = @product
+      @subscription.billing.iban = sanitized_iban
+      @subscription.billing.bic = sanitized_bic
       if @subscription.save
         @subscription.update(state: 'draft')
         redirect_to subscription_summary_path(@subscription)
@@ -61,7 +63,12 @@ class SubscriptionsController < ApplicationController
   private
 
   def set_subscription
-    @subscription = Subscription.find(params[:subscription_id])
+  def sanitized_bic
+    params[:subscription][:billing_attributes][:bic].upcase
+  end
+
+  def sanitized_iban
+    params[:subscription][:billing_attributes][:iban].upcase.gsub(" ","")
   end
 
   def subscription_params
