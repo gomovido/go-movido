@@ -63,6 +63,9 @@ class SubscriptionsController < ApplicationController
   private
 
   def set_subscription
+    @subscription = Subscription.find(params[:subscription_id])
+  end
+
   def sanitized_bic
     params[:subscription][:billing_attributes][:bic].upcase
   end
