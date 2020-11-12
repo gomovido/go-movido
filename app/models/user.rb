@@ -19,7 +19,7 @@ class User < ApplicationRecord
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
   before_create :generate_username
-  #after_create :send_welcome_email
+  after_create :send_welcome_email
 
 
   def active_address
