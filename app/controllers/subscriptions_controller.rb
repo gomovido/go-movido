@@ -43,6 +43,7 @@ class SubscriptionsController < ApplicationController
 
   def validate_subscription
     if @subscription.update(state: 'pending_processed')
+      UserMailer.with(user: @subscription.user, subscription: @subscription).congratulations.deliver_now
       flash[:notice] = "Your subscription is being processed"
       redirect_to subscription_congratulations_path
     end
