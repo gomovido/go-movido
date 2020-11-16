@@ -323,7 +323,11 @@
       color: white !important;
       text-align: center;
       font-weight: bold;
-      padding: 25px !important;
+      padding: 12px !important;
+    }
+
+    .email-masthead img {
+      width: 180px;
     }
 
     .email-masthead_logo {
@@ -452,7 +456,7 @@
             <tr>
               <td class="email-masthead">
                 <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
-                  movido
+                  <%= image_tag('logo-white.png') %>
                 </a>
               </td>
             </tr>
@@ -465,7 +469,7 @@
                     <td class="content-cell">
                       <div class="f-fallback">
                         <h1>Welcome, <%= @user.first_name %>!</h1>
-                        <p>Thanks for signing up to movido. Let’s get you set up in your new home in only 10 mins.</p>
+                        <p>Thanks for signing up to movido. Let’s get you set up in your new home <strong>in only 10 mins.</strong></p>
                         <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
                           <tr>
                             <td align="center">
