@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
       @q = Product.ransack(params[:q])
     else
       @category = Category.friendly.find(params[:category_id])
-      @q = Product.where(category: @category).ransack
+      @q = Product.where(category: @category, country: current_user.country).ransack
     end
     @products = @q.result(distinct: true)
-    @products = @products.where(category_id:  @category.id)
+    @products = @products.where(category_id: @category.id, country: current_user.country)
     if @products.blank?
-      @products = Product.where(category: @category)
+      @products = Product.where(category: @category, country: current_user.country)
     end
   end
 
