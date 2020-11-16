@@ -1,9 +1,8 @@
 const places = require('places.js');
-const language = document.querySelector("body").getAttribute("data-locale");
 
 export default function displayAddressAutocomplete(element) {
     const placesAutocomplete = places({
-      language: language,
+      language: 'en',
       appId: 'pl32PKK41FYV',
       apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
       container: element,
@@ -18,7 +17,7 @@ export default function displayAddressAutocomplete(element) {
 
 export function displayBillingAutocomplete(element) {
   return places({
-    language: language,
+    language: 'en',
     appId: 'pl32PKK41FYV',
     apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
     container: element
@@ -27,7 +26,7 @@ export function displayBillingAutocomplete(element) {
 
 export function displayBirthCityAutocomplete(element) {
   return places({
-    language: language,
+    language: 'en',
     appId: 'pl32PKK41FYV',
     apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
     container: element,

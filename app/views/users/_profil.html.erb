@@ -50,7 +50,7 @@
     </div>
     <hr>
     <div data-target="profil-form.input" id="country" class="form-input d-none p-1">
-      <%= form.select :country, t(User::COUNTRIES, scope: 'devise.registrations.new'), class:'form-control'  %>
+      <%= form.select :country, ['France', 'United Kingdom'], class:'form-control'  %>
       <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
     </div>
     <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
