@@ -71,7 +71,7 @@
               <%= f.input :country,
                         required: true,
                         label: false,
-                        collection: t(User::COUNTRIES, scope: 'devise.registrations.new'),
+                        collection: ['France', 'United Kingdom'],
                         prompt: "Choose", input_html: {data: {target: 'registration.countryMoving', action: 'change->registration#updateAlgolia'}}, error: false %>
             </div>
             <%= f.full_error :country, class: 'invalid-feedback mb-3 text-right' %>

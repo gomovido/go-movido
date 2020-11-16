@@ -45,6 +45,7 @@ subtitle: 'Get your local phone number',
 description: 'Find the perfect place for you to stay in your new hometown')
 
 product = Product.create(
+  country: "France",
   company: "SFR",
   name: "5 Go 4G+",
   description: 'France & Europe',
@@ -81,6 +82,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  country: "France",
   company: "SFR",
   name: "80 Go 4G+",
   description: 'France & Europe',
@@ -116,6 +118,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  country: "France",
   company: "SFR",
   name: "2h 100mo",
   description: 'France only',
@@ -151,6 +154,174 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  country: "United Kingdom",
+  company: "GifGaff",
+  name: "9 gb",
+  description: 'UK & Europe roaming',
+  price: 10,
+  category: category,
+  sku: "gifgaff_9gb",
+  unlimited_data: false,
+  unlimited_call: true,
+  obligation: false,
+  time_contract: 'no',
+  data_limit: '9gb',
+  call_limit: 'unlimited',
+  delivery_price: '0',
+  delivery: true,
+  sim_card_price: 0,
+  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  special_offer: 'Receive £5 bonus credit'
+)
+
+ProductFeature.create(
+  product: product,
+  name: "9 GB",
+  description: "Use your phone in the EU and selected destinations just like you would at home."
+)
+ProductFeature.create(
+  product: product,
+  name: "Unlimited texts & calls",
+  description: "Regular UK calls and texts included."
+)
+ProductFeature.create(
+  product: product,
+  name: "£5 bonus credit",
+  description: "Receive £5 bonus credit when youactivate and top up your first £10"
+)
+ProductFeature.create(
+  product: product,
+  name: "Other",
+  description: "No contract means you can change your offer each month or cancel anytime.With your third top-up, you will get 1 GB extra data from for free on top."
+)
+
+product = Product.create(
+  country: "United Kingdom",
+  company: "GifGaff",
+  name: "10 gb",
+  description: 'UK & Europe roaming',
+  price: 12,
+  category: category,
+  sku: "gifgaff_10gb",
+  unlimited_data: false,
+  unlimited_call: true,
+  obligation: false,
+  time_contract: 'no',
+  data_limit: '10gb',
+  call_limit: 'unlimited',
+  delivery_price: '0',
+  delivery: true,
+  sim_card_price: 0,
+  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  special_offer: 'Receive £5 bonus credit'
+)
+
+ProductFeature.create(
+  product: product,
+  name: "10 GB of data",
+  description: "Use your phone in the EU and selected destinations just like you would at home."
+)
+ProductFeature.create(
+  product: product,
+  name: "Unlimited texts & calls",
+  description: "Regular UK calls and texts included."
+)
+ProductFeature.create(
+  product: product,
+  name: "£5 bonus credit",
+  description: "Receive £5 bonus credit when youactivate and top up your first £10"
+)
+ProductFeature.create(
+  product: product,
+  name: "Other",
+  description: "No contract means you can change your offer each month or cancel anytime.With your third top-up, you will get 1 GB extra data from for free on top."
+)
+product = Product.create(
+  country: "United Kingdom",
+  company: "GifGaff",
+  name: "80 gb",
+  description: 'UK roaming & EU roaming up to 20GB',
+  price: 20,
+  category: category,
+  sku: "gifgaff_80gb",
+  unlimited_data: false,
+  unlimited_call: true,
+  obligation: false,
+  time_contract: 'no',
+  data_limit: '80gb',
+  call_limit: 'unlimited',
+  delivery_price: '0',
+  delivery: true,
+  sim_card_price: 0,
+  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  special_offer: 'Receive £5 bonus credit'
+)
+
+ProductFeature.create(
+  product: product,
+  name: "80 GB of data",
+  description: "Use up to 20 GB of your full allowance in the EU and selected destinations at no extra cost. After this, you’ll be charged 0.36p/MB (less than a penny)."
+)
+ProductFeature.create(
+  product: product,
+  name: "Unlimited texts & calls",
+  description: "Regular UK calls and texts included."
+)
+ProductFeature.create(
+  product: product,
+  name: "£5 bonus credit",
+  description: "Receive £5 bonus credit when youactivate and top up your first £10"
+)
+ProductFeature.create(
+  product: product,
+  name: "Other",
+  description: "No contract means you can change your offer each month or cancel anytime.With your third top-up, you will get 1 GB extra data from for free on top."
+)
+
+product = Product.create(
+  country: "United Kingdom",
+  company: "GifGaff",
+  name: "Always On",
+  description: 'UK roaming & EU roaming up to 20GB',
+  price: 25,
+  category: category,
+  sku: "gifgaff_always",
+  unlimited_data: true,
+  unlimited_call: true,
+  obligation: false,
+  time_contract: 'no',
+  data_limit: 'Always on',
+  call_limit: 'unlimited',
+  delivery_price: '0',
+  delivery: true,
+  sim_card_price: 0,
+  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  special_offer: 'Receive £5 bonus credit'
+)
+
+ProductFeature.create(
+  product: product,
+  name: "Always on data",
+  description: "With Always On you get 80 GB of data at full 4G speed. After 80 GB of data used you'll experience a reduced data speed of 384kbps from 8am to midnight. You may notice that activities which require high amounts of data, like HD video streaming, will be slower."
+)
+ProductFeature.create(
+  product: product,
+  name: "Unlimited texts & calls",
+  description: "Regular UK calls and texts included."
+)
+ProductFeature.create(
+  product: product,
+  name: "£5 bonus credit",
+  description: "Receive £5 bonus credit when youactivate and top up your first £10"
+)
+ProductFeature.create(
+  product: product,
+  name: "Other",
+  description: "No contract means you can change your offer each month or cancel anytime.With your third top-up, you will get 1 GB extra data from for free on top."
+)
+
+product = Product.create(
+  country: "France",
   company: "Bouygues Telecom",
   name: "100 go",
   description: 'France & Europe',
@@ -247,6 +418,7 @@ category = Category.create(
   description: 'Find the perfect place for you to stay in your new hometown')
 
 product = Product.create(
+  country: "France",
   company: "Free",
   name: "Free wifi",
   description: 'France & Europe 3month Spotify Premium for free',
