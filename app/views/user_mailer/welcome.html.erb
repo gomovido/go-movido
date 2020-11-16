@@ -158,14 +158,13 @@
     }
 
     .attributes_content {
-      background-color: #F4F4F7;
-      padding: 16px;
+      background-color: #333333;
+      padding: 25px;
     }
 
     .attributes_item {
       padding: 0;
     }
-    /* Related Items ------------------------------ */
 
     .related {
       width: 100%;
@@ -355,7 +354,7 @@
       -premailer-width: 570px;
       -premailer-cellpadding: 0;
       -premailer-cellspacing: 0;
-      background-color: #333333FFF;
+      background-color: #FFF;
     }
 
     .email-footer {
@@ -451,9 +450,9 @@
           <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td class="email-masthead">
-                <a href="<% root_url %>" class="f-fallback email-masthead_name">
-                movido
-              </a>
+                <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
+                  movido
+                </a>
               </td>
             </tr>
             <!-- Email Body -->
@@ -465,30 +464,29 @@
                     <td class="content-cell">
                       <div class="f-fallback">
                         <h1>Welcome, <%= @user.first_name %>!</h1>
-<p>Thanks for signing up to movido. Let’s get you set up in your new home in only 10 mins.</p>
-<table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center">
-      <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td align="center">
-            <table border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td>
-                  <div class="image">
-                    <%= image_tag('welcome-email-pic.png') %>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
+                        <p>Thanks for signing up to movido. Let’s get you set up in your new home in only 10 mins.</p>
+                        <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td align="center">
+                              <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td align="center">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td>
+                                          <div class="image">
+                                            <%= image_tag('welcome-email-pic.png') %>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
 <!-- Action -->
 <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
   <tr>
@@ -500,7 +498,7 @@
             <table border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td>
-                  <a href="{{action_url}}" class="button button--" target="_blank">Login</a>
+                  <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Login</a>
                 </td>
               </tr>
             </table>
@@ -516,7 +514,7 @@
     <td class="attributes_content">
       <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
-          <td class="attributes_item"><strong>Login Page:</strong> <a href="mailto:{{support_email}}"><%= root_url %></a>
+          <td class="attributes_item"><strong>Login Page:</strong> <a href="<%= root_url %>"><%= root_url %></a>
         </tr>
         <tr>
           <td class="attributes_item"><strong>Username:</strong> <%= @user.username %></td>
@@ -531,7 +529,7 @@
 
   </tr>
 </table>
-<p>If you have any questions, feel free to <a href="mailto:{{support_email}}">email our customer service team</a>. We will get back in no time.</p>
+<p>If you have any questions, feel free to <a href="mailto:contact@go-movido.com">email our customer service team</a>. We will get back in no time.</p>
 <p>Thanks,
   <br>Your movido Team</p>
 <!-- Sub copy -->
@@ -539,7 +537,7 @@
   <tr>
     <td>
       <p class="sub">If you’re having trouble with the button above, copy and paste the URL below into your web browser.</p>
-      <p class="sub">www.go-movido.com</p>
+      <p class="sub"><%= root_url %></p>
     </td>
   </tr>
 </table>
