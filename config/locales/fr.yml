@@ -2,6 +2,14 @@ fr:
   shared:
     cta:
       start: "C'est parti"
+  devise:
+    failure:
+      user:
+       not_found_in_database: "Il semble que vous n'ayez pas encore de compte de movido. S'inscrire"
+       invalid: 'Email ou mot de passe invalide.'
+  form:
+    failure:
+      check_country: 'Vous devez sélectionner une adresse dans le même pays'
   pages:
     home:
       banner:
