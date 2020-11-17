@@ -1,15 +1,14 @@
 import { Controller } from "stimulus";
-import { displayBillingAutocomplete } from '../packs/algolia';
+import { addressAutocomplete } from '../packs/algolia';
 import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
   static targets = [ "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
 
   connect() {
-    displayBillingAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
+    addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
       this.deliveryAddressInputTarget.value = e.suggestion.value
     });
-    displayBillingAutocomplete(this.deliveryAddressInputTarget);
     $('[data-toggle="tooltip"]').tooltip();
     this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value);
   }

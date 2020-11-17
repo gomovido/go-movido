@@ -1,21 +1,6 @@
 const places = require('places.js');
 
-export default function displayAddressAutocomplete(element) {
-    const placesAutocomplete = places({
-      language: 'en',
-      appId: 'pl32PKK41FYV',
-      apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
-      container: element,
-      countries: ['FR', 'GB']
-    });
-    placesAutocomplete.on('change', (e) => {
-      document.querySelector('#address_zipcode').value = e.suggestion.postcode
-      document.querySelector('#address_country').value = e.suggestion.country
-      document.querySelector('#address_city').value = e.suggestion.county
-    });
-}
-
-export function displayBillingAutocomplete(element) {
+export function addressAutocomplete(element) {
   return places({
     language: 'en',
     appId: 'pl32PKK41FYV',
@@ -24,15 +9,17 @@ export function displayBillingAutocomplete(element) {
   });
 }
 
-export function displayBirthCityAutocomplete(element) {
-  return places({
-    language: 'en',
-    appId: 'pl32PKK41FYV',
-    apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
-    container: element,
-    type: 'city'
+export function autoFill(element) {
+  element.on('change', (e) => {
+    document.querySelector('#address_zipcode').value = e.suggestion.postcode
+    document.querySelector('#address_country').value = e.suggestion.country
+    document.querySelector('#address_city').value = e.suggestion.county
   });
 }
-  export function displayCityMovingAutocomplete(element, country) {
-    element.configure({countries: [country]})
+
+export function searchByCity(element) {
+  element.configure({type: 'city'})
+}
+export function searchByCountry(element, country) {
+  element.configure({countries: [country]})
 }
