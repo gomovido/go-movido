@@ -3,8 +3,8 @@ const places = require('places.js');
 export function addressAutocomplete(element) {
   return places({
     language: 'en',
-    appId: 'pl32PKK41FYV',
-    apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_API_KEY',
     container: element
   });
 }
