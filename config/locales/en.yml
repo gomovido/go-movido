@@ -2,6 +2,14 @@ en:
   shared:
     cta:
       start: 'Get Started'
+  devise:
+    failure:
+      user:
+       not_found_in_database: "It seems like you don't have a movido account yet. Sign up"
+
+  form:
+    failure:
+      check_country: 'You have to select an address in the same country'
   pages:
     home:
       banner:
