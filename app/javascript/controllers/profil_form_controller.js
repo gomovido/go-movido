@@ -1,6 +1,6 @@
 import ApplicationController from './application_controller'
 import phoneInput from '../packs/phone-input';
-import displayAddressAutocomplete,{displayBirthCityAutocomplete} from '../packs/algolia';
+import {addressAutocomplete, searchByCity, autoFill} from '../packs/algolia';
 const places = require('places.js');
 
 export default class extends ApplicationController {
@@ -11,11 +11,13 @@ export default class extends ApplicationController {
     this.addAddressInputTarget.classList.add('d-flex')
     this.addAddressButtonTarget.classList.add('d-none')
     this.addAddressButtonTarget.classList.remove('d-flex')
-    displayAddressAutocomplete(this.addressInputTarget);
+    this.movingStreet = addressAutocomplete(this.addressInputTarget);
+    autoFill(this.movingStreet);
   }
 
   toggleInput(event) {
-    displayBirthCityAutocomplete(this.cityInputTarget);
+    this.birthCity = addressAutocomplete(this.cityInputTarget);
+    searchByCity(this.birthCity);
     const activeElement = document.getElementsByClassName('active')[0]
     const input = this.inputTargets.find(input => input.id == event.target.dataset.id)
     if (event.target.dataset.id === 'phone') {
