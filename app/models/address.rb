@@ -11,6 +11,6 @@ class Address < ApplicationRecord
   end
 
   def check_country
-     errors.add(:street, 'You have to select an address in the same country') unless self.country == self.user.country
+     errors.add(:street, I18n.t('form.failure.check_country')) unless self.country == self.user.country
   end
 end
