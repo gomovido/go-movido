@@ -3,8 +3,8 @@ const places = require('places.js');
 export default function displayAddressAutocomplete(element) {
     const placesAutocomplete = places({
       language: 'en',
-      appId: 'pl32PKK41FYV',
-      apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
       container: element,
       countries: ['FR', 'GB']
     });
@@ -18,8 +18,8 @@ export default function displayAddressAutocomplete(element) {
 export function displayBillingAutocomplete(element) {
   return places({
     language: 'en',
-    appId: 'pl32PKK41FYV',
-    apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_API_KEY,
     container: element
   });
 }
@@ -27,8 +27,8 @@ export function displayBillingAutocomplete(element) {
 export function displayBirthCityAutocomplete(element) {
   return places({
     language: 'en',
-    appId: 'pl32PKK41FYV',
-    apiKey: '40d7e2e6a30185453dfe6ae9ba07433f',
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_API_KEY,
     container: element,
     type: 'city'
   });

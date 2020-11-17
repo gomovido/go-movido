@@ -10,7 +10,7 @@ export default class extends Controller {
     phoneInput(this.phoneTarget);
     displayAddressAutocomplete(this.addressInputTarget);
     displayBirthCityAutocomplete(this.cityInputTarget);
-    this.placeInstance = displayBirthCityAutocomplete(this.cityMovingTarget);
+    this.city = displayBirthCityAutocomplete(this.cityMovingTarget);
     this.checkboxAddressTarget.checked ? document.querySelector('#addressInput').classList.add('d-none') : document.querySelector('#addressInput').classList.remove('d-none');
 
   }
@@ -23,6 +23,6 @@ export default class extends Controller {
   updateAlgolia() {
     this.cityMovingTarget.value = '';
     let country = this.countryMovingTarget.value === 'France' ? 'FR' : 'GB';
-    displayCityMovingAutocomplete(this.placeInstance, country);
+    displayCityMovingAutocomplete(this.city, country);
   }
 }
