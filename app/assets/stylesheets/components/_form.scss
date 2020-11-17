@@ -21,7 +21,7 @@ select {
 }
 
 label {
-  color: $blue;
+  color: $blue !important;
   font-size: 12px;
   font-weight: 800;
 }
