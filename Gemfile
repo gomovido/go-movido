@@ -78,3 +78,7 @@ gem 'rails-i18n'
 gem "friendly_id", "~> 5.4"
 
 gem "iban-tools", "~> 1.1"
+
+gem "money-rails", "~> 1.13"
+
+gem "stripe", "~> 5.28"

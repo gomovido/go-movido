@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :product_features, dependent: :destroy
   validates :sku, presence: true
+  monetize :price_cents
 
 
   def eligible?(user)
