@@ -13,4 +13,6 @@ class Billing < ApplicationRecord
   def billing_address_country
      self.errors.add(:address, "needs to be in #{self.user.country}") unless !self.address.blank? && self.address.split(',')[-1].strip == self.user.country
   end
+
+
 end
