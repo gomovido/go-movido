@@ -11,7 +11,11 @@
           <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name == 'mobile' ? "#{@products.first.category.name} phone" : @products.first.category.name %> offers</h1>
           <div class="products-cards-wrapper">
             <% @products.each do |product| %>
-            <%= render 'card', product: product %>
+              <% if product.category.name == 'wifi' %>
+                <%= render 'wifi-card', product: product %>
+              <% elsif product.category.name == 'mobile' %>
+                <%= render 'mobile-card', product: product %>
+              <% end %>
             <% end %>
           </div>
         </div>
