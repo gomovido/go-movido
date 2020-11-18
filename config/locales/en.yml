@@ -14,6 +14,11 @@ en:
     no_contract: 'No contract'
     contract_only: 'Contract only'
     by_price: 'Filter by price'
+  steps:
+    header: '%{current_step} of %{total_step}'
+    choose_offer: 'Choose your offer'
+    more_details: "More details"
+    confirmation: 'Confirmation'
   form:
     failure:
       check_country: 'You have to select an address in the same country'

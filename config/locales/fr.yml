@@ -15,6 +15,11 @@ fr:
     no_contract: 'Sans engagement'
     contract_only: 'Avec engagment seulement'
     by_price: 'Filtrer par prix'
+  steps:
+    header: '%{current_step} étape sur %{total_step}'
+    choose_offer: 'Choisissez votre offre'
+    more_details: "Plus d'informations"
+    confirmation: 'Confirmer'
   form:
     failure:
       check_country: 'Vous devez sélectionner une adresse dans le même pays'
