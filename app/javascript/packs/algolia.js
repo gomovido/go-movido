@@ -4,7 +4,7 @@ export function addressAutocomplete(element) {
   return places({
     language: 'en',
     appId: process.env.ALGOLIA_APP_ID,
-    apiKey: process.env.ALGOLIA_API_KEY',
+    apiKey: process.env.ALGOLIA_API_KEY,
     container: element
   });
 }
