@@ -418,22 +418,22 @@ category = Category.create(
   description: 'Find the perfect place for you to stay in your new hometown')
 
 product = Product.create(
-  country: "France",
-  company: "Free",
-  name: "Free wifi",
-  description: 'France & Europe 3month Spotify Premium for free',
-  price: 19.99,
+  country: "United Kingdom",
+  company: "Direct Save Telecom",
+  name: "DetailsDirect Save 80",
+  description: 'xxxxx',
+  price: 39.95,
   category: category,
-  sku: "b&u_100_go",
+  sku: "d_save_telecom_80",
   unlimited_data: false,
-  unlimited_call: true,
   obligation: false,
   time_contract: 'no',
-  data_limit: '100go',
   delivery_price: '0',
-  delivery: false,
-  sim_card_price: 1.00,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/B%26YOU_logo.jpeg'
+  delivery: true,
+  logo_url: 'https://www.directsavetelecom.co.uk/img/direct-save-logo.png',
+  data_speed: '80',
+  setup_price: 143.75,
+  tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
 )
 
 

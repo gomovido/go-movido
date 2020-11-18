@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_144720) do
+ActiveRecord::Schema.define(version: 2020_11_18_155355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,9 @@ ActiveRecord::Schema.define(version: 2020_11_17_144720) do
     t.string "special_offer"
     t.boolean "sim_needed", default: false
     t.string "country"
+    t.string "data_speed"
+    t.float "setup_price"
+    t.string "tooltip"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end

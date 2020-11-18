@@ -1,6 +1,6 @@
 <div class="container subscriptions-container mt-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
   <div class="step-1 mt-3">
-    <%= render 'subscriptions/steps', step: 1, title: 'Choose your offer' %>
+    <%= render 'subscriptions/steps', step: 1, title: t('steps.choose_offer') %>
     <%= render 'product-details'%>
     <div class="container">
       <div class="row">
@@ -11,7 +11,11 @@
           <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name == 'mobile' ? "#{@products.first.category.name} phone" : @products.first.category.name %> offers</h1>
           <div class="products-cards-wrapper">
             <% @products.each do |product| %>
-            <%= render 'card', product: product %>
+              <% if product.category.name == 'wifi' %>
+                <%= render 'wifi-card', product: product %>
+              <% elsif product.category.name == 'mobile' %>
+                <%= render 'mobile-card', product: product %>
+              <% end %>
             <% end %>
           </div>
         </div>
