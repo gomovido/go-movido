@@ -7,6 +7,11 @@ class SubscriptionsController < ApplicationController
     if @product.category.name != 'mobile'
       create_mobile_subcription(@product, current_user.active_address)
     else
+      if current_user.active_address.nil?
+        flash[:alert] = "You have to create / select an address in #{@product.country}"
+        redirect_to user_path(current_user)
+        return
+      end
       @subscription = Subscription.new(subscription_params)
       @subscription.address = current_user.active_address
       @subscription.product = @product
