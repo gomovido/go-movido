@@ -29,11 +29,11 @@ class User < ApplicationRecord
 
 
   def check_address
-    if self.country != self.active_address.country
+    if self.active_address && self.country != self.active_address.country
       self.active_address.update_columns(active: false)
-      if self.addresses.where(country: self.country)
-        self.addresses.where(country: self.country).last.update_columns(active: true)
-      end
+    end
+    if !self.addresses.where(country: self.country).blank?
+      self.addresses.where(country: self.country).last.update_columns(active: true)
     end
   end
 
