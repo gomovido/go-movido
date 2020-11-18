@@ -7,6 +7,14 @@ fr:
       user:
        not_found_in_database: "Il semble que vous n'ayez pas encore de compte de movido. S'inscrire"
        invalid: 'Email ou mot de passe invalide.'
+  filter:
+    title: 'Filtrer vos résultats'
+    subtitle: '%{product_count} offres sur %{total_product}'
+    unlimited_data: 'Données illimitées'
+    unlimited_call: 'Appel illimité'
+    no_contract: 'Sans engagement'
+    contract_only: 'Avec engagment seulement'
+    by_price: 'Filtrer par prix'
   form:
     failure:
       check_country: 'Vous devez sélectionner une adresse dans le même pays'
