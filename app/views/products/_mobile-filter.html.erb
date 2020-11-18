@@ -1,25 +1,26 @@
 <div class="filters-wrapper d-lg-flex flex-column p-4 d-none">
-  <span class="title font-weight">Filter your results</span>
-  <span class='products-count'><%= products.count %> out of <%= @category.products.count %> offers</span>
+  <span class="title font-weight"><%= t('filter.title') %></span>
+  <span class='products-count'><%= t('filter.subtitle', product_count: products.count, total_product: @category.products.count) %>
+  </span>
   <hr>
   <%= search_form_for @q, class:'d-flex flex-column', data: {controller: 'range-slider'} do |f| %>
   <%= f.hidden_field :category_id, value: products.first.category.slug %>
   <div class="input mb-1">
     <%= check_box_tag('q[unlimited_data_true]', 1, params[:q] && params[:q][:unlimited_data_true].present?,
     onclick: ("this.form.submit();"), class:'checkround') %>
-    <span class='label ml-2'>Unlimited Data</span>
+    <span class='label ml-2'><%= t('filter.unlimited_data') %></span>
   </div>
   <div class="input mb-1">
     <%= check_box_tag('q[unlimited_call_true]', 1, params[:q] && params[:q][:unlimited_call_true].present?,
     onclick: ("this.form.submit();"), class:'checkround') %>
-    <span class='label ml-2'>Unlimited Call</span>
+    <span class='label ml-2'><%= t('filter.unlimited_call') %></span>
   </div>
   <div class="input mb-1">
     <%= check_box_tag('q[obligation_false]', 1, params[:q] && params[:q][:obligation_false].present?,
     onclick: ("this.form.submit();"), class:'checkround') %>
-    <span class='label ml-2'>No contract</span>
+    <span class='label ml-2'><%= t('filter.no_contract') %></span>
   </div>
-  <span class='filter-title text-center mt-3'>Filter by price</span>
+  <span class='filter-title text-center mt-3'><%= t('filter.by_price') %></span>
   <div >
     <div class="input d-flex justify-content-around mt-3 mb-4">
       <%= f.text_field :price_gteq, class:'number-field  text-center', value: 1 %>
