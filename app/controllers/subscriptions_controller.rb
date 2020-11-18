@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 
   before_action :set_product, only: [:new, :create]
-  before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations]
+  before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
 
   def create
     if @product.category.name != 'mobile'
@@ -50,11 +50,13 @@ class SubscriptionsController < ApplicationController
     if @subscription.update(state: 'pending_processed')
       UserMailer.with(user: @subscription.address.user, subscription: @subscription).congratulations.deliver_now
       flash[:notice] = "Your subscription is being processed"
-      redirect_to subscription_congratulations_path
+      redirect_to subscription_payment_path(@subscription)
     end
   end
 
   def congratulations; end
+
+  def payment; end
 
   def show
     @subscription = Subscription.find(params[:id])

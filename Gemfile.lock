@@ -142,6 +142,15 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
+    monetize (1.9.4)
+      money (~> 6.12)
+    money (6.13.8)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.13.3)
+      activesupport (>= 3.0)
+      monetize (~> 1.9.0)
+      money (~> 6.13.2)
+      railties (>= 3.0)
     msgpack (1.3.3)
     nio4r (2.5.4)
     nokogiri (1.10.10)
@@ -253,6 +262,7 @@ GEM
       rack
       rails (>= 5.2)
       redis
+    stripe (5.28.0)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -304,6 +314,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.2)
+  money-rails (~> 1.13)
   pg (>= 0.18, < 2.0)
   phony_rails (~> 0.14.13)
   postmark-rails (~> 0.12.0)
@@ -320,6 +331,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   stimulus_reflex (~> 3.3)
+  stripe (~> 5.28)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

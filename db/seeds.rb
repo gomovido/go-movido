@@ -49,7 +49,7 @@ product = Product.create(
   company: "SFR",
   name: "5 Go 4G+",
   description: 'France & Europe',
-  price: 12.00,
+  price: 12,
   sim_needed: true,
   category: category,
   sku: "5_Go_4G+",
@@ -61,7 +61,7 @@ product = Product.create(
   data_limit: '5go',
   delivery_price: '0',
   delivery: false,
-  sim_card_price: 1.00,
+  sim_card_price: 1,
   logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Logo_SFR_2014.svg/langfr-300px-Logo_SFR_2014.svg.png'
 )
 
@@ -97,7 +97,7 @@ product = Product.create(
   data_limit: '80go',
   delivery_price: '0',
   delivery: false,
-  sim_card_price: 1.00,
+  sim_card_price: 1,
   logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Logo_SFR_2014.svg/langfr-300px-Logo_SFR_2014.svg.png'
 )
 
@@ -133,7 +133,7 @@ product = Product.create(
   call_limit: '2 hours',
   delivery_price: '0',
   delivery: false,
-  sim_card_price: 1.00,
+  sim_card_price: 1,
   logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Logo_SFR_2014.svg/langfr-300px-Logo_SFR_2014.svg.png'
 )
 
@@ -336,7 +336,7 @@ product = Product.create(
   delivery_price: '0',
   call_limit: 'unlimited',
   delivery: false,
-  sim_card_price: 1.00,
+  sim_card_price: 1,
   logo_url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/B%26YOU_logo.jpeg',
   special_offer: '3month Spotify Premium for free'
 )
