@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   has_many :product_features, dependent: :destroy
   validates :sku, presence: true
   monetize :price_cents
+  monetize :sim_card_price_cents
 
 
   def eligible?(user)

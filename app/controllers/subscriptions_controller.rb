@@ -48,15 +48,15 @@ class SubscriptionsController < ApplicationController
 
   def validate_subscription
     if @subscription.update(state: 'pending_processed')
-      UserMailer.with(user: @subscription.address.user, subscription: @subscription).congratulations.deliver_now
-      flash[:notice] = "Your subscription is being processed"
       redirect_to subscription_payment_path(@subscription)
     end
   end
 
   def congratulations; end
 
-  def payment; end
+  def payment;
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'paid'
+  end
 
   def show
     @subscription = Subscription.find(params[:id])
