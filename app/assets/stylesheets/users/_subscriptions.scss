@@ -44,6 +44,12 @@
     }
   }
 }
+.price-box {
+  background: $dark-grey;
+  color: $white;
+  width: 20%;
+  border-radius: 20px;
+}
 
 @include media-breakpoint-only(xs) {
   .subscriptions-index-container {
