@@ -54,7 +54,9 @@ class SubscriptionsController < ApplicationController
 
   def congratulations; end
 
-  def payment; end
+  def payment;
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'paid'
+  end
 
   def show
     @subscription = Subscription.find(params[:id])
