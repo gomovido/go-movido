@@ -1,17 +1,12 @@
-<script src="https://js.stripe.com/v3/"></script>
-​
-<form action="/charge" method="post" id="payment-form" data-controller="charge">
-  <div class="form-row">
-    <label for="card-element">
-      Credit or debit card
-    </label>
-    <div id="card-element">
-      <!-- A Stripe Element will be inserted here. -->
+<div class="container subscriptions-container" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
+  <%= render 'steps', step: 4, title: 'Payment' %>
+  <div class="row mx-0">
+    <div class="col-md-12 text-center my-4">
+      <h2>You just need to pay for your SIM card to finalize your purchase</h2>
+      <p>The sim card cost <%= @subscription.product.sim_card_price %> €</p>
     </div>
-​
-    <!-- Used to display form errors. -->
-    <div id="card-errors" role="alert"></div>
+    <div class="col-md-12 text-center my-4">
+      <%= render 'subscriptions/forms/stripe' %>
+    </div>
   </div>
-​
-  <button>Submit Payment</button>
-</form>
+</div>

@@ -4,7 +4,6 @@ export default class extends Controller {
 
   connect() {
     const stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
-    console.log(stripe)
     var elements = stripe.elements();
 
     var style = {
