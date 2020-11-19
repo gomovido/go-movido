@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :products, only: [:index]
   resources :addresses, only: [:create]
 
+  post 'charge', to: 'charges#create'
+
   get 'products/modal/:id', to: 'products#modal', as: 'modal_product'
 
   resources :categories, only: [:index] do
