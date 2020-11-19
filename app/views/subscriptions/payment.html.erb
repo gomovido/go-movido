@@ -1,11 +1,12 @@
 <div class="container subscriptions-container" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <%= render 'steps', step: 4, title: 'Payment' %>
+  <%= render 'steps', step: 4, title: t('steps.payment') %>
   <div class="row mx-0">
-    <div class="col-md-12 text-center my-4">
-      <h2>You just need to pay for your SIM card to finalize your purchase</h2>
-      <p>The sim card cost <%= @subscription.product.sim_card_price %> €</p>
+    <div class="col-md-12 text-center my-4 d-flex align-items-center flex-column">
+      <h2><%= t('step_4.title') %></h2>
+      <p class="price-box p-3 mt-3"><strong><%= t('step_4.subtitle', price: @subscription.product.sim_card_price) %></strong></p>
     </div>
     <div class="col-md-12 text-center my-4">
+      <p>We accept Visa, Master Card</p>
       <%= render 'subscriptions/forms/stripe' %>
     </div>
   </div>
