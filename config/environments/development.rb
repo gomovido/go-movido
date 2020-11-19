@@ -1,6 +1,7 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   config.action_mailer.delivery_method = :letter_opener
+  config.hosts << /[a-z0-9.]+.ngrok.io/
   # Settings specified here will take precedence over those in config/application.rb.
   config.session_store :cookie_store, key: "_eqipia_session_#{Rails.env}", domain: :all
 
