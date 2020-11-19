@@ -3,9 +3,7 @@ import { Controller } from "stimulus";
 export default class extends Controller {
 
   connect() {
-    console.log(process.env.STRIPE_PUBLISHABLE_KEY)
     const stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
-    console.log(process.env.STRIPE_PUBLISHABLE_KEY)
     var elements = stripe.elements();
 
     var style = {
