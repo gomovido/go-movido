@@ -11,7 +11,7 @@ class ChargesController < ApplicationController
   def process_payment(subscription, stripe_token)
     begin
     stripe_charge = Stripe::Charge.create({
-        amount: subscription.product.price_cents,
+        amount: subscription.product.sim_card_price_cents,
         currency: subscription.product.price_currency,
         source: stripe_token,
         description: "Subscription ##{subscription.id}",
