@@ -12,7 +12,7 @@ class ChargesController < ApplicationController
     begin
     stripe_charge = Stripe::Charge.create({
         amount: subscription.product.sim_card_price_cents,
-        currency: subscription.product.price_currency,
+        currency: subscription.product.sim_card_price_cents_currency,
         source: stripe_token,
         description: "Subscription ##{subscription.id}",
       })
