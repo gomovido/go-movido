@@ -26,16 +26,16 @@ fr:
   pages:
     home:
       banner:
-        headline1: 'Installez-vous<br> dans votre<br> nouveau domicile'
-        headline2: 'en seulement 10 minutes'
+        headline1: 'Installez-vous'
+        headline2: 'en seulement <br> 10 minutes'
         subheadline: "movido s'occupe de vos démarches travail administratives"
       services-cards:
-        housing: 'voir les meilleures annonces immobilières dans votre ville'
+        housing: 'annonces immobilières'
         bank: 'ouvrez votre compte bancaire'
-        mobile: 'obtenez votre numéro de téléphone local'
-        wifi: 'installez le WiFi à la maison'
-        gym: 'voir les meilleures offres de gym dans votre région'
-        transportation: 'obtenez votre carte de transport local'
+        mobile: 'changez de forfait téléhonique'
+        wifi: "profitez d'une variété d'offres Wifi"
+        gym: 'voir les meilleures offres de gym'
+        transportation: 'obtenez votre carte de transport '
       how-it-works:
         title: 'Comment ça marche?'
         card1:
