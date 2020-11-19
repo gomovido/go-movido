@@ -4,54 +4,58 @@ export default class extends Controller {
 
   connect() {
     const stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
-    var elements = stripe.elements();
+    const elements = stripe.elements({locale: document.getElementById('payment-form').dataset.locale});
 
-    var style = {
+    const style = {
       base: {
-        color: '#32325d',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        color: '#0D4D90',
+        fontFamily: '"Lato", sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
-          color: '#aab7c4'
+          color: '#798CA0'
         }
       },
       invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
+        color: '#FD1015',
+        iconColor: '#FD1015'
       }
     };
-    var card = elements.create('card', {style: style});
-    card.mount('#card-element');
-    card.on('change', function(event) {
-      var displayError = document.getElementById('card-errors');
+    const cardNumberElement = elements.create('cardNumber', {showIcon: true, style: style});
+    cardNumberElement.mount('#card-number-element');
+    const cardExpiryElement = elements.create('cardExpiry', {style: style});
+    cardExpiryElement.mount('#card-expiry-element');
+    const cardCvcElement = elements.create('cardCvc', {style: style});
+    cardCvcElement.mount('#card-cvc-element');
+    cardNumberElement.on('change', (event) => {
+      const displayError = document.getElementById('card-errors');
       if (event.error) {
         displayError.textContent = event.error.message;
       } else {
+
         displayError.textContent = '';
       }
     });
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function(event) {
+    const form = document.getElementById('payment-form');
+    form.addEventListener('submit',(event) => {
       event.preventDefault();
-      stripe.createToken(card).then(function(result) {
+      stripe.createToken(cardNumberElement).then((result) => {
         if (result.error) {
-          var errorElement = document.getElementById('card-errors');
+          const errorElement = document.getElementById('card-errors');
           errorElement.textContent = result.error.message;
         } else {
-          stripeTokenHandler(result.token);
+          this.stripeTokenHandler(result.token);
         }
       });
     });
-    function stripeTokenHandler(token) {
-      var form = document.getElementById('payment-form');
-      var hiddenInput = document.createElement('input');
-      hiddenInput.setAttribute('type', 'hidden');
-      hiddenInput.setAttribute('name', 'stripeToken');
-      hiddenInput.setAttribute('value', token.id);
-      form.appendChild(hiddenInput);
-      form.submit();
   }
-
+  stripeTokenHandler(token) {
+    const form = document.getElementById('payment-form');
+    const hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+    form.submit();
   }
 }
