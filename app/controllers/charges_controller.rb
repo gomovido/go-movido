@@ -12,15 +12,27 @@ class ChargesController < ApplicationController
     begin
     stripe_charge = Stripe::Charge.create({
         amount: subscription.product.sim_card_price_cents,
-        currency: subscription.product.sim_card_price_cents_currency,
+        currency: subscription.product.sim_card_price_currency,
         source: stripe_token,
         description: "Subscription ##{subscription.id}",
       })
-    redirect_to subscription_congratulations_path(@subscription)
+    subscription.update(state: 'paid')
+    create_charge(stripe_charge, subscription)
+    UserMailer.with(user: subscription.address.user, subscription: subscription).congratulations.deliver_now
+    redirect_to subscription_congratulations_path(subscription)
     rescue Stripe::CardError => e
       flash[:alert] = e
       redirect_back(fallback_location: root_path)
     end
+  end
+
+
+  def create_charge(stripe_charge, subscription)
+    Charge.create(
+      stripe_charge_id: stripe_charge.id,
+      status: stripe_charge.status,
+      subscription_id: subscription.id,
+    )
   end
 
   private
