@@ -3,6 +3,6 @@
   <div class="column"><%= image_tag(asset_path(subscription.product.logo_url), class:"img") %></div>
   <span class="price column"><strong class="amount">€<%= subscription.product.price %></strong>/month</span>
   <span class="column d-lg-block d-none"><%= subscription.product.created_at.strftime('%m/%d/%Y') %></span>
-  <span class="column d-lg-block d-none">info@revolut.com<br> +1 202 2554 566</span>
+  <span class="column d-lg-block d-none"><%= subscription.charge.status %></span>
   <%= link_to "Details", subscription_congratulations_path(subscription), class: "btn-minor py-1 column" %>
 </div>
