@@ -1,20 +1,37 @@
 <script src="https://js.stripe.com/v3/"></script>
-<div class="summary col-12 col-md-6 offset-lg-3 mb-5 p-5  mt-4">
-  <form action="/charge" method="post" id="payment-form" data-controller="charge">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= hidden_field_tag :subscription_id, @subscription.id %>
-    <div class="form-row">
-      <label for="card-element">
-        Credit or debit card
-      </label>
-      <div id="card-element" class="w-100">
-        <!-- A Stripe Element will be inserted here. -->
+<div class="summary col-12 col-md-6 offset-lg-3 mb-5 p-4 p-lg-5  mt-4">
+  <div class="secured-infos d-flex align-items-center mb-4">
+     <i class="fas fa-lock mr-4 p-2"></i>
+     <div class="texts">
+      <h4 class="text-left"><%= t('payment.connection') %></h4>
+      <span class="bit-info">HTTPS - 256-bit encryption - stripe certified</span>
+     </div>
+  </div>
+  <hr>
+    <%= simple_form_for @subscription, url: "/charge", method: :post, data: {controller: "charge", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
+    <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
+    <%= f.hidden_field :subscription_id, value: @subscription.id %>
+    <div class="input-wrapper mb-1">
+      <label for="card-number-element" class="mb-3 w-100 text-left"><%= t('payment.number') %></label>
+      <div id="card-number-element" class="input p-3" >
       </div>
-  ​
-      <!-- Used to display form errors. -->
-      <div id="card-errors" role="alert"></div>
+      <i class="fas fa-lock"></i>
     </div>
-  ​
-    <button class="btn-main w-100">Submit Payment</button>
-  </form>
+
+    <div class="d-flex align-items-center justify-content-between mt-5">
+      <div class="input-wrapper mb-2 w-40">
+        <label for="card-expiry-element" class="mb-3 w-100 text-left"><%= t('payment.date') %></label>
+        <div id="card-expiry-element" class="input p-3" >
+        </div>
+      </div>
+      <div class="input-wrapper mb-2 w-40">
+        <label for="card-cvc-element" class="mb-3 w-100 text-left">CVC</label>
+        <div id="card-cvc-element" class="input p-3" >
+        </div>
+      </div>
+    </div>
+    <div id="card-errors" class="mt-2" role="alert"></div>
 </div>
+  <%= f.button :submit, 'Confirm your purchase', class: 'btn-main'%>
+    <% end %>
+

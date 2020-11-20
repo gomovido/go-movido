@@ -7,6 +7,11 @@ fr:
       user:
        not_found_in_database: "Il semble que vous n'ayez pas encore de compte de movido. S'inscrire"
        invalid: 'Email ou mot de passe invalide.'
+  payment:
+    subline: 'Nous acceptons Visa & Master Card'
+    connection: 'Connexion sécurisée'
+    number: 'Numéro de carte'
+    date: "Date d'expiration"
   filter:
     title: 'Filtrer vos résultats'
     subtitle: '%{product_count} offres sur %{total_product}'
