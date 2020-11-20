@@ -65,7 +65,7 @@ class SubscriptionsController < ApplicationController
       redirect_to subscription_payment_path(@subscription)
     else
       @subscription.update(state: 'paid')
-      subscription_congratulations_path(@subscription)
+      redirect_to subscription_congratulations_path(@subscription)
     end
   end
 
