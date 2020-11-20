@@ -48,13 +48,29 @@ class SubscriptionsController < ApplicationController
 
   def validate_subscription
     if @subscription.update(state: 'pending_processed')
-      redirect_to subscription_payment_path(@subscription)
+      if @subscription.product.sim_card_price.cents >= 1
+        redirect_to subscription_payment_path(@subscription)
+      else
+        redirect_to subscription_congratulations_path(@subscription)
+      end
     end
   end
 
-  def congratulations; end
+  def congratulations
+    if @subscription.product.sim_card_price.cents <  1
+      @subscription.update(state: 'paid')
+    elsif @subscription.product.sim_card_price.cents >= 1 && !@subscription.charge
+      redirect_to subscription_payment_path(@subscription)
+    elsif @subscription.product.sim_card_price.cents >=  1 && @subscription.charge.status != "succeeded"
+      redirect_to subscription_payment_path(@subscription)
+    else
+      @subscription.update(state: 'paid')
+      subscription_congratulations_path(@subscription)
+    end
+  end
 
-  def payment;
+  def payment
+    @charge = Charge.new
     redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'paid'
   end
 
