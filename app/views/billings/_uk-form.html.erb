@@ -3,7 +3,7 @@
     <div class="billing-form d-flex flex-column mb-4 p-4">
       <%= simple_form_for [@subscription, @billing], class:"d-flex flex-column" do |f| %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
-      <div data-target="subscription.firstPart">
+      <div>
         <div class="input-wrapper mb-2">
           <label for="holder_name" class="mb-3 mr-2">Account holder name*</label>
           <div class="input text-right d-flex justify-content-end pr-3">
@@ -19,7 +19,7 @@
         <div class="input-wrapper mb-2">
           <label for="bank" class="mb-3">Banking Institution*</label>
           <div class="input text-right d-flex justify-content-end pr-3" >
-            <%= f.input :bank, required: true, label: false, readonly: true, class:'form-control'%>
+            <%= f.input :bank, required: true, label: false, class:'form-control'%>
           </div>
         </div>
         <hr>

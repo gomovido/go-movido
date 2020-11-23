@@ -32,7 +32,7 @@ class BillingsController < ApplicationController
 
 
   def billing_params
-    params.require(:billing).permit(:address, :bic, :iban, :bank, :holder_name, :account_number, :sort_code)
+    params.require(:billing).permit(:address, :bic, :iban, :bank, :holder_name, :account_number, :sort_code, :subscription_id)
   end
 
   def set_subscription
