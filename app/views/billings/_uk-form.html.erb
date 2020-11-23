@@ -1,0 +1,9 @@
+<%= simple_form_for [@subscription, @billing] do |f| %>
+  <%= f.hidden_field :subscription_id, value: @subscription.id %>
+  <%= f.input :holder_name %>
+  <%= f.input :account_number %>
+  <%= f.input :sort_code %>
+  <%= f.input :bank %>
+  <%= f.input :address %>
+  <%= f.submit 'Save' %>
+<% end %>

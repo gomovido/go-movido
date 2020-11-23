@@ -24,11 +24,13 @@ class SubscriptionsController < ApplicationController
   end
 
   def create_wifi_subcription
-    @subscription = Subscription.new(subscription_params)
+    @subscription = Subscription.new
     @subscription.address = current_user.active_address
+    @subscription.update(subscription_params)
     @subscription.product = @product
     @subscription.delivery_address = current_user.active_address.street
     if @subscription.save
+      redirect_to new_subscription_billing_path(@subscription)
       @subscription.update(state: 'draft')
     else
       @category = @product.category
