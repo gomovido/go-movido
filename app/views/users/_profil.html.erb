@@ -90,7 +90,7 @@
       required: true,
       label: false,
       input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker width'}, data: {
-      controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} %>
+      controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years} %>
       <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
     </div>
     <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
