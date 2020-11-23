@@ -54,21 +54,9 @@
       <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
     </div>
     <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-      <label for="city" class="m-0">City I am moving to</label>
-      <div class="profil-input">
-        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="4"><%= current_user.city %></span>
-        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="city"></i>
-      </div>
-    </div>
-    <hr>
-    <div data-target="profil-form.input" id="city" class="form-input d-none p-1">
-      <%= form.select :city, [['Paris'], ['London']], class:'form-control'  %>
-      <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
-    </div>
-    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
       <label for="email" class="m-0">Email Address</label>
       <div class="profil-input">
-        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="5"><%= current_user.email %></span>
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="4"><%= current_user.email %></span>
         <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="email"></i>
       </div>
     </div>
@@ -80,7 +68,7 @@
     <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
       <label for="birthdate" class="m-0">Birthdate</label>
       <div class="profil-input">
-        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="6"><%= current_user.birthdate %></span>
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="5"><%= current_user.birthdate %></span>
         <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="birthdate"></i>
       </div>
     </div>
@@ -96,7 +84,7 @@
     <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
       <label for="birth_city" class="m-0">Place of birth</label>
       <div class="profil-input">
-        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="7"><%= current_user.birth_city %></span>
+        <span class="pr-3" data-action="mouseover->profil-form#togglePen"  data-id="6"><%= current_user.birth_city %></span>
         <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="birth_city"></i>
       </div>
     </div>
@@ -110,11 +98,17 @@
       <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
     </div>
     <% if current_user.active_address %>
-    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
       <label for="address" class="m-0">Current Address</label>
       <div class="profil-input">
         <span class="pr-3"><%= current_user.active_address.street %></span>
-        <i class= "fas fa-pen d-none" data-action="click->profil-form#toggleInput" data-id="address"></i>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
+      <label for="city" class="m-0">City</label>
+      <div class="profil-input">
+        <span class="pr-3"><%= current_user.active_address.city %></span>
       </div>
     </div>
     <% end %>
