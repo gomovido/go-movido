@@ -5,28 +5,28 @@
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div data-target="subscription.firstPart">
         <div class="input-wrapper mb-2">
-          <label for="holder_name" class="mb-3 mr-2">Account holder name</label>
+          <label for="holder_name" class="mb-3 mr-2">Account holder name*</label>
           <div class="input text-right d-flex justify-content-end pr-3">
-            <%= f.input :holder_name, required: true, label: false, class:'form-control pl-5' %>
+            <%= f.input :holder_name, required: true, label: false, class:'form-control pl-5', input_html: {value: current_user.first_name + ' ' + current_user.last_name} %>
           </div>
         </div>
         <div class="input-wrapper mb-2">
-          <label for="account_number" class="mb-3">Account number</label>
+          <label for="account_number" class="mb-3">Account number*</label>
           <div class="input text-right d-flex justify-content-end pr-3" >
             <%= f.input :account_number, class:'form-control', required: true, label: false %>
           </div>
         </div>
         <div class="input-wrapper mb-2">
-          <label for="bank" class="mb-3">Banking Institution</label>
+          <label for="bank" class="mb-3">Banking Institution*</label>
           <div class="input text-right d-flex justify-content-end pr-3" >
             <%= f.input :bank, required: true, label: false, readonly: true, class:'form-control'%>
           </div>
         </div>
         <hr>
         <div class="input-wrapper mb-3">
-          <label for="address" class="mb-3">Billing address</label>
+          <label for="address" class="mb-3">Billing address*</label>
           <div class="input text-right d-flex justify-content-end pr-3">
-            <%= f.input :address, required: true, label: false, class:'form-control' %>
+            <%= f.input :address, required: true, label: false, class:'form-control',input_html: {value: current_user.active_address.street} %>
           </div>
         </div>
         <div class="actions d-flex justify-content-around">
