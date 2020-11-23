@@ -6,8 +6,7 @@ export function addressAutocomplete(element) {
     appId: process.env.ALGOLIA_APP_ID,
     apiKey: process.env.ALGOLIA_API_KEY,
     container: element,
-    type: 'address',
-    countries: ['FR', 'GB']
+    type: 'address'
   });
 }
 
