@@ -16,8 +16,8 @@ en:
     subtitle: '%{product_count} out of %{total_product} offers'
     unlimited_data: 'Unlimited data'
     unlimited_call: 'Unlimited call'
-    no_contract: 'No contract'
-    contract_only: 'Contract only'
+    no_contract: 'Monthly contract'
+    contract_only: 'Long-term contract'
     by_price: 'Filter by price'
   steps:
     header: '%{current_step} of %{total_step}'
