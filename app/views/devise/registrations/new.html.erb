@@ -46,7 +46,7 @@
                          required: true,
                          label: false,
                          input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker p-xs-0 ml-xs-2', data: {
-                          controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now} }, error: false %>
+                          controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years} }, error: false %>
             </div>
             <%= f.full_error :birthdate, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
