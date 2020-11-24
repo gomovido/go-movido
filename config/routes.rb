@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
 
   resources :users, only: [:show, :update]
-  resources :subscriptions, only: [:show ]
+  resources :subscriptions, only: [:show ] do
+    resources :billings, only: [:new, :create]
+  end
   resources :products, only: [:index]
   resources :addresses, only: [:create]
 
@@ -28,8 +30,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:index] do
     resources :products, only: [:index] do
       post 'subscriptions/wifi', to: 'subscriptions#create_wifi_subcription', as: 'create_wifi_subscription'
-      resources :subscriptions, only: [:new, :create, :update]
       get 'subscriptions/wifi/new', to: 'subscriptions#new_wifi', as: 'new_subscription_wifi'
+      resources :subscriptions, only: [:new, :create, :update]
     end
   end
 end
