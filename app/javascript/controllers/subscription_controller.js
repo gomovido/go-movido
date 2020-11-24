@@ -3,7 +3,7 @@ import { addressAutocomplete } from '../packs/algolia';
 import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
-  static targets = [ "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
+  static targets = ["billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
 
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
