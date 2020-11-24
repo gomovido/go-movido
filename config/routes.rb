@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root 'pages#dashboard_index', as: 'dashboard_index'
   end
 
+  get 'privacy', to: 'pages#privacy'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   get 'payment/:subscription_id', to: 'subscriptions#payment', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
