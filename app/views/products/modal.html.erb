@@ -21,7 +21,7 @@
     <div class="top d-flex flex-column justify-content-around my-5 align-items-center">
       <span class='price text-center'>€ <%= @product.price %></span>
       <span class="sub-price text-center">per month</span>
-      <%= link_to 'Select', new_category_product_subscription_path(@product.category, @product), class:'btn-card mt-3' %>
+      <%= link_to 'Select', category_product_subscriptions_path(@product.category, @product), class:'btn-card mt-3', method: :post %>
     </div>
     <hr>
     <div class="bottom d-flex align-items-center flex-column">

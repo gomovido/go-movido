@@ -4,22 +4,22 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
 
   def create
+    return if subscription_draft?(@product)
+    return if subscription_active?(@product)
     if current_user.active_address.nil?
       flash[:alert] = "You have to create / select an address in #{@product.country}"
       redirect_to user_path(current_user)
       return
     end
-    @subscription = Subscription.new(subscription_params)
+    @subscription = Subscription.new
     @subscription.address = current_user.active_address
     @subscription.product = @product
-    @subscription.billing.iban = sanitized_iban
-    @subscription.billing.bic = sanitized_bic
     if @subscription.save
       @subscription.update(state: 'draft')
-      redirect_to subscription_summary_path(@subscription)
+      redirect_to new_subscription_billing_path(@subscription)
     else
       @category = @product.category
-      render :new
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -51,53 +51,54 @@ class SubscriptionsController < ApplicationController
 
   def congratulations
     if @subscription.product.sim_card_price.cents <  1
-      @subscription.update(state: 'paid')
+      @subscription.update(state: 'succeeded')
     elsif @subscription.product.sim_card_price.cents >= 1 && !@subscription.charge
       redirect_to subscription_payment_path(@subscription)
     elsif @subscription.product.sim_card_price.cents >=  1 && @subscription.charge.status != "succeeded"
-      redirect_to subscription_payment_path(@subscription)
-    else
-      @subscription.update(state: 'paid')
       redirect_to subscription_congratulations_path(@subscription)
     end
   end
 
   def payment
     @charge = Charge.new
-    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'paid'
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'succeeded'
   end
 
   def show
     @subscription = Subscription.find(params[:id])
   end
 
-  def new
-    @category = @product.category
-    @subscription = Subscription.new
-    @subscription.build_billing
-  end
 
   def new_wifi
     @subscription = Subscription.new
     @subscription.build_address
+    return if subscription_draft?(@product)
+    return if subscription_active?(@product)
   end
 
   private
+
+  def subscription_active?(product)
+    subscription_check = Subscription.find_by(state: 'succeeded', product: product, address: current_user.active_address)
+    if subscription_check && product.category.name != 'mobile'
+      redirect_to subscription_congratulations_path(subscription_check)
+      flash[:alert] = 'You already have this subscription !'
+    end
+  end
+
+  def subscription_draft?(product)
+    subscription_check = Subscription.find_by(state: 'draft', product: product, address: current_user.active_address)
+    if subscription_check && product.category.name == 'mobile'
+      redirect_to new_subscription_billing_path(subscription_check)
+    end
+  end
 
   def set_subscription
     @subscription = Subscription.find(params[:subscription_id])
   end
 
-  def sanitized_bic
-    params[:subscription][:billing_attributes][:bic].upcase
-  end
-
-  def sanitized_iban
-    params[:subscription][:billing_attributes][:iban].upcase.gsub(" ","")
-  end
-
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :address_id, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
+    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
   end
 
   def set_product
