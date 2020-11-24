@@ -360,25 +360,23 @@ product = Product.create(
 
   # Billings & Subscriptions
 
-  10.times do
-   subscription = Subscription.create(
-     product: Product.all.sample,
-     delivery_address: Faker::Address.full_address,
-     state: 'pending_processed',
-     address: Address.all.sample
-   )
-   p "Subscription to #{subscription.product.name} created"
- end
-
  10.times do
-   billing = Billing.create(
-     address: Faker::Address.full_address,
-     user_id: User.all.sample.id,
+  user = User.first
+  subscription = Subscription.create(
+     product: Product.all.sample,
+     delivery_address: user.addresses.first.street + ', ' + user.country,
+     state: 'pending_processed',
+     address: user.addresses.first
+   )
+  billing = Billing.create(
+     address: user.addresses.first.street + ', ' + user.country,
+     user: user,
      bic: Faker::Bank.swift_bic,
      iban: Faker::Bank.iban(country_code: "fr"),
      bank: Faker::Bank.name,
-     subscription: Subscription.all.sample
+     subscription: subscription
    )
+  p "Subscription to #{subscription.product.name} created"
  end
 
 category = Category.create(
