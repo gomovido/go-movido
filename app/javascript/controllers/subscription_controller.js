@@ -3,7 +3,7 @@ import { addressAutocomplete } from '../packs/algolia';
 import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
-  static targets = [ "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
+  static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
 
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
@@ -29,5 +29,14 @@ export default class extends Controller {
 
   fillBank() {
     this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value);
+    this.enableButton();
+  }
+
+  enableButton() {
+
+    if (this.bicInputTarget.value && this.billingAddressInputTarget.value && this.ibanInputTarget.value) {
+      console.log('hello')
+      this.continueButtonTarget.disabled = false;
+    }
   }
 }

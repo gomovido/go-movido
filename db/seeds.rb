@@ -411,11 +411,26 @@ category = Category.create(
 
 
 category = Category.create(
+  name: 'utilities',
+  sku: 'utilities',
+  form_timer: Faker::Number.number(digits: 8),
+  subtitle: 'Sign-up to utilities',
+  description: 'Find best electricity / gas offers')
+
+category = Category.create(
+  name: 'community',
+  sku: 'community',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'Join our community',
+  description: 'Discuss with students from all over the world')
+
+category = Category.create(
   name: 'wifi',
   sku: 'wifi',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'Set-up WiFi at home',
   description: 'Find the perfect place for you to stay in your new hometown')
+
 
 product = Product.create(
   country: "United Kingdom",
