@@ -85,7 +85,6 @@
             <%= f.full_error :city, class: 'invalid-feedback text-right' %>
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,
-                        required: true,
                         label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'}, error: false %>
               <label class="m-0 pl-2">I don’t have an address yet</label>
             </div>
