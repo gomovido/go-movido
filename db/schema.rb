@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_124159) do
+ActiveRecord::Schema.define(version: 2020_11_23_224707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 2020_11_19_124159) do
     t.bigint "user_id", null: false
     t.string "bank"
     t.bigint "subscription_id", null: false
+    t.string "holder_name"
+    t.string "account_number"
+    t.string "sort_code"
     t.index ["subscription_id"], name: "index_billings_on_subscription_id"
     t.index ["user_id"], name: "index_billings_on_user_id"
   end
