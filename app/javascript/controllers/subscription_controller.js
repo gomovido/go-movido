@@ -4,7 +4,6 @@ import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
   static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
-
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
       this.deliveryAddressInputTarget.value = e.suggestion.value
