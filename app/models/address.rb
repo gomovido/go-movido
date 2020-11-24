@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
   belongs_to :user
-  has_many :subscriptions, dependent: :destroy, :inverse_of => :address
+  has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :subscriptions
   validates_presence_of :street, :country, :city
   validate :check_country
