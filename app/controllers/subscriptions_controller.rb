@@ -98,7 +98,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :address_id, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor])
+    params.require(:subscription).permit(:delivery_address, :address_id, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
   end
 
   def set_product
