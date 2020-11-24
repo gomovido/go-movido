@@ -3,8 +3,7 @@ class Subscription < ApplicationRecord
   belongs_to :address
   has_one :billing, dependent: :destroy
   has_one :charge
-  accepts_nested_attributes_for :billing
-  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :billing, :address
   validate :delivery_address_country
 
 

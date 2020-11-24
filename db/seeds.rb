@@ -451,4 +451,21 @@ product = Product.create(
   tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
 )
 
-
+product = Product.create(
+  country: "France",
+  company: "Free",
+  name: "Free fibre optique",
+  description: 'xxxxx',
+  price: 39.95,
+  category: category,
+  sku: "d_save_telecom_80",
+  unlimited_data: false,
+  obligation: false,
+  time_contract: 'no',
+  delivery_price: '0',
+  delivery: true,
+  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Free_logo.svg/langfr-560px-Free_logo.svg.png',
+  data_speed: '80',
+  setup_price: 143.75,
+  tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
+)

@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
 
-  before_action :set_product, only: [:new, :create, :new_wifi]
+  before_action :set_product, only: [:new, :create, :create_wifi_subcription, :new_wifi]
   before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
 
   def create
@@ -24,9 +24,18 @@ class SubscriptionsController < ApplicationController
   end
 
   def create_wifi_subcription
-    @subscription = Subscription.new(subscription_params)
-    redirect_to new_billing_path(@subscription)
-
+    @subscription = Subscription.new
+    @subscription.address = current_user.active_address
+    @subscription.update(subscription_params)
+    @subscription.product = @product
+    @subscription.delivery_address = current_user.active_address.street
+    if @subscription.save!
+      redirect_to new_subscription_billing_path(@subscription)
+      @subscription.update(state: 'draft')
+    else
+      @category = @product.category
+      render :new
+    end
   end
 
   def summary; end
@@ -89,7 +98,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:floor])
+    params.require(:subscription).permit(:delivery_address, :address_id, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
   end
 
   def set_product
