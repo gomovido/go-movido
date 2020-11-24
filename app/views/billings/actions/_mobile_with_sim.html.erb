@@ -1,3 +1,16 @@
+<%= f.simple_fields_for :subscription do |s| %>
+  <div class="input-wrapper mb-3">
+    <label for="delivery_address" class="mb-3">Delivery address</label>
+    <div class="input text-right d-flex justify-content-end pr-3">
+      <%= s.hidden_field :id, value: @subscription.id %>
+      <%= s.input :delivery_address, required: true, label: false, hint: 'Billing and delivery addresses need to be the same', readonly: true, input_html: { class: 'form-control', data: {target: 'subscription.deliveryAddressInput'}} %>
+    </div>
+  </div>
+   <div class="actions d-flex justify-content-around">
+    <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
+    <span class="btn btn-main disabled" data-target='subscription.continueButton' data-action="click->subscription#stepForward">Confirm</span>
+  </div>
+</div>
 <div class="d-none" data-target="subscription.secondPart">
   <label for="sim" class="sim-label mr-2">Sim card size</label>
   <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Tip:</strong> You can always take a pair of scissors and cut the plastic of your SIM card to turn your Standard / Micro SIM into a Nano SIM"></i>
@@ -11,3 +24,4 @@
     <%= s.button :submit, 'Confirm', class: 'btn-main'%>
   </div>
 </div>
+<% end %>

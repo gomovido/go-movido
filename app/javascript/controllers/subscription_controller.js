@@ -7,6 +7,7 @@ export default class extends Controller {
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
       this.deliveryAddressInputTarget.value = e.suggestion.value
+      this.enableButton();
     });
     $('[data-toggle="tooltip"]').tooltip();
     this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value);
@@ -32,10 +33,8 @@ export default class extends Controller {
   }
 
   enableButton() {
-
-    if (this.bicInputTarget.value && this.billingAddressInputTarget.value && this.ibanInputTarget.value) {
-      console.log('hello')
-      this.continueButtonTarget.disabled = false;
+    if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
+      this.continueButtonTarget.classList.remove('disabled');
     }
   }
 }

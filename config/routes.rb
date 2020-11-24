@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index] do
       post 'subscriptions/wifi', to: 'subscriptions#create_wifi_subcription', as: 'create_wifi_subscription'
       get 'subscriptions/wifi/new', to: 'subscriptions#new_wifi', as: 'new_subscription_wifi'
-      resources :subscriptions, only: [:new, :create, :update]
+      resources :subscriptions, only: [:create]
     end
   end
 end
