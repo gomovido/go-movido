@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
 
-  CATEGORIES = %w[wifi mobile bank gym transportation housing]
+  CATEGORIES = %w[wifi mobile bank gym transportation housing utilities community]
   extend FriendlyId
   friendly_id :sku, use: :slugged
 

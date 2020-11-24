@@ -15,7 +15,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-      <%= render 'shared/profile-dropdown' %>
+      <div class="d-flex align-items-center">
+       <%= render 'shared/profile-dropdown' %>
+       <% if I18n.locale == :fr %>
+        <%= link_to EmojiFlag.new('en'), root_path(locale: :en) %>
+       <% else %>
+        <%= link_to EmojiFlag.new('fr'), root_path(locale: :fr) %>
+       <% end %>
+      </div>
       <% else %>
       <li class="nav-item d-flex align-items-center mt-2">
         <%= link_to ("<i class='fas fa-user pl-3 pr-4 d-lg-inline d-none'> &nbsp&nbsp|</i> Login").html_safe, new_user_session_path, class: "nav-link btn-minor pr-lg-4" %>
