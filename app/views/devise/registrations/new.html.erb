@@ -16,7 +16,7 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <div class="registration-input">
-              <span class="placeholder-left">First name</span>
+              <span class="placeholder-left"><%= t('form.label.first_name') %></span>
               <%= f.input :first_name,
                         required: true,
                         label: false,
@@ -24,7 +24,7 @@
             </div>
             <%= f.full_error :first_name, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">Last name</span>
+              <span class="placeholder-left"><%= t('form.label.last_name') %></span>
               <%= f.input :last_name,
                         required: true,
                         label: false,
@@ -32,7 +32,7 @@
             </div>
             <%= f.full_error :last_name, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">City of birth</span>
+              <span class="placeholder-left"><%= t('form.label.birth_city') %></span>
               <%= f.input :birth_city,
                         required: true,
                         label: false,
@@ -41,7 +41,7 @@
             </div>
             <%= f.full_error :last_name, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">Date of birth</span>
+              <span class="placeholder-left"><%= t('form.label.birthdate') %></span>
               <%= f.input :birthdate, as: :string,
                          required: true,
                          label: false,
@@ -50,7 +50,7 @@
             </div>
             <%= f.full_error :birthdate, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">Email address</span>
+              <span class="placeholder-left"><%= t('form.label.email') %></span>
               <%= f.input :email,
                           required: true,
                           label: false,
@@ -59,7 +59,7 @@
             </div>
             <%= f.full_error :email, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">Phone</span>
+              <span class="placeholder-left"><%= t('form.label.phone') %></span>
                 <%= f.input :phone,
                         required: true,
                         label: false,
@@ -67,7 +67,7 @@
             </div>
             <%= f.full_error :phone, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">Country I am moving to</span>
+              <span class="placeholder-left"><%= t('form.label.moving_country') %></span>
               <%= f.input :country,
                         required: true,
                         label: false,
@@ -76,7 +76,7 @@
             </div>
             <%= f.full_error :country, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">City I am moving to</span>
+              <span class="placeholder-left"><%= t('form.label.moving_city') %></span>
               <%= f.input :city,
                         required: true,
                         label: false,
@@ -86,12 +86,12 @@
             <div class="d-flex align-items-center mb-2">
               <%= f.check_box :not_housed,
                         label: false, data: { action: 'click->registration#toggleAddress', target: 'registration.checkboxAddress'}, error: false %>
-              <label class="m-0 pl-2">I don’t have an address yet</label>
+              <label class="m-0 pl-2"><%= t('form.label.not_housed') %></label>
             </div>
             <%= f.full_error :not_housed, class: 'invalid-feedback mb-3 text-right' %>
             <%= f.simple_fields_for :addresses do |s| %>
               <div class="registration-input" id="addressInput">
-                <span class="placeholder-left">Address I am moving to</span>
+                <span class="placeholder-left"><%= t('form.label.moving_street') %></span>
                   <%= s.input :street,
                         required: true,
                         label: false,
@@ -105,7 +105,7 @@
                 <%= s.hidden_field :city, id:'address_city' %>
             <% end %>
             <div class="registration-input">
-              <span class="placeholder-left">Password</span>
+              <span class="placeholder-left"><%= t('form.label.password') %></span>
                 <%= f.input :password,
                       required: true,
                       label: false,
@@ -113,7 +113,7 @@
             </div>
             <%= f.full_error :password, class: 'invalid-feedback mb-3 text-right' %>
             <div class="registration-input">
-              <span class="placeholder-left">Password confirmation</span>
+              <span class="placeholder-left"><%= t('form.label.password_confirmation') %></span>
                 <%= f.input :password_confirmation,
                       required: true,
                       label: false,
@@ -122,7 +122,7 @@
             <%= f.full_error :password_confirmation, class: 'invalid-feedback text-right' %>
           </div>
         <div class="form-actions text-lg-left text-center">
-          <%= f.button :submit, "Register now", class:'btn btn-main' %>
+          <%= f.button :submit, t('form.label.register'), class:'btn btn-main' %>
         </div>
         <% end %>
         <%= render "devise/shared/links" %>

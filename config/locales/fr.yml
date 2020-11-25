@@ -32,6 +32,28 @@ fr:
   form:
     failure:
       check_country: 'Vous devez sélectionner une adresse dans le même pays'
+    label:
+      first_name: 'Prénom'
+      last_name: 'Nom'
+      birth_city: 'Ville de naissance'
+      birthdate: 'Date de naissance'
+      email: 'Email'
+      phone: 'Numéro de téléphone'
+      moving_country: "Pays de destination"
+      moving_city: "Ville de destination"
+      not_housed: "Je n'ai pas encore d'adresse"
+      moving_street: "Adresse de destination"
+      password: 'Mot de passe'
+      password_confirmation: 'Confirmation'
+      register: "Me connecter"
+    shared_links:
+      already_account: "Vous avez déjà un compte ?"
+      no_account: "Vous n'avez pas de compte ?"
+      login: 'Me connecter'
+      sign_up: 'Créer un compte'
+      forgot_password: 'Vous avez oublié votre mot de passe ?'
+      confirmation_instruction: "Vous n'avez pas reçu d'instructions de confirmation ?"
+      unlock_instruction: "Vous n'avez pas reçu d'instructions de déverrouillage ?"
   pages:
     home:
       banner:
