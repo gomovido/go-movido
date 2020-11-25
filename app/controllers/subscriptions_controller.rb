@@ -10,8 +10,8 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new
     @subscription.address = current_user.active_address
     @subscription.product = @product
+    @subscription.state = 'draft'
     if @subscription.save
-      @subscription.update(state: 'draft')
       if @product.is_mobile?
         redirect_to new_subscription_billing_path(@subscription)
       elsif @product.is_wifi?
@@ -36,7 +36,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def congratulations
-    redirect_to subscription_payment_path(@subscription) if !@subscription.product.status == 'succeeded'
+    redirect_to subscription_payment_path(@subscription) if !@subscription.state == 'succeeded'
   end
 
   def payment
