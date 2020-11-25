@@ -11,7 +11,7 @@ class AddressesController < ApplicationController
     if @subscription.update(subscription_params)
       redirect_to new_subscription_billing_path(@subscription)
     else
-      redirect_back(fallback_location: root_path)
+      render :update_subscription_address
     end
   end
 
