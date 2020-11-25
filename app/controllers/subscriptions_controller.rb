@@ -6,34 +6,20 @@ class SubscriptionsController < ApplicationController
   def create
     return if subscription_draft?(@product)
     return if subscription_active?(@product)
-    if current_user.active_address.nil?
-      flash[:alert] = "You have to create / select an address in #{@product.country}"
-      redirect_to user_path(current_user)
-      return
-    end
+    return if active_address_do_not_exist?(@product)
     @subscription = Subscription.new
     @subscription.address = current_user.active_address
     @subscription.product = @product
     if @subscription.save
       @subscription.update(state: 'draft')
-      redirect_to new_subscription_billing_path(@subscription)
+      if @product.is_mobile?
+        redirect_to new_subscription_billing_path(@subscription)
+      elsif @product.is_wifi?
+        redirect_to subscription_update_address_path(@subscription, @subscription.address)
+      end
     else
       @category = @product.category
       redirect_back(fallback_location: root_path)
-    end
-  end
-
-  def create_wifi_subcription
-    @subscription = Subscription.new
-    @subscription.address = current_user.active_address
-    @subscription.update(subscription_params)
-    @subscription.product = @product
-    if @subscription.save
-      redirect_to new_subscription_billing_path(@subscription)
-      @subscription.update(state: 'draft')
-    else
-      @category = @product.category
-      render :new_wifi
     end
   end
 
@@ -68,15 +54,15 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
-
-  def new_wifi
-    @subscription = Subscription.new
-    @subscription.build_address
-    return if subscription_draft?(@product)
-    return if subscription_active?(@product)
-  end
-
   private
+
+  def active_address_do_not_exist?(product)
+    if current_user.active_address.nil?
+      flash[:alert] = "You have to create / select an address in #{product.country}"
+      redirect_to user_path(current_user)
+      return
+    end
+  end
 
   def subscription_active?(product)
     subscription_check = Subscription.find_by(state: 'succeeded', product: product, address: current_user.active_address)
@@ -90,6 +76,8 @@ class SubscriptionsController < ApplicationController
     subscription_check = Subscription.find_by(state: 'draft', product: product, address: current_user.active_address)
     if subscription_check && product.category.name == 'mobile'
       redirect_to new_subscription_billing_path(subscription_check)
+    elsif subscription_check && product.category.name == 'wifi'
+      redirect_to subscription_update_address_path(subscription_check, subscription_check.address)
     end
   end
 

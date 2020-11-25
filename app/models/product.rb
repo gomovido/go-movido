@@ -11,4 +11,13 @@ class Product < ApplicationRecord
   def eligible?(user)
     self.category.name == 'mobile' ? true : user.active_address.valid_address
   end
+
+
+  def is_wifi?
+    self.category.name == 'wifi'
+  end
+
+  def is_mobile?
+    self.category.name == 'mobile'
+  end
 end
