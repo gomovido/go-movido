@@ -34,7 +34,7 @@
       <%= link_to 'Details', modal_product_path(product), data: {controller: 'product', target: '#exampleModal',
       action: 'click->product#loadProduct', href: modal_product_path(product), toggle: 'modal'}, class:"mr-4 detail" %>
       <% if product.eligible?(current_user) %>
-      <%= link_to 'Select', category_product_new_subscription_wifi_path(product.category.id, product.id), class:'btn-card' %>
+      <%= link_to 'Select', category_product_subscriptions_path(product.category, product), method: :post, class:'btn-card' %>
       <% else %>
       <%= link_to 'Select', root_path, class:'btn-card' %>
       <% end %>
