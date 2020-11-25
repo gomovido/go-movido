@@ -24,7 +24,6 @@ class BillingsController < ApplicationController
       if @subscription.product.sim_card_price.cents >= 1
         redirect_to subscription_payment_path(@subscription)
       else
-        @subscription.update(state: 'pending_processed')
         redirect_to subscription_summary_path(@billing.subscription)
       end
     else
