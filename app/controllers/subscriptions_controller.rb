@@ -51,10 +51,9 @@ class SubscriptionsController < ApplicationController
   private
 
   def active_address_do_not_exist?(product)
-    if current_user.active_address.nil?
-      flash[:alert] = "You have to create / select an address in #{product.country}"
+    if current_user.active_address.nil? || (!current_user.active_address.valid_address && product.category.name != 'mobile')
       redirect_to user_path(current_user)
-      return
+      flash[:alert] = "You have to create / select an address in #{product.country}"
     end
   end
 

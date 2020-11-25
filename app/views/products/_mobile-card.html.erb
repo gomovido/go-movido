@@ -34,11 +34,7 @@
     <div class="actions d-flex align-items-center justify-content-end">
       <%= link_to 'Details', modal_product_path(product), data: {controller: 'product', target: '#exampleModal',
       action: 'click->product#loadProduct', href: modal_product_path(product), toggle: 'modal'}, class:"mr-4 detail" %>
-      <% if product.eligible?(current_user) %>
       <%= link_to 'Select', category_product_subscriptions_path(product.category, product), class:'btn-card', method: :post %>
-      <% else %>
-      <%= link_to 'Select', root_path, class:'btn-card' %>
-      <% end %>
     </div>
   </div>
 </div>
