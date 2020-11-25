@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
   resources :subscriptions, only: [:show ] do
     resources :billings, only: [:new, :create]
+    resources :addresses, only: [:update]
+    get '/address/:id', to: 'addresses#update_subscription_address', as: 'update_address'
   end
   resources :products, only: [:index]
   resources :addresses, only: [:create]
