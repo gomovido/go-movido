@@ -42,9 +42,9 @@
         <div class="actions d-flex justify-content-around">
           <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
           <% if @product.sim_needed %>
-          <span class="btn-main" data-action="click->subscription#stepForward">Confirm</span>
+          <span class="btn btn-main disabled" data-target='subscription.continueButton' data-action="click->subscription#stepForward">Confirm</span>
           <% else %>
-          <%= f.button :submit, 'Confirm', class: 'btn-main', data: {target: 'subscription.continueButton'} ,disabled: true%>
+          <%= f.button :submit, 'Confirm', class: 'btn-main' %>
           <% end %>
         </div>
       </div>

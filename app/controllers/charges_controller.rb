@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
           description: "Subscription ##{subscription.id}",
         })
       charge = create_charge(stripe_charge, subscription)
-      subscription.update(state: 'paid') if charge.status == 'succeeded'
+      subscription.update(state: 'succeeded') if charge.status == 'succeeded'
       UserMailer.with(user: subscription.address.user, subscription: subscription).congratulations.deliver_now
       redirect_to subscription_congratulations_path(subscription)
     rescue Stripe::CardError => e
