@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get 'privacy', to: 'pages#privacy'
+  get 'cookies', to: 'pages#cookies'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   get 'payment/:subscription_id', to: 'subscriptions#payment', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
@@ -32,8 +33,6 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index] do
     resources :products, only: [:index] do
-      post 'subscriptions/wifi', to: 'subscriptions#create_wifi_subcription', as: 'create_wifi_subscription'
-      get 'subscriptions/wifi/new', to: 'subscriptions#new_wifi', as: 'new_subscription_wifi'
       resources :subscriptions, only: [:create]
     end
   end
