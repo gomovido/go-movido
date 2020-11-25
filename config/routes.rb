@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root 'pages#dashboard_index', as: 'dashboard_index'
   end
 
+  get 'privacy', to: 'pages#privacy'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   get 'payment/:subscription_id', to: 'subscriptions#payment', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
   resources :subscriptions, only: [:show ] do
     resources :billings, only: [:new, :create]
+    resources :addresses, only: [:update]
+    get '/address/:id', to: 'addresses#update_subscription_address', as: 'update_address'
   end
   resources :products, only: [:index]
   resources :addresses, only: [:create]
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index] do
       post 'subscriptions/wifi', to: 'subscriptions#create_wifi_subcription', as: 'create_wifi_subscription'
       get 'subscriptions/wifi/new', to: 'subscriptions#new_wifi', as: 'new_subscription_wifi'
-      resources :subscriptions, only: [:new, :create, :update]
+      resources :subscriptions, only: [:create]
     end
   end
 end

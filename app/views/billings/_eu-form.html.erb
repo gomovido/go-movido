@@ -3,7 +3,7 @@
     <div class="billing-form d-flex flex-column mb-4 p-4">
       <%= simple_form_for [@subscription, @billing], data: {controller: "subscription"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
-      <div>
+      <div data-target="subscription.firstPart">
         <div class="input-wrapper mb-2">
           <label for="iban" class="mb-3 mr-2">IBAN</label>
           <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="We need your bank account detail for your direct debit option."></i>
@@ -15,7 +15,7 @@
         <div class="input-wrapper mb-2">
           <label for="bic" class="mb-3">BIC</label>
           <div class="input text-right d-flex justify-content-end pr-3" >
-            <%= f.input :bic, class:'form-control', required: true, label: false %>
+            <%= f.input :bic, class:'form-control', required: true, label: false, input_html: {data: { target: 'subscription.bicInput' , action: 'change->subscription#enableButton'}} %>
           </div>
         </div>
         <div class="input-wrapper mb-2">
@@ -28,14 +28,17 @@
         <div class="input-wrapper mb-3">
           <label for="address" class="mb-3">Billing address</label>
           <div class="input text-right d-flex justify-content-end pr-3">
-            <%= f.input :address, required: true, label: false, input_html: {class:'form-control', data: {target: 'subscription.billingAddressInput'}} %>
+            <%= f.input :address, required: true, label: false, input_html: {class:'form-control', data: {target: 'subscription.billingAddressInput', action: 'change->subscription#enableButton'}} %>
           </div>
         </div>
-        <div class="actions d-flex justify-content-around">
-          <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
-          <%= f.button :submit, 'Confirm', class: 'btn-main'%>
-        </div>
-      </div>
+        <% if @subscription.product.category.name == 'mobile' && !@subscription.product.sim_needed %>
+          <%= render 'billings/actions/mobile_no_sim', f: f %>
+          <%= render 'billings/actions/classic', f: f %>
+        <% elsif @subscription.product.category.name == 'mobile' && @subscription.product.sim_needed%>
+          <%= render 'billings/actions/mobile_with_sim', f: f %>
+        <% else %>
+          <%= render 'billings/actions/classic', f: f %>
+        <% end %>
       <% end %>
     </div>
   </div>

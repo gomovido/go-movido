@@ -411,7 +411,7 @@ category = Category.create(
 category = Category.create(
   name: 'utilities',
   sku: 'utilities',
-  form_timer: Faker::Number.number(digits: 8),
+  form_timer: Faker::Number.number(digits: 1),
   subtitle: 'Sign-up to utilities',
   description: 'Find best electricity / gas offers')
 

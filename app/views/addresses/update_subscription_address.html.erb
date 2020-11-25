@@ -1,0 +1,73 @@
+<div class="container subscriptions-container" data-controller="wifi-subscription" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
+  <div class="step-2 mt-5 mb-4">
+    <%= render 'subscriptions/steps', step: 2, title: t('steps.more_details'), payment: true %>
+    <h2 class="text-center step-title mb-2">We just need a couple of more details</h2>
+    <h3 class="text-center mb-4">We need this information to help the technician find you home<br> This is the address the technician will come to for the installation of your internet box</h3>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="billing-form d-flex flex-column mb-4 p-4">
+          <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put do |f| %>
+            <%= f.simple_fields_for :address  do |s| %>
+              <%= s.hidden_field :id, value: current_user.active_address.id%>
+              <div>
+                <div class="input-wrapper mb-2">
+                  <label for="address" class="mb-3 mr-2">Address</label>
+                  <div class="input text-right d-flex justify-content-end pr-3">
+                    <%= s.input :street, required: true, label: false, readonly: true, hint: 'You can change this field in your profil', input_html: {value: current_user.active_address.street, class:'form-control'} %>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <div class="input-wrapper mb-2">
+                    <label for="floor" class="mb-3">Floor</label>
+                    <div class="input text-right d-flex justify-content-end pr-3" >
+                      <%= s.input :floor, class:'form-control', label: false %>
+                    </div>
+                  </div>
+                  <div class="input-wrapper mb-2">
+                    <label for="building" class="mb-3">Building</label>
+                    <div class="input text-right d-flex justify-content-end pr-3" >
+                      <%= s.input :building, label: false, class:'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <div class="input-wrapper mb-3">
+                    <label for="stairs" class="mb-3">Stairs</label>
+                    <div class="input text-right d-flex justify-content-end pr-3">
+                      <%= s.input :stairs, label: false, class:'form-control' %>
+                    </div>
+                  </div>
+                  <div class="input-wrapper mb-3">
+                    <label for="door" class="mb-3">Door</label>
+                    <div class="input text-right d-flex justify-content-end pr-3">
+                      <%= s.input :door, label: false, class:'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-wrapper mb-3">
+                  <label for="gate_code" class="mb-3">Gate code</label>
+                  <div class="input text-right d-flex justify-content-end pr-3">
+                    <%= s.input :gate_code, label: false, class:'form-control' %>
+                  </div>
+                </div>
+                <% end %>
+                <hr>
+                <div class="input-wrapper mb-3">
+                  <label for="delivery_address" class="mb-3">Delivery address</label>
+                  <div class="input text-right d-flex justify-content-end pr-3">
+                    <%= f.input :delivery_address, label: false, class:'form-control', input_html: {data: {target: 'wifi-subscription.delivery', country: @subscription.product.country}} %>
+                  </div>
+                </div>
+                <div class="actions d-flex justify-content-around">
+                  <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
+                  <%= f.button :submit, 'Next', class: 'btn-main'%>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

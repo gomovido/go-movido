@@ -13,7 +13,14 @@ class Product < ApplicationRecord
     self.category.name == 'mobile' ? true : user.active_address.valid_address
   end
 
+  def is_wifi?
+    self.category.name == 'wifi'
+  end
 
+  def is_mobile?
+    self.category.name == 'mobile'
+  end
+  
   def set_sim_card_price_currency
     if self.country == 'United Kingdom'
       self.update(sim_card_price_currency: 'GBP')
