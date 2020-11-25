@@ -31,6 +31,28 @@ en:
   form:
     failure:
       check_country: 'You have to select an address in the same country'
+    label:
+      first_name: 'First Name'
+      last_name: 'Last Name'
+      birth_city: 'City of birth'
+      birthdate: 'Date of birth'
+      email: 'Email address'
+      phone: 'Phone'
+      moving_country: 'Country I am moving to'
+      moving_city: 'City I am moving to'
+      not_housed: 'I don’t have an address yet'
+      moving_street: 'Address I am moving to'
+      password: 'Password'
+      password_confirmation: 'Password confirmation'
+      register: 'Register now'
+    shared_links:
+      already_account: 'Already have an account?'
+      no_account: "Don't have an account yet?"
+      login: 'Log in'
+      sign_up: 'Sign up'
+      forgot_password: 'Forgot your password?'
+      confirmation_instruction: "Didn't receive confirmation instructions?"
+      unlock_instruction: "Didn't receive unlock instructions?"
   pages:
     home:
       banner:
