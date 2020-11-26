@@ -61,6 +61,7 @@
     .form-input {
       position: absolute;
       background: $white;
+      z-index: 200;
       width: 350px;
       display: flex;
       border-radius: 15px;

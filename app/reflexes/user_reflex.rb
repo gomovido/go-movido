@@ -6,7 +6,7 @@ class UserReflex < ApplicationReflex
   end
 
   def submit
-    current_user.save
+    morph :nothing unless current_user.save
   end
 
   private
