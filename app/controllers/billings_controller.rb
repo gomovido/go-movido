@@ -3,7 +3,7 @@ class BillingsController < ApplicationController
 
   def new
     @billing = Billing.new
-    @billing.build_subscription if @subscription.product.category.name == 'mobile'
+    @billing.build_subscription if @subscription.product.is_mobile?
     redirect_to_new(@subscription)
   end
 
@@ -21,7 +21,7 @@ class BillingsController < ApplicationController
     @billing.bic = sanitized_bic
     @billing.update(billing_params)
     if @billing.save
-      if @subscription.product.sim_card_price.cents >= 1
+      if @subscription.product.has_payment?
         redirect_to subscription_payment_path(@subscription)
       else
         redirect_to subscription_summary_path(@billing.subscription)
@@ -39,11 +39,11 @@ class BillingsController < ApplicationController
   private
 
   def sanitized_bic
-    billing_params[:bic].upcase
+    billing_params[:bic].upcase if billing_params[:bic].present?
   end
 
   def sanitized_iban
-    billing_params[:iban].upcase.gsub(" ","")
+    billing_params[:iban].upcase.gsub(" ","") if billing_params[:iban].present?
   end
 
   def billing_params

@@ -1,6 +1,6 @@
 <div class="container subscriptions-container mt-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
   <div class="step-1 mt-3">
-    <%= render 'subscriptions/steps', step: 1, title: t('steps.choose_offer'), payment: true %>
+    <%= render 'subscriptions/steps', current_step: 1, title: t('steps.choose_offer'), total_steps: @products.first.total_steps %>
     <%= render 'product-details'%>
     <div class="container">
       <div class="row">
@@ -8,12 +8,12 @@
           <%= render 'filters', products: @products %>
         </div>
         <div class="col-md-8">
-          <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.category.name == 'mobile' ? "#{@products.first.category.name} phone" : @products.first.category.name %> offers</h1>
+          <h1 class="main-title mb-5 text-center">Find the best <%= @products.first.is_mobile? ? "#{@products.first.category.name} phone" : @products.first.category.name %> offers</h1>
           <div class="products-cards-wrapper">
             <% @products.each do |product| %>
-              <% if product.category.name == 'wifi' %>
+              <% if product.is_wifi? %>
                 <%= render 'wifi-card', product: product %>
-              <% elsif product.category.name == 'mobile' %>
+              <% elsif product.is_mobile?%>
                 <%= render 'mobile-card', product: product %>
               <% end %>
             <% end %>
