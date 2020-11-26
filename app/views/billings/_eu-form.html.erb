@@ -31,13 +31,13 @@
             <%= f.input :address, required: true, label: false, input_html: {class:'form-control', data: {target: 'subscription.billingAddressInput', action: 'change->subscription#enableButton'}} %>
           </div>
         </div>
-        <% if @subscription.product.category.name == 'mobile' && !@subscription.product.sim_needed %>
-          <%= render 'billings/actions/mobile_no_sim', f: f %>
-          <%= render 'billings/actions/classic', f: f %>
-        <% elsif @subscription.product.category.name == 'mobile' && @subscription.product.sim_needed%>
+        <% if @subscription.product.is_mobile? && !@subscription.product.sim_needed %>
+          <%= render 'billings/actions/mobile_no_sim', f: f%>
+          <%= render 'billings/actions/classic', f: f, subscription: @subscription %>
+        <% elsif @subscription.product.is_mobile? && @subscription.product.sim_needed%>
           <%= render 'billings/actions/mobile_with_sim', f: f %>
         <% else %>
-          <%= render 'billings/actions/classic', f: f %>
+          <%= render 'billings/actions/classic', f: f, subscription: @subscription %>
         <% end %>
       <% end %>
     </div>

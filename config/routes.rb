@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
-  get 'payment/:subscription_id', to: 'subscriptions#payment', as: 'subscription_payment'
+  get 'payment/:subscription_id', to: 'charges#new', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
 

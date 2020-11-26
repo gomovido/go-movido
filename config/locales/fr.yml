@@ -21,7 +21,7 @@ fr:
     contract_only: 'Avec engagment seulement'
     by_price: 'Filtrer par prix'
   steps:
-    header: '%{current_step} étape sur %{total_step}'
+    header: '%{current_step} étape sur %{total_steps}'
     choose_offer: 'Choisissez votre offre'
     more_details: "Plus d'informations"
     confirmation: 'Confirmer'
