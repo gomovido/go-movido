@@ -29,14 +29,18 @@
       <%= link_to "Support", '#' %>
     </div>
     <div class="part-4 d-flex flex-column mb-3 mb-lg-0 ml-lg-5">
-      <%= link_to "Terms of service", privacy_path %>
+      <%= link_to "Terms of service", terms_path %>
       <br>
-      <%= link_to "Privacy Policy", cookies_path %>
+      <%= link_to "Privacy Policy", privacy_path %>
+      <br>
+      <%= link_to "Cookies Policy", cookies_path %>
     </div>
   </div>
   <div class="part-5 d-flex flex-column order-lg-5 order-3 mb-4 mb-lg-0">
     <span class="mr-3 mr-lg-0"><i class="far fa-envelope mr-2"></i><%= mail_to "info@go-movido.com", "info@go-movido.com" %></span>
     <br>
     <span><i class="fas fa-map-marker-alt mr-2"></i>52 Upper Berkeley Street <br>London W1H 7QW, UK</span>
+    <br>
+    <button class="termly-cookie-preference-button" type="button" style="background: white; width: 165px; height: 30px; border-radius: 3px; border: 1px solid #5f7d9c; font-family: Roboto, Arial; font-size: 10px; color: #5f7d9c; font-weight: 600; box-sizing: border-box; cursor: pointer; padding: 0; outline: none;" onclick="displayPreferenceModal()">Manage Cookie Preferences</button>
   </div>
 </footer>
