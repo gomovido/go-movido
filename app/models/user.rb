@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :email, :phone, :country, :city, :birthdate, :birth_city
   validates_uniqueness_of :email, :username
+  validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true
   before_create :generate_username
