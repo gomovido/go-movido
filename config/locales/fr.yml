@@ -31,7 +31,7 @@ fr:
     subtitle: 'La carte SIM coute %{price} €'
   form:
     failure:
-      check_country: 'Vous devez sélectionner une adresse dans le même pays'
+      check_country: 'vous devez sélectionner une adresse dans le même pays'
     label:
       first_name: 'Prénom'
       last_name: 'Nom'

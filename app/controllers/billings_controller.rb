@@ -17,9 +17,9 @@ class BillingsController < ApplicationController
     @billing = Billing.new
     @billing.subscription = @subscription
     @billing.user = current_user
+    @billing.update(billing_params)
     @billing.iban = sanitized_iban
     @billing.bic = sanitized_bic
-    @billing.update(billing_params)
     if @billing.save
       if @subscription.product.has_payment?
         redirect_to subscription_payment_path(@subscription)
