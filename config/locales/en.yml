@@ -20,7 +20,7 @@ en:
     contract_only: 'Long-term contract'
     by_price: 'Filter by price'
   steps:
-    header: '%{current_step} of %{total_step}'
+    header: '%{current_step} of %{total_steps}'
     choose_offer: 'Choose your offer'
     more_details: "More details"
     confirmation: 'Confirmation'
