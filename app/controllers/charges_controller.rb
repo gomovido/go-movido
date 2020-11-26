@@ -1,12 +1,17 @@
 class ChargesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :create ]
-  before_action :set_subscription, only: [ :create ]
 
   def create
+    @subscription = Subscription.find(params[:subscription][:subscription_id])
     stripe_token = params[:stripeToken]
     process_payment(@subscription, stripe_token)
   end
 
+  def new
+    @subscription = Subscription.find(params[:subscription_id])
+    @charge = Charge.new
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'succeeded'
+  end
 
   def process_payment(subscription, stripe_token)
     begin
@@ -40,6 +45,6 @@ class ChargesController < ApplicationController
   private
 
   def set_subscription
-    @subscription = Subscription.find(params[:subscription][:subscription_id])
+    @subscription = Subscription.find(params[:subscription_id])
   end
 end

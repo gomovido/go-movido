@@ -1,5 +1,9 @@
 <div class="actions d-flex justify-content-around">
-  <%= link_to 'Back', url_for(:back), class: 'btn btn-minor' %>
+  <% if subscription.product.is_wifi? %>
+  <%= link_to 'Back', subscription_update_address_path(subscription, subscription.address), class: 'btn btn-minor' %>
+  <% else %>
+  <%= link_to 'Back', category_products_path(subscription.product.category), class: 'btn btn-minor' %>
+  <% end %>
   <%= f.button :submit, 'Confirm', class: 'btn-main'%>
 </div>
 </div>
