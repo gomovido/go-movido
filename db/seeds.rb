@@ -1,5 +1,29 @@
 # Users & Adresses
 
+
+# This is a static test user for movido
+
+ not_housed = true
+ address = Faker::Address.street_address if not_housed
+ user = User.new(
+   email: 'paul@go-movido.com',
+   first_name: 'Paul',
+   last_name: 'Sipasseuth',
+   username: 'paul_sipasseuth_123132132',
+   phone: "+33#{Faker::Number.number(digits: 9)}",
+   country: 'France',
+   city: 'Paris',
+   birthdate: Time.now,
+   birth_city: 'Paris',
+   not_housed: not_housed,
+   password: 'movido123456',
+   password_confirmation: 'movido123456'
+ )
+ user.save
+
+
+# 5 more users with fake data
+
 5.times do
  not_housed = [true, false].sample
  address = Faker::Address.street_address if not_housed
