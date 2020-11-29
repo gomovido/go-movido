@@ -21,11 +21,7 @@ class BillingsController < ApplicationController
     @billing.iban = sanitized_iban
     @billing.bic = sanitized_bic
     if @billing.save
-      if @subscription.product.has_payment?
-        redirect_to subscription_payment_path(@subscription)
-      else
-        redirect_to subscription_summary_path(@billing.subscription)
-      end
+      redirect_to subscription_summary_path(@billing.subscription)
     else
       redirect_to_new(@subscription)
     end
