@@ -216,7 +216,7 @@ fr:
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
       user:
-       not_found_in_database: "Il semble que vous n'ayez pas encore de compte de movido. S'inscrire"
+       not_found_in_database: "Il semble que vous n'ayez pas encore de compte movido. <a href='/users/sign_up'>S'inscire</a>"
        invalid: 'Email ou mot de passe invalide.'
     sessions:
       signed_in: "Réussite de la connexion."
