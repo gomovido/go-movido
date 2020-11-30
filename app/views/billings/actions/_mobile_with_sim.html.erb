@@ -1,9 +1,9 @@
 <%= f.simple_fields_for :subscription do |s| %>
   <div class="input-wrapper mb-3">
-    <label for="delivery_address" class="mb-3">Delivery address</label>
+    <label for="delivery_address" class="mb-3"><%= t('step.billing.form.label.delivery_address') %></label>
     <div class="input text-right d-flex justify-content-end pr-3">
       <%= s.hidden_field :id, value: @subscription.id %>
-      <%= s.input :delivery_address, required: true, label: false, hint: 'Billing and delivery addresses need to be the same', readonly: true, input_html: { class: 'form-control', data: {target: 'subscription.deliveryAddressInput'}} %>
+      <%= s.input :delivery_address, required: true, label: false, hint: t('step.billing.form.hint.delivery_address'), readonly: true, input_html: { class: 'form-control', data: {target: 'subscription.deliveryAddressInput'}} %>
     </div>
   </div>
    <div class="actions d-flex justify-content-around">

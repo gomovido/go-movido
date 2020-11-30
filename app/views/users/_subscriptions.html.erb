@@ -1,13 +1,13 @@
 <div class="col-md-8 col-12 p-lg-5 p-4 subscriptions-index-container">
   <div class="subscriptions-wrapper">
-    <h4 class="section-title text-center py-3 mb-0">Subscriptions</h4>
+    <h4 class="section-title text-center py-3 mb-0"><%= t('user.subscription.title') %></h4>
     <div class="table">
       <div class="headers px-3 py-3 d-flex align-items-center justify-content-between">
-        <span class="header column">Service</span>
-        <span class="header column">Provider</span>
-        <span class="header column">Rate</span>
-        <span class="header column d-lg-block d-none">Start date</span>
-        <span class="header column d-lg-block d-none">Status</span>
+        <span class="header column"><%= t('user.subscription.table.service') %></span>
+        <span class="header column"><%= t('user.subscription.table.provider') %></span>
+        <span class="header column"><%= t('user.subscription.table.rate') %></span>
+        <span class="header column d-lg-block d-none"><%= t('user.subscription.table.start_date') %></span>
+        <span class="header column d-lg-block d-none"><%= t('user.subscription.table.status') %></span>
         <span class="header column"></span>
       </div>
       <div class="rows px-3">
@@ -16,8 +16,8 @@
         <% end %>
         <% if current_user.subscriptions.where(state: 'succeeded').blank?  %>
         <div class="subscription py-2 pl-3 d-flex justify-content-between align-items-center p-3">
-          <span>You have no active subscriptions</span>
-          <%= link_to "See Offers", dashboard_index_path, class: "btn-minor py-1 column" %>
+          <span><%= t('user.subscription.table.no_subscription') %></span>
+          <%= link_to t('user.subscription.table.see_offers'), dashboard_index_path, class: "btn-minor py-1 column" %>
         </div>
         <% end %>
       </div>
