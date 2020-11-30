@@ -148,6 +148,8 @@ fr:
           bic: 'BIC'
           bank: 'Nom de votre banque'
           billing_address: 'Adresse de facturation'
+          holder_name: 'Nom du propriète du compte'
+          account_number: 'Numéro de compte'
         hint:
           bank: 'Vous ne pouvez pas modifier ce champ'
         tooltip:

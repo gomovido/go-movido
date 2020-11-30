@@ -148,6 +148,8 @@ en:
           bic: 'BIC'
           bank: 'Banking Institution'
           billing_address: 'Billing address'
+          holder_name: 'Holder name'
+          account_number: 'Account number'
         hint:
           bank: 'You cannot change this field'
         tooltip:
