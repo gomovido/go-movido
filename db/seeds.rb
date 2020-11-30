@@ -473,6 +473,24 @@ product = Product.create(
   tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
 )
 
+ProductFeature.create(
+  product: product,
+  name: "Up to 80 Mb/sdownload speed",
+  description: "On average between 68 –80 Mb/s download speed "
+)
+
+ProductFeature.create(
+  product: product,
+  name: "Up to 20 Mb/s upload speed",
+  description: "On average between 19 –20 Mb/s upload speed"
+)
+
+ProductFeature.create(
+  product: product,
+  name: "Other",
+  description: "No contract option, cancel every month. Pay as you go calls."
+)
+
 product = Product.create(
   country: "France",
   company: "Free",
@@ -490,4 +508,22 @@ product = Product.create(
   data_speed: '80',
   setup_price: 143.75,
   tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
+)
+
+ProductFeature.create(
+  product: product,
+  name: "Up to 80 Mb/sdownload speed",
+  description: "On average between 68 –80 Mb/s download speed "
+)
+
+ProductFeature.create(
+  product: product,
+  name: "Up to 20 Mb/s upload speed",
+  description: "On average between 19 –20 Mb/s upload speed"
+)
+
+ProductFeature.create(
+  product: product,
+  name: "Other",
+  description: "No contract option, cancel every month. Pay as you go calls."
 )
