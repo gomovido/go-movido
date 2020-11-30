@@ -9,8 +9,6 @@ class Product < ApplicationRecord
 
   #presence
   validates_presence_of :company, :name, :description, :price, :logo_url, :call_limit, :data_limit, :time_contract, :unlimited_call, :unlimited_data, :obligation
-  #uniqueness
-  validates_uniqueness_of :company, case_sensitive: false
   # conditional & special formats
   validates :price, numericality: { greater_than_or_equal_to: 1,  only_integer: true }, if: :sim_needed?
   validates :logo_url, url: true
