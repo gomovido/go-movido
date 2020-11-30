@@ -116,6 +116,42 @@ fr:
       bottom-banner:
         headline: 'movido simplifie<br> votre déménagement'
         text: 'Laissez movido prendre en charge votre travail administratif'
+  step:
+    address:
+      title: 'Nous avons besoin de quelques détails supplémentaires'
+      subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
+      form:
+        button:
+          next: 'Suivant'
+          back: 'Revenir'
+        placeholder: 'Entrer votre %{placeholder}'
+        label:
+          address: 'Adresse'
+          floor: 'Ètage'
+          building: 'Immeuble'
+          stairs: 'Appartement'
+          door: 'Porte'
+          gate_code: "Code d'entré"
+          delivery_address: "Addresse de livraison"
+        hint:
+          address: "Vous pouvez modifier ce champ dans votre profil"
+    billing:
+      title: 'Nous avons besoin de quelques détails supplémentaires'
+      subtitle: "Nous avons besoin de vos coordonnées bancaires pour mettre en place l'option de prélèvement automatique de votre abonnement"
+      form:
+        button:
+          next: 'Confirmer'
+          back: 'Retour'
+        placeholder: 'Entrer votre %{placeholder}'
+        label:
+          iban: 'IBAN'
+          bic: 'BIC'
+          bank: 'Nom de votre banque'
+          billing_address: 'Adresse de facturation'
+        hint:
+          bank: 'Vous ne pouvez pas modifier ce champ'
+        tooltip:
+          iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
   devise:
     failure:
       unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."

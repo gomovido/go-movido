@@ -116,6 +116,43 @@ en:
       bottom-banner:
         headline: 'movido will simplify<br> your move'
         text: 'Spend time on things that matter –  <br>let movido deal with your admin work'
+  step:
+    address:
+      title: 'We just need a couple of more details'
+      subtitle: 'We need this information to help the technician find you home.<br> This is the address the technician will come to for the installation of your internet box'
+      form:
+        button:
+          next: 'Continue'
+          back: 'Back'
+        placeholder: 'enter your %{placeholder}'
+        label:
+          address: 'Address'
+          floor: 'Floor'
+          building: 'Building'
+          stairs: 'Stairs'
+          door: 'Door'
+          gate_code: 'Gate code'
+          delivery_address: 'Delivery address'
+        hint:
+          address: 'You can change this field in your profil'
+    billing:
+      title: 'We just need a couple of more details'
+      subtitle: 'We need your bank account details to set up the direct debit option of your subscription'
+      form:
+        button:
+          next: 'Confirm'
+          back: 'Back to details'
+        placeholder: 'enter your %{placeholder}'
+        label:
+          iban: 'IBAN'
+          bic: 'BIC'
+          bank: 'Banking Institution'
+          billing_address: 'Billing address'
+        hint:
+          bank: 'You cannot change this field'
+        tooltip:
+          iban: "We need your bank account detail for your direct debit option."
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
