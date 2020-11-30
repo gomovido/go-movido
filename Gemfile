@@ -84,3 +84,5 @@ gem "money-rails", "~> 1.13"
 gem "stripe", "~> 5.28"
 
 gem "emoji_flag", "~> 0.1.1"
+
+gem "valid_url", "~> 0.0.4"
