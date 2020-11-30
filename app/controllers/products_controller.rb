@@ -8,9 +8,9 @@ class ProductsController < ApplicationController
       @q = Product.where(category: @category, country: current_user.country).ransack
     end
     @products = @q.result(distinct: true)
-    @products = @products.where(category_id: @category.id, country: current_user.country)
+    @products = @products.where(category: @category, country: current_user.country).map{ |product| product unless product.product_features.blank? }
     if @products.blank?
-      @products = Product.where(category: @category, country: current_user.country)
+      @products = Product.where(category: @category, country: current_user.country).map{ |product| product unless product.product_features.blank? }
     end
   end
 
