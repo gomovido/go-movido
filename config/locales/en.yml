@@ -198,7 +198,7 @@ en:
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
       user:
-       not_found_in_database: "It seems like you don't have a movido account yet. Sign up"
+       not_found_in_database: "It seems like you don't have a movido account yet. <a href='/users/sign_up'>Sign up</a>"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
