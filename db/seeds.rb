@@ -385,7 +385,7 @@ product = Product.create(
   # Billings & Subscriptions
 
  10.times do
-  user = User.first
+  user = User.second
   subscription = Subscription.create(
      product: Product.all.sample,
      delivery_address: user.addresses.first.street + ', ' + user.country,
