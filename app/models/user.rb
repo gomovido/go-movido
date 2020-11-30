@@ -34,7 +34,7 @@ class User < ApplicationRecord
       self.active_address.update_columns(active: false)
     end
     if !self.addresses.where(country: self.country).blank?
-      self.addresses.where(country: self.country).last.update_columns(active: true)
+      self.addresses.where(country: self.country).order(updated_at: :desc).last.update_columns(active: true)
     end
   end
 
