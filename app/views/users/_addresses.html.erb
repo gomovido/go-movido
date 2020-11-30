@@ -1,7 +1,7 @@
 
 <div class="py-4 subscriptions-index-container">
   <div class="subscriptions-wrapper">
-    <h4 class="section-title text-center py-3 mb-0 border-bottom">Addresses</h4>
+    <h4 class="section-title text-center py-3 mb-0 border-bottom"><%= t('user.addresses.title') %></h4>
     <div class="rows px-lg-1 px-3">
       <% current_user.addresses.order("active DESC").each do |address| %>
       <div class="addresses-card-wrapper">
@@ -18,7 +18,7 @@
           <i class="far fa-plus-square p-3"></i>
           <div class="d-flex flex-column">
             <span></span>
-            <span class="address"> Add new address </span>
+            <span class="address"><%= t('user.addresses.add') %></span>
           </div>
         </div>
         <div class="address-card align-items-center m-3 d-none" data-target="profil-form.addAddressInput">

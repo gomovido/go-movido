@@ -1,4 +1,51 @@
 fr:
+  navbar:
+    dropdown:
+      profile: 'Profile'
+      account: 'Compte'
+      logout: 'Se déconnecter'
+  activerecord:
+    attributes:
+      billing:
+        account_number: 'Numéro de compte'
+        bank: 'Nom de votre banque'
+        billing_address: 'Adresse de facturation'
+      user:
+        first_name: "Prénom"
+        last_name: 'Nom'
+        birthdate: "Date de naissance"
+        birth_city: "Ville de naissance"
+        phone: "Numéro de téléphone"
+        country: "Pays"
+        city: "Ville"
+        password: 'Mot de passe'
+      address:
+        street: 'Address'
+      subscription:
+        delivery_address: 'Adresse de livraison'
+    errors:
+      models:
+        billing:
+          attributes:
+            account_number:
+              blank: "doit être rempli"
+  user:
+    profile:
+      title: 'Informations'
+      current_address: 'Adresse actuelle'
+    subscription:
+      title: 'Souscriptions'
+      table:
+        service: 'Service'
+        provider: 'Fournisseur'
+        rate: 'Prix'
+        start_date: 'Ouverture'
+        status: 'Status'
+        see_offers: 'Voir les offres'
+        no_subscription: "Vous n'avez pas d'abonnements actifs"
+    addresses:
+      title: 'Adresses'
+      add: 'Ajouter une adresse'
   shared:
     cta:
       start: "C'est parti"
@@ -27,6 +74,7 @@ fr:
   form:
     failure:
       check_country: 'vous devez sélectionner une adresse dans le même pays'
+      country: "a besoin d'être en %{country}"
     label:
       first_name: 'Prénom'
       last_name: 'Nom'
@@ -43,6 +91,8 @@ fr:
       register: "Enregistrer"
       login: 'Connexion'
       remember_me: 'Se rappeler de moi'
+      current_address: 'Address active'
+      city: 'Ville'
     shared_links:
       already_account: "Vous avez déjà un compte ?"
       no_account: "Vous n'avez pas de compte ?"
@@ -150,8 +200,10 @@ fr:
           billing_address: 'Adresse de facturation'
           holder_name: 'Nom du propriète du compte'
           account_number: 'Numéro de compte'
+          delivery_address: 'Adresse de livraison'
         hint:
           bank: 'Vous ne pouvez pas modifier ce champ'
+          delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'
         tooltip:
           iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
   devise:

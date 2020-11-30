@@ -1,4 +1,26 @@
 en:
+  navbar:
+    dropdown:
+      profile: 'Profile'
+      account: 'Account'
+      logout: 'Log out'
+  user:
+    profile:
+      title: 'Profile'
+      current_address: 'Adresse actuelle'
+    subscription:
+      title: 'Subscriptions'
+      table:
+        service: 'Service'
+        provider: 'Provider'
+        rate: 'Rate'
+        start_date: 'Open on'
+        status: 'Status'
+        see_offers: 'Voir les offres'
+        no_subscription: 'You have no active subscriptions'
+    addresses:
+      title: 'Addresses'
+      add: 'Add new address'
   shared:
     cta:
       start: 'Get Started'
@@ -27,6 +49,7 @@ en:
   form:
     failure:
       check_country: 'You have to select an address in the same country'
+      country: 'needs to be in %{country}'
     label:
       first_name: 'First Name'
       last_name: 'Last Name'
@@ -43,6 +66,8 @@ en:
       register: 'Register now'
       login: 'Login'
       remember_me: 'Remember me'
+      current_address: 'Current Address'
+      city: 'City'
     shared_links:
       already_account: 'Already have an account?'
       no_account: "Don't have an account yet?"
@@ -150,8 +175,10 @@ en:
           billing_address: 'Billing address'
           holder_name: 'Holder name'
           account_number: 'Account number'
+          delivery_address: 'Delivery address'
         hint:
           bank: 'You cannot change this field'
+          delivery_address: 'Billing and delivery addresses need to be the same'
         tooltip:
           iban: "We need your bank account detail for your direct debit option."
 
