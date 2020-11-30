@@ -1,12 +1,54 @@
 fr:
+  navbar:
+    dropdown:
+      profile: 'Profile'
+      account: 'Compte'
+      logout: 'Se déconnecter'
+  activerecord:
+    attributes:
+      billing:
+        account_number: 'Numéro de compte'
+        bank: 'Nom de votre banque'
+        billing_address: 'Adresse de facturation'
+      user:
+        first_name: "Prénom"
+        last_name: 'Nom'
+        birthdate: "Date de naissance"
+        birth_city: "Ville de naissance"
+        phone: "Numéro de téléphone"
+        country: "Pays"
+        city: "Ville"
+        password: 'Mot de passe'
+      address:
+        street: 'Address'
+      subscription:
+        delivery_address: 'Adresse de livraison'
+    errors:
+      models:
+        billing:
+          attributes:
+            account_number:
+              blank: "doit être rempli"
+  user:
+    profile:
+      title: 'Informations'
+      current_address: 'Adresse actuelle'
+    subscription:
+      title: 'Souscriptions'
+      table:
+        service: 'Service'
+        provider: 'Fournisseur'
+        rate: 'Prix'
+        start_date: 'Ouverture'
+        status: 'Status'
+        see_offers: 'Voir les offres'
+        no_subscription: "Vous n'avez pas d'abonnements actifs"
+    addresses:
+      title: 'Adresses'
+      add: 'Ajouter une adresse'
   shared:
     cta:
       start: "C'est parti"
-  devise:
-    failure:
-      user:
-       not_found_in_database: "Il semble que vous n'ayez pas encore de compte de movido. S'inscrire"
-       invalid: 'Email ou mot de passe invalide.'
   payment:
     subline: 'Nous acceptons Visa & Master Card'
     connection: 'Connexion sécurisée'
@@ -32,6 +74,7 @@ fr:
   form:
     failure:
       check_country: 'vous devez sélectionner une adresse dans le même pays'
+      country: "a besoin d'être en %{country}"
     label:
       first_name: 'Prénom'
       last_name: 'Nom'
@@ -45,7 +88,11 @@ fr:
       moving_street: "Adresse de destination"
       password: 'Mot de passe'
       password_confirmation: 'Confirmation'
-      register: "Me connecter"
+      register: "Enregistrer"
+      login: 'Connexion'
+      remember_me: 'Se rappeler de moi'
+      current_address: 'Address active'
+      city: 'Ville'
     shared_links:
       already_account: "Vous avez déjà un compte ?"
       no_account: "Vous n'avez pas de compte ?"
@@ -119,3 +166,133 @@ fr:
       bottom-banner:
         headline: 'movido simplifie<br> votre déménagement'
         text: 'Laissez movido prendre en charge votre travail administratif'
+  step:
+    address:
+      title: 'Nous avons besoin de quelques détails supplémentaires'
+      subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
+      form:
+        button:
+          next: 'Suivant'
+          back: 'Revenir'
+        placeholder: 'Entrer votre %{placeholder}'
+        label:
+          address: 'Adresse'
+          floor: 'Ètage'
+          building: 'Immeuble'
+          stairs: 'Appartement'
+          door: 'Porte'
+          gate_code: "Code d'entré"
+          delivery_address: "Addresse de livraison"
+        hint:
+          address: "Vous pouvez modifier ce champ dans votre profil"
+    billing:
+      title: 'Nous avons besoin de quelques détails supplémentaires'
+      subtitle: "Nous avons besoin de vos coordonnées bancaires pour mettre en place l'option de prélèvement automatique de votre abonnement"
+      form:
+        button:
+          next: 'Confirmer'
+          back: 'Retour'
+        placeholder: 'Entrer votre %{placeholder}'
+        label:
+          iban: 'IBAN'
+          bic: 'BIC'
+          bank: 'Nom de votre banque'
+          billing_address: 'Adresse de facturation'
+          holder_name: 'Nom du propriète du compte'
+          account_number: 'Numéro de compte'
+          delivery_address: 'Adresse de livraison'
+        hint:
+          bank: 'Vous ne pouvez pas modifier ce champ'
+          delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'
+        tooltip:
+          iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
+  devise:
+    failure:
+      unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
+      unconfirmed: "Vous devez confirmer votre compte pour continuer."
+      locked: "Votre compte est verrouillé."
+      invalid: "Courriel ou mot de passe incorrect."
+      invalid_token: "Jeton d'authentification incorrect."
+      timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
+      inactive: "Votre compte n'est pas encore activé."
+      user:
+       not_found_in_database: "Il semble que vous n'ayez pas encore de compte de movido. S'inscrire"
+       invalid: 'Email ou mot de passe invalide.'
+    sessions:
+      signed_in: "Réussite de la connexion."
+      signed_out: "Réussite de la deconnexion."
+    passwords:
+      send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
+      updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
+    confirmations:
+      send_instructions: "Vous allez recevoir un courriel avec des instructions pour confirmer votre compte."
+      confirmed: "Votre compte a été confirmé. Vous êtes maintenant connecté."
+    registrations:
+      signed_up: "Votre inscription est enregistrée. Si elle est activé, un courriel de confirmation vous a été envoyé."
+      updated: "Votre mise à jour a été prise en compte."
+      destroyed: "Bye! Votre compte est annulé. Nous souhaitons vous revoir bientôt."
+    unlocks:
+      send_instructions: "Vous allez recevoir un courriel avec des instructions pour déverrouiller votre compte."
+      unlocked: "Votre compte est déverrouillé. Vous êtes maintenant connecté."
+    mailer:
+      confirmation_instructions: "Instructions de confirmation"
+      reset_password_instructions: "Instructions pour changer le mot de passe"
+      unlock_instructions: "Instructions pour déverrouiller le compte"
+    common:
+      forgot_your_password?: "Mot de passe oublié?"
+      hello: "Bonjour"
+      sign_in: "Se connecter"
+      sign_up: "Se déconnecter"
+    shared:
+      links:
+        didnt_receive_confirmation_instructions?: "Vous n'avez pas reçu de courriel de confirmation?"
+        didnt_receive_unlock_instructions?: "Vous n'avez pas reçu de courriel de déverrouillage de votre compte?"
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Renvoyer le courriel de confirmation"
+    mailer:
+      confirmation_instructions:
+        welcome: "Bienvenu(e)"
+        you_can_confirm_your_account_through_the_link_below: "Vous pouvez confirmer votre compte via le lien ci-dessous"
+        confirm_my_account: "Confirmer mon compte"
+      reset_password_instructions:
+        # For "Someone has requested a link to change your password, and you can do this through the link below."
+        reset_password_instruction: "Quelqu'un a demandé un lien pour changer votre mot de passe. Vous pouvez le faire via le lien ci-dessous."
+        change_my_password: "Changer mon mot de passe"
+        # For "If you didn't request this, please ignore this email."
+        wrong_request_instruction: "Si vous n'avez pas demandé ce changement, ignorez ce message."
+        # For "Your password won't change until you access the link above and create a new one."
+        unchange_password_message: "Votre mot de passe ne sera pas changé tant vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
+      unlock_instructions:
+        # For "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        locked_account_message: "Votre compte est verrouillé car vous avez échoué lors de votre identification trop de fois."
+        # For "Click the link below to unlock your account"
+        unlock_account_instruction: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
+        unlock_my_account: "Déverrouiller mon compte"
+    passwords:
+      edit:
+        change_your_password: "Changez votre mot de passe"
+        change_my_password: "Changer mon mot de passe"
+      new:
+        send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
+    registrations:
+      edit:
+        edit: "Modifier"
+        # For "leave blank if you don't want to change it"
+        password_instruction: "Ne pas remplir si vous ne voulez pas le changer"
+        # For "we need your current password to confirm your changes"
+        current_password_instruction: "Vous devez remplir votre mot de passe en cours pour confirmer vos changement"
+        update: "Mettre à jour"
+        cancel_my_account: "Annuler mon compte"
+        unhappy?: "Pas content(e)?"
+        are_you_sure?: "Êtes-vous sûr?"
+        back: "Retour"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Renvoyez le mail pour déverrouiller mon compte"
+    errors:
+      messages:
+        not_found: "n'a pas été trouvé(e)"
+        already_confirmed: "a déjà été confirmé(e)"
+        not_locked: "n'était pas verrouillé(e)"
+

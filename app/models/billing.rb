@@ -6,7 +6,7 @@ class Billing < ApplicationRecord
   validates_format_of :bic, with: /\A[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$\z/i, unless: :product_is_uk?
   validates_with IbanValidator, unless: :product_is_uk?
   validate :billing_address_country
-   accepts_nested_attributes_for :subscription
+  accepts_nested_attributes_for :subscription
 
 
   def product_is_uk?
@@ -18,7 +18,7 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-     self.errors.add(:address, "needs to be in #{self.user.country}") unless !self.address.blank? && self.address.split(',')[-1].strip == self.user.country
+     self.errors.add(:address, I18n.t('form.failure.country', country: self.user.country)) unless !self.address.blank? && self.address.split(',')[-1].strip == self.user.country
   end
 
 

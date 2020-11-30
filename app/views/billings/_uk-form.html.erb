@@ -5,37 +5,37 @@
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div>
         <div class="input-wrapper mb-2">
-          <label for="holder_name" class="mb-3 mr-2">Account holder name*</label>
+          <label for="holder_name" class="mb-3 mr-2"><%= t('step.billing.form.label.holder_name') %></label>
           <div class="input text-right d-flex justify-content-end pr-3">
             <%= f.input :holder_name, required: true, label: false, class:'form-control pl-5', input_html: {value: current_user.first_name + ' ' + current_user.last_name} %>
           </div>
         </div>
         <div class="input-wrapper mb-2">
-          <label for="account_number" class="mb-3">Account number*</label>
+          <label for="account_number" class="mb-3"><%= t('step.billing.form.label.account_number') %></label>
           <div class="input text-right d-flex justify-content-end pr-3" >
             <%= f.input :account_number, class:'form-control', required: true, label: false %>
           </div>
         </div>
         <div class="input-wrapper mb-2">
-          <label for="bank" class="mb-3">Banking Institution*</label>
+          <label for="bank" class="mb-3"><%= t('step.billing.form.label.bank') %></label>
           <div class="input text-right d-flex justify-content-end pr-3" >
             <%= f.input :bank, required: true, label: false, class:'form-control'%>
           </div>
         </div>
         <hr>
         <div class="input-wrapper mb-3">
-          <label for="address" class="mb-3">Billing address*</label>
+          <label for="address" class="mb-3"><%= t('step.billing.form.label.billing_address') %></label>
           <div class="input text-right d-flex justify-content-end pr-3">
             <%= f.input :address, required: true, label: false, class:'form-control',input_html: {value: current_user.active_address.street} %>
           </div>
         </div>
         <div class="actions d-flex justify-content-around">
           <% if @subscription.product.is_wifi? %>
-            <%= link_to 'Back', subscription_update_address_path(@subscription, @subscription.address), class: 'btn btn-minor' %>
+            <%= link_to t('step.billing.form.button.back'), subscription_update_address_path(@subscription, @subscription.address), class: 'btn btn-minor' %>
           <% else %>
-            <%= link_to 'Back', category_products_path(@subscription.product.category), class: 'btn btn-minor' %>
+            <%= link_to t('step.billing.form.button.back'), category_products_path(@subscription.product.category), class: 'btn btn-minor' %>
           <% end %>
-          <%= f.button :submit, 'Confirm', class: 'btn-main'%>
+          <%= f.button :submit, t('step.billing.form.button.next'), class: 'btn-main'%>
         </div>
       </div>
       <% end %>

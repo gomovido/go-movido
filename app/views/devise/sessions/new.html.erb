@@ -11,20 +11,22 @@
     </div>
     <div class="col-md-6 d-flex align-items-center ju">
       <div class="registration-form-wrapper p-md-5 p-4">
-        <h4 class="mb-3">Log in</h4>
+        <h4 class="mb-3"><%= t('form.label.login') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
           <%= f.input :email,
           required: true,
+          label: t('form.label.email'),
           autofocus: true,
           input_html: { autocomplete: "email" } %>
           <%= f.input :password,
           required: true,
+          label: t('form.label.password'),
           input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :remember_me, as: :boolean, label: t('form.label.remember_me') if devise_mapping.rememberable? %>
         </div>
         <div class="form-actions text-lg-left text-center">
-          <%= f.button :submit, "Login", class:'btn btn-main' %>
+          <%= f.button :submit, t('form.label.login'), class:'btn btn-main' %>
         </div>
         <% end %>
         <%= render "devise/shared/links" %>

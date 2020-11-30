@@ -1,9 +1,9 @@
 <div class="actions d-flex justify-content-around">
   <% if subscription.product.is_wifi? %>
-  <%= link_to 'Back', subscription_update_address_path(subscription, subscription.address), class: 'btn btn-minor' %>
+  <%= link_to t('step.billing.form.button.back'), subscription_update_address_path(subscription, subscription.address), class: 'btn btn-minor' %>
   <% else %>
-  <%= link_to 'Back', category_products_path(subscription.product.category), class: 'btn btn-minor' %>
+  <%= link_to t('step.billing.form.button.back'), category_products_path(subscription.product.category), class: 'btn btn-minor' %>
   <% end %>
-  <%= f.button :submit, 'Confirm', class: 'btn-main'%>
+  <%= f.button :submit, t('step.billing.form.button.next'), class: 'btn-main'%>
 </div>
 </div>
