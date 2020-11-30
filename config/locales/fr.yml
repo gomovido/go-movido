@@ -45,7 +45,9 @@ fr:
       moving_street: "Adresse de destination"
       password: 'Mot de passe'
       password_confirmation: 'Confirmation'
-      register: "Me connecter"
+      register: "Enregistrer"
+      login: 'Connexion'
+      remember_me: 'Se rappeler de moi'
     shared_links:
       already_account: "Vous avez déjà un compte ?"
       no_account: "Vous n'avez pas de compte ?"
