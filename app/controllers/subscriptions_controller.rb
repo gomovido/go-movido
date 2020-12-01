@@ -6,12 +6,13 @@ class SubscriptionsController < ApplicationController
   def create
     return if subscription_draft?(@product)
     return if subscription_active?(@product)
-    return if active_address_do_not_exist?(@product)
+    ##return if active_address_do_not_exist?(@product)
     @subscription = Subscription.new
     @subscription.address = current_user.active_address
     @subscription.product = @product
     @subscription.state = 'draft'
     if @subscription.save
+      return if user_profil_is_uncomplete?
       if @product.is_mobile?
         redirect_to new_subscription_billing_path(@subscription)
       elsif @product.is_wifi?
@@ -45,6 +46,12 @@ class SubscriptionsController < ApplicationController
 
   private
 
+  def user_profil_is_uncomplete?
+    if !current_user.is_complete?
+      redirect_to subscription_complete_profil_path(@subscription)
+    end
+  end
+
   def active_address_do_not_exist?(product)
     if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
       redirect_to user_path(current_user)
@@ -62,7 +69,10 @@ class SubscriptionsController < ApplicationController
 
   def subscription_draft?(product)
     subscription_check = Subscription.find_by(state: 'draft', product: product, address: current_user.active_address)
-    if subscription_check && product.is_mobile?
+    if subscription_check && !current_user.is_complete?
+      @subscription = subscription_check
+      redirect_to subscription_complete_profil_path(@subscription)
+    elsif subscription_check && product.is_mobile?
       redirect_to new_subscription_billing_path(subscription_check)
     elsif subscription_check && product.is_wifi?
       redirect_to subscription_update_address_path(subscription_check, subscription_check.address)
@@ -78,7 +88,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def set_product
-    @product = Product.friendly.find(params[:product_id])
+    @product = Product.find(params[:product_id])
   end
 
 end

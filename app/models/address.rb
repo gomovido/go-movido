@@ -1,9 +1,9 @@
 class Address < ApplicationRecord
+  attr_accessor :moving_country
   belongs_to :user
   has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :subscriptions
-  validates_presence_of :street, :country, :city
-  validate :check_country
+  validates_presence_of :street, :city, :zipcode
   after_create :set_has_active
 
   def set_has_active
@@ -11,7 +11,8 @@ class Address < ApplicationRecord
     self.update_columns(active: true)
   end
 
-  def check_country
-     errors.add(:street, I18n.t('form.failure.check_country')) unless self.country == self.user.country
+  def country
+    self.street.split(',')[-1].strip if self.street
   end
+
 end
