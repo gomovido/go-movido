@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def update_user_country
-    self.update(country: self.active_address.street.split(',')[-1].strip)
+    self.update(country: self.active_address.country)
   end
 
   private
