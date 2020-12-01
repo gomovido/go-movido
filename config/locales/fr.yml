@@ -1,5 +1,10 @@
 fr:
   navbar:
+    links:
+      about_us: 'À propos'
+      how_it_works: 'Comment ça marche ?'
+      login: 'Se connecter'
+      get_started: 'Commencer'
     dropdown:
       profile: 'Profile'
       account: 'Compte'

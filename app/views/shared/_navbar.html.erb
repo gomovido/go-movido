@@ -1,36 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-around pt-3 pb-3">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-target="navbar.navbar" data-action="scroll@window->navbar#onScroll">
   <%= link_to root_path, class: "navbar-brand" do %>
-  <%= image_tag(asset_path('logo.png'), class: 'logo') %>
+    <strong>movido</strong>
   <% end %>
-  <% if user_signed_in?%>
-  <div class="d-sm-none">
-    <%= render 'shared/profile-dropdown' %>
-  </div>
-  <% else %>
-  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <% end %>
-  <%= render 'shared/modal-navbar' %>
+
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-      <div class="d-flex align-items-center">
-       <%= render 'shared/profile-dropdown' %>
-       <% if I18n.locale == :fr %>
-        <%= link_to EmojiFlag.new('en'), url_for(locale: :en) %>
-       <% else %>
-        <%= link_to EmojiFlag.new('fr'), url_for(locale: :fr) %>
-       <% end %>
-      </div>
-      <% else %>
-      <li class="nav-item d-flex align-items-center mt-2">
-        <%= link_to ("<i class='fas fa-user pl-3 pr-4 d-lg-inline d-none'> &nbsp&nbsp|</i> Login").html_safe, new_user_session_path, class: "nav-link btn-minor pr-lg-4" %>
+      <li class="nav-item active">
+        <%= link_to t('navbar.links.about_us'), "#", class: "nav-link" %>
       </li>
-      <li class="nav-item d-flex align-items-center d-flex justify-content-between d-md-none">
-        <%= link_to "About us", '#' , class: "nav-link" %>
+      <li class="nav-item">
+        <%= link_to t('navbar.links.how_it_works'), "#how-it-works", class: "nav-link" %>
       </li>
-      <% end %>
+      <li class="nav-item">
+        <%= link_to t('navbar.links.login'), new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= link_to dashboard_index_path, class:"btn-navbar d-flex align-items-center justify-content-around" do %>
+          <span><%= t('navbar.links.get_started') %></span><%= image_tag(asset_path('btn-arrow-right.png')) %>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>
