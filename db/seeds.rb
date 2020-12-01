@@ -65,8 +65,8 @@ end
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
 form_timer: Faker::Number.number(digits: 1),
-subtitle: 'Get your local phone number',
-description: 'Find the perfect place for you to stay in your new hometown')
+subtitle: 'subtitle',
+description: 'description')
 
 product = Product.create(
   country: "France",
@@ -407,51 +407,51 @@ category = Category.create(
   name: 'housing',
   sku: 'housing',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'See top Real Estate listings',
-  description: 'Find the perfect place for you to stay in your new hometown')
+  subtitle: 'subtitle',
+  description: 'description')
 
 category = Category.create(
   name: 'bank',
   sku: 'bank',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'Open a bank account',
-  description: 'Find the perfect place for you to stay in your new hometown')
+  subtitle: 'subtitle',
+  description: 'description')
 
 category = Category.create(
   name: 'gym',
   sku: 'gym',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'See the best workout offers',
-  description: 'Find the perfect place for you to stay in your new hometown')
+  subtitle: 'subtitle',
+  description: 'description')
 
 category = Category.create(
   name: 'transportation',
   sku: 'transportation',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'Get your local transportation',
-  description: 'Find the perfect place for you to stay in your new hometown')
+  subtitle: 'subtitle',
+  description: 'description')
 
 
 category = Category.create(
   name: 'utilities',
   sku: 'utilities',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'Sign-up to utilities',
-  description: 'Find best electricity / gas offers')
+  subtitle: 'subtitle',
+  description: 'description')
 
 category = Category.create(
   name: 'community',
   sku: 'community',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'Join our community',
-  description: 'Discuss with students from all over the world')
+  subtitle: 'subtitle',
+  description: 'description')
 
 category = Category.create(
   name: 'wifi',
   sku: 'wifi',
   form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'Set-up WiFi at home',
-  description: 'Find the perfect place for you to stay in your new hometown')
+  subtitle: 'subtitle',
+  description: 'description')
 
 
 product = Product.create(
