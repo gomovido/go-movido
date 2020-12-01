@@ -4,16 +4,16 @@ import {addressAutocomplete, searchByCity, searchByCountry, autoFill} from '../p
 const places = require('places.js');
 
 export default class extends ApplicationController {
-  static targets = ['phone', 'submit', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'cityInput']
+  static targets = ['phone', 'submit', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'cityInput'];
 
   toggleAddressAutocomplete() {
+    this.movingStreet = addressAutocomplete(this.addressInputTarget);
+    searchByCountry(this.movingStreet, ['FR', 'GB']);
+    autoFill(this.movingStreet);
     this.addAddressInputTarget.classList.remove('d-none');
     this.addAddressInputTarget.classList.add('d-flex');
     this.addAddressButtonTarget.classList.add('d-none');
     this.addAddressButtonTarget.classList.remove('d-flex');
-    this.movingStreet = addressAutocomplete(this.addressInputTarget);
-    searchByCountry(this.movingStreet, ['FR', 'GB']);
-    autoFill(this.movingStreet);
   }
 
   toggleInput(event) {

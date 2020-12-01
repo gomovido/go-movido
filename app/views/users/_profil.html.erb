@@ -78,33 +78,31 @@
     </div>
     <hr>
     <div data-target="profil-form.input" id="birth_city" class="form-input d-none p-1">
-      <%= form.text_field :birth_city,
-      required: true,
-      label: false,
-      data: {
-      target: 'profil-form.cityInput'}%>
+      <%= form.text_field :birth_city, required: true, label: false, data: {target: 'profil-form.cityInput'}%>
       <%= form.button 'Save', data: {target: "profil-form.submit"}, class:'btn-submit' %>
     </div>
-    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-      <label for="address" class="m-0"><%= t('form.label.current_address') %></label>
-      <div class="profil-input">
-        <span class="pr-3"><%= current_user.active_address.street %></span>
+    <% if current_user.active_address %>
+      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+        <label for="address" class="m-0"><%= t('form.label.current_address') %></label>
+        <div class="profil-input">
+          <span class="pr-3"><%= current_user.active_address.street %></span>
+        </div>
       </div>
-    </div>
-    <hr>
-    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
-      <label for="country" class="m-0"><%= t('form.label.moving_country') %></label>
-      <div class="profil-input">
-        <span class="pr-3" ><%= current_user.country %></span>
+      <hr>
+      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3">
+        <label for="country" class="m-0"><%= t('form.label.moving_country') %></label>
+        <div class="profil-input">
+          <span class="pr-3" ><%= current_user.country %></span>
+        </div>
       </div>
-    </div>
-    <hr>
-    <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
-      <label for="city" class="m-0"><%= t('form.label.city') %></label>
-      <div class="profil-input">
-        <span class="pr-3"><%= current_user.active_address.city %></span>
+      <hr>
+      <div class="d-flex justify-content-between profil-input-wrapper flex-column pl-3 pb-3">
+        <label for="city" class="m-0"><%= t('form.label.city') %></label>
+        <div class="profil-input">
+          <span class="pr-3"><%= current_user.active_address.city %></span>
+        </div>
       </div>
-    </div>
+    <% end %>
     <% end %>
   </div>
 </div>
