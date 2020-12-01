@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    !current_user.active_address.nil? ? dashboard_index_path : new_user_address_path(current_user.id)
+    current_user.active_address.nil? ? new_user_address_path(current_user.id) : dashboard_index_path
   end
 
   def set_locale

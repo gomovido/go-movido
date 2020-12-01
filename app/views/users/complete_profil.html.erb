@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Please complete your profil 👌</h1>
+      <div data-controller="registration">
+        <%= simple_form_for [@user], method: :put do |f| %>
+          <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">
+          <%= f.input :phone,
+                  required: true,
+                  label: false,
+                  input_html: { placeholder: 'Mobile Phone', data: { target: 'registration.phone' } } %>
+          <%= f.input :birthdate, as: :string,
+                     required: true,
+                     label: false,
+                     input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker p-xs-0 ml-xs-2', data: {
+                      controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years} } %>
+          <%= f.input :birth_city,
+                    required: true,
+                    label: false,
+                    input_html: { data: {
+                    target: 'registration.cityInput'}} %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

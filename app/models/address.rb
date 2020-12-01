@@ -12,7 +12,7 @@ class Address < ApplicationRecord
   end
 
   def country
-      self.street.split(',')[-1].strip if self.street
+    self.street.split(',')[-1].strip if self.street
   end
 
 end
