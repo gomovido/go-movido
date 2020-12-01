@@ -1,5 +1,10 @@
 en:
   navbar:
+    links:
+      about_us: 'About us'
+      how_it_works: 'How it works?'
+      login: 'Login'
+      get_started: 'Get Started'
     dropdown:
       profile: 'Profile'
       account: 'Account'
