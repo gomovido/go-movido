@@ -4,14 +4,14 @@
       <div class="border-bottom pb-3 mb-4">
         <%= image_tag(asset_path("#{category.name}-white.png")) %>
       </div>
-      <span class="mb-2"><%= category.subtitle %></span>
+      <span class="mb-2"><%= t( 'category.' + category.sku + '.' + category.subtitle) %></span>
       <i class="fas fa-caret-down"></i>
     </div>
     <div class="description-wrapper flex-column p-2">
       <%= image_tag(asset_path("#{category.name}-white.png")) %>
       <div class="description p-3 d-flex flex-column mb-2">
         <span class='font-weight mb-1 green'><%= category.form_timer %> mins</span>
-        <span><%= category.description %></span>
+        <span><%= t( 'category.' + category.sku + '.' + category.description) %></span>
       </div>
       <% if category.name == 'mobile' || category.name == 'wifi' %>
       <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>

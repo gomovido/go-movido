@@ -4,6 +4,31 @@ en:
       profile: 'Profile'
       account: 'Account'
       logout: 'Log out'
+  category:
+    mobile_phone:
+      subtitle: 'Get your local phone number'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    wifi:
+      subtitle: 'Set-up WiFi at home'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    housing:
+      subtitle: 'See top Real Estate listings'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    bank:
+      subtitle: 'Open a bank account'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    gym:
+      subtitle: 'See the best workout offers'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    transportation:
+      subtitle: 'Get your local transportation'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    utilities:
+      subtitle: 'Sign-up to utilities'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    community:
+      subtitle: 'Join our community'
+      description: 'Find the perfect place for you to stay in your new hometown'
   user:
     profile:
       title: 'Profile'
@@ -77,6 +102,9 @@ en:
       confirmation_instruction: "Didn't receive confirmation instructions?"
       unlock_instruction: "Didn't receive unlock instructions?"
   pages:
+    product:
+      index:
+        title: 'Find the best %{category} offers'
     home:
       banner:
         headline1: 'Get set up</br> in your new home'
