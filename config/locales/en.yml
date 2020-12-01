@@ -96,11 +96,17 @@ en:
       moving_street: 'Address I am moving to'
       password: 'Password'
       password_confirmation: 'Password confirmation'
-      register: 'Register now'
+      register: 'Register'
       login: 'Login'
       remember_me: 'Remember me'
       current_address: 'Current Address'
       city: 'City'
+    placeholder:
+      first_name: 'Enter your first name here'
+      last_name: 'Enter your last name here'
+      email: 'Enter your email here'
+      password: 'Enter a securised password here (6 characters minimum)'
+      password_confirmation: 'Retype your password here'
     shared_links:
       already_account: 'Already have an account?'
       no_account: "Don't have an account yet?"
