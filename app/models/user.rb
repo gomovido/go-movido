@@ -7,19 +7,19 @@ class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
   has_many :billings, dependent: :destroy
-  after_update :check_address
 
-  accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
+  #accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
   COUNTRIES = [:fr, :uk]
 
   extend FriendlyId
   friendly_id :username, use: :slugged
 
-  validates_presence_of :first_name, :last_name, :email, :phone, :country, :city, :birthdate, :birth_city
+  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :birthdate, :birth_city, :phone, on: :update
   validates_uniqueness_of :email, :username
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   phony_normalize :phone, default_country_code: 'FR'
-  validates_plausible_phone :phone, presence: true
+  validates_plausible_phone :phone, presence: true, on: :update
   before_create :generate_username
   after_create :send_welcome_email
 
@@ -28,14 +28,8 @@ class User < ApplicationRecord
     Address.find_by(user: self, active: true)
   end
 
-
-  def check_address
-    if self.active_address && self.country != self.active_address.country
-      self.active_address.update_columns(active: false)
-    end
-    if !self.addresses.where(country: self.country).blank?
-      self.addresses.where(country: self.country).order(updated_at: :desc).last.update_columns(active: true)
-    end
+  def is_complete?
+    self.first_name.present? && self.last_name.present? && self.email.present? && self.birthdate.present? && self.birth_city.present?.present? && self.phone.present?
   end
 
   private
