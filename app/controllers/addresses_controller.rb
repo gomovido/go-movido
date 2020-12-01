@@ -44,9 +44,9 @@ class AddressesController < ApplicationController
 
   def get_address(country)
     if country == 'France'
-      return {country: 'France', city: 'Paris', street: '3 Avenue des Champs Élysées, Paris 8e Arrondissement, Île-de-France, France', zipcode: '75008'}
+      return {city: 'Paris', street: '3 Avenue des Champs Élysées, Paris 8e Arrondissement, Île-de-France, France', zipcode: '75008'}
     elsif country == 'United Kingdom'
-      return {country: 'United Kingdom', city: 'London', street: '123 London Bridge Street, London Borough of Southwark, England, United Kingdom', zipcode: 'SE1 9SE'}
+      return {city: 'London', street: '123 London Bridge Street, London Borough of Southwark, England, United Kingdom', zipcode: 'SE1 9SE'}
     end
   end
 
