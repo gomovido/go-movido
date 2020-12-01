@@ -1,26 +1,28 @@
 import { Controller } from "stimulus";
 import phoneInput from '../packs/phone-input';
-import {addressAutocomplete, autoFill, searchByCity, searchByCountry} from '../packs/algolia';
+import {addressAutocomplete, searchByCountry, autoFill, searchByCity } from '../packs/algolia';
 const places = require('places.js');
 
 export default class extends Controller {
-  static targets = [ "date", "phone", "dateInput", "addressInput", "checkboxAddress", "checkboxDate", "cityInput", "cityMoving", "countryMoving" ]
+  static targets = ["addressInput", "checkboxAddress", "streetInput", "countryInput", "form", "phone", "cityInput"]
 
   connect() {
-    phoneInput(this.phoneTarget);
-    this.movingAddress = addressAutocomplete(this.addressInputTarget);
-    autoFill(this.movingAddress);
-    this.birthCity = addressAutocomplete(this.cityInputTarget);
-    searchByCity(this.birthCity);
-    this.movingCity = addressAutocomplete(this.cityMovingTarget);
-    searchByCity(this.movingCity);
-    this.checkboxAddressTarget.checked ? document.querySelector('#addressInput').classList.add('d-none') : document.querySelector('#addressInput').classList.remove('d-none');
+    if (document.getElementById('address_street')) {
+      const addressInput = addressAutocomplete(this.addressInputTarget);
+      searchByCountry(addressInput, ['FR', 'GB'])
+      autoFill(addressInput);
+    } else if (this.phoneTarget && this.cityInputTarget) {
+      phoneInput(this.phoneTarget);
+      this.birthCity = addressAutocomplete(this.cityInputTarget);
+      searchByCity(this.birthCity);
+    }
 
   }
 
-  toggleAddress() {
-    document.querySelector('#addressInput').classList.toggle('d-none');
-    this.addressInputTarget.value = '';
+  toggleInput() {
+    this.formTarget.reset();
+    this.streetInputTarget.classList.toggle('d-none');
+    this.countryInputTarget.classList.toggle('d-none');
   }
 
   updateAlgolia() {
