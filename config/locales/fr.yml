@@ -19,6 +19,7 @@ fr:
         country: "Pays"
         city: "Ville"
         password: 'Mot de passe'
+        password_confirmation: 'Confirmation du mot de passe'
       address:
         street: 'Address'
       subscription:
