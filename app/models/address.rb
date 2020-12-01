@@ -10,6 +10,6 @@ class Address < ApplicationRecord
   end
 
   def country
-    self.user.country
+    self.street.split(',')[-1].strip
   end
 end
