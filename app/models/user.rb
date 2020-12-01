@@ -28,6 +28,10 @@ class User < ApplicationRecord
     Address.find_by(user: self, active: true)
   end
 
+  def update_user_country
+    self.update(country: self.active_address.country)
+  end
+  
   def is_complete?
     self.first_name.present? && self.last_name.present? && self.email.present? && self.birthdate.present? && self.birth_city.present?.present? && self.phone.present?
   end
