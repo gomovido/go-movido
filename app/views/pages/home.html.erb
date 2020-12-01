@@ -12,11 +12,15 @@
       <%= render 'shared/home/explanation-card', img: 'compare.png', step: '2', title: t('pages.home.how-it-works.card2.title'), desc: t('pages.home.how-it-works.card2.description') %>
       <%= render 'shared/home/explanation-card', img: 'choose.png', step: '3', title: t('pages.home.how-it-works.card3.title'), desc: t('pages.home.how-it-works.card3.description') %>
       <%= render 'shared/home/explanation-card', img: 'manage.png', step: '4', title: t('pages.home.how-it-works.card4.title'), desc: t('pages.home.how-it-works.card4.description') %>
-      <div class="col-md-12 d-lg-flex d-none justify-content-center top-marged">
+      <div class="col-md-12 d-lg-flex d-none justify-content-around top-marged">
         <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
+
       </div>
+      <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-exit' %>
+
     </div>
   </div>
+  <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-navbar' %>
 </section>
 <section id="about-us" class="d-lg-block d-none">
   <div class="container">
