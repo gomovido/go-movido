@@ -1,8 +1,10 @@
 class Address < ApplicationRecord
+  attr_accessor :moving_country
   belongs_to :user
   has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :subscriptions
-  validates_presence_of :street, :city
+  validates_presence_of :street, :city, :zipcode
+  after_create :set_has_active
 
   def set_has_active
     Address.where(user: self.user).each {|address| address.update(active: false)}
@@ -12,4 +14,5 @@ class Address < ApplicationRecord
   def country
     self.street.split(',')[-1].strip
   end
+
 end

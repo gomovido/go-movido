@@ -20,6 +20,8 @@ export function autoFill(element) {
 export function searchByCity(element) {
   element.configure({type: 'city'})
 }
+
+
 export function searchByCountry(element, country) {
   element.configure({countries: country})
 }
