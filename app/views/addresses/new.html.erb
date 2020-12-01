@@ -1,0 +1,32 @@
+<div class="container height">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Please indicate the address 👇</h1>
+    </div>
+    <div class="col-md-12">
+      <div data-controller="registration">
+        <%= simple_form_for [@address], :url => user_addresses_path, method: :post, data: {target: 'registration.form'} do |f| %>
+          <div data-target="registration.streetInput">
+            <label for="street">Your address in your new country</label>
+            <%= f.input :street,
+                label: false,
+                placeholder: 'enter your adress here',
+                input_html: { data: {
+                  target: 'registration.addressInput'
+                }}, error: false%>
+            <%= f.hidden_field :zipcode, id:'address_zipcode' %>
+            <%= f.hidden_field :city, id:'address_city' %>
+            <div data-action='click->registration#toggleInput' data-target='registration.checkboxAddress'><p>O I dont have address yet</p></div>
+          </div>
+          <div class="d-none" data-target="registration.countryInput">
+            <label for="street">In wich country are you going?</label>
+            <%= f.input :country, collection: ['France', 'United Kingdom'], prompt: 'choose your country destination',
+                label: false, error: false%>
+            <div data-action='click->registration#toggleInput' data-target='registration.checkboxAddress'><p>O I have a full adress</p></div>
+          </div>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

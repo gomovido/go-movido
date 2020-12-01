@@ -1,6 +1,24 @@
 class AddressesController < ApplicationController
-
   before_action :set_subscription, only: [:update_subscription_address, :update]
+
+  def new
+    @address = Address.new
+  end
+
+  def create
+    if address_params[:country].present?
+      @address = generate_fake_address
+    else
+      @address = Address.new(address_params)
+    end
+    @address.user = current_user
+    if @address.save
+      current_user.update(country: @address.country)
+      redirect_to dashboard_index_path
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
   def update_subscription_address
     @subscription = Subscription.find(params[:subscription_id])
@@ -17,6 +35,23 @@ class AddressesController < ApplicationController
 
 
   private
+
+  def generate_fake_address
+    address = get_address(address_params[:country])
+    return Address.new(country: address[:country], city: address[:city], street: address[:street], zipcode: address[:zipcode], valid_address: false)
+  end
+
+  def get_address(country)
+    if country == 'France'
+      return {country: 'France', city: 'Paris', street: '3 Avenue des Champs Élysées, Paris 8e Arrondissement, Île-de-France, France', zipcode: '75008'}
+    elsif country == 'United Kingdom'
+      return {country: 'United Kingdom', city: 'London', street: '123 London Bridge Street, London Borough of Southwark, England, United Kingdom', zipcode: 'SE1 9SE'}
+    end
+  end
+
+  def address_params
+    params.require(:address).permit(:street, :zipcode , :city, :country)
+  end
 
 
   def subscription_params

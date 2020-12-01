@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update] do
+    resources :addresses, only: [:create, :new]
+  end
   resources :subscriptions, only: [:show ] do
     resources :billings, only: [:new, :create]
     resources :addresses, only: [:update]
