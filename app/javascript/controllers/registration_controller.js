@@ -27,7 +27,7 @@ export default class extends Controller {
     this.cityMovingTarget.value = '';
     this.addressInputTarget.value = '';
     let country = this.countryMovingTarget.value === 'France' ? 'FR' : 'GB';
-    searchByCountry(this.movingCity, country);
-    searchByCountry(this.movingAddress, country);
+    searchByCountry(this.movingCity, [country]);
+    searchByCountry(this.movingAddress, [country]);
   }
 }

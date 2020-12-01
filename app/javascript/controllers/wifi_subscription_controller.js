@@ -6,6 +6,6 @@ export default class extends Controller {
 
   connect() {
     this.delivery = addressAutocomplete(this.deliveryTarget);
-    this.deliveryTarget.dataset.country == 'France' ? searchByCountry(this.delivery, 'FR') : searchByCountry(this.delivery, 'GB')
+    this.deliveryTarget.dataset.country == 'France' ? searchByCountry(this.delivery, ['FR']) : searchByCountry(this.delivery, ['GB'])
    }
 }

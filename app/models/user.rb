@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
   has_many :billings, dependent: :destroy
-  after_update :check_address
 
   accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
   COUNTRIES = [:fr, :uk]
@@ -28,14 +27,8 @@ class User < ApplicationRecord
     Address.find_by(user: self, active: true)
   end
 
-
-  def check_address
-    if self.active_address && self.country != self.active_address.country
-      self.active_address.update_columns(active: false)
-    end
-    if !self.addresses.where(country: self.country).blank?
-      self.addresses.where(country: self.country).order(updated_at: :desc).last.update_columns(active: true)
-    end
+  def update_user_country
+    self.update(country: self.active_address.street.split(',')[-1].strip)
   end
 
   private
