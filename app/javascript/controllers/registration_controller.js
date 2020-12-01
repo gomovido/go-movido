@@ -25,4 +25,11 @@ export default class extends Controller {
     this.countryInputTarget.classList.toggle('d-none');
   }
 
+  updateAlgolia() {
+    this.cityMovingTarget.value = '';
+    this.addressInputTarget.value = '';
+    let country = this.countryMovingTarget.value === 'France' ? 'FR' : 'GB';
+    searchByCountry(this.movingCity, [country]);
+    searchByCountry(this.movingAddress, [country]);
+  }
 }

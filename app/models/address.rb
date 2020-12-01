@@ -7,12 +7,12 @@ class Address < ApplicationRecord
   after_create :set_has_active
 
   def set_has_active
-    Address.where(active: true, user: self.user).each {|address| address.update_columns(active: false)}
-    self.update_columns(active: true)
+    Address.where(user: self.user).each {|address| address.update(active: false)}
+    self.update(active: true)
   end
 
   def country
-    self.street.split(',')[-1].strip if self.street
+    self.street.split(',')[-1].strip
   end
 
 end

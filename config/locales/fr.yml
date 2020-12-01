@@ -124,7 +124,7 @@ fr:
       register: "Enregistrer"
       login: 'Connexion'
       remember_me: 'Se rappeler de moi'
-      current_address: 'Address active'
+      current_address: 'Addresse actuelle'
       city: 'Ville'
     shared_links:
       already_account: "Vous avez déjà un compte ?"
