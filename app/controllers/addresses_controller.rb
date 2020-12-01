@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
     end
     @address.user = current_user
     if @address.save
-      current_user.update(country: @address.country)
+      current_user.update_columns(country: @address.country)
       redirect_to dashboard_index_path
     else
       flash[:alert] = 'You must enter an address or a country'
@@ -22,6 +22,7 @@ class AddressesController < ApplicationController
   end
 
   def update_subscription_address
+    raise if !current_user.is_complete?
     @subscription = Subscription.find(params[:subscription_id])
   end
 
