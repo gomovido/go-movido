@@ -33,34 +33,34 @@ fr:
     mobile_phone:
       mobile: 'téléphone mobile'
       subtitle: 'Obtenez votre numéro de téléphone local'
-      description: 'Find the perfect place for you to stay in your new hometown'
+      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
     wifi:
       wifi: 'wifi'
       subtitle: 'Obtenez votre installation wifi à la maison'
-      description: 'Find the perfect place for you to stay in your new hometown'
+      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
     housing:
       housing: 'appartement'
       subtitle: 'Voir les principales annonces immobilières'
       description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
     bank:
       bank: 'banque'
-      subtitle: 'Get your local phone number'
-      description: 'Find the perfect place for you to stay in your new hometown'
+      subtitle: 'Ouvrez un nouveau compte en quelques minutes'
+      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
     gym:
       gym: 'salle de gym'
       subtitle: "Voir les meilleures offres d'entraînement"
-      description: 'Find the perfect place for you to stay in your new hometown'
+      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
     transportation:
       transportation: 'transport'
       subtitle: 'Obtenez votre transport local'
-      description: 'Find the perfect place for you to stay in your new hometown'
+      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
     utilities:
       utilities: 'services publics'
       subtitle: "S'inscrire aux services publics"
       description: "Trouver les meilleures offres d'électricité / gaz"
     community:
       community: 'communauté'
-      subtitle: 'Join our community'
+      subtitle: 'Rejoignez notrec communauté'
       description: 'Discutez avec des étudiants du monde entier'
   user:
     profile:

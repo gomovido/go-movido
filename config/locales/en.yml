@@ -6,27 +6,35 @@ en:
       logout: 'Log out'
   category:
     mobile_phone:
+      mobile: 'mobile phones'
       subtitle: 'Get your local phone number'
       description: 'Find the perfect place for you to stay in your new hometown'
     wifi:
+      wifi: 'wifi'
       subtitle: 'Set-up WiFi at home'
       description: 'Find the perfect place for you to stay in your new hometown'
     housing:
+      housing: 'flat'
       subtitle: 'See top Real Estate listings'
       description: 'Find the perfect place for you to stay in your new hometown'
     bank:
+      bank: 'bank'
       subtitle: 'Open a bank account'
       description: 'Find the perfect place for you to stay in your new hometown'
     gym:
+      gym: 'fitness'
       subtitle: 'See the best workout offers'
       description: 'Find the perfect place for you to stay in your new hometown'
     transportation:
+      transportation: 'transportation'
       subtitle: 'Get your local transportation'
       description: 'Find the perfect place for you to stay in your new hometown'
     utilities:
+      utilities: 'electricity & gas'
       subtitle: 'Sign-up to utilities'
       description: 'Find the perfect place for you to stay in your new hometown'
     community:
+      community: 'communauté'
       subtitle: 'Join our community'
       description: 'Find the perfect place for you to stay in your new hometown'
   user:

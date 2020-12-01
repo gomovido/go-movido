@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_123849) do
+ActiveRecord::Schema.define(version: 2020_12_01_143832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,8 +103,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_123849) do
     t.integer "rating"
     t.integer "reviews"
     t.string "logo_url"
-    t.string "slug"
-    t.string "sku"
     t.boolean "unlimited_data"
     t.boolean "unlimited_call"
     t.boolean "obligation"
@@ -126,7 +124,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_123849) do
     t.integer "sim_card_price_cents", default: 0, null: false
     t.string "sim_card_price_currency", default: "USD", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
   create_table "subscriptions", force: :cascade do |t|
