@@ -1,5 +1,5 @@
 class RemoveColumnCountryFromAddresses < ActiveRecord::Migration[6.0]
   def change
-    remove_column :addresses, :country
+    remove_column :addresses, :country, :string
   end
 end
