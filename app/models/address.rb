@@ -2,16 +2,14 @@ class Address < ApplicationRecord
   belongs_to :user
   has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :subscriptions
-  validates_presence_of :street, :country, :city
-  validate :check_country
-  after_create :set_has_active
+  validates_presence_of :street, :city
 
   def set_has_active
-    Address.where(active: true, user: self.user).each {|address| address.update_columns(active: false)}
-    self.update_columns(active: true)
+    Address.where(user: self.user).each {|address| address.update(active: false)}
+    self.update(active: true)
   end
 
-  def check_country
-     errors.add(:street, I18n.t('form.failure.check_country')) unless self.country == self.user.country
+  def country
+    self.user.country
   end
 end

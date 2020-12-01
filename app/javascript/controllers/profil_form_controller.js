@@ -1,17 +1,18 @@
 import ApplicationController from './application_controller'
 import phoneInput from '../packs/phone-input';
-import {addressAutocomplete, searchByCity, autoFill} from '../packs/algolia';
+import {addressAutocomplete, searchByCity, searchByCountry, autoFill} from '../packs/algolia';
 const places = require('places.js');
 
 export default class extends ApplicationController {
   static targets = ['phone', 'submit', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'cityInput']
 
   toggleAddressAutocomplete() {
-    this.addAddressInputTarget.classList.remove('d-none')
-    this.addAddressInputTarget.classList.add('d-flex')
-    this.addAddressButtonTarget.classList.add('d-none')
-    this.addAddressButtonTarget.classList.remove('d-flex')
+    this.addAddressInputTarget.classList.remove('d-none');
+    this.addAddressInputTarget.classList.add('d-flex');
+    this.addAddressButtonTarget.classList.add('d-none');
+    this.addAddressButtonTarget.classList.remove('d-flex');
     this.movingStreet = addressAutocomplete(this.addressInputTarget);
+    searchByCountry(this.movingStreet, ['FR', 'GB']);
     autoFill(this.movingStreet);
   }
 
