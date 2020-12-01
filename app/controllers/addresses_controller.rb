@@ -6,7 +6,7 @@ class AddressesController < ApplicationController
   end
 
   def create
-    if address_params[:country].present?
+    if address_params[:moving_country].present?
       @address = generate_fake_address
     else
       @address = Address.new(address_params)
@@ -16,7 +16,8 @@ class AddressesController < ApplicationController
       current_user.update(country: @address.country)
       redirect_to dashboard_index_path
     else
-      redirect_back(fallback_location: root_path)
+      flash[:alert] = 'You must enter an address or a country'
+      render :new
     end
   end
 
@@ -37,8 +38,8 @@ class AddressesController < ApplicationController
   private
 
   def generate_fake_address
-    address = get_address(address_params[:country])
-    return Address.new(country: address[:country], city: address[:city], street: address[:street], zipcode: address[:zipcode], valid_address: false)
+    address = get_address(address_params[:moving_country])
+    return Address.new(city: address[:city], street: address[:street], zipcode: address[:zipcode], valid_address: false)
   end
 
   def get_address(country)
@@ -50,7 +51,7 @@ class AddressesController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:street, :zipcode , :city, :country)
+    params.require(:address).permit(:street, :zipcode , :city, :moving_country)
   end
 
 
