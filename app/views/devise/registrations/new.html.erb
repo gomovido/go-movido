@@ -11,26 +11,21 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email", placeholder: t('form.placeholder.email')}, error: false %>
-            <%= f.full_error :email, class: 'invalid-feedback mb-3 text-right' %>
+                        input_html: { autocomplete: "email", placeholder: t('form.placeholder.email')}%>
             <div class="d-flex justify-content-between">
               <%= f.input :first_name,
                         required: true,
-                        input_html: { placeholder: t('form.placeholder.last_name') }, error: false%>
-              <%= f.full_error :first_name, class: 'invalid-feedback mb-3 text-right' %>
+                        input_html: { placeholder: t('form.placeholder.first_name') }%>
               <%= f.input :last_name,
                         required: true,
-                        input_html: { placeholder: t('form.placeholder.last_name') }, error: false%>
-              <%= f.full_error :last_name, class: 'invalid-feedback mb-3 text-right' %>
+                        input_html: { placeholder: t('form.placeholder.last_name') }%>
             </div>
             <%= f.input :password,
                   required: true,
-                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')}, error: false %>
-            <%= f.full_error :password, class: 'invalid-feedback mb-3 text-right' %>
+                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')}%>
             <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password_confirmation')}, error: false %>
-            <%= f.full_error :password_confirmation, class: 'invalid-feedback text-right' %>
           </div>
         <div class="mt-4">
           <%= f.button :submit, t('form.label.register'), class:'btn btn-main w-100' %>
