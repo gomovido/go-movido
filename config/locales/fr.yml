@@ -29,6 +29,39 @@ fr:
           attributes:
             account_number:
               blank: "doit être rempli"
+  category:
+    mobile_phone:
+      mobile: 'téléphone mobile'
+      subtitle: 'Obtenez votre numéro de téléphone local'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    wifi:
+      wifi: 'wifi'
+      subtitle: 'Obtenez votre installation wifi à la maison'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    housing:
+      housing: 'appartement'
+      subtitle: 'Voir les principales annonces immobilières'
+      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+    bank:
+      bank: 'banque'
+      subtitle: 'Get your local phone number'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    gym:
+      gym: 'salle de gym'
+      subtitle: "Voir les meilleures offres d'entraînement"
+      description: 'Find the perfect place for you to stay in your new hometown'
+    transportation:
+      transportation: 'transport'
+      subtitle: 'Obtenez votre transport local'
+      description: 'Find the perfect place for you to stay in your new hometown'
+    utilities:
+      utilities: 'services publics'
+      subtitle: "S'inscrire aux services publics"
+      description: "Trouver les meilleures offres d'électricité / gaz"
+    community:
+      community: 'communauté'
+      subtitle: 'Join our community'
+      description: 'Discutez avec des étudiants du monde entier'
   user:
     profile:
       title: 'Informations'
@@ -102,6 +135,9 @@ fr:
       confirmation_instruction: "Vous n'avez pas reçu d'instructions de confirmation ?"
       unlock_instruction: "Vous n'avez pas reçu d'instructions de déverrouillage ?"
   pages:
+    product:
+      index:
+        title: 'Trouver les meilleurs offres de %{category}'
     home:
       banner:
         headline1: 'Installez-vous'
