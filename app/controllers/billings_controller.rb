@@ -2,6 +2,7 @@ class BillingsController < ApplicationController
   before_action :set_subscription, only: [:new, :new_uk, :new_fr, :create]
 
   def new
+    raise if !current_user.is_complete?
     @billing = Billing.new
     @billing.build_subscription if @subscription.product.is_mobile?
     redirect_to_new(@subscription)
