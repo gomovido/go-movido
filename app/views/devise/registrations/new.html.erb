@@ -13,26 +13,37 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email", placeholder: t('form.placeholder.email')}%>
+                        input_html: { autocomplete: "email", placeholder: 'john.doe@sorbonne-university.fr'}%>
             <div class="d-flex justify-content-between">
               <%= f.input :first_name,
                         required: true,
-                        input_html: { placeholder: t('form.placeholder.first_name') }%>
+                        input_html: { placeholder: 'John' }%>
               <%= f.input :last_name,
                         required: true,
-                        input_html: { placeholder: t('form.placeholder.last_name') }%>
+                        input_html: { placeholder: 'Doe' }%>
             </div>
             <%= f.input :password,
                   required: true,
                   input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')}%>
             <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password_confirmation')}, error: false %>
+                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')} %>
           </div>
         <div class="mt-4">
-          <%= f.button :submit, t('form.label.register'), class:'btn btn-main w-100' %>
+          <%= f.button :submit, t('form.label.register'), class:'btn-main w-100' %>
         </div>
         <% end %>
+      </div>
+      <div class="social-registrations text-center mt-3 d-flex flex-column">
+        <span class="mb-3 or">Or</span>
+        <a class="btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center" href="#">
+          Register with Google
+          <%= image_tag('google-logo.png', class: 'position-absolute') %>
+        </a>
+        <a class="btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" href="#">
+          Register with Facebook
+          <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
+        </a>
       </div>
     </div>
   </div>

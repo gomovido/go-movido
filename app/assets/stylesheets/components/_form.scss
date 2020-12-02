@@ -23,4 +23,8 @@
   abbr[title], acronym[title] {
     text-decoration: none !important;
   }
+  .form-control:focus {
+    border-color: rgba(140,48,245,0.35);
+    box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.25);
+  }
 }

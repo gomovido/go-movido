@@ -133,11 +133,7 @@ fr:
       current_address: 'Addresse actuelle'
       city: 'Ville'
     placeholder:
-      first_name: 'Entrer votre prénom ici'
-      last_name: 'Entrer votre nom ici'
-      email: 'Entrer votre email ici'
-      password: 'Entrer un mot de passe sécurisé ici (6 characters minimum)'
-      password_confirmation: 'Répéter votre mot de passe ici'
+      password: '6 caractères minimum'
     shared_links:
       already_account: "Vous avez déjà un compte ?"
       no_account: "Vous n'avez pas de compte ?"
