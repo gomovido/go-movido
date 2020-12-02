@@ -1,58 +1,26 @@
-.form-control {
-  border-radius: 10px;
-  height: calc(1.5em + 0.75rem + 13px);
-  border-color: $grey;
-}
-
-form input {
-  font-size: 12px !important;
-}
-
-form input::placeholder {
-  color: $dark-grey !important;
-  font-size: 12px;
-}
-
-select {
-  -webkit-appearance: none !important;
-}
-.invalid-feedback {
-  display: block !important;
-}
-
-label {
-  color: $blue !important;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.form-control[readonly]  {
-  background-color: $white;
-}
-
-.form-b-links {
-  span {
-    font-size: 12px;
+.form-base {
+  font-family: "Manrope", sans-serif;
+  h4 {
+    font-weight: bold;
+    color: $dark;
+    font-size: 30px;
   }
-  a {
-    font-size: 12px;
+  label {
+    font-size: 16px;
+    color: $grey;
+    font-weight: 300;
   }
-}
-
-.iti {
-  width: 100%;
-}
-
-
-
-@include media-breakpoint-down(md) {
-  .registration-input {
-    .placeholder-left {
-      width: 50%;
+  input {
+    height: calc(1.5em + 0.75rem + 18px) !important;
+    border-radius: 6px;
+    border: 1px solid $light-grey;
+    &::placeholder {
+      font-size: 14px;
+      color: $light-grey;
+      font-weight: 300;
     }
-    .ap-with-places {
-      width: 95vw !important;
-      left: -145px !important;
-    }
+  }
+  abbr[title], acronym[title] {
+    text-decoration: none !important;
   }
 }

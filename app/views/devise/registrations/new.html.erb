@@ -2,63 +2,33 @@
 <div class="container mt-2 p-md-5">
   <div class="row">
     <div class="col-md-7 d-none d-sm-block">
-      <div class="registration-wrapper p-2 d-flex flex-column justify-content-evenly">
-        <h2 class='title pr-5 pl-5'>Welcome to <%= image_tag(asset_path('box-movido.png'), class: 'box-movido') %> movido</h2>
-        <span class='desc pr-5 pl-5 mb-5'>movido will help you set-up all you need for your new home – from your mobile account to your gym abo – before you move to give you time to focus on the really important things</span>
-        <div class="illustration d-flex justify-content-center">
-          <%= image_tag(asset_path('girl-down.png')) %>
-        </div>
-      </div>
     </div>
     <div class="col-md-5">
-      <div class="registration-form-wrapper p-md-5 p-4">
-        <h4 class="mb-3">Sign up</h4>
+      <div class="form-base">
+        <h4 class="mb-4"><%= t('form.shared_links.sign_up') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <div class="form-inputs">
-            <div class="registration-input">
-              <span class="placeholder-left"><%= t('form.label.first_name') %></span>
+          <div class="form-inputs-wrapper">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", placeholder: t('form.placeholder.email')}%>
+            <div class="d-flex justify-content-between">
               <%= f.input :first_name,
                         required: true,
-                        label: false,
-                        input_html: { class:'input-clear' }, error: false%>
-            </div>
-            <%= f.full_error :first_name, class: 'invalid-feedback mb-3 text-right' %>
-            <div class="registration-input">
-              <span class="placeholder-left"><%= t('form.label.last_name') %></span>
+                        input_html: { placeholder: t('form.placeholder.first_name') }%>
               <%= f.input :last_name,
                         required: true,
-                        label: false,
-                        input_html: { class:'input-clear' }, error: false%>
+                        input_html: { placeholder: t('form.placeholder.last_name') }%>
             </div>
-            <%= f.full_error :last_name, class: 'invalid-feedback mb-3 text-right' %>
-            <div class="registration-input">
-              <span class="placeholder-left"><%= t('form.label.email') %></span>
-              <%= f.input :email,
-                          required: true,
-                          label: false,
-                          autofocus: true,
-                          input_html: { autocomplete: "email", class:'input-clear'}, error: false%>
-            </div>
-            <%= f.full_error :email, class: 'invalid-feedback mb-3 text-right' %>
-            <div class="registration-input">
-              <span class="placeholder-left"><%= t('form.label.password') %></span>
-                <%= f.input :password,
-                      required: true,
-                      label: false,
-                      input_html: { autocomplete: "new-password", placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) }, error: false %>
-            </div>
-            <%= f.full_error :password, class: 'invalid-feedback mb-3 text-right' %>
-            <div class="registration-input">
-              <span class="placeholder-left"><%= t('form.label.password_confirmation') %></span>
-                <%= f.input :password_confirmation,
-                      required: true,
-                      label: false,
-                      input_html: { autocomplete: "new-password"}, error: false %>
-            </div>
-            <%= f.full_error :password_confirmation, class: 'invalid-feedback text-right' %>
+            <%= f.input :password,
+                  required: true,
+                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')}%>
+            <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password_confirmation')}, error: false %>
           </div>
-        <div class="form-actions text-lg-left text-center">
-          <%= f.button :submit, t('form.label.register'), class:'btn btn-main' %>
+        <div class="mt-4">
+          <%= f.button :submit, t('form.label.register'), class:'btn btn-main w-100' %>
         </div>
         <% end %>
         <%= render "devise/shared/links" %>
