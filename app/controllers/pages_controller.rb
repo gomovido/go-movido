@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   def terms; end
 
   def dashboard_index
-    current_user.active_address.nil? ? redirect_to(new_user_address_path(current_user.id)) : redirect_to(dashboard_index_path)
+    redirect_to(new_user_address_path(current_user.id)) if current_user.active_address.nil?
     @categories = Category.all
   end
 
