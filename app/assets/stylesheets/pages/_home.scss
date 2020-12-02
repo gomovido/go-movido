@@ -2,6 +2,7 @@
 body {
  background: $white;
  height: -webkit-fill-available;
+ color: $light-black;
 }
 
 body.app {
@@ -57,12 +58,12 @@ section {
 }
 
 .main-title h1 {
-  color: $blue;
   font-style: normal;
   font-weight: 800;
   font-size: 64px;
   line-height: 120%;
   letter-spacing: -0.04em;
+  margin-bottom: 4rem;
 }
 
 .breaker-home {

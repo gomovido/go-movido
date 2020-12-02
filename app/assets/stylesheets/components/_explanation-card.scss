@@ -1,0 +1,15 @@
+.explanation-card {
+  color: black;
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+
+@include media-breakpoint-only(xs) {
+  .explanation-card {
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+}
