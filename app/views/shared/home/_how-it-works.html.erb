@@ -1,0 +1,18 @@
+<section id="how-it-works">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='main-title text-center mb-5'>
+          <h1><%= t('pages.home.how-it-works.title') %></h1>
+        </div>
+      </div>
+      <%= render 'shared/home/explanation-card', img: 'select-service.png', title: t('pages.home.how-it-works.card1.title'), desc: t('pages.home.how-it-works.card1.description') %>
+      <%= render 'shared/home/explanation-card', img: 'compare.png', title: t('pages.home.how-it-works.card2.title'), desc: t('pages.home.how-it-works.card2.description') %>
+      <%= render 'shared/home/explanation-card', img: 'choose.png', title: t('pages.home.how-it-works.card3.title'), desc: t('pages.home.how-it-works.card3.description') %>
+      <%= render 'shared/home/explanation-card', img: 'manage.png', title: t('pages.home.how-it-works.card4.title'), desc: t('pages.home.how-it-works.card4.description') %>
+      <div class="col-md-12 d-lg-flex d-none justify-content-center mt-5">
+        <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
+      </div>
+    </div>
+  </div>
+</section>
