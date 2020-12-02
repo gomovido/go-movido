@@ -12,12 +12,30 @@
     color: $white;
     font-weight: 300;
   }
-
   span {
     color: $white;
+    cursor: pointer;
+    font-weight: 300;
   }
   hr {
     border-top: 1px solid #f8f9fa30 !important;
     width: 85%;
+  }
+}
+
+
+@include media-breakpoint-only(xs) {
+  .footer {
+    .links {
+      display:flex;
+      flex-direction: column;
+    }
+    .bot {
+      padding-right: 0;
+      padding-left: 0;
+      .copyright {
+        padding-left: 3rem;
+      }
+    }
   }
 }
