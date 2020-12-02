@@ -1,5 +1,29 @@
 
 <%= render 'shared/home/banner' %>
+<section id="partners">
+  <div class="container">
+    <div class="row">
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+        <%= image_tag(asset_path('logo-orange.png'), style:"width: 35%") %>
+      </div>
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+        <%= image_tag(asset_path('logo-escp.png')) %>
+      </div>
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+        <%= image_tag(asset_path('logo-revolut.png')) %>
+      </div>
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+        <%= image_tag(asset_path('logo-hult.png')) %>
+      </div>
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
+        <%= image_tag(asset_path('logo-veolia.png')) %>
+      </div>
+      <div class="col-2 partner d-flex align-items-center justify-content-center border-0">
+        <%= image_tag(asset_path('logo-sorbonne.png')) %>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="how-it-works">
   <div class="container">
     <div class="row">
@@ -34,30 +58,6 @@
       </div>
       <div class="col-md-6 d-flex align-items-center justify-content-center">
         <%= image_tag(asset_path('laptop.png'))%>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="partners">
-  <div class="container">
-    <div class="row">
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('orange.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('escp.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('revolut.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('hult.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('veolia.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-0">
-        <%= image_tag(asset_path('sorbonne.png')) %>
       </div>
     </div>
   </div>

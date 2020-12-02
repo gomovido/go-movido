@@ -16,6 +16,14 @@ a:hover {
   text-decoration: none;
 }
 
+section {
+  margin-bottom: 5rem;
+}
+
+.wrapper {
+  padding-top: 60px;
+}
+
 .ap-suggestion {
   text-align: left;
   color: black;
@@ -40,7 +48,6 @@ a:hover {
 @include media-breakpoint-only(xs) {
   section {
     margin-bottom: 4rem;
-    padding: 5% 0% !important;
   }
 }
 
