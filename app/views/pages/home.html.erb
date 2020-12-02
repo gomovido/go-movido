@@ -1,57 +1,11 @@
 <%= render 'shared/home/banner' %>
-<%=  render 'shared/home/partners' %>
-<%=  render 'shared/home/services-cards' %>
-<%=  render 'shared/home/how-it-works' %>
+<%= render 'shared/home/partners' %>
+<%= render 'shared/home/services-cards' %>
+<%= render 'shared/home/how-it-works' %>
+<%= render 'shared/home/why-us' %>
 
 
 
-
-<section id="about-us" class="d-lg-block d-none">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 d-flex flex-column justify-content-center">
-        <div class="wrapper">
-          <div class="main-title mb-5">
-            <h1><%= t('pages.home.about-us.title') %></h1>
-          </div>
-          <div class="desc">
-            <p><%= t('pages.home.about-us.text').html_safe %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <%= image_tag(asset_path('laptop.png'))%>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="why-us">
-  <div class="container pt-2">
-    <div class="row">
-      <div class="col-md-4 d-flex flex-column justify-content-center">
-        <div class="main-title">
-          <h1><%= t('pages.home.why.title') %></h1>
-        </div>
-        <p class="desc"><%= t('pages.home.why.text').html_safe %></p>
-        <div class="call-to-action d-none d-sm-block">
-          <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="why-cards-wrapper d-flex">
-          <div class='left'>
-            <%= render 'shared/home/why-card', img: 'fast.png', title: t('pages.home.why.card1.title'), desc: t('pages.home.why.card1.description') %>
-            <%= render 'shared/home/why-card', img: 'simple.png', title: t('pages.home.why.card2.title'), desc: t('pages.home.why.card2.description') %>
-          </div>
-          <div class='right'>
-            <%= render 'shared/home/why-card', img: 'smart.png', title: t('pages.home.why.card3.title'), desc: t('pages.home.why.card3.description') %>
-            <%= render 'shared/home/why-card', img: 'free.png', title: t('pages.home.why.card4.title'), desc: t('pages.home.why.card4.description') %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <%= render 'shared/home/testimonials' %>
 <section id="get-started">
   <div class="container-fluid m-0" style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">

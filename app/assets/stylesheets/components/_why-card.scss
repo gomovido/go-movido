@@ -1,9 +1,5 @@
 .why-cards-wrapper {
-  .left {
-    border-right: 1px solid #EEF1F4;
-  }
   .why-card {
-    color: $blue;
     .illustration {
       margin-bottom: 1rem;
       img {
@@ -11,13 +7,8 @@
       }
     }
     .title {
-      font-weight: 800;
-      font-size: 16px;
-      line-height: 22px;
-    }
-    .desc {
-      font-size: 14px;
-      color: $black;
+      font-weight: 600;
+      font-size: 18px;
     }
   }
 }
@@ -27,9 +18,5 @@
 @include media-breakpoint-only(xs) {
   .why-cards-wrapper .why-card {
     padding: 5%;
-    align-items: center;
-    .desc {
-      padding: 0
-    }
   }
 }
