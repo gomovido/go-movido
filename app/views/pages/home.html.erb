@@ -1,48 +1,12 @@
 
 <%= render 'shared/home/banner' %>
-<section id="partners">
-  <div class="container">
-    <div class="row">
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('logo-orange.png'), style:"width: 35%") %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('logo-escp.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('logo-revolut.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('logo-hult.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-right border-light-gray">
-        <%= image_tag(asset_path('logo-veolia.png')) %>
-      </div>
-      <div class="col-2 partner d-flex align-items-center justify-content-center border-0">
-        <%= image_tag(asset_path('logo-sorbonne.png')) %>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="how-it-works">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class='main-title text-center mb-5'>
-          <h1><%= t('pages.home.how-it-works.title') %></h1>
-        </div>
-      </div>
-      <%= render 'shared/home/explanation-card', img: 'select-service.png', step: '1', title: t('pages.home.how-it-works.card1.title'), desc: t('pages.home.how-it-works.card1.description') %>
-      <%= render 'shared/home/explanation-card', img: 'compare.png', step: '2', title: t('pages.home.how-it-works.card2.title'), desc: t('pages.home.how-it-works.card2.description') %>
-      <%= render 'shared/home/explanation-card', img: 'choose.png', step: '3', title: t('pages.home.how-it-works.card3.title'), desc: t('pages.home.how-it-works.card3.description') %>
-      <%= render 'shared/home/explanation-card', img: 'manage.png', step: '4', title: t('pages.home.how-it-works.card4.title'), desc: t('pages.home.how-it-works.card4.description') %>
-      <div class="col-md-12 d-lg-flex d-none justify-content-center top-marged">
-        <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
+<%=  render 'shared/home/partners' %>
+<%=  render 'shared/home/services-cards' %>
 
-      </div>
-    </div>
-  </div>
-</section>
+
+
+
+
 <section id="about-us" class="d-lg-block d-none">
   <div class="container">
     <div class="row">
