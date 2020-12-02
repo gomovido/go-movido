@@ -1,46 +1,30 @@
-<footer class="white-footer py-5 px-5 d-flex flex-column flex-lg-row justify-content-around">
-  <div class="part-1 mb-5 mb-lg-0 order-lg-1 order-4">
-    <%= link_to root_path do %>
-    <%= image_tag(asset_path('logo-footer-white.png'), class: "mb-4 d-none d-lg-block") %>
-    <% end %>
-    <p class="m-0">
-      <span class="mb-2 d-block">© 2020 movido</span>
-      <span class="mb-2 d-block">All rights reserved</span>
-      <span class="d-block">Made in London, UK</span>
-    </p>
-  </div>
-  <div class="part-2 d-flex flex-lg-column justify-content-around justify-content-lg-between mb-3 mb-lg-0 order-lg-2 order-5">
-    <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "text-center mr-3 mr-lg-0", target: "_blank" do %>
-    <i class='fab fa-facebook-f'></i>
-    <% end %>
-    <%= link_to "#", class: "text-center mr-3 mr-lg-0", target: "_blank"  do %>
-    <i class='fab fa-twitter'></i>
-    <% end %>
-    <%= link_to "https://www.instagram.com/go_movido/", class: "text-center ", target: "_blank" do %>
-    <i class='fab fa-instagram'></i>
-    <% end %>
-  </div>
-  <div class="d-flex justify-content-between mb-3 mb-lg-0 order-lg-3 order-1">
-    <div class="part-3 d-flex flex-column mb-3 mb-lg-0 mr-lg-5">
-      <%= link_to "About us", '#' %>
-      <br>
-      <%= link_to "Contact us", '#' %>
-      <br>
-      <%= link_to "Support", '#' %>
-    </div>
-    <div class="part-4 d-flex flex-column mb-3 mb-lg-0 ml-lg-5">
-      <%= link_to "Terms of service", terms_path %>
-      <br>
-      <%= link_to "Privacy Policy", privacy_path %>
-      <br>
-      <%= link_to "Cookies Policy", cookies_path %>
+<footer class="footer d-flex align-items-center flex-column py-4">
+  <div class="logo pb-4"><strong>movido</strong></div>
+  <div class="d-flex pb-3">
+    <div class="links">
+      <%= link_to "About us", '#', class:"px-3" %>
+      <%= link_to "Features", '#', class:"px-3" %>
+      <%= link_to "FAQ", '#', class:"px-3" %>
+      <%= link_to "Terms of service", terms_path, class:"px-3" %>
+      <%= link_to "Privacy Policy", privacy_path, class:"px-3" %>
+      <%= link_to "Cookies Policy", cookies_path, class:"px-3" %>
     </div>
   </div>
-  <div class="part-5 d-flex flex-column order-lg-5 order-3 mb-4 mb-lg-0">
-    <span class="mr-3 mr-lg-0"><i class="far fa-envelope mr-2"></i><%= mail_to "info@go-movido.com", "info@go-movido.com" %></span>
-    <br>
-    <span><i class="fas fa-map-marker-alt mr-2"></i>52 Upper Berkeley Street <br>London W1H 7QW, UK</span>
-    <br>
-    <button class="termly-cookie-preference-button" type="button" style="background: white; width: 165px; height: 30px; border-radius: 3px; border: 1px solid #5f7d9c; font-family: Roboto, Arial; font-size: 10px; color: #5f7d9c; font-weight: 600; box-sizing: border-box; cursor: pointer; padding: 0; outline: none;" onclick="displayPreferenceModal()">Manage Cookie Preferences</button>
+  <hr>
+  <div class="bot d-flex justify-content-between w-100">
+    <div class="copyright">
+      <span>© 2020 movido. All rights reserved</span>
+    </div>
+    <div class="social-links d-flex justify-content-around pr-5">
+      <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "text-center mr-4", target: "_blank" do %>
+        <i class='fab fa-facebook-f'></i>
+      <% end %>
+      <%= link_to "#", class: "text-center mr-4", target: "_blank"  do %>
+        <i class='fab fa-twitter'></i>
+      <% end %>
+      <%= link_to "https://www.instagram.com/go_movido/", class: "text-center ", target: "_blank" do %>
+        <i class='fab fa-instagram'></i>
+      <% end %>
+    </div>
   </div>
 </footer>

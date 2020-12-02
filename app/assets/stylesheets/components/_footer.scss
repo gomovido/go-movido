@@ -1,82 +1,23 @@
-.white-footer {
-  max-width: 100%;
-  background-color: $white;
-
-  .part-1 p{
-    font-size: 12px;
-    color: $dark-grey;
+.footer {
+  background: black;
+  .logo {
+    color: $white;
+    font-size: 24px;
+  }
+  .bot {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+  a {
+    color: $white;
+    font-weight: 300;
   }
 
-  .part-1 img {
-    width: 130px;
-  }
-
-  .part-2 {
-    font-size: 19px;
-    color: $blue;
-    a {
-      background: $light-blue;
-      border-radius: 12px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-    }
-  }
-
-  .part-3 a, .part-4 a{
-    font-weight: 800;
-    color: $black !important;
-  }
-
-  .part-5 {
-    color: $dark-grey;
-    font-size: 14px;
-  }
-}
-
-
-.blue-footer {
-  max-width: 100%;
-  background-position: center;
-  background-size: cover;
-
-  .part-1 p{
-    font-size: 12px;
+  span {
     color: $white;
   }
-
-  .part-1 img {
-    width: 130px;
-  }
-
-  .part-2 {
-    font-size: 19px;
-    a {
-      background: #0C4684;
-      color: $white;
-      border-radius: 12px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      &:hover {
-        color: $light-grey !important;
-      }
-    }
-  }
-
-  .part-3 a, .part-4 a{
-    font-weight: 800;
-    color: $white !important;
-    &:hover {
-      color: $light-grey !important;
-    }
-  }
-
-  .part-5, .part-5 a{
-    color: $white;
-    font-size: 14px;
-    &:hover {
-      color: $light-grey !important;
-    }
+  hr {
+    border-top: 1px solid #f8f9fa30 !important;
+    width: 85%;
   }
 }
