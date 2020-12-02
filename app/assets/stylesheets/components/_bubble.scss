@@ -9,8 +9,9 @@
 .big-blue-bubble {
   background: $light-turquoise;
   border-radius: 50%;
-  width: 640px;
-  height: 640px;
+  width: 500px;
+  height: 500px;
+  z-index: -1;
 }
 
 .small-blue-bubble {
