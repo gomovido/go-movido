@@ -1,8 +1,11 @@
-<div class="container">
+<div class="container registration-container py-3">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7 position-relative mt-5">
+      <h1>Welcome to <br>movido</h1>
+      <p>movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things</p>
+      <figure class="big-blue-bubble position-absolute"></figure>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
       <div class="form-base">
         <h4 class="mb-4"><%= t('form.shared_links.sign_up') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,7 +33,6 @@
           <%= f.button :submit, t('form.label.register'), class:'btn btn-main w-100' %>
         </div>
         <% end %>
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
