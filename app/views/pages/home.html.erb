@@ -3,27 +3,4 @@
 <%= render 'shared/home/services-cards' %>
 <%= render 'shared/home/how-it-works' %>
 <%= render 'shared/home/why-us' %>
-
-
-
 <%= render 'shared/home/testimonials' %>
-<section id="get-started">
-  <div class="container-fluid m-0" style="background-image:url(<%= asset_path 'get-started-bg.png' %>);">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="get-started-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-around py-3 p-lg-5">
-          <div class="title">
-            <h3><%= t('pages.home.bottom-banner.headline').html_safe %></h3>
-          </div>
-          <div>
-            <span class="desc"><%= t('pages.home.bottom-banner.text').html_safe %></span>
-            <%= image_tag(asset_path('box-getting-started.png'))%>
-          </div>
-          <div class="call-to-action text-right d-none d-sm-block">
-            <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
