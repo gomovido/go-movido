@@ -1,11 +1,11 @@
 .banner {
   background-size: cover;
-  background-position: 0% 36%;
-  height: 70vh;
+  background-position: center;
+  height: 80vh;
   h1 {
     color: black;
     font-size: 64px;
-    font-weight: bold;
+    font-weight: 800;
     line-height: 5rem;
   }
   p {
@@ -17,8 +17,7 @@
 
 @include media-breakpoint-only(xs) {
   .banner {
-    height: 83vh;
-    background-position: 19%;
+    padding-top: 4rem;
     h1 {
       font-size: 35px;
     }
