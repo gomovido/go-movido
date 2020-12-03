@@ -9,6 +9,12 @@ en:
       profile: 'Profile'
       account: 'Account'
       logout: 'Log out'
+    menu:
+      quick_links: 'Quick links'
+      help_center: 'Help Center'
+      dashboard:
+        title: 'Dashboard'
+        subtitle: 'Create and discover new subscriptions'
   category:
     mobile_phone:
       mobile: 'mobile phones'

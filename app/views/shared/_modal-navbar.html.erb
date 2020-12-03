@@ -1,4 +1,4 @@
-<div class="modal-menu-button d-none d-lg-flex align-items-center" data-toggle="modal" data-controller="hamburger" data-action="click->hamburger#toggleMenu" data-target="hamburger.menuButton">
+<div class="modal-menu-button d-none d-md-flex align-items-center" data-toggle="modal" data-controller="hamburger" data-action="click->hamburger#toggleMenu" data-target="hamburger.menuButton">
   <div class="hamburger mr-1">
     <span id="h-1"></span>
     <span class="mt-1 float-right" id="h-2"></span>
@@ -9,27 +9,24 @@
       <div class="modal-content">
         <div class="modal-actions d-flex justify-content-around mt-5 mb-4">
           <div class="modal-left">
-            <span class="modal-title">Tincidunt elit in</span>
-            <div class="modal-product d-flex align-items-center my-5 p-2">
-              <%= image_tag(asset_path('menu-icon.png'), width: "36", height: "36", class: "mr-3")  %>
+            <span class="modal-title"><%= t('navbar.menu.quick_links') %></span>
+            <div class="modal-product ">
               <%= link_to dashboard_index_path do %>
               <div class="modal-product-infos">
-                <span>Dasboard</span>
-                <p>Create and discover new subscriptions</p>
+                <span><%= t('navbar.menu.dashboard.title') %></span>
+                <p><%= t('navbar.menu.dashboard.subtitle') %></p>
               </div>
               <% end %>
             </div>
             <hr>
-            <div class="modal-product d-flex align-items-center my-5 p-2">
-              <%= image_tag(asset_path('menu-icon.png'), width: "36", height: "36", class: "mr-3")  %>
+            <div class="modal-product ">
               <div class="modal-product-infos">
                 <span>Eget bibendum rutrum</span>
                 <p>Velit consectetur euismod massa</p>
               </div>
             </div>
             <hr>
-            <div class="modal-product d-flex align-items-center mt-5 mb-2 p-2">
-              <%= image_tag(asset_path('menu-icon.png'), width: "36", height: "36", class: "mr-3")  %>
+            <div class="modal-product mb-1">
               <div class="modal-product-infos">
                 <span>Eget enim</span>
                 <p>Neque elit mus enim</p>
@@ -37,11 +34,15 @@
             </div>
           </div>
           <div class="modal-right d-flex flex-column pl-5">
-            <span class="modal-title mb-3 p-2">Other</span>
-            <span class="modal-action mb-2 p-2">About us</span>
+            <span class="modal-title"><%= t('navbar.menu.help_center') %></span>
+            <div class="modal-product ">
+              <div class="modal-product-infos">
+                <span>Eget bibendum rutrum</span>
+                <p>Velit consectetur euismod massa</p>
+              </div>
+            </div>
           </div>
         </div>
-        <span class="modal-infos py-2 px-3">Enim non elementum sit viverra a risus, dui elit purus dolor ipsum</span>
       </div>
     </div>
   </div>

@@ -6,16 +6,22 @@
   position: fixed;
 }
 
-.navbar-lewagon {
+.navbar-movido {
   justify-content: space-between;
   background: transparent;
 }
 
-.navbar-lewagon .navbar-collapse {
+.show {
+  .navbar-movido {
+    background: white;
+  }
+}
+
+.navbar-movido .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-movido .navbar-brand img {
   width: 40px;
 }
 
@@ -40,5 +46,8 @@
   }
   .nav-item {
     margin-left: 0;
+  }
+  .navbar-movido {
+    background: white;
   }
 }
