@@ -11,14 +11,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body data-locale="<%= I18n.locale %>" >
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <% if user_signed_in? %>
-      <%= render 'shared/blue_footer' %>
-    <% else %>
-      <%= render 'shared/footer' %>
-    <% end %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
