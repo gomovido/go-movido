@@ -42,12 +42,17 @@ class User < ApplicationRecord
         user.email = data["email"]
         user.first_name = data["name"].split(' ')[0]
         user.last_name = data["name"].split(' ').drop(1).join('-')
+        p 'this is user from new_with_session'
+        p user
       end
     end
   end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      p 'this is auth from_omniauth'
+      p auth
+      p auth.info
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.first_name = auth.info.first_name
