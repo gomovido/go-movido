@@ -9,6 +9,12 @@ fr:
       profile: 'Profile'
       account: 'Compte'
       logout: 'Se déconnecter'
+    menu:
+      quick_links: 'Raccourcis'
+      help_center: "Centre d'aide"
+      dashboard:
+        title: 'Tableau de bord'
+        subtitle: 'Découvrez nos abonnements'
   activerecord:
     attributes:
       billing:
