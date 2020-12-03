@@ -1,35 +1,41 @@
-<div class="container mt-2 p-md-5">
-  <div class="row">
-    <div class="col-md-6 d-none d-sm-block">
-      <div class="registration-wrapper p-2 d-flex flex-column justify-content-evenly">
-        <h2 class='title pr-5 pl-5'>Welcome to movido</h2>
-        <span class='desc pr-5 pl-5 mb-5'>movido will help you set-up all you need for your new home – from your mobile account to your gym abo – before you move to give you time to focus on the really important things.</span>
-        <div class="illustration d-flex justify-content-center">
-          <%= image_tag(asset_path('girl-down.png')) %>
-        </div>
-      </div>
+<div class="container registration-container min-height py-3 d-flex align-items-center justify-content-center">
+  <div class="row d-flex justify-content-between w-100">
+    <div class="col-md-7 position-relative">
+      <h1><%= t('.title').html_safe %></h1>
+      <p><%= t('.subtitle').html_safe %></p>
+      <figure class="big-blue-bubble position-absolute"></figure>
     </div>
-    <div class="col-md-6 d-flex align-items-center ju">
-      <div class="registration-form-wrapper p-md-5 p-4">
-        <h4 class="mb-3"><%= t('form.label.login') %></h4>
+    <div class="col-md-5">
+      <div class="form-base">
+        <h4 class="mb-4"><%= t('form.shared_links.sign_in') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email,
-          required: true,
-          label: t('form.label.email'),
-          autofocus: true,
-          input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-          required: true,
-          label: t('form.label.password'),
-          input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean, label: t('form.label.remember_me') if devise_mapping.rememberable? %>
-        </div>
-        <div class="form-actions text-lg-left text-center">
-          <%= f.button :submit, t('form.label.login'), class:'btn btn-main' %>
+          <div class="form-inputs-wrapper">
+            <%= f.input :email,
+              required: true,
+              label: t('form.label.email'),
+              autofocus: true,
+              input_html: { autocomplete: "email" } %>
+            <%= f.input :password,
+              required: true,
+              label: t('form.label.password'),
+              input_html: { autocomplete: "current-password" } %>
+          </div>
+        <div class="mt-4">
+          <%= f.button :submit, t('form.label.login'), class:'btn btn-main w-100' %>
         </div>
         <% end %>
-        <%= render "devise/shared/links" %>
+      </div>
+      <div class="social-registrations text-center mt-3 d-flex flex-column">
+        <span class="mb-3 or">Or</span>
+        <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center' do  %>
+            <%= t('.google').html_safe %>
+            <%= image_tag('google-logo.png', class: 'position-absolute') %>
+        <% end %>
+        <%= link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
+          <%= t('.facebook').html_safe %>
+          <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
+        <% end %>
+        </a>
       </div>
     </div>
   </div>
