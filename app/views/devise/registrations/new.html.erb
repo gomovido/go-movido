@@ -40,9 +40,10 @@
             <%= t('.google').html_safe %>
             <%= image_tag('google-logo.png', class: 'position-absolute') %>
         <% end %>
-        <a class="btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" href="#">
+        <%= link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
           <%= t('.facebook').html_safe %>
           <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
+        <% end %>
         </a>
       </div>
     </div>
