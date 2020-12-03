@@ -1,5 +1,4 @@
 .navbar {
-  overflow: hidden;
   top: 0;
   width: 100%;
   z-index: 99;
@@ -38,5 +37,8 @@
 @include media-breakpoint-down(md) {
   .navbar {
     padding-left: 2rem;
+  }
+  .nav-item {
+    margin-left: 0;
   }
 }
