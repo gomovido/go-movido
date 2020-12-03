@@ -1,0 +1,31 @@
+.banner-lite {
+  background-size: cover;
+  background-position: center;
+  padding: 3% 10%;
+  border-radius: 10px;
+  .title {
+    color: $white;
+    font-size: 38px;
+    font-weight: bold;
+  }
+  img {
+    margin-right: 20%;
+  }
+}
+
+
+
+@include media-breakpoint-only(xs) {
+  .banner-lite {
+    .title {
+      font-size: 19px;
+    }
+    img {
+      margin-right: 2rem;
+      width: 50px;
+    }
+  }
+  .btn-main-reverse {
+     padding: 3px 35.5px;
+  }
+}

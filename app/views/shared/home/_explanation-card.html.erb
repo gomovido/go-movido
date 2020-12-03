@@ -1,9 +1,5 @@
-<div class="col-md-3 explanation-card mb-4 mb-lg-2 d-flex flex-column align-items-center align-items-lg-start">
-  <div class="illustration mb-3">
-    <%= image_tag(asset_path(img)) %>
-  </div>
-  <div class="title text-justify">
-    <span class='d-flex align-items-center'><span class='step'><%= step %></span> <%= title %></span>
-  </div>
-  <span class='desc text-justify'><%= desc %></span>
+<div class="col-md-3 explanation-card d-flex flex-column">
+  <div class="illustration mb-3"><%= image_tag(asset_path(img)) %></div>
+  <span class='title'><%= title %></span>
+  <span class='desc'><%= desc %></span>
 </div>
