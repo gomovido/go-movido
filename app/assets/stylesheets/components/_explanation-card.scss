@@ -1,47 +1,18 @@
 .explanation-card {
-  background: $white;
-  border: none;
-  .illustration {
-    img {
-      max-height: 149px;
-      width: 100%;
-    }
-  }
+  color: $black;
   .title {
-    font-size: 24px;
-    color: $blue;
-    font-weight: 800;
-    .step {
-      color: $white;
-      border-radius: 50%;
-      background: #0D4D90;
-      width: 29px;
-      height: 29px;
-      padding: 2px;
-      text-align: center;
-      background: $blue;
-      font-size: 16px;
-      margin-right: 0.5rem;
-    }
-  }
-  .desc {
-    color: $black;
-    font-size: 14px;
-    padding-right :23%;
-    height: 100%;
-  }
-}
-@include media-breakpoint-down(md) {
-  .explanation-card {
-  .illustration {
-    img {
-      max-height: 100%;
-      width: 100%;
-    }
-  }
-    .desc {
-      padding: 0 23%;
-    }
+    font-size: 20px;
+    font-weight: 500;
   }
 }
 
+
+@include media-breakpoint-only(xs) {
+  .explanation-card {
+    align-items: center;
+    margin-bottom: 3rem;
+    .desc {
+      text-align: center;
+    }
+  }
+}

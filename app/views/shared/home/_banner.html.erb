@@ -1,19 +1,24 @@
 <section>
-  <div class="container-fluid">
-    <div class="banner d-flex align-items-center" style="background-image:url(<%= asset_path 'banner-bg.png' %>);">
+  <div class="container-fluid p-0">
+    <div class="banner d-flex align-items-center" style="background-image:url(<%= asset_path 'banner-bg-2.png' %>);">
       <div class="container">
-        <div class="content d-flex flex-column justify-content-around">
-          <div class="headline mb-2">
-            <h1 class="m-0"><%= t('pages.home.banner.headline1').html_safe %><br><span><%= t('pages.home.banner.headline2').html_safe %></span></h1>
-            <p><%= t('pages.home.banner.subheadline').html_safe %></p>
+        <div class="row">
+          <div class="col-md-8 sm-12">
+            <div class="content d-flex flex-column justify-content-around">
+              <div class="headline mb-2">
+                <h1 class="mb-3"><%= t('pages.home.banner.headline1').html_safe %><br><span><%= t('pages.home.banner.headline2').html_safe %></span></h1>
+                <p><%= t('pages.home.banner.subheadline').html_safe %></p>
+              </div>
+              <div>
+                <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
+              </div>
+            </div>
           </div>
-          <div>
-            <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn btn-main' %>
+          <div class="col-4 text-center d-lg-block d-none">
+            <%= image_tag(asset_path 'banner-mockup.png') %>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <%= render 'shared/home/services-cards' %>
-  <%= render 'shared/home/services-cards-responsive' %>
 </section>

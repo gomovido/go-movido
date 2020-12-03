@@ -2,8 +2,8 @@
 body {
  background: $white;
  height: -webkit-fill-available;
+ color: $light-black;
 }
-
 
 .ap-input-icon {
   display: none;
@@ -14,8 +14,11 @@ a:hover {
 }
 
 section {
-  margin-bottom: 2rem;
-  padding: 3rem;
+  margin-bottom: 5rem;
+}
+
+.wrapper {
+  padding-top: 60px;
 }
 
 .ap-suggestion {
@@ -39,54 +42,13 @@ section {
   color: $grey;
 }
 
-@include media-breakpoint-only(xs) {
-  section {
-    margin-bottom: 4rem;
-    padding: 5% 0% !important;
-  }
-}
-
-.blue-bg {
-  background-color: $very-light-grey;
-  border-radius: 20px;
-}
-
 .main-title h1 {
-  color: $blue;
   font-style: normal;
-  font-weight: 800;
-  font-size: 64px;
+  font-weight: 600;
+  font-size: 54px;
   line-height: 120%;
   letter-spacing: -0.04em;
-}
-
-.breaker-home {
-  width: 72%;
-}
-
-#about-us {
-  background: $light-blue;
-  img {
-    width: 170%;
-    image-orientation: none !important;
-  }
-  .wrapper {
-    padding: 0 10%;
-    .desc {
-      p {
-        color: $black;
-        font-size: 16px;
-      }
-    }
-  }
-}
-
-#why-us {
-  background: $light-blue;
-  .desc {
-    font-size: 16px;
-    color: $dark-grey;
-  }
+  margin-bottom: 4rem;
 }
 
 #partners .partner {
@@ -95,37 +57,9 @@ section {
   }
 }
 
-#get-started {
-  background-color: $blue;
-  img {
-      position: absolute;
-      bottom: 11%;
-      left: 33%;
-    }
-  .get-started-wrapper {
-    h3 {
-      font-size: 30px;
-      font-weight: 800;
-      color: $white;
-    }
-  }
-}
-
 @include media-breakpoint-only(xs) {
-  #get-started {
-    img {
-      display: none;
-    }
-    h3 {
-      font-size: 16px !important;
-    }
-    br {
-      display: none;
-    }
-    .desc {
-      font-size: 10px;
-      text-align: center;
-    }
+  section {
+    margin-bottom: 4rem;
   }
   .main-title h1 {
     font-size: 38px;
@@ -136,18 +70,6 @@ section {
   }
   #about-us .wrapper {
     padding: 0;
-  }
-  .desc {
-    text-align: center;
-  }
-  .get-started-wrapper {
-    .desc  {
-      text-align: left;
-      font-size: 14px;
-    }
-    .title h3 {
-      font-size: 16px;
-    }
   }
 }
 

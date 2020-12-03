@@ -20,7 +20,7 @@
         <%= link_to t('navbar.links.login'), new_user_session_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <%= link_to dashboard_index_path, class:"btn-navbar d-lg-flex d-none align-items-center justify-content-around" do %>
+        <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center justify-content-around" do %>
           <span><%= t('navbar.links.get_started') %></span><%= image_tag(asset_path('btn-arrow-right.png')) %>
         <% end %>
       </li>
