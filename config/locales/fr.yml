@@ -155,6 +155,8 @@ fr:
         headline1: 'Installez-vous'
         headline2: 'en seulement <br> 10 minutes'
         subheadline: "movido s'occupe de vos démarches travail administratives"
+      banner-lite:
+          headline: 'Rejoignez 569 autres étudiants à travers le monde'
       services-cards:
         housing: 'annonces immobilières'
         bank: 'ouvrez votre compte bancaire'

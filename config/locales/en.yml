@@ -129,6 +129,8 @@ en:
         headline1: 'Get set up</br> in your new home'
         headline2: 'in only 10 mins'
         subheadline: 'movido takes care of your admin work'
+      banner-lite:
+          headline: 'Join 569 more student around the world'
       services-cards:
         housing: 'see top Real Estate listings in your city'
         bank: 'we open your bank account for you'
