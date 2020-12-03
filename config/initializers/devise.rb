@@ -25,6 +25,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'alice.strecker@go-movido.com'
+  config.omniauth :facebook, Rails.application.credentials.production[:facebook][:app_id], Rails.application.credentials.production[:facebook][:app_secret], callback_url: Rails.application.credentials.production[:facebook][:callback_url], :image_size => 'large'
   config.omniauth :google_oauth2, Rails.application.credentials.production[:google][:client_id], Rails.application.credentials.production[:google][:secret]
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
