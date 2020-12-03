@@ -1,0 +1,15 @@
+<ul class="navbar-nav mr-auto d-block d-sm-none dropdown-menu dropdown-menu-right">
+  <li class="nav-item">
+    <%= link_to 'Dashboard', root_path, class: "dropdown-item" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('navbar.dropdown.profile'), user_path(current_user), class: "dropdown-item" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('navbar.dropdown.account'), edit_user_registration_path(current_user), class: "dropdown-item" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('navbar.dropdown.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+  </li>
+</ul>
+

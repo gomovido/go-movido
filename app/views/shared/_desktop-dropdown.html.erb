@@ -1,0 +1,10 @@
+<ul class="navbar-nav mr-auto d-md-block d-none">
+  <li class="nav-item dropdown">
+    <span class="dropdown-toggle nav-link" data-toggle="dropdown", id="navbarDropdown"><%= current_user.first_name %> <%= current_user.last_name %></span>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <%= link_to t('navbar.dropdown.profile'), user_path(current_user), class: "dropdown-item" %>
+      <%= link_to t('navbar.dropdown.account'), edit_user_registration_path(current_user), class: "dropdown-item" %>
+      <%= link_to t('navbar.dropdown.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+    </div>
+  </li>
+</ul>
