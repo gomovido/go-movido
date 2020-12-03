@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :user_has_address?, only: [:show]
+
   def show
     @address = Address.new
     @user = User.friendly.find(params[:id])

@@ -18,9 +18,11 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  def user_has_address?
+    redirect_to(new_user_address_path(current_user.id)) if current_user.active_address.nil?
+  end
 
   protected
-
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
@@ -35,7 +37,4 @@ class ApplicationController < ActionController::Base
       ]
     )
   end
-
-
-
 end
