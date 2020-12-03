@@ -82,6 +82,21 @@ fr:
         status: 'Status'
         see_offers: 'Voir les offres'
         no_subscription: "Vous n'avez pas d'abonnements actifs"
+    address:
+      new:
+        title: 'Veuillez indiquer votre adresse'
+        form:
+          placeholder:
+            street: 'entrer votre adresse ici'
+          label:
+            street: 'Votre adresse dans votre nouveau pays'
+            moving_country: "Dans quel pays voyagez-vous?"
+          prompt:
+            moving_country: "Choisissez votre pays"
+          switch:
+            no_address: "Je n'ai pas encore d'adresse"
+            got_address: "J'ai une adresse"
+          cta: 'Tout est bon !'
     addresses:
       title: 'Adresses'
       add: 'Ajouter une adresse'
