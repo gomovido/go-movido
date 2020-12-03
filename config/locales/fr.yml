@@ -133,11 +133,7 @@ fr:
       current_address: 'Addresse actuelle'
       city: 'Ville'
     placeholder:
-      first_name: 'Entrer votre prénom ici'
-      last_name: 'Entrer votre nom ici'
-      email: 'Entrer votre email ici'
-      password: 'Entrer un mot de passe sécurisé ici (6 characters minimum)'
-      password_confirmation: 'Répéter votre mot de passe ici'
+      password: '6 caractères minimum'
     shared_links:
       already_account: "Vous avez déjà un compte ?"
       no_account: "Vous n'avez pas de compte ?"
@@ -277,7 +273,6 @@ fr:
     confirmations:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour confirmer votre compte."
       confirmed: "Votre compte a été confirmé. Vous êtes maintenant connecté."
-    registrations:
       signed_up: "Votre inscription est enregistrée. Si elle est activé, un courriel de confirmation vous a été envoyé."
       updated: "Votre mise à jour a été prise en compte."
       destroyed: "Bye! Votre compte est annulé. Nous souhaitons vous revoir bientôt."
@@ -326,6 +321,11 @@ fr:
       new:
         send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
     registrations:
+      new:
+        title: "Bienvenue chez <br>movido"
+        subtitle: "movido s'occupe de tout pour votre nouveau chez vous - de <br>l'abonnement mobile jusqu'à la salle de sport - avant que vous ne <br>déménagiez pour vous donner le temps de vous occuper de ce qui est réellement important"
+        facebook: "S'enregistrer avec Facebook"
+        google: "S'enregistrer avec Google"
       edit:
         edit: "Modifier"
         # For "leave blank if you don't want to change it"
