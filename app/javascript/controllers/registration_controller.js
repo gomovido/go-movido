@@ -4,7 +4,7 @@ import {addressAutocomplete, searchByCountry, autoFill, searchByCity } from '../
 const places = require('places.js');
 
 export default class extends Controller {
-  static targets = ["streetInput", "streetWrapper", "countryWrapper", "textSwitch",  "phone", "cityInput"]
+  static targets = ["streetInput", "streetWrapper", "countryWrapper", "textSwitchNoAddress", "textSwitchGotAddress",  "phone", "cityInput"]
 
   connect() {
     if (document.getElementById('address_street')) {
@@ -24,10 +24,7 @@ export default class extends Controller {
     this.countryWrapperTarget.value = null;
     this.streetWrapperTarget.classList.toggle('d-none');
     this.countryWrapperTarget.classList.toggle('d-none');
-    if (this.streetWrapperTarget.classList.contains('d-none')) {
-      this.textSwitchTarget.innerText = 'I have a moving address';
-    } else {
-      this.textSwitchTarget.innerText = "I don't have an address yet";
-    }
+    this.textSwitchNoAddressTarget.classList.toggle('d-none');
+    this.textSwitchGotAddressTarget.classList.toggle('d-none');
   }
 }
