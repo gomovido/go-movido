@@ -1,0 +1,17 @@
+<section id="get-started">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="banner-lite" style="background-image:url(<%= asset_path 'banner-lite-bg.png' %>);">
+          <div class="d-flex align-items-center justify-content-between">
+            <%= image_tag(asset_path('banner-lite-illutstration.png')) %>
+            <div class="d-flex flex-column align-items-start">
+              <span class="title"><%= t('pages.home.banner-lite.headline') %></span>
+              <%= link_to t('shared.cta.start'), new_user_registration_path, class:'btn-main-reverse' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
