@@ -36,7 +36,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'postmark-rails', '~> 0.12.0'
-
+gem 'omniauth-google-oauth2'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
