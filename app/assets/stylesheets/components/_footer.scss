@@ -24,7 +24,7 @@
 }
 
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .footer {
     .links {
       display:flex;

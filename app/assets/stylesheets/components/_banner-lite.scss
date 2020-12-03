@@ -15,7 +15,7 @@
 
 
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .banner-lite {
     .title {
       font-size: 19px;

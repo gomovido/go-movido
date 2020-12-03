@@ -15,7 +15,7 @@
 
 
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .why-cards-wrapper .why-card {
     padding: 5%;
   }
