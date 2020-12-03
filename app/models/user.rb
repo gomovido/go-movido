@@ -39,10 +39,9 @@ class User < ApplicationRecord
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        p data
         user.email = data["email"]
-        user.first_name = data["first_name"]
-        user.last_name = data["last_name"]
+        user.first_name = data["name"].split(' ')[0]
+        user.last_name = data["name"].split(' ').drop(1).join('-')
       end
     end
   end
