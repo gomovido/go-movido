@@ -39,6 +39,7 @@ class User < ApplicationRecord
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        p data
         user.email = data["email"]
         user.first_name = data["name"].split(' ')[0]
         user.last_name = data["name"].split(' ').drop(1).join('-')
@@ -49,8 +50,8 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
+    p 'this is auth form '
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      p 'this is auth from_omniauth'
       p auth
       p auth.info
       user.email = auth.info.email
@@ -62,7 +63,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth_google(access_token)
     data = access_token.info
-    user = User.where(email: data['email']).first
+    user = User.find_by(email: data['email'])
     unless user
         user = User.create(
            email: data['email'],
