@@ -139,6 +139,7 @@ fr:
       no_account: "Vous n'avez pas de compte ?"
       login: 'Me connecter'
       sign_up: 'Créer un compte'
+      sign_in: 'Se connecter'
       forgot_password: 'Vous avez oublié votre mot de passe ?'
       confirmation_instruction: "Vous n'avez pas reçu d'instructions de confirmation ?"
       unlock_instruction: "Vous n'avez pas reçu d'instructions de déverrouillage ?"
@@ -267,6 +268,12 @@ fr:
     sessions:
       signed_in: "Réussite de la connexion."
       signed_out: "Réussite de la deconnexion."
+      new:
+        title: 'Bon retour parmis nous'
+        subtitle: 'movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things'
+        facebook: "Se connecter avec Facebook"
+        google: "Se connecter avec Google"
+        form_title: 'Se connecter'
     passwords:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
       updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
