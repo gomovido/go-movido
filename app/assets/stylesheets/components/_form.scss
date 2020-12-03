@@ -1,7 +1,7 @@
 .form-base {
   font-family: "Manrope", sans-serif;
   h4 {
-    font-weight: bold;
+    font-weight: 800;
     color: $dark;
     font-size: 30px;
   }
@@ -10,7 +10,7 @@
     color: $grey;
     font-weight: 300;
   }
-  input {
+  input, select {
     height: calc(1.5em + 0.75rem + 18px) !important;
     border-radius: 6px;
     border: 1px solid $light-grey;
@@ -22,5 +22,9 @@
   }
   abbr[title], acronym[title] {
     text-decoration: none !important;
+  }
+  .form-control:focus {
+    border-color: rgba(140,48,245,0.35);
+    box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.25);
   }
 }

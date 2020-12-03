@@ -16,7 +16,6 @@ class AddressesController < ApplicationController
       current_user.update_columns(country: @address.country)
       redirect_to dashboard_index_path
     else
-      flash[:alert] = 'You must enter an address or a country'
       render :new
     end
   end
