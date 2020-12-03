@@ -39,25 +39,17 @@ class User < ApplicationRecord
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        p data
         user.email = data["email"]
-        user.first_name = data["name"].split(' ')[0]
-        user.last_name = data["name"].split(' ').drop(1).join('-')
-        p 'this is user from new_with_session'
-        p user
       end
     end
   end
 
   def self.from_omniauth(auth)
-    p 'this is auth form '
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      p auth
-      p auth.info
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
+      user.first_name = auth.info.name.split(' ')[0]
+      user.last_name = auth.info.name.split(' ').drop(1).join('-')
     end
   end
 
