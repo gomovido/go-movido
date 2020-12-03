@@ -1,0 +1,44 @@
+.registration-address-container {
+  min-height: 100vh;
+  .title {
+    font-weight: 800;
+    font-size: 30px;
+    color: $black ;
+  }
+  .big-purple-bubble {
+    top: 80px;
+    right: 0;
+    width: 380px;
+    height: 380px;
+  }
+  .big-blue-bubble {
+    bottom: 70px;
+    left: -140px;
+  }
+  img {
+    bottom: -50px;
+    right: -10px;
+    z-index: -1;
+    transform: scale(0.8);
+  }
+  .invalid-feedback {
+    display: block;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .registration-address-container {
+    .big-blue-bubble {
+      bottom: 60px;
+      left: -40px;
+      width: 190px;
+      height: 190px;
+    }
+    .big-purple-bubble {
+      width: 100px;
+      height: 100px;
+      top: 50px;
+      right: 20px;
+    }
+  }
+}

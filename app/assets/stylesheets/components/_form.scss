@@ -10,7 +10,7 @@
     color: $grey;
     font-weight: 300;
   }
-  input {
+  input, select {
     height: calc(1.5em + 0.75rem + 18px) !important;
     border-radius: 6px;
     border: 1px solid $light-grey;

@@ -1,6 +1,5 @@
 .big-purple-bubble {
-  background: $purple;
-  opacity: 0.5;
+  background: rgba(140,48,245,0.5);
   border-radius: 50%;
   width: 478px;
   height: 478px;
@@ -19,6 +18,7 @@
   border-radius: 50%;
   width: 72px;
   height: 72px;
+  z-index: -1;
 }
 
 .small-yellow-bubble {
