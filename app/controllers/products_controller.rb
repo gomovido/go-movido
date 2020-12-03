@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :user_has_address?, only: [:index]
+
   def index
     if params[:q].present?
       @category = Category.friendly.find(params[:q][:category_id])

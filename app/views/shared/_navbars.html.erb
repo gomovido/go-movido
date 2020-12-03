@@ -1,0 +1,5 @@
+<% if current_user %>
+  <%= render 'shared/navbar_user' %>
+<% else %>
+  <%= render 'shared/navbar_visitor' %>
+<% end %>
