@@ -107,11 +107,7 @@ en:
       current_address: 'Current Address'
       city: 'City'
     placeholder:
-      first_name: 'Enter your first name here'
-      last_name: 'Enter your last name here'
-      email: 'Enter your email here'
-      password: 'Enter a securised password here (6 characters minimum)'
-      password_confirmation: 'Retype your password here'
+      password: '6 characters minimum'
     shared_links:
       already_account: 'Already have an account?'
       no_account: "Don't have an account yet?"
@@ -228,7 +224,6 @@ en:
           delivery_address: 'Billing and delivery addresses need to be the same'
         tooltip:
           iban: "We need your bank account detail for your direct debit option."
-
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -267,6 +262,11 @@ en:
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      new:
+        title: 'Welcome to <br>movido'
+        subtitle: 'movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things'
+        facebook: "Sign up with Facebook"
+        google: "Sign up with Google"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."

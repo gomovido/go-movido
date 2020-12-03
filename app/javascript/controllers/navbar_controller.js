@@ -5,9 +5,9 @@ export default class extends Controller {
 
   onScroll() {
     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-      this.navbarTarget.classList.add('fixed-nav')
+      this.navbarTarget.classList.add('fixed-nav');
     } else if (document.body.scrollTop < 1 || document.documentElement.scrollTop < 1) {
-      this.navbarTarget.classList.remove('fixed-nav')
+      this.navbarTarget.classList.remove('fixed-nav');
     }
   }
 }
