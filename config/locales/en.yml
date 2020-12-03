@@ -56,6 +56,21 @@ en:
         status: 'Status'
         see_offers: 'Voir les offres'
         no_subscription: 'You have no active subscriptions'
+    address:
+      new:
+        title: 'Please indicate the address'
+        form:
+          placeholder:
+            street: 'enter your address here'
+          label:
+            street: 'Your address in your new country'
+            moving_country: "In wich country are you going?"
+          prompt:
+            moving_country: "Choose your country"
+          switch:
+            no_address: "I dont have an address yet"
+            got_address: "I have a mooving address"
+          cta: 'All good!'
     addresses:
       title: 'Addresses'
       add: 'Add new address'
