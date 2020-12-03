@@ -1,9 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-target="navbar.navbar" data-action="scroll@window->navbar#onScroll">
+<div class="navbar navbar-expand-sm navbar-light navbar-movido" data-controller="navbar" data-target="navbar.navbar" data-action="scroll@window->navbar#onScroll">
   <%= link_to root_path, class: "navbar-brand" do %>
     <strong>movido</strong>
   <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -20,7 +20,7 @@
         <%= link_to t('navbar.links.login'), new_user_session_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center justify-content-around" do %>
+        <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center justify-content-between" do %>
           <span><%= t('navbar.links.get_started') %></span><%= image_tag(asset_path('btn-arrow-right.png')) %>
         <% end %>
       </li>
