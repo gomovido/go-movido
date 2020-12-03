@@ -35,7 +35,7 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .navbar {
     padding-left: 2rem;
   }

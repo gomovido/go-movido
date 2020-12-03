@@ -15,7 +15,7 @@
   }
 }
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .banner {
     padding-top: 4rem;
     h1 {

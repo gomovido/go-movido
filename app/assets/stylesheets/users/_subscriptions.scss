@@ -54,7 +54,7 @@
 .subline {
   color: #798CA0;
 }
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .subscriptions-index-container {
     .btn-minor {
       border-radius: 10px;

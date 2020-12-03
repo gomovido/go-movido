@@ -46,8 +46,6 @@ section {
   font-style: normal;
   font-weight: 600;
   font-size: 54px;
-  line-height: 120%;
-  letter-spacing: -0.04em;
   margin-bottom: 4rem;
 }
 
@@ -57,7 +55,7 @@ section {
   }
 }
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   section {
     margin-bottom: 4rem;
   }

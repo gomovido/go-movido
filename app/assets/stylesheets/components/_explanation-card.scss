@@ -7,7 +7,7 @@
 }
 
 
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-down(md) {
   .explanation-card {
     align-items: center;
     margin-bottom: 3rem;
