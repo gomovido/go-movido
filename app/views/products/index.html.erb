@@ -1,4 +1,4 @@
-<div class="container subscriptions-container mt-5" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
+<div class="container subscriptions-container mt-5">
   <div class="step-1 mt-3">
     <%= render 'subscriptions/steps', current_step: 1, title: t('steps.choose_offer'), total_steps: @products.first.total_steps %>
     <%= render 'product-details'%>
