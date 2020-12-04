@@ -1,29 +1,28 @@
-<div class="filters-wrapper d-lg-flex flex-column p-4 d-none">
-  <span class="title font-weight"><%= t('filter.title') %></span>
-  <span class='products-count'><%= t('filter.subtitle', product_count: products.count, total_product: @category.products.count) %>
-  </span>
+<div class="filters-container d-lg-flex flex-column d-none">
+  <span class="title d-flex justify-content-between mb-3"><%= t('filter.title') %><i class="fas fa-sort-amount-down-alt"></i></span>
   <hr>
-  <%= search_form_for @q, class:'d-flex flex-column', data: {controller: 'range-slider'} do |f| %>
+  <%= search_form_for @q, data: {controller: 'range-slider'} do |f| %>
+  <%= f.hidden_field :currency, value: products.first.currency, data: {target: 'range-slider.currency'} %>
   <%= f.hidden_field :category_id, value: products.first.category.slug %>
-  <div class="input mb-1">
-    <%= check_box_tag('q[obligation_true]', 1, params[:q] && params[:q][:obligation_true].present?,
-    onclick: ("this.form.submit();"), class:'checkround') %>
+  <div class="filter-wrapper mb-3">
+    <div class="round mb-2">
+       <%= check_box_tag('q[obligation_true]', 1, params[:q] && params[:q][:obligation_true].present?,
+       onclick: ("this.form.submit();"), class:'checkround') %>
     <span class='label ml-2'><%= t('filter.contract_only') %></span>
-  </div>
-  <div class="input mb-1">
-    <%= check_box_tag('q[obligation_false]', 1, params[:q] && params[:q][:obligation_false].present?,
-    onclick: ("this.form.submit();"), class:'checkround') %>
-    <span class='label ml-2'><%= t('filter.no_contract') %></span>
-  </div>
-  <span class='filter-title text-center mt-3'><%= t('filter.by_price') %></span>
-  <div >
-    <div class="input d-flex justify-content-around mt-3 mb-4">
-      <%= f.text_field :price_gteq, class:'number-field  text-center', value: 1 %>
-      <span>€</span>
-      <%= f.text_field :price_lteq, class:'number-field  text-center', value: 50  %>
-      <span>€</span>
     </div>
+    <div class="round mb-2">
+     <%= check_box_tag('q[obligation_false]', 1, params[:q] && params[:q][:obligation_false].present?,
+     onclick: ("this.form.submit();"), class:'checkround') %>
+     <span class='label ml-2'><%= t('filter.no_contract') %></span>
+    </div>
+  </div>
+  <div class="form-base filter-wrapper my-2 d-flex flex-column justify-content-between">
+    <span class="price-label"><%= t('filter.by_price') %></span>
     <div id="slider-range" data-target="range-slider.input" onclick="document.getElementById('product_search').submit();"></div>
+    <div class="d-flex justify-content-around align-items-center">
+      <%= f.text_field :price_gteq, class:'pl-4', value: 1, placeholder: 'min' %>
+      <%= f.text_field :price_lteq, class:'pl-4', value: 50, placeholder: 'max'  %>
+    </div>
   </div>
   <% end %>
 </div>
