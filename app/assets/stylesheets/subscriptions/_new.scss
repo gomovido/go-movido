@@ -1,16 +1,5 @@
-.subscriptions-container {
-  background-size: cover;
-  background-position: center;
-  z-index: -100;
-  min-height: 60vh;
-  h1 {
-    color: $blue;
-    font-weight: 800;
-    font-size: 36px;
-  }
-  .step-title {
-    margin: 0 auto;
-  }
+.products-container {
+  padding-top: 100px !important;
   h2 {
     color: $blue;
     font-weight: 800;
@@ -20,37 +9,7 @@
     font-size: 15px;
   }
 
-  .detail-arrows i {
-    font-size: 24px;
-  }
 
-  .step-forms {
-    width: 100%;
-    .line {
-      margin-right: 1rem;
-      &:last-child {
-        margin-right: 0rem;
-      }
-    }
-  }
-  .line {
-    width: 33%;
-    height: 6px;
-    border: 1px solid $orange;
-    border-radius: 20px;
-  }
-  .line.orange {
-    background: $orange;
-  }
-  .step-header {
-    font-size: 14px;
-    color: $dark-grey;
-  }
-  .more-details {
-    font-size: 18px;
-    font-weight: 800;
-    color: $black;
-  }
   hr {
     width: 100%;
     border-top: 2px solid $light-blue;

@@ -1,0 +1,48 @@
+.steps-wrapper {
+  h1 {
+    font-weight: 800;
+    font-size: 48px;
+    color: $black;
+  }
+  p {
+    font-weight: normal;
+    font-size: 20px;
+  }
+  .steps4, .steps3 {
+    height: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 35px;
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+  .steps4 {
+    width: calc(60vw / 4);
+  }
+  .steps3 {
+    width: calc(60vw / 3);
+  }
+  .grey-step {
+    background: rgba(160, 171, 199, 0.76);
+    color: rgba(160, 171, 199, 0.76);
+  }
+  .blue-step {
+    background: $blue;
+    i {
+      color: $blue;
+    }
+  }
+  .green-step{
+    background: $green;
+    i {
+      color: $green;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .steps4, .steps3 {
+    font-size: 0 !important;
+  }
+}
