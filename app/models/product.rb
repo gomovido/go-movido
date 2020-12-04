@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   after_create :set_sim_card_price_currency
 
 
+  def currency
+    self.sim_card_price_currency == 'EUR' ? '€' : '£'
+  end
 
   def is_wifi?
     self.category.name == 'wifi'

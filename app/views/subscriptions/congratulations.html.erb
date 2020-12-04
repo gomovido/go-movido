@@ -1,11 +1,6 @@
-<div class="container congratulations-container subscriptions-container" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <%= image_tag(asset_path('bg-listing.png'), class:'bg-pic-left') %>
-  <%= image_tag(asset_path('bg-listing-2.png'), class:'bg-pic-right') %>
+<div class="container congratulations-container subscriptions-container">
+  <%= render 'subscriptions/steps', current_step: 5, title: t('steps.congratulations'), subtitle: t('steps.congratulations_subtitle').html_safe,total_steps: @subscription.product.total_steps %>
   <div class="row mx-0">
-    <div class="col-md-12 text-center my-4">
-      <h2>Thank you for your purchase! You’re all set!</h2>
-      <p>You will receive a confirmation email with your purchase summary within 24h</p>
-    </div>
     <%= render 'result', subscription: @subscription %>
     <div class="col-md-6 offset-md-3 mb-5 d-flex justify-content-around">
       <%= link_to "My profile", user_path(current_user), class: 'btn-minor'%>

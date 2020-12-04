@@ -1,12 +1,8 @@
-<div class="container subscriptions-container" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.payment'), total_steps: @subscription.product.total_steps %>
+<div class="container subscriptions-container">
+  <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.payment'), subtitle: t('steps.payment_subtitle', price: @subscription.product.sim_card_price, currency: @subscription.product.currency).html_safe,total_steps: @subscription.product.total_steps %>
   <div class="row mx-0">
-    <div class="col-md-12 text-center my-4 d-flex align-items-center flex-column">
-      <h2><%= t('step_4.title') %></h2>
-      <p class="price-box p-3 mt-3"><strong><%= t('step_4.subtitle', price: @subscription.product.sim_card_price) %></strong></p>
-    </div>
     <div class="col-md-12 text-center stripe-wrapper my-4">
-      <p class="subline"><%= t('payment.subline') %></p>
+
       <%= render 'stripe' %>
     </div>
   </div>

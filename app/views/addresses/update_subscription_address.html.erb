@@ -1,8 +1,6 @@
-<div class="container subscriptions-container" data-controller="wifi-subscription" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <div class="step-2 mt-5 mb-4">
-    <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details'), total_steps: @subscription.product.total_steps %>
-    <h2 class="text-center step-title mb-2"><%= t('step.address.title') %></h2>
-    <h3 class="text-center mb-4"><%= t('step.address.subtitle').html_safe %></h3>
+<div class="container subscriptions-container" data-controller="wifi-subscription">
+
+    <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details'), subtitle: t('steps.more_details_subtitle').html_safe, total_steps: @subscription.product.total_steps %>
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="billing-form d-flex flex-column mb-4 p-4">
@@ -68,6 +66,5 @@
       </div>
     </div>
 
-  </div>
 
 </div>
