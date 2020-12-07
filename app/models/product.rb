@@ -30,8 +30,4 @@ class Product < ApplicationRecord
       self.update(sim_card_price_currency: 'EUR')
     end
   end
-
-  def currency
-    self.sim_card_price_currency == 'EUR' ? '€' : '£'
-  end
 end
