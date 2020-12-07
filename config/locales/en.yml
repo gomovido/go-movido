@@ -299,6 +299,8 @@ en:
         subtitle: 'movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things'
         facebook: "Sign up with Facebook"
         google: "Sign up with Google"
+      complete_profil:
+        title: 'Please complete your profil 👌'
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
