@@ -1,23 +1,20 @@
-<div class="container subscriptions-container mt-5">
-  <div class="step-1 mt-3">
+<div class="container products-container">
+  <div class="step-1">
     <%= render 'subscriptions/steps', current_step: 1, title: t('steps.choose_offer'), total_steps: @products.first.total_steps %>
     <%= render 'product-details'%>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 d-flex justify-content-start">
-          <%= render 'filters', products: @products %>
-        </div>
-        <div class="col-md-8">
-          <h1 class="main-title mb-5 text-center"><%= t('pages.product.index.title', category: t('category.' + @products.first.category.sku + '.' + @products.first.category.name)) %></h1>
-          <div class="products-cards-wrapper">
-            <% @products.each do |product| %>
-              <% if product.is_wifi? %>
-                <%= render 'wifi-card', product: product %>
-              <% elsif product.is_mobile?%>
-                <%= render 'mobile-card', product: product %>
-              <% end %>
+    <div class="row">
+      <div class="col-md-4 d-flex justify-content-start">
+        <%= render 'filters', products: @products %>
+      </div>
+      <div class="col-md-8">
+        <div class="products-cards-wrapper">
+          <% @products.each do |product| %>
+            <% if product.is_wifi? %>
+              <%= render 'wifi-card', product: product %>
+            <% elsif product.is_mobile?%>
+              <%= render 'mobile-card', product: product %>
             <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

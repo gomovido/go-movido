@@ -22,17 +22,18 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update] do
     resources :addresses, only: [:create, :new]
   end
+
   resources :subscriptions, only: [:show ] do
     get 'complete-profil', to: 'users#complete_profil'
     resources :billings, only: [:new, :create]
     resources :addresses, only: [:update]
     get '/address/:id', to: 'addresses#update_subscription_address', as: 'update_address'
   end
+
   resources :products, only: [:index]
   resources :addresses, only: [:create]
 
   post 'charge', to: 'charges#create'
-
   get 'products/modal/:id', to: 'products#modal', as: 'modal_product'
 
   resources :categories, only: [:index] do
