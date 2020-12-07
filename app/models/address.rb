@@ -7,8 +7,8 @@ class Address < ApplicationRecord
   after_create :set_has_active
 
   def set_has_active
-    Address.where(user: self.user).each {|address| address.update(active: false)}
-    self.update(active: true)
+    Address.where(user: self.user).each {|address| address.update_columns(active: false)}
+    self.update_columns(active: true)
   end
 
   def country

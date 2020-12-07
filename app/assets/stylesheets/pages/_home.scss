@@ -13,8 +13,13 @@ body {
   display: none;
 }
 
+a {
+  color: $light-black;
+}
+
 a:hover {
   text-decoration: none;
+  color: $light-black;
 }
 
 section {
@@ -44,6 +49,10 @@ section {
 
 .grey {
   color: $grey;
+}
+
+.purple {
+  color: $purple !important;
 }
 
 .main-title h1 {

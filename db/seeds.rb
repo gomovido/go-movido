@@ -65,7 +65,8 @@ category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
 form_timer: Faker::Number.number(digits: 1),
 subtitle: 'subtitle',
-description: 'description')
+description: 'description',
+open: true)
 
 product = Product.create(
   country: "France",
@@ -399,28 +400,32 @@ category = Category.create(
   sku: 'housing',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: true)
 
 category = Category.create(
   name: 'bank',
   sku: 'bank',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: false)
 
 category = Category.create(
   name: 'gym',
   sku: 'gym',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: false)
 
 category = Category.create(
   name: 'transportation',
   sku: 'transportation',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: false)
 
 
 category = Category.create(
@@ -428,21 +433,24 @@ category = Category.create(
   sku: 'utilities',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: false)
 
 category = Category.create(
   name: 'community',
   sku: 'community',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: false)
 
 category = Category.create(
   name: 'wifi',
   sku: 'wifi',
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
-  description: 'description')
+  description: 'description',
+  open: true)
 
 
 product = Product.create(

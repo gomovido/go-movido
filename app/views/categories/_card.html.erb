@@ -1,23 +1,24 @@
-<div class="category-card-wrapper col-md-6 col-6 d-flex mb-4 <%= index.even? ? 'justify-content-end' : 'justify-content-start'%>">
-  <div class="category-card d-flex text-center align-items-center justify-content-center flex-column p-md-4 <%= 'disabled-card' unless category.name == 'mobile' || category.name == 'wifi' %>">
-    <div class="title justify-content-center flex-column align-items-center p-4">
-      <div class="border-bottom pb-3 mb-4">
-        <%= image_tag(asset_path("#{category.name}-white.png")) %>
+<div class="category-card d-flex m-2">
+  <%= link_to category_products_path(category), class:'d-flex' do %>
+  <div class="illustration d-lg-block d-none" style="background-image:url(<%= asset_path(category.sku + "-card.png") %>"></div>
+  <div class="details-wrapper w-100">
+    <div class="d-flex flex-column p-2 h-100 justify-content-between">
+      <div class="summary d-flex justify-content-between mb-1">
+        <span><%= t( 'category.' + category.sku + '.' + category.name) %></span>
+        <span><%= category.form_timer %> minutes to go</span>
       </div>
-      <span class="mb-2"><%= t( 'category.' + category.sku + '.' + category.subtitle) %></span>
-      <i class="fas fa-caret-down"></i>
-    </div>
-    <div class="description-wrapper flex-column p-2">
-      <%= image_tag(asset_path("#{category.name}-white.png")) %>
-      <div class="description p-3 d-flex flex-column mb-2">
-        <span class='font-weight mb-1 green'><%= category.form_timer %> mins</span>
-        <span><%= t( 'category.' + category.sku + '.' + category.description) %></span>
+      <div class="description d-flex flex-column">
+        <h3 class="title">Get your local <strong><%= category.name %></strong></h3>
+        <span class="subtitle"><%= t( 'category.' + category.sku + '.' + category.description) %></span>
       </div>
-      <% if category.name == 'mobile' || category.name == 'wifi' %>
-      <%= link_to 'Get started', category_products_path(category), class:'btn-card' %>
-      <% else %>
-      <span class='coming-soon'>Coming soon</span>
-      <% end %>
+      <div class="links d-flex justify-content-end align-items-center mt-2">
+        <div class="offers d-flex align-items-center w-100 justify-content-between">
+          <span>25 offers in <%= current_user.country %></span>
+          <%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-2') %>
+        </div>
+      </div>
     </div>
   </div>
+  <% end %>
 </div>
+
