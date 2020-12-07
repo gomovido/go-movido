@@ -2,7 +2,7 @@
   <span class="title d-flex justify-content-between mb-3"><%= t('filter.title') %><i class="fas fa-sort-amount-down-alt"></i></span>
   <hr>
   <%= search_form_for @q, data: {controller: 'range-slider'} do |f| %>
-  <%= f.hidden_field :currency, value: products.first.currency, data: {target: 'range-slider.currency'} %>
+  <%= f.hidden_field :currency, value: products.first.sim_card_price.currency.symbol, data: {target: 'range-slider.currency'} %>
   <%= f.hidden_field :category_id, value: products.first.category.slug %>
   <div class="filter-wrapper mb-3">
     <div class="round mb-2">
