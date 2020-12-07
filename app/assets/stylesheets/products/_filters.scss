@@ -1,85 +1,78 @@
-.filters-wrapper {
-    margin-top: 5.5rem !important;
-    height: 400px;
-    width: 250px;
-    border-radius: 8%;
-    background: $white;
-    border: 1px solid $grey;
+.filters-container {
   .title {
-    font-size: 18px;
-    color: $blue;
-    font-weight: 800;
-  }
-  .products-count {
-    color: $dark-grey;
+    font-weight: 500;
     font-size: 14px;
-  }
-  .filter-title {
-    font-size: 14px;
-    color: $black;
-    font-weight: 800;
-  }
-  .label {
-    color: $black;
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .input {
-    display: flex;
-    align-items:center;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    .number-field {
-    width: 70px;
-    height: 40px;
-    border-radius: 18%;
-    border: 1px solid $grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-  }
-  .checkround {
-    width: 20px;
-    height: 20px;
-    outline: none;
-    cursor: pointer;
   }
 
-  .checkround:checked {
-    background: $white;
-    padding: 2px;
-    border: 6px solid $orange;
-    border-radius: 50%;
+  .filter-wrapper{
+    padding: 30px 35px;
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
   }
-  .number-field {
-    color: $dark-grey;
+
+  .filter-wrapper span {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .round {
+    position: relative;
+  }
+
+  input[type='checkbox'] {
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 50%;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    cursor: pointer;
+    &:checked {
+      border: 4px solid #2091F9;
+    }
+  }
+  .price-label {
+    font-weight: bold !important;
+    font-size: 16px !important;
+  }
+  input {
+    width: 45%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E0E0E0;
+    &:focus {
+      border-color: rgba(140,48,245,0.35) !important;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.24)  !important;
+    }
+  }
+  .noUi-connect, .noUi-target {
+    height: 6px;
   }
 
   .noUi-connect {
-    background: $orange !important;
+    background: $purple;
+  }
+  .noUi-target {
+    background: #E6E6E6 !important;
+    border: none !important;
   }
 
-  .noUi-horizontal {
+  .noUi-handle {
+    width: 10px !important;
     height: 10px !important;
-  }
-
-  .noUi-horizontal .noUi-handle {
+    right: -5px !important;
+    border: none !important;
     border-radius: 50% !important;
-    width: 20px !important;
-    height: 20px !important;
+    background: $purple;
+    box-shadow: none !important;
+    top: -2px !important;
+    &:focus {
+      outline: none;
+    }
   }
-
-  .noUi-touch-area {
-    background: $white !important;
-    border-radius: 50% !important;
-    padding: 0 !important;
-    border: 4px solid $orange !important;
-  }
-
   .noUi-handle:before, .noUi-handle:after {
-    display: none !important;
+    content: none;
+  }
+
+  .filter-wrapper.d-flex {
+    height: 270px;
   }
 }
-
-
