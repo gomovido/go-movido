@@ -123,11 +123,19 @@ fr:
     contract_only: 'Avec engagment seulement'
     by_price: 'Filtrer par prix'
   steps:
-    header: '%{current_step} étape sur %{total_steps}'
     choose_offer: 'Choisissez votre offre'
-    more_details: "Plus d'informations"
-    confirmation: 'Confirmer'
-    payment: 'Payer pour votre carte SIM'
+    more_details: "Nous avons besoin de quelques informations"
+    more_details_subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
+    confirmation: "Confirmez vos informations"
+    confirmation_subtitle: "Vérifiez correctement vos informations. <br>Vous ne pourrez plus les modifier après."
+    payment: 'Paiement de votre carte SIM'
+    payment_subtitle: "Votre carte SIM coûte %{price}%{currency}. <br> Nous acceptons Visa & Master Card"
+    congratulations: 'Tout est prêt 👏'
+    congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
+    step1: 'Choisissez votre offre'
+    step2: 'Informations'
+    step3: 'Confirmation'
+    step4: 'Paiement'
   step_4:
     title: 'Il vous suffit de payer votre carte SIM pour finaliser votre achat'
     subtitle: 'La carte SIM coute %{price} €'
