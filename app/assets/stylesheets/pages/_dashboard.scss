@@ -1,0 +1,45 @@
+.dashboard-container {
+  padding-top: 80px !important;
+  h1 {
+    color: $black;
+    font-weight: 800;
+    font-size: 38px;
+  }
+  span {
+    color: $black;
+    font-size: 18px;
+  }
+  .address-input {
+    height: calc(1.5em + 0.75rem + 18px) !important;
+    border-radius: 6px;
+    border: 1px solid $light-grey;
+    background: $white;
+    span {
+      font-size: 14px;
+      color: $light-grey;
+      font-weight: 300;
+    }
+  }
+  .subtitle {
+    font-weight: bold;
+  }
+  .big-blue-bubble {
+    z-index: -1;
+    top: -20%;
+    left: -15%;
+  }
+  .small-yellow-bubble {
+    left: 80%;
+    z-index: -1;
+  }
+  .small-blue-bubble {
+    left: 69%;
+    top: 40%;
+    z-index: -1;
+  }
+  .half-purple-bubble {
+    right: 0px;
+    bottom: 158px;
+    z-index: -1;
+  }
+}

@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def update_user_country
-    self.update(country: self.active_address.country)
+    self.update_columns(country: self.active_address.country)
   end
 
   def is_complete?

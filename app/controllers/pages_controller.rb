@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   def terms; end
 
   def dashboard_index
-    @categories = Category.all
+    @categories = Category.where(open: true)
   end
 
 end

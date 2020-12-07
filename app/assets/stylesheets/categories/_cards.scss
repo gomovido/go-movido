@@ -1,63 +1,40 @@
-.category-card-wrapper {
-  .category-card {
-    background: $blue;
-    border-radius: 20px;
-    width: 220px;
-    height: 260px;
+.categories-cards-wrapper .category-card {
+  background: $white;
+  max-width: 610px;
+  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+  .illustration {
+    background-size: cover;
+    background-position: center;
+    width: 150px;
   }
-  .title {
-    height: 100%;
-    color: $white;
-    font-size: 16px;
-    display: flex;
-    visibility: visible;
-    opacity: 1;
-  }
-  .description-wrapper {
-    height: 0px;
-    opacity: 0;
-    img {
-      position: absolute;
-      top: -15px;
-      right: 45%;
-      width: 20px;
+  .details-wrapper {
+    .summary span {
+      color: $grey;
+      font-size: 12px !important;
     }
     .description {
-      color: $white;
-      display: flex;
-      font-size: 14px;
+      .title {
+        font-weight: 400;
+        font-size: 16px;
+      }
+      .subtitle {
+        font-weight: lighter;
+        color: $dark-grey;
+        font-size: 14px;
+      }
+    }
+    .links .offers {
+      .flag {
+        width: 25px;
+      }
+      span {
+        font-size: 14px;
+        font-weight: 700;
+        color: $purple !important;
+      }
     }
   }
-  .coming-soon {
-    font-weight: 600;
-    color: $blue;
-  }
-  .disabled-card {
-    background: #80808061 !important;
-  }
-  .category-card:hover {
-    background: $dark-blue;
-    .title {
-      min-height: 0px;
-      height: 0px;
-      opacity: 0;
-    }
-    .description-wrapper {
-      min-height: 200px;
-      height: 100%;
-      display: flex;
-      visibility: visible;
-      opacity: 1;
-      position: relative;
-      top: -20px;
-    }
+  &:hover {
+    box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.4);
   }
 }
-
-
-@include media-breakpoint-down(md) {
-  .category-card {
-    width: 100%;
-  }
-}
-
