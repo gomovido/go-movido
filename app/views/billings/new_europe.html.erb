@@ -1,9 +1,4 @@
-<div class="container subscriptions-container" data-controller="subscriptions" style="background-image:url(<%= asset_path 'bg-form.png' %>);">
-  <div class="step-2 mt-5 mb-4">
-    <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details'), total_steps: @subscription.product.total_steps %>
-
-    <h2 class="text-center step-title mb-2"><%= t('step.billing.title') %></h2>
-    <h3 class="text-center mb-4"><%= t('step.billing.subtitle') %></h3>
+<div class="container subscriptions-container" data-controller="subscriptions">
+    <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details').html_safe, subtitle: t('steps.more_details_subtitle'), total_steps: @subscription.product.total_steps %>
     <%= render 'eu-form' %>
-  </div>
 </div>
