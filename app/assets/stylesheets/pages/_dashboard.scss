@@ -1,0 +1,25 @@
+.dashboard-container {
+  padding-top: 80px !important;
+  h1 {
+    color: $black;
+    font-weight: 800;
+    font-size: 38px;
+  }
+  span {
+    color: $black;
+    font-size: 18px;
+  }
+  .address-input {
+    height: calc(1.5em + 0.75rem + 18px) !important;
+    border-radius: 6px;
+    border: 1px solid $light-grey;
+    span {
+      font-size: 14px;
+      color: $light-grey;
+      font-weight: 300;
+    }
+  }
+  .subtitle {
+    font-weight: bold;
+  }
+}
