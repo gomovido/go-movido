@@ -3,7 +3,7 @@ import noUiSlider from 'nouislider';
 import 'nouislider/distribute/nouislider.css';
 
 export default class extends ApplicationController {
-  static targets = ['input']
+  static targets = ['input', 'currency']
 
   connect() {
     let l = 1
@@ -12,8 +12,8 @@ export default class extends ApplicationController {
     if (url.length > 2) {
       l = url[url.length - 2].slice(0,2).replace(/[^a-zA-Z0-9]/g, '')
       h = url[url.length - 1].slice(0,2).replace(/[^a-zA-Z0-9]/g, '')
-      document.getElementById('q_price_gteq').value = l
-      document.getElementById('q_price_lteq').value = h
+      document.getElementById('q_price_gteq').value = l + this.currencyTarget.value
+      document.getElementById('q_price_lteq').value = h + this.currencyTarget.value
     }
     let slider = this.inputTarget;
     noUiSlider.create(slider, {
@@ -26,8 +26,8 @@ export default class extends ApplicationController {
         }
     });
     slider.noUiSlider.on('change.one', e => {
-      document.getElementById('q_price_gteq').value = parseInt(e[0])
-      document.getElementById('q_price_lteq').value = parseInt(e[1])
+      document.getElementById('q_price_gteq').value = parseInt(e[0]) + this.currencyTarget.value
+      document.getElementById('q_price_lteq').value = parseInt(e[1])+ this.currencyTarget.value
      });
   }
 

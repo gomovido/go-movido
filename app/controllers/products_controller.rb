@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   def index
     if params[:q].present?
       @category = Category.friendly.find(params[:q][:category_id])
+      params[:q]["price_gteq"]= params[:q]["price_gteq"].to_i
+      params[:q]["price_lteq"]= params[:q]["price_lteq"].to_i
       @q = Product.ransack(params[:q])
     else
       @category = Category.friendly.find(params[:category_id])
