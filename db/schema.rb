@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_135521) do
+ActiveRecord::Schema.define(version: 2020_12_07_112408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_135521) do
     t.integer "form_timer"
     t.text "description"
     t.string "subtitle"
+    t.boolean "open"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 

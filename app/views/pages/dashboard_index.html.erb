@@ -1,8 +1,22 @@
-<div class="container-fluid subscriptions-container py-5" style="background-image:url(<%= asset_path 'illus.png' %>);">
-  <div class="container mt-5">
-    <div class="row cards-wrapper">
+<div class="container dashboard-container py-3">
+  <div class="half-purple-bubble position-absolute d-lg-block d-none"></div>
+  <div class="big-blue-bubble position-absolute d-lg-block d-none"></div>
+  <div class="small-yellow-bubble position-absolute"></div>
+  <div class="small-blue-bubble position-absolute"></div>
+  <div class="row">
+    <div class="col-md-12 text-center d-flex align-items-center justify-content-center flex-column">
+      <h1 class="title">Get prepare for your next accommodation</h1>
+      <span class="subtitle">Your current address</span>
+      <div class="address-input d-flex align-items-center m-3">
+        <span class="px-5"><%= truncate(current_user.active_address.street, :length => 70) %></span>
+      </div>
+      <%= link_to 'click to add a new adress', user_path(current_user), class:'purple' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 categories-cards-wrapper d-flex flex-column align-items-center mt-5">
       <% @categories.each_with_index do |category, index| %>
-      <%= render 'categories/card', index: index, category: category %>
+        <%=  render 'categories/card', category: category, index: index %>
       <% end %>
     </div>
   </div>
