@@ -5,11 +5,6 @@ class Product < ApplicationRecord
   monetize :sim_card_price_cents
   after_create :set_sim_card_price_currency
 
-
-  def currency
-    self.sim_card_price_currency == 'EUR' ? '€' : '£'
-  end
-
   def is_wifi?
     self.category.name == 'wifi'
   end
