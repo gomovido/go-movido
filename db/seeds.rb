@@ -409,7 +409,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: false)
+  open: true)
 
 category = Category.create(
   name: 'gym',
