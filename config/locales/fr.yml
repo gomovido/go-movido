@@ -362,6 +362,8 @@ fr:
         subtitle: "movido s'occupe de tout pour votre nouveau chez vous - de <br>l'abonnement mobile jusqu'à la salle de sport - avant que vous ne <br>déménagiez pour vous donner le temps de vous occuper de ce qui est réellement important"
         facebook: "S'enregistrer avec Facebook"
         google: "S'enregistrer avec Google"
+      complete_profil:
+        title: 'Veuillez compléter votre profil 👌'
       edit:
         edit: "Modifier"
         # For "leave blank if you don't want to change it"
