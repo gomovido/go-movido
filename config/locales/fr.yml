@@ -1,10 +1,18 @@
 fr:
+  footer:
+    about: "À propos"
+    contact: "Contact"
+    careers: "Carrières"
+    faq: "Support"
+    terms: "Conditions Générales"
+    cookie: "Cookies"
+    legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
   navbar:
     links:
       about_us: 'À propos'
       how_it_works: 'Comment ça marche ?'
       login: 'Se connecter'
-      get_started: 'Commencer'
+      get_started: "S'inscrire"
     dropdown:
       profile: 'Profile'
       account: 'Compte'
@@ -25,7 +33,7 @@ fr:
         first_name: "Prénom"
         last_name: 'Nom'
         birthdate: "Date de naissance"
-        birth_city: "Ville de naissance"
+        birth_city: "Lieu de naissance"
         phone: "Numéro de téléphone"
         country: "Pays"
         city: "Ville"
@@ -42,37 +50,41 @@ fr:
             account_number:
               blank: "doit être rempli"
   category:
+    title: "Selectionnez les services dont vous avez besoin"
+    subtitle: "Mon adresse"
+    new_address: "Ajouter une adresse"
+
     mobile_phone:
-      mobile: 'téléphone mobile'
-      subtitle: 'Obtenez votre numéro de téléphone local'
-      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+      mobile: "Téléphonie"
+      subtitle: "Obtenez votre numéro de mobile local "
+      description: "Choisissez parmi une variété d’offres – du forfait sans engagement au contrat long-terme"
     wifi:
-      wifi: 'wifi'
+      wifi: "WiFi"
       subtitle: 'Obtenez votre installation wifi à la maison'
-      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+      description: "Choisissez parmi une variété de forfaits WiFi l'offre idéale adaptée à vos besoins"
     housing:
-      housing: 'appartement'
-      subtitle: 'Voir les principales annonces immobilières'
-      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+      housing: "Logement"
+      subtitle: 'Trouvez votre logement dans votre nouvelle ville'
+      description: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces"
     bank:
-      bank: 'banque'
+      bank: 'Compte bancaire'
       subtitle: 'Ouvrez un nouveau compte en quelques minutes'
-      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+      description: "Ouvrez votre compte bancaire local en ligne sans vous déplacer"
     gym:
-      gym: 'salle de gym'
-      subtitle: "Voir les meilleures offres d'entraînement"
-      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+      gym: 'Sport'
+      subtitle: "Cours de Yoga, Boxe ou salle de sport classique"
+      description: "Nous avons sélectionné les meilleures offres de sport dans votre ville - maintenant à vous de choisir"
     transportation:
-      transportation: 'transport'
-      subtitle: 'Obtenez votre transport local'
-      description: "Trouvez l'endroit idéal pour vous loger dans votre nouvelle ville natale"
+      transportation: 'Transport'
+      subtitle: 'Obtenez votre carte de transports en communs'
+      description: "Dites-nous où vous allez et nous vous fournissons votre carte de transport en commun"
     utilities:
-      utilities: 'services publics'
-      subtitle: "S'inscrire aux services publics"
-      description: "Trouver les meilleures offres d'électricité / gaz"
+      utilities: 'Services publics'
+      subtitle: "Eau, électricité, gaz"
+      description: "Sélectionnez votre fournisseur et nous nous occupons de vos démarches adminstratives"
     community:
-      community: 'communauté'
-      subtitle: 'Rejoignez notrec communauté'
+      community: 'Communauté'
+      subtitle: 'Rejoignez la communauté movido dans votre ville'
       description: 'Discutez avec des étudiants du monde entier'
   user:
     profile:
@@ -90,32 +102,32 @@ fr:
         no_subscription: "Vous n'avez pas d'abonnements actifs"
     address:
       new:
-        title: 'Veuillez indiquer votre adresse'
+        title: "Quelle est votre adresse ?"
         form:
           placeholder:
-            street: 'entrer votre adresse ici'
+            street: 'Mon adresse'
           label:
-            street: 'Votre adresse dans votre nouveau pays'
+            street: 'Votre adresse dans votre nouvelle ville'
             moving_country: "Dans quel pays voyagez-vous?"
           prompt:
             moving_country: "Choisissez votre pays"
           switch:
             no_address: "Je n'ai pas encore d'adresse"
             got_address: "J'ai une adresse"
-          cta: 'Tout est bon !'
+          cta: 'Confirmer'
     addresses:
       title: 'Adresses'
       add: 'Ajouter une adresse'
   shared:
     cta:
-      start: "C'est parti"
+      start: "C'est parti !"
   payment:
     subline: 'Nous acceptons Visa & Master Card'
     connection: 'Connexion sécurisée'
     number: 'Numéro de carte'
     date: "Date d'expiration"
   filter:
-    title: 'Filtrer vos résultats'
+    title: 'Filtrer les résultats'
     subtitle: '%{product_count} offres sur %{total_product}'
     unlimited_data: 'Données illimitées'
     unlimited_call: 'Appel illimité'
@@ -167,7 +179,7 @@ fr:
       already_account: "Vous avez déjà un compte ?"
       no_account: "Vous n'avez pas de compte ?"
       login: 'Me connecter'
-      sign_up: 'Créer un compte'
+      sign_up: "Inscription"
       sign_in: 'Se connecter'
       forgot_password: 'Vous avez oublié votre mot de passe ?'
       confirmation_instruction: "Vous n'avez pas reçu d'instructions de confirmation ?"
@@ -180,30 +192,30 @@ fr:
       banner:
         headline1: 'Installez-vous'
         headline2: 'en seulement <br> 10 minutes'
-        subheadline: "movido s'occupe de vos démarches travail administratives"
+        subheadline: "movido s'occupe de vos démarches administratives"
       banner-lite:
-          headline: 'Rejoignez 569 autres étudiants à travers le monde'
+          headline: "Rejoignez une communauté de 569 étudiants du monde entier sur movido"
       services-cards:
-        housing: 'annonces immobilières'
-        bank: 'ouvrez votre compte bancaire'
-        mobile: 'changez de forfait téléhonique'
-        wifi: "profitez d'une variété d'offres Wifi"
-        gym: 'voir les meilleures offres de gym'
-        transportation: 'obtenez votre carte de transport '
+        housing: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces dans votre nouvelle ville"
+        bank: "Ouvrez votre compte bancaire en quelques minutes - et tout ça entièrement en ligne sans vous déplacer"
+        mobile: "Obtenez votre numéro de mobile avec movido - nos vous proposons des forfaits avec ou sans engagement avec nos partenaires"
+        wifi: "Choisissez parmi une variété de forfaits WiFi l'offre idéale pour vos besoins et obtenez votre abonnement en quelques minutes "
+        gym: "Toujours à la recherche de salles de sport ? Nous avons sélectionné les meilleures offres"
+        transportation: "Dites-nous où vous devez aller et nous vous fournissons la carte de transport en commun qu'il vous faut"
       how-it-works:
         title: 'Comment ça marche?'
         card1:
-          title: 'Selectionner'
-          description: "Sélectionnez tous les services dont vous avez besoin parmi une variété d'offres - du WiFi à la salle de gym, movido a tout ce qu'il faut pour démarrer dans votre nouvelle ville"
+          title: "Choisir son service"
+          description: "Sélectionnez les services dont vous avez besoin parmi une variété d'offres - du WiFi à la salle de sport, movido a tout ce qu'il vous faut pour démarrer dans votre nouvelle ville"
         card2:
-          title: 'Comparer'
-          description: "movido compare les différents prestataires par service sélectionné, ce qui vous garantit d'obtenir la meilleure offre au meilleur prix"
+          title: "Comparer"
+          description: "movido rassemble les services que vous avez sélectionnés et compare différents fournisseurs - cela vous garantit d'obtenir le meilleur forfait au meilleur prix"
         card3:
-          title: 'Choisir'
-          description: "Vous pouvez maintenant choisir votre forfait préféré - souscrivez intuitivement à vos abonnements en quelques minutes"
+          title: "Choisir son offre"
+          description: "Choisissez votre offre préférée et laissez-nous gérer le reste du travail administratif. D'ici 24 heures, votre nouvel abonnement sera actif"
         card4:
-          title: 'Gérer'
-          description: "Suivez et gérez vos abonnements actifs facilement sur votre compte movido personnalisé"
+          title: "Gérer ses abonnements"
+          description: "Depuis votre compte movido : gérez, annulez ou modifiez vos abonnements à tout moment"
       about-us:
         title: 'Qui sommes nous?'
         text: "movido vous aide à mettre en place tout ce dont vous avez besoin en arrivant dans votre nouveau domicile - du numéro de téléphone portable local à l'abonnement à la salle de sport - et tout ça en moins de 10 minutes, afin que vous puissiez vous concentrer sur les choses vraiment importantes dans votre nouvelle ville <br> <br>movido consolide et compare tous les services dont vous avez besoin dans votre nouvelle ville – un service entièrement gratuit - pour s'assurer que vous obtenez toujours la meilleure offre au meilleur prix. Une fois inscrit, vous pouvez gérer abonnement sur votre compte personnalisé"
@@ -212,27 +224,29 @@ fr:
         text: 'Notre philosophie consiste à simplifier les déplacements. Facile, rapide et intuitif - inscrivez-vous à movido pour vous installer dans votre nouvelle ville en un quelques minutes.<br>Et c’est 100 % gratuit!'
         card1:
           title: 'Rapide'
-          description: 'vous installer dans votre nouvelle ville en 10 minutes seulement au lieu des 4 heures habituelles'
+          description: "Installez-vous chez vous en seulement 10 minutes au lieu des 4.5 heures habituelles"
         card2:
           title: 'Intelligent'
-          description: 'comparez les services dont vous avez besoin et bénéficiez des meilleures offres et prix disponibles'
+          description: "Comparez les prestataires et bénéficiez des meilleurs prix et offres disponibles"
         card3:
           title: 'Simple'
-          description: "choisissez simplement votre abonnement préféré parmi une variété d'offres"
+          description: "Choisissez tout simplement votre abonnement préféré parmi une variété d'offres"
         card4:
           title: 'Gratuit'
-          description: 'Avec movido pour choisissez et gérez vos abonnements entièrement gratuitement'
+          description: "Avec movido, choisissez et gérez vos abonnements entièrement gratuitement"
       testimonials:
+        title: "Ce que disent les étudiants"
+        subtitle: "Laissez-vous inspirer par leurs expériences"
         testimonial1:
-          from: 'Suède'
+          from: 'Stockholm'
           to: 'Paris'
-          sentence: "''La plupart des démarches administratives étaient en français - movido m'a fait gagner du temps et de l'argent lors de mon semestre à l'échange à Paris''"
+          sentence: "''La plupart des démarches administratives étaient en français - movido m'a fait gagner du temps et de l'argent lors de mon semestre en échange à Paris''"
         testimonial2:
-          from: 'Argentine'
-          to: 'Paris'
+          from: 'Buenos Aires'
+          to: 'Lyon'
           sentence: "''Ça m'a pris 10 minutes et tout était fait - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
         testimonial3:
-          from: 'France'
+          from: 'Berlin'
           to: 'Londres'
           sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
         testimonial4:
@@ -365,12 +379,13 @@ fr:
         send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
     registrations:
       new:
-        title: "Bienvenue chez <br>movido"
-        subtitle: "movido s'occupe de tout pour votre nouveau chez vous - de <br>l'abonnement mobile jusqu'à la salle de sport - avant que vous ne <br>déménagiez pour vous donner le temps de vous occuper de ce qui est réellement important"
-        facebook: "S'enregistrer avec Facebook"
-        google: "S'enregistrer avec Google"
+        title: "Bienvenue sur <br>movido"
+        subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
+        facebook: "S'inscrire avec Facebook"
+        google: "S'inscrire avec Google"
       complete_profil:
         title: 'Veuillez compléter votre profil 👌'
+        button: 'Continuer'
       edit:
         edit: "Modifier"
         # For "leave blank if you don't want to change it"

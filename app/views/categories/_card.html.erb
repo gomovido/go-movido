@@ -1,14 +1,14 @@
-<div class="category-card d-flex m-2">
-  <%= link_to category_products_path(category), class:'d-flex' do %>
+<div class="category-card w-100 d-flex m-2">
+  <%= link_to category_products_path(category), class:'d-flex w-100' do %>
   <div class="illustration d-lg-block d-none" style="background-image:url(<%= asset_path(category.sku + "-card.png") %>"></div>
   <div class="details-wrapper w-100">
     <div class="d-flex flex-column p-2 h-100 justify-content-between">
       <div class="summary d-flex justify-content-between mb-1">
-        <span><%= t( 'category.' + category.sku + '.' + category.name) %></span>
+        <span><strong><%= t( 'category.' + category.sku + '.' + category.name) %></strong></span>
         <span><%= category.form_timer %> minutes to go</span>
       </div>
       <div class="description d-flex flex-column">
-        <h3 class="title">Get your local <strong><%= category.name %></strong></h3>
+
         <span class="subtitle"><%= t( 'category.' + category.sku + '.' + category.description) %></span>
       </div>
       <div class="links d-flex justify-content-end align-items-center mt-2">
