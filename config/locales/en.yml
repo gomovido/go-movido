@@ -256,6 +256,13 @@ en:
           delivery_address: 'Billing and delivery addresses need to be the same'
         tooltip:
           iban: "We need your bank account detail for your direct debit option."
+    congratulations:
+      questions: "Any questions"
+      support: "Please contact the movido customer service via chat, <br> email or phone."
+      contact_us: "Contact us <i class='fas fa-arrow-right ml-2'></i>"
+      wifi_cta: "Need to setup Wifi at home ? <i class='fas fa-arrow-right ml-2'></i>"
+      bank_cta: "Need a bank account ? <i class='fas fa-arrow-right ml-2'></i>"
+      community_cta: "Join our community <i class='fas fa-arrow-right ml-2'></i>"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
