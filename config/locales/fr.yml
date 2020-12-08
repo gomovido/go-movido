@@ -282,6 +282,13 @@ fr:
           delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'
         tooltip:
           iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
+    congratulations:
+      questions: 'Des questions ?'
+      support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
+      contact_us: "Contactez nous <i class='fas fa-arrow-right ml-2'></i>"
+      wifi_cta: "Besoin d'un nouvel abonnement Wifi ? <i class='fas fa-arrow-right ml-2'></i>"
+      bank_cta: "Besoin d'un nouveau compte bancaire ? <i class='fas fa-arrow-right ml-2'></i>"
+      community_cta: "Rejoignez notre communauté <i class='fas fa-arrow-right ml-2'></i>"
   devise:
     failure:
       unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
