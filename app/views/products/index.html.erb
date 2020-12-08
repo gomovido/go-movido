@@ -1,12 +1,17 @@
 <div class="container products-container">
+  <figure class="big-blue-bubble position-absolute"></figure>
+  <figure class="big-purple-bubble position-fixed"></figure>
+  <figure class="small-yellow-bubble position-fixed"></figure>
+  <figure class="small-blue-bubble position-fixed"></figure>
+
   <div class="step-1">
     <%= render 'subscriptions/steps', current_step: 1, title: t('steps.choose_offer'), total_steps: @products.first.total_steps %>
     <%= render 'product-details'%>
-    <div class="row">
-      <div class="col-md-4 d-flex justify-content-start">
+    <div class="row pt-5">
+      <div class="col-lg-4  d-flex justify-content-start">
         <%= render 'filters', products: @products %>
       </div>
-      <div class="col-md-8">
+      <div class="col-lg-8">
         <div class="products-cards-wrapper">
           <% @products.each do |product| %>
             <% if product.is_wifi? %>

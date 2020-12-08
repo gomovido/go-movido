@@ -85,7 +85,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: false,
   sim_card_price: 1,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Logo_SFR_2014.svg/langfr-300px-Logo_SFR_2014.svg.png'
+  logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
 )
 
 ProductFeature.create(
@@ -120,7 +120,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: false,
   sim_card_price: 1,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Logo_SFR_2014.svg/langfr-300px-Logo_SFR_2014.svg.png'
+  logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
 )
 
 ProductFeature.create(
@@ -155,7 +155,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: false,
   sim_card_price: 1,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Logo_SFR_2014.svg/langfr-300px-Logo_SFR_2014.svg.png'
+  logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
 )
 
 ProductFeature.create(
@@ -190,7 +190,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: true,
   sim_card_price: 0,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
   special_offer: 'Receive £5 bonus credit'
 )
 
@@ -231,7 +231,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: true,
   sim_card_price: 0,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
   special_offer: 'Receive £5 bonus credit'
 )
 
@@ -271,7 +271,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: true,
   sim_card_price: 0,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
   special_offer: 'Receive £5 bonus credit'
 )
 
@@ -312,7 +312,7 @@ product = Product.create(
   delivery_price: '0',
   delivery: true,
   sim_card_price: 0,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Giffgaff_logo.png',
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
   special_offer: 'Receive £5 bonus credit'
 )
 
@@ -353,7 +353,7 @@ product = Product.create(
   call_limit: 'unlimited',
   delivery: false,
   sim_card_price: 1,
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/B%26YOU_logo.jpeg',
+  logo_url: 'https://i.ibb.co/MDvQ5m1/fai-bouygues-telecom-001-1.png',
   special_offer: '3month Spotify Premium for free'
 )
 
