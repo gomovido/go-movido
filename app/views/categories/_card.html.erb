@@ -1,5 +1,5 @@
-<div class="category-card w-100 d-flex m-2">
-  <%= link_to category_products_path(category), class:'d-flex w-100' do %>
+<div class="category-card d-flex m-2">
+  <%= link_to category_products_path(category), class:'d-flex' do %>
   <div class="illustration d-lg-block d-none" style="background-image:url(<%= asset_path(category.sku + "-card.png") %>"></div>
   <div class="details-wrapper w-100">
     <div class="d-flex flex-column p-2 h-100 justify-content-between">
