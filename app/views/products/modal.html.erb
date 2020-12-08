@@ -1,53 +1,46 @@
-<div class="content d-flex">
-  <div class="left p-lg-5 px-4 py-3">
-    <div class="d-flex align-items-center">
-      <%= image_tag(asset_path(@product.logo_url), class:'modal-img') %>
-      <span class='main-title'><%= @product.company %> <%= @product.name %></span>
+<div class="content p-lg-5 p-3 d-flex">
+  <div class="left">
+    <div class="d-sm-flex align-items-center ">
+      <%= image_tag(asset_path(@product.logo_url), class:'mr-4 mb-3 mb-sm-0 logo') %><br>
+      <span class='main-title'><strong><%= @product.company %> <%= @product.name %></strong></span>
     </div>
-    <hr>
-    <div class="features-wrapper">
+    <div class="features-wrapper mt-5">
       <% @product.product_features.each do |feature, index| %>
-      <div class="feature py-4 d-flex flex-column">
-        <p class="title"><%= feature.name %></p>
-        <span class='desc'><%= feature.description %></span>
+      <div class="feature d-flex flex-column">
+        <p class="title"><strong><%= feature.name %></strong></p>
+        <span class='desc mb-3'><%= feature.description %></span>
       </div>
-      <% if feature != @product.product_features.last %>
-      <hr>
-      <% end %>
       <% end %>
     </div>
   </div>
-  <div class="right d-flex flex-column px-2 px-lg-0">
-    <div class="top d-flex flex-column justify-content-around my-5 align-items-center">
-      <span class='price text-center'>€ <%= @product.price %></span>
+  <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around">
+    <div class="pricing d-flex flex-column align-items-center ">
+      <span class='price text-center'><%= @product.price %> <%= @product.sim_card_price.currency.symbol %></span>
       <span class="sub-price text-center">per month</span>
-      <%= link_to 'Select', category_product_subscriptions_path(@product.category, @product), class:'btn-card mt-3', method: :post %>
-    </div>
-    <hr>
-    <div class="bottom d-flex align-items-center flex-column">
-      <div class="features-lite-wrapper px-lg-4 px-3 py-lg-4 d-flex flex-column justify-content-around">
-        <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
-          <span><strong><%= @product.data_limit %></strong></span>
-          <span class="desc-grey">4G data</span>
+      <%= link_to 'Select', category_product_subscriptions_path(@product.category, @product), class:'btn-main mt-3', method: :post %>
+      </div>
+      <div class="features-lite-wrapper">
+        <div class="feature-lite d-flex justify-content-between">
+          <span><%= image_tag('wifi.png') %></span>
+          <span class="desc-grey"><%= @product.data_limit %></span>
         </div>
         <hr>
-        <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
-          <span><strong>Sim card</strong></span>
-          <span class="desc-grey"><%= @product.sim_card_price %>€</span>
+        <div class="feature-lite d-flex justify-content-between ">
+          <span><%= image_tag('sim-picto.png', class: 'mr-3') %> </span>
+          <span class="desc-grey"><%= @product.sim_card_price %> <%= @product.sim_card_price.currency.symbol %></span>
         </div>
         <hr>
         <% if @product.obligation %>
-        <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
-          <span><strong><%= @product.time_contract %></strong></span>
-          <span class="desc-grey">contract</span>
+        <div class="feature-lite d-flex justify-content-between ">
+          <span><%= image_tag('contract.png', class: 'mr-3') %></span>
+          <span class="desc-grey"><%= @product.time_contract %> months</span>
         </div>
         <% else %>
-        <div class="feature-lite d-flex justify-content-between px-lg-5 py-lg-2">
-          <span><strong>No obligation</strong></span>
-          <span class="desc-grey">contract</span>
+        <div class="feature-lite d-flex justify-content-between ">
+          <span><%= image_tag('contract.png', class: 'mr-3') %></span>
+          <span class="desc-grey"><strong>No obligation</strong></span>
         </div>
         <% end %>
       </div>
-    </div>
   </div>
 </div>

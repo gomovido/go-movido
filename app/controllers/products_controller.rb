@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def modal
-    @product = Product.friendly.find(params[:id])
+    @product = Product.find(params[:id])
     respond_to do |format|
       format.html { render layout: false }
     end
