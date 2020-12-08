@@ -1,7 +1,7 @@
-<div class="container registration-container height d-flex align-center justify-content-center flex-column">
+<div class="container complete-profile-container height d-flex align-center justify-content-center flex-column">
   <div class="row d-flex align-center justify-content-center flex-column">
     <figure class="big-blue-bubble position-absolute"></figure>
-    <div class="half-purple-bubble position-absolute d-lg-block d-none"></div>
+    <div class="big-purple-bubble position-fixed d-lg-block d-none"></div>
     <div class="col-md-6 offset-md-3">
       <div class="form-base" data-controller="registration">
         <h4 class="mb-4"><%= t('devise.registrations.complete_profil.title') %></h4>
@@ -23,7 +23,7 @@
                         target: 'registration.cityInput'}} %>
           </div>
         <div class="mt-4">
-          <%= f.button :submit, 'Continue', class:'btn-main w-100' %>
+          <%= f.button :submit, t('devise.registrations.complete_profil.button'), class:'btn-main w-100' %>
         </div>
         <% end %>
       </div>

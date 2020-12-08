@@ -11,15 +11,23 @@
   a {
     color: $white;
     font-weight: 300;
+    &:hover {
+      text-decoration: underline;
+      color: $white;
+    }
   }
   span {
     color: $white;
-    cursor: pointer;
     font-weight: 300;
+    font-size: 12px;
   }
   hr {
     border-top: 1px solid #f8f9fa30 !important;
     width: 85%;
+  }
+  .cookies:hover {
+    text-decoration: underline;
+    color: $white;
   }
 }
 
