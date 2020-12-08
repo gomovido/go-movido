@@ -1,7 +1,6 @@
 <div class="container subscriptions-container">
   <%= render 'steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.confirmation'), subtitle: t('steps.confirmation_subtitle').html_safe, total_steps: @subscription.product.total_steps %>
   <div class="row mx-0">
-    <%= render 'result', subscription: @subscription %>
     <div class="col-md-6 offset-md-3 mb-5 d-flex justify-content-around">
       <%= link_to 'Back', new_subscription_billing_path(@subscription), class: 'btn-minor' %>
       <%= link_to "Confirm", validate_subscription_path(@subscription), method: :patch, class: 'btn-main'%>
