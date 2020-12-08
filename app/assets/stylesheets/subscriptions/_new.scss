@@ -1,38 +1,20 @@
 .products-container {
-  h2 {
-    color: $blue;
-    font-weight: 800;
-    font-size: 36px;
+  padding-top: 80px;
+  .big-blue-bubble {
+    top: -225px;
+    left: -205px;
   }
-  h3 {
-    font-size: 15px;
+  .big-purple-bubble {
+    right: -150px;
+    bottom: -200px;
   }
-
-
-  hr {
-    width: 100%;
-    border-top: 2px solid $light-blue;
+  .small-yellow-bubble {
+    right: 420px;
+    top: 280px;
   }
-  .actions {
-    width: 100%;
-    justify-content: space-evenly;
-  }
-  .btn-minor, .btn-main {
-    font-size: 16px !important;
-    text-align: center;
-    width: 34%;
-  }
-
-  .btn-minor {
-    padding: 15px 30px;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .subscriptions-container {
-    .btn-minor, .btn-main {
-      width: 39%;
-      padding: 15px 0;
+  .small-blue-bubble {
+    left: 34%;
+    bottom: 130px;
     }
   }
-}
+
