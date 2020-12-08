@@ -1,21 +1,20 @@
 <div class="category-card m-2">
   <%= link_to category_products_path(category), class:'d-flex' do %>
-    <div class="illustration d-lg-block d-none" style="background-image:url(<%= asset_path(category.sku + "-card.png") %>"></div>
-      <div class="details-wrapper w-100">
-        <div class="d-flex flex-column p-2 h-100 justify-content-between">
-         <div class="summary d-flex justify-content-between mb-1">
-          <span><%= t( 'category.' + category.sku + '.' + category.name) %></span>
-          <span><%= category.form_timer %> minutes to go</span>
-        </div>
-        <div class="description d-flex flex-column">
-          <h3 class="title">Get your local <strong><%= category.name %></strong></h3>
-          <span class="subtitle"><%= t( 'category.' + category.sku + '.' + category.description) %></span>
-        </div>
-        <div class="links d-flex justify-content-end align-items-center mt-2">
-          <div class="offers d-flex align-items-center w-100 justify-content-between">
-            <span>25 offers in <%= current_user.country %></span>
-            <%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-2') %>
-          </div>
+  <div class="illustration d-lg-block d-none" style="background-image:url(<%= asset_path(category.sku + "-card.png") %>"></div>
+  <div class="details-wrapper w-100">
+    <div class="d-flex flex-column p-2 h-100 justify-content-between">
+      <div class="summary d-flex justify-content-between mb-1">
+        <span><strong><%= t( 'category.' + category.sku + '.' + category.name) %></strong></span>
+        <span><%= category.form_timer %> minutes to go</span>
+      </div>
+      <div class="description d-flex flex-column">
+
+        <span class="subtitle"><%= t( 'category.' + category.sku + '.' + category.description) %></span>
+      </div>
+      <div class="links d-flex justify-content-end align-items-center mt-2">
+        <div class="offers d-flex align-items-center w-100 justify-content-between">
+          <span>25 offers in <%= current_user.country %></span>
+          <%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-2') %>
         </div>
       </div>
     </div>

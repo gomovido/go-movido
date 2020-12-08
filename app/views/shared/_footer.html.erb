@@ -1,17 +1,17 @@
 <footer class="footer d-flex align-items-center flex-column py-2">
   <div class="logo pb-4"><strong>movido</strong></div>
   <div class="links d-flex pb-3">
-      <%= link_to "About us", '#', class:"px-3 text-center" %>
-      <%= link_to "FAQ", '#', class:"px-3 text-center" %>
-      <%= link_to "Terms of service", terms_path, class:"px-3 text-center" %>
-      <%= link_to "Privacy Policy", privacy_path, class:"px-3 text-center" %>
-      <%= link_to "Cookies Policy", cookies_path, class:"px-3 text-center" %>
-      <span onclick="displayPreferenceModal()" class="px-3">Cookie Preferences</span>
+      <%= link_to t('footer.about'), '#', class:"px-3 text-center" %>
+      <%= link_to t('footer.faq'), '#', class:"px-3 text-center" %>
+      <%= link_to t('footer.terms'), terms_path, class:"px-3 text-center" %>
+      <%= link_to t('footer.careers'), '#', class:"px-3 text-center" %>
+      <%= link_to t('footer.cookie'), cookies_path, class:"px-3 text-center" %>
+      <%= link_to t('footer.contact'), '#', class:"px-3 text-center" %>
   </div>
   <hr>
   <div class="bot d-flex justify-content-between w-100">
     <div class="copyright">
-      <span>© 2020 movido. All rights reserved</span>
+      <span><%= t('footer.legal') %></span>
     </div>
     <div class="social-links d-flex justify-content-around pr-5">
       <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "text-center mr-4", target: "_blank" do %>

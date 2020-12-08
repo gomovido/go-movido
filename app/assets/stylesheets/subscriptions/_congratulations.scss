@@ -1,0 +1,58 @@
+.congratulations-container {
+  padding-top: 80px;
+  .images {
+    z-index: -1;
+  }
+  img {
+    width: 200px;
+  }
+  .white-card {
+    bottom: 97px;
+    left: 115px;
+  }
+  h3 {
+    font-weight: 800;
+    font-size: 40px;
+  }
+  .subline {
+    font-weight: normal;
+    line-height: 32px;
+    color: $black;
+  }
+  .links {
+    font-weight: bold;
+    font-size: 20px;
+    color: $purple;
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  .big-purple-bubble {
+    right: -20%;
+    bottom: -4%;
+  }
+  .big-blue-bubble {
+    top: 340px;
+    left: 0;
+  }
+  .small-blue-bubble {
+    left: 33%;
+    top: 80%;
+  }
+  .small-yellow-bubble {
+    right: 10%;
+    top: 40%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .congratulations-container {
+    .big-blue-bubble {
+      left: -170px;
+    }
+    .small-yellow-bubble {
+      top: 28%;
+    }
+  }
+}
