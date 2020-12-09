@@ -3,7 +3,7 @@
   <figure class="small-blue-bubble position-absolute  d-lg-block d-none"></figure>
   <figure class="small-yellow-bubble position-absolute"></figure>
   <figure class="big-purple-bubble position-fixed d-lg-block d-none"></figure>
-  <%= render 'subscriptions/steps', current_step: 5, title: t('steps.congratulations'), subtitle: t('steps.congratulations_subtitle').html_safe,total_steps: @subscription.product.total_steps %>
+  <%= render 'subscriptions/steps', current_step: 5, title: t('steps.congratulations'), product: @subscription.product, subtitle: t('steps.congratulations_subtitle').html_safe,total_steps: @subscription.product.total_steps %>
   <div class="row pt-5">
     <div class="col-md-6 d-md-block d-none images">
       <%= image_tag(asset_path('congratulations-picture.png')) %>
