@@ -1,7 +1,7 @@
 <%= f.simple_fields_for :subscription do |s| %>
   <div class="form-inputs-wrapper mb-2">
       <%= s.hidden_field :id, value: @subscription.id %>
-      <%= s.input :delivery_address, required: true, label: t('step.billing.form.label.delivery_address'), placeholder: "You cannot change this field", hint: t('step.billing.form.hint.delivery_address'), readonly: true, input_html: { class: 'form-control', data: {target: 'subscription.deliveryAddressInput'}} %>
+      <%= s.input :delivery_address, required: true, label: t('step.billing.form.label.delivery_address'), placeholder: "You cannot change this field", hint: t('step.billing.form.hint.delivery_address'), readonly: true, input_html: { class: 'form-control', value: current_user.active_address.street, data: {target: 'subscription.deliveryAddressInput'}} %>
   </div>
    <div class="actions d-flex flex-column mt-4">
     <span class="btn btn-main disabled mb-4" data-target='subscription.continueButton' data-action="click->subscription#stepForward">Confirm</span>
