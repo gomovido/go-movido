@@ -1,0 +1,100 @@
+<div class="col-md-6 offset-md-3 mb-2">
+  <div class="form-base">
+    <div class="simple_form d-flex flex-column">
+      <div class="form-inputs-wrapper mb-2">
+        <div class="name-fields d-flex justify-content-between">
+          <div class="form-group">
+            <label>Choosen provider</label>
+            <input class="form-control" disabled value="<%= subscription.product.company %>"></input>
+          </div>
+          <div class="form-group">
+            <label>Choosen plan</label>
+            <input class="form-control" disabled value="<%= subscription.product.name %>"></input>
+          </div>
+        </div>
+        <% if subscription.sim %>
+          <div class="form-group">
+            <label>SIM Card</label>
+            <input class="form-control" disabled value="<%= subscription.sim %>"></input>
+          </div>
+        <% end %>
+        <div class="name-fields d-flex justify-content-between">
+          <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" disabled value="<%= subscription.address.user.first_name %>">
+            </input>
+          </div>
+          <div class="form-group">
+            <label>Surname</label>
+            <input class="form-control" disabled value="<%= subscription.address.user.last_name %>">
+            </input>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input class="form-control" disabled value="<%= subscription.address.user.email %>">
+          </input>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input class="form-control" disabled value="<%= subscription.address.street %>">
+          </input>
+        </div>
+        <div class="form-group">
+          <label>Billing address</label>
+          <input class="form-control" disabled value="<%= subscription.billing.address %>">
+          </input>
+        </div>
+        <% if subscription.delivery_address %>
+          <div class="form-group">
+            <label>Delivery address</label>
+            <input class="form-control" disabled value="<%= subscription.delivery_address %>">
+            </input>
+          </div>
+        <% end %>
+        <% if subscription.product.country == 'United Kingdom'%>
+          <div class="form-group">
+            <label>Account holder</label>
+            <input class="form-control" disabled value="<%= subscription.billing.holder_name %>">
+            </input>
+          </div>
+          <div class="name-fields d-flex justify-content-between">
+            <div class="form-group">
+              <label>Account number</label>
+              <input class="form-control" disabled value="<%= subscription.billing.account_number %>">
+              </input>
+            </div>
+            <div class="form-group">
+              <label>Banking institution</label>
+              <input class="form-control" disabled value="<%= subscription.billing.bank %>">
+              </input>
+            </div>
+          </div>
+        <% else %>
+          <div class="form-group">
+            <label>IBAN</label>
+            <input class="form-control" disabled value="<%= subscription.billing.iban_prettify %>">
+            </input>
+          </div>
+          <div class="name-fields d-flex justify-content-between">
+            <div class="form-group">
+              <label>BIC</label>
+              <input class="form-control" disabled value="<%= subscription.billing.bic %>">
+              </input>
+            </div>
+            <div class="form-group">
+              <label>Banking institution</label>
+              <input class="form-control" disabled value="<%= subscription.billing.bank %>">
+              </input>
+            </div>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <label>Price</label>
+          <input class="form-control" disabled value="<%= subscription.product.price %><%= subscription.product.sim_card_price.currency.symbol %>/month">
+          </input>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
