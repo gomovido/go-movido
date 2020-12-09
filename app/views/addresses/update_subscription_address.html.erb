@@ -1,70 +1,42 @@
-<div class="container subscriptions-container" data-controller="wifi-subscription">
-
-    <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details'), subtitle: t('steps.more_details_subtitle').html_safe, total_steps: @subscription.product.total_steps %>
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="billing-form d-flex flex-column mb-4 p-4">
-          <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put do |f| %>
-            <%= f.simple_fields_for :address  do |s| %>
-              <%= s.hidden_field :id, value: current_user.active_address.id%>
-              <div>
-                <div class="input-wrapper mb-2">
-                  <label for="address" class="mb-3 mr-2"><%= t('step.address.form.label.address') %></label>
-                  <div class="input text-right d-flex justify-content-end pr-3">
-                    <%= s.input :street, required: true, label: false, readonly: true, hint: t('step.address.form.hint.address'), input_html: {value: current_user.active_address.street, class:'form-control'} %>
-                  </div>
-                </div>
-                <div class="d-flex">
-                  <div class="input-wrapper mb-2">
-                    <label for="floor" class="mb-3"><%= t('step.address.form.label.floor') %></label>
-                    <div class="input text-right d-flex justify-content-end pr-3" >
-                      <%= s.input :floor, class:'form-control', label: false %>
-                    </div>
-                  </div>
-                  <div class="input-wrapper mb-2">
-                    <label for="building" class="mb-3"><%= t('step.address.form.label.building') %></label>
-                    <div class="input text-right d-flex justify-content-end pr-3" >
-                      <%= s.input :building, label: false, class:'form-control' %>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex">
-                  <div class="input-wrapper mb-3">
-                    <label for="stairs" class="mb-3"><%= t('step.address.form.label.stairs') %></label>
-                    <div class="input text-right d-flex justify-content-end pr-3">
-                      <%= s.input :stairs, label: false, class:'form-control' %>
-                    </div>
-                  </div>
-                  <div class="input-wrapper mb-3">
-                    <label for="door" class="mb-3"><%= t('step.address.form.label.door') %></label>
-                    <div class="input text-right d-flex justify-content-end pr-3">
-                      <%= s.input :door, label: false, class:'form-control' %>
-                    </div>
-                  </div>
-                </div>
-                <div class="input-wrapper mb-3">
-                  <label for="gate_code" class="mb-3"><%= t('step.address.form.label.gate_code') %></label>
-                  <div class="input text-right d-flex justify-content-end pr-3">
-                    <%= s.input :gate_code, label: false, class:'form-control' %>
-                  </div>
-                </div>
-                <% end %>
-                <hr>
-                <div class="input-wrapper mb-3">
-                  <label for="delivery_address" class="mb-3"><%= t('step.address.form.label.delivery_address') %></label>
-                  <div class="input text-right d-flex justify-content-end pr-3">
-                    <%= f.input :delivery_address, label: false, class:'form-control', input_html: {data: {target: 'wifi-subscription.delivery', country: @subscription.product.country}} %>
-                  </div>
-                </div>
-                <div class="actions d-flex justify-content-around">
-                  <%= link_to t('step.address.form.button.back'), category_products_path(@subscription.product.category), class: 'btn btn-minor' %>
-                  <%= f.button :submit, t('step.address.form.button.next'), class: 'btn-main'%>
-                </div>
+<div class="container subscription-container" data-controller="wifi-subscription">
+  <figure class="big-blue-bubble position-absolute"></figure>
+  <figure class="big-purple-bubble position-absolute d-lg-block d-none"></figure>
+  <div class="row d-flex align-center justify-content-center flex-column">
+    <div class="col-md-12">
+      <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details'), subtitle: t('steps.more_details_subtitle').html_safe, total_steps: @subscription.product.total_steps %>
+    </div>
+    <div class="col-md-6 offset-md-3 mb-5">
+      <div class="form-base mt-4 p-1">
+        <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put do |f| %>
+          <%= f.simple_fields_for :address  do |s| %>
+            <%= s.hidden_field :id, value: current_user.active_address.id%>
+            <div class="form-inputs-wrapper mb-2">
+              <%= s.input :street, required: true, label: false, readonly: true, hint: t('step.address.form.hint.address'), input_html: {value: current_user.active_address.street, class:'form-control'} %>
+              <div class="name-fields d-flex justify-content-between">
+                <%= s.input :floor, class:'form-control', label: t('step.address.form.label.floor') %>
+                <%= s.input :building, label: t('step.address.form.label.building'), class:'form-control' %>
               </div>
+              <div class="name-fields d-flex justify-content-between">
+                <%= s.input :stairs, label: t('step.address.form.label.stairs'), class:'form-control' %>
+                <%= s.input :door, label: t('step.address.form.label.door'), class:'form-control' %>
+              </div>
+            </div>
+            <div class="form-inputs-wrapper mb-2">
+              <label for="gate_code" class="mb-3"><%= t('step.address.form.label.gate_code') %></label>
+              <%= s.input :gate_code, label: false, class:'form-control' %>
+            </div>
           <% end %>
-        </div>
+          <hr>
+          <div class="form-inputs-wrapper">
+            <label for="delivery_address" class="mb-3"><%= t('step.address.form.label.delivery_address') %></label>
+            <%= f.input :delivery_address, label: false, class:'form-control', input_html: {data: {target: 'wifi-subscription.delivery', country: @subscription.product.country}} %>
+          </div>
+          <div class="actions d-flex flex-column mt-5">
+            <%= f.button :submit, t('step.address.form.button.next'), class: 'btn-main mb-4'%>
+            <%= link_to t('step.address.form.button.back'), category_products_path(@subscription.product.category), class: 'btn-exit' %>
+          </div>
+        <% end %>
       </div>
     </div>
-
-
+  </div>
 </div>

@@ -27,10 +27,18 @@
     box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.25);
   }
   .form-control[readonly] {
-    background: $white !important;
+    background: $light-purple !important;
   }
   .form-group {
     display: flex;
     flex-direction: column;
+  }
+  .stripe-input {
+    height: calc(1.5em + 0.75rem + 18px) !important;
+    border-radius: 6px !important;
+    border: 1px solid #8692A6 !important;
+  }
+  .__PrivateStripeElement {
+    width: 100%;
   }
 }
