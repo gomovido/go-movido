@@ -3,7 +3,8 @@
   <div class="d-flex align-items-center">
      <i class="fas fa-lock mr-4 p-2"></i>
      <div class="texts">
-      <h4 class="text-left"><%= t('payment.connection') %></h4>
+      <%= image_tag(asset_path('stripe-logo.png')) %>
+      <h4 class="text-left"><strong><%= t('payment.connection') %></strong></h4>
       <span class="bit-info">HTTPS - 256-bit encryption - stripe certified</span>
      </div>
   </div>
@@ -36,7 +37,7 @@
         </div>
         <hr>
         <div class="form-group">
-          <span class="purple text-justify">By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong></span>
+          <span class="legals text-justify">By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong></span>
         </div>
         <%= f.button :submit, 'Proceed payment', class: 'btn-main w-100'%>
       </div>

@@ -10,3 +10,15 @@
     }
   }
 }
+.texts {
+  img {
+    width: 60px;
+  }
+  strong {
+    font-weight: 900;
+  }
+  .bit-info {
+    color: $grey;
+    font-size: 14px;
+  }
+}
