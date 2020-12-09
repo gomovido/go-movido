@@ -1,8 +1,14 @@
 // Specific CSS for your home-page
 body {
  background: $white;
- height: -webkit-fill-available;
  color: $light-black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+.wrapper{
+  flex: 1 !important;
 }
 
 .termly-style-cookie-preference-44d002 {
@@ -35,10 +41,6 @@ section {
   color: black;
 }
 
-.height {
-  height: 83vh;
-}
-
 .font-weight {
   font-weight: 800;
 }
@@ -61,11 +63,6 @@ section {
   font-size: 54px;
   margin-bottom: 4rem;
 }
-
-.min-height {
-  height: 83vh;
-}
-
 
 #partners .partner {
   img {

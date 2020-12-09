@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if current_user.update(user_params)
       if @subscription.product.is_mobile?
         redirect_to new_subscription_billing_path(@subscription)
-      elsif @subsription.product.is_wifi?
+      elsif @subscription.product.is_wifi?
         redirect_to subscription_update_address_path(@subscription, @subscription.address)
       end
     else
