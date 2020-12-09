@@ -4,14 +4,12 @@
     <%= f.hidden_field :subscription_id, value: @subscription.id %>
     <div data-target="subscription.firstPart">
       <div class="form-inputs-wrapper mb-2">
-          <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="<%= t('step.billing.form.tooltip.iban') %>"></i>
-          <%= f.input :iban, required: true, placeholder: "FR7630001007941234567890185", label: t('step.billing.form.label.iban'), input_html: {data: { target: 'subscription.ibanInput' , action: 'change->subscription#fillBank'}} %>
-          <%= f.input :bic, class:'form-control', placeholder: "MISYGB22EXE", required: true, label: t('step.billing.form.label.bic'), input_html: {data: { target: 'subscription.bicInput' , action: 'change->subscription#enableButton'}} %>
-          <%= f.input :bank, required: true, label: t('step.billing.form.label.bank'), readonly: true, hint: t('step.billing.form.hint.bank'), class:'form-control', input_html: {data: {target: 'subscription.bankInput' }} %>
-        </div>
-      <hr>
-      <div class="form-inputs-wrapper mb-2">
-        <%= f.input :address, required: true, label: t('step.billing.form.label.billing_address'), input_html: { class:'form-control', placeholder: "Enter your billing address here", value: current_user.active_address.street, data: {target: 'subscription.billingAddressInput', action: 'change->subscription#enableButton'}} %>
+        <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="<%= t('step.billing.form.tooltip.iban') %>"></i>
+        <%= f.input :iban, required: true, placeholder: "FR7630001007941234567890185", label: t('step.billing.form.label.iban'), input_html: {data: { target: 'subscription.ibanInput' , action: 'change->subscription#fillBank'}} %>
+        <%= f.input :bic, class:'form-control', placeholder: "MISYGB22EXE", required: true, label: t('step.billing.form.label.bic'), input_html: {data: { target: 'subscription.bicInput' , action: 'change->subscription#enableButton'}} %>
+        <%= f.input :bank, required: true, label: t('step.billing.form.label.bank'), readonly: true, hint: t('step.billing.form.hint.bank'), class:'form-control', input_html: {data: {target: 'subscription.bankInput' }} %>
+       <hr>
+        <%= f.input :address, required: true, label: t('step.billing.form.label.billing_address'), input_html: { class:'form-control', placeholder: "Enter your billing address here", data: {target: 'subscription.billingAddressInput', action: "change->subscription#enableButton"}} %>
       </div>
       <% if @subscription.product.is_mobile? && !@subscription.product.sim_needed %>
         <%= render 'billings/actions/mobile_no_sim', f: f%>

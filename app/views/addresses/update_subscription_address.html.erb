@@ -11,7 +11,7 @@
           <%= f.simple_fields_for :address  do |s| %>
             <%= s.hidden_field :id, value: current_user.active_address.id%>
             <div class="form-inputs-wrapper mb-2">
-              <%= s.input :street, required: true, label: false, readonly: true, hint: t('step.address.form.hint.address'), input_html: {value: current_user.active_address.street, class:'form-control'} %>
+              <%= s.input :street, required: true, readonly: true, hint: t('step.address.form.hint.address'), input_html: {value: current_user.active_address.street, class:'form-control'} %>
               <div class="name-fields d-flex justify-content-between">
                 <%= s.input :floor, class:'form-control', label: t('step.address.form.label.floor') %>
                 <%= s.input :building, label: t('step.address.form.label.building'), class:'form-control' %>
