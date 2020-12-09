@@ -13,7 +13,7 @@
       </div>
       <div class="links d-flex justify-content-end align-items-center mt-2">
         <div class="offers d-flex align-items-center w-100 justify-content-between">
-          <span>25 offers in <%= current_user.country %></span>
+          <span><%= Product.where(category: category, country: current_user.country).count %> offers in <%= current_user.country %></span>
           <%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-2') %>
         </div>
       </div>
