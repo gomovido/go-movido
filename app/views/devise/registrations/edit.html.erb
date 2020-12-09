@@ -1,53 +1,29 @@
-<div class="container mt-2 p-md-5 edit-container">
-  <div class="row">
-      <div class="registration-form-wrapper p-md-5 p-4 col-md-12">
-      <h4 class="mb-3">Sign up</h4>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
-        <div class="form-inputs">
-          <div class="registration-input">
-            <span class="placeholder-left w-25">Email <br><%= f.error :email %></span>
-            <%= f.input :email,
-                      required: true,
-                      label: false,
-                      autofocus: true,
-                      input_html: { class:'input-clear' }%>
-          <small class="text-muted form-text d-none d-lg-block">You'll receive an email to confirm your new address</small>
-          </div>
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-          <% end %>
-          <div class="registration-input">
-            <span class="placeholder-left w-25">Password</span>
-            <%= f.input :password,
-                      required: false,
-                      label: false,
-                      input_html: { class:'input-clear', autocomplete: 'new-password' }, error: false%>
-            <small class="text-muted form-text d-none d-lg-block">leave it blank if you don't want to change it</small>
-          </div>
-          <div class="registration-input">
-            <span class="placeholder-left w-25">Password confirmation</span>
-            <%= f.input :password_confirmation,
-                      required: false,
-                      label: false,
-                      input_html: { class:'input-clear', autocomplete: 'new-password' }, error: false%>
-            <small class="text-muted form-text d-none d-lg-block"><%="#{@minimum_password_length} characters minimum" if @minimum_password_length%></small>
-          </div>
-          <div class="registration-input">
-
-            <span class="placeholder-left w-25">Current password</span>
-            <%= f.input :current_password,
-                      required: true,
-                      label: false,
-                      input_html: { class:'input-clear', autocomplete: 'new-password' }, error: false%>
-            <small class="text-muted form-text d-none d-lg-block">we need your current password to confirm your changes</small>
-          </div>
-        </div>
-        <div class="form-actions text-lg-left text-center">
-          <%= f.button :submit, "Update", class:'btn-main' %>
-        </div>
-        <% end %>
-      </div>
+<div class="container edit-container d-flex mb-5 flex-column justify-content-center align-items-center">
+  <figure class="big-blue-bubble position-absolute d-none d-md-block"></figure>
+  <figure class="position-absolute small-yellow-bubble"></figure>
+  <figure class="small-blue-bubble position-absolute d-block d-md-none"></figure>
+  <div class="form-base">
+    <h4 class="mb-3"><%= t('devise.registrations.edit.title') %></h4>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.input :email,
+    required: true,
+    autofocus: true, placeholder: true %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+    <%= f.input :password,
+    required: false,
+    input_html: {autocomplete: 'new-password', placeholder: t('form.placeholder.password') }%>
+    <%= f.input :password_confirmation,
+    required: false,
+    input_html: {autocomplete: 'new-password', placeholder: t('form.placeholder.password') }%>
+    <%= f.input :current_password,
+    required: true,
+    input_html: {autocomplete: 'new-password' }%>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <%= f.button :submit, "Update", class:'btn-main mb-3 mb-md-0' %>
+      <%= link_to "Delete account", user_registration_path(resource_name), confirm: "Are you sure?", class: 'btn-exit', method: :delete %>
+    </div>
+    <% end %>
   </div>
-  <%= link_to "Cancel my account", user_registration_path(resource_name), confirm: "Are you sure?", class: 'text-danger pl-4', method: :delete %>
 </div>
