@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .products-container {
   padding-top: 80px;
   .big-blue-bubble {
@@ -16,5 +17,36 @@
     left: 34%;
     bottom: 130px;
     }
+=======
+.subscription-container {
+  padding-top: 80px !important;
+  min-height: 83vh;
+  h1 {
+    color: $black;
+    font-weight: 800;
+    font-size: 38px;
+  }
+  p {
+    color: $black;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .big-blue-bubble {
+    top: 0px;
+    right: 0;
+    z-index: -1;
+  }
+  .big-purple-bubble {
+    bottom: 0;
+    left: -20%;
+    z-index: -1;
+  }
+  .or {
+    font-size: 12px;
+    color: #BABABA;
+  }
+  .name-fields .form-group {
+    width: 45%;
+>>>>>>> Billing / Address update UK-FR
   }
 

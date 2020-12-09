@@ -8,9 +8,8 @@
       <div data-controller="registration" class="form-base">
         <%= simple_form_for @address, url: user_addresses_path, method: :post, data: {target: 'registration.form'} do |f| %>
         <div data-target="registration.streetWrapper">
-          <label for="street"><%= t('user.address.new.form.label.street') %></label>
           <%= f.input :street,
-          label: false,
+          label: t('user.address.new.form.label.street'),
           placeholder: t('user.address.new.form.placeholder.street'),
           input_html: { data: {
           target: 'registration.streetInput'
@@ -19,8 +18,7 @@
           <%= f.hidden_field :city, id:'address_city' %>
         </div>
         <div class="d-none" data-target="registration.countryWrapper">
-          <label for="moving_country"><%= t('user.address.new.form.label.moving_country') %></label>
-          <%= f.input :moving_country, collection: ['France', 'United Kingdom'], prompt: t('user.address.new.form.prompt.moving_country'),label: false, input_html: {class: 'custom-select', data: {target: 'registration.countryInput'}} %>
+          <%= f.input :moving_country, collection: ['France', 'United Kingdom'], prompt: t('user.address.new.form.prompt.moving_country'),label: t('user.address.new.form.label.moving_country'), input_html: {class: 'custom-select', data: {target: 'registration.countryInput'}} %>
         </div>
         <div class="switch_box box_1 d-flex align-items-center my-4">
           <input data-action='click->registration#toggleInput' type="checkbox" class="switch_1">
