@@ -39,6 +39,7 @@ fr:
         city: "Ville"
         password: 'Mot de passe'
         password_confirmation: 'Confirmation du mot de passe'
+        current_password: 'Mot de passe actuel'
       address:
         street: 'Address'
       subscription:
@@ -378,6 +379,7 @@ fr:
       new:
         send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
     registrations:
+
       new:
         title: "Bienvenue sur <br>movido"
         subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
@@ -387,6 +389,7 @@ fr:
         title: 'Veuillez compléter votre profil 👌'
         button: 'Continuer'
       edit:
+        title: "Mes informations d'accès"
         edit: "Modifier"
         # For "leave blank if you don't want to change it"
         password_instruction: "Ne pas remplir si vous ne voulez pas le changer"
