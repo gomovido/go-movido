@@ -109,6 +109,7 @@ en:
     by_price: 'Filter by price'
   steps:
     choose_offer: 'Choose your offer'
+    choose_offer_subtitle: 'We choosed the best partners for your future home'
     more_details: "We just need a couple more details"
     more_details_subtitle: 'Your details are needed to activate your subscription'
     confirmation: 'Please confirm your details'

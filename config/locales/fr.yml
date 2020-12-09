@@ -137,6 +137,7 @@ fr:
     by_price: 'Filtrer par prix'
   steps:
     choose_offer: 'Choisissez votre offre'
+    choose_offer_subtitle: 'Nous avons choisi les meilleurs partenaires pour votre futur chez vous'
     more_details: "Nous avons besoin de quelques informations"
     more_details_subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
     confirmation: "Confirmez vos informations"
