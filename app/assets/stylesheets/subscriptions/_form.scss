@@ -1,62 +1,12 @@
-.billing-form {
-  hr {
-    width: 85% !important;
-    border-top: 1px solid $grey !important;
-  }
-  .disabled {
-    pointer-events: none;
-  }
-  .input-wrapper {
-    .fa-lock {
-      left: 57px;
-      position: absolute;
-      z-index: 2;
-      top: 79px;
-      color: $blue;
-    }
-    width: 100%;
-    .input {
-      .form-group {
-        width: 100%;
-      }
-    }
-    label {
-      font-size: 14px !important;
-      color: $black !important;
-      letter-spacing: 0.3px;
-    }
-    input {
-      border: 1px solid $grey;
-      height: calc(1.5em + 1.2rem + 13px);
-      border-radius: 1.2rem;
-      width: 100%;
-    }
-  }
+.sim-wrapper {
   .sim-cards {
-    img {
-      width: 40%;
-      margin-bottom: 10px;
-    }
     label {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
-      font-size: 14px;
-      color: $dark-blue;
+      img {
+      width: 30px;
+      }
     }
-    input[type="radio"], input[type="checkbox"] {
-      margin-top: 10px,
-    }
-  }
-
-  .fa-info-circle {
-    color: $blue;
-  }
-
-  .sim-label {
-    font-size: 14px;
-    color: $black;
-    letter-spacing: 0.3px;
   }
 }
-
