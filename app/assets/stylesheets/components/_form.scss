@@ -33,4 +33,12 @@
     display: flex;
     flex-direction: column;
   }
+  .stripe-input {
+    height: calc(1.5em + 0.75rem + 18px) !important;
+    border-radius: 6px !important;
+    border: 1px solid #8692A6 !important;
+  }
+  .__PrivateStripeElement {
+    width: 100%;
+  }
 }
