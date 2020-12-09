@@ -14,7 +14,10 @@
   <body data-locale="<%= I18n.locale %>" >
     <%= render 'shared/navbars' %>
     <%= render 'shared/flashes' %>
+    <div class="wrapper">
+
     <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>

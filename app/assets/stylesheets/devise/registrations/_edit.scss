@@ -1,10 +1,29 @@
 .edit-container {
-  small {
-    margin: 0;
-    border-left: 1px solid lightgrey;
-    color: #6c757d !important;
-    padding-left: 11px;
-    font-size: 11px;
-    width: 20%;
+  padding-top: 80px;
+  .big-blue-bubble {
+    top: 305px;
+    left: -60px;
+  }
+  .small-yellow-bubble {
+    right: 250px;
+    top: 180px;
+  }
+  .form-base {
+    width: 50%;
+  }
+  .small-blue-bubble {
+    top: 90px;
+    right: 20px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .edit-container {
+    .form-base {
+      width: 100% !important;
+    }
+    .small-yellow-bubble {
+      top: 380px;
+    }
   }
 }

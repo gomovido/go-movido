@@ -39,6 +39,7 @@ fr:
         city: "Ville"
         password: 'Mot de passe'
         password_confirmation: 'Confirmation du mot de passe'
+        current_password: 'Mot de passe actuel'
       address:
         street: 'Address'
       subscription:
@@ -144,10 +145,16 @@ fr:
     payment_subtitle: "Votre carte SIM coûte %{price}%{currency}. <br> Nous acceptons Visa & Master Card"
     congratulations: 'Tout est prêt 👏'
     congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
-    step1: 'Choisissez votre offre'
-    step2: 'Informations'
-    step3: 'Confirmation'
-    step4: 'Paiement'
+    mobile_phone:
+      step_0: 'Choisissez votre offre'
+      step_1: 'Facturation'
+      step_2: 'Confirmation'
+      step_3: 'Paiement'
+    wifi:
+      step_0: 'Choisissez votre offre'
+      step_1: 'Logement'
+      step_2: 'Facturation'
+      step_3: 'Confirmation'
   step_4:
     title: 'Il vous suffit de payer votre carte SIM pour finaliser votre achat'
     subtitle: 'La carte SIM coute %{price} €'
@@ -378,6 +385,7 @@ fr:
       new:
         send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
     registrations:
+
       new:
         title: "Bienvenue sur <br>movido"
         subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
@@ -387,6 +395,7 @@ fr:
         title: 'Veuillez compléter votre profil 👌'
         button: 'Continuer'
       edit:
+        title: "Mes informations d'accès"
         edit: "Modifier"
         # For "leave blank if you don't want to change it"
         password_instruction: "Ne pas remplir si vous ne voulez pas le changer"

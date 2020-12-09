@@ -3,7 +3,7 @@
   <figure class="big-purple-bubble position-absolute d-lg-block d-none"></figure>
   <div class="row d-flex align-center justify-content-center flex-column">
     <div class="col-md-12">
-      <%= render 'subscriptions/steps', current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details').html_safe, subtitle: t('steps.more_details_subtitle'), total_steps: @subscription.product.total_steps %>
+      <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('steps.more_details').html_safe, subtitle: t('steps.more_details_subtitle'), total_steps: @subscription.product.total_steps %>
     </div>
     <%= render 'eu-form' %>
   </div>

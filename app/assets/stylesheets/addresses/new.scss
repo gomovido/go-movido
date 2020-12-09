@@ -1,12 +1,12 @@
 .registration-address-container {
-  min-height: 100vh;
+  min-height: 77vh;
   .title {
     font-weight: 800;
     font-size: 30px;
     color: $black ;
   }
   .big-purple-bubble {
-    top: 80px;
+    top: 0px;
     right: 0;
     width: 380px;
     height: 380px;
@@ -16,7 +16,7 @@
     left: -140px;
   }
   img {
-    bottom: -50px;
+    bottom: 70px;
     right: -10px;
     z-index: -1;
     transform: scale(0.8);
