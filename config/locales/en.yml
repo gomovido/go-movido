@@ -117,10 +117,17 @@ en:
     payment_subtitle: "Your SIM card cost %{price}%{currency}. <br> We accept Visa & Master Card"
     congratulations_subtitle: "You will receive a confirmation email with your purchase summary within 24h.  <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
     congratulations: 'Everything is setup 👏'
-    step1: 'Choose your offer'
-    step2: 'Details'
-    step3: 'Confirmation'
-    step4: 'Payment'
+    mobile_phone:
+      step_0: 'Choose your offer'
+      step_1: 'Details'
+      step_2: 'Confirmation'
+      step_3: 'Payment'
+    wifi:
+      step_0: 'Choose your offer'
+      step_1: 'Address details'
+      step_2: 'Billing details'
+      step_3: 'Confirmation'
+
   step_4:
     title: 'You just need to pay for your SIM card to finalize your purchase'
     subtitle: 'The sim card cost %{price} €'

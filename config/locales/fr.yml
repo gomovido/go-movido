@@ -145,10 +145,16 @@ fr:
     payment_subtitle: "Votre carte SIM coûte %{price}%{currency}. <br> Nous acceptons Visa & Master Card"
     congratulations: 'Tout est prêt 👏'
     congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
-    step1: 'Choisissez votre offre'
-    step2: 'Informations'
-    step3: 'Confirmation'
-    step4: 'Paiement'
+    mobile_phone:
+      step_0: 'Choisissez votre offre'
+      step_1: 'Facturation'
+      step_2: 'Confirmation'
+      step_3: 'Paiement'
+    wifi:
+      step_0: 'Choisissez votre offre'
+      step_1: 'Logement'
+      step_2: 'Facturation'
+      step_3: 'Confirmation'
   step_4:
     title: 'Il vous suffit de payer votre carte SIM pour finaliser votre achat'
     subtitle: 'La carte SIM coute %{price} €'
