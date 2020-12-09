@@ -18,6 +18,7 @@
 @include media-breakpoint-down(md) {
   .banner {
     padding-top: 4rem;
+    height: auto;
     h1 {
       font-size: 35px;
     }
