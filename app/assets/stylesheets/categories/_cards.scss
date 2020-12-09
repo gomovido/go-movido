@@ -1,10 +1,9 @@
 .categories-cards-wrapper .category-card {
   background: $white;
-  max-width: 610px;
-  min-width:  610px;
   box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
   height: 120px;
   transition: box-shadow 0.3s;
+  width: 50%;
   .illustration {
     background-size: cover;
     background-position: center;
@@ -39,5 +38,11 @@
   }
   &:hover {
     box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.2);
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .category-card {
+    width: 100% !important;
   }
 }

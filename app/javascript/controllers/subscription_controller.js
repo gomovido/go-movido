@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
-      this.deliveryAddressInputTarget.value = e.suggestion.value
+      this.deliveryAddressInputTarget.value = e.suggestion.value;
       this.enableButton();
     });
     $('[data-toggle="tooltip"]').tooltip();
@@ -33,8 +33,10 @@ export default class extends Controller {
   }
 
   enableButton() {
-    if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
-      this.continueButtonTarget.classList.remove('disabled');
+    if (document.getElementById('continueButton')) {
+      if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
+        this.continueButtonTarget.classList.remove('disabled');
+      }
     }
   }
 }

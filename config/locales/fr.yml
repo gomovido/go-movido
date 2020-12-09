@@ -41,7 +41,7 @@ fr:
         password_confirmation: 'Confirmation du mot de passe'
         current_password: 'Mot de passe actuel'
       address:
-        street: 'Address'
+        street: 'Addresse'
       subscription:
         delivery_address: 'Adresse de livraison'
     errors:
@@ -278,7 +278,7 @@ fr:
           building: 'Immeuble'
           stairs: 'Appartement'
           door: 'Porte'
-          gate_code: "Code d'entré"
+          gate_code: "Code d'entrée"
           delivery_address: "Addresse de livraison"
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"

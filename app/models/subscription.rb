@@ -4,16 +4,17 @@ class Subscription < ApplicationRecord
   has_one :billing, dependent: :destroy
   has_one :charge
   accepts_nested_attributes_for :address
-  after_update :delivery_address_country
-  validates :delivery_address, presence: true, if: :product_is_wifi?, on: :update
-  validate :delivery_address_country, if: :product_is_wifi?, on: :update
+  validates :delivery_address, presence: true, on: :update
+  validate :delivery_address_country, on: :update
 
   def product_is_wifi?
     self.product.category.name == 'wifi'
   end
 
   def delivery_address_country
-     self.errors.add(:delivery_address, "needs to be in #{self.address.country}") if self.delivery_address.nil? or (!self.delivery_address.blank? && self.delivery_address.split(',')[-1].strip != self.address.country)
+    if self.product.company != "GifGaff"
+      self.errors.add(:delivery_address, "needs to be in #{self.address.country}") if self.delivery_address.nil? || (!self.delivery_address.blank? && self.delivery_address.split(',')[-1].strip != self.address.country)
+    end
   end
 
   def current_step(controller_name)
