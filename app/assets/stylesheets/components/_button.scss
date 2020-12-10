@@ -53,6 +53,17 @@
   }
 }
 
+.btn-submit {
+  color: $white;
+  background: $purple;
+  border: 1px solid $purple;
+  border-radius: 0;
+   &:hover {
+    opacity: 0.95;
+    color: $white;
+  }
+}
+
 .btn-exit {
   color: $grey;
   background: $white;
