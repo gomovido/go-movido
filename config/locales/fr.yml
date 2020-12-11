@@ -28,7 +28,7 @@ fr:
       billing:
         account_number: 'Numéro de compte'
         bank: 'Nom de votre banque'
-        billing_address: 'Adresse de facturation'
+        address: 'Adresse de facturation'
       user:
         first_name: "Prénom"
         last_name: 'Nom'
@@ -141,13 +141,13 @@ fr:
     more_details: "Nous avons besoin de quelques informations"
     more_details_subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
     confirmation: "Confirmez vos informations"
-    confirmation_subtitle: "Vérifiez correctement vos informations. <br>Vous ne pourrez plus les modifier après."
+    confirmation_subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Revenez en arriere pour modifier les détails "
     payment: 'Paiement de votre carte SIM'
     payment_subtitle: "Votre carte SIM coûte %{price}%{currency}. <br> Nous acceptons Visa & Master Card"
     congratulations: 'Tout est prêt 👏'
     congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
     mobile_phone:
-      step_0: 'Choisissez votre offre'
+      step_0: 'Choisir son offre'
       step_1: 'Facturation'
       step_2: 'Confirmation'
       step_3: 'Paiement'
@@ -284,8 +284,8 @@ fr:
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"
     billing:
-      title: 'Nous avons besoin de quelques détails supplémentaires'
-      subtitle: "Nous avons besoin de vos coordonnées bancaires pour mettre en place l'option de prélèvement automatique de votre abonnement"
+      title: 'Nous avons juste besoin de quelques détails supplémentaires…'
+      subtitle: "Nous avons besoin de vos coordonnées bancaires pour l'option de prélèvement automatique de votre abonnement"
       form:
         button:
           next: 'Confirmer'
@@ -304,6 +304,23 @@ fr:
           delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'
         tooltip:
           iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
+    summary:
+      form:
+        label:
+          provider: 'Fournisseur'
+          plan: 'Service'
+          name: 'Prénom'
+          surname: 'Nom'
+          email: 'Email'
+          address: 'Adresse'
+          billing_address: 'Adresse de facturation'
+          delivery_address: 'Adresse de livraison'
+          account_holder: 'Titulaire de compte'
+          account_number: 'Numéro de compte'
+          banking_institution: 'Banque'
+          price: 'Prix'
+          sim_card: 'Carte SIM'
+
     congratulations:
       questions: 'Des questions ?'
       support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
