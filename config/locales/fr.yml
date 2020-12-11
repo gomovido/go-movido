@@ -89,10 +89,10 @@ fr:
       description: 'Discutez avec des étudiants du monde entier'
   user:
     profile:
-      title: 'Informations'
+      title: "Présente toi, %{name}"
       current_address: 'Adresse actuelle'
     subscription:
-      title: 'Souscriptions'
+      title: 'Mes abonnements'
       table:
         service: 'Service'
         provider: 'Fournisseur'

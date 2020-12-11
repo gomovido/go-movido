@@ -61,10 +61,10 @@ en:
       description: 'Join our community of like-minded people in your new hometown!'
   user:
     profile:
-      title: 'Profile'
+      title: "Tell us about yourself, %{name}"
       current_address: 'Adresse actuelle'
     subscription:
-      title: 'Subscriptions'
+      title: 'My subscriptions'
       table:
         service: 'Service'
         provider: 'Provider'
