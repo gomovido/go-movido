@@ -1,66 +1,4 @@
 # Users & Adresses
-
-
-# This is a static test user for movido
-
- not_housed = true
- address = Faker::Address.street_address if not_housed
- user = User.new(
-   email: 'paul@go-movido.com',
-   first_name: 'Paul',
-   last_name: 'Sipasseuth',
-   username: 'paul_sipasseuth_123132132',
-   phone: "+33#{Faker::Number.number(digits: 9)}",
-   country: 'France',
-   city: 'Paris',
-   birthdate: Time.now,
-   birth_city: 'Paris',
-   not_housed: not_housed,
-   password: 'movido123456',
-   password_confirmation: 'movido123456'
- )
- user.save
-
-
-# 5 more users with fake data
-
-5.times do
- not_housed = [true, false].sample
- address = Faker::Address.street_address if not_housed
- user = User.new(
-   email: Faker::Internet.email,
-   first_name: Faker::Name.first_name,
-   last_name: Faker::Name.last_name,
-   username: Faker::Name.unique.name,
-   phone: "+33#{Faker::Number.number(digits: 9)}",
-   country: 'France',
-   city: 'Paris',
-   birthdate: Time.now,
-   birth_city: 'Paris',
-   not_housed: not_housed,
-   password: 'movido123456',
-   password_confirmation: 'movido123456'
- )
- user.save
- 2.times do
-   Address.create(
-     user: user,
-     city: Faker::Address.city,
-     zipcode: Faker::Address.zip_code,
-     street: Faker::Address.street_name,
-     floor: Faker::Number.number(digits: 8),
-     internet_status: [true, false].sample,
-     mobile_phone: "+33#{Faker::Number.number(digits: 9)}",
-     building: Faker::Address.building_number,
-     stairs: ['A', 'B', 'C', 'D'].sample,
-     door: ['Gauche', 'Face', 'Droite'].sample,
-     gate_code: Faker::Number.number(digits: 4)
-   )
- end
- p "#{user.first_name} created with #{user.addresses.count} addresses" if user and user.addresses
-end
-
-
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
 form_timer: Faker::Number.number(digits: 1),
@@ -373,27 +311,6 @@ product = Product.create(
     description: "This contract has 3month Spotify Premium for free"
   )
 
-
-  # Billings & Subscriptions
-
- 10.times do
-  user = User.second
-  subscription = Subscription.create(
-     product: Product.all.sample,
-     delivery_address: user.addresses.first.street + ', ' + user.country,
-     state: 'pending_processed',
-     address: user.addresses.first
-   )
-  billing = Billing.create(
-     address: user.addresses.first.street + ', ' + user.country,
-     user: user,
-     bic: Faker::Bank.swift_bic,
-     iban: Faker::Bank.iban(country_code: "fr"),
-     bank: Faker::Bank.name,
-     subscription: subscription
-   )
-  p "Subscription to #{subscription.product.name} created"
- end
 
 category = Category.create(
   name: 'housing',
