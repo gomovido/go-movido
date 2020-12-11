@@ -1,27 +1,26 @@
-<div class="col-md-8 col-12 p-lg-5 p-4 subscriptions-index-container">
+<div class="col-md-8 col-12 subscriptions-addresses-container">
   <div class="subscriptions-wrapper">
-    <h4 class="section-title text-center py-3 mb-0"><%= t('user.subscription.title') %></h4>
-    <div class="table">
-      <div class="headers px-3 py-3 d-flex align-items-center justify-content-between">
-        <span class="header column"><%= t('user.subscription.table.service') %></span>
+    <h4 class="section-title text-center"><%= t('user.subscription.title') %></h4>
+    <hr>
+      <div class="headers d-flex px-2 mb-3 align-items-center justify-content-between">
         <span class="header column"><%= t('user.subscription.table.provider') %></span>
+        <span class="header column d-lg-block d-none"><%= t('user.subscription.table.service') %></span>
+        <span class="header column"><%= t('user.subscription.table.status') %></span>
         <span class="header column"><%= t('user.subscription.table.rate') %></span>
-        <span class="header column d-lg-block d-none"><%= t('user.subscription.table.start_date') %></span>
-        <span class="header column d-lg-block d-none"><%= t('user.subscription.table.status') %></span>
-        <span class="header column"></span>
+        <span class="header column">Actions</span>
       </div>
-      <div class="rows px-3">
-        <% current_user.subscriptions.where(state: 'succeeded').each do |subscription| %>
-        <%= render 'subscription', subscription: subscription %>
+      <div class="rows position-relative">
+        <figure class="big-purple-bubble position-fixed"></figure>
+        <% current_user.subscriptions.order(state: :asc).each_with_index do |subscription, i| %>
+          <% if subscription.state != current_user.subscriptions.order(state: :asc)[i - 1].state %>
+            <span class="status"><%= subscription.state.split('_').join(' ').capitalize %></span>
+          <% end %>
+          <%= render 'subscription', subscription: subscription %>
         <% end %>
-        <% if current_user.subscriptions.where(state: 'succeeded').blank?  %>
-        <div class="subscription py-2 pl-3 d-flex justify-content-between align-items-center p-3">
-          <span><%= t('user.subscription.table.no_subscription') %></span>
-          <%= link_to t('user.subscription.table.see_offers'), dashboard_index_path, class: "btn-minor py-1 column" %>
-        </div>
+        <% if current_user.subscriptions.blank?  %>
+          <%= link_to t('user.subscription.table.see_offers'), dashboard_index_path, class: "btn-main" %>
         <% end %>
       </div>
-    </div>
   </div>
   <%= render 'users/addresses' %>
 </div>

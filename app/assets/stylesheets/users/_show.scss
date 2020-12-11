@@ -1,19 +1,67 @@
 .profile-container {
   padding-top: 80px;
-
   .section-title {
     font-weight: 800;
     font-size: 18px;
   }
+  .big-blue-bubble {
+    top: 300px;
+    left: -71px;
+  }
+  .big-purple-bubble {
+    top: 134px;
+    right: -40px;
+  }
   #profil-form {
-    label {
-      font-weight: 600;
-    }
-    i {
+    .fa-edit {
+      right: 7px;
+      top: 50px;
+      position: absolute;
       cursor: pointer;
     }
-    .form-control:focus {
-      box-shadow: none;
+    .fa-check {
+      line-height: 2.63;
     }
+    .input-wrapper {
+      position: relative;
+      &:hover {
+        i {
+          display: block !important;
+        }
+      }
+      .is-valid {
+        background-image: none;
+      }
+    }
+
+    .readonly {
+      pointer-events: none;
+    }
+    .first-row .input-wrapper{
+      width: 40%;
+    }
+    label {
+      font-weight: 600;
+      color: $black;
+    }
+    input {
+       border: 1px solid $light-grey;
+    }
+    .btn-submit {
+      position: absolute;
+      right: 0px;
+      top: 32px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .big-blue-bubble {
+    top: -211px !important;
+    left: -221px !important;
+  }
+  .big-purple-bubble {
+    top: 334px !important;
+    right: -270px !important;
   }
 }

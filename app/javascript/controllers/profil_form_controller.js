@@ -4,7 +4,7 @@ import {addressAutocomplete, searchByCity, searchByCountry, autoFill} from '../p
 const places = require('places.js');
 
 export default class extends ApplicationController {
-  static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'cityInput'];
+  static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity'];
 
   toggleAddressAutocomplete() {
     this.movingStreet = addressAutocomplete(this.addressInputTarget);
@@ -17,27 +17,26 @@ export default class extends ApplicationController {
   }
 
   toggleInput(event) {
-    this.birthCity = addressAutocomplete(this.cityInputTarget);
-    searchByCity(this.birthCity);
-    const activeElement = document.getElementsByClassName('active')[0]
-    const input = this.inputTargets.find(input => input.id == event.target.dataset.id)
-    if (event.target.dataset.id === 'phone') {
-      phoneInput(this.phoneTarget);
-      this.phoneTarget.value = document.getElementById('user_phone').dataset.value
-    }
-    if (activeElement && activeElement != input) {
-      activeElement.classList.add('d-none')
-      activeElement.classList.remove('active')
-    }
-    input.classList.toggle('d-none');
-    input.classList.toggle('active');
-  }
-
-  togglePen(event) {
-    $(".fa-pen").each(function() {
-        $(this).addClass("d-none");
+    event.target.style.setProperty('display', 'none', 'important')
+    let inputs = this.inputTargets
+    inputs.push(this.phoneTarget);
+    inputs.push(this.birthCityTarget);
+    inputs.forEach(input => {
+      if (input.dataset.id === event.target.dataset.id) {
+        input.removeAttribute('readonly');
+        input.classList.remove('readonly');
+        input.parentNode.classList.remove('readonly');
+         input.parentNode.parentNode.classList.remove('readonly');
+        if (input === this.phoneTarget) {
+          phoneInput(this.phoneTarget);
+          this.phoneTarget.value = document.getElementById('user_phone').value;
+        } if (input === this.birthCityTarget) {
+          this.birthCity = addressAutocomplete(this.birthCityTarget);
+          searchByCity(this.birthCity);
+        }
+      }
     });
-    document.getElementsByClassName('fa-pen')[event.target.getAttribute('data-id')].classList.remove('d-none')
+    event.target.nextElementSibling.classList.remove('d-none');
   }
 
 }
