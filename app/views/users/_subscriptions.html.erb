@@ -12,9 +12,6 @@
       <div class="rows position-relative">
         <figure class="big-purple-bubble position-fixed"></figure>
         <% current_user.subscriptions.order(state: :asc).each_with_index do |subscription, i| %>
-          <% if subscription.state != current_user.subscriptions.order(state: :asc)[i - 1].state %>
-            <span class="status"><%= subscription.state.split('_').join(' ').capitalize %></span>
-          <% end %>
           <%= render 'subscription', subscription: subscription %>
         <% end %>
         <% if current_user.subscriptions.blank?  %>
