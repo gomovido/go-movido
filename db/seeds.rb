@@ -295,23 +295,6 @@ product = Product.create(
   special_offer: '3month Spotify Premium for free'
 )
 
-  ProductFeature.create(
-    product: product,
-    name: "100GB of data per month",
-    description: "5GB data in Europe and French Overseas Territories. High speed networks up to 4G+ in France."
-  )
-  ProductFeature.create(
-    product: product,
-    name: "Unlimited texts & calls",
-    description: "Unlimited texts & minutes in Europe and French Overseas Territories."
-  )
-  ProductFeature.create(
-    product: product,
-    name: "Spotify Premium",
-    description: "This contract has 3month Spotify Premium for free"
-  )
-
-
 category = Category.create(
   name: 'housing',
   sku: 'housing',
