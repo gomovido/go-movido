@@ -39,7 +39,7 @@
         <div class="form-group">
           <span class="legals text-justify">By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong></span>
         </div>
-        <%= f.button :submit, 'Proceed payment', class: 'btn-main w-100'%>
+        <%= f.button :submit, 'Proceed payment', class: 'btn-main w-100', data: {disable_with: false}%>
       </div>
     <% end %>
   </div>

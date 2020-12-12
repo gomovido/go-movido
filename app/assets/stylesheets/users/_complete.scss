@@ -1,6 +1,8 @@
 .complete-profile-container {
   padding-top: 80px !important;
-
+  .invalid-feedback {
+    display: block;
+  }
   .big-blue-bubble {
     top: -15px;
     right: 65px;
