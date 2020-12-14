@@ -1,4 +1,10 @@
 en:
+  flashes:
+    global_failure: 'An error has occured'
+    not_allowed: "You are not allowed to see this page"
+    complete_profile: "You must complete your profile to continue"
+    existing_subscription: "You already have this subscription"
+    wrong_country: "Please choose create / select an address in %{country}"
   footer:
     about: 'About us'
     contact: 'Contact'
@@ -109,6 +115,8 @@ en:
     connection: 'Secured connection'
     number: 'Card number'
     date: "Expiration date"
+    legals: "By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong>"
+    pay: "Proceed payment"
   filter:
     title: 'Filter your results'
     subtitle: '%{product_count} out of %{total_product} offers'
@@ -230,16 +238,16 @@ en:
         title: 'Real stories from real students'
         subtitle: 'Get inspired by these stories'
         testimonial1:
-          from: 'Stockholm'
-          to: 'Paris'
+          from: 'From Stockholm'
+          to: 'To Paris'
           sentence: '"Most of the admin was in French. movido saved me time and money for my semester abroad in Paris"'
         testimonial2:
-          from: 'Buenos Aires'
-          to: 'Lyon'
+          from: 'From Buenos Aires'
+          to: 'To Lyon'
           sentence: '"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi abo on top"'
         testimonial3:
-          from: 'Berlin'
-          to: 'London'
+          from: 'From Berlin'
+          to: 'To London'
           sentence: '"I struggled to find a good gym in my area – with movido I found the perfect one"'
       bottom-banner:
         headline: 'movido will simplify<br> your move'
