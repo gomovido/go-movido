@@ -4,10 +4,16 @@ import {addressAutocomplete, searchByCity, searchByCountry, autoFill} from '../p
 const places = require('places.js');
 
 export default class extends ApplicationController {
-  static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity', 'subscriptionsWrapper', 'profileWrapper', 'addressesWrapper', 'subscriptionsTab', 'addressesTab', 'profileTab'];
+  static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity'];
+
+  updateNavbar(event) {
+    if (event.target.value) {
+      document.getElementById('navbarDropdown').innerText = document.getElementById('user_first_name').value + ' ' + document.getElementById('user_last_name').value;
+    }
+  }
+
 
   toggleAddressAutocomplete() {
-
     this.movingStreet = addressAutocomplete(this.addressInputTarget);
     searchByCountry(this.movingStreet, ['FR', 'GB']);
     autoFill(this.movingStreet);
@@ -38,32 +44,5 @@ export default class extends ApplicationController {
       }
     });
     event.target.nextElementSibling.classList.remove('d-none');
-  }
-
-  toggleSubscriptions() {
-    this.profileWrapperTarget.classList.add('d-none');
-    this.addressesWrapperTarget.classList.add('d-none');
-    this.subscriptionsWrapperTarget.classList.remove('d-none');
-    this.subscriptionsTabTarget.children[0].classList.add('active');
-    this.addressesTabTarget.children[0].classList.remove('active');
-    this.profileTabTarget.children[0].classList.remove('active');
-  }
-
-  toggleAddresses() {
-    this.profileWrapperTarget.classList.add('d-none');
-    this.addressesWrapperTarget.classList.remove('d-none');
-    this.subscriptionsWrapperTarget.classList.add('d-none');
-    this.subscriptionsTabTarget.children[0].classList.remove('active');
-    this.addressesTabTarget.children[0].classList.add('active');
-    this.profileTabTarget.children[0].classList.remove('active');
-  }
-
-  toggleProfile () {
-    this.profileWrapperTarget.classList.remove('d-none');
-    this.addressesWrapperTarget.classList.add('d-none');
-    this.subscriptionsWrapperTarget.classList.add('d-none');
-    this.subscriptionsTabTarget.children[0].classList.remove('active');
-    this.addressesTabTarget.children[0].classList.remove('active');
-    this.profileTabTarget.children[0].classList.add('active');
   }
 }
