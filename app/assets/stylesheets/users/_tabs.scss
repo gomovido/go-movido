@@ -1,0 +1,10 @@
+.tabs{
+  cursor: pointer;
+  .active {
+     background: $purple !important;
+     color: $white !important;
+  }
+  .nav-link {
+    padding: 0.5rem 0.7rem;
+  }
+}

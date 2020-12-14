@@ -1,44 +1,35 @@
-
-<div class="py-4 subscriptions-index-container">
-  <div class="subscriptions-wrapper">
-    <h4 class="section-title text-center py-3 mb-0 border-bottom"><%= t('user.addresses.title') %></h4>
-    <div class="rows px-lg-1 px-3">
-      <% current_user.addresses.order("active DESC").each do |address| %>
+<div class="addresses-container col-12 d-none" data-reflex-root=".addresses-container" data-target="profil-form.addressesWrapper">
+    <% current_user.addresses.order("active DESC").each do |address| %>
       <div class="addresses-card-wrapper">
-        <div class="address-card d-flex align-items-center m-3 <%= address.active ? 'active-address' : '' %>" data-reflex="click->AddressReflex#default" data-address-id=<%= address.id %> >
-          <i class="fas fa-map-marker-alt p-3"></i>
+        <div class="address-card p-3 d-flex align-items-center my-3 <%= address.active ? 'active-address' : '' %>" data-reflex="click->AddressReflex#default" data-address-id=<%= address.id %> >
+          <i class="fas fa-map-marker-alt mr-3"></i>
           <span class="address"> <%= address.street %> </span>
         </div>
       </div>
-      <% end %>
-      <div class="addresses-card-wrapper">
-        <div class="address-card d-flex align-items-center m-3 add-card-border" data-target="profil-form.addAddressButton"
-          data-action='click->profil-form#toggleAddressAutocomplete'
-          >
-          <i class="far fa-plus-square p-3"></i>
-          <div class="d-flex flex-column">
-            <span></span>
-            <span class="address"><%= t('user.addresses.add') %></span>
+    <% end %>
+    <div class="addresses-card-wrapper my-4">
+      <div class="address-input-wrapper px-3 d-flex align-items-center" data-target="profil-form.addAddressButton" data-action='click->profil-form#toggleAddressAutocomplete'>
+        <i class="far fa-plus-square mr-3"></i>
+        <span class="address"><%= t('user.addresses.add') %></span>
+      </div>
+      <div class="border-0 align-items-center d-none" data-target="profil-form.addAddressInput">
+        <div class="w-100">
+          <%= simple_form_for(@address) do |f| %>
+          <div class="d-flex align-items-center justify-content-between">
+            <%= f.input :street,
+            autofocus: true,
+            placeholder: 'Enter your moving address',
+            required: true,
+            label: false,
+            input_html: { class: 'border-0', data: {
+            target: 'profil-form.addressInput',
+            reflex_dataset:'combined'
+            }}%>
+            <%= f.hidden_field :zipcode, id:'address_zipcode' %>
+            <%= f.hidden_field :city, id:'address_city' %>
+            <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-main">Add</span>
           </div>
-        </div>
-        <div class="address-card align-items-center m-3 d-none" data-target="profil-form.addAddressInput">
-          <i class="fas fa-map-marker-alt p-3"></i>
-          <div class="flex align-items-center w-100">
-            <%= simple_form_for(@address) do |f| %>
-            <div class="d-flex align-items-center">
-              <%= f.input :street,
-              required: true,
-              label: false,
-              input_html: { data: {
-              target: 'profil-form.addressInput',
-              reflex_dataset:'combined'
-              }}%>
-              <%= f.hidden_field :zipcode, id:'address_zipcode' %>
-              <%= f.hidden_field :city, id:'address_city' %>
-              <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-input">Add address</span>
-            </div>
-            <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

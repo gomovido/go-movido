@@ -1,6 +1,25 @@
-<div class="container profile-container" data-controller="profil-form" >
+<div class="container profile-container my-4" data-controller="profil-form" >
+    <figure class="big-blue-bubble position-fixed"></figure>
+    <figure class="big-purple-bubble position-fixed"></figure>
+  <div class="row">
+    <div class="tabs col-12">
+      <ul class="nav nav-pills">
+        <li class="nav-item ml-0" data-target="profil-form.profileTab" data-action="click->profil-form#toggleProfile">
+          <span class="nav-link active">My profile</span>
+        </li>
+        <li class="nav-item" data-target="profil-form.subscriptionsTab" data-action="click->profil-form#toggleSubscriptions">
+          <span class="nav-link">Subscriptions</span>
+        </li>
+        <li class="nav-item" data-target="profil-form.addressesTab" data-action="click->profil-form#toggleAddresses">
+          <span class="nav-link">Addresses</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr>
   <div class="row">
     <%= render 'users/profil' %>
-    <%= render 'users/subscriptions'  %>
+    <%= render 'users/subscriptions' %>
+    <%= render 'users/addresses' %>
   </div>
 </div>
