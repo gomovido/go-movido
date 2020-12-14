@@ -1,15 +1,15 @@
-<div class="col-12 profil-form-wrapper" data-target="profil-form.profileWrapper">
+<div class="col-12 profil-form-wrapper tab-pane fade" id="pills-profile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
   <%= simple_form_for @user, html: {id:"profil-form", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
   <div class="d-flex justify-content-between first-row">
     <div class="input-wrapper">
-      <%= f.input :first_name, readonly: true, input_html: {data: {id: '0', target: 'profil-form.input'}} %>
+      <%= f.input :first_name, readonly: true, input_html: {data: {id: '0', target: 'profil-form.input', action: 'change->profil-form#updateNavbar'}} %>
       <i class="far fa-edit d-block d-lg-none" data-action='click->profil-form#toggleInput' data-id='0'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>
       </button>
     </div>
     <div class="input-wrapper">
-      <%= f.input :last_name, readonly: true, input_html: {data: {id: '1', target: 'profil-form.input'}} %>
+      <%= f.input :last_name, readonly: true, input_html: {data: {id: '1', target: 'profil-form.input', action: 'change->profil-form#updateNavbar'}} %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='1'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>

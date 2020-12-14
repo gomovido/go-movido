@@ -1,4 +1,4 @@
-<div class="addresses-container col-12 d-none" data-reflex-root=".addresses-container" data-target="profil-form.addressesWrapper">
+<div class="addresses-container col-12 tab-pane fade" id="pills-addresses" role="tabpanel" data-reflex-root=".addresses-container">
     <% current_user.addresses.order("active DESC").each do |address| %>
       <div class="addresses-card-wrapper">
         <div class="address-card p-3 d-flex align-items-center my-3 <%= address.active ? 'active-address' : '' %>" data-reflex="click->AddressReflex#default" data-address-id=<%= address.id %> >
