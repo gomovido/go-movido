@@ -89,10 +89,10 @@ fr:
       description: 'Discutez avec des étudiants du monde entier'
   user:
     profile:
-      title: "Mes informations"
+      title: "Mon profil"
       current_address: 'Adresse actuelle'
     subscription:
-      title: 'Mes abonnements'
+      title: 'Abonnements'
       table:
         service: 'Service'
         provider: 'Fournisseur'
@@ -101,12 +101,23 @@ fr:
         status: 'Status'
         see_offers: 'Voir les offres'
         no_subscription: "Vous n'avez pas d'abonnements actifs"
+      card:
+        draft: 'Brouillon'
+        succeeded: 'En attente'
+        activated: 'Actif'
+        failed: 'Paiement échoué'
+        pending_processed: 'À payer'
+        months: 'mois'
+        cta:
+          resume: 'Continuer'
+          pay: 'Payer'
+          details: 'Détails'
     address:
       new:
         title: "Quelle est votre adresse ?"
         form:
           placeholder:
-            street: 'Mon adresse'
+            street: "Votre nouvelle addresse"
           label:
             street: 'Votre adresse dans votre nouvelle ville'
             moving_country: "Dans quel pays voyagez-vous?"

@@ -2,35 +2,19 @@
   <div class="column"><%= image_tag(asset_path(subscription.product.logo_url), class:"img #{subscription.product.company == 'SFR' ? 'rounded-circle' : ''}") %></div>
   <div class="column d-lg-block d-none"><%= image_tag(asset_path("#{subscription.product.category.name}.png"), class: "picto") %></div>
     <div class="column">
-      <% if subscription.state == 'draft' %>
-        <span class="draft "><i class="fas fa-sticky-note"></i> <%= subscription.state.capitalize %></span><br>
-        <span class=" date">from <%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
-      <% elsif subscription.state == 'succeeded' %>
-        <span class="succeeded "><i class="fas fa-spinner"></i> Pending</span> <br>
-        <span class=" date">created on <%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
-      <% elsif subscription.state == 'activated' %>
-        <span class="activated "><i class="fas fa-check-circle"></i> <%= subscription.state.capitalize %></span><br>
-        <span class=" date">started on <%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
-      <% elsif subscription.state == 'failed' %>
-        <span class="failed "><i class="fas fa-times-circle"></i> Payment <%= subscription.state.capitalize %></span><br>
-        <span class=" date">on <%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
-      <% else %>
-        <span class="failed  pending"><i class="fab fa-cc-visa"></i> Payment needed</span><br>
-        <span class=" date">on <%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
-      <% end %>
+      <span class="<%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t("user.subscription.card.#{subscription.state}") %></span><br>
+      <span class=" date"><%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
   </div>
-  <span class="price column"><strong><%= subscription.product.price %><%= subscription.product.sim_card_price.currency.symbol %> <br> </strong>/month</span>
+  <span class="price column"><strong><%= subscription.product.price %><%= subscription.product.sim_card_price.currency.symbol %> <br> </strong>/<%= t("user.subscription.card.months") %></span>
   <% if subscription.state == 'draft' %>
     <% if subscription.product.is_mobile? %>
-      <%= link_to "Resume", new_subscription_billing_path(subscription), class: 'action column' %>
+      <%= link_to t('user.subscription.card.cta.resume'), new_subscription_billing_path(subscription), class: 'action column' %>
     <% else %>
-      <%= link_to "Resume", subscription_update_address_path(subscription, subscription.address), class: 'action column' %>
+      <%= link_to t('user.subscription.card.cta.resume'), subscription_update_address_path(subscription, subscription.address), class: 'action column' %>
     <% end %>
-  <% elsif subscription.state == 'succeeded' %>
-    <%= link_to "Details", subscription_congratulations_path(subscription), class: "action column" %>
-  <% elsif subscription.state == 'activated' %>
-    <%= link_to "Details", subscription_congratulations_path(subscription), class: "action column" %>
+  <% elsif subscription.state == 'succeeded' || subscription.state == 'activated'%>
+    <%= link_to t('user.subscription.card.cta.details'), subscription_congratulations_path(subscription), class: "action column" %>
   <% else %>
-    <%= link_to "Pay", subscription_payment_path(subscription), class: "action column", data: { turbolinks: false } %>
+    <%= link_to t('user.subscription.card.cta.pay'), subscription_payment_path(subscription), class: "action column", data: { turbolinks: false } %>
   <% end %>
 </div>

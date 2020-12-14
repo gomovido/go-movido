@@ -17,6 +17,20 @@ class Subscription < ApplicationRecord
     end
   end
 
+  def icon_state
+    if self.state == 'draft'
+      "fas fa-sticky-note"
+    elsif self.state == 'succeeded'
+      "fas fa-spinner"
+    elsif self.state == 'activated'
+      "fas fa-check-circle"
+    elsif self.state == 'failed'
+      "fas fa-times-circle"
+    else
+      "fab fa-cc-visa"
+    end
+  end
+
   def current_step(controller_name)
     if self.product.is_wifi?
       if controller_name == 'addresses'
