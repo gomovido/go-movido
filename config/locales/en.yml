@@ -61,7 +61,7 @@ en:
       description: 'Join our community of like-minded people in your new hometown!'
   user:
     profile:
-      title: "Tell us about yourself, %{name}"
+      title: "My details"
       current_address: 'Adresse actuelle'
     subscription:
       title: 'My subscriptions'

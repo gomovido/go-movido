@@ -4,7 +4,7 @@ import {addressAutocomplete, searchByCountry, autoFill, searchByCity } from '../
 const places = require('places.js');
 
 export default class extends Controller {
-  static targets = ["streetInput", "streetWrapper", "countryWrapper", "textSwitchNoAddress", "textSwitchGotAddress",  "phone", "cityInput"]
+  static targets = ["streetInput", "streetWrapper", "countryWrapper", "textSwitchNoAddress", "phone", "cityInput", "countryInput"]
 
   connect() {
     if (document.getElementById('address_street')) {
@@ -21,10 +21,8 @@ export default class extends Controller {
 
   toggleInput() {
     this.streetInputTarget.value = null;
-    this.countryWrapperTarget.value = null;
+    this.countryInputTarget.selectedIndex = 0;;
     this.streetWrapperTarget.classList.toggle('d-none');
     this.countryWrapperTarget.classList.toggle('d-none');
-    this.textSwitchNoAddressTarget.classList.toggle('d-none');
-    this.textSwitchGotAddressTarget.classList.toggle('d-none');
   }
 }

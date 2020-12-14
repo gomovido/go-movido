@@ -1,7 +1,4 @@
-<div class="col-md-4 col-12 profil-form-wrapper">
-  <figure class="big-blue-bubble position-fixed"></figure>
-  <h4 class="section-title text-center"><%= t('user.profile.title', name: current_user.first_name) %></h4>
-  <hr>
+<div class="col-12 profil-form-wrapper" data-target="profil-form.profileWrapper">
   <%= simple_form_for @user, html: {id:"profil-form", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
   <div class="d-flex justify-content-between first-row">
     <div class="input-wrapper">

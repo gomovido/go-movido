@@ -1,7 +1,5 @@
-<div class="col-md-8 col-12 subscriptions-addresses-container">
+<div class="col-12 subscriptions-addresses-container d-none" data-target="profil-form.subscriptionsWrapper">
   <div class="subscriptions-wrapper">
-    <h4 class="section-title text-center"><%= t('user.subscription.title') %></h4>
-    <hr>
       <div class="headers d-flex px-2 mb-3 align-items-center justify-content-between">
         <span class="header column"><%= t('user.subscription.table.provider') %></span>
         <span class="header column d-lg-block d-none"><%= t('user.subscription.table.service') %></span>
@@ -10,7 +8,6 @@
         <span class="header column">Actions</span>
       </div>
       <div class="rows position-relative">
-        <figure class="big-purple-bubble position-fixed"></figure>
         <% current_user.subscriptions.order(state: :asc).each_with_index do |subscription, i| %>
           <%= render 'subscription', subscription: subscription %>
         <% end %>
@@ -19,5 +16,4 @@
         <% end %>
       </div>
   </div>
-  <%= render 'users/addresses' %>
 </div>
