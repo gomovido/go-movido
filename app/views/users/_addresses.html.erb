@@ -18,7 +18,7 @@
           <div class="d-flex align-items-center justify-content-between">
             <%= f.input :street,
             autofocus: true,
-            placeholder: 'Enter your moving address',
+            placeholder: t('user.address.new.form.placeholder.street'),
             required: true,
             label: false,
             input_html: { class: 'border-0', data: {
@@ -27,7 +27,7 @@
             }}%>
             <%= f.hidden_field :zipcode, id:'address_zipcode' %>
             <%= f.hidden_field :city, id:'address_city' %>
-            <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-main">Add</span>
+            <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-main"><%= t('user.address.new.form.cta') %></span>
           </div>
           <% end %>
         </div>

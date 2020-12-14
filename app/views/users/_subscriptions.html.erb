@@ -8,7 +8,7 @@
         <span class="header column">Actions</span>
       </div>
       <div class="rows position-relative">
-        <% current_user.subscriptions.order(state: :asc).each_with_index do |subscription, i| %>
+        <% current_user.subscriptions.order(state: :asc).each do |subscription| %>
           <%= render 'subscription', subscription: subscription %>
         <% end %>
         <% if current_user.subscriptions.blank?  %>

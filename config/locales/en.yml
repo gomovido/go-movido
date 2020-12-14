@@ -61,10 +61,9 @@ en:
       description: 'Join our community of like-minded people in your new hometown!'
   user:
     profile:
-      title: "My details"
-      current_address: 'Adresse actuelle'
+      title: "My profile"
     subscription:
-      title: 'My subscriptions'
+      title: 'Subscriptions'
       table:
         service: 'Service'
         provider: 'Provider'
@@ -73,6 +72,17 @@ en:
         status: 'Status'
         see_offers: 'Voir les offres'
         no_subscription: 'You have no active subscriptions'
+      card:
+        draft: 'Draft'
+        succeeded: 'Pending'
+        activated: 'Activated'
+        failed: 'Payment failed'
+        pending_processed: 'Payment needed'
+        months: 'months'
+        cta:
+          resume: 'Resume'
+          pay: 'Pay'
+          details: 'Details'
     address:
       new:
         title: 'What is your address ?'

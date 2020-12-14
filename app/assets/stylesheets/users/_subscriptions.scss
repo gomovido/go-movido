@@ -35,7 +35,7 @@
   }
 
   .action {
-    color: $blue;
+    color: $purple;
     font-weight: 500;
     &:hover {
       text-decoration: underline;
@@ -47,7 +47,7 @@
     font-weight: 600;
   }
 
-  .pending {
+  .pending_processed {
     color: $blue;
     font-weight: 600;
   }
