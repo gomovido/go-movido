@@ -1,4 +1,10 @@
 fr:
+  flashes:
+    global_failure: 'Oups, il y a un problème'
+    not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
+    complete_profile: "Vous devez compléter votre profil pour continuer"
+    existing_subscription: "Vous avez déjà cet abonnement"
+    wrong_country: "Merci de créer une adresse à %{country}"
   footer:
     about: "À propos"
     contact: "Contact"
@@ -41,7 +47,7 @@ fr:
         password_confirmation: 'Confirmation du mot de passe'
         current_password: 'Mot de passe actuel'
       address:
-        street: 'Addresse'
+        street: 'Adresse'
       subscription:
         delivery_address: 'Adresse de livraison'
     errors:
@@ -117,7 +123,7 @@ fr:
         title: "Quelle est votre adresse ?"
         form:
           placeholder:
-            street: "Votre nouvelle addresse"
+            street: "Votre nouvelle adresse"
           label:
             street: 'Votre adresse dans votre nouvelle ville'
             moving_country: "Dans quel pays voyagez-vous?"
@@ -138,6 +144,8 @@ fr:
     connection: 'Connexion sécurisée'
     number: 'Numéro de carte'
     date: "Date d'expiration"
+    legals: "En cliquant sur procéder au paiement, vous acceptez <strong>nos conditions générales</strong> ainsi que <strong>les conditons générales de Stripe.</strong>"
+    pay: "Procéder au paiement"
   filter:
     title: 'Filtrer les résultats'
     subtitle: '%{product_count} offres sur %{total_product}'
@@ -190,7 +198,7 @@ fr:
       register: "Enregistrer"
       login: 'Connexion'
       remember_me: 'Se rappeler de moi'
-      current_address: 'Addresse actuelle'
+      current_address: 'Adresse actuelle'
       city: 'Ville'
     placeholder:
       password: '6 caractères minimum'
@@ -257,21 +265,17 @@ fr:
         title: "Ce que disent les étudiants"
         subtitle: "Laissez-vous inspirer par leurs expériences"
         testimonial1:
-          from: 'Stockholm'
-          to: 'Paris'
+          from: 'De Stockholm'
+          to: 'à Paris'
           sentence: "''La plupart des démarches administratives étaient en français - movido m'a fait gagner du temps et de l'argent lors de mon semestre en échange à Paris''"
         testimonial2:
-          from: 'Buenos Aires'
-          to: 'Lyon'
+          from: 'De Buenos Aires'
+          to: 'à Lyon'
           sentence: "''Ça m'a pris 10 minutes et tout était fait - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
         testimonial3:
-          from: 'Berlin'
-          to: 'Londres'
+          from: 'De Berlin'
+          to: 'à Londres'
           sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
-        testimonial4:
-          from: 'Japon'
-          to: 'Paris'
-          sentence: "''Avec movido, j'ai trouvé l'appartement parfait à Londres avant même d’arriver sur place''"
       bottom-banner:
         headline: 'movido simplifie<br> votre déménagement'
         text: 'Laissez movido prendre en charge votre travail administratif'
@@ -291,7 +295,7 @@ fr:
           stairs: 'Appartement'
           door: 'Porte'
           gate_code: "Code d'entrée"
-          delivery_address: "Addresse de livraison"
+          delivery_address: "Adresse de livraison"
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"
     billing:
@@ -332,14 +336,14 @@ fr:
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
       user:
-       not_found_in_database: "Il semble que vous n'ayez pas encore de compte movido. <a href='/users/sign_up'>S'inscire</a>"
+       not_found_in_database: "Il semble que vous n'ayez pas encore de compte movido"
        invalid: 'Email ou mot de passe invalide.'
     sessions:
-      signed_in: "Réussite de la connexion."
-      signed_out: "Réussite de la deconnexion."
+      signed_in: "Connecté"
+      signed_out: "Déconnecté"
       new:
         title: 'Bon retour parmis nous'
-        subtitle: 'movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things'
+        subtitle: "movido vou accompagne durant votre installation – de votre <br>nouvel abonnement mobile à votre nouvelle salle de sport – <br>afin que vous vous occupiez de ce qui est réellement important"
         facebook: "Se connecter avec Facebook"
         google: "Se connecter avec Google"
         form_title: 'Se connecter'
@@ -412,7 +416,7 @@ fr:
         # For "leave blank if you don't want to change it"
         password_instruction: "Ne pas remplir si vous ne voulez pas le changer"
         # For "we need your current password to confirm your changes"
-        current_password_instruction: "Vous devez remplir votre mot de passe en cours pour confirmer vos changement"
+        current_password_instruction: "Vous devez remplir votre mot de passe actuel pour confirmer les modifications"
         update: "Mettre à jour"
         cancel_my_account: "Annuler mon compte"
         unhappy?: "Pas content(e)?"
