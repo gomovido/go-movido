@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @address = Address.new
     @user = User.friendly.find(params[:id])
     if @user != current_user
-      flash[:alert] = 'Your are not allowed to see this page'
+      flash[:alert] = I18n.t 'flashes.not_allowed'
       redirect_to root_path
     end
   end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         redirect_to subscription_update_address_path(@subscription, @subscription.address)
       end
     else
-      flash[:alert] = 'You must complete your profile to continue'
+      flash[:alert] = I18n.t 'flashes.complete_profile'
       @user = current_user
       render :complete_profil
     end

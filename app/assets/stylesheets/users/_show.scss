@@ -1,74 +1,64 @@
 .profile-container {
-  .section-title {
-    color: $blue;
-    font-weight: 800;
-    font-size: 18px;
+  padding-top: 70px;
+  min-height: 80vh;
+  .big-blue-bubble {
+    top: 300px;
+    left: -71px;
   }
-  .profil-form-wrapper {
-    background: $white;
-    border-radius: 20px;
-    border: 1px solid $grey;
-    .user {
-      width: 100%;
-      .img {
-        border-radius: 20px;
-        img {
-          height: 100px;
-          border-radius: 30px;
-        }
-      }
-      .infos {
-        .name {
-          font-weight: 800;
-          color: $black;
-          font-size: 16px;
-        }
-        .destination {
-          font-size: 14px;
-          color: $grey;
-          font-weight: 800;
-        }
-      }
-    }
+  .big-purple-bubble {
+    top: 134px;
+    right: -40px;
   }
   #profil-form {
-    input {
-      border: none;
-      height: calc(1.5em + 0.75rem + 13px);
+    .fa-edit {
+      right: 7px;
+      top: 50px;
+      position: absolute;
+      cursor: pointer;
+    }
+    .fa-check {
+      line-height: 2.63;
+    }
+    .input-wrapper {
+      position: relative;
+      &:hover {
+        i {
+          display: block !important;
+        }
+      }
+      .is-valid {
+        background-image: none;
+      }
+    }
+
+    .readonly {
+      pointer-events: none;
+    }
+    .first-row .input-wrapper{
+      width: 40%;
     }
     label {
-      font-size: 14px;
-      color: $dark-grey;
-      letter-spacing: 0.3px;
+      font-weight: 600;
+      color: $black;
     }
-    select {
-      color: $dark-grey !important;
-      font-size: 12px !important;
-      height: calc(1.5em + 0.75rem + 13px) !important;
-      width: 100%;
-      border: none;
+    input {
+       border: 1px solid $light-grey;
     }
-    span {
-      font-size: 14px;
-      color: $dark-blue;
-      cursor: pointer;
-      font-weight: 700;
-    }
-    i {
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .form-input {
+    .btn-submit {
       position: absolute;
-      background: $white;
-      z-index: 200;
-      width: 350px;
-      display: flex;
-      border-radius: 15px;
-      box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+      right: 0px;
+      top: 32px;
     }
-    .form-control:focus {
-      box-shadow: none;
-    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .big-blue-bubble {
+    top: -211px !important;
+    left: -221px !important;
+  }
+  .big-purple-bubble {
+    top: 334px !important;
+    right: -270px !important;
   }
 }
