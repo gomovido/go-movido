@@ -1,4 +1,4 @@
-  <div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="product" data-action="click->product#redirect" id=<%= product.id %>>
+  <div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->product#redirect" id=<%= product.id %>>
   <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {target: 'product.link'} do %>
     <div class="d-flex align-items-center justify-content-center"><%= image_tag(product.logo_url, class: 'logo') %></div>
     <div class="offer">
@@ -6,7 +6,7 @@
       <h5 class="name mt-2 "><%= product.company %> <%= product.name %></h5>
       <span class="localization d-none d-sm-block"><i class="fas fa-map-pin mr-2"></i><%= product.description %></span>
       <p class="description mt-3 mb-0"><%= product.product_features.first.description %> <%= link_to 'See details', modal_product_path(product), data: {target: '#exampleModal',
-      action: 'click->product#loadProduct', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link' %></p>
+      action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link' %></p>
     </div>
     <div class="pricing text-center">
       <div class="price">

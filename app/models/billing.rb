@@ -18,7 +18,7 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-     self.errors.add(:address, I18n.t('form.failure.country', country: self.user.country)) unless !self.address.blank? && self.address.split(',')[-1].strip == self.user.country
+     self.errors.add(:address, I18n.t('form.failure.country', country: self.subscription.product.country)) unless !self.address.blank? && self.address.split(',')[-1].strip == self.subscription.product.country
   end
 
 

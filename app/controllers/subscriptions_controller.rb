@@ -44,6 +44,13 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  def modal
+    @subscription = Subscription.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+  end
+
   private
 
   def user_profil_is_uncomplete?
@@ -55,7 +62,7 @@ class SubscriptionsController < ApplicationController
   def active_address_do_not_exist?(product)
     if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
       redirect_to user_path(current_user)
-      flash[:alert] = "You have to create / select an address in #{product.country}"
+      flash[:alert] = I18n.t 'flashes.wrong_country', country: product.country
     end
   end
 
@@ -63,7 +70,7 @@ class SubscriptionsController < ApplicationController
     subscription_check = Subscription.find_by(state: 'succeeded', product: product, address: current_user.active_address)
     if subscription_check && product.category.name != 'mobile'
       redirect_to subscription_congratulations_path(subscription_check)
-      flash[:alert] = 'You already have this subscription !'
+      flash[:alert] = I18n.t 'flashes.existing_subscription'
     end
   end
 

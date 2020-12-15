@@ -1,70 +1,71 @@
-.subscriptions-index-container {
-
-  .subscriptions-wrapper {
+.subscriptions-addresses-container {
+  .subscription {
     background: $white;
-    border: 1px solid $grey;
-    border-radius: 20px;
-    .subscription {
-      border-bottom: 1px solid $grey;
+    font-size: 15px;
+    border-radius: 4px;
+    box-shadow: -2px 4px 7px -2px rgba(133, 131, 133, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s;
+    height: 90px;
+    &:hover {
+      transform: translateY(-3px);
     }
-    .subscription:last-child {
-      border-bottom: none;
-      padding-bottom: 0 !important;
-    }
+  }
+  .status {
+     font-weight: 600;
+    color: $grey;
+    text-align: center;
+  }
+
+  .date {
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 13px;
+    text-decoration: none;
   }
   .headers {
-    width: 100%;
-    background: $light-blue;
-  }
-  .header {
-    font-size: 14px;
-    color: $dark-grey;
-    letter-spacing: 0.3px;
-    font-weight: 800;
+    font-weight: 600;
   }
   .column {
-    width: 15%;
+    width: 20%;
     text-align: center;
-    font-size: 12px;
-    color: $black;
     .img {
-      width: 40%;
+      max-width: 35%;
     }
+  }
+
+  .action {
+    color: $purple;
+    font-weight: 500;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .failed {
+    color: $red;
+    font-weight: 600;
+  }
+
+  .pending_processed {
+    color: $blue;
+    font-weight: 600;
+  }
+
+  .draft {
+    color: $grey;
+    font-weight: 600;
+  }
+
+  .succeeded {
+    color: $yellow;
+    font-weight: 600;
+  }
+  .activated {
+    color: $green;
+    font-weight: 600;
   }
   .picto {
-    background: $light-blue;
-    border-radius: 10px;
-    width: 30px;
-  }
-  .price {
-    color: $dark-grey;
-    font-size: 14px;
-    .amount {
-      font-weight: 800;
-      font-size: 16px;
-    }
-  }
-}
-.price-box {
-  background: $dark-grey;
-  color: $white;
-  width: 20%;
-  border-radius: 20px;
-}
-
-.subline {
-  color: #798CA0;
-}
-@include media-breakpoint-down(md) {
-  .subscriptions-index-container {
-    .btn-minor {
-      border-radius: 10px;
-    }
-    .price {
-      font-size: 13px !important;
-    }
-    .amount {
-      font-size: 15px !important;
-    }
+    width: 16px;
   }
 }

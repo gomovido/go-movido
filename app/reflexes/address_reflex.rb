@@ -10,8 +10,7 @@ class AddressReflex < ApplicationReflex
     @address = Address.new
     @address.assign_attributes(address_params)
     @address.user = current_user
-    @address.save
-    @address.set_has_active
+    @address.set_has_active if @address.save
   end
 
   after_reflex do
