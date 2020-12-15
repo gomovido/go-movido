@@ -27,7 +27,7 @@
     box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.25);
   }
   .form-control[readonly] {
-    background: $light-purple !important;
+    background: $light-purple;
   }
   .form-group {
     display: flex;
