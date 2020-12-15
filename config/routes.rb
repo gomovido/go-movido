@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   post 'charge', to: 'charges#create'
   get 'products/modal/:id', to: 'products#modal', as: 'modal_product'
+  get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
   post 'create-products', to: 'products#create_from_forest_admin'
 
