@@ -44,6 +44,13 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  def modal
+    @subscription = Subscription.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+  end
+
   private
 
   def user_profil_is_uncomplete?
