@@ -3,7 +3,7 @@ import { addressAutocomplete } from '../packs/algolia';
 import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
-  static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
+  static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput", 'modalBody', 'link' ]
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
       this.deliveryAddressInputTarget.value = e.suggestion.value;
@@ -35,6 +35,15 @@ export default class extends Controller {
       if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
         this.continueButtonTarget.classList.remove('disabled');
       }
+    }
+  }
+
+  loadProduct(event) {
+    $(".modal-body").load(event.target.getAttribute("data-href"));
+  }
+  redirect() {
+    if (event.target.dataset.target !== '#exampleModal') {
+      this.linkTargets[0].click();
     }
   }
 }
