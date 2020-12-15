@@ -1,4 +1,4 @@
-<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->product#redirect" id=<%= product.id %>>
+<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
   <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {target: 'product.link'} do %>
     <div class="d-flex align-items-center justify-content-center"><%= image_tag(product.logo_url, class: 'logo') %></div>
     <div class="offer">
