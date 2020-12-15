@@ -10,6 +10,7 @@
       <div class="address-input d-flex align-items-center m-3">
         <span class="px-5"><%= truncate(current_user.active_address.street, :length => 70) %></span>
       </div>
+
       <%= link_to  t('category.new_address'), user_path(current_user), class:'purple' %>
     </div>
   </div>
