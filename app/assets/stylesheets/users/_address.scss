@@ -1,42 +1,36 @@
-.addresses-card-wrapper {
-  .address-card.active-address {
-    background: $light-blue;
-  }
-  .address-card {
-      border: 1px solid $grey;
-      border-radius: 10px;
-      cursor: pointer;
-    i {
-      font-size: 30px;
-      color: $dark-grey;
-    }
-    .address {
-      color: $dark-grey;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-    }
+.addresses-container {
+  .address-card{
+    border-radius: 5px;
+    border: 1px solid $light-grey;
+    cursor: pointer;
+    transition: 0.3s;
+    background: $white;
     &:hover {
-      background-color: $light-blue;
-      border: 1px solid $light-blue;
+      border: 1px solid $purple;
     }
   }
-  .add-card-border {
-    border-style: dashed !important;
-    .address {
-      color: $grey !important;
+  .active-address {
+    font-weight: 600;
+    color: $purple;
+    border: 1px solid $purple;
+    &:hover {
+      border: 1px solid $purple;
     }
   }
-  .btn-input {
-    font-size: 12px;
-    font-weight: 800;
-    margin: 2%;
+  .address-input-wrapper {
+    cursor: pointer;
+  }
+  .form-group {
     margin-bottom: 0;
-    margin-top: 0;
+    width: 70%;
   }
-  #new_address .form-group {
-    margin: 0 !important;
-    width: 100%;
+  .form-control {
+    background: transparent;
+    &:focus {
+    box-shadow: none;
+    }
+  }
+  .btn-main {
+    cursor: pointer;
   }
 }
-
