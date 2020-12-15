@@ -104,7 +104,7 @@ fr:
         provider: 'Fournisseur'
         rate: 'Prix'
         start_date: 'Ouverture'
-        status: 'Status'
+        status: 'Statut'
         see_offers: 'Voir les offres'
         no_subscription: "Vous n'avez pas d'abonnements actifs"
       card:

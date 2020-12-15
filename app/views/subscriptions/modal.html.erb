@@ -3,6 +3,10 @@
         <div class="mb-2">
           <h3>Subscription number # <%= @subscription.id %></h3>
           <div class="d-flex align-items-center justify-content-between m-3">
+            <span class="font-weight"><%= t('user.subscription.table.status') %></span>
+            <span class="<%= @subscription.state %>"><i class="<%= @subscription.icon_state %>"></i> <%= t("user.subscription.card.#{@subscription.state}") %></span>
+          </div>
+          <div class="d-flex align-items-center justify-content-between m-3">
             <span class="font-weight"><%= t('step.summary.form.label.provider') %></span>
             <div><%= @subscription.product.company %></div>
           </div>
