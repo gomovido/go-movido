@@ -1,8 +1,8 @@
 **Issue Policy**
 
 Create issue
-Link issue to the associated project
-Add assignee & labels
+- Link issue to the associated project
+- Add related labels
 
 **PR Policy**
 
