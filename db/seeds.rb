@@ -301,7 +301,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 category = Category.create(
   name: 'bank',
