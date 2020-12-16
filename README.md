@@ -3,6 +3,8 @@
 Create issue
 - Link issue to the associated project
 - Add related labels
+- Feature flow init
+
 
 **PR Policy**
 
