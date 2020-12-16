@@ -1,5 +1,9 @@
 <footer class="footer d-flex align-items-center flex-column py-2">
-  <div class="logo pb-4"><strong>movido</strong></div>
+  <% if I18n.locale == :fr %>
+    <div class="logo pb-4"><strong>movido <small>in <%= link_to EmojiFlag.new('fr'), locale: :en %></small></strong></div>
+  <% else %>
+    <div class="logo pb-4"><strong>movido <small>in <%= link_to EmojiFlag.new('en'), locale: :fr %></small></strong></div>
+  <% end %>
   <div class="links d-flex pb-3">
       <%= link_to t('footer.about'), '#', class:"px-3 text-center" %>
       <%= link_to t('footer.faq'), '#', class:"px-3 text-center" %>
