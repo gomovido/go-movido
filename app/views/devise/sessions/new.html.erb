@@ -1,5 +1,5 @@
-<div class="container registration-container py-3 d-flex align-items-center justify-content-center">
-  <div class="row d-flex justify-content-between w-100">
+<div class="container registration-container d-flex align-items-center justify-content-center">
+  <div class="row w-100">
     <div class="col-md-7 position-relative d-flex justify-content-center flex-column">
       <h1><%= t('.title').html_safe %></h1>
       <p><%= t('.subtitle').html_safe %></p>
@@ -22,10 +22,11 @@
           </div>
         <div class="mt-4">
           <%= f.button :submit, t('form.label.login'), class:'btn btn-main w-100' %>
+           <%= render "devise/shared/links" %>
         </div>
         <% end %>
       </div>
-      <div class="social-registrations text-center mt-3 d-flex flex-column">
+      <div class="social-registrations text-center mt-3">
         <span class="mb-3 or">Or</span>
         <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center' do  %>
             <%= t('.google').html_safe %>
