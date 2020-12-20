@@ -1,18 +1,30 @@
-<div class="container blue-bg mt-2 p-md-5">
+<div class="container registration-container mb-3 d-flex align-items-center justify-content-center">
+  <div class="bubbles">
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+  </div>
   <div class="row">
-    <div class="col-md-12 d-flex align-items-center ju">
-      <div class="registration-form-wrapper p-md-5 p-4">
-        <h4 class="mb-3">Forgot your password?</h4>
+    <div class="col-md-12">
+      <div class="form-base">
+        <h4 class="mb-4">Forgot your password?</h4>
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <div class="form-inputs">
+          <div class="form-inputs-wrapper">
             <%= f.input :email,
                         required: false,
                         autofocus: true,
                         label: false,
                         input_html: { autocomplete: "email", placeholder: 'Email address' } %>
           </div>
-          <div class="form-actions text-lg-left text-center">
-            <%= f.button :submit, "Send me reset password instructions", class:'btn btn-main' %>
+          <div class="mt-4">
+            <%= f.button :submit, "Confirm", class:'btn-main w-100' %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>

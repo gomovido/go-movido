@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     current_user.active_address.nil? ? new_user_address_path(current_user.id) : dashboard_index_path
   end
 
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
   def set_locale
     locale = params[:locale].to_s.strip.to_sym
     I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
