@@ -5,10 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
   has_many :addresses, dependent: :destroy
-  has_many :subscriptions, through: :addresses
+  has_many :subscriptions, through: :addresses, dependent: :destroy
   has_many :billings, dependent: :destroy
 
-  #accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['street'].blank? }
   COUNTRIES = [:fr, :uk]
 
   extend FriendlyId
