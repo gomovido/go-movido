@@ -2,7 +2,7 @@ class AddressReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
   def default
-    address = Address.find(element.dataset["address-id"])
+    address = Address.find(element.dataset.id)
     address.set_has_active
   end
 
@@ -15,6 +15,8 @@ class AddressReflex < ApplicationReflex
 
   after_reflex do
     current_user.update_user_country
+    morph ".subscriptions-wrapper", render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})
+    morph ".addresses-container", render(partial: "addresses", locals: {address: Address.new})
   end
 
   private
