@@ -10,4 +10,5 @@ import controller from './application_controller'
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
-StimulusReflex.initialize(application, { consumer, controller, debug: true })
+StimulusReflex.initialize(application)
+StimulusReflex.debug = process.env.RAILS_ENV === 'development'
