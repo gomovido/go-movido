@@ -9,7 +9,7 @@
       </div>
       <%= render 'subscription-details'%>
       <div class="rows position-relative">
-        <% current_user.subscriptions.order(state: :asc).each do |subscription| %>
+        <% subscriptions.order(state: :asc).each do |subscription| %>
           <% if subscription.product.country == current_user.active_address.country %>
             <%= render 'subscription', subscription: subscription %>
           <% end %>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @address = Address.new
     @user = User.friendly.find(params[:id])
+    @subscriptions = current_user.subscriptions
     if @user != current_user
       flash[:alert] = I18n.t 'flashes.not_allowed'
       redirect_to root_path

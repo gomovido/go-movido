@@ -19,7 +19,7 @@
   <hr>
   <div class="tab-content row" id="pills-tabContent">
     <%= render 'users/profil' %>
-    <%= render 'users/subscriptions' %>
-    <%= render 'users/addresses' %>
+    <%= render 'users/subscriptions', subscriptions: @subscriptions %>
+    <%= render 'users/addresses', address: @address %>
   </div>
 </div>
