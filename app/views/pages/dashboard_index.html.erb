@@ -1,5 +1,5 @@
 <div class="container dashboard-container py-3">
-  <div class="half-purple-bubble position-absolute d-lg-block d-none"></div>
+  <div class="half-purple-bubble position-fixed d-lg-block d-none"></div>
   <div class="big-blue-bubble position-absolute d-lg-block d-none"></div>
   <div class="small-yellow-bubble position-absolute"></div>
   <div class="small-blue-bubble position-absolute"></div>
@@ -16,7 +16,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 categories-cards-wrapper d-flex flex-column align-items-center mt-5">
-      <% @categories.each_with_index do |category, index| %>
+      <% @categories.order(open: :desc).each_with_index do |category, index| %>
         <%=  render 'categories/card', category: category, index: index %>
       <% end %>
     </div>
