@@ -9,6 +9,9 @@
     background-position: center;
     width: 150px;
   }
+  .uncolored {
+    filter: grayscale(100%);
+  }
   .details-wrapper {
     .summary span {
       color: $grey;
@@ -33,6 +36,9 @@
         font-size: 14px;
         font-weight: 700;
         color: $purple !important;
+      }
+      .coming-soon {
+        color: $red !important;
       }
     }
   }

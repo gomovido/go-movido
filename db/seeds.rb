@@ -301,7 +301,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 category = Category.create(
   name: 'bank',
@@ -309,7 +309,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 category = Category.create(
   name: 'gym',
@@ -317,7 +317,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 category = Category.create(
   name: 'transportation',
@@ -325,7 +325,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 
 category = Category.create(
@@ -334,7 +334,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 category = Category.create(
   name: 'community',
@@ -342,7 +342,7 @@ category = Category.create(
   form_timer: Faker::Number.number(digits: 1),
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: false)
 
 category = Category.create(
   name: 'wifi',
