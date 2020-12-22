@@ -2,7 +2,6 @@ class BillingsController < ApplicationController
   before_action :set_subscription, only: [:new, :new_uk, :new_fr, :create]
 
   def new
-    raise if !current_user.is_complete?
     @billing = Billing.new
     @billing.build_subscription if @subscription.product.is_mobile?
     redirect_to_new(@subscription)
@@ -30,7 +29,11 @@ class BillingsController < ApplicationController
 
 
   def redirect_to_new(subscription)
-    subscription.product.country == 'United Kingdom' ? (render :new_uk) : (render :new_europe)
+    if !current_user.is_complete?
+      redirect_to subscription_complete_profil_path(subscription)
+    else
+      subscription.product.country == 'United Kingdom' ? (render :new_uk) : (render :new_europe)
+    end
   end
 
   private
