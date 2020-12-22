@@ -21,8 +21,8 @@ class AddressesController < ApplicationController
   end
 
   def update_subscription_address
-    raise if !current_user.is_complete?
     @subscription = Subscription.find(params[:subscription_id])
+    redirect_to subscription_complete_profil_path(@subscription) if !current_user.is_complete?
   end
 
 
