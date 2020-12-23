@@ -14,7 +14,7 @@
             <%= render 'subscription', subscription: subscription %>
           <% end %>
         <% end %>
-        <% if current_user.subscriptions.blank?  %>
+        <% if current_user.active_address.subscriptions.blank?  %>
           <%= link_to t('user.subscription.table.see_offers'), dashboard_index_path, class: "btn-main" %>
         <% end %>
       </div>

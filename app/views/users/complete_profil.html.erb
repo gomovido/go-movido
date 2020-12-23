@@ -10,7 +10,7 @@
           <div class="form-inputs-wrapper">
             <%= f.input :phone,
                   required: true,
-                  input_html: { data: { target: 'registration.phone' } } %>
+                  input_html: { data: { registration_target: 'phone' } } %>
             <%= f.input :birthdate, as: :string,
                      required: true,
                      input_html: { placeholder: 'DD/MM/YYYY', class:'background-white datepicker p-xs-0 ml-xs-2', data: {
@@ -20,7 +20,7 @@
                     input_html: {
                       placeholder: 'Paris, 17eme arrondissement, France',
                       data: {
-                        target: 'registration.cityInput'}} %>
+                        registration_target: 'cityInput'}} %>
           </div>
         <div class="mt-4">
           <%= f.button :submit, t('devise.registrations.complete_profil.button'), class:'btn-main w-100' %>
