@@ -29,7 +29,7 @@
           <hr>
           <div class="form-inputs-wrapper">
             <label for="delivery_address" class="mb-3"><%= t('step.address.form.label.delivery_address') %></label>
-            <%= f.input :delivery_address, label: false, class:'form-control', input_html: {data: {target: 'wifi-subscription.delivery', country: @subscription.product.country}} %>
+            <%= f.input :delivery_address, label: false, class:'form-control', input_html: {data: {wifi_subscription_target: 'delivery', country: @subscription.product.country}} %>
           </div>
           <div class="actions d-flex flex-column mt-5">
             <%= f.button :submit, t('step.address.form.button.next'), class: 'btn-main mb-4'%>

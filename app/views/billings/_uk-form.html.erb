@@ -8,12 +8,12 @@
         <%= f.input :bank, required: true, placeholder:"HSBC", label: t('step.billing.form.label.bank'), class:'form-control'%>
         <hr>
         <div class="form-inputs-wrapper mb-2">
-          <%= f.input :address, required: true, label: t('step.billing.form.label.billing_address'), input_html: {class:'form-control', data: {target: 'subscription-uk.billingAddressInput'}}, placeholder: t('step.address.form.placeholder', placeholder: t('step.billing.form.label.billing_address')).capitalize %>
+          <%= f.input :address, required: true, label: t('step.billing.form.label.billing_address'), input_html: {class:'form-control', data: {subscription_uk_target: 'billingAddressInput'}}, placeholder: t('step.address.form.placeholder', placeholder: t('step.billing.form.label.billing_address')).capitalize %>
           <% if @subscription.product.is_mobile? %>
             <%= f.simple_fields_for :subscription do |s| %>
               <div class="form-inputs-wrapper mb-2">
                 <%= s.hidden_field :id, value: @subscription.id %>
-                <%= s.input :delivery_address, required: true, label: t('step.billing.form.label.delivery_address'), input_html: { class: 'form-control w-100', data: {target: 'subscription-uk.deliveryAddressInput'}}, placeholder: t('step.address.form.placeholder', placeholder: t('step.billing.form.label.delivery_address')).capitalize %>
+                <%= s.input :delivery_address, required: true, label: t('step.billing.form.label.delivery_address'), input_html: { class: 'form-control w-100', data: {subscription_uk_target: 'deliveryAddressInput'}}, placeholder: t('step.address.form.placeholder', placeholder: t('step.billing.form.label.delivery_address')).capitalize %>
               </div>
             <% end %>
           <% end %>
