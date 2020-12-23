@@ -2,9 +2,9 @@
   <li class="nav-item dropdown">
     <span class="dropdown-toggle nav-link" data-toggle="dropdown", id="navbarDropdown"><%= current_user.first_name %> <%= current_user.last_name %></span>
     <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="navbarDropdown">
-      <%= link_to t('navbar.dropdown.profile'), user_path(current_user), class: "dropdown-item py-2" %>
-      <%= link_to t('navbar.dropdown.account'), edit_user_registration_path(current_user), class: "dropdown-item py-2" %>
-      <%= link_to t('navbar.dropdown.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item pb-2"%>
+      <%= link_to "<i class='fas fa-user mr-2 text-primary'></i>#{t('navbar.dropdown.profile')}".html_safe, user_path(current_user), class: "dropdown-item py-2" %>
+      <%= link_to "<i class='fas fa-cog mr-2 text-secondary'></i>#{t('navbar.dropdown.account')}".html_safe, edit_user_registration_path(current_user), class: "dropdown-item py-2" %>
+      <%= link_to "<i class='fas fa-power-off text-danger mr-2'></i>#{t('navbar.dropdown.logout')}".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item pb-2"%>
     </div>
   </li>
 </ul>

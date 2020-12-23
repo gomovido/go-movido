@@ -60,7 +60,7 @@ fr:
     title: "Selectionnez les services dont vous avez besoin"
     subtitle: "Mon adresse"
     new_address: "Ajouter une adresse"
-
+    time: 'En %{time} minutes'
     mobile_phone:
       mobile: "Téléphonie"
       subtitle: "Obtenez votre numéro de mobile local "
@@ -152,17 +152,17 @@ fr:
     unlimited_data: 'Données illimitées'
     unlimited_call: 'Appel illimité'
     no_contract: 'Sans engagement'
-    contract_only: 'Avec engagment seulement'
+    contract_only: 'Avec engagement'
     by_price: 'Filtrer par prix'
   steps:
     choose_offer: 'Choisissez votre offre'
-    choose_offer_subtitle: 'Nous avons choisi les meilleurs partenaires pour votre futur chez vous'
+    choose_offer_subtitle: 'Nous avons sélectionné les meilleures offres pour votre futur chez vous'
     more_details: "Nous avons besoin de quelques informations"
     more_details_subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
     confirmation: "Confirmez vos informations"
     confirmation_subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Revenez en arriere pour modifier les détails "
     payment: 'Paiement de votre carte SIM'
-    payment_subtitle: "Votre carte SIM coûte %{price}%{currency}. <br> Nous acceptons Visa & Master Card"
+    payment_subtitle: "Votre carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
     congratulations: 'Tout est prêt 👏'
     congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
     mobile_phone:
@@ -364,6 +364,7 @@ fr:
         facebook: "Se connecter avec Facebook"
         google: "Se connecter avec Google"
         form_title: 'Se connecter'
+        or: 'Ou'
     passwords:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
       updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
@@ -424,6 +425,7 @@ fr:
         subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
         facebook: "S'inscrire avec Facebook"
         google: "S'inscrire avec Google"
+        or: 'Ou'
       complete_profil:
         title: 'Veuillez compléter votre profil 👌'
         button: 'Continuer'

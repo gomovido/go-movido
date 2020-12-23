@@ -1,7 +1,16 @@
 # Users & Adresses
+
+category = Category.create(
+  name: 'bank',
+  sku: 'bank',
+  form_timer: 4,
+  subtitle: 'subtitle',
+  description: 'description',
+  open: false)
+
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
-form_timer: Faker::Number.number(digits: 1),
+form_timer: 2,
 subtitle: 'subtitle',
 description: 'description',
 open: true)
@@ -295,59 +304,11 @@ product = Product.create(
   special_offer: '3month Spotify Premium for free'
 )
 
-category = Category.create(
-  name: 'housing',
-  sku: 'housing',
-  form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'subtitle',
-  description: 'description',
-  open: false)
-
-category = Category.create(
-  name: 'bank',
-  sku: 'bank',
-  form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'subtitle',
-  description: 'description',
-  open: false)
-
-category = Category.create(
-  name: 'gym',
-  sku: 'gym',
-  form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'subtitle',
-  description: 'description',
-  open: false)
-
-category = Category.create(
-  name: 'transportation',
-  sku: 'transportation',
-  form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'subtitle',
-  description: 'description',
-  open: false)
-
-
-category = Category.create(
-  name: 'utilities',
-  sku: 'utilities',
-  form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'subtitle',
-  description: 'description',
-  open: false)
-
-category = Category.create(
-  name: 'community',
-  sku: 'community',
-  form_timer: Faker::Number.number(digits: 1),
-  subtitle: 'subtitle',
-  description: 'description',
-  open: false)
 
 category = Category.create(
   name: 'wifi',
   sku: 'wifi',
-  form_timer: Faker::Number.number(digits: 1),
+  form_timer: 3,
   subtitle: 'subtitle',
   description: 'description',
   open: true)
@@ -424,3 +385,46 @@ ProductFeature.create(
   name: "Other",
   description: "No contract option, cancel every month. Pay as you go calls."
 )
+
+category = Category.create(
+  name: 'housing',
+  sku: 'housing',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'subtitle',
+  description: 'description',
+  open: false)
+
+category = Category.create(
+  name: 'utilities',
+  sku: 'utilities',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'subtitle',
+  description: 'description',
+  open: false)
+
+category = Category.create(
+  name: 'gym',
+  sku: 'gym',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'subtitle',
+  description: 'description',
+  open: false)
+
+
+
+category = Category.create(
+  name: 'transportation',
+  sku: 'transportation',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'subtitle',
+  description: 'description',
+  open: false)
+
+
+category = Category.create(
+  name: 'community',
+  sku: 'community',
+  form_timer: Faker::Number.number(digits: 1),
+  subtitle: 'subtitle',
+  description: 'description',
+  open: false)
