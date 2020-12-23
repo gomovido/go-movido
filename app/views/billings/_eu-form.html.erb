@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3 mb-5">
   <div class="form-base">
-    <%= simple_form_for [@subscription, @billing], data: {controller: "subscription"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
+    <%= simple_form_for [@subscription, @billing], data: {controller: "subscription", subscription_hide_class: "d-none", subscription_disabled_class: "disabled"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
     <%= f.hidden_field :subscription_id, value: @subscription.id %>
     <div data-subscription-target="firstPart">
       <div class="form-inputs-wrapper mb-2">
