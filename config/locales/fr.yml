@@ -35,7 +35,7 @@ fr:
         account_number: 'Numéro de compte'
         iban: 'IBAN'
         bic: 'BIC'
-        bank: 'Nom de votre banque'
+        bank: 'Banque'
         address: 'Adresse de facturation'
       user:
         first_name: "Prénom"
@@ -49,7 +49,7 @@ fr:
         password_confirmation: 'Confirmation du mot de passe'
         current_password: 'Mot de passe actuel'
       address:
-        street: 'Adresse'
+        street: "Adresse"
       subscription:
         delivery_address: 'Adresse de livraison'
     errors:
@@ -408,17 +408,12 @@ fr:
         you_can_confirm_your_account_through_the_link_below: "Vous pouvez confirmer votre compte via le lien ci-dessous"
         confirm_my_account: "Confirmer mon compte"
       reset_password_instructions:
-        # For "Someone has requested a link to change your password, and you can do this through the link below."
         reset_password_instruction: "Quelqu'un a demandé un lien pour changer votre mot de passe. Vous pouvez le faire via le lien ci-dessous."
         change_my_password: "Changer mon mot de passe"
-        # For "If you didn't request this, please ignore this email."
         wrong_request_instruction: "Si vous n'avez pas demandé ce changement, ignorez ce message."
-        # For "Your password won't change until you access the link above and create a new one."
         unchange_password_message: "Votre mot de passe ne sera pas changé tant vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
       unlock_instructions:
-        # For "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
         locked_account_message: "Votre compte est verrouillé car vous avez échoué lors de votre identification trop de fois."
-        # For "Click the link below to unlock your account"
         unlock_account_instruction: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
         unlock_my_account: "Déverrouiller mon compte"
     passwords:
@@ -428,7 +423,6 @@ fr:
       new:
         send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
     registrations:
-
       new:
         title: "Bienvenue sur <br>movido"
         subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
@@ -441,9 +435,7 @@ fr:
       edit:
         title: "Mes informations d'accès"
         edit: "Modifier"
-        # For "leave blank if you don't want to change it"
         password_instruction: "Ne pas remplir si vous ne voulez pas le changer"
-        # For "we need your current password to confirm your changes"
         current_password_instruction: "Vous devez remplir votre mot de passe actuel pour confirmer les modifications"
         update: "Mettre à jour"
         cancel_my_account: "Annuler mon compte"
