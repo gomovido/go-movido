@@ -22,6 +22,10 @@ class User < ApplicationRecord
   before_create :generate_username
   after_create :send_welcome_email
 
+  def user_subscriptions_country
+    self.subscriptions.select {|s| s if s.product.country == self.active_address.country }
+  end
+
 
   def active_address
     Address.find_by(user: self, active: true)

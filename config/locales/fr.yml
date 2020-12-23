@@ -4,7 +4,7 @@ fr:
     not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
     complete_profile: "Vous devez compléter votre profil pour continuer"
     existing_subscription: "Vous avez déjà cet abonnement"
-    wrong_country: "Merci de créer une adresse à %{country}"
+    wrong_country: "Merci de créer une adresse en %{country}"
   footer:
     about: "À propos"
     contact: "Contact"
@@ -33,6 +33,8 @@ fr:
     attributes:
       billing:
         account_number: 'Numéro de compte'
+        iban: 'IBAN'
+        bic: 'BIC'
         bank: 'Nom de votre banque'
         address: 'Adresse de facturation'
       user:
@@ -52,10 +54,16 @@ fr:
         delivery_address: 'Adresse de livraison'
     errors:
       models:
+        subscription:
+          attributes:
+            delivery_address:
+              blank: "doit être remplie"
         billing:
           attributes:
             account_number:
               blank: "doit être rempli"
+            address:
+              blank: "doit être remplie"
   category:
     title: "Selectionnez les services dont vous avez besoin"
     subtitle: "Mon adresse"
@@ -172,7 +180,7 @@ fr:
       step_3: 'Paiement'
     wifi:
       step_0: 'Choisissez votre offre'
-      step_1: 'Logement'
+      step_1: 'Votre logement'
       step_2: 'Facturation'
       step_3: 'Confirmation'
   step_4:
@@ -181,7 +189,7 @@ fr:
   form:
     failure:
       check_country: 'vous devez sélectionner une adresse dans le même pays'
-      country: "a besoin d'être en %{country}"
+      country: "doit être une adresse en %{country}"
     label:
       first_name: 'Prénom'
       last_name: 'Nom'
@@ -286,7 +294,7 @@ fr:
       form:
         button:
           next: 'Suivant'
-          back: 'Revenir'
+          back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
         label:
           address: 'Adresse'
@@ -296,6 +304,7 @@ fr:
           door: 'Porte'
           gate_code: "Code d'entrée"
           delivery_address: "Adresse de livraison"
+          delivery_address_wifi: "Adresse de livraison de votre box internet"
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"
     billing:

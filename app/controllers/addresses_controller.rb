@@ -10,6 +10,7 @@ class AddressesController < ApplicationController
       @address = generate_fake_address
     else
       @address = Address.new(address_params)
+      @address.valid_address = true
     end
     @address.user = current_user
     if @address.save
@@ -21,7 +22,7 @@ class AddressesController < ApplicationController
   end
 
   def update_subscription_address
-    @subscription = Subscription.find(params[:subscription_id])
+    return if active_address_do_not_exist?(@subscription.product)
     redirect_to subscription_complete_profil_path(@subscription) if !current_user.is_complete?
   end
 
@@ -36,6 +37,13 @@ class AddressesController < ApplicationController
 
 
   private
+
+  def active_address_do_not_exist?(product)
+    if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
+      redirect_to user_path(current_user)
+      flash[:alert] = I18n.t 'flashes.wrong_country', country: product.country
+    end
+  end
 
   def generate_fake_address
     address = get_address(address_params[:moving_country])

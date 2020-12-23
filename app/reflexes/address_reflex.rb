@@ -9,6 +9,7 @@ class AddressReflex < ApplicationReflex
   def submit
     @address = Address.new
     @address.assign_attributes(address_params)
+    @address.valid_address = true
     @address.user = current_user
     @address.set_has_active if @address.save
   end
