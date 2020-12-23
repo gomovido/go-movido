@@ -4,6 +4,7 @@ import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
   static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
+  static classes = [ "hide", "disabled" ]
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
       this.deliveryAddressInputTarget.value = e.suggestion.value;
@@ -15,14 +16,14 @@ export default class extends Controller {
 
   stepForward() {
     window.scroll({top: 0});
-    this.firstPartTarget.classList.add('d-none');
-    this.secondPartTarget.classList.remove('d-none');
+    this.firstPartTarget.classList.add(this.hideClass);
+    this.secondPartTarget.classList.remove(this.hideClass);
   }
 
   stepBackward() {
     window.scroll({top: 0});
-    this.firstPartTarget.classList.remove('d-none');
-    this.secondPartTarget.classList.add('d-none');
+    this.firstPartTarget.classList.remove(this.hideClass);
+    this.secondPartTarget.classList.add(this.hideClass);
   }
 
   fillBank() {
@@ -33,7 +34,8 @@ export default class extends Controller {
   enableButton() {
     if (document.getElementById('continueButton')) {
       if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
-        this.continueButtonTarget.classList.remove('disabled');
+
+        this.continueButtonTarget.classList.remove(this.disabledClass);
       }
     }
   }

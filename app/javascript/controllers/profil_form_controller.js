@@ -5,6 +5,7 @@ const places = require('places.js');
 
 export default class extends ApplicationController {
   static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity'];
+  static classes = [ 'hide', 'flex', 'readonly' ]
 
   updateNavbar(event) {
     if (event.target.value) {
@@ -17,10 +18,10 @@ export default class extends ApplicationController {
     this.movingStreet = addressAutocomplete(this.addressInputTarget);
     searchByCountry(this.movingStreet, ['FR', 'GB']);
     autoFill(this.movingStreet);
-    this.addAddressInputTarget.classList.remove('d-none');
-    this.addAddressInputTarget.classList.add('d-flex');
-    this.addAddressButtonTarget.classList.add('d-none');
-    this.addAddressButtonTarget.classList.remove('d-flex');
+    this.addAddressInputTarget.classList.remove(this.hideClass);
+    this.addAddressInputTarget.classList.add(this.flexClass);
+    this.addAddressButtonTarget.classList.add(this.hideClass);
+    this.addAddressButtonTarget.classList.remove(this.flexClass);
   }
 
   toggleInput(event) {
@@ -31,9 +32,9 @@ export default class extends ApplicationController {
     inputs.forEach(input => {
       if (input.dataset.id === event.target.dataset.id) {
         input.removeAttribute('readonly');
-        input.classList.remove('readonly');
-        input.parentNode.classList.remove('readonly');
-         input.parentNode.parentNode.classList.remove('readonly');
+        input.classList.remove(this.readonlyClass);
+        input.parentNode.classList.remove(this.readonlyClass);
+         input.parentNode.parentNode.classList.remove(this.readonlyClass);
         if (input === this.phoneTarget) {
           phoneInput(this.phoneTarget);
           this.phoneTarget.value = document.getElementById('user_phone').value;
@@ -43,6 +44,6 @@ export default class extends ApplicationController {
         }
       }
     });
-    event.target.nextElementSibling.classList.remove('d-none');
+    event.target.nextElementSibling.classList.remove(this.hideClass);
   }
 }
