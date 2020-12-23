@@ -1,5 +1,5 @@
 <div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
-  <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {target: 'modal.link'} do %>
+  <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {modal_target: 'link'} do %>
     <div class="d-flex align-items-center justify-content-center"><%= image_tag(product.logo_url, class: 'logo') %></div>
     <div class="offer">
       <span class="company d-none d-sm-block"><%= product.company %></span>
@@ -10,12 +10,12 @@
     </div>
     <div class="pricing text-center">
       <div class="price">
-        <span class="number px-1"><%= product.price.to_i %> <%= product.sim_card_price.currency.symbol %></span><br>
+        <span class="number px-1"><%= product.format_price %></span><br>
         <span class="frequency">monthly</span>
       </div>
       <div class="data align-items-center my-3 d-none d-sm-flex"><%= image_tag('wifi.png', class: 'mr-3') %> <%= product.data_speed %> Ø speed</div>
       <div class="contract align-items-center my-3 d-none d-sm-flex"><%= image_tag('contract.png', class: 'mr-3') %> <%= product.time_contract %> <span class="ml-1">months</span></div>
-      <div class="sim align-items-center mt-3 d-none d-sm-flex"><%= image_tag('sim-picto.png', class: 'mr-3') %> <%= product.setup_price %><%= product.sim_card_price.currency.symbol %><span class="ml-1"> setup costs</span></div>
+      <div class="sim align-items-center mt-3 d-none d-sm-flex"><%= image_tag('sim-picto.png', class: 'mr-3') %><%= product.format_sim_card_price %><span class="ml-1"> setup costs</span></div>
     </div>
   <% end %>
   </div>

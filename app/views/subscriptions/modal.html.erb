@@ -76,7 +76,7 @@
           <div class="d-flex align-items-center justify-content-between m-3">
             <span class="font-weight"><%= t('step.summary.form.label.price') %></span>
             <div>
-              <%= @subscription.product.price %><%= @subscription.product.sim_card_price.currency.symbol %>/month
+              <%= @subscription.product.format_price %>/month
             </div>
           </div>
         </div>
