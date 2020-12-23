@@ -8,11 +8,11 @@
       </div>
     <% end %>
     <div class="addresses-card-wrapper my-4">
-      <div class="address-input-wrapper px-3 d-flex align-items-center" data-target="profil-form.addAddressButton" data-action='click->profil-form#toggleAddressAutocomplete'>
+      <div class="address-input-wrapper px-3 d-flex align-items-center" data-profil-form-target="addAddressButton" data-action='click->profil-form#toggleAddressAutocomplete'>
         <i class="far fa-plus-square mr-3"></i>
         <span class="address"><%= t('user.addresses.add') %></span>
       </div>
-      <div class="border-0 align-items-center d-none" data-target="profil-form.addAddressInput">
+      <div class="border-0 align-items-center d-none" data-profil-form-target="addAddressInput">
         <div class="w-100">
           <%= simple_form_for(address) do |f| %>
           <div class="d-flex align-items-center justify-content-between">
@@ -22,7 +22,7 @@
             required: true,
             label: false,
             input_html: { class: 'border-0', data: {
-            target: 'profil-form.addressInput',
+            profil_form_target: 'addressInput',
             reflex_dataset:'combined'
             }}%>
             <%= f.hidden_field :zipcode, id:'address_zipcode' %>

@@ -5,24 +5,24 @@
   <div class="row">
     <div class="col-12">
       <h1 class="title mb-4"><%= t('user.address.new.title') %> 👇</h1>
-      <div data-controller="registration" class="form-base">
-        <%= simple_form_for @address, url: user_addresses_path, method: :post, data: {target: 'registration.form'} do |f| %>
-        <div data-target="registration.streetWrapper">
+      <div data-controller="registration" class="form-base" data-registration-hide-class="d-none">
+        <%= simple_form_for @address, url: user_addresses_path, method: :post, data: {registration_target: 'form'} do |f| %>
+        <div data-registration-target="streetWrapper">
           <%= f.input :street,
           label: t('user.address.new.form.label.street'),
           placeholder: t('user.address.new.form.placeholder.street'),
           input_html: { data: {
-          target: 'registration.streetInput'
+          registration_target: 'streetInput'
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>
         </div>
-        <div class="d-none" data-target="registration.countryWrapper">
-          <%= f.input :moving_country, collection: ['France', 'United Kingdom'], prompt: t('user.address.new.form.prompt.moving_country'),label: t('user.address.new.form.label.moving_country'), input_html: {class: 'custom-select', data: {target: 'registration.countryInput'}} %>
+        <div class="d-none" data-registration-target="countryWrapper">
+          <%= f.input :moving_country, collection: ['France', 'United Kingdom'], prompt: t('user.address.new.form.prompt.moving_country'),label: t('user.address.new.form.label.moving_country'), input_html: {class: 'custom-select', data: {registration_target: 'countryInput'}} %>
         </div>
         <div class="switch_box box_1 d-flex align-items-center my-4">
           <input data-action='click->registration#toggleInput' type="checkbox" class="switch_1">
-          <p data-target="registration.textSwitchGotAddress" class="mb-0 ml-4"><%= t('user.address.new.form.switch.no_address') %></p>
+          <p class="mb-0 ml-4"><%= t('user.address.new.form.switch.no_address') %></p>
         </div>
         <%= f.button :submit, t('user.address.new.form.cta'), class: 'btn-main w-100' %>
         <% end %>

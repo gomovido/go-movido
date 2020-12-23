@@ -1,9 +1,9 @@
-<div class="modal-menu-button d-none d-md-flex align-items-center" data-toggle="modal" data-controller="hamburger" data-action="click->hamburger#toggleMenu" data-target="hamburger.menuButton">
+<div class="modal-menu-button d-none d-md-flex align-items-center" data-toggle="modal" data-controller="hamburger" data-action="click->hamburger#toggleMenu" data-hamburger-target="menuButton" data-hamburger-cross-class="cross">
   <div class="hamburger mr-1">
     <span id="h-1"></span>
     <span class="mt-1 float-right" id="h-2"></span>
   </div>
-  <span class="text" data-target="hamburger.text">Menu</span>
+  <span class="text" data-hamburger-target="text">Menu</span>
   <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

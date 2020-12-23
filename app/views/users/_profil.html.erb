@@ -2,14 +2,14 @@
   <%= simple_form_for @user, html: {id:"profil-form", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
   <div class="d-flex justify-content-between first-row">
     <div class="input-wrapper">
-      <%= f.input :first_name, readonly: true, input_html: {data: {id: '0', target: 'profil-form.input', action: 'change->profil-form#updateNavbar'}} %>
+      <%= f.input :first_name, readonly: true, input_html: {data: {id: '0', profil_form_target: 'input', action: 'change->profil-form#updateNavbar'}} %>
       <i class="far fa-edit d-block d-lg-none" data-action='click->profil-form#toggleInput' data-id='0'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>
       </button>
     </div>
     <div class="input-wrapper">
-      <%= f.input :last_name, readonly: true, input_html: {data: {id: '1', target: 'profil-form.input', action: 'change->profil-form#updateNavbar'}} %>
+      <%= f.input :last_name, readonly: true, input_html: {data: {id: '1', profil_form_target: 'input', action: 'change->profil-form#updateNavbar'}} %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='1'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>
@@ -17,14 +17,14 @@
     </div>
   </div>
     <div class="input-wrapper">
-      <%= f.input :email, readonly: true, input_html: {data: {id: '2', target: 'profil-form.input'}} %>
+      <%= f.input :email, readonly: true, input_html: {data: {id: '2', profil_form_target: 'input'}} %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='2'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>
       </button>
     </div>
     <div class="input-wrapper">
-      <%= f.input :phone , input_html: {data: {id: '3', target: 'profil-form.phone'}}, readonly: true %>
+      <%= f.input :phone , input_html: {data: {id: '3', profil_form_target: 'phone'}}, readonly: true %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='3'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>
@@ -33,7 +33,7 @@
     <div class="input-wrapper">
       <%= f.input :birthdate , as: :string,
       required: true,
-      input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker width', data: {id: '4', target: 'profil-form.input',
+      input_html: { placeholder: 'DD/MM/YYYY', class:'datepicker width', data: {id: '4', profil_form_target: 'input',
       controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years}}, readonly: true %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='4'></i>
       <button type="submit"  class="btn btn-submit d-none">
@@ -41,7 +41,7 @@
       </button>
     </div>
     <div class="input-wrapper">
-      <%= f.input :birth_city , input_html: {data: {target: 'profil-form.birthCity', id: '5'}}, readonly: true %>
+      <%= f.input :birth_city , input_html: {data: {profil_form_target: 'birthCity', id: '5'}}, readonly: true %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='5'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>
