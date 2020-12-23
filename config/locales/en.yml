@@ -1,9 +1,4 @@
 en:
-  activerecord:
-    attributes:
-      billing:
-        iban: 'IBAN'
-        bic: 'BIC'
   flashes:
     global_failure: 'An error has occured'
     not_allowed: "You are not allowed to see this page"
@@ -387,3 +382,8 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  activerecord:
+    attributes:
+      billing:
+        iban: 'IBAN'
+        bic: 'BIC'
