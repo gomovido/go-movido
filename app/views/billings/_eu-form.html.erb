@@ -9,7 +9,7 @@
         <%= f.input :bic, class:'form-control', placeholder: "MISYGB22EXE", required: true, label: t('step.billing.form.label.bic'), input_html: {data: { subscription_target: 'bicInput' , action: 'change->subscription#enableButton'}} %>
         <%= f.input :bank, required: true, label: t('step.billing.form.label.bank'), readonly: true, hint: t('step.billing.form.hint.bank'), class:'form-control', input_html: {data: {subscription_target: 'bankInput' }} %>
        <hr>
-        <%= f.input :address, required: true, label: t('step.billing.form.label.billing_address'), input_html: { class:'form-control', placeholder: "Enter your billing address here", data: {subscription_target: 'billingAddressInput', action: "change->subscription#enableButton"}} %>
+        <%= f.input :address, required: true, label: t('step.billing.form.label.billing_address'), input_html: { class:'form-control', placeholder: t('step.billing.form.label.billing_address'), data: {subscription_target: 'billingAddressInput', action: "change->subscription#enableButton"}} %>
       </div>
       <% if @subscription.product.is_mobile? && !@subscription.product.sim_needed %>
         <%= render 'billings/actions/mobile_no_sim', f: f%>

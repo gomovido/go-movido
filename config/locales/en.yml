@@ -1,4 +1,9 @@
 en:
+  activerecord:
+    attributes:
+      billing:
+        iban: 'IBAN'
+        bic: 'BIC'
   flashes:
     global_failure: 'An error has occured'
     not_allowed: "You are not allowed to see this page"
@@ -270,6 +275,7 @@ en:
           door: 'Door'
           gate_code: 'Gate code'
           delivery_address: 'Delivery address'
+          delivery_address_wifi: 'Box delivery address'
         hint:
           address: 'You can change this field in your profil'
     billing:
@@ -279,7 +285,7 @@ en:
         button:
           next: 'Confirm'
           back: 'Back to details'
-        placeholder: 'enter your %{placeholder}'
+        placeholder: 'Enter your %{placeholder}'
         label:
           iban: 'IBAN'
           bic: 'BIC'

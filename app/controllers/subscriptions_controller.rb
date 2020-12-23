@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
   def create
     return if subscription_draft?(@product)
     return if subscription_active?(@product)
-    ##return if active_address_do_not_exist?(@product)
+    return if active_address_do_not_exist?(@product)
     @subscription = Subscription.new
     @subscription.address = current_user.active_address
     @subscription.product = @product
