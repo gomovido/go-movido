@@ -2,7 +2,7 @@
   <span class="title d-flex justify-content-between mb-3"><%= t('filter.title') %><i class="fas fa-sort-amount-down-alt"></i></span>
   <hr>
   <%= search_form_for @q, data: {controller: 'range-slider'} do |f| %>
-  <%= f.hidden_field :currency, value: products.first.sim_card_price.currency.symbol, data: {target: 'range-slider.currency'} %>
+  <%= f.hidden_field :currency, value: products.first.sim_card_price.currency.symbol, data: {range_slider_target: 'currency'} %>
   <%= f.hidden_field :category_id, value: products.first.category.slug %>
   <div class="filter-wrapper mb-3">
     <div class="round mb-2">
@@ -23,7 +23,7 @@
   </div>
   <div class="form-base filter-wrapper my-2 d-flex flex-column justify-content-between">
     <span class="price-label"><%= t('filter.by_price') %></span>
-    <div id="slider-range" data-target="range-slider.input" onclick="document.getElementById('product_search').submit();"></div>
+    <div id="slider-range" data-range-slider-target="input" onclick="document.getElementById('product_search').submit();"></div>
     <div class="d-flex justify-content-around align-items-center">
       <%= f.text_field :price_gteq, class:'pl-4', value: 1, placeholder: 'min' %>
       <%= f.text_field :price_lteq, class:'pl-4', value: 50, placeholder: 'max'  %>
