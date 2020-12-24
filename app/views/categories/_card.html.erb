@@ -4,19 +4,19 @@
   <div class="details-wrapper w-100">
     <div class="d-flex flex-column p-2 h-100 justify-content-between">
       <div class="summary d-flex justify-content-between mb-1">
-        <span><strong><%= t( 'category.' + category.sku + '.' + category.name) %></strong></span>
-        <span><%= t( 'category.time', time: category.form_timer) %></span>
+        <span><strong><%= t( 'pages.dashboard_index.' + category.sku + '.name') %></strong></span>
+        <span><%= t( 'pages.dashboard_index.time', time: category.form_timer) %></span>
       </div>
       <div class="description d-flex flex-column">
 
-        <span class="subtitle"><%= t( 'category.' + category.sku + '.' + category.description) %></span>
+        <span class="subtitle"><%= t( 'pages.dashboard_index.' + category.sku + '.description') %></span>
       </div>
       <div class="links d-flex justify-content-end align-items-center mt-2">
         <div class="offers d-flex align-items-center w-100 justify-content-between">
           <% if category.open %>
             <span><%= Product.where(category: category, country: current_user.country).count %> offers in <%= current_user.country %></span>
           <% else %>
-            <span class="coming-soon">Coming soon !</span>
+            <span class="coming-soon"><%= t('pages.dashboard_index.coming_soon') %></span>
           <% end %>
           <%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-2') %>
         </div>

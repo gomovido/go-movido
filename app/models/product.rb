@@ -36,4 +36,8 @@ class Product < ApplicationRecord
   def format_sim_card_price
     self.sim_card_price_currency == 'GBP' ? self.sim_card_price.currency.symbol + '' + self.sim_card_price.to_i.to_s : self.sim_card_price.to_i.to_s + '' + self.sim_card_price.currency.symbol
   end
+
+  def format_setup_price
+    self.sim_card_price_currency == 'GBP' ? self.sim_card_price.currency.symbol + '' + self.setup_price.to_i.to_s : self.setup_price.to_i.to_s + '' + self.sim_card_price.currency.symbol
+  end
 end

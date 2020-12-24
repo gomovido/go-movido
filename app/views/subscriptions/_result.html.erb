@@ -1,97 +1,97 @@
 <div class="col-md-6 offset-md-3 mb-2">
   <div class="form-base">
     <div class="simple_form d-flex flex-column">
-      <div class="form-inputs-wrapper mb-2">
+      <div class="mb-2">
         <div class="name-fields d-flex justify-content-between">
           <div class="form-group">
-            <label><%= t('step.summary.form.label.provider') %></label>
+            <label><%= t('activerecord.attributes.product.company') %></label>
             <input class="form-control" disabled value="<%= subscription.product.company %>"></input>
           </div>
           <div class="form-group">
-            <label><%= t('step.summary.form.label.plan') %></label>
+            <label><%= t('activerecord.attributes.product.name') %></label>
             <input class="form-control" disabled value="<%= subscription.product.name %>"></input>
           </div>
         </div>
         <% if subscription.sim %>
           <div class="form-group">
-            <label><%= t('step.summary.form.label.sim_card') %></label>
+            <label><%= t('activerecord.attributes.subscription.sim') %></label>
             <input class="form-control" disabled value="<%= subscription.sim %>"></input>
           </div>
         <% end %>
         <div class="name-fields d-flex justify-content-between">
           <div class="form-group">
-            <label><%= t('step.summary.form.label.name') %></label>
+            <label><%= t('activerecord.attributes.user.first_name') %></label>
             <input class="form-control" disabled value="<%= subscription.address.user.first_name %>">
             </input>
           </div>
           <div class="form-group">
-            <label><%= t('step.summary.form.label.surname') %></label>
+            <label><%= t('activerecord.attributes.user.last_name') %></label>
             <input class="form-control" disabled value="<%= subscription.address.user.last_name %>">
             </input>
           </div>
         </div>
         <div class="form-group">
-          <label><%= t('step.summary.form.label.email') %></label>
+          <label><%= t('activerecord.attributes.user.email') %></label>
           <input class="form-control" disabled value="<%= subscription.address.user.email %>">
           </input>
         </div>
         <div class="form-group">
-          <label><%= t('step.summary.form.label.address') %></label>
+          <label><%= t('activerecord.attributes.address.street') %></label>
           <input class="form-control" disabled value="<%= subscription.address.street %>">
           </input>
         </div>
         <div class="form-group">
-          <label><%= t('step.summary.form.label.billing_address') %></label>
+          <label><%= t('activerecord.attributes.billing.address') %></label>
           <input class="form-control" disabled value="<%= subscription.billing.address %>">
           </input>
         </div>
         <% if subscription.delivery_address %>
           <div class="form-group">
-            <label><%= t('step.summary.form.label.delivery_address') %></label>
+            <label><%= t('activerecord.attributes.subscription.delivery_address') %></label>
             <input class="form-control" disabled value="<%= subscription.delivery_address %>">
             </input>
           </div>
         <% end %>
         <% if subscription.product.country == 'United Kingdom'%>
           <div class="form-group">
-            <label><%= t('step.summary.form.label.account_holder') %></label>
+            <label><%= t('activerecord.attributes.billing.holder_name') %></label>
             <input class="form-control" disabled value="<%= subscription.billing.holder_name %>">
             </input>
           </div>
           <div class="name-fields d-flex justify-content-between">
             <div class="form-group">
-              <label><%= t('step.summary.form.label.account_number') %></label>
+              <label><%= t('activerecord.attributes.billing.account_number') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.account_number %>">
               </input>
             </div>
             <div class="form-group">
-              <label><%= t('step.summary.form.label.banking_institution') %></label>
+              <label><%= t('activerecord.attributes.billing.bank') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.bank %>">
               </input>
             </div>
           </div>
         <% else %>
           <div class="form-group">
-            <label>IBAN</label>
+            <label><%= t('activerecord.attributes.billing.iban') %></label>
             <input class="form-control" disabled value="<%= subscription.billing.iban_prettify %>">
             </input>
           </div>
           <div class="name-fields d-flex justify-content-between">
             <div class="form-group">
-              <label>BIC</label>
+              <label><%= t('activerecord.attributes.billing.bic') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.bic %>">
               </input>
             </div>
             <div class="form-group">
-              <label><%= t('step.summary.form.label.banking_institution') %></label>
+              <label><%= t('activerecord.attributes.billing.bank') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.bank %>">
               </input>
             </div>
           </div>
         <% end %>
         <div class="form-group">
-          <label><%= t('step.summary.form.label.price') %></label>
-          <input class="form-control" disabled value="<%= subscription.product.format_price %>/month">
+          <label><%= t('activerecord.attributes.product.price') %></label>
+          <input class="form-control" disabled value="<%= subscription.product.format_price %>/ <%= t('.months') %>">
           </input>
         </div>
       </div>

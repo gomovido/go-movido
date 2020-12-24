@@ -4,26 +4,24 @@
     <div class="big-purple-bubble position-fixed d-lg-block d-none"></div>
     <div class="col-md-6 offset-md-3">
       <div class="form-base" data-controller="registration">
-        <h4 class="mb-4"><%= t('devise.registrations.complete_profil.title') %></h4>
+        <h4 class="mb-4"><%= t('.title') %></h4>
         <%= simple_form_for [@user], method: :put do |f| %>
         <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">
-          <div class="form-inputs-wrapper">
-            <%= f.input :phone,
-                  required: true,
-                  input_html: { data: { registration_target: 'phone' } } %>
-            <%= f.input :birthdate, as: :string,
-                     required: true,
-                     input_html: { placeholder: 'DD/MM/YYYY', class:'background-white datepicker p-xs-0 ml-xs-2', data: {
-                      controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years} } %>
-            <%= f.input :birth_city,
-                    required: true,
-                    input_html: {
-                      placeholder: 'Paris, 17eme arrondissement, France',
-                      data: {
-                        registration_target: 'cityInput'}} %>
-          </div>
+        <%= f.input :phone,
+              required: true,
+              input_html: { data: { registration_target: 'phone' } } %>
+        <%= f.input :birthdate, as: :string,
+                 required: true,
+                 input_html: { placeholder: 'DD/MM/YYYY', class:'background-white datepicker p-xs-0 ml-xs-2', data: {
+                  controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years} } %>
+        <%= f.input :birth_city,
+                required: true,
+                input_html: {
+                  placeholder: 'Paris, 17eme arrondissement, France',
+                  data: {
+                    registration_target: 'cityInput'}} %>
         <div class="mt-4">
-          <%= f.button :submit, t('devise.registrations.complete_profil.button'), class:'btn-main w-100' %>
+          <%= f.button :submit, t('.button'), class:'btn-main w-100' %>
         </div>
         <% end %>
       </div>

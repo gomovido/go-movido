@@ -1,10 +1,10 @@
 <div class="col-12 subscriptions-addresses-container fade tab-pane show active" id="pills-subscriptions" role="tabpanel">
   <div class="subscriptions-wrapper">
       <div class="headers d-flex px-2 mb-3 align-items-center justify-content-between">
-        <span class="header column"><%= t('user.subscription.table.provider') %></span>
-        <span class="header column d-lg-block d-none"><%= t('user.subscription.table.service') %></span>
-        <span class="header column"><%= t('user.subscription.table.status') %></span>
-        <span class="header column"><%= t('user.subscription.table.rate') %></span>
+        <span class="header column"><%= t('.provider') %></span>
+        <span class="header column d-lg-block d-none"><%= t('.service') %></span>
+        <span class="header column"><%= t('.status') %></span>
+        <span class="header column"><%= t('.rate') %></span>
         <span class="header column">Actions</span>
       </div>
       <%= render 'subscription-details'%>
@@ -15,7 +15,7 @@
           <% end %>
         <% end %>
         <% if current_user.user_subscriptions_country.blank?  %>
-          <%= link_to t('user.subscription.table.see_offers'), dashboard_index_path, class: "btn-main" %>
+          <%= link_to t('.see_offers'), dashboard_index_path, class: "btn-main" %>
         <% end %>
       </div>
   </div>

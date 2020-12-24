@@ -1,0 +1,20 @@
+<section id="why-us">
+  <div class="container pt-2">
+    <div class="row">
+      <div class="col-md-6 sm-12 d-flex flex-column justify-content-center">
+        <div class="main-title">
+          <h1><%= t('.title').html_safe %></h1>
+        </div>
+        <div class="why-cards-wrapper d-flex flex-column">
+            <%= render 'pages/home/why-card', img: 'fast.png', title: t('.card1.title'), desc: t('.card1.description') %>
+            <%= render 'pages/home/why-card', img: 'simple.png', title: t('.card2.title'), desc: t('.card2.description') %>
+            <%= render 'pages/home/why-card', img: 'smart.png', title: t('.card3.title'), desc: t('.card3.description') %>
+            <%= render 'pages/home/why-card', img: 'free.png', title: t('.card4.title'), desc: t('.card4.description') %>
+        </div>
+      </div>
+      <div class="col-md-6 d-lg-block d-none">
+        <%= image_tag(asset_path('iphone.png')) %>
+      </div>
+    </div>
+  </div>
+</section>
