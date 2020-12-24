@@ -43,9 +43,19 @@
       outline: none;
       box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.24)  !important;
     }
+    &:first-child {
+      text-align: left !important;
+    }
+    &:last-child {
+      text-align: right !important;
+    }
   }
   .noUi-connect, .noUi-target {
     height: 6px;
+  }
+  .price-input {
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .noUi-connect {
@@ -74,6 +84,6 @@
   }
 
   .filter-wrapper.d-flex {
-    height: 270px;
+    height: 200px;
   }
 }
