@@ -16,8 +16,8 @@
   <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around">
     <div class="pricing d-flex flex-column align-items-center ">
       <span class='price text-center'><%= @product.format_price %></span>
-      <span class="sub-price text-center">per month</span>
-      <%= link_to 'Select', category_product_subscriptions_path(@product.category, @product), class:'btn-main mt-3', method: :post %>
+      <span class="sub-price text-center"><%= t('.month') %></span>
+      <%= link_to t('.cta'), category_product_subscriptions_path(@product.category, @product), class:'btn-main mt-3', method: :post %>
       </div>
       <div class="features-lite-wrapper">
         <div class="feature-lite d-flex justify-content-between">

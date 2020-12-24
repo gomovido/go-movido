@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_subscription, only: [:update_subscription_address, :update]
+  before_action :set_subscription, only: [:edit, :update]
 
   def new
     @address = Address.new
@@ -21,7 +21,7 @@ class AddressesController < ApplicationController
     end
   end
 
-  def update_subscription_address
+  def edit
     return if active_address_do_not_exist?(@subscription.product)
     redirect_to subscription_complete_profil_path(@subscription) if !current_user.is_complete?
   end
@@ -31,7 +31,7 @@ class AddressesController < ApplicationController
     if @subscription.update(subscription_params)
       redirect_to new_subscription_billing_path(@subscription)
     else
-      render :update_subscription_address
+      render :edit
     end
   end
 

@@ -1,0 +1,18 @@
+<section id="how-it-works">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='main-title text-center mb-5'>
+          <h1><%= t('.title') %></h1>
+        </div>
+      </div>
+      <%= render 'pages/home/explanation-card', img: 'select-service.png', title: t('.card1.title'), desc: t('.card1.description') %>
+      <%= render 'pages/home/explanation-card', img: 'compare.png', title: t('.card2.title'), desc: t('.card2.description') %>
+      <%= render 'pages/home/explanation-card', img: 'choose.png', title: t('.card3.title'), desc: t('.card3.description') %>
+      <%= render 'pages/home/explanation-card', img: 'manage.png', title: t('.card4.title'), desc: t('.card4.description') %>
+      <div class="col-md-12 d-lg-flex d-none justify-content-center mt-5">
+        <%= link_to t('.start'), new_user_registration_path, class:'btn btn-main' %>
+      </div>
+    </div>
+  </div>
+</section>

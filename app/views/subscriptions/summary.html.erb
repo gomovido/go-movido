@@ -3,12 +3,12 @@
   <figure class="big-purple-bubble position-absolute d-lg-block d-none"></figure>
   <div class="row d-flex align-center justify-content-center flex-column">
     <div class="col-md-12">
-      <%= render 'steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('steps.confirmation'), subtitle: t('steps.confirmation_subtitle').html_safe, total_steps: @subscription.product.total_steps %>
+      <%= render 'steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('.title'), subtitle: t('.subtitle').html_safe, total_steps: @subscription.product.total_steps %>
     </div>
     <%= render 'result', subscription: @subscription %>
     <div class="col-md-6 offset-md-3 mb-5 d-flex flex-column">
-      <%= link_to t('step.billing.form.button.next'), validate_subscription_path(@subscription), method: :patch, class: 'btn-main mb-3 text-center'%>
-      <%= link_to t('step.billing.form.button.back'), new_subscription_billing_path(@subscription), class: 'btn-exit' %>
+      <%= link_to t('.next'), validate_subscription_path(@subscription), method: :patch, class: 'btn-main mb-3 text-center'%>
+      <%= link_to t('.back'), new_subscription_billing_path(@subscription), class: 'btn-exit' %>
     </div>
   </div>
 </div>

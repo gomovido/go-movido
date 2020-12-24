@@ -1,0 +1,14 @@
+<section>
+  <div class="container mt-5">
+    <div class="services-cards-wrapper">
+      <div class="row">
+        <%=  render 'pages/home/service-card', picto: 'housing.png', title: t('pages.dashboard_index.housing.name'), description: t('.housing') %>
+        <%=  render 'pages/home/service-card', picto: 'bank.png', title: t('pages.dashboard_index.bank.name'), description: t('.bank') %>
+        <%=  render 'pages/home/service-card', picto: 'mobile.png', title: t('pages.dashboard_index.mobile_phone.name'), description: t('.mobile') %>
+        <%=  render 'pages/home/service-card', picto: 'wifi.png', title: t('pages.dashboard_index.wifi.name'), description: t('.wifi') %>
+        <%=  render 'pages/home/service-card', picto: 'gym.png', title: t('pages.dashboard_index.gym.name'), description: t('.gym') %>
+        <%=  render 'pages/home/service-card', picto: 'transportation.png', title: t('pages.dashboard_index.transportation.name'), description: t('.transportation') %>
+      </div>
+    </div>
+  </div>
+</section>

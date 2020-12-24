@@ -1,11 +1,5 @@
-# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
 en:
   devise:
-    confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -31,6 +25,10 @@ en:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      new:
+        confirm: 'Confirm'
+        title: 'Forgot your password ?'
+        placeholder: 'Enter your e-mail'
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
@@ -45,20 +43,51 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
+      new:
+        facebook: "Sign up with Facebook"
+        google: "Sign up with Google"
+        or: "Or"
+        login: 'Login'
+        title_left: 'Welcome back <br> in movido'
+        title_right: 'Sign In'
+        subtitle: 'movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things'
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+    registrations:
+      new:
+        title_left: 'Welcome to <br>movido'
+        title_right: 'Register'
+        subtitle: "Sign up now and let movido deal with your admin work"
+        facebook: "Sign up with Facebook"
+        google: "Sign up with Google"
+        or: "Or"
+        register: 'Sign-up'
+      edit:
+        title: 'My credentials'
+        update: 'Update'
+        delete: 'Delete account'
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
-  errors:
-    messages:
-      already_confirmed: "was already confirmed, please try signing in"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
-      not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+    shared:
+      links:
+        already_account: 'Already have an account?'
+        no_account: "Don't have an account yet?"
+        login: 'Log in'
+        sign_up: 'Sign up'
+        sign_in: 'Sign in'
+        forgot_password: 'Forgot your password?'
+        confirmation_instruction: "Didn't receive confirmation instructions?"
+        unlock_instruction: "Didn't receive unlock instructions?"
+    errors:
+      messages:
+        already_confirmed: "was already confirmed, please try signing in"
+        confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+        expired: "has expired, please request a new one"
+        not_found: "not found"
+        not_locked: "was not locked"
+        not_saved:
+          one: "1 error prohibited this %{resource} from being saved:"
+          other: "%{count} errors prohibited this %{resource} from being saved:"

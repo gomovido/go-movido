@@ -1,36 +1,34 @@
 <div class="container registration-container py-3">
   <div class="row">
     <div class="col-md-7 position-relative mt-5">
-      <h1><%= t('.title').html_safe %></h1>
+      <h1><%= t('.title_left').html_safe %></h1>
       <p><%= t('.subtitle').html_safe %></p>
       <figure class="big-blue-bubble position-absolute"></figure>
     </div>
     <div class="col-md-5">
       <div class="form-base">
-        <h4 class="mb-4"><%= t('form.shared_links.sign_up') %></h4>
+        <h4 class="mb-4"><%= t('.title_right') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <div class="form-inputs-wrapper">
-            <%= f.input :email, label: 'E-mail',
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email", placeholder: 'john.doe@sorbonne-universite.fr'}%>
-            <div class="name-fields d-flex justify-content-between">
-              <%= f.input :first_name,
-                        required: true,
-                        input_html: { placeholder: 'John' }%>
-              <%= f.input :last_name,
-                        required: true,
-                        input_html: { placeholder: 'Doe' }%>
-            </div>
-            <%= f.input :password,
-                  required: true,
-                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')}%>
-            <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password", placeholder: t('form.placeholder.password')} %>
-          </div>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", placeholder: 'john.doe@sorbonne-universite.fr'}%>
+        <div class="name-fields d-flex justify-content-between">
+          <%= f.input :first_name,
+                    required: true,
+                    input_html: { placeholder: 'John' }%>
+          <%= f.input :last_name,
+                    required: true,
+                    input_html: { placeholder: 'Doe' }%>
+        </div>
+        <%= f.input :password,
+              required: true,
+              input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password')}%>
+        <%= f.input :password_confirmation,
+              required: true,
+              input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
         <div class="mt-4">
-          <%= f.button :submit, t('form.label.register'), class:'btn-main w-100' %>
+          <%= f.button :submit, t('.register'), class:'btn-main w-100' %>
         </div>
         <% end %>
       </div>

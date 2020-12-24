@@ -11,17 +11,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to t('navbar.links.about_us'), "#", class: "nav-link" %>
+        <%= link_to t('.about_us'), "#", class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to t('navbar.links.how_it_works'), "#how-it-works", class: "nav-link" %>
+        <%= link_to t('.how_it_works'), "#how-it-works", class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to t('navbar.links.login'), new_user_session_path, class: "nav-link" %>
+        <%= link_to t('.login'), new_user_session_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center justify-content-between" do %>
-          <span><%= t('navbar.links.get_started') %></span><%= image_tag(asset_path('btn-arrow-right.png')) %>
+          <span><%= t('.get_started') %></span><%= image_tag(asset_path('btn-arrow-right.png')) %>
         <% end %>
       </li>
     </ul>
