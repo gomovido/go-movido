@@ -4,7 +4,7 @@ fr:
     not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
     complete_profile: "Vous devez compléter votre profil pour continuer"
     existing_subscription: "Vous avez déjà cet abonnement"
-    wrong_country: "Merci de créer une adresse à %{country}"
+    wrong_country: "Merci de créer une adresse en %{country}"
   footer:
     about: "À propos"
     contact: "Contact"
@@ -33,7 +33,9 @@ fr:
     attributes:
       billing:
         account_number: 'Numéro de compte'
-        bank: 'Nom de votre banque'
+        iban: 'IBAN'
+        bic: 'BIC'
+        bank: 'Banque'
         address: 'Adresse de facturation'
       user:
         first_name: "Prénom"
@@ -47,20 +49,26 @@ fr:
         password_confirmation: 'Confirmation du mot de passe'
         current_password: 'Mot de passe actuel'
       address:
-        street: 'Adresse'
+        street: "Adresse"
       subscription:
         delivery_address: 'Adresse de livraison'
     errors:
       models:
+        subscription:
+          attributes:
+            delivery_address:
+              blank: "doit être remplie"
         billing:
           attributes:
             account_number:
               blank: "doit être rempli"
+            address:
+              blank: "doit être remplie"
   category:
     title: "Selectionnez les services dont vous avez besoin"
     subtitle: "Mon adresse"
     new_address: "Ajouter une adresse"
-
+    time: 'En %{time} minutes'
     mobile_phone:
       mobile: "Téléphonie"
       subtitle: "Obtenez votre numéro de mobile local "
@@ -152,17 +160,17 @@ fr:
     unlimited_data: 'Données illimitées'
     unlimited_call: 'Appel illimité'
     no_contract: 'Sans engagement'
-    contract_only: 'Avec engagment seulement'
+    contract_only: 'Avec engagement'
     by_price: 'Filtrer par prix'
   steps:
     choose_offer: 'Choisissez votre offre'
-    choose_offer_subtitle: 'Nous avons choisi les meilleurs partenaires pour votre futur chez vous'
+    choose_offer_subtitle: 'Nous avons sélectionné les meilleures offres pour votre futur chez vous'
     more_details: "Nous avons besoin de quelques informations"
     more_details_subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
     confirmation: "Confirmez vos informations"
     confirmation_subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Revenez en arriere pour modifier les détails "
     payment: 'Paiement de votre carte SIM'
-    payment_subtitle: "Votre carte SIM coûte %{price}%{currency}. <br> Nous acceptons Visa & Master Card"
+    payment_subtitle: "Votre carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
     congratulations: 'Tout est prêt 👏'
     congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
     mobile_phone:
@@ -172,7 +180,7 @@ fr:
       step_3: 'Paiement'
     wifi:
       step_0: 'Choisissez votre offre'
-      step_1: 'Logement'
+      step_1: 'Votre logement'
       step_2: 'Facturation'
       step_3: 'Confirmation'
   step_4:
@@ -181,7 +189,7 @@ fr:
   form:
     failure:
       check_country: 'vous devez sélectionner une adresse dans le même pays'
-      country: "a besoin d'être en %{country}"
+      country: "doit être une adresse en %{country}"
     label:
       first_name: 'Prénom'
       last_name: 'Nom'
@@ -286,7 +294,7 @@ fr:
       form:
         button:
           next: 'Suivant'
-          back: 'Revenir'
+          back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
         label:
           address: 'Adresse'
@@ -296,6 +304,7 @@ fr:
           door: 'Porte'
           gate_code: "Code d'entrée"
           delivery_address: "Adresse de livraison"
+          delivery_address_wifi: "Adresse de livraison de votre box internet"
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"
     billing:
@@ -364,6 +373,7 @@ fr:
         facebook: "Se connecter avec Facebook"
         google: "Se connecter avec Google"
         form_title: 'Se connecter'
+        or: 'Ou'
     passwords:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
       updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
@@ -398,17 +408,12 @@ fr:
         you_can_confirm_your_account_through_the_link_below: "Vous pouvez confirmer votre compte via le lien ci-dessous"
         confirm_my_account: "Confirmer mon compte"
       reset_password_instructions:
-        # For "Someone has requested a link to change your password, and you can do this through the link below."
         reset_password_instruction: "Quelqu'un a demandé un lien pour changer votre mot de passe. Vous pouvez le faire via le lien ci-dessous."
         change_my_password: "Changer mon mot de passe"
-        # For "If you didn't request this, please ignore this email."
         wrong_request_instruction: "Si vous n'avez pas demandé ce changement, ignorez ce message."
-        # For "Your password won't change until you access the link above and create a new one."
         unchange_password_message: "Votre mot de passe ne sera pas changé tant vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
       unlock_instructions:
-        # For "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
         locked_account_message: "Votre compte est verrouillé car vous avez échoué lors de votre identification trop de fois."
-        # For "Click the link below to unlock your account"
         unlock_account_instruction: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
         unlock_my_account: "Déverrouiller mon compte"
     passwords:
@@ -418,21 +423,19 @@ fr:
       new:
         send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
     registrations:
-
       new:
         title: "Bienvenue sur <br>movido"
         subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
         facebook: "S'inscrire avec Facebook"
         google: "S'inscrire avec Google"
+        or: 'Ou'
       complete_profil:
         title: 'Veuillez compléter votre profil 👌'
         button: 'Continuer'
       edit:
         title: "Mes informations d'accès"
         edit: "Modifier"
-        # For "leave blank if you don't want to change it"
         password_instruction: "Ne pas remplir si vous ne voulez pas le changer"
-        # For "we need your current password to confirm your changes"
         current_password_instruction: "Vous devez remplir votre mot de passe actuel pour confirmer les modifications"
         update: "Mettre à jour"
         cancel_my_account: "Annuler mon compte"

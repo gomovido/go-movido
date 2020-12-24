@@ -5,7 +5,7 @@
     <div class="d-flex flex-column p-2 h-100 justify-content-between">
       <div class="summary d-flex justify-content-between mb-1">
         <span><strong><%= t( 'category.' + category.sku + '.' + category.name) %></strong></span>
-        <span><%= category.form_timer %> minutes to go</span>
+        <span><%= t( 'category.time', time: category.form_timer) %></span>
       </div>
       <div class="description d-flex flex-column">
 

@@ -5,7 +5,7 @@
   <div class="small-blue-bubble position-absolute"></div>
   <div class="row">
     <div class="col-md-12 text-center d-flex align-items-center justify-content-center flex-column">
-      <h1 class="title"><%= t('category.title') %></h1>
+      <h1 class="title mb-4"><%= t('category.title') %></h1>
       <span class="subtitle"><%= t('category.subtitle') %></span>
       <div class="address-input d-flex align-items-center m-3">
         <span class="px-5"><%= truncate(current_user.active_address.street, :length => 70) %></span>
@@ -16,7 +16,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 categories-cards-wrapper d-flex flex-column align-items-center mt-5">
-      <% @categories.order(open: :desc).each_with_index do |category, index| %>
+      <% @categories.each_with_index do |category, index| %>
         <%=  render 'categories/card', category: category, index: index %>
       <% end %>
     </div>

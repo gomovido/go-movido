@@ -5,7 +5,7 @@
       <span class="<%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t("user.subscription.card.#{subscription.state}") %></span><br>
       <span class=" date"><%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
   </div>
-  <span class="price column"><strong><%= subscription.product.price %><%= subscription.product.sim_card_price.currency.symbol %> <br> </strong>/<%= t("user.subscription.card.months") %></span>
+  <span class="price column"><strong><%= subscription.product.format_price %><br> </strong>/<%= t("user.subscription.card.months") %></span>
   <% if subscription.state == 'draft' %>
     <% if subscription.product.is_mobile? %>
       <%= link_to t('user.subscription.card.cta.resume'), new_subscription_billing_path(subscription), class: 'action column' %>

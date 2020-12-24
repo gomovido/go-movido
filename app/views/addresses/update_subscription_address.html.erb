@@ -28,7 +28,7 @@
           <% end %>
           <hr>
           <div class="form-inputs-wrapper">
-            <label for="delivery_address" class="mb-3"><%= t('step.address.form.label.delivery_address') %></label>
+            <label for="delivery_address" class="mb-3"><%= t('step.address.form.label.delivery_address_wifi') %></label>
             <%= f.input :delivery_address, label: false, class:'form-control', input_html: {data: {wifi_subscription_target: 'delivery', country: @subscription.product.country}} %>
           </div>
           <div class="actions d-flex flex-column mt-5">

@@ -5,13 +5,14 @@ import iban_to_bank from '../packs/iban_to_bank'
 export default class extends Controller {
   static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
   static classes = [ "hide", "disabled" ]
+  static values = { locale: String }
   connect() {
     addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
       this.deliveryAddressInputTarget.value = e.suggestion.value;
       this.enableButton();
     });
     $('[data-toggle="tooltip"]').tooltip();
-    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value);
+    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
   }
 
   stepForward() {
@@ -27,7 +28,7 @@ export default class extends Controller {
   }
 
   fillBank() {
-    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value);
+    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
     this.enableButton();
   }
 

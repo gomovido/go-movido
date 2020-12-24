@@ -11,11 +11,9 @@ class BillingsController < ApplicationController
     end
   end
 
-  def new_uk
-  end
+  def new_uk; end
 
-  def new_europe
-  end
+  def new_europe; end
 
   def create
     @billing = Billing.new
