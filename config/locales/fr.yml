@@ -1,4 +1,7 @@
 fr:
+  country:
+    united_kingdom: 'Royaume Uni'
+    france: 'France'
   flashes:
     global_failure: 'Oups, il y a un problème'
     not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
