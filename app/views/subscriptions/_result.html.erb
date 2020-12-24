@@ -91,7 +91,7 @@
         <% end %>
         <div class="form-group">
           <label><%= t('step.summary.form.label.price') %></label>
-          <input class="form-control" disabled value="<%= subscription.product.price %><%= subscription.product.sim_card_price.currency.symbol %>/month">
+          <input class="form-control" disabled value="<%= subscription.product.format_price %>/month">
           </input>
         </div>
       </div>

@@ -10,9 +10,8 @@
         <h4 class="mb-4"><%= t('form.shared_links.sign_in') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs-wrapper">
-            <%= f.input :email,
+            <%= f.input :email, label: 'E-mail',
               required: true,
-              label: t('form.label.email'),
               autofocus: true,
               input_html: { autocomplete: "email" } %>
             <%= f.input :password,

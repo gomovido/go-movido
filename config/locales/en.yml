@@ -33,6 +33,7 @@ en:
     title: 'Select the services you need'
     subtitle: 'My current address'
     new_address: 'Add a new address'
+    time: '%{time} minutes to go'
     mobile_phone:
       mobile: 'Mobile'
       subtitle: 'Get your local mobile phone number'
@@ -133,7 +134,7 @@ en:
     confirmation: 'Please confirm your details'
     confirmation_subtitle: "Make sure the information is correct. <br>It will not be able to be modified afterwards"
     payment: 'Pay for your SIM card'
-    payment_subtitle: "Your SIM card cost %{price}%{currency}. <br> We accept Visa & Master Card"
+    payment_subtitle: "Your SIM card cost %{price}. <br> We accept Visa & Master Card"
     congratulations_subtitle: "You will receive a confirmation email with your purchase summary within 24h.  <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
     congratulations: 'Everything is setup 👏'
     mobile_phone:
@@ -269,6 +270,7 @@ en:
           door: 'Door'
           gate_code: 'Gate code'
           delivery_address: 'Delivery address'
+          delivery_address_wifi: 'Box delivery address'
         hint:
           address: 'You can change this field in your profil'
     billing:
@@ -278,7 +280,7 @@ en:
         button:
           next: 'Confirm'
           back: 'Back to details'
-        placeholder: 'enter your %{placeholder}'
+        placeholder: 'Enter your %{placeholder}'
         label:
           iban: 'IBAN'
           bic: 'BIC'
@@ -342,6 +344,7 @@ en:
         subtitle: "Sign up now and let movido deal with your admin work"
         facebook: "Sign up with Facebook"
         google: "Sign up with Google"
+        or: "Or"
       complete_profil:
         title: 'Please complete your profil 👌'
         button: 'Continue'
@@ -364,6 +367,7 @@ en:
         subtitle: 'movido will help you set-up all you need for your new home – from <br>your mobile account to your gym abo – before you move to give <br>you time to focus on the really important things'
         facebook: "Sign in with Facebook"
         google: "Sign in with Google"
+        or: "Or"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
@@ -378,3 +382,8 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  activerecord:
+    attributes:
+      billing:
+        iban: 'IBAN'
+        bic: 'BIC'

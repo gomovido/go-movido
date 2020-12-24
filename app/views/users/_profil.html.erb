@@ -17,7 +17,7 @@
     </div>
   </div>
     <div class="input-wrapper">
-      <%= f.input :email, readonly: true, input_html: {data: {id: '2', profil_form_target: 'input'}} %>
+      <%= f.input :email, readonly: true, label: 'E-mail', input_html: {data: {id: '2', profil_form_target: 'input'}} %>
       <i class="far fa-edit d-block d-md-none" data-action='click->profil-form#toggleInput' data-id='2'></i>
       <button type="submit"  class="btn btn-submit d-none">
         <i class="fas fa-check"></i>

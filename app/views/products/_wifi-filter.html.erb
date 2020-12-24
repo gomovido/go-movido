@@ -1,5 +1,5 @@
 <div class="filters-container d-lg-flex flex-column d-none">
-  <span class="title d-flex justify-content-between mb-3"><%= t('filter.title') %><i class="fas fa-sort-amount-down-alt"></i></span>
+  <span class="title mb-3"><%= t('filter.title') %></span>
   <hr>
   <%= search_form_for @q, data: {controller: 'range-slider'} do |f| %>
   <%= f.hidden_field :currency, value: products.first.sim_card_price.currency.symbol, data: {range_slider_target: 'currency'} %>

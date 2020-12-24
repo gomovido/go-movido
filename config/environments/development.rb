@@ -1,7 +1,10 @@
 Rails.application.configure do
+  config.action_cable.url = "ws://localhost:3000/cable"
+
+  config.action_cable.allowed_request_origins = [/http:\/\/*/,
+  /https:\/\/*/]
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   config.action_mailer.delivery_method = :letter_opener
-  config.hosts << /[a-z0-9.]+.ngrok.io/
   # Settings specified here will take precedence over those in config/application.rb.
   config.session_store :cookie_store, key: "_eqipia_session_#{Rails.env}", domain: :all
 
@@ -51,7 +54,6 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
-
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
