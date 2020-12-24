@@ -23,10 +23,12 @@
   </div>
   <div class="form-base filter-wrapper my-2 d-flex flex-column justify-content-between">
     <span class="price-label"><%= t('filter.by_price') %></span>
-    <div id="slider-range" data-range-slider-target="input" onclick="document.getElementById('product_search').submit();"></div>
-    <div class="d-flex justify-content-around align-items-center">
-      <%= f.text_field :price_gteq, class:'pl-4', value: 1, placeholder: 'min' %>
-      <%= f.text_field :price_lteq, class:'pl-4', value: 50, placeholder: 'max'  %>
+    <div class="bot-box">
+      <div class="d-flex justify-content-around align-items-center">
+        <%= f.text_field :price_gteq, class:'pl-4 price-input', value: 1, placeholder: 'min' %>
+        <%= f.text_field :price_lteq, class:'pl-4 price-input', value: 50, placeholder: 'max'  %>
+      </div>
+      <div id="slider-range" data-range-slider-target="input" onclick="document.getElementById('product_search').submit();"></div>
     </div>
   </div>
   <% end %>
