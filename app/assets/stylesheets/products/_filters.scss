@@ -56,6 +56,11 @@
   .price-input {
     border: none !important;
     box-shadow: none !important;
+    margin-bottom: 4px;
+    &:focus {
+      border: none !important;
+      box-shadow: none !important;
+    }
   }
 
   .noUi-connect {

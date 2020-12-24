@@ -20,8 +20,8 @@
     <span class="price-label"><%= t('filter.by_price') %></span>
     <div class="bot-box">
       <div class="d-flex justify-content-around align-items-center">
-        <%= f.text_field :price_gteq, class:'pl-4 price-input', value: 1, placeholder: 'min' %>
-        <%= f.text_field :price_lteq, class:'pl-4 price-input', value: 50, placeholder: 'max'%>
+        <%= f.text_field :price_gteq, class:'pl-4 price-input', value: "1#{@products.first.sim_card_price.currency.symbol}", placeholder: 'min', readonly: true %>
+        <%= f.text_field :price_lteq, class:'pl-4 price-input', value: "50#{@products.first.sim_card_price.currency.symbol}", placeholder: 'max', readonly: true%>
       </div>
       <div id="slider-range" data-range-slider-target="input" onclick="document.getElementById('product_search').submit();">
       </div>
