@@ -159,7 +159,7 @@ fr:
           got_address: "J'ai une adresse"
         cta: 'Confirmer'
     edit:
-      title: 'Nous avons besoin de quelques détails supplémentaires'
+      title: 'Nous avons besoin de quelques informations supplémentaires ...'
       subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
       form:
         button:
@@ -172,8 +172,8 @@ fr:
           address: "Vous pouvez modifier ce champ dans votre profil"
   billings:
     new:
-      title: "Nous avons besoin de quelques informations"
-      subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
+      title: "On y est presque..."
+      subtitle: "Nous avons besoin de vos coordonnées bancaires pour l'option de prélèvement automatique de votre abonnement"
       form:
         button:
           next: 'Confirmer'
@@ -230,12 +230,12 @@ fr:
       months: 'mois'
     congratulations:
       title: 'Tout est prêt 👏'
-      subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
+      subtitle: "Vous recevrez un e-mail de confirmation de movido une fois votre abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
       contact_us: "Contactez nous <i class='fas fa-arrow-right ml-2'></i>"
-      wifi_cta: "Besoin d'un nouvel abonnement Wifi ? <i class='fas fa-arrow-right ml-2'></i>"
-      bank_cta: "Besoin d'un nouveau compte bancaire ? <i class='fas fa-arrow-right ml-2'></i>"
+      wifi_cta: "Il vous manque la box WiFi? <i class='fas fa-arrow-right ml-2'></i>"
+      bank_cta: "Ouvrez un compte bancaire local <i class='fas fa-arrow-right ml-2'></i>"
       community_cta: "Rejoignez notre communauté <i class='fas fa-arrow-right ml-2'></i>"
     steps:
       mobile_phone:
@@ -245,7 +245,7 @@ fr:
         step_3: 'Paiement'
       wifi:
         step_0: 'Choisissez votre offre'
-        step_1: 'Votre logement'
+        step_1: 'Détails'
         step_2: 'Facturation'
         step_3: 'Confirmation'
   users:
@@ -253,7 +253,7 @@ fr:
       title: 'Veuillez compléter votre profil 👌'
       button: 'Continuer'
     show:
-      addresses_tab: 'Adresses'
+      addresses_tab: 'Mes adresses'
       subscriptions_tab: 'Abonnements'
       profile_tab: "Mon profil"
     addresses:
