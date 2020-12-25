@@ -226,6 +226,7 @@ en:
       subtitle: "Make sure the information is correct. <br>It will not be able to be modified afterwards"
       next: 'Continue'
       back: 'Back'
+    result:
       months: 'months'
     congratulations:
       title: 'Everything is setup 👏'
@@ -244,7 +245,7 @@ en:
         step_3: 'Payment'
       wifi:
         step_0: 'Choose your offer'
-        step_1: 'Address details'
+        step_1: 'Details'
         step_2: 'Billing details'
         step_3: 'Confirmation'
   users:
@@ -252,7 +253,7 @@ en:
       title: 'Please complete your profil 👌'
       button: 'Continue'
     show:
-      addresses_tab: 'Addresses'
+      addresses_tab: 'My addresses'
       subscriptions_tab: 'Subscriptions'
       profile_tab: 'My profile'
     addresses:
