@@ -1,11 +1,11 @@
 <%= f.simple_fields_for :subscription do |s| %>
   <div class="mb-2">
       <%= s.hidden_field :id, value: @subscription.id %>
-      <%= s.input :delivery_address, required: true, placeholder: ('billings.new.form.hint.bank'), hint: t('billings.new.form.hint.delivery_address'), readonly: true, input_html: { class: 'form-control', data: {subscription_target: 'deliveryAddressInput'}} %>
+      <%= s.input :delivery_address, required: true, placeholder: t('billings.new.form.hint.bank'), hint: t('billings.new.form.hint.delivery_address'), readonly: true, input_html: { class: 'form-control', data: {subscription_target: 'deliveryAddressInput'}} %>
   </div>
    <div class="actions d-flex flex-column mt-4">
-    <span class="btn btn-main disabled mb-4" id="continueButton" data-subscription-target='continueButton' data-action="click->subscription#stepForward">Confirm</span>
-    <%= link_to 'Back', url_for(:back), class: 'btn-exit' %>
+    <span class="btn btn-main disabled mb-4" id="continueButton" data-subscription-target='continueButton' data-action="click->subscription#stepForward"><%= t('billings.new.form.button.next') %></span>
+    <%= link_to t('billings.new.form.button.back'), url_for(:back), class: 'btn-exit' %>
   </div>
 </div>
 <div class="d-none sim-wrapper" data-subscription-target="secondPart">
@@ -17,8 +17,8 @@
     <% end %>
   </div>
   <div class="actions d-flex flex-column mt-4">
-    <%= s.button :submit, 'Confirm', class: 'btn-main mb-4' %>
-    <span class="btn-exit" data-action="click->subscription#stepBackward">Back</span>
+    <%= s.button :submit, t('billings.new.form.button.next'), class: 'btn-main mb-4' %>
+    <span class="btn-exit" data-action="click->subscription#stepBackward"><%= t('billings.new.form.button.back') %></span>
   </div>
 </div>
 <% end %>
