@@ -9,38 +9,69 @@
       <div class="modal-content">
         <div class="modal-actions d-flex justify-content-around mt-5 mb-4">
           <div class="modal-left">
-            <span class="modal-title"><%= t('navbar.menu.quick_links') %></span>
-            <div class="modal-product ">
-              <%= link_to dashboard_index_path do %>
-              <div class="modal-product-infos">
-                <span><%= t('navbar.menu.dashboard.title') %></span>
-                <p><%= t('navbar.menu.dashboard.subtitle') %></p>
+            <%= link_to dashboard_index_path do %>
+              <div class="modal-product mt-0 ">
+                <div class="modal-product-infos">
+                  <span><%= t('.dashboard_title') %></span>
+                  <p><%= t('.dashboard_subtitle') %></p>
+                </div>
               </div>
-              <% end %>
-            </div>
+            <% end %>
             <hr>
-            <div class="modal-product ">
-              <div class="modal-product-infos">
-                <span>Eget bibendum rutrum</span>
-                <p>Velit consectetur euismod massa</p>
+            <%= link_to user_path(current_user) do %>
+              <div class="modal-product ">
+                <div class="modal-product-infos">
+                  <span><%= t('.subscriptions_title') %></span>
+                  <p><%= t('.subscriptions_subtitle') %></p>
+                </div>
               </div>
-            </div>
+            <% end %>
             <hr>
-            <div class="modal-product mb-1">
-              <div class="modal-product-infos">
-                <span>Eget enim</span>
-                <p>Neque elit mus enim</p>
+            <%= link_to user_path(current_user, active_tab: 'profile') do %>
+              <div class="modal-product ">
+                <div class="modal-product-infos">
+                  <span><%= t('.profile_title') %></span>
+                  <p><%= t('.profile_subtitle') %></p>
+                </div>
               </div>
-            </div>
+            <% end %>
+            <hr>
+            <%= link_to user_path(current_user, active_tab: 'addresses') do %>
+              <div class="modal-product mb-1">
+                <div class="modal-product-infos">
+                  <span><%= t('.addresses_title') %></span>
+                  <p><%= t('.addresses_subtitle') %></p>
+                </div>
+              </div>
+            <% end %>
           </div>
-          <div class="modal-right d-flex flex-column pl-5">
-            <span class="modal-title"><%= t('navbar.menu.help_center') %></span>
-            <div class="modal-product ">
+          <div class="modal-right pl-5">
+            <%= link_to dashboard_index_path do %>
+            <div class="modal-product mt-0 ">
               <div class="modal-product-infos">
-                <span>Eget bibendum rutrum</span>
-                <p>Velit consectetur euismod massa</p>
+                <span><%= t('.contact_title') %></span>
+                <p><%= t('.contact_subtitle') %></p>
               </div>
             </div>
+            <% end %>
+            <hr>
+            <%= link_to dashboard_index_path do %>
+              <div class="modal-product mt-0 ">
+                <div class="modal-product-infos">
+                  <span><%= t('.about_title') %></span>
+                  <p><%= t('.about_subtitle') %></p>
+                </div>
+              </div>
+            <% end %>
+            <hr>
+            <%= link_to dashboard_index_path do %>
+              <div class="modal-product mt-0 ">
+                <div class="modal-product-infos">
+                  <span><%= t('.support_title') %></span>
+                  <p><%= t('.support_subtitle') %></p>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-<div class="col-12 profil-form-wrapper tab-pane fade" id="pills-profile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+<div class="col-12 profil-form-wrapper tab-pane fade <%= params[:active_tab] == 'profile' ? 'show active' : '' %>" id="pills-profile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
   <%= simple_form_for @user, html: {id:"profil-form", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
   <div class="d-flex justify-content-between first-row">
     <div class="input-wrapper">

@@ -5,13 +5,13 @@
   <div class="small-blue-bubble position-absolute"></div>
   <div class="row">
     <div class="col-md-12 text-center d-flex align-items-center justify-content-center flex-column">
-      <h1 class="title mb-4"><%= t('category.title') %></h1>
-      <span class="subtitle"><%= t('category.subtitle') %></span>
+      <h1 class="title mb-4"><%= t('.title') %></h1>
+      <span class="subtitle"><%= t('.subtitle') %></span>
       <div class="address-input d-flex align-items-center m-3">
         <span class="px-5"><%= truncate(current_user.active_address.street, :length => 70) %></span>
       </div>
 
-      <%= link_to  t('category.new_address'), user_path(current_user), class:'purple' %>
+      <%= link_to  t('.new_address'), user_path(current_user, active_tab: 'addresses'), class:'purple' %>
     </div>
   </div>
   <div class="row">

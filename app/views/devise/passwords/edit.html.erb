@@ -1,28 +1,37 @@
-<h2>Change your password</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
+<div class="container registration-container mb-3 d-flex align-items-center justify-content-center">
+  <div class="bubbles">
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+    <div class="bubble small-yellow-bubble"></div>
+    <div class="bubble small-blue-bubble"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-base">
+        <h4 class="mb-4"><%= t('.title') %></h4>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :reset_password_token, as: :hidden %>
+          <%= f.full_error :reset_password_token %>
+          <%= f.input :password,
                 required: true,
                 autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirm your new password",
+          <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+          <div class="mt-4">
+            <%= f.button :submit, t('.confirm'), class:'btn-main w-100' %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
+</div>

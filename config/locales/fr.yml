@@ -1,57 +1,5 @@
 fr:
-  flashes:
-    global_failure: 'Oups, il y a un problème'
-    not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
-    complete_profile: "Vous devez compléter votre profil pour continuer"
-    existing_subscription: "Vous avez déjà cet abonnement"
-    wrong_country: "Merci de créer une adresse en %{country}"
-  footer:
-    about: "À propos"
-    contact: "Contact"
-    careers: "Carrières"
-    faq: "Support"
-    terms: "Conditions Générales"
-    cookie: "Cookies"
-    legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
-  navbar:
-    links:
-      about_us: 'À propos'
-      how_it_works: 'Comment ça marche ?'
-      login: 'Se connecter'
-      get_started: "S'inscrire"
-    dropdown:
-      profile: 'Profile'
-      account: 'Compte'
-      logout: 'Se déconnecter'
-    menu:
-      quick_links: 'Raccourcis'
-      help_center: "Centre d'aide"
-      dashboard:
-        title: 'Tableau de bord'
-        subtitle: 'Découvrez nos abonnements'
   activerecord:
-    attributes:
-      billing:
-        account_number: 'Numéro de compte'
-        iban: 'IBAN'
-        bic: 'BIC'
-        bank: 'Banque'
-        address: 'Adresse de facturation'
-      user:
-        first_name: "Prénom"
-        last_name: 'Nom'
-        birthdate: "Date de naissance"
-        birth_city: "Lieu de naissance"
-        phone: "Numéro de téléphone"
-        country: "Pays"
-        city: "Ville"
-        password: 'Mot de passe'
-        password_confirmation: 'Confirmation du mot de passe'
-        current_password: 'Mot de passe actuel'
-      address:
-        street: "Adresse"
-      subscription:
-        delivery_address: 'Adresse de livraison'
     errors:
       models:
         subscription:
@@ -64,172 +12,44 @@ fr:
               blank: "doit être rempli"
             address:
               blank: "doit être remplie"
-  category:
-    title: "Selectionnez les services dont vous avez besoin"
-    subtitle: "Mon adresse"
-    new_address: "Ajouter une adresse"
-    time: 'En %{time} minutes'
-    mobile_phone:
-      mobile: "Téléphonie"
-      subtitle: "Obtenez votre numéro de mobile local "
-      description: "Choisissez parmi une variété d’offres – du forfait sans engagement au contrat long-terme"
-    wifi:
-      wifi: "WiFi"
-      subtitle: 'Obtenez votre installation wifi à la maison'
-      description: "Choisissez parmi une variété de forfaits WiFi l'offre idéale adaptée à vos besoins"
-    housing:
-      housing: "Logement"
-      subtitle: 'Trouvez votre logement dans votre nouvelle ville'
-      description: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces"
-    bank:
-      bank: 'Compte bancaire'
-      subtitle: 'Ouvrez un nouveau compte en quelques minutes'
-      description: "Ouvrez votre compte bancaire local en ligne sans vous déplacer"
-    gym:
-      gym: 'Sport'
-      subtitle: "Cours de Yoga, Boxe ou salle de sport classique"
-      description: "Nous avons sélectionné les meilleures offres de sport dans votre ville - maintenant à vous de choisir"
-    transportation:
-      transportation: 'Transport'
-      subtitle: 'Obtenez votre carte de transports en communs'
-      description: "Dites-nous où vous allez et nous vous fournissons votre carte de transport en commun"
-    utilities:
-      utilities: 'Services publics'
-      subtitle: "Eau, électricité, gaz"
-      description: "Sélectionnez votre fournisseur et nous nous occupons de vos démarches adminstratives"
-    community:
-      community: 'Communauté'
-      subtitle: 'Rejoignez la communauté movido dans votre ville'
-      description: 'Discutez avec des étudiants du monde entier'
-  user:
-    profile:
-      title: "Mon profil"
-      current_address: 'Adresse actuelle'
-    subscription:
-      title: 'Abonnements'
-      table:
-        service: 'Service'
-        provider: 'Fournisseur'
-        rate: 'Prix'
-        start_date: 'Ouverture'
-        status: 'Statut'
-        see_offers: 'Voir les offres'
-        no_subscription: "Vous n'avez pas d'abonnements actifs"
-      card:
-        draft: 'Brouillon'
-        succeeded: 'En attente'
-        activated: 'Actif'
-        failed: 'Paiement échoué'
-        pending_processed: 'À payer'
-        months: 'mois'
-        cta:
-          resume: 'Continuer'
-          pay: 'Payer'
-          details: 'Détails'
-    address:
-      new:
-        title: "Quelle est votre adresse ?"
-        form:
-          placeholder:
-            street: "Votre nouvelle adresse"
-          label:
-            street: 'Votre adresse dans votre nouvelle ville'
-            moving_country: "Dans quel pays voyagez-vous?"
-          prompt:
-            moving_country: "Choisissez votre pays"
-          switch:
-            no_address: "Je n'ai pas encore d'adresse"
-            got_address: "J'ai une adresse"
-          cta: 'Confirmer'
-    addresses:
-      title: 'Adresses'
-      add: 'Ajouter une adresse'
-  shared:
-    cta:
-      start: "C'est parti !"
-  payment:
-    subline: 'Nous acceptons Visa & Master Card'
-    connection: 'Connexion sécurisée'
-    number: 'Numéro de carte'
-    date: "Date d'expiration"
-    legals: "En cliquant sur procéder au paiement, vous acceptez <strong>nos conditions générales</strong> ainsi que <strong>les conditons générales de Stripe.</strong>"
-    pay: "Procéder au paiement"
-  filter:
-    title: 'Filtrer les résultats'
-    subtitle: '%{product_count} offres sur %{total_product}'
-    unlimited_data: 'Données illimitées'
-    unlimited_call: 'Appel illimité'
-    no_contract: 'Sans engagement'
-    contract_only: 'Avec engagement'
-    by_price: 'Filtrer par prix'
-  steps:
-    choose_offer: 'Choisissez votre offre'
-    choose_offer_subtitle: 'Nous avons sélectionné les meilleures offres pour votre futur chez vous'
-    more_details: "Nous avons besoin de quelques informations"
-    more_details_subtitle: 'Nous avons besoin de ces informations pour activer votre souscription'
-    confirmation: "Confirmez vos informations"
-    confirmation_subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Revenez en arriere pour modifier les détails "
-    payment: 'Paiement de votre carte SIM'
-    payment_subtitle: "Votre carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
-    congratulations: 'Tout est prêt 👏'
-    congratulations_subtitle: "Vous recevrez un email content toutes les informations de votre abonnement dans les 24h. <br> Vérifiez bien votre boîte mail et gardez un oeil sur votre téléphone ! "
-    mobile_phone:
-      step_0: 'Choisir son offre'
-      step_1: 'Facturation'
-      step_2: 'Confirmation'
-      step_3: 'Paiement'
-    wifi:
-      step_0: 'Choisissez votre offre'
-      step_1: 'Votre logement'
-      step_2: 'Facturation'
-      step_3: 'Confirmation'
-  step_4:
-    title: 'Il vous suffit de payer votre carte SIM pour finaliser votre achat'
-    subtitle: 'La carte SIM coute %{price} €'
-  form:
-    failure:
-      check_country: 'vous devez sélectionner une adresse dans le même pays'
-      country: "doit être une adresse en %{country}"
-    label:
-      first_name: 'Prénom'
-      last_name: 'Nom'
-      birth_city: 'Ville de naissance'
-      birthdate: 'Date de naissance'
-      email: 'Email'
-      phone: 'Numéro de téléphone'
-      moving_country: "Pays de destination"
-      moving_city: "Ville de destination"
-      not_housed: "Je n'ai pas encore d'adresse"
-      moving_street: "Adresse de destination"
-      password: 'Mot de passe'
-      password_confirmation: 'Confirmation'
-      register: "Enregistrer"
-      login: 'Connexion'
-      remember_me: 'Se rappeler de moi'
-      current_address: 'Adresse actuelle'
-      city: 'Ville'
-    placeholder:
-      password: '6 caractères minimum'
-    shared_links:
-      already_account: "Vous avez déjà un compte ?"
-      no_account: "Vous n'avez pas de compte ?"
-      login: 'Me connecter'
-      sign_up: "Inscription"
-      sign_in: 'Se connecter'
-      forgot_password: 'Vous avez oublié votre mot de passe ?'
-      confirmation_instruction: "Vous n'avez pas reçu d'instructions de confirmation ?"
-      unlock_instruction: "Vous n'avez pas reçu d'instructions de déverrouillage ?"
+    attributes:
+      billing:
+        iban: 'IBAN'
+        bic: 'BIC'
+        address: 'Adresse de facturation'
+        holder_name: 'Propriétaire du compte'
+        account_number: 'Numéro de compte'
+        bank: 'Banque'
+      subscription:
+        delivery_address: 'Adresse de livraison'
+      address:
+        street: 'Adresse'
+        floor: 'Étage'
+        building: 'Immeuble'
+        stairs: 'Escalier'
+        door: 'Porte'
+        gate_code: "Code d'entrée"
+      product:
+        company: 'Fournisseur'
+        name: 'Service'
+        price: 'Prix'
+        sim: 'Carte SIM'
+      user:
+        first_name: 'Prénom'
+        last_name: 'Nom'
+        email: 'E-mail'
+        password: 'Mot de passe'
+        password_confirmation: 'Confirmation du mot de passe'
   pages:
-    product:
-      index:
-        title: 'Trouver les meilleurs offres de %{category}'
     home:
       banner:
         headline1: 'Installez-vous'
         headline2: 'en seulement <br> 10 minutes'
         subheadline: "movido s'occupe de vos démarches administratives"
-      banner-lite:
-          headline: "Rejoignez une communauté de 569 étudiants du monde entier sur movido"
+        start: "C'est parti !"
+      get-started:
+        headline: "Rejoignez une communauté de 569 étudiants du monde entier sur movido"
+        start: "C'est parti !"
       services-cards:
         housing: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces dans votre nouvelle ville"
         bank: "Ouvrez votre compte bancaire en quelques minutes - et tout ça entièrement en ligne sans vous déplacer"
@@ -239,6 +59,7 @@ fr:
         transportation: "Dites-nous où vous devez aller et nous vous fournissons la carte de transport en commun qu'il vous faut"
       how-it-works:
         title: 'Comment ça marche?'
+        start: "C'est parti !"
         card1:
           title: "Choisir son service"
           description: "Sélectionnez les services dont vous avez besoin parmi une variété d'offres - du WiFi à la salle de sport, movido a tout ce qu'il vous faut pour démarrer dans votre nouvelle ville"
@@ -254,7 +75,7 @@ fr:
       about-us:
         title: 'Qui sommes nous?'
         text: "movido vous aide à mettre en place tout ce dont vous avez besoin en arrivant dans votre nouveau domicile - du numéro de téléphone portable local à l'abonnement à la salle de sport - et tout ça en moins de 10 minutes, afin que vous puissiez vous concentrer sur les choses vraiment importantes dans votre nouvelle ville <br> <br>movido consolide et compare tous les services dont vous avez besoin dans votre nouvelle ville – un service entièrement gratuit - pour s'assurer que vous obtenez toujours la meilleure offre au meilleur prix. Une fois inscrit, vous pouvez gérer abonnement sur votre compte personnalisé"
-      why:
+      why-us:
         title: 'Découvrez la facililté'
         text: 'Notre philosophie consiste à simplifier les déplacements. Facile, rapide et intuitif - inscrivez-vous à movido pour vous installer dans votre nouvelle ville en un quelques minutes.<br>Et c’est 100 % gratuit!'
         card1:
@@ -284,170 +105,224 @@ fr:
           from: 'De Berlin'
           to: 'à Londres'
           sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
-      bottom-banner:
-        headline: 'movido simplifie<br> votre déménagement'
-        text: 'Laissez movido prendre en charge votre travail administratif'
-  step:
-    address:
-      title: 'Nous avons besoin de quelques détails supplémentaires'
+    dashboard_index:
+      title: "Selectionnez les services dont vous avez besoin"
+      subtitle: "Mon adresse"
+      new_address: "Ajouter une adresse"
+      time: 'En %{time} minutes'
+      coming_soon: 'Bientôt disponible !'
+      mobile_phone:
+        name: "Téléphonie"
+        subtitle: "Obtenez votre numéro de mobile local "
+        description: "Choisissez parmi une variété d’offres – du forfait sans engagement au contrat long-terme"
+      wifi:
+        name: "WiFi"
+        subtitle: 'Obtenez votre installation wifi à la maison'
+        description: "Choisissez parmi une variété de forfaits WiFi l'offre idéale adaptée à vos besoins"
+      housing:
+        name: "Logement"
+        subtitle: 'Trouvez votre logement dans votre nouvelle ville'
+        description: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces"
+      bank:
+        name: 'Compte bancaire'
+        subtitle: 'Ouvrez un nouveau compte en quelques minutes'
+        description: "Ouvrez votre compte bancaire local en ligne sans vous déplacer"
+      gym:
+        name: 'Sport'
+        subtitle: "Cours de Yoga, Boxe ou salle de sport classique"
+        description: "Nous avons sélectionné les meilleures offres de sport dans votre ville - maintenant à vous de choisir"
+      transportation:
+        name: 'Transport'
+        subtitle: 'Obtenez votre carte de transports en communs'
+        description: "Dites-nous où vous allez et nous vous fournissons votre carte de transport en commun"
+      utilities:
+        name: 'Services publics'
+        subtitle: "Eau, électricité, gaz"
+        description: "Sélectionnez votre fournisseur et nous nous occupons de vos démarches adminstratives"
+      community:
+        name: 'Communauté'
+        subtitle: 'Rejoignez la communauté movido dans votre ville'
+        description: 'Discutez avec des étudiants du monde entier'
+  addresses:
+    new:
+      title: "Quelle est votre adresse ?"
+      form:
+        placeholder:
+          street: "Votre nouvelle adresse"
+        label:
+          street: 'Votre adresse dans votre nouvelle ville'
+          moving_country: "Dans quel pays voyagez-vous?"
+        prompt:
+          moving_country: "Choisissez votre pays"
+        switch:
+          no_address: "Je n'ai pas encore d'adresse"
+          got_address: "J'ai une adresse"
+        cta: 'Confirmer'
+    edit:
+      title: 'Nous avons besoin de quelques informations supplémentaires ...'
       subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
       form:
+        failure:
+          country: "est invalide"
         button:
           next: 'Suivant'
           back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
         label:
-          address: 'Adresse'
-          floor: 'Ètage'
-          building: 'Immeuble'
-          stairs: 'Appartement'
-          door: 'Porte'
-          gate_code: "Code d'entrée"
           delivery_address: "Adresse de livraison"
-          delivery_address_wifi: "Adresse de livraison de votre box internet"
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"
-    billing:
-      title: 'Nous avons juste besoin de quelques détails supplémentaires…'
+  billings:
+    new:
+      title: "On y est presque..."
       subtitle: "Nous avons besoin de vos coordonnées bancaires pour l'option de prélèvement automatique de votre abonnement"
       form:
         button:
           next: 'Confirmer'
           back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
-        label:
-          iban: 'IBAN'
-          bic: 'BIC'
-          bank: 'Nom de votre banque'
-          billing_address: 'Adresse de facturation'
-          holder_name: 'Nom du propriète du compte'
-          account_number: 'Numéro de compte'
-          delivery_address: 'Adresse de livraison'
         hint:
           bank: 'Vous ne pouvez pas modifier ce champ'
           delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'
         tooltip:
           iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
+  charges:
+    new:
+      title: 'Paiement de votre carte SIM'
+      subtitle: "Votre carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
+    stripe:
+      connection: 'Connexion sécurisée'
+      number: 'Numéro de carte'
+      date: "Date d'expiration"
+      legals: "En cliquant sur procéder au paiement, vous acceptez <strong>nos conditions générales</strong> ainsi que <strong>les conditons générales de Stripe.</strong>"
+      pay: "Procéder au paiement"
+  products:
+    index:
+      title: 'Choisissez votre offre'
+      subtitle: 'Nous avons sélectionné les meilleures offres pour votre futur chez vous'
+    mobile-filter:
+      title: "Filtrer les résultats"
+      unlimited_data: 'Données illimitées'
+      unlimited_call: 'Appel illimité'
+      no_contract: 'Sans engagement'
+      by_price: 'Filtrer par prix'
+    wifi-filter:
+      title: 'Filtrer les résultats'
+      no_contract: 'Sans engagement'
+      by_price: 'Filtrer par prix'
+      contract_only: 'Avec engagement'
+    card:
+      see_details: 'Plus de détails'
+      months: 'mois'
+      only: 'seulement'
+      frequency: 'mensuel'
+      speed: 'vitesse'
+      setup_costs: "à l'installation"
+      free: 'Gratuit'
+    modal:
+      cta: 'Sélectionner'
+      months: 'par mois'
+  subscriptions:
     summary:
-      form:
-        label:
-          provider: 'Fournisseur'
-          plan: 'Service'
-          name: 'Prénom'
-          surname: 'Nom'
-          email: 'Email'
-          address: 'Adresse'
-          billing_address: 'Adresse de facturation'
-          delivery_address: 'Adresse de livraison'
-          account_holder: 'Titulaire de compte'
-          account_number: 'Numéro de compte'
-          banking_institution: 'Banque'
-          price: 'Prix'
-          sim_card: 'Carte SIM'
-
+      title: "Confirmez vos informations"
+      subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Accédez à %{href} pour les modifier. "
+      profile_link: "votre profil"
+      next: 'Confirmer'
+      back: 'Retour'
+    result:
+      months: 'mois'
     congratulations:
+      title: 'Tout est prêt 👏'
+      subtitle: "Vous recevrez un e-mail de confirmation de movido une fois votre abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
       contact_us: "Contactez nous <i class='fas fa-arrow-right ml-2'></i>"
-      wifi_cta: "Besoin d'un nouvel abonnement Wifi ? <i class='fas fa-arrow-right ml-2'></i>"
-      bank_cta: "Besoin d'un nouveau compte bancaire ? <i class='fas fa-arrow-right ml-2'></i>"
+      wifi_cta: "Il vous manque la box WiFi? <i class='fas fa-arrow-right ml-2'></i>"
+      bank_cta: "Ouvrez un compte bancaire local <i class='fas fa-arrow-right ml-2'></i>"
       community_cta: "Rejoignez notre communauté <i class='fas fa-arrow-right ml-2'></i>"
-  devise:
-    failure:
-      unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
-      unconfirmed: "Vous devez confirmer votre compte pour continuer."
-      locked: "Votre compte est verrouillé."
-      invalid: "Courriel ou mot de passe incorrect."
-      invalid_token: "Jeton d'authentification incorrect."
-      timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
-      inactive: "Votre compte n'est pas encore activé."
-      user:
-       not_found_in_database: "Il semble que vous n'ayez pas encore de compte movido"
-       invalid: 'Email ou mot de passe invalide.'
-    sessions:
-      signed_in: "Connecté"
-      signed_out: "Déconnecté"
-      new:
-        title: 'Bon retour parmis nous'
-        subtitle: "movido vou accompagne durant votre installation – de votre <br>nouvel abonnement mobile à votre nouvelle salle de sport – <br>afin que vous vous occupiez de ce qui est réellement important"
-        facebook: "Se connecter avec Facebook"
-        google: "Se connecter avec Google"
-        form_title: 'Se connecter'
-        or: 'Ou'
-    passwords:
-      send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
-      updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
-    confirmations:
-      send_instructions: "Vous allez recevoir un courriel avec des instructions pour confirmer votre compte."
-      confirmed: "Votre compte a été confirmé. Vous êtes maintenant connecté."
-      signed_up: "Votre inscription est enregistrée. Si elle est activé, un courriel de confirmation vous a été envoyé."
-      updated: "Votre mise à jour a été prise en compte."
-      destroyed: "Bye! Votre compte est annulé. Nous souhaitons vous revoir bientôt."
-    unlocks:
-      send_instructions: "Vous allez recevoir un courriel avec des instructions pour déverrouiller votre compte."
-      unlocked: "Votre compte est déverrouillé. Vous êtes maintenant connecté."
-    mailer:
-      confirmation_instructions: "Instructions de confirmation"
-      reset_password_instructions: "Instructions pour changer le mot de passe"
-      unlock_instructions: "Instructions pour déverrouiller le compte"
-    common:
-      forgot_your_password?: "Mot de passe oublié?"
-      hello: "Bonjour"
-      sign_in: "Se connecter"
-      sign_up: "Se déconnecter"
-    shared:
-      links:
-        didnt_receive_confirmation_instructions?: "Vous n'avez pas reçu de courriel de confirmation?"
-        didnt_receive_unlock_instructions?: "Vous n'avez pas reçu de courriel de déverrouillage de votre compte?"
-    confirmations:
-      new:
-        resend_confirmation_instructions: "Renvoyer le courriel de confirmation"
-    mailer:
-      confirmation_instructions:
-        welcome: "Bienvenu(e)"
-        you_can_confirm_your_account_through_the_link_below: "Vous pouvez confirmer votre compte via le lien ci-dessous"
-        confirm_my_account: "Confirmer mon compte"
-      reset_password_instructions:
-        reset_password_instruction: "Quelqu'un a demandé un lien pour changer votre mot de passe. Vous pouvez le faire via le lien ci-dessous."
-        change_my_password: "Changer mon mot de passe"
-        wrong_request_instruction: "Si vous n'avez pas demandé ce changement, ignorez ce message."
-        unchange_password_message: "Votre mot de passe ne sera pas changé tant vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
-      unlock_instructions:
-        locked_account_message: "Votre compte est verrouillé car vous avez échoué lors de votre identification trop de fois."
-        unlock_account_instruction: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte"
-        unlock_my_account: "Déverrouiller mon compte"
-    passwords:
-      edit:
-        change_your_password: "Changez votre mot de passe"
-        change_my_password: "Changer mon mot de passe"
-      new:
-        send_me_reset_password_instructions: "Envoyez-moi un courriel pour changer mon mot de passe"
-    registrations:
-      new:
-        title: "Bienvenue sur <br>movido"
-        subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
-        facebook: "S'inscrire avec Facebook"
-        google: "S'inscrire avec Google"
-        or: 'Ou'
-      complete_profil:
-        title: 'Veuillez compléter votre profil 👌'
-        button: 'Continuer'
-      edit:
-        title: "Mes informations d'accès"
-        edit: "Modifier"
-        password_instruction: "Ne pas remplir si vous ne voulez pas le changer"
-        current_password_instruction: "Vous devez remplir votre mot de passe actuel pour confirmer les modifications"
-        update: "Mettre à jour"
-        cancel_my_account: "Annuler mon compte"
-        unhappy?: "Pas content(e)?"
-        are_you_sure?: "Êtes-vous sûr?"
-        back: "Retour"
-    unlocks:
-      new:
-        resend_unlock_instructions: "Renvoyez le mail pour déverrouiller mon compte"
-    errors:
-      messages:
-        not_found: "n'a pas été trouvé(e)"
-        already_confirmed: "a déjà été confirmé(e)"
-        not_locked: "n'était pas verrouillé(e)"
+    steps:
+      mobile_phone:
+        step_0: 'Choisir son offre'
+        step_1: 'Facturation'
+        step_2: 'Confirmation'
+        step_3: 'Paiement'
+      wifi:
+        step_0: 'Choisissez votre offre'
+        step_1: 'Détails'
+        step_2: 'Facturation'
+        step_3: 'Confirmation'
+  users:
+    complete_profil:
+      title: 'Veuillez compléter votre profil 👌'
+      button: 'Continuer'
+    show:
+      addresses_tab: 'Mes adresses'
+      subscriptions_tab: 'Abonnements'
+      profile_tab: "Mon profil"
+    addresses:
+      add: 'Ajouter une adresse'
+      cta: 'Confirmer'
+      form:
+        placeholder:
+          street: "Entrer votre adresse"
+        failure:
+          street: "Adresse invalide"
+    subscriptions:
+      service: 'Service'
+      provider: 'Fournisseur'
+      rate: 'Prix'
+      start_date: 'Ouverture'
+      status: 'Statut'
+      see_offers: 'Voir les offres'
+      no_subscription: "Vous n'avez pas d'abonnements actifs"
+    subscription:
+      draft: 'Brouillon'
+      succeeded: 'En attente'
+      activated: 'Actif'
+      failed: 'Paiement échoué'
+      pending_processed: 'À payer'
+      months: 'mois'
+      cta:
+        resume: 'Continuer'
+        pay: 'Payer'
+        details: 'Détails'
+  shared:
+    navbar_visitor:
+      about_us: 'À propos'
+      how_it_works: 'Comment ça marche ?'
+      login: 'Se connecter'
+      get_started: "S'inscrire"
+    dropdown:
+      profile: 'Profil'
+      account: 'Compte'
+      logout: 'Déconnexion'
+    modal-navbar:
+      dashboard_title: 'Tableau de bord'
+      dashboard_subtitle: 'Découvrez nos abonnements'
+      subscriptions_title: 'Mes abonnements'
+      subscriptions_subtitle: 'Gérez vos abonnements'
+      profile_title: 'Mon profil'
+      profile_subtitle: 'Modifiez vos coordonnées'
+      addresses_title: 'Mon adresse'
+      addresses_subtitle: 'Changez votre adresse'
+      contact_title: 'Contactez nous'
+      contact_subtitle: 'WhatsApp, E-mail ou par téléphone'
+      about_title: 'À propos'
+      about_subtitle: 'Découvrez la vision de movido'
+      support_title: 'Support'
+      support_subtitle: 'Nous répondons à toutes vos questions'
+    footer:
+      about: "À propos"
+      contact: "Contact"
+      careers: "Carrières"
+      faq: "Support"
+      terms: "Conditions Générales"
+      cookie: "Cookies"
+      legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
+  flashes:
+    global_failure: 'Oups, il y a un problème'
+    not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
+    complete_profile: "Vous devez compléter votre profil pour continuer"
+    existing_subscription: "Vous avez déjà cet abonnement"
+    wrong_country: "Merci de créer une adresse en %{country}"
 

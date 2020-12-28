@@ -4,6 +4,9 @@ class AddressReflex < ApplicationReflex
   def default
     address = Address.find(element.dataset.id)
     address.set_has_active
+    current_user.update_user_country
+    morph ".subscriptions-wrapper", with_locale {render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})}
+    morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new})}
   end
 
   def submit
@@ -11,14 +14,17 @@ class AddressReflex < ApplicationReflex
     @address.assign_attributes(address_params)
     @address.valid_address = true
     @address.user = current_user
-    @address.set_has_active if @address.save
+    if @address.save
+      @address.set_has_active
+      current_user.update_user_country
+      morph ".subscriptions-wrapper", with_locale {render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})}
+      morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new})}
+    else
+      morph '#error', with_locale {I18n.t('users.addresses.form.failure.street')}
+    end
   end
 
-  after_reflex do
-    current_user.update_user_country
-    morph ".subscriptions-wrapper", render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})
-    morph ".addresses-container", render(partial: "addresses", locals: {address: Address.new})
-  end
+
 
   private
 

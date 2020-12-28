@@ -2,20 +2,20 @@
   <div class="column"><%= image_tag(asset_path(subscription.product.logo_url), class:"img #{subscription.product.company == 'SFR' ? 'rounded-circle' : ''}") %></div>
   <div class="column d-lg-block d-none"><%= image_tag(asset_path("#{subscription.product.category.name}.png"), class: "picto") %></div>
     <div class="column">
-      <span class="<%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t("user.subscription.card.#{subscription.state}") %></span><br>
+      <span class="<%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t(".#{subscription.state}") %></span><br>
       <span class=" date"><%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
   </div>
-  <span class="price column"><strong><%= subscription.product.format_price %><br> </strong>/<%= t("user.subscription.card.months") %></span>
+  <span class="price column"><strong><%= subscription.product.format_price %><br> </strong>/<%= t(".months") %></span>
   <% if subscription.state == 'draft' %>
     <% if subscription.product.is_mobile? %>
-      <%= link_to t('user.subscription.card.cta.resume'), new_subscription_billing_path(subscription), class: 'action column' %>
+      <%= link_to t('.cta.resume'), new_subscription_billing_path(subscription), class: 'action column' %>
     <% else %>
-      <%= link_to t('user.subscription.card.cta.resume'), subscription_update_address_path(subscription, subscription.address), class: 'action column' %>
+      <%= link_to t('.cta.resume'), edit_subscription_address_path(subscription, subscription.address), class: 'action column' %>
     <% end %>
   <% elsif subscription.state == 'succeeded' || subscription.state == 'activated' %>
-    <%= link_to t('user.subscription.card.cta.details'), modal_subscription_path(subscription), class: "action column", data: {target: '#exampleModal',
+    <%= link_to t('.cta.details'), modal_subscription_path(subscription), class: "action column", data: {target: '#exampleModal',
       action: 'click->modal#loadModal', href: modal_subscription_path(subscription), toggle: 'modal'}, id: 'modal-link' %>
   <% else %>
-    <%= link_to t('user.subscription.card.cta.pay'), subscription_payment_path(subscription), class: "action column", data: { turbolinks: false } %>
+    <%= link_to t('.cta.pay'), subscription_payment_path(subscription), class: "action column", data: { turbolinks: false } %>
   <% end %>
 </div>

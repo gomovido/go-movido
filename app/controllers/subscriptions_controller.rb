@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
       if @product.is_mobile?
         redirect_to new_subscription_billing_path(@subscription)
       elsif @product.is_wifi?
-        redirect_to subscription_update_address_path(@subscription, @subscription.address)
+        redirect_to edit_subscription_address_path(@subscription, @subscription.address)
       end
     else
       @category = @product.category
@@ -82,7 +82,7 @@ class SubscriptionsController < ApplicationController
     elsif subscription_check && product.is_mobile?
       redirect_to new_subscription_billing_path(subscription_check)
     elsif subscription_check && product.is_wifi?
-      redirect_to subscription_update_address_path(subscription_check, subscription_check.address)
+      redirect_to edit_subscription_address_path(subscription_check, subscription_check.address)
     end
   end
 
