@@ -29,6 +29,9 @@ fr:
         confirm: 'Confirmer'
         title: 'Mot de passe oublié ?'
         placeholder: 'Entrer votre e-mail'
+      edit:
+        confirm: 'Confirmer'
+        title: 'Modifier votre mot de passe'
       no_token: "Vous ne pouvez accéder à cette page sans passer par un e-mail de réinitialisation de mot de passe. Si vous êtes passé par un e-mail de ce type, assurez-vous d'utiliser l'URL complète."
       send_instructions: "Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants."
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous allez recevoir un lien de réinitialisation par e-mail."
@@ -72,6 +75,10 @@ fr:
           title: "Mes informations d'accès"
           update: 'Mettre à jour'
           delete: 'Suppression'
+          form:
+            label:
+              password: 'Nouveau mot de passe'
+              password_confirmation: 'Confirmation du nouveau mot de passe'
     shared:
       links:
         already_account: "Vous avez déjà un compte ?"

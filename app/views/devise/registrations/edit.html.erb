@@ -11,10 +11,10 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <%= f.input :password,
+    <%= f.input :password, label: t('.form.label.password'),
     required: false,
     input_html: {autocomplete: 'new-password', placeholder: t('activerecord.attributes.user.password') }%>
-    <%= f.input :password_confirmation,
+    <%= f.input :password_confirmation, label: t('.form.label.password_confirmation'),
     required: false,
     input_html: {autocomplete: 'new-password', placeholder: t('activerecord.attributes.user.password_confirmation') }%>
     <%= f.input :current_password,
