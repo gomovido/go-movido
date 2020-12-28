@@ -162,6 +162,8 @@ en:
       title: 'We just need a couple of more details'
       subtitle: 'We need this information to help the technician find you home.<br> This is the address the technician will come to for the installation of your internet box'
       form:
+        failure:
+          country: "isn't valid"
         button:
           next: 'Continue'
           back: 'Back'
@@ -262,6 +264,8 @@ en:
       form:
         placeholder:
           street: "Enter your address"
+        failure:
+          street: "Address isn't valid"
     subscriptions:
       service: 'Service'
       provider: 'Provider'
@@ -292,10 +296,20 @@ en:
         account: 'Account'
         logout: 'Log out'
     modal-navbar:
-      quick_links: 'Quick links'
-      help_center: 'Help Center'
       dashboard_title: 'Dashboard'
       dashboard_subtitle: 'Create and discover new subscriptions'
+      subscriptions_title: 'My subscriptions'
+      subscriptions_subtitle: 'Manage your subscriptions'
+      profile_title: 'My profile'
+      profile_subtitle: 'Edit your details'
+      addresses_title: 'My address'
+      addresses_subtitle: 'Change your address'
+      contact_title: 'Contact us'
+      contact_subtitle: 'WhatsApp, E-mail or phone'
+      about_title: 'About us'
+      about_subtitle: 'Discover our vision'
+      support_title: 'Support'
+      support_subtitle: "We're here for you !"
     footer:
       about: 'About us'
       contact: 'Contact'

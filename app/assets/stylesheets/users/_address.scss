@@ -9,6 +9,10 @@
       border: 1px solid $purple;
     }
   }
+  #error {
+    font-weight: 600;
+    padding-left: 0.75rem;
+  }
   .active-address {
     font-weight: 600;
     color: $purple;

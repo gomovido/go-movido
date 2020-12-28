@@ -162,6 +162,8 @@ fr:
       title: 'Nous avons besoin de quelques informations supplémentaires ...'
       subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
       form:
+        failure:
+          country: "est invalide"
         button:
           next: 'Suivant'
           back: 'Retour'
@@ -262,6 +264,8 @@ fr:
       form:
         placeholder:
           street: "Entrer votre adresse"
+        failure:
+          street: "Adresse invalide"
     subscriptions:
       service: 'Service'
       provider: 'Fournisseur'
@@ -292,10 +296,20 @@ fr:
       account: 'Compte'
       logout: 'Déconnexion'
     modal-navbar:
-      quick_links: 'Raccourcis'
-      help_center: "Centre d'aide"
       dashboard_title: 'Tableau de bord'
       dashboard_subtitle: 'Découvrez nos abonnements'
+      subscriptions_title: 'Mes abonnements'
+      subscriptions_subtitle: 'Gérez vos abonnements'
+      profile_title: 'Mon profil'
+      profile_subtitle: 'Modifiez vos coordonnées'
+      addresses_title: 'Mon adresse'
+      addresses_subtitle: 'Changez votre adresse'
+      contact_title: 'Contactez nous'
+      contact_subtitle: 'WhatsApp, E-mail ou par téléphone'
+      about_title: 'À propos'
+      about_subtitle: 'Découvrez la vision de movido'
+      support_title: 'Support'
+      support_subtitle: 'Nous répondons à toutes vos questions'
     footer:
       about: "À propos"
       contact: "Contact"
