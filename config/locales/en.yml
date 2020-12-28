@@ -225,7 +225,8 @@ en:
   subscriptions:
     summary:
       title: 'Please confirm your details'
-      subtitle: "Make sure the information is correct. <br>It will not be able to be modified afterwards"
+      subtitle: "Make sure the information is correct. <br> Go to %{href} to modify it"
+      profile_link: 'your profile'
       next: 'Continue'
       back: 'Back'
     result:

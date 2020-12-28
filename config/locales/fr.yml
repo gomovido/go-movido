@@ -225,7 +225,8 @@ fr:
   subscriptions:
     summary:
       title: "Confirmez vos informations"
-      subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Revenez en arriere pour modifier les détails "
+      subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Accédez à %{href} pour les modifier. "
+      profile_link: "votre profil"
       next: 'Confirmer'
       back: 'Retour'
     result:
