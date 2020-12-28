@@ -26,8 +26,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:show ] do
     get 'complete-profil', to: 'users#complete_profil'
     resources :billings, only: [:new, :create]
-    resources :addresses, only: [:update]
-    get '/address/:id', to: 'addresses#update_subscription_address', as: 'update_address'
+    resources :addresses, only: [:update, :edit]
   end
 
   resources :products, only: [:index]

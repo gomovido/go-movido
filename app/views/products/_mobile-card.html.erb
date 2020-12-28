@@ -1,21 +1,27 @@
-  <div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
+<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
   <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {modal_target: 'link'} do %>
     <div class="d-flex align-items-center justify-content-center"><%= image_tag(product.logo_url, class: 'logo') %></div>
     <div class="offer">
       <span class="company d-none d-sm-block"><%= product.company %></span>
       <h5 class="name mt-2 "><%= product.company %> <%= product.name %></h5>
       <span class="localization d-none d-sm-block"><i class="fas fa-map-pin mr-2"></i><%= product.description %></span>
-      <p class="description mt-3 mb-0"><%= product.product_features.first.description %> <%= link_to 'See details', modal_product_path(product), data: {target: '#exampleModal',
+      <p class="description mt-3 mb-0"><%= product.product_features.first.description %> <%= link_to t('products.card.see_details'), modal_product_path(product), data: {target: '#exampleModal',
       action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link' %></p>
     </div>
     <div class="pricing text-center">
       <div class="price">
         <span class="number px-1"><%= product.format_price %></span><br>
-        <span class="frequency">monthly</span>
+        <span class="frequency"><%= t('products.card.frequency') %></span>
       </div>
-      <div class="data align-items-center my-3 d-none d-sm-flex"><%= image_tag('wifi.png', class: 'mr-3') %> <%= product.data_limit %></div>
-      <div class="contract align-items-center my-3 d-none d-sm-flex"><%= image_tag('contract.png', class: 'mr-3') %> <%= product.time_contract %> <span class="ml-1">months</span></div>
-      <div class="sim align-items-center mt-3 d-none d-sm-flex"><%= image_tag('sim-picto.png', class: 'mr-3') %><%= product.format_sim_card_price %><span class="ml-1">only</span></div>
+      <div class="data align-items-center my-3 d-none d-sm-flex"><i class="fas fa-wifi mr-3"></i> <%= product.data_limit %></div>
+      <% if product.time_contract != 'no' %>
+          <div class="contract align-items-center my-3 d-none d-sm-flex"><i class="fas fa-file-signature mr-3"></i> <%= product.time_contract %> <span class="ml-1"><%= t('products.card.months') %></span></div>
+      <% end %>
+      <% if product.sim_card_price > 0 %>
+        <div class="sim align-items-center mt-3 d-none d-sm-flex"><i class="fas fa-sim-card mr-3"></i><%= product.format_sim_card_price %><span class="ml-1"><%= t('products.card.only') %></span></div>
+      <% else %>
+        <div class="sim align-items-center mt-3 d-none d-sm-flex"><i class="fas fa-sim-card mr-3"></i><%= t('products.card.free') %></span></div>
+      <% end %>
     </div>
   <% end %>
   </div>
