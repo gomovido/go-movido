@@ -7,6 +7,12 @@
   p {
     font-weight: normal;
     font-size: 20px;
+    a {
+      color: $purple;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   .steps4, .steps3 {
     height: 4px;
