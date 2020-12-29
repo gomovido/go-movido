@@ -8,7 +8,6 @@ class Billing < ApplicationRecord
   validate :billing_address_country
   accepts_nested_attributes_for :subscription
 
-
   def product_is_uk?
     self.subscription.product.country == 'United Kingdom'
   end
@@ -18,8 +17,6 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-     self.errors.add(:address, I18n.t('form.failure.country', country: self.subscription.product.country)) unless !self.address.blank? && self.address.split(',')[-1].strip == self.subscription.product.country
+    self.errors.add(:address, I18n.t('billings.new.form.failure.wrong_country', country: self.subscription.product.country)) unless !self.address.blank? && self.address.split(',')[-1].strip == self.subscription.product.country
   end
-
-
 end

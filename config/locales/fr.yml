@@ -163,7 +163,8 @@ fr:
       subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
       form:
         failure:
-          country: "est invalide"
+          wrong_country: "doit être en %{country}"
+          invalid: "n'est pas valide"
         button:
           next: 'Suivant'
           back: 'Retour'
@@ -177,6 +178,9 @@ fr:
       title: "On y est presque..."
       subtitle: "Nous avons besoin de vos coordonnées bancaires pour l'option de prélèvement automatique de votre abonnement"
       form:
+        failure:
+          wrong_country: "doit être en %{country}"
+          invalid: "n'est pas valide"
         button:
           next: 'Confirmer'
           back: 'Retour'

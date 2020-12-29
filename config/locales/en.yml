@@ -163,7 +163,8 @@ en:
       subtitle: 'We need this information to help the technician find you home.<br> This is the address the technician will come to for the installation of your internet box'
       form:
         failure:
-          country: "isn't valid"
+          wrong_country: "needs to be in %{country}"
+          invalid: "isn't valid"
         button:
           next: 'Continue'
           back: 'Back'
@@ -177,6 +178,9 @@ en:
       title: 'We just need a couple of more details'
       subtitle: 'Your details are needed to activate your subscription'
       form:
+        failure:
+          wrong_country: "needs to be in %{country}"
+          invalid: "isn't valid"
         button:
           next: 'Confirm'
           back: 'Back to details'
