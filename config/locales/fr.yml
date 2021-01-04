@@ -170,7 +170,7 @@ fr:
           back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
         label:
-          delivery_address: "Adresse de livraison"
+          delivery_address: "Adresse de livraison de votre box internet"
         hint:
           address: "Vous pouvez modifier ce champ dans votre profil"
   billings:
