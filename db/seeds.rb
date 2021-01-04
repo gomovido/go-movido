@@ -3,14 +3,14 @@
 category = Category.create(
   name: 'bank',
   sku: 'bank',
-  form_timer: 5,
+  form_timer: 4,
   subtitle: 'subtitle',
   description: 'description',
   open: false)
 
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
-form_timer: 3,
+form_timer: 2,
 subtitle: 'subtitle',
 description: 'description',
 open: true)
@@ -308,7 +308,7 @@ product = Product.create(
 category = Category.create(
   name: 'wifi',
   sku: 'wifi',
-  form_timer: 5,
+  form_timer: 3,
   subtitle: 'subtitle',
   description: 'description',
   open: true)
