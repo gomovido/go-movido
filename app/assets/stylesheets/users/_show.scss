@@ -53,12 +53,14 @@
 }
 
 @include media-breakpoint-down(md) {
-  .big-blue-bubble {
-    top: -211px !important;
-    left: -221px !important;
-  }
-  .big-purple-bubble {
-    top: 334px !important;
-    right: -270px !important;
+  .profile-container {
+    .big-blue-bubble {
+      top: -211px !important;
+      left: -221px !important;
+    }
+    .big-purple-bubble {
+      top: 334px !important;
+      right: -270px !important;
+    }
   }
 }

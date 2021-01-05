@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'pages#privacy'
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms'
+  get 'how_it_works', to: 'pages#how_it_works'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   get 'payment/:subscription_id', to: 'charges#new', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
