@@ -4,18 +4,18 @@
   <div class="big-purple-bubble position-fixed"></div>
   <h2 class="text-center mb-4">FAQ</h2>
   <div id="accordion" data-controller="faq" data-faq-target="accordion">
-    <%= render 'question_card', heading: 'headingOne', collapse: 'collapseOne', question: 'Q: How does it work?' %>
-    <%= render 'question_card', heading: 'headingTwo', collapse: 'collapseTwo', question: 'Q: How much does movido cost?' %>
-    <%= render 'question_card', heading: 'headingThree', collapse: 'collapseThree', question: 'Q: What service shall I start with?' %>
-    <%= render 'question_card', heading: 'headingFour', collapse: 'collapseFour', question: 'Q: Who is the team behind movido?' %>
-    <%= render 'question_card', heading: 'headingFive', collapse: 'collapseFive', question: 'Q: How do I know if my purchase was successful?' %>
-    <%= render 'question_card', heading: 'headingSix', collapse: 'collapseSix', question: 'Q: I have not received my phone / wifi box / transport card yet – what shall I do?' %>
-    <%= render 'question_card', heading: 'headingSeven', collapse: 'collapseSeven', question: 'Q: How can I cancel my contract?' %>
+    <%= render 'question_card', heading: 'headingOne', collapse: 'collapseOne', question: t('.question_1'), answer: t('.answer_1') %>
+    <%= render 'question_card', heading: 'headingTwo', collapse: 'collapseTwo', question: t('.question_2'), answer: t('.answer_2') %>
+    <%= render 'question_card', heading: 'headingThree', collapse: 'collapseThree', question: t('.question_3'), answer: t('.answer_3') %>
+    <%= render 'question_card', heading: 'headingFour', collapse: 'collapseFour', question: t('.question_4'), answer: t('.answer_4') %>
+    <%= render 'question_card', heading: 'headingFive', collapse: 'collapseFive', question: t('.question_5'), answer: t('.answer_5') %>
+    <%= render 'question_card', heading: 'headingSix', collapse: 'collapseSix', question: t('.question_6'), answer: t('.answer_6') %>
+    <%= render 'question_card', heading: 'headingSeven', collapse: 'collapseSeven', question: t('.question_7'), answer: t('.answer_7') %>
   </div>
   <div class="more-questions position-relative">
-    <h3 class="mb-5">Any additional questions ?</h3>
-    <p>Please contact the movido customer service via chat, email <br>or phone.</p>
-    <span class="contact-link d-flex align-items-center">Contact us <i class="fas fa-arrow-right ml-2"></i></span>
+    <h3 class="mb-5"><%= t('.contact.title') %></h3>
+    <p><%= t('.contact.description').html_safe %></p>
+    <span class="contact-link d-flex align-items-center"><%= t('.contact.cta') %> <i class="fas fa-arrow-right ml-2"></i></span>
     <%= image_tag ('question-mark.png'), class: 'position-absolute d-lg-block d-none' %>
   </div>
 </div>
