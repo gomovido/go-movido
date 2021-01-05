@@ -1,0 +1,35 @@
+.careers-container {
+  h2 {
+    font-weight: 800;
+    font-size: 48px;
+  }
+  img {
+    width: 656px;
+    height: 413px;
+  }
+  a {
+    color: $purple;
+    text-decoration: underline;
+    font-weight: 800;
+  }
+  p{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .big-blue-bubble {
+    top: -210px;
+    left: -200px;
+  }
+  .small-yellow-bubble {
+    right: 100px;
+    bottom: 580px;
+  }
+  .small-blue-bubble {
+    bottom: 240px;
+    left: 170px;
+  }
+  .big-purple-bubble {
+    bottom: 0;
+    right: -230px;
+  }
+}
