@@ -1,13 +1,22 @@
-<div class="col-md-4">
-  <div class="service-card d-flex align-items-center flex-column px-3">
+<div class="service-card d-flex text-left flex-column justify-content-around px-3 align-items-center">
+  <div class="d-flex align-items-center w-100 justify-content-between">
     <div class="picto mb-2">
       <%= image_tag(asset_path(picto)) %>
     </div>
-    <div class="title mb-2">
-      <%= title %>
-    </div>
-    <div class="desc text-center">
-      <span><%= description %></span>
+    <div class="timer">
+      <span><%= timer %> minutes</span>
     </div>
   </div>
+  <div class="title mb-2 w-100">
+    <%= title %>
+  </div>
+  <div class="desc mb-3">
+    <span><%= description %></span>
+  </div>
+  <% if comming_soon %>
+    <div class="comming-soon-bar">
+      <span>Comming soon</span>
+    </div>
+  <% end %>
 </div>
+
