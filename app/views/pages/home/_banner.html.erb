@@ -1,21 +1,18 @@
 <section>
   <div class="container-fluid p-0">
-    <div class="banner d-flex align-items-center" style="background-image:url(<%= asset_path 'banner-bg-2.png' %>);">
+    <div class="banner d-flex align-items-center" style="background-image:url(<%= asset_path 'banner-background.png' %>);">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 sm-12 text-center text-md-left">
+          <div class="col-md-8 sm-12 text-center text-md-left d-flex align-items-center">
             <div class="content d-flex flex-column justify-content-around">
               <div class="headline mb-2">
                 <h1 class="mb-3"><%= t('.headline1').html_safe %><br><span><%= t('.headline2').html_safe %></span></h1>
-                <p><%= t('.subheadline').html_safe %></p>
+                <p class="subheadline"><%= t('.subheadline').html_safe %></p>
               </div>
               <div>
                 <%= link_to t('.start'), new_user_registration_path, class:'btn btn-main' %>
               </div>
             </div>
-          </div>
-          <div class="col-4 text-center d-lg-block d-none">
-            <%= image_tag(asset_path 'banner-mockup.png') %>
           </div>
         </div>
       </div>

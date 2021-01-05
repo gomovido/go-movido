@@ -1,45 +1,80 @@
-#testimonials {
-  background: $light-turquoise;
-  .quote {
-    position: absolute;
-    left: -2rem;
-  }
-  .testimonial-card {
-    box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
-    background: $white;
-    border-radius: 6px;
-    width: 60%;
-    padding: 2rem 3rem 2rem 3rem !important;
-    .sentence {
-      font-style: italic;
-      font-weight: lighter;
-      color: $dark;
-    }
-    img {
-      width: 30%;
-    }
-    .name {
-      font-weight: 800;
-    }
-    .from {
-      font-size: 12px;
-      color: $grey;
-    }
-    .destination {
-      font-size: 12px;
-      color: $grey;
-    }
-  }
+:root {
+  --gutter: 20px;
+}
+
+.testimonial-cards-scroller {
+  padding: var(--gutter) 0;
+  display: grid;
+  grid-gap: var(--gutter) 0;
+  grid-template-columns: var(--gutter) 1fr var(--gutter);
+  align-content: start;
+}
+
+.testimonial-cards-scroller > * {
+  grid-column: 2 / -2;
+}
+
+.testimonial-cards-scroller > .full {
+  grid-column: 1 / -1;
 }
 
 
-@include media-breakpoint-down(md) {
-  #testimonials {
-    .main-title p {
-      text-align: center;
-    }
-    .testimonial-card {
-      width: 100% !important;
-    }
+.testimonial-cards-scroller {
+  width: 100%;
+  overflow-y: scroll;
+  .hs {
+    display: grid;
+    grid-gap: calc(var(--gutter) / 2);
+    grid-template-columns: repeat(6, calc(40% - var(--gutter) * 2));
+    grid-template-rows: minmax(150px, 1fr);
+
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding-bottom: calc(.75 * var(--gutter));
+    margin-bottom: calc(-.25 * var(--gutter));
+  }
+  .hs > li,
+  .item {
+    scroll-snap-align: center;
+    padding: calc(var(--gutter) / 2 * 1.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+  }
+
+}
+
+
+.subtitle {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+
+.testimonial-card {
+  img {
+    width: 15%;
+  }
+  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+  border: 1px solid #9378ff24;
+  border-radius: 27.5px;
+  padding: 5% !important;
+  .name {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .from {
+    font-size: 14px;
+    color: $light-grey;
+  }
+  .destination {
+    font-size: 16px;
+    color: $light-grey;
+  }
+  .picto img {
+    width: 30px;
   }
 }

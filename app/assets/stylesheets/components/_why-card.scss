@@ -1,14 +1,21 @@
 .why-cards-wrapper {
   .why-card {
     .illustration {
-      margin-bottom: 1rem;
+      box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+      border-radius: 20px;
+      padding: 1rem 1.5rem !important;
+      border: 1px solid #9378ff24;
       img {
-        width: 50px;
+        width: 30px;
       }
     }
     .title {
       font-weight: 600;
       font-size: 18px;
+    }
+    .desc {
+      color: $light-grey;
+      font-size: 16px;
     }
   }
 }
