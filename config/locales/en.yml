@@ -147,7 +147,7 @@ en:
       fifth_step:
         title: 'Manage your subscriptions'
         description: 'movido provides a personalized overview of all your active subscriptions - easily manage your account and cancel / change your subscriptions.'
-          sentence: '"I struggled to find a good gym in my area – with<br>movido I found the perfect one"'
+        sentence: '"I struggled to find a good gym in my area – with<br>movido I found the perfect one"'
     dashboard_index:
       title: 'Select the services you need'
       subtitle: 'My current address'
