@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title></title>
+    <!--
+    The style block is collapsed on page load to save you some scrolling.
+    Postmark automatically inlines all CSS properties for maximum email client
+    compatibility. You can just update styles here, and Postmark does the rest.
+  -->
+    <style type="text/css" rel="stylesheet" media="all">
+    /* Base ------------------------------ */
+
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: "Manrope", sans-serif;
+      width: 100% !important;
+      height: 100%;
+      margin: 0;
+      -webkit-text-size-adjust: none;
+    }
+
+    a {
+      color: #0D4D90;
+    }
+
+    a img {
+      border: none;
+    }
+
+    td {
+      word-break: break-word;
+    }
+    .image {
+      text-align: center;
+    }
+    .image img {
+      max-width: 45% !important;
+    }
+    .preheader {
+      display: none !important;
+      visibility: hidden;
+      mso-hide: all;
+      font-size: 1px;
+      line-height: 1px;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    /* Type ------------------------------ */
+
+    body,
+    td,
+    th {
+      font-family: "Manrope", sans-serif;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td,
+    th {
+      font-size: 16px;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote {
+      margin: .4em 0 1.1875em;
+      font-size: 16px;
+      line-height: 1.625;
+    }
+
+    p.sub {
+      font-size: 13px;
+    }
+    /* Utilities ------------------------------ */
+
+    .align-right {
+      text-align: right;
+    }
+
+    .align-left {
+      text-align: left;
+    }
+
+    .align-center {
+      text-align: center;
+    }
+    /* Buttons ------------------------------ */
+
+    .button {
+      color: #fff;
+      background: #8C30F5;
+      padding: 11px 51.5px;
+      font-weight: 700;
+      font-size: 20px;
+      border-radius: 20px;
+      border-bottom: 5px solid #6408CD !important;
+      transition: all 0.3s ease;
+      text-decoration: none !important;
+    }
+
+    .purple {
+      color: #8C30F5 !important;
+    }
+
+    .button--green {
+      background-color: #22BC66;
+      border-top: 10px solid #22BC66;
+      border-right: 18px solid #22BC66;
+      border-bottom: 10px solid #22BC66;
+      border-left: 18px solid #22BC66;
+    }
+
+    .button--red {
+      background-color: #FF6136;
+      border-top: 10px solid #FF6136;
+      border-right: 18px solid #FF6136;
+      border-bottom: 10px solid #FF6136;
+      border-left: 18px solid #FF6136;
+    }
+
+    @media only screen and (max-width: 500px) {
+      .button {
+        width: 100% !important;
+        text-align: center !important;
+      }
+    }
+    /* Attribute list ------------------------------ */
+
+    .attributes {
+      margin: 0 0 21px;
+    }
+
+    .attributes_content {
+      background-color: #f2f4f6;
+      padding: 25px;
+      border-radius: 10px !important;
+    }
+
+    .attributes_item {
+      padding: 0;
+    }
+
+    .related {
+      width: 100%;
+      margin: 0;
+      padding: 25px 0 0 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .related_item {
+      padding: 10px 0;
+      color: #CBCCCF;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .related_item-title {
+      display: block;
+      margin: .5em 0 0;
+    }
+
+    .related_item-thumb {
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    .related_heading {
+      border-top: 1px solid #CBCCCF;
+      text-align: center;
+      padding: 25px 0 10px;
+    }
+    /* Discount Code ------------------------------ */
+
+    .discount {
+      width: 100%;
+      margin: 0;
+      padding: 24px;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #F4F4F7;
+      border: 2px dashed #CBCCCF;
+    }
+
+    .discount_heading {
+      text-align: center;
+    }
+
+    .discount_body {
+      text-align: center;
+      font-size: 15px;
+    }
+    /* Social Icons ------------------------------ */
+
+    .social {
+      width: auto;
+    }
+
+    .social td {
+      padding: 0;
+      width: auto;
+    }
+
+    .social_icon {
+      height: 20px;
+      margin: 0 8px 10px 8px;
+      padding: 0;
+    }
+    /* Data table ------------------------------ */
+
+    .purchase {
+      width: 100%;
+      margin: 0;
+      padding: 35px 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .purchase_content {
+      width: 100%;
+      margin: 0;
+      padding: 25px 0 0 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .purchase_item {
+      padding: 10px 0;
+      color: #51545E;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .purchase_heading {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #EAEAEC;
+    }
+
+    .purchase_heading p {
+      margin: 0;
+      color: #85878E;
+      font-size: 12px;
+    }
+
+    .purchase_footer {
+      padding-top: 15px;
+      border-top: 1px solid #EAEAEC;
+    }
+
+    .purchase_total {
+      margin: 0;
+      text-align: right;
+      font-weight: bold;
+      color: #333333;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .purchase_total--label {
+      padding: 0 15px 0 0;
+    }
+
+    body {
+      background-color: #F2F4F6;
+      color: #51545E;
+    }
+
+    p {
+      color: #51545E;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #F2F4F6;
+    }
+
+    .email-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+    /* Masthead ----------------------- */
+
+    .email-masthead {
+      background: #fff;
+      color: white !important;
+      text-align: left;
+      font-weight: bold;
+      padding: 12px !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #80808030;
+    }
+
+    .email-masthead img {
+      width: 100px;
+    }
+
+    .email-masthead_logo {
+      width: 94px;
+    }
+
+    .card-link img {
+      width: 130px;
+      margin: 10px;
+    }
+
+    .email-masthead_name {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff !important;
+      text-decoration: none;
+      text-shadow: 0 1px 0 white;
+    }
+    /* Body ------------------------------ */
+
+    .email-body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .email-body_inner {
+      width: 570px;
+      margin: 0 auto;
+      padding: 0;
+      -premailer-width: 570px;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #FFF;
+    }
+
+    .email-footer {
+      width: 570px;
+      margin: 0 auto;
+      padding: 0;
+      -premailer-width: 570px;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      text-align: center;
+    }
+
+    .email-cards {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .email-cards tr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .email-cards tr td {
+      padding: 0 !important;
+    }
+
+    .email-footer p {
+      color: #A8AAAF;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .btn-td {
+      height: 100px;
+    }
+
+    .marketing-row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .marketing-inputs {
+      margin-top: 1rem;
+    }
+
+    .marketing-inputs-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .marketing-inputs img {
+      width: 35px !important;
+      height: 35px !important;
+      margin-right: 1rem;
+    }
+
+    .support-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .mr-1 {
+      margin-right: 1rem;
+    }
+
+    .mt-1 {
+      margin-top: 1rem !important;
+    }
+
+    .mb-1 {
+      margin-bottom: 1rem !important;
+    }
+
+    .body-action {
+      width: 100%;
+      margin: 30px auto;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      text-align: center;
+    }
+
+    .body-sub {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid #EAEAEC;
+    }
+
+    .content-cell {
+      padding: 0px 45px;
+    }
+    /*Media Queries ------------------------------ */
+
+    @media only screen and (max-width: 600px) {
+      .email-body_inner,
+      .email-footer {
+        width: 100% !important;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body,
+      .email-body,
+      .email-body_inner,
+      .email-content,
+      .email-wrapper,
+      .email-footer {
+        background-color: #fff !important;
+        color: #333333 !important;
+      }
+      p,
+      ul,
+      ol,
+      blockquote,
+      h1,
+      h2,
+      h3 {
+        color: #333333 !important;
+      }
+      .attributes_content,
+      .discount {
+        background-color: #fff !important;
+      }
+      .attributes_item {
+        color: #333333 !important;
+      }
+      .email-masthead_name {
+        text-shadow: none !important;
+      }
+    }
+
+    :root {
+      color-scheme: light dark;
+      supported-color-schemes: light dark;
+    }
+    </style>
+    <!--[if mso]>
+    <style type="text/css">
+      .f-fallback  {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  <![endif]-->
+  </head>
+  <body>
+    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+        <td align="center">
+          <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="email-masthead">
+                <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
+                  <%= image_tag('logo.svg') %>
+                </a>
+                <a href="" class="purple">View in browser</a>
+              </td>
+            </tr>
+            <!-- Email Body -->
+            <tr>
+              <td class="email-body" width="570" cellpadding="0" cellspacing="0">
+              <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td align="center">
+                          <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td>
+                                <div class="image">
+                                  <%= image_tag('booking_confirmed_email') %>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <!-- Body content -->
+                  <tr>
+                    <td class="content-cell">
+                      <div class="f-fallback">
+                        <h1>Hi <span class="purple"><%= @user.first_name %></span></h1>
+                        <p>Congratulations! Your booking is now fully confirmed.</p>
+                        <p>To see the summary of your booking information, please go to my profile page.</p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class='text-center'>
+                    <td class="btn-td">
+                      <a href="<%= user_url(@user) %>" class="button button--" target="_blank">See my confirmed booking</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="content-cell">
+                      <div class="f-fallback">
+                        <p><strong>What’s next?</strong></p>
+                        <p>Continue getting set up in your new home – leave the admin work to us and make sure you get the best deals!</p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="email-body_inner email-cards mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag('email-accomodation.png') %>
+                      </a>
+                    </td>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag('email-bank.png') %>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag('email-phone.png') %>
+                      </a>
+                    </td>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag('email-internet.png') %>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr class="marketing-row">
+                    <td class="content-cell" align="center">
+                      <span><strong>Any questions? This is how you can reach us</strong></span>
+                      <div class="d-flex marketing-inputs">
+                        <a href="" class="support-links mr-1" target="_blank">
+                          <%= image_tag('email-whatsapp.png') %>
+                          <span>contact@go-movido.com</span>
+                        </a>
+                        <a href="" class="support-links mr-1" target="_blank">
+                          <%= image_tag('email-phone-call.png') %>
+                          <span>+44(0)78415988269</span>
+                        </a>
+                        <a href="" class="support-links" target="_blank">
+                          <%= image_tag('email-mail.png') %>
+                          <span>+44(0)78415988269</span>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="content-cell marketing-inputs-flex" align="center">
+                      <span><strong>Want to stay in touch? Find us here</strong></span>
+                      <div class="d-flex marketing-inputs">
+                        <a href="" target="_blank"><%= image_tag('email-facebook.png') %></a>
+                        <a href="" target="_blank"><%= image_tag('email-instagram.png') %></a>
+                        <a href="" target="_blank"><%= image_tag('email-linkedin.png') %></a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr>
+                    <td class="content-cell" align="center">
+                      <p class="f-fallback sub align-center">movido Ltd is a company registered [in] England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
