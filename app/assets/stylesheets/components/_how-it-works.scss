@@ -1,0 +1,19 @@
+#how-it-works {
+  position: relative;
+  .steps-way {
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    left: -3%;
+  }
+  .desc {
+    font-size: 12px;
+  }
+  .stylish {
+    position: absolute;
+    z-index: -1;
+    width: 30%;
+    right: 0;
+    top: 0%;
+  }
+}
