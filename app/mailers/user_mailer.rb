@@ -10,4 +10,12 @@ class UserMailer < ApplicationMailer
     @subscription = params[:subscription]
     mail(to: @user.email, subject: 'Congratulations on your purshase')
   end
+
+  def booking_under_review_email
+    @user = params[:user]
+    @booking = params[:booking]
+    mail(to: @user.email, subject: 'Congratulations on your booking')
+  end
+
+
 end

@@ -128,10 +128,6 @@
       text-decoration: none !important;
     }
 
-    .btn-td {
-      height: 100px;
-    }
-
     .purple {
       color: #8C30F5 !important;
     }
@@ -450,6 +446,10 @@
       margin-right: 1rem;
     }
 
+    .btn-td {
+      height: 100px;
+    }
+
     .mt-1 {
       margin-top: 1rem !important;
     }
@@ -557,7 +557,7 @@
                               <tr>
                                 <td>
                                   <div class="image">
-                                    <%= image_tag('subscription_under_review_email.png') %>
+                                    <%= image_tag('booking_under_review_email.png') %>
                                   </div>
                                 </td>
                               </tr>
@@ -574,19 +574,20 @@
                     <td class="content-cell">
                       <div class="f-fallback">
                         <h1>Hi <span class="purple"><%= @user.first_name %></span></h1>
-                        <p>Our team is reviewing your purchase and will get back to you with a confirmation e-mail once your contract is activated. This can take up to 24 hours.</p>
-                        <p>You can follow the status of your subscription under your personal profile.</p>
+                        <p>Thank you for placing a booking request with movido. The booking information is now on its way to our [product category] partner [provider name].</p>
                       </div>
                     </td>
                   </tr>
                   <tr class='text-center'>
                     <td class="btn-td">
-                      <a href="<%= user_url(@user) %>" class="button button--" target="_blank">My profile</a>
+                      <a href="<%= user_url(@user) %>" class="button button--" target="_blank">See my booking status</a>
                     </td>
                   </tr>
                   <tr>
                     <td class="content-cell">
                       <div class="f-fallback">
+                        <p><strong>What’s next?</strong></p>
+                        <p>To complete your booking, our partner will contact you via e-mail or phone to complete the deposit payment. Once the payment is completed, you will receive a booking confirmation e-mail.</p>
                         <p>Thanks,</p>
                         <p>Your movido team.</p>
                       </div>
