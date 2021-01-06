@@ -339,6 +339,11 @@ en:
       how_it_works: 'How it works?'
       login: 'Login'
       get_started: 'Get Started'
+      services:
+        housing: "<i class='fas fa-home mr-2'></i>Housing"
+        mobile: "<i class='fas fa-mobile mr-2'></i>Mobile"
+        bank: "<i class='far fa-credit-card mr-2'></i>Bank Account"
+        wifi: "<i class='fas fa-wifi mr-2'></i>WiFi"
     dropdown:
         profile: 'Profile'
         account: 'Account'
