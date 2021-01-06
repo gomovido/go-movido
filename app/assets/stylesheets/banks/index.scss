@@ -1,0 +1,57 @@
+.banks-container {
+  padding-top: 70px;
+  h2 {
+    font-weight: 800;
+    font-size: 48px;
+  }
+  .big-blue-bubble {
+    top: -210px;
+    left: -200px;
+  }
+  .small-yellow-bubble {
+    right: 100px;
+    bottom: 580px;
+  }
+  .small-blue-bubble {
+    bottom: 240px;
+    left: 170px;
+  }
+  .big-purple-bubble {
+    bottom: 0;
+    right: -230px;
+  }
+  .bank-card {
+    background: $white;
+    border: 1px solid #9378ff24;
+    border-radius: 27.5px;
+    &:hover {
+      box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+    }
+    .link {
+    height: 60px;
+    border-top: 1px solid #efecff;
+    font-size: 16px;
+    text-decoration: underline;
+    }
+    img {
+      width: 25%;
+      height: 25%;
+    }
+    .content {
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .features {
+        .feature span {
+          font-size: 14px;
+          line-height: 26px;
+          color: #696F79;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+}
+
