@@ -366,6 +366,86 @@ en:
       terms: 'Terms of Services'
       cookie: 'Cookie Policy'
       legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
+  services:
+    wifi:
+      title: 'WIFI'
+      headline: "New to the city and don’t have internet yet?  <br>Let movido find the best broadband offer to suit your needs!"
+      question: "Did you know that there are more than 200 broadband providers and over 1,000 different broadband offers available in Europe?"
+      answer: "Finding your ideal internet provider is complicated!"
+      explanation: "To begin with, each broadband company requires you to complete several forms including your precise address and personal details to get the application approved. The offers vary in terms of upload and download speed (what does this even mean?), contract duration, and various extras you might not need that make a comparison nearly impossible. On top of this, each provider also has its own customer service hotline and contact e-mails with variable levels of support quality. <br><br>You end up spending days comparing all offers to get your WiFi set up."
+      solution: "We have a better solution: movido, an all-in-one platform, that makes all these offers comparable and simplifies the subscription process."
+      button: "Find best broadband offer now"
+      offer: "<font>movido</font> offers you:"
+      last_header: "Say no to endless application forms and start enjoying your free time!"
+      card_1:
+        title: "Simplicity: "
+        description: "Easily create your movido profile and subscribe to your preferred WiFi offer in only a few clicks"
+      card_2:
+        title: "Relevance: "
+        description: "movido has pre-selected the best offers on the market and allows you to get the best service at the best price"
+      card_3:
+        title: "Exclusivity: "
+        description: "With movido, get access to unique offers which are not publicly available on the market"
+      card_4:
+        title: "Your long-term partner: "
+        description: " If you have any questions, contact us! Our team is available to support you with any relocation enquires - even beyond your broadband subscription!"
+    mobile:
+      title: 'Mobile'
+      headline: "New to the city and need a local phone number?  <br>Let movido find the best mobile offer that suits your needs!"
+      question: "Did you know that there are more than <strong>150 mobile providers</strong> and <strong>2,000 different mobile offers </strong>available in Europe?"
+      answer: "Finding your ideal mobile offer is not easy!"
+      explanation: "To begin with, each mobile company requires you to complete several forms including personal details to get the application approved. The large number of offers comes with various call and data allowances, contract lengths and extra services that make a direct comparison nearly impossible. If you have a question, you will need to find out each company’s dedicated service hotline and spend endless time on the phone to maybe get an answer to your question. Not to mention, every company has its own terms and conditions, refund and cancellation policies including minimum notice periods, making it very difficult to switch your contract or simply cancel it. <br><br>You would end up spending days trying to compare all offers to finally get your local mobile number"
+      solution: "We have a better solution: movido, an all-in-one platform, that simplifies the subscription process."
+      button: "Find the best mobile offer now"
+      offer: "<font>movido</font> offers you:"
+      last_header: "Say no to endless application forms and start enjoying your free time!"
+      card_1:
+        title: "Simplicity: "
+        description: "Easily create your movido profile and subscribe to your preferred offer in only a few clicks"
+      card_2:
+        title: "Relevance: "
+        description: "movido has pre-selected the best offers on the market and allows you to get the best service at the best price "
+      card_3:
+        title: "Exclusivity: "
+        description: "With movido, get access to unique offers which are not publicly available on the market"
+      card_4:
+        title: "Your long-term partner: "
+        description: " If you have any questions, contact us! Our team is available to help you out with any relocation enquires - even beyond your broadband subscription!"
+    bank:
+      title: 'Banking'
+      headline: "New to the city and need a local bank account?  <br>Let movido find the best offers for you!"
+      question: "Did you know that there are two types of banks in the market: high street banks and so called neobanks? <br><br>Contrary to traditional high street banks, neobanks are 100% digital and use mobile apps and online platforms to support their customers, rather than traditional physical branches. They are also growing in popularity thanks to lower currency exchange fees and convenience with a simpler and faster way to manage your money."
+      answer: "Confused with different banking options available?"
+      explanation: "To begin with, each bank requires you to fill in several forms such as personal details, proof of address, ID verification (and many more), to get the application approved. The fees for banking operations such as overdraft facility, credit card spend limit, and especially currency exchange rates vary greatly between banks. Not to mention the time it takes until your account is finally open – in most cases, you need a physical appointment at your local branch before your account can be activated. Choose the wrong bank and you might have to wait for weeks until your account is finally activated only to end up pay higher fees when you send / receive money from home. "
+      solution: "We have a better solution: movido, an all-in-one platform, that facilitates the local bank account opening process."
+      button: "Find the best bank offer now"
+      offer: "<font>movido</font> offers you:"
+      last_header: "Say no to high banking fees and spend your money the way you want it"
+      card_1:
+        title: "Relevance: "
+        description: "We want to make sure you can hold several currencies in your account and pay as little for it as possible. Based on these criteria, we have chosen our partners for you."
+      card_2:
+        title: "Speed: "
+        description: "Getting your local bank account takes only 2 minutes! And the best part: you don’t even need to physically go to your new bank’s branch. You can do everything easily online."
+    real_estate:
+      title: 'Real Estate'
+      headline: "New to the city and need an accommodation?  <br>Let movido find your new home!"
+      question: "Did you know that there are <strong>more than 10,000 private studios</strong> alone available to rent right now in your city? Without taking into account other accommodation types such as student housing, flatshare, etc?"
+      answer: "Finding your ideal accommodation quickly is a big challenge!"
+      explanation: "As a newbie in your city, going through the process of securing an accommodation can be stressful, and even risky if you are talking to inexperienced agencies or landlords. From checking accommodations’ facilities to understanding the legal aspects of the payment terms or tenancy rules - the list of items to check is endless. "
+      solution: "We have a better solution: movido, an all-in-one platform, that helps you find the perfect accommodation."
+      button: "Find my new accommodation now"
+      offer: "<font>movido</font> offers you:"
+      last_header: "Say no to stressful flat hunting and start enjoying your new adventure!"
+      card_1:
+        title: "Simplicity: "
+        description: "Easily create your movido profile and easily book an accommodation with all other essential services such as utilities and broadband in a few clicks"
+      card_2:
+        title: "Flexibility: "
+        description: "Use the movido selection features to filter the accommodations based on your preference"
+      card_3:
+        title: "Your long-term partner:"
+        description: "If you have any questions, contact us! Our team is available to help you out with any relocation enquires - even beyond your flat search!"
   flashes:
     global_failure: 'An error has occured'
     not_allowed: "You are not allowed to see this page"

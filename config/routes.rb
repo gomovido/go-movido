@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
 
+  get 'services/wifi', to: 'services#wifi'
+  get 'services/bank', to: 'services#bank'
+  get 'services/mobile', to: 'services#mobile'
+  get 'services/real_estate', to: 'services#real_estate'
   resources :users, only: [:show, :update] do
     resources :addresses, only: [:create, :new]
   end
