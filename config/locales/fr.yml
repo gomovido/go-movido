@@ -365,6 +365,86 @@ fr:
       terms: "Conditions Générales"
       cookie: "Cookies"
       legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
+  services:
+    wifi:
+      title: 'WIFI'
+      headline: "Tu viens t’installer dans ta nouvelle ville et tu as besoin d’une box internet? <br>Choisis ton abonnement et movido s’occupe des démarches administratives"
+      question: "Sais-tu qu’en Europe il a plus de <strong>200 fournisseurs d'accès à internet (FAI)</strong> et plus de <strong>1 000 offres différentes</strong> ?"
+      answer: "Trouver le fournisseur d'accès à internet idéal, c’est vraiment compliqué!"
+      explanation: "Pour commencer, chaque FAI te demande de remplir plusieurs formulairesen demandant ton adresse précise et tes données personnelles pour que la demande soit acceptée. Les offres varient en fonction de la vitesse de téléchargement, de la durée de contrat et des extras dont tu n’as peut-être pas besoin, ce qui rend la comparaison presque impossible. Et si tu as des questions, tu vas perdre beaucoup de temps en file d’attente téléphonique du service client. <br><br>Tu finiras par passer de nombreuses heures à comparer toutes les offres pour choisir l’abonnement WiFi adapté à tes besoins."
+      solution: "Nous avons une meilleure solution pour toi: movido, une plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement"
+      button: "Voir les meilleures offres de box"
+      offer: "Les avantages de <font>movido</font>"
+      last_header: "Dis au revoir aux process de souscription interminable et commence à profiter de ton temps libre!"
+      card_1:
+        title: "Simplicité: "
+        description: "Crée facilement ton profil movido et abonne-toi à ton offre WiFi préférée en seulement quelques clics"
+      card_2:
+        title: "Pertinence: "
+        description: "movido a présélectionné les meilleures offres sur le marché et te permet d'obtenir le meilleur service au meilleur prix"
+      card_3:
+        title: "Exclusivité: "
+        description: "Avec movido, tu as accès à des offres uniques qui ne sont pas disponibles publiquement sur le marché"
+      card_4:
+        title: "Un partenaire long-terme "
+        description: "Si tu as des questions, n’hésite pas à nous contacter! Notre équipe est à ta disposition pour t’aider dans tes démarches administratives - même au-delà de ton abonnement à la box internet!"
+    mobile:
+      title: 'Mobile'
+      headline: "Tu viens d’arriver dans ton nouveau pays et tu asbesoin d'un abonnement mobile? <br>Choisis ton abonnement et movido s’occupe des démarches administratives"
+      question: "Sais-tu qu'il existe plus de <strong>150 fournisseurs </strong>de téléphonie mobile et plus de <strong>2 000 offres différentes </strong>en Europe ?"
+      answer: "Trouver ton offre mobile idéale, c'est pas facile!"
+      explanation: "Pour commencer, chaque fournisseur de téléphonie mobile te demande deremplir plusieurs formulaires comprenant des données personnelles pour que la demande soit approuvée. Les offres proposent de nombreuses options telles que la limite maximale d’appels et de consommation de données par mois, la durée de contrat et des services supplémentaires quirendent la comparaison presque impossible. Si tu as une question, tu devras te renseigner auprès du service d'assistance téléphonique de chaque fournisseur et passeras un temps infini au téléphone pour peut-être obtenir une réponse à tes questions. Sans compter que chaque fournisseur a ses propres conditions générales, politiques de remboursement et de résiliation, y compris des délais de préavis minimums, ce qui rend le changement de contrat ou la résiliation très compliquée.<br><br>Tu vas finir par passer de nombreuses heures à comparer toutes les offrespour obtenir une offre de téléphonie adapte à tes besoins."
+      solution: "Nous avons une meilleure solution pour toi: movido, une plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement"
+      button: "Voir les meilleur offres mobile"
+      offer: "Les avantages de <font>movido</font>"
+      last_header: "Dis au revoir aux process de souscription interminable et commence à profiter de ton temps libre!"
+      card_1:
+        title: "Simplicité: "
+        description: "Crée facilement ton profil movido et abonne-toi à ton offre mobile préférée en seulement quelques clics"
+      card_2:
+        title: "Pertinence: "
+        description: "movido a présélectionné les meilleures offres sur le marché et te permet d'obtenir le meilleur service au meilleur prix"
+      card_3:
+        title: "Exclusivité: "
+        description: "Avec movido, tu as accès à des offres uniques qui ne sont pas disponibles publiquement sur le marché"
+      card_4:
+        title: "Un partenaire long-terme "
+        description: " Si tu as des questions, n’hésite pas à nous contacter! Notre équipe est à ta disposition pour t’aider dans tes démarches administratives - même au-delà de ton abonnement mobile!"
+    bank:
+      title: 'Compte bancaie'
+      headline: "Tu viens d’arriver dans ton nouveau pays et tu asbesoin d'un compte bancaire local ? <br>Choisis la banque qui te convient et movido s’occupe des démarches administratives"
+      question: "Sais-tu qu'il existe deux types de banques sur le marché: les banques traditionelles et les 'néobanques' ? <br><br>Contrairement aux banques traditionnelles, les néobanques sont 100 % digitales et se servent d’applications mobiles et de plateformes en ligne pour aider leurs clients, plutôt que des agences physiques traditionnelles. Elles gagnent également en popularité grâce à leurs taux de change moins élevés et à une gestion plus simple et plus rapide de ton argent au quotidien."
+      answer: "Indécis sur les différentes options bancaires disponibles ?"
+      explanation: "Pour commencer, chaque banque exige que tu remplisses plusieurs formulaires contenant tes données personnelles, un justificatif de domicile, une pièce d'identité (et bien plus), pour faire traiter ta demande.Les frais liés aux opérations bancaires telles que le découvert autorisé, la limite de dépenses de carte de crédit, et surtout les taux de change varient fortement d'une banque à l'autre. Sans parler du temps qu'il faut pour que ton compte soit finalement ouvert - dans la plupart des cas, tu devras prendre rendez-vous dans une agence locale avant que le compte puisse être activé. En cas de mauvais choix de banque, tu risques d’attendre des semaines entières jusqu’à l’ouverture de ton compte, et payer des frais plus élevés pour envoyer et recevoir de l'argent depuis l’étranger."
+      solution: "Nous avons une meilleure solution pour toi: movido, une plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement."
+      button: "Voir les meilleures offres bancaires"
+      offer: "Les avantages de <font>movido</font>"
+      last_header: "Fini les frais bancaires élevés - dépense ton argent comme tu lesouhaites !"
+      card_1:
+        title: "Pertinence "
+        description: "Nous voulons nous assurer que tu puisses détenir plusieurs devises sur ton compte en payant le moins de frais possible. Sur la base de ces critères, nous avons choisi nos partenaires bancaires."
+      card_2:
+        title: "Rapidité: "
+        description: "L'ouverture de ton compte bancaire local ne prend que 2 minutes ! Et la meilleure chose: tu n’as même pas besoin de te rendre sur place - tout se fait facilement en ligne."
+    real_estate:
+      title: 'Logement'
+      headline: "Tu viens t’installer dans une nouvelle ville et tu cherches un logement? <br>Compte sur movido pour trouver ton logement idéal !"
+      question: "Sais-tu qu’actuellement plus <strong>10 000 studios privés </strong>sont disponibles à la location dans ta ville? Sans tenir compte des autres types de logement tels que les résidences étudiantes, les colocations, etc."
+      answer: "Trouver rapidement ton logement idéal, c’est un sacré défi!"
+      explanation: "Trouver un logement dans une nouvelle ville peut être stressant, voire risqué si tu fais confiance à des agences ou propriétaires sans expérience.En plus, la liste des éléments à vérifier est tellement longue: l’équipementdu logement, les meubles, les obligations légales du locataire (toi), les conditions de paiement du loyer, etc., etc. "
+      solution: "Nous avons une meilleure solution: movido, une plateforme tout-en-un, qui t’aide à trouver le logement idéal."
+      button: "Trouver mon logement idéal"
+      offer: "Les avantages de <font>movido</font>"
+      last_header: "Fini la recherche de logement sans fin – prends enfin le temps de profiter de ta nouvelle aventure!"
+      card_1:
+        title: "Simplicité "
+        description: " Crée facilement ton profil movido et réserve ton logement en quelques clics. Toutes les information liées à ton logement sont accessibles et comparables, ce qui facilite la recherche de ton logement idéal!"
+      card_2:
+        title: "Accompagnement: "
+        description: "Nos équipes et celles de nos partenaires se tiennent à ta disposition pour répondre à toutes tes questions concernant nos logements."
+      card_3:
+        title: "Un partenaire long-terme"
+        description: "Même au-delà de la recherche de ton logement, nos équipes sont là pour t’accompagner lors de ton déménagement"
   flashes:
     global_failure: 'Oups, il y a un problème'
     not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
