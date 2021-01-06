@@ -44,6 +44,25 @@ en:
     careers:
       title: "Careers"
       content: "You are a developer, designer, marketing expert or product specialist? Or you have suffered from the admin nightmare <br>yourself when you relocated in the past and just want to do something against it? We at movido are always looking for <br>new talents to join our team. Simply write us at <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> – we are excited to meet you."
+    faq:
+      question_1: 'Q: How does it work?'
+      question_2: 'Q: How much does movido cost?'
+      question_3: 'Q: What service shall I start with?'
+      question_4: 'Q: Who is the team behind movido?'
+      question_5: 'Q: How do I know if my purchase was successful?'
+      question_6: 'Q: I have not received my phone / wifi box / transport card yet – what shall I do?'
+      question_7: 'Q: How can I cancel my contract?'
+      answer_1: "A: movido bundles all services you need in your new city on one platform. You sign up once and can start selecting your new bank account, local phone number,broadband, gym and many more services you need right away. We synchronize these service offers and prices continuously with our partners so that you always subscribe to the latest offers in the market. In your profile section, you can afterwards conveniently manage your contracts"
+      answer_2: "A: Movido is completely free of charge for you, we work on a commission basis only paid by the service provider. Due to the large number of users we refer, we often achieve special conditions. So on top of the perfect offer, you most likely get it at the cheapest price in the market."
+      answer_3: "A: Most of the contracts such as phone, broadband, gym, etc. require a local bankaccount. We therefore recommend to start with conveniently setting up your transferwise, bunq or revolut account. Afterwards, an apartment will give you thechance to have a fixed address. Check out our cool housing offers. All other services can then be booked in parallel."
+      answer_4: "A: We are a team with diverse backgrounds – from finance professionals to front/back-end developers. However, what we all share is the cumbersome adminexperience when moving to a new city and the vision to make this process easier for you."
+      answer_5: "A: Once you have submitted the order form, you will receive two emails – the firstone will confirm your order. Now, movido will work in the background with the service provider to get your contract set up. Especially, when it comes to housing, this may take up to 48 hours. The second email with the purchase confirmation then guarantees you that your purchase was successful."
+      answer_6: "A: Please note that this will take up to 3 business days depending on the provider. You can also always get in touch with our support team – they will be able to trace your delivery and help you."
+      answer_7: "A: In your “My profile” section, you have a good overview of all your contracts. Unfortunately, due to confidentiality reasons, we will not be able to cancel every type of contract. For these, you will either be provided a link to direct you to the respective action in no time or the helpline number to do so via phone."
+      contact:
+        title: "Any additional questions ?"
+        description: "Please contact the movido customer service via chat, email <br>or phone."
+        cta: "Contact us"
     home:
       banner:
         headline1: 'Get set up</br> in your new home'

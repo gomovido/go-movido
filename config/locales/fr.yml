@@ -105,6 +105,25 @@ fr:
           from: 'De Berlin'
           to: 'à Londres'
           sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
+    faq:
+      question_1: "Q: Comment ça marche? "
+      question_2: "Q: Combien coûte movido? "
+      question_3: "Q: Par quel service dois-je commencer? "
+      question_4: "Q: Qui est l'équipe derrière movido? "
+      question_5: "Q: Comment puis-je savoir si mon achat a réussi? "
+      question_6: "Q: Je n'ai pas encore reçu mon téléphone / ma boîte wifi / ma carte de transport - que dois-je faire? "
+      question_7: "Q: Comment puis-je annuler mon contrat ? "
+      answer_1: "R: movido regroupe tous les services dont tu as besoin dans ta nouvelle ville sur une seule plateforme. Tu t'inscris une seule fois et tu peux commencer à choisir ton nouveau compte bancaire, ton numéro de téléphone local, le haut débit, la salle de gym et beaucoup d'autres services dont tu as besoin tout de suite. Nous synchronisons ces offres de services et les prix en permanence avec nos partenaires afin que tu t'abonnes toujours aux dernières offres du marché. Dans la section de ton profil, tu peux ensuite gérer tes contrats de manière pratique."
+      answer_2: "R: Movido est complètement gratuit pour toi, nous travaillons sur la base d'une commission payée uniquement par le prestataire de services. En raison du grand nombre d'utilisateurs que nous référons, nous obtenons souvent des conditions spéciales. Ainsi, en plus de l'offre parfaite, tu l'obtiens probablement au prix le plus bas du marché."
+      answer_3: "R: La plupart des contrats tels que le téléphone, le haut débit, la salle de gym, etc. nécessitent un compte bancaire local. Nous te recommandons donc de commencer par créer ton compte de transferwise, bunq ou revolut. Ensuite, un appartement te donnera la possibilité d'avoir une adresse fixe. Consulte nos offres de logements sympas. Tous les autres services peuvent alors être réservésen parallèle."
+      answer_4: "R: Nous sommes une équipe avec des antécédents divers - des financiers aux développeurs front/back-end. Cependant, ce que nous partageons tous, c'est la lourdeur de l'expérience administrative lors d'un déménagement dans une nouvelle ville et la vision de rendre ce processus plus facile pour toi."
+      answer_5: "R: Une fois que tu as soumis le formulaire de commande, tu recevras deuxemails - le premier confirmera ta commande. Maintenant, movido va travailler enarrière-plan avec le fournisseur de services pour mettre en place ton contrat. Surtout en ce qui concerne le logement, cela peut prendre jusqu'à 48 heures. Le deuxième email avec la confirmation d'achat te garantit alors que ton achat a été réussi."
+      answer_6: "R: Veuillez noter que cela peut prendre jusqu'à 3 jours ouvrables selon le fournisseur. Tu peux aussi toujours contacter notre équipe de support - ils seront en mesure de suivre ta livraison et de t'aider"
+      answer_7: "R: Dans ta section 'Mon profil', tu as un bon aperçu de tous tes contrats. Malheureusement, pour des raisons de confidentialité, nous ne pourrons pas annuler tous les types de contrats. Pour ceux-ci, tu recevras soit un lien pour te diriger en un rien de temps vers l'action respective, soit le numéro de la ligne d'assistance téléphonique pour le faire par téléphone."
+      contact:
+        title: "D'autres questions?"
+        description: "Merci de contacter le support de movido par chat, email <br>ou téléphone"
+        cta: "Contactez-nous"
     dashboard_index:
       title: "Selectionnez les services dont vous avez besoin"
       subtitle: "Mon adresse"
