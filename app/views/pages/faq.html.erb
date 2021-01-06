@@ -1,0 +1,21 @@
+<div class="container faq-container mb-5">
+  <div class="big-blue-bubble position-absolute"></div>
+  <div class="small-yellow-bubble position-absolute"></div>
+  <div class="big-purple-bubble position-fixed"></div>
+  <h2 class="text-center mb-4">FAQ</h2>
+  <div id="accordion" data-controller="faq" data-faq-target="accordion">
+    <%= render 'question_card', heading: 'headingOne', collapse: 'collapseOne', question: t('.question_1'), answer: t('.answer_1') %>
+    <%= render 'question_card', heading: 'headingTwo', collapse: 'collapseTwo', question: t('.question_2'), answer: t('.answer_2') %>
+    <%= render 'question_card', heading: 'headingThree', collapse: 'collapseThree', question: t('.question_3'), answer: t('.answer_3') %>
+    <%= render 'question_card', heading: 'headingFour', collapse: 'collapseFour', question: t('.question_4'), answer: t('.answer_4') %>
+    <%= render 'question_card', heading: 'headingFive', collapse: 'collapseFive', question: t('.question_5'), answer: t('.answer_5') %>
+    <%= render 'question_card', heading: 'headingSix', collapse: 'collapseSix', question: t('.question_6'), answer: t('.answer_6') %>
+    <%= render 'question_card', heading: 'headingSeven', collapse: 'collapseSeven', question: t('.question_7'), answer: t('.answer_7') %>
+  </div>
+  <div class="more-questions position-relative">
+    <h3 class="mb-5"><%= t('.contact.title') %></h3>
+    <p><%= t('.contact.description').html_safe %></p>
+    <span class="contact-link d-flex align-items-center"><%= t('.contact.cta') %> <i class="fas fa-arrow-right ml-2"></i></span>
+    <%= image_tag ('question-mark.png'), class: 'position-absolute d-lg-block d-none' %>
+  </div>
+</div>
