@@ -41,6 +41,9 @@ en:
         password: 'Password'
         password_confirmation: 'Password confirmation'
   pages:
+    careers:
+      title: "Careers"
+      content: "You are a developer, designer, marketing expert or product specialist? Or you have suffered from the admin nightmare <br>yourself when you relocated in the past and just want to do something against it? We at movido are always looking for <br>new talents to join our team. Simply write us at <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> – we are excited to meet you."
     faq:
       question_1: 'Q: How does it work?'
       question_2: 'Q: How much does movido cost?'

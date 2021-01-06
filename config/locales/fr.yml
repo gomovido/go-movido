@@ -165,6 +165,9 @@ fr:
         name: 'Communauté'
         subtitle: 'Rejoignez la communauté movido dans votre ville'
         description: 'Discutez avec des étudiants du monde entier'
+    careers:
+      title: "Carrières"
+      content: "Tu es un développeur, un designer, un expert en marketing ou un spécialiste des produits ? Ou bien tu as toi-même souffert des longues démarches administratives lors de tes déménagements et tu veux simplement améliorer cette expérience? Chez movido, nous sommes toujours à la recherche de nouveaux talents pour rejoindre notre équipe. Il suffit de nous envoyer un mail à <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> - nous sommes ravis de te rencontrer!"
   addresses:
     new:
       title: "Quelle est votre adresse ?"
