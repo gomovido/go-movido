@@ -1,11 +1,11 @@
 .btn-main {
   color: $white;
   background: $purple;
-  padding: 10px 51.5px;
+  padding: 15px 51.5px;
   font-weight: 700;
   font-size: 20px;
-  border-radius: 8px;
-  border: none !important;
+  border-radius: 20px;
+  border-bottom: 5px solid #6408CD !important;
   transition: all 0.3s ease;
   &:hover {
     opacity: 0.95;
@@ -104,11 +104,13 @@
 .btn-main-reverse {
   color: $purple;
   background: $white;
-  padding: 10px 51.5px;
+  padding: 10px 10px;
   font-weight: 700;
   font-size: 20px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  width: 20%;
+  text-align: center;
   &:hover {
     opacity: 0.95;
     color: $purple;

@@ -51,12 +51,15 @@ fr:
         headline: "Rejoignez une communauté de 569 étudiants du monde entier sur movido"
         start: "C'est parti !"
       services-cards:
+        title: 'Nos Offres'
         housing: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces dans votre nouvelle ville"
         bank: "Ouvrez votre compte bancaire en quelques minutes - et tout ça entièrement en ligne sans vous déplacer"
         mobile: "Obtenez votre numéro de mobile avec movido - nos vous proposons des forfaits avec ou sans engagement avec nos partenaires"
         wifi: "Choisissez parmi une variété de forfaits WiFi l'offre idéale pour vos besoins et obtenez votre abonnement en quelques minutes "
         gym: "Toujours à la recherche de salles de sport ? Nous avons sélectionné les meilleures offres"
         transportation: "Dites-nous où vous devez aller et nous vous fournissons la carte de transport en commun qu'il vous faut"
+        utilities: 'Eau, électricité, gaz - choisissez votre fournisseur et nous vous aiderons à vous installer'
+        community: 'Rejoignez notre communauté de personnes partageant les mêmes idées dans votre nouvelle ville natale !'
       how-it-works:
         title: 'Comment ça marche?'
         start: "C'est parti !"
@@ -94,15 +97,15 @@ fr:
         title: "Ce que disent les étudiants"
         subtitle: "Laissez-vous inspirer par leurs expériences"
         testimonial1:
-          from: 'De Stockholm'
+          from: 'de Stockholm'
           to: 'à Paris'
           sentence: "''La plupart des démarches administratives étaient en français - movido m'a fait gagner du temps et de l'argent lors de mon semestre en échange à Paris''"
         testimonial2:
-          from: 'De Buenos Aires'
+          from: 'de Buenos Aires'
           to: 'à Lyon'
           sentence: "''Ça m'a pris 10 minutes et tout était fait - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
         testimonial3:
-          from: 'De Berlin'
+          from: 'de Berlin'
           to: 'à Londres'
           sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
     faq:
