@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :terms, :privacy, :cookies, :how_it_works ]
+  skip_before_action :authenticate_user!, only: [ :home, :terms, :privacy, :cookies, :careers, :faq, :how_it_works ]
   before_action :user_has_address?, only: [:dashboard_index]
+  
   def home; end
 
   def privacy; end
@@ -10,6 +11,10 @@ class PagesController < ApplicationController
   def terms; end
 
   def how_it_works; end
+  
+  def careers; end
+  
+  def faq; end
 
   def dashboard_index
     @categories = Category.all

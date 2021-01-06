@@ -1,0 +1,64 @@
+.faq-container {
+  padding-top: 80px;
+  img {
+    right: 0;
+    top: 0;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: 48px;
+  }
+  .big-blue-bubble {
+    left: -200px;
+    top: -230px;
+  }
+  .small-yellow-bubble {
+    right: 130px;
+    top: 300px;
+  }
+  .big-purple-bubble {
+    bottom: -120px;
+    right: -200px;
+  }
+  .card-header {
+    border: 1px solid #D9DBE1;
+    box-shadow: 0px 16px 40px rgba(166, 163, 173, 0.2);
+    border-radius: 24px;
+    height: 90px;
+    background: $white;
+    button {
+      font-weight: 800;
+      font-size: 18px;
+      color: $black;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .fa-minus, .fa-plus {
+      color: $purple;
+    }
+  }
+  .card {
+    background: transparent;
+    border: none;
+    border-radius: 24px;
+  }
+  .card-body {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  h3 {
+    font-weight: 800;
+    font-size: 40px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .contact-link {
+    font-weight: 800;
+    font-size: 20px;
+    cursor: pointer;
+    color: $purple;
+  }
+}
