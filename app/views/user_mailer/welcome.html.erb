@@ -422,9 +422,27 @@
       margin-top: 1rem;
     }
 
+    .marketing-inputs-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .marketing-inputs img {
       width: 35px !important;
       height: 35px !important;
+      margin-right: 1rem;
+    }
+
+    .support-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .mr-1 {
       margin-right: 1rem;
     }
 
@@ -607,6 +625,26 @@
                 <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr class="marketing-row">
                     <td class="content-cell" align="center">
+                      <span><strong>Any questions? This is how you can reach us</strong></span>
+                      <div class="d-flex marketing-inputs">
+                        <a href="" class="support-links mr-1" target="_blank">
+                          <%= image_tag('email-whatsapp.png') %>
+                          <span>contact@go-movido.com</span>
+                        </a>
+                        <a href="" class="support-links mr-1" target="_blank">
+                          <%= image_tag('email-phone-call.png') %>
+                          <span>+44(0)78415988269</span>
+                        </a>
+                        <a href="" class="support-links" target="_blank">
+                          <%= image_tag('email-mail.png') %>
+                          <span>+44(0)78415988269</span>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="content-cell marketing-inputs-flex" align="center">
+                      <span><strong>Want to stay in touch? Find us here</strong></span>
                       <div class="d-flex marketing-inputs">
                         <a href="" target="_blank"><%= image_tag('email-facebook.png') %></a>
                         <a href="" target="_blank"><%= image_tag('email-instagram.png') %></a>
@@ -620,11 +658,6 @@
             <tr>
               <td>
                 <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr>
-                    <td class="content-cell" align="center">
-                      <p class="f-fallback sub align-center"><strong>For assistance you can directly reply to this email or contact us by whatsaps at +447841598269</strong></p>
-                    </td>
-                  </tr>
                   <tr>
                     <td class="content-cell" align="center">
                       <p class="f-fallback sub align-center">movido Ltd is a company registered [in] England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
