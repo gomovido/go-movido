@@ -17,5 +17,10 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Congratulations on your booking')
   end
 
+  def subscription_confirmed_email
+    @user = params[:user]
+    @subscription = params[:subscription]
+    mail(to: @user.email, subject: 'Subscription confirmed')
+  end
 
 end

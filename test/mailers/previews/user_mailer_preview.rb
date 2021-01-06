@@ -14,4 +14,8 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.with(user: User.first).booking_under_review_email
   end
 
+  def subscription_confirmed_email
+    UserMailer.with(user: User.first, subscription: Subscription.first).subscription_confirmed_email
+  end
+
 end
