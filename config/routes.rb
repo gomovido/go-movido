@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   post 'create-products', to: 'products#create_from_forest_admin'
 
   resources :categories, only: [:index] do
+    resources :banks, only: [:index]
     resources :products, only: [:index] do
       resources :subscriptions, only: [:create]
     end

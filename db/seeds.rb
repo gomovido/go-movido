@@ -1,5 +1,12 @@
 # Users & Adresses
 
+
+
+Bank.create(name: 'Bunq', logo_url: 'https://techfoliance.fr/wp-content/uploads/2019/10/bunq-logo.png', headline: 'headline', feature_1: 'feature_1', feature_2: 'feature_2', feature_3: 'feature_3', feature_4: 'feature_4')
+Bank.create(name: 'TransferWise', logo_url: 'https://images.squarespace-cdn.com/content/58775efdd482e90f8535f34f/1562938600275-UKF2YKVN3PZYQNVNUC97/logo_Test.png', headline: 'headline', feature_1: 'feature_1', feature_2: 'feature_2', feature_3: 'feature_3', feature_4: 'feature_4', affiliate_link: 'https://transferwise.prf.hn/l/KX9eQlV')
+
+
+
 category = Category.create(
   name: 'bank',
   sku: 'bank',
