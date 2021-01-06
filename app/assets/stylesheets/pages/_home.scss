@@ -1,11 +1,20 @@
 // Specific CSS for your home-page
 body {
- background: $white;
- color: $light-black;
+  background: $white;
+  color: $light-black;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
 
+.relative {
+  position: relative;
+}
+
+h2 {
+  font-weight: 800;
+  margin-bottom: 3rem;
+  font-size: 42px;
 }
 .wrapper{
   flex: 1 !important;
@@ -64,9 +73,24 @@ section {
   margin-bottom: 4rem;
 }
 
-#partners .partner {
-  img {
-    width: 50%;
+#partners {
+  p.title {
+    font-weight: 800;
+    color: #978CA4;
+    opacity: 0.6;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .partner {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+    border-radius: 27.5px;
+    img {
+      width: 60%;
+    }
   }
 }
 

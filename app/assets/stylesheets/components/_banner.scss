@@ -1,10 +1,11 @@
 .banner {
+  margin-top: 4rem;
+  height: 80vh;
   background-size: cover;
   background-position: center;
-  height: 80vh;
   h1 {
     color: $black;
-    font-size: 64px;
+    font-size: 65px;
     font-weight: 800;
     line-height: 5rem;
   }
@@ -12,6 +13,14 @@
     font-size: 24px;
     color: $black;
     font-weight: 300;
+  }
+  .headline {
+    .subheadline {
+      font-weight: 300;
+    }
+    strong {
+      font-weight: bold;
+    }
   }
 }
 
