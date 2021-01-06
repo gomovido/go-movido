@@ -129,6 +129,24 @@ en:
         testimonial3:
           from: 'From Berlin'
           to: 'To London'
+          sentence: '"I struggled to find a good gym in my area – with movido I found the perfect one"'
+    how_it_works:
+      title: 'How it works'
+      first_step:
+        title: 'Create an account'
+        description: 'Easily create your movido account to get started: you can sign up instantly using your Facebook, Google or email account. '
+      second_step:
+        title: 'Select a service'
+        description: 'Select all services you need from a variety of offerings – from WiFi to gym, movido has everything to get you started in your new city.'
+      third_step:
+        title: 'Compare offers'
+        description: 'movido has pre-selected the best offers on the market and has made them easily comparable for you – this guarantees you will get the best package for the best price. The platform adds new offers regularly to make sure you don’t miss any latest packages.'
+      fourth_step:
+        title: 'Choose your product'
+        description: 'Choose your preferred offer with only a few clicks and leave the rest of the admin work to us. Within 24 hours, your new subscription will be active. You will also receive a confirmation by email.'
+      fifth_step:
+        title: 'Manage your subscriptions'
+        description: 'movido provides a personalized overview of all your active subscriptions - easily manage your account and cancel / change your subscriptions.'
           sentence: '"I struggled to find a good gym in my area – with<br>movido I found the perfect one"'
     dashboard_index:
       title: 'Select the services you need'
