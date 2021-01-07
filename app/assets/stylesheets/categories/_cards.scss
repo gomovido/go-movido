@@ -1,54 +1,71 @@
-.categories-cards-wrapper .category-card {
-  background: $white;
-  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
-  height: 120px;
-  transition: box-shadow 0.3s;
-  width: 50%;
-  .illustration {
-    background-size: cover;
-    background-position: center;
-    width: 150px;
+.category-card {
+  cursor: pointer;
+  a {
+    display: block;
+    height: 420px;
+    border: 0.5px solid #D9DBE1;
+    border-radius: 16px;
+    box-shadow: 0px 24px 64px 0px rgba(0, 0, 0, 0.08);
+    &:hover {
+      box-shadow: 0px 24px 64px 0px rgba(0, 0, 0, 0.13);
+    }
   }
-  .uncolored {
-    filter: grayscale(100%);
+  .image {
+    border-radius: 16px 16px 0 0;
+    background: $white;
+    border-bottom: 0.5px solid #D9DBE1;
+    height: 40%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
   }
-  .details-wrapper {
-    .summary span {
-      color: $grey;
-      font-size: 12px !important;
+  .details {
+    background: #FBFBFB;
+    height: 45%;
+    .name {
+      font-weight: bold;
+      font-size: 14px;
+      color: #696F79;
+    }
+    .time {
+      font-size: 11px;
+      color: #696F79;
+    }
+    .subtitle {
+      font-weight: bold;
+      font-size: 18px;
     }
     .description {
-      .title {
-        font-weight: 400;
-        font-size: 16px;
-      }
-      .subtitle {
-        font-weight: lighter;
-        color: $dark-grey;
-        font-size: 14px;
-      }
+      font-weight: normal;
+      font-size: 12px;
+      color: #51465E;
     }
-    .links .offers {
-      .flag {
-        width: 25px;
-      }
-      span {
-        font-size: 14px;
-        font-weight: 700;
-        color: $purple !important;
-      }
-      .coming-soon {
-        color: $red !important;
-      }
+    .flag {
+      width: 32px;
+      height: 22px;
+    }
+    .offers {
+      font-weight: bold;
+      font-size: 12px;
+      color: #3175E3;
     }
   }
-  &:hover {
-    box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.2);
+  .state {
+    height: 15%;
+    border-top: 1px solid rgba(150,155,171,0.1);
+    border-radius: 0 0 16px 16px;
+    font-weight: bold;
+    color: $purple;
+    i {
+      font-size: 18px;
+    }
   }
-}
-
-@include media-breakpoint-down(md) {
-  .category-card {
-    width: 100% !important;
+  .state.open {
+    background: rgb(240, 231, 250);
+    font-size: 14px;
+  }
+  .state.coming-soon {
+    background: rgb(246,246,246);
+    font-size: 12px;
   }
 }

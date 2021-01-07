@@ -5,23 +5,13 @@
     font-weight: 800;
     font-size: 38px;
   }
-  span {
-    color: $black;
-    font-size: 18px;
-  }
-  .address-input {
-    height: calc(1.5em + 0.75rem + 18px) !important;
-    border-radius: 6px;
-    border: 1px solid $light-grey;
-    background: $white;
-    span {
-      font-size: 14px;
-      color: $light-grey;
-      font-weight: 300;
-    }
-  }
-  .subtitle {
+  .address {
     font-weight: bold;
+    font-size: 14px;
+    .fas{
+      color: #75E3EA;
+      font-size: 17px;
+    }
   }
   .big-blue-bubble {
     z-index: -1;

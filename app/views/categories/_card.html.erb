@@ -1,28 +1,29 @@
-<div class="category-card m-2 <%= category.open ? '' : 'disabled' %>">
-  <%= link_to category_products_path(category), class:'d-flex h-100' do %>
-  <div class="illustration d-lg-block d-none <%= category.open ? '' : 'uncolored' %>" style="background-image:url(<%= asset_path(category.sku + "-card.png") %>"></div>
-  <div class="details-wrapper w-100">
-    <div class="d-flex flex-column p-2 h-100 justify-content-between">
-      <div class="summary d-flex justify-content-between mb-1">
-        <span><strong><%= t( 'pages.dashboard_index.' + category.sku + '.name') %></strong></span>
-        <span><%= t( 'pages.dashboard_index.time', time: category.form_timer) %></span>
-      </div>
-      <div class="description d-flex flex-column">
-
-        <span class="subtitle"><%= t( 'pages.dashboard_index.' + category.sku + '.description') %></span>
-      </div>
-      <div class="links d-flex justify-content-end align-items-center mt-2">
-        <div class="offers d-flex align-items-center w-100 justify-content-between">
-          <% if category.open %>
-            <span><%= Product.where(category: category, country: current_user.country).count %> offers in <%= current_user.country %></span>
-          <% else %>
-            <span class="coming-soon"><%= t('pages.dashboard_index.coming_soon') %></span>
-          <% end %>
-          <%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-2') %>
-        </div>
+<div class="category-card col-md-4 <%= category.open ? '' : 'disabled' %>">
+  <%= link_to category_products_path(category), class: 'mb-3 d-flex flex-column align-items-center' do %>
+  <div class="w-100 text-center image p-3"><%= image_tag(category.sku + "-card.png") %></div>
+  <div class="details px-3 py-2 w-100 d-flex flex-column justify-content-between">
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="name"><%= t("pages.dashboard_index.#{category.sku}.name") %></span>
+      <span class="time"><%= t("pages.dashboard_index.time", time: category.form_timer) %></span>
+    </div>
+    <span class="subtitle"><%= t("pages.dashboard_index.#{category.sku}.subtitle") %></span>
+    <span class="description"><%= t("pages.dashboard_index.#{category.sku}.description") %></span>
+    <span class="mt-2 d-flex offers align-items-center"><%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-3') %> + <%= category.products.length %> <%= t("pages.dashboard_index.offers") %></span>
+  </div>
+  <% if category.open %>
+    <div class="state open w-100">
+      <div class="see-offers d-flex align-items-center justify-content-center h-100">
+        <span><%= t("pages.dashboard_index.see_offers") %></span>
+        <i class="fas fa-arrow-circle-right ml-2"></i>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="state coming-soon w-100">
+      <div class="coming-soon d-flex align-items-center justify-content-center h-100">
+        <span><%= t("pages.dashboard_index.coming_soon") %></span>
+      </div>
+    </div>
+  <% end %>
   <% end %>
 </div>
 
