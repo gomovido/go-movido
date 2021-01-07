@@ -25,7 +25,7 @@
     }
 
     a {
-      color: #0D4D90;
+      color: #fff !important;
     }
 
     a img {
@@ -161,7 +161,7 @@
     }
 
     .attributes_content {
-      background-color: #f2f4f6;
+      background-color: #fff;
       padding: 25px;
       border-radius: 10px !important;
     }
@@ -410,6 +410,10 @@
       display: flex;
     }
 
+    .justify-content-center {
+      justify-content: center;
+    }
+
     .marketing-row {
       display: flex;
       justify-content: center;
@@ -612,7 +616,7 @@
                       </a>
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="d-flex justify-content-center">
                     <td class="text-center mt-1">
                       <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
                     </td>
@@ -645,7 +649,7 @@
                   <tr>
                     <td class="content-cell marketing-inputs-flex" align="center">
                       <span><strong>Want to stay in touch? Find us here</strong></span>
-                      <div class="d-flex marketing-inputs">
+                      <div class="d-flex marketing-inputs justify-content-center">
                         <a href="" target="_blank"><%= image_tag('email-facebook.png') %></a>
                         <a href="" target="_blank"><%= image_tag('email-instagram.png') %></a>
                         <a href="" target="_blank"><%= image_tag('email-linkedin.png') %></a>
