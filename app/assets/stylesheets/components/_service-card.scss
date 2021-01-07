@@ -8,7 +8,6 @@
   grid-gap: var(--gutter) 0;
   grid-template-columns: var(--gutter) 1fr var(--gutter);
   align-content: start;
-  transition: left 2s;
 }
 
 .service-cards-scroller > * {
