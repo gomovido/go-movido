@@ -121,15 +121,23 @@ en:
         testimonial1:
           from: 'From Stockholm'
           to: 'To Paris'
-          sentence: '"Most of the admin was in French. movido saved me<br>time and money for my semester abroad in Paris"'
+          sentence: '"Most of the admin was in French. movido saved me time and money for my semester abroad in Paris"'
         testimonial2:
           from: 'From Buenos Aires'
           to: 'To Lyon'
-          sentence: '"It took me 10 minutes and I was set – and I got a<br>good deal for my new mobile and WiFi abo on top"'
+          sentence: '"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi abo on top"'
         testimonial3:
           from: 'From Berlin'
           to: 'To London'
           sentence: '"I struggled to find a good gym in my area – with movido I found the perfect one"'
+        testimonial4:
+          from: 'From Barcelona'
+          to: 'To London'
+          sentence: '"Find a good WiFi service in London is not easy. movido offers a list of local companies with flexible options and great features."'
+        testimonial5:
+          from: 'From Warsaw'
+          to: 'To Paris'
+          sentence: '"I secured my place to study in Berlin for a year. Thanks to movido, it was easy to setup all services I need in the new city."'
     how_it_works:
       title: 'How it works'
       first_step:
