@@ -48,8 +48,8 @@ fr:
       updated_but_not_signed_in: "Votre compte a été modifié avec succès. Merci de vous reconnecter."
     sessions:
       new:
-        facebook: "Se connecter avec Facebook"
-        google: "Se connecter avec Google"
+        facebook: "Se connecter avec <strong>&nbsp Facebook</strong>"
+        google: "Se connecter avec <strong>&nbsp Google</strong>"
         or: "Ou"
         login: 'Connexion'
         title_left: 'Bon retour parmis nous'
@@ -64,13 +64,14 @@ fr:
       unlocked: "Votre compte a été déverrouillé avec succès, vous êtes maintenant connecté."
     registrations:
         new:
-          title_left: "Bienvenue sur <br>movido"
+          title_left: "Bienvenue sur "
           title_right: 'Inscription'
           subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
-          facebook: "S'inscrire avec Facebook"
-          google: "S'inscrire avec Google"
+          facebook: "S'inscrire avec <strong>&nbsp Facebook</strong>"
+          google: "S'inscrire avec <strong>&nbsp Google</strong>"
           or: "Ou"
           register: 'Enregistrer'
+          mandatory: '* Champs obligatoire'
         edit:
           title: "Mes informations d'accès"
           update: 'Mettre à jour'

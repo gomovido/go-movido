@@ -28,7 +28,7 @@
         <%= f.input :password_confirmation,
               required: true,
               input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
-        <span class="mandatory">* Mandatory fields</span>
+        <span class="mandatory"><%= t('.mandatory') %></span>
         <div class="mt-4">
           <%= f.button :submit, t('.register'), class:'btn-main w-100' %>
         </div>

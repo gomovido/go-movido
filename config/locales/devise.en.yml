@@ -47,8 +47,8 @@ en:
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
       new:
-        facebook: "Sign up with Facebook"
-        google: "Sign up with Google"
+        facebook: "Sign up with <strong>&nbsp Facebook</strong>"
+        google: "Sign up with <strong>&nbsp Google</strong>"
         or: "Or"
         login: 'Login'
         title_left: 'Welcome back <br> in movido'
@@ -60,12 +60,13 @@ en:
     registrations:
       new:
         title_left: 'Welcome to '
-        title_right: 'Register'
+        title_right: 'Sign-up'
         subtitle: "Sign up now and let movido deal with your admin work"
-        facebook: "Sign up with Facebook"
-        google: "Sign up with Google"
+        facebook: "Sign up with <strong>&nbsp Facebook</strong>"
+        google: "Sign up with <strong>&nbsp Google</strong>"
         or: "Or"
         register: 'Sign-up'
+        mandatory: '* Mandatory fields'
       edit:
         title: 'My credentials'
         update: 'Update'
