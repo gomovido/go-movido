@@ -2,12 +2,46 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag("logo.svg") %>
   <% end %>
-  <%= render 'shared/modal-navbar' %>
   <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <%= render 'shared/mobile-dropdown' %>
-    <%= render 'shared/desktop-dropdown' %>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Dashboard', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.about_us'), '#', class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.how_it_works'), how_it_works_path, class: "nav-link" %>
+      </li>
+      <% if I18n.locale == :fr %>
+        <li class="nav-item dropdown language" id="languageDropdown">
+          <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">FR <i class="fas fa-sort-down ml-2"></i></span>
+          <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
+            <%= link_to "EN", locale: :en %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item dropdown language" id="languageDropdown">
+          <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">EN <i class="fas fa-sort-down ml-2"></i></span>
+          <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
+            <%= link_to "FR", locale: :fr %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="navbar-nav profile mr-auto">
+      <li class="nav-item dropdown" id="userDropdown" >
+        <span class="btn-navbar d-flex" data-toggle="dropdown" data-navbar-target="profile"><%= current_user.first_name %> <%= current_user.last_name %><i class="fas fa-sort-down ml-2"></i></span>
+        <div class="dropdown-menu py-0" aria-labelledby="userDropdown">
+          <%= link_to "<i class='far fa-user-circle mx-2'></i>#{t('shared.dropdown.profile')}".html_safe, user_path(current_user), class: "dropdown-item py-3" %>
+          <%= link_to "<i class='far fa-file mx-2'></i>#{t('shared.dropdown.account')}".html_safe, edit_user_registration_path(current_user), class: "dropdown-item py-3" %>
+          <%= link_to "<i class='fas fa-sign-out-alt mx-2'></i>#{t('shared.dropdown.logout')}".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item pb-3 last"%>
+        </div>
+      </li>
+  </ul>
+
   </div>
 </div>
