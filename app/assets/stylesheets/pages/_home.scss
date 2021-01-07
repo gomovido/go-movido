@@ -1,10 +1,10 @@
 // Specific CSS for your home-page
 body {
-  background: $white;
   color: $light-black;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: linear-gradient(#F2F7FF, #fff);
 }
 
 .relative {
