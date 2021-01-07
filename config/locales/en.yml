@@ -427,6 +427,18 @@ en:
       card_2:
         title: "Speed: "
         description: "Getting your local bank account takes only 2 minutes! And the best part: you don’t even need to physically go to your new bank’s branch. You can do everything easily online."
+      bunq:
+        headline: "The <span class='purple'>banking app</span> that makes life easy"
+        feature_1: 'Download the bunq app and open your bank account in no time'
+        feature_2: 'Benefit from various options to invest your savings'
+        feature_3: 'Categorize your spendings across multiple bank accounts'
+        feature_4: 'Easily share receipts with your housemates'
+      transferwise:
+        headline: "The <span class='purple'>multi-currency</span> bank account"
+        feature_1: 'Sign up to all movido services using your Transferwise account'
+        feature_2: 'Send money instantly in any currency at real exchange rates'
+        feature_3: 'Up to 8x cheaper than traditional banks'
+        feature_4: 'Also compatible with Apple Pay'
     real_estate:
       title: 'Real Estate'
       headline: "New to the city and need an accommodation?  <br>Let movido find your new home!"

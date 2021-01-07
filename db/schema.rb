@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_112408) do
+ActiveRecord::Schema.define(version: 2021_01_06_150501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 2020_12_07_112408) do
     t.boolean "active"
     t.boolean "valid_address"
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string "name"
+    t.string "logo_url"
+    t.string "headline"
+    t.string "feature_1"
+    t.string "feature_2"
+    t.string "feature_3"
+    t.string "feature_4"
+    t.string "affiliate_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "billings", force: :cascade do |t|
