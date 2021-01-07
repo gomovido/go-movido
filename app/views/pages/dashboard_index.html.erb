@@ -17,7 +17,11 @@
   <div class="row">
     <div class="col-md-12 categories-cards-wrapper d-flex flex-column align-items-center mt-5">
       <% @categories.each_with_index do |category, index| %>
-        <%=  render 'categories/card', category: category, index: index %>
+        <% if category.name == 'bank' %>
+          <%=  render 'categories/card-bank', category: category, index: index %>
+        <% else %>
+          <%=  render 'categories/card', category: category, index: index %>
+        <% end %>
       <% end %>
     </div>
   </div>
