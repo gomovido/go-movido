@@ -13,7 +13,7 @@ category = Category.create(
   form_timer: 4,
   subtitle: 'subtitle',
   description: 'description',
-  open: false)
+  open: true)
 
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
