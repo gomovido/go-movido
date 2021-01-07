@@ -108,6 +108,14 @@ fr:
           from: 'de Berlin'
           to: 'à Londres'
           sentence: "''J'ai eu du mal à trouver une bonne salle de gym proche de chez moi - avec movido, j'ai trouvé la salle parfaite''"
+        testimonial4:
+          from: 'de Barcelona'
+          to: 'à London'
+          sentence: "''Trouver un bon service WiFi à Londres n'est pas facile. movido propose une liste d'entreprises locales avec des options flexibles.''"
+        testimonial5:
+          from: 'de Warsaw'
+          to: 'à Paris'
+          sentence: "''J'ai obtenu mon appartement pour étudier à Berlin pendant un an. Grâce à movido, il m'a été facile de mettre en place tous les services dont j'avais besoin.''"
     how_it_works:
       title: 'Comment ça marche'
       first_step:

@@ -21,14 +21,14 @@
 
 .testimonial-cards-scroller {
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: hidden;
   .hs {
     display: grid;
     grid-gap: calc(var(--gutter) / 2);
-    grid-template-columns: repeat(6, calc(40% - var(--gutter) * 2));
+    grid-template-columns: repeat(6, calc(34% - var(--gutter) * 2));
     grid-template-rows: minmax(150px, 1fr);
 
-    overflow-x: scroll;
+    overflow-x: hidden;
     scroll-snap-type: x proximity;
     padding-bottom: calc(.75 * var(--gutter));
     margin-bottom: calc(-.25 * var(--gutter));
@@ -61,7 +61,9 @@
   box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
   border: 1px solid #9378ff24;
   border-radius: 27.5px;
-  padding: 5% !important;
+  padding: 0% 5% !important;
+  height: 250px;
+  width: 370px;
   .name {
     font-size: 20px;
     font-weight: 800;

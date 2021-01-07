@@ -13,10 +13,10 @@
       <li class="nav-item dropdown services" id="servicesDropdown">
         <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="services">Services <i class="fas fa-sort-down ml-2"></i></span>
         <div class="dropdown-menu pb-0" aria-labelledby="servicesDropdown">
-          <%= link_to t('.services.housing').html_safe, "#", class: 'dropdown-item py-2' %>
-          <%= link_to t('.services.bank').html_safe, "#", class: 'dropdown-item py-2' %>
-          <%= link_to t('.services.mobile').html_safe, "#", class: 'dropdown-item py-2' %>
-          <%= link_to t('.services.wifi').html_safe, "#", class: 'dropdown-item last pb-2' %>
+          <%= link_to t('.services.housing').html_safe, services_real_estate_path, class: 'dropdown-item py-2' %>
+          <%= link_to t('.services.bank').html_safe, services_bank_path, class: 'dropdown-item py-2' %>
+          <%= link_to t('.services.mobile').html_safe, services_mobile_path, class: 'dropdown-item py-2' %>
+          <%= link_to t('.services.wifi').html_safe, services_wifi_path, class: 'dropdown-item last pb-2' %>
         </div>
       </li>
       <li class="nav-item">
