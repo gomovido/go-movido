@@ -59,7 +59,7 @@ en:
       already_signed_out: "Signed out successfully."
     registrations:
       new:
-        title_left: 'Welcome to <br>movido'
+        title_left: 'Welcome to '
         title_right: 'Register'
         subtitle: "Sign up now and let movido deal with your admin work"
         facebook: "Sign up with Facebook"
