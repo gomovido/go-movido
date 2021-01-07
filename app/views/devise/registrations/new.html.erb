@@ -1,12 +1,12 @@
 <div class="container registration-container py-3">
-  <figure class="big-blue-bubble position-absolute">
-  </figure>
+  <%= image_tag(asset_path('girl-picture.png'), class:'inner-img') %>
+  <figure class="big-blue-bubble position-absolute"></figure>
   <div class="row">
     <div class="col-md-7 position-relative mt-5">
       <h1 class="mb-4"><%= t('.title_left').html_safe %> <%= image_tag(asset_path('logo-purple.png'), style:"width:50%") %></h1>
       <p><%= t('.subtitle').html_safe %></p>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 mt-5">
       <div class="form-base">
         <h4 class="mb-4"><%= t('.title_right') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -28,6 +28,7 @@
         <%= f.input :password_confirmation,
               required: true,
               input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
+        <span class="mandatory">* Mandatory fields</span>
         <div class="mt-4">
           <%= f.button :submit, t('.register'), class:'btn-main w-100' %>
         </div>
