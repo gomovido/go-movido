@@ -1,5 +1,12 @@
 .registration-container {
   padding-top: 80px !important;
+  position: relative;
+  .inner-img {
+    position: absolute;
+    bottom: 5%;
+    width: 25%;
+    left: -5%;
+  }
   .form-b-links a{
     color: $purple;
     &:hover {
@@ -17,8 +24,10 @@
     font-weight: 400;
   }
   .big-blue-bubble {
-    bottom: 0;
-    left: 0;
+    bottom: -15%;
+    left: -20%;
+    width: 600px !important;
+    height: 600px !important;
   }
   .big-purple-bubble {
     top: -15px;
