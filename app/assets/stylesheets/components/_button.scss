@@ -80,24 +80,21 @@
 }
 
 .btn-navbar {
-  color: $white;
-  background: $purple;
-  padding: 7px 38px;
+  color: $purple;
+  background: rgba(140, 48, 245, 0.2);
+  border: 1px solid rgba(110, 48, 181, 0.2);
+  padding: 10px 38px;
+  font-weight: 800;
   font-size: 16px;
   border-radius: 40px;
-  transition: all 0.3s ease;
-  font-weight: 300;
+  transition: all 0.1s ease-in-out;
   &:hover {
-    opacity: 0.95;
     color: $white;
-  }
-  img {
-    position: relative;
-    left: 10px;
-  }
-  span {
-    position: relative;
-    right: 10px;
+    background: $purple;
+    .fa-sort-down {
+      transition: all 0.1s ease-in-out;
+      color: $white;
+    }
   }
 }
 

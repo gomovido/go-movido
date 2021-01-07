@@ -10,18 +10,43 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item dropdown services" id="servicesDropdown">
+        <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="services">Services <i class="fas fa-sort-down ml-2"></i></span>
+        <div class="dropdown-menu pb-0" aria-labelledby="servicesDropdown">
+          <%= link_to t('.services.housing').html_safe, "#", class: 'dropdown-item py-2' %>
+          <%= link_to t('.services.bank').html_safe, "#", class: 'dropdown-item py-2' %>
+          <%= link_to t('.services.mobile').html_safe, "#", class: 'dropdown-item py-2' %>
+          <%= link_to t('.services.wifi').html_safe, "#", class: 'dropdown-item last pb-2' %>
+        </div>
+      </li>
+      <li class="nav-item">
         <%= link_to t('.about_us'), "#", class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to t('.how_it_works'), how_it_works_path, class: "nav-link" %>
       </li>
+      <% if I18n.locale == :fr %>
+        <li class="nav-item dropdown language" id="languageDropdown">
+          <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">FR <i class="fas fa-sort-down ml-2"></i></span>
+          <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
+            <%= link_to "EN", locale: :en %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item dropdown language" id="languageDropdown">
+          <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">EN <i class="fas fa-sort-down ml-2"></i></span>
+          <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
+            <%= link_to "FR", locale: :fr %>
+          </div>
+        </li>
+      <% end %>
+
       <li class="nav-item">
-        <%= link_to t('.login'), new_user_session_path, class: "nav-link" %>
+        <%= link_to t('.login'), new_user_session_path, class: "nav-link", id: 'login' %>
       </li>
-      <li class="nav-item dropdown">
-        <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center justify-content-between" do %>
-          <span><%= t('.get_started') %></span><%= image_tag(asset_path('btn-arrow-right.png')) %>
+      <li class="nav-item">
+        <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center" do %>
+          <span><%= t('.get_started') %></span><i class="fas fa-arrow-right ml-2"></i>
         <% end %>
       </li>
     </ul>
