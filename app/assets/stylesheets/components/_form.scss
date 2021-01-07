@@ -2,7 +2,7 @@
   h4 {
     font-weight: 800;
     color: $dark;
-    font-size: 30px;
+    font-size: 26px;
   }
   label {
     font-size: 16px;
@@ -10,12 +10,13 @@
     font-weight: 300;
   }
   input, select {
-    height: calc(1.5em + 0.75rem + 18px) !important;
-    border-radius: 6px;
-    border: 1px solid $light-grey;
+    height: calc(1.5em + 0.75rem + 26px) !important;
+    border-radius: 14px;
+    box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+    border: 1px solid #9378ff24;
     &::placeholder {
-      font-size: 14px;
-      color: $light-grey;
+      font-size: 12px;
+      color: #D9DBE1;
       font-weight: 300;
     }
   }
@@ -40,5 +41,11 @@
   }
   .__PrivateStripeElement {
     width: 100%;
+  }
+  .mandatory {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 32px;
+    color: #D9DBE1;
   }
 }
