@@ -1,9 +1,10 @@
 <div class="container registration-container py-3">
+  <figure class="big-blue-bubble position-absolute">
+  </figure>
   <div class="row">
     <div class="col-md-7 position-relative mt-5">
-      <h1><%= t('.title_left').html_safe %></h1>
+      <h1 class="mb-4"><%= t('.title_left').html_safe %> <%= image_tag(asset_path('logo-purple.png'), style:"width:50%") %></h1>
       <p><%= t('.subtitle').html_safe %></p>
-      <figure class="big-blue-bubble position-absolute"></figure>
     </div>
     <div class="col-md-5">
       <div class="form-base">
@@ -47,3 +48,4 @@
     </div>
   </div>
 </div>
+
