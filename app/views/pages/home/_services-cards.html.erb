@@ -1,12 +1,19 @@
-<section id="services-cards">
+<section id="services-cards" data-controller="animate">
   <div class="services-cards-wrapper">
     <div class="container">
       <div class="row">
-        <h2><%= t('.title') %></h2>
+        <div class="d-flex align-items-center w-100 justify-content-between mb-3">
+          <h2 class="m-0"><%= t('.title') %></h2>
+          <div class="arrow-wrapper">
+            <i class="fas fa-arrow-circle-left light-purple mr-3" data-action='click->animate#slideLeft' data-animate-target="leftArrow"></i>
+            <i class="fas fa-arrow-circle-right purple" data-action='click->animate#slideRight' data-animate-target="rightArrow"></i>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="container-fluid service-cards-scroller">
-      <ul class="hs">
+    <div class="container-fluid service-cards-scroller" >
+      <ul class="hs" data-animate-target="container" >
         <li class="item">
           <%=  render 'pages/home/service-card', picto: 'housing.png', title: t('pages.dashboard_index.housing.name'), description: t('.housing'), timer: '10',comming_soon: false, path: services_real_estate_path %>
           <%=  render 'pages/home/service-card', picto: 'wifi.png', title: t('pages.dashboard_index.wifi.name'), description: t('.wifi'), timer: '5',comming_soon: false, path: services_wifi_path %>
