@@ -1,19 +1,21 @@
 .footer {
-  background: $black;
-  .logo {
-    color: $white;
-    font-size: 24px;
-    a {
-      text-decoration: none !important;
-    }
-  }
+  background: linear-gradient(180deg, #333333 3.61%, #212121 100%);
+  border-radius: 27.5px 27.5px 0px 0px;
   .bot {
     padding-left: 6rem;
-    padding-right: 6rem;
+  }
+  i {
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    padding: 7px;
+    &:hover {
+      background: $purple;
+    }
   }
   a {
     color: $white;
-    font-weight: 300;
+    font-weight: 800;
+    font-size: 18px;
     &:hover {
       text-decoration: underline;
       color: $white;
@@ -26,11 +28,6 @@
   }
   hr {
     border-top: 1px solid #f8f9fa30 !important;
-    width: 85%;
-  }
-  .cookies:hover {
-    text-decoration: underline;
-    color: $white;
   }
 }
 
