@@ -62,6 +62,10 @@ section {
   color: $grey;
 }
 
+.light-purple {
+  color: $light-purple !important;
+}
+
 .purple {
   color: $purple !important;
 }
@@ -71,6 +75,11 @@ section {
   font-weight: 600;
   font-size: 54px;
   margin-bottom: 4rem;
+}
+
+#testimonials i {
+  font-size: 45px;
+  cursor: pointer;
 }
 
 #partners {
