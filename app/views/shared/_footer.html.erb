@@ -1,32 +1,28 @@
-<footer class="footer d-flex align-items-center flex-column py-2">
-  <% if I18n.locale == :fr %>
-    <div class="logo pb-4"><strong>movido <small>in <%= link_to EmojiFlag.new('fr'), locale: :en %></small></strong></div>
-  <% else %>
-    <div class="logo pb-4"><strong>movido <small>in <%= link_to EmojiFlag.new('en'), locale: :fr %></small></strong></div>
-  <% end %>
-  <div class="links d-flex pb-3">
-      <%= link_to t('.about'), '#', class:"px-3 text-center" %>
-      <%= link_to t('.faq'), faq_path, class:"px-3 text-center" %>
-      <%= link_to t('.terms'), terms_path, class:"px-3 text-center" %>
-      <%= link_to t('.careers'), careers_path, class:"px-3 text-center" %>
-      <%= link_to t('.cookie'), cookies_path, class:"px-3 text-center" %>
-      <%= link_to t('.contact'), '#', class:"px-3 text-center" %>
+<footer class="footer d-flex align-items-start flex-column py-4">
+  <div class="top-part d-flex align-items-center justify-content-around w-100 py-4">
+    <%= image_tag('logo-footer.png') %>
+    <div class="links d-flex">
+        <%= link_to t('.about'), '#', class:"px-3 " %>
+        <%= link_to t('.faq'), faq_path, class:"px-3 " %>
+        <%= link_to t('.terms'), terms_path, class:"px-3 " %>
+        <%= link_to t('.careers'), careers_path, class:"px-3 " %>
+        <%= link_to t('.cookie'), cookies_path, class:"px-3 " %>
+        <%= link_to t('.contact'), '#', class:"px-3 " %>
+    </div>
+    <div class="social-links d-flex justify-content-around">
+      <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "mr-4", target: "_blank" do %>
+        <i class="fab fa-facebook"></i>
+      <% end %>
+      <%= link_to "https://www.instagram.com/go_movido/", class: "mr-4", target: "_blank"  do %>
+        <i class="fab fa-instagram-square"></i>
+      <% end %>
+      <%= link_to "#", target: "_blank" do %>
+        <i class="fab fa-linkedin-in"></i>
+      <% end %>
+    </div>
   </div>
-  <hr>
-  <div class="bot d-flex justify-content-between w-100">
-    <div class="copyright">
-      <span><%= t('.legal') %></span>
-    </div>
-    <div class="social-links d-flex justify-content-around pr-5">
-      <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "text-center mr-4", target: "_blank" do %>
-        <i class='fab fa-facebook-f'></i>
-      <% end %>
-      <%= link_to "#", class: "text-center mr-4", target: "_blank"  do %>
-        <i class='fab fa-twitter'></i>
-      <% end %>
-      <%= link_to "https://www.instagram.com/go_movido/", class: "text-center ", target: "_blank" do %>
-        <i class='fab fa-instagram'></i>
-      <% end %>
-    </div>
+  <hr class="w-100">
+  <div class="bot">
+    <span><%= t('.legal') %></span>
   </div>
 </footer>
