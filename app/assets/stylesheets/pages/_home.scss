@@ -7,6 +7,11 @@ body {
   min-height: 100vh;
 }
 
+.blue-gradient {
+  background: linear-gradient(#F2F7FF, #fff);
+  z-index: -2;
+}
+
 .relative {
   position: relative;
 }

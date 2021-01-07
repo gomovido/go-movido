@@ -1,48 +1,51 @@
-<div class="container registration-container py-3">
-  <div class="row">
-    <div class="col-md-7 position-relative mt-5">
-      <h1><%= t('.title_left').html_safe %></h1>
-      <p><%= t('.subtitle').html_safe %></p>
-      <figure class="big-blue-bubble position-absolute"></figure>
-    </div>
-    <div class="col-md-5">
-      <div class="form-base">
-        <h4 class="mb-4"><%= t('.title_right') %></h4>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", placeholder: 'john.doe@sorbonne-universite.fr'}%>
-        <div class="name-fields d-flex justify-content-between">
-          <%= f.input :first_name,
-                    required: true,
-                    input_html: { placeholder: 'John' }%>
-          <%= f.input :last_name,
-                    required: true,
-                    input_html: { placeholder: 'Doe' }%>
-        </div>
-        <%= f.input :password,
-              required: true,
-              input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password')}%>
-        <%= f.input :password_confirmation,
-              required: true,
-              input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
-        <div class="mt-4">
-          <%= f.button :submit, t('.register'), class:'btn-main w-100' %>
-        </div>
-        <% end %>
+<div class="blue-gradient">
+  <div class="container registration-container py-3">
+    <figure class="big-blue-bubble position-absolute">
+    </figure>
+    <div class="row">
+      <div class="col-md-7 position-relative mt-5">
+        <h1 class="mb-4"><%= t('.title_left').html_safe %> <%= image_tag(asset_path('logo-purple.png'), style:"width:50%") %></h1>
+        <p><%= t('.subtitle').html_safe %></p>
       </div>
-      <div class="social-registrations text-center mt-3 d-flex flex-column">
-        <span class="mb-3 or"><%= t('.or') %></span>
-        <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center' do  %>
-            <%= t('.google').html_safe %>
-            <%= image_tag('google-logo.png', class: 'position-absolute') %>
-        <% end %>
-        <%= link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
-          <%= t('.facebook').html_safe %>
-          <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
-        <% end %>
-        </a>
+      <div class="col-md-5">
+        <div class="form-base">
+          <h4 class="mb-4"><%= t('.title_right') %></h4>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", placeholder: 'john.doe@sorbonne-universite.fr'}%>
+          <div class="name-fields d-flex justify-content-between">
+            <%= f.input :first_name,
+                      required: true,
+                      input_html: { placeholder: 'John' }%>
+            <%= f.input :last_name,
+                      required: true,
+                      input_html: { placeholder: 'Doe' }%>
+          </div>
+          <%= f.input :password,
+                required: true,
+                input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password')}%>
+          <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
+          <div class="mt-4">
+            <%= f.button :submit, t('.register'), class:'btn-main w-100' %>
+          </div>
+          <% end %>
+        </div>
+        <div class="social-registrations text-center mt-3 d-flex flex-column">
+          <span class="mb-3 or"><%= t('.or') %></span>
+          <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center' do  %>
+              <%= t('.google').html_safe %>
+              <%= image_tag('google-logo.png', class: 'position-absolute') %>
+          <% end %>
+          <%= link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
+            <%= t('.facebook').html_safe %>
+            <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
+          <% end %>
+          </a>
+        </div>
       </div>
     </div>
   </div>
