@@ -149,7 +149,9 @@ fr:
       subtitle: "Mon adresse"
       new_address: "Ajouter une adresse"
       time: 'En %{time} minutes'
-      coming_soon: 'Bientôt disponible !'
+      coming_soon: 'BIENTÔT DISPONIBLE'
+      offers: 'offres disponibles'
+      see_offers: 'Voir les offres'
       mobile_phone:
         name: "Téléphonie"
         subtitle: "Obtenez votre numéro de mobile local "

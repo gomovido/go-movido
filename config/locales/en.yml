@@ -152,8 +152,10 @@ en:
       title: 'Select the services you need'
       subtitle: 'My current address'
       new_address: 'Add a new address'
-      time: '%{time} minutes to go'
-      coming_soon: 'Coming soon !'
+      time: 'in %{time} minutes'
+      coming_soon: 'COMING SOON'
+      offers: 'offers available'
+      see_offers: 'See offers'
       mobile_phone:
         name: 'Mobile'
         subtitle: 'Get your local mobile phone number'
