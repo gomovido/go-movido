@@ -18,12 +18,17 @@
   grid-column: 1 / -1;
 }
 
+.hs::-webkit-scrollbar {
+  display: none;
+}
+
 .hs {
   display: grid;
   grid-gap: calc(var(--gutter) / 2);
   grid-template-columns: repeat(6, calc(33% - var(--gutter) * 2));
   grid-template-rows: minmax(150px, 1fr);
-
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
   overflow-x: scroll;
   scroll-snap-type: x proximity;
   padding-bottom: calc(.75 * var(--gutter));
