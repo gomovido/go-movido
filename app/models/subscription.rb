@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   has_one :charge, dependent: :destroy
   accepts_nested_attributes_for :address
   validates :delivery_address, presence: true, on: :update
-  validate :delivery_address_country, on: :update
+  validate :delivery_address_country, on: :update, if: :delivery_address?
 
   def product_is_wifi?
     self.product.category.name == 'wifi'
