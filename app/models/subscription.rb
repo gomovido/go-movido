@@ -21,7 +21,7 @@ class Subscription < ApplicationRecord
 
   def icon_state
     if self.state == 'draft'
-      "fas fa-sticky-note"
+      ''
     elsif self.state == 'succeeded'
       "fas fa-spinner"
     elsif self.state == 'activated'

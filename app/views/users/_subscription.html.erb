@@ -1,8 +1,8 @@
-<div class="subscription px-2 py-3 my-2 d-flex justify-content-between align-items-center" data-controller="modal">
+<div class="subscription px-2 py-3 my-3 d-flex justify-content-between align-items-center" data-controller="modal">
   <div class="column"><%= image_tag(asset_path(subscription.product.logo_url), class:"img #{subscription.product.company == 'SFR' ? 'rounded-circle' : ''}") %></div>
-  <div class="column d-lg-block d-none"><%= image_tag(asset_path("#{subscription.product.category.name}.png"), class: "picto") %></div>
+  <div class="column d-lg-flex align-items-center justify-content-center d-none category"><%= image_tag(asset_path("#{subscription.product.category.name}.png"), class: "picto mr-2") %> <%= t(".#{subscription.product.category.sku}") %></div>
     <div class="column">
-      <span class="<%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t(".#{subscription.state}") %></span><br>
+      <span class="status <%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t(".#{subscription.state}") %></span><br>
       <span class=" date"><%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>
   </div>
   <span class="price column"><strong><%= subscription.product.format_price %><br> </strong>/<%= t(".months") %></span>

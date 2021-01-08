@@ -1,7 +1,12 @@
 .addresses-container {
+  .current {
+    font-weight: bold;
+    font-size: 18px;
+  }
   .address-card{
-    border-radius: 5px;
-    border: 1px solid $light-grey;
+    height: 112px;
+    border-radius: 20px;
+    border: 1px solid #D9DBE1;
     cursor: pointer;
     transition: 0.3s;
     background: $white;
@@ -9,13 +14,20 @@
       border: 1px solid $purple;
     }
   }
+  .unactive {
+    font-weight: bold;
+    font-size: 18px;
+    color: #696F79;
+  }
   #error {
     font-weight: 600;
     padding-left: 0.75rem;
   }
   .active-address {
-    font-weight: 600;
+    background: linear-gradient(180deg, rgba(140, 48, 245, 0.2) 0%, rgba(110, 48, 181, 0.2) 100%);
     color: $purple;
+    font-weight: bold;
+    font-size: 18px;
     border: 1px solid $purple;
     &:hover {
       border: 1px solid $purple;
@@ -23,6 +35,9 @@
   }
   .address-input-wrapper {
     cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: $purple;
   }
   .form-group {
     margin-bottom: 0;
