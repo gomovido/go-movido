@@ -6,11 +6,7 @@ class UserReflex < ApplicationReflex
   end
 
   def submit
-    if current_user.save!
-      morph ".subscriptions-wrapper", with_locale {render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})}
-    else
-      morph :nothing
-    end
+    morph :nothing unless current_user.save!
   end
 
   private

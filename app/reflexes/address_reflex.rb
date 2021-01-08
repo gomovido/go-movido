@@ -6,7 +6,7 @@ class AddressReflex < ApplicationReflex
     address.set_has_active
     current_user.update_user_country
     morph ".subscriptions-wrapper", with_locale {render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})}
-    morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new})}
+    morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false)})}
   end
 
   def submit
@@ -18,7 +18,7 @@ class AddressReflex < ApplicationReflex
       @address.set_has_active
       current_user.update_user_country
       morph ".subscriptions-wrapper", with_locale {render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})}
-      morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new})}
+      morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new, active_address: @address, addresses: current_user.addresses.where(active: false)})}
     else
       morph '#error', with_locale {I18n.t('users.addresses.form.failure.street')}
     end
