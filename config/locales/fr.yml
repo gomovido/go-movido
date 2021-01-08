@@ -12,6 +12,18 @@ fr:
               blank: "doit être rempli"
             address:
               blank: "doit être remplie"
+        user:
+          attributes:
+            first_name:
+              blank: 'doit être rempli'
+            last_name:
+              blank: 'doit être rempli'
+            phone:
+              blank: 'doit être rempli'
+            birth_city:
+              blank: 'doit être remplie'
+            email:
+              blank: 'doit être rempli'
     attributes:
       billing:
         iban: 'IBAN'
@@ -39,6 +51,9 @@ fr:
         last_name: 'Nom'
         email: 'E-mail'
         password: 'Mot de passe'
+        phone: 'Téléphone'
+        birthdate: 'Date de naissance'
+        birth_city: 'Ville de naissance'
         password_confirmation: 'Confirmation du mot de passe'
   pages:
     home:
@@ -308,14 +323,19 @@ fr:
         step_2: 'Facturation'
         step_3: 'Confirmation'
   users:
+    profil:
+      submit: 'Mettre à jour'
     complete_profil:
       title: 'Veuillez compléter votre profil 👌'
       button: 'Continuer'
     show:
+      title: 'Mon profil'
       addresses_tab: 'Mes adresses'
       subscriptions_tab: 'Abonnements'
       profile_tab: "Mon profil"
     addresses:
+      current: 'Mon adresse'
+      previous: 'Adresses précédentes'
       add: 'Ajouter une adresse'
       cta: 'Confirmer'
       form:
@@ -338,6 +358,12 @@ fr:
       failed: 'Paiement échoué'
       pending_processed: 'À payer'
       months: 'mois'
+      mobile_phone: 'Mobile'
+      wifi: 'Wifi'
+      gym: 'Gym'
+      transportation: 'Transports'
+      housing: 'Logement'
+      utilities: 'Services publics'
       cta:
         resume: 'Continuer'
         pay: 'Payer'

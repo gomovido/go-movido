@@ -1,53 +1,36 @@
 .profile-container {
   padding-top: 70px;
   min-height: 80vh;
-  .big-blue-bubble {
-    top: 300px;
-    left: -71px;
+  h2 {
+    font-weight: 800;
+    font-size: 48px;
   }
-  .big-purple-bubble {
-    top: 134px;
-    right: -40px;
-  }
-  #profil-form {
-    .fa-edit {
-      right: 7px;
-      top: 50px;
-      position: absolute;
-      cursor: pointer;
+  .profil-form-wrapper {
+    .small-blue-bubble {
+      bottom: -120px;
+      left: -90px;
     }
-    .fa-check {
-      line-height: 2.63;
+    .small-yellow-bubble {
+      right: -310px;
+      top: 100px;
     }
-    .input-wrapper {
-      position: relative;
-      &:hover {
-        i {
-          display: block !important;
-        }
-      }
-      .is-valid {
-        background-image: none;
-      }
-    }
-
-    .readonly {
-      pointer-events: none;
+    .is-valid {
+      background-image: none;
     }
     .first-row .input-wrapper{
       width: 40%;
     }
+    .flatpickr-input {
+      background: $white;
+    }
     label {
       font-weight: 600;
-      color: $black;
+      color: #696F79;
+      font-size: 16px;
     }
     input {
-       border: 1px solid $light-grey;
-    }
-    .btn-submit {
-      position: absolute;
-      right: 0px;
-      top: 32px;
+      border: 1px solid #D9DBE1;
+      box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
     }
   }
 }
