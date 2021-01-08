@@ -12,6 +12,18 @@ fr:
               blank: "doit être rempli"
             address:
               blank: "doit être remplie"
+        user:
+          attributes:
+            first_name:
+              blank: 'doit être rempli'
+            last_name:
+              blank: 'doit être rempli'
+            phone:
+              blank: 'doit être rempli'
+            birth_city:
+              blank: 'doit être remplie'
+            email:
+              blank: 'doit être rempli'
     attributes:
       billing:
         iban: 'IBAN'
