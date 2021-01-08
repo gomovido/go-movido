@@ -6,14 +6,16 @@ class UserReflex < ApplicationReflex
   end
 
   def submit
-    morph :nothing unless current_user.save!
+    if current_user.save!
+      morph ".subscriptions-wrapper", with_locale {render(partial: "subscriptions", locals: {subscriptions: current_user.subscriptions})}
+    else
+      morph :nothing
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :username, :phone,
-      :city, :not_housed, :address, :country, :birthdate, :birth_city
-    )
+    params.require(:user).permit(:email, :first_name, :last_name, :phone, :birthdate, :birth_city)
   end
 end

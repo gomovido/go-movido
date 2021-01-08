@@ -34,7 +34,7 @@
     </ul>
     <ul class="navbar-nav profile mr-auto">
       <li class="nav-item dropdown" id="userDropdown" >
-        <span class="btn-navbar d-flex" data-toggle="dropdown" data-navbar-target="profile"><%= current_user.first_name %> <%= current_user.last_name %><i class="fas fa-sort-down ml-2"></i></span>
+        <span class="btn-navbar d-flex" data-toggle="dropdown" data-navbar-target="profile" id="profileNavbar"><%= current_user.first_name %> <%= current_user.last_name %><i class="fas fa-sort-down ml-2"></i></span>
         <div class="dropdown-menu py-0" aria-labelledby="userDropdown">
           <%= link_to "<i class='far fa-user-circle mx-2'></i>#{t('shared.dropdown.profile')}".html_safe, user_path(current_user), class: "dropdown-item py-3" %>
           <%= link_to "<i class='far fa-file mx-2'></i>#{t('shared.dropdown.account')}".html_safe, edit_user_registration_path(current_user), class: "dropdown-item py-3" %>

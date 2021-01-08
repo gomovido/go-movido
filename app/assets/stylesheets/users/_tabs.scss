@@ -1,10 +1,14 @@
 .tabs{
   cursor: pointer;
-  .active {
-     background: $purple !important;
-     color: $white !important;
-  }
+  font-size: 18px;
   .nav-link {
-    padding: 0.5rem 0.7rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid #D9DBE1;
+    color: #696F79 !important;
+    border-radius: 40px;
+  }
+  .nav-link.active {
+    background: $purple !important;
+    color: $white !important;
   }
 }
