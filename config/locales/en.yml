@@ -12,10 +12,6 @@ en:
               blank: "can't be blank"
             address:
               blank: "can't be blank"
-        user:
-          attributes:
-            first_name:
-              blank: "can't be blank"
     attributes:
       billing:
         iban: 'IBAN'
@@ -322,10 +318,13 @@ en:
       title: 'Please complete your profil 👌'
       button: 'Continue'
     show:
+      title: 'My profile'
       addresses_tab: 'My addresses'
       subscriptions_tab: 'Subscriptions'
       profile_tab: 'My details'
     addresses:
+      current: 'My current address'
+      previous: 'My previous addresses'
       add: 'Add new address'
       cta: 'Save'
       form:

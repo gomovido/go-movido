@@ -12,10 +12,6 @@ fr:
               blank: "doit être rempli"
             address:
               blank: "doit être remplie"
-        user:
-          attributes:
-            first_name:
-              blank: "Vide"
     attributes:
       billing:
         iban: 'IBAN'
@@ -321,10 +317,13 @@ fr:
       title: 'Veuillez compléter votre profil 👌'
       button: 'Continuer'
     show:
+      title: 'Mon profil'
       addresses_tab: 'Mes adresses'
       subscriptions_tab: 'Abonnements'
       profile_tab: "Mon profil"
     addresses:
+      current: 'Mon adresse'
+      previous: 'Adresses précédentes'
       add: 'Ajouter une adresse'
       cta: 'Confirmer'
       form:
