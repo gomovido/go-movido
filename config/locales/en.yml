@@ -12,6 +12,10 @@ en:
               blank: "can't be blank"
             address:
               blank: "can't be blank"
+        user:
+          attributes:
+            first_name:
+              blank: "can't be blank"
     attributes:
       billing:
         iban: 'IBAN'
@@ -37,6 +41,9 @@ en:
       user:
         first_name: 'First name'
         last_name: 'Surname'
+        phone: 'Phone'
+        birthdate: 'Date of birth'
+        birth_city: 'City of birth'
         email: 'E-mail'
         password: 'Password'
         password_confirmation: 'Password confirmation'
@@ -309,13 +316,15 @@ en:
         step_2: 'Billing details'
         step_3: 'Confirmation'
   users:
+    profil:
+      submit: 'Update'
     complete_profil:
       title: 'Please complete your profil 👌'
       button: 'Continue'
     show:
       addresses_tab: 'My addresses'
       subscriptions_tab: 'Subscriptions'
-      profile_tab: 'My profile'
+      profile_tab: 'My details'
     addresses:
       add: 'Add new address'
       cta: 'Save'
@@ -339,6 +348,12 @@ en:
       failed: 'Payment failed'
       pending_processed: 'Payment needed'
       months: 'months'
+      mobile_phone: 'Mobile'
+      wifi: 'Wifi'
+      gym: 'Gym'
+      transportation: 'Transportation'
+      housing: 'Real Estate'
+      utilities: 'Utilities'
       cta:
         resume: 'Resume'
         pay: 'Pay'
