@@ -34,14 +34,35 @@
     }
   }
   .address-input-wrapper {
+    border: 1px solid #D9DBE1;
+    box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
+    border-radius: 14px;
     cursor: pointer;
     font-weight: bold;
     font-size: 18px;
     color: $purple;
   }
-  .form-group {
-    margin-bottom: 0;
-    width: 70%;
+  .form-address {
+    .form-group {
+      margin-bottom: 0;
+      width: 80%;
+      border: 1px solid #51465E;
+      box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
+      border-radius: 14px;
+      margin-right: 5px;
+      padding: 0.4rem;
+      .form-control {
+        font-weight: bold;
+        color: $black;
+        font-size: 18px;
+      }
+    }
+    img {
+      left: 28px;
+    }
+  }
+  i.unactive {
+    color: #75E3EA;
   }
   .form-control {
     background: transparent;
@@ -50,6 +71,7 @@
     }
   }
   .btn-main {
+    padding: 11px 51.5px !important;
     cursor: pointer;
   }
 }
