@@ -1,0 +1,30 @@
+.about-container {
+  padding-top: 80px;
+  h2 {
+    font-weight: 800;
+    font-size: 48px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 40px;
+  }
+  img {
+    width: 146px;
+  }
+  h5 {
+    font-weight: 800;
+    font-size: 20px;
+    color: #402B2B;
+  }
+  h6 {
+    font-weight: 800;
+    font-size: 18px;
+    color: $purple;
+  }
+  .experiences {
+    font-weight: normal;
+    font-size: 18px;
+    color: #402B2B;
+  }
+}

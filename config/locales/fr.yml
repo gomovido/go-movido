@@ -56,6 +56,20 @@ fr:
         birth_city: 'Ville de naissance'
         password_confirmation: 'Confirmation du mot de passe'
   pages:
+    about:
+      title: 'Qui sommes-nous'
+      part_1: "Tu as hâte de commencer un nouveau chapitre de ta vie et de déménager dans une nouvelle ville - la seule chose qui t'ennuie, c'est tout le travail administratif qui va avec?"
+      part_2: "A movido, nous sommes passés par ce processus épuisant de nombreuses fois et nou s savons exactement ce que tu ressens. Nous avons donc décidé de faire quelque chose pour mettre fin à ce cauchemar administratif. Notre mission est de rendre ton processus de relocalisation aussi simple et pratique que possible et en même temps de te fair e économiser du temps et de l'argent. Notre équipe internationale de développeurs, de professionnels du marketing et de la finance travaille dur chaque jour pour réduire ta charge administrative afin que tu puisses te concentrer sur les aventures à venir."
+      part_3: "movido est une plateforme qui t'offre tous les services dont tu as besoin dans ta nouvelle ville - de l'obtention de ton numéro de téléphone local à un nouveau compte bancaire local. Nous avons choisi les meilleures offres de service de nos partenaires ré putés et avons optimisé le processus d'abonnement. Cela signifie que tu n'as besoin de t'inscrire qu'une seule fois et de t'installer dans ta nouvelle maison en 10 minutes environ, contre 4,5 heures habituellement."
+      part_4: "Et la meilleure partie? Tout cela ne te coûte rien. Nous ne faisons pas seulement une faveur à toi, nous faisons aussi une faveur aux fournisseurs pour lesquels ils nous accordent une petite rémunération Et maintenant, laisse movido s'occuper de ton travail administratif et commence à explorer ta nouvelle ville!"
+      alice:
+        role: 'Co-fondatrice'
+      jordan:
+        role: 'Développeur'
+      tim:
+        role: 'Co-fondateur'
+      yoni:
+        role: 'Développeur'
     home:
       banner:
         headline1: 'Installez-vous'

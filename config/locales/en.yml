@@ -44,6 +44,21 @@ en:
         password: 'Password'
         password_confirmation: 'Password confirmation'
   pages:
+    about:
+      title: 'About us'
+      part_1: "You are excited to start a new chapter in your life and move to a new city – the only thing that annoys you is all the cumbersome admin work that comes with it?"
+      part_2: "We at movido have gone through this exhausting process many times and know exactly how you feel. That is why we decided to do something against this admin nightmare . Our mission is to make your relocation process as simple and convenient as it can possibly get and at the same time save you time and money. Our international team of developers, marketing and finance professionals work s hard every day to reduce your admin burden so that you can focus on the adventures to come."
+      part_3: "movido is a platform that offers you all the services you need in your new city – from getting your local phone number to a new local bank account. We have picked the best offers service from our reputable partners and optimized the subscription process. This means that you only need t o sign up once and get set up in your new home in about 10 minutes . We will handle the entire application process including follow - up with subscription companies , saving you days of admin work."
+      part_4: "And the best part? All of that does not cost you anything. We ar e not just doing you but also the providers a favour for which they grant us a small fee. So now , let movido deal with your admin work and start exploring your new hometown!"
+      team: "Our team"
+      alice:
+        role: 'Co-founder'
+      jordan:
+        role: 'Developer'
+      tim:
+        role: 'Co-founder'
+      yoni:
+        role: 'Developer'
     careers:
       title: "Careers"
       content: "You are a developer, designer, marketing expert or product specialist? Or you have suffered from the admin nightmare <br>yourself when you relocated in the past and just want to do something against it? We at movido are always looking for <br>new talents to join our team. Simply write us at <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> – we are excited to meet you."
