@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     root 'pages#dashboard_index', as: 'dashboard_index'
   end
 
+  #Errors pages
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server'
+
   get 'privacy', to: 'pages#privacy'
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms'
