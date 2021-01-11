@@ -1,33 +1,46 @@
 .filters-container {
   .title {
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: bold !important;
+    font-size: 16px;
   }
 
   .filter-wrapper{
     background: $white;
     padding: 30px 35px;
-    border-radius: 5px;
-    border: 1px solid #E8E8E8;
+    border-radius: 14px;
+    border: 1px solid #D9DBE1;
   }
-
+  .reset {
+    font-weight: bold;
+    font-size: 16px;
+    color: $purple;
+    text-decoration: underline;
+  }
   .filter-wrapper span {
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: normal;
+    font-size: 16px;
   }
   .round {
+    display: flex;
+    align-items: center;
     position: relative;
+    img {
+      width: 1.3em;
+      height: 1.3em;
+    }
   }
 
   input[type='checkbox'] {
     width: 1.3em;
     height: 1.3em;
-    border-radius: 50%;
-    vertical-align: middle;
     -webkit-appearance: none;
     cursor: pointer;
+    border: 2px solid #ABB4BD;
+    border-radius: 4px;
     &:checked {
-      border: 4px solid #2091F9;
+      background-image: image_url('checkbox_filters.png');
+      background-size: cover;
+      border: none;
     }
   }
   .price-label {
@@ -35,28 +48,17 @@
     font-size: 16px !important;
   }
   input {
-    width: 45%;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #E0E0E0;
-    &:focus {
-      border-color: rgba(140,48,245,0.35) !important;
-      outline: none;
-      box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.24)  !important;
-    }
-    &:first-child {
-      text-align: left !important;
-    }
-    &:last-child {
-      text-align: right !important;
-    }
+    width: 12%;
   }
   .noUi-connect, .noUi-target {
-    height: 6px;
+    height: 3px;
   }
   .price-input {
     border: none !important;
     box-shadow: none !important;
-    margin-bottom: 4px;
+    font-weight: bold;
+    color: #696F79;
+    font-size: 16px;
     &:focus {
       border: none !important;
       box-shadow: none !important;
@@ -72,23 +74,19 @@
   }
 
   .noUi-handle {
-    width: 10px !important;
-    height: 10px !important;
+    width: 22px !important;
+    height: 22px !important;
     right: -5px !important;
     border: none !important;
     border-radius: 50% !important;
     background: $purple;
     box-shadow: none !important;
-    top: -2px !important;
+    top: -10px !important;
     &:focus {
       outline: none;
     }
   }
   .noUi-handle:before, .noUi-handle:after {
     content: none;
-  }
-
-  .filter-wrapper.d-flex {
-    height: 200px;
   }
 }
