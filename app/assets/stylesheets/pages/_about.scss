@@ -1,5 +1,17 @@
 .about-container {
   padding-top: 80px;
+  .big-blue-bubble {
+    left: -200px;
+    top: -230px;
+  }
+  .small-yellow-bubble {
+    right: 60px;
+    top: 181px;
+  }
+  .big-purple-bubble {
+    bottom: -120px;
+    right: -200px;
+  }
   h2 {
     font-weight: 800;
     font-size: 48px;
