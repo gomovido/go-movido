@@ -276,13 +276,15 @@ en:
       title: 'Choose your offer'
       subtitle: 'We choosed the best partners for your future home'
     mobile-filter:
-      title: 'Filter your results'
+      title: 'Filter'
+      reset: 'Reset filters'
       unlimited_data: 'Unlimited data'
       unlimited_call: 'Unlimited call'
       no_contract: 'Monthly contract'
       by_price: 'Filter by price'
     wifi-filter:
-      title: 'Filter your results'
+      title: 'Filter'
+      reset: 'Reset filters'
       no_contract: 'Monthly contract'
       by_price: 'Filter by price'
       contract_only: 'Long-term contract'
