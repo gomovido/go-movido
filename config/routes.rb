@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms'
   get 'how_it_works', to: 'pages#how_it_works'
+  get 'about', to: 'pages#about'
   get 'careers', to: 'pages#careers'
   get 'faq', to: 'pages#faq'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'

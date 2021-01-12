@@ -1,0 +1,57 @@
+<div class="container about-container">
+  <div class="big-blue-bubble position-absolute"></div>
+  <div class="big-purple-bubble position-fixed"></div>
+  <div class="small-yellow-bubble position-absolute"></div>
+  <h2 class="text-center"><%= t('.title') %></h2>
+  <p class="mb-4"><%= t('.part_1') %></p>
+  <p class="mb-4"><%= t('.part_2') %></p>
+  <p class="mb-4"><%= t('.part_3') %></p>
+  <p class="mb-4"><%= t('.part_4') %></p>
+  <h2 class="text-center mb-5">Our team</h2>
+  <div class="row">
+    <div class="col-md-3 offset-md-1 text-center text-md-left">
+      <%= image_tag('alice.png', class: 'mb-3') %>
+      <h5>Alice Strecker</h5>
+      <h6><%= t('.alice.role') %></h6>
+      <p class="experiences mb-1">Private Equity @ EQT</p>
+      <p class="experiences">Investment Banking @ Morgan Stanley</p>
+    </div>
+    <div class="col-md-3 offset-md-1 text-center text-md-left">
+      <%= image_tag('jordan.png', class: 'mb-3') %>
+      <h5>Jordan Demmouche</h5>
+      <h6><%= t('.jordan.role') %></h6>
+      <p class="experiences mb-1">Co-Founder of Dropnshop.io</p>
+      <p class="experiences">Full Stack Web Developer</p>
+    </div>
+    <div class="col-md-3 offset-md-1 text-center text-md-left">
+      <%= image_tag('paul.png', class: 'mb-3') %>
+      <h5>Paul Sipassteuh</h5>
+      <h6>Marketing</h6>
+      <p class="experiences mb-1">Intl. SEO Manager @ Publicis Group</p>
+      <p class="experiences">Co-founder of Deparz</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 offset-md-1 text-center text-md-left">
+      <%= image_tag('tim.png', class: 'mb-3') %>
+      <h5>Tim Grobshäuser</h5>
+      <h6><%= t('.tim.role') %></h6>
+      <p class="experiences mb-1">Private Equity @ Credit Suisse</p>
+      <p class="experiences">Investment Banking @ Morgan Stanley</p>
+    </div>
+    <div class="col-md-3 offset-md-1 text-center text-md-left">
+      <%= image_tag('vitaliy.png', class: 'mb-3') %>
+      <h5>Vitaliy Didukh</h5>
+      <h6>Designer</h6>
+      <p class="experiences mb-1">UI/UX Designer @ Allez</p>
+      <p class="experiences">UI/ UX Designer @ BeWithMe</p>
+    </div>
+    <div class="col-md-3 offset-md-1 text-center text-md-left">
+      <%= image_tag('yoni.png', class: 'mb-3') %>
+      <h5>Yoni Touboul</h5>
+      <h6><%= t('.yoni.role') %></h6>
+      <p class="experiences mb-1">Regional Account Manager @ Doctolib</p>
+      <p class="experiences">Full Stack Web Developer</p>
+    </div>
+  </div>
+</div>
