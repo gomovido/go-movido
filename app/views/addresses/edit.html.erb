@@ -1,6 +1,8 @@
 <div class="container subscription-container" data-controller="wifi-subscription">
-  <div class="small-yellow-bubble position-absolute"></div>
-  <div class="big-blue-bubble position-absolute"></div>
+  <figure class="big-blue-bubble position-absolute "></figure>
+  <figure class="small-blue-bubble position-absolute  d-lg-block d-none"></figure>
+  <figure class="small-yellow-bubble position-absolute"></figure>
+  <figure class="big-purple-bubble position-fixed d-lg-block d-none"></figure>
   <div class="row d-flex align-center justify-content-center flex-column">
     <div class="col-md-12">
       <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('.title'), subtitle: t('.subtitle').html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>

@@ -4,7 +4,7 @@
     z-index: -1;
   }
   img {
-    width: 200px;
+    width: 90%;
   }
   .white-card {
     bottom: 97px;
@@ -21,20 +21,20 @@
   }
   .links {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: $purple;
     transition: opacity 0.3s;
     &:hover {
       opacity: 0.9;
     }
   }
+  .big-blue-bubble {
+    top: -225px;
+    left: -205px;
+  }
   .big-purple-bubble {
     right: -20%;
     bottom: -4%;
-  }
-  .big-blue-bubble {
-    top: 340px;
-    left: 0;
   }
   .small-blue-bubble {
     left: 33%;
@@ -43,6 +43,21 @@
   .small-yellow-bubble {
     right: 10%;
     top: 40%;
+  }
+  .support-links {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    .support {
+      img {
+        width: 30px;
+      }
+      background: linear-gradient(180deg, rgba(140, 48, 245, 0.2) 0%, rgba(110, 48, 181, 0.2) 100%);
+      border-radius: 40px;
+      color: $purple;
+      font-weight: bold;
+      padding: 2%;
+    }
   }
 }
 

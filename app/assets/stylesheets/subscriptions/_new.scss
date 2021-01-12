@@ -5,17 +5,17 @@
     left: -205px;
   }
   .big-purple-bubble {
-    right: -150px;
-    bottom: -200px;
-  }
-  .small-yellow-bubble {
-    right: 420px;
-    top: 280px;
+    right: -20%;
+    bottom: -20%;
   }
   .small-blue-bubble {
-    left: 34%;
-    bottom: 130px;
-    }
+    left: 33%;
+    top: 80%;
+  }
+  .small-yellow-bubble {
+    right: 10%;
+    top: 40%;
+  }
 }
 .subscription-container {
   padding-top: 70px !important;
@@ -31,13 +31,21 @@
     font-size: 18px;
     font-weight: 400;
   }
+  .big-blue-bubble {
+    top: -225px;
+    left: -205px;
+  }
+  .big-purple-bubble {
+    right: -20%;
+    bottom: -20%;
+  }
+  .small-blue-bubble {
+    left: 33%;
+    top: 80%;
+  }
   .small-yellow-bubble {
     right: 10%;
-    top: 50%;
-  }
-  .big-blue-bubble {
-    left: -20%;
-    top: -20%;
+    top: 40%;
   }
   .or {
     font-size: 12px;
