@@ -50,8 +50,10 @@
     flex-direction: column;
     .support {
       img {
-        width: 30px;
+        width: 20px;
+        margin-right: 0.4rem;
       }
+      width: 50%;
       background: linear-gradient(180deg, rgba(140, 48, 245, 0.2) 0%, rgba(110, 48, 181, 0.2) 100%);
       border-radius: 40px;
       color: $purple;
