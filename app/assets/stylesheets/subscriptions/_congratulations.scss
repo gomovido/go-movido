@@ -45,6 +45,7 @@
     top: 40%;
   }
   .support-links {
+    cursor: pointer;
     display: flex;
     align-items: baseline;
     flex-direction: column;
@@ -54,7 +55,7 @@
         margin-right: 0.4rem;
       }
       width: 50%;
-      background: linear-gradient(180deg, rgba(140, 48, 245, 0.2) 0%, rgba(110, 48, 181, 0.2) 100%);
+      background: $background-light-purple;
       border-radius: 40px;
       color: $purple;
       font-weight: bold;

@@ -8,7 +8,7 @@
     background: $white;
     padding: 30px 35px;
     border-radius: 14px;
-    border: 1px solid #D9DBE1;
+    border: 1px solid $grey-snow;
   }
   .reset {
     font-weight: bold;
@@ -35,7 +35,7 @@
     height: 1.3em;
     -webkit-appearance: none;
     cursor: pointer;
-    border: 2px solid rgb(210, 214, 218);
+    border: 2px solid #ABB4BD;
     border-radius: 4px;
     &:checked {
       background-image: image_url('checkbox_filters.png');
@@ -57,7 +57,7 @@
     border: none !important;
     box-shadow: none !important;
     font-weight: bold;
-    color: #696F79;
+    color: $dark-cloud;
     font-size: 16px;
     &:focus {
       border: none !important;
@@ -69,7 +69,7 @@
     background: $purple;
   }
   .noUi-target {
-    background: #E6E6E6 !important;
+    background: $dark-cloud !important;
     border: none !important;
   }
 

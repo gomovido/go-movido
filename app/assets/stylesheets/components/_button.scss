@@ -5,11 +5,12 @@
   font-weight: 700;
   font-size: 20px;
   border-radius: 20px;
-  border-bottom: 5px solid #6408CD !important;
+  border-bottom: 5px solid $border-button !important;
   transition: all 0.3s ease;
   &:hover {
-    opacity: 0.95;
+    background: $hover-button;
     color: $white;
+    border-bottom: 5px solid $hover-border-button !important;
   }
 }
 
@@ -20,12 +21,12 @@
   background: $white;
   padding: 10px 51.5px;
   height: 60px !important;
-  font-family: 'Manrope';
   img {
     left: 35px;
     transition: all 1s ease;
   }
   &:hover {
+    background: $snow;
     color: $black;
     img {
       transform: rotate(360deg);
@@ -37,52 +38,43 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   color: $white;
-  background: #4589F7;;
+  background: $turquoise;
   padding: 10px 51.5px;
   height: 60px !important;
-  font-family: 'Manrope';
   img {
     left: 35px;
     transition: all 1s ease;
   }
   &:hover {
     color: $white;
+    background: $blue;
     img {
       transform: rotate(360deg);
     }
   }
 }
 
-.btn-submit {
-  color: $white;
-  background: $purple;
-  border: none;
-  border-radius: 0 6px 6px 0 !important;
-   &:hover {
-    opacity: 0.95;
-    color: $white;
-  }
-}
 
 .btn-exit {
-  color: $grey;
-  background: $white;
+  color: $dark-cloud;
+  background: $background-category;
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid $grey-snow;
   padding: 15px 51.5px;
   font-weight: 700;
   font-size: 20px;
   transition: all 0.3s ease;
   text-align: center;
   &:hover {
-    color: black;
+    color: $dark-cloud;
+    background: $hover-exit-button;
   }
 }
 
 .btn-navbar {
   color: $purple;
-  background: rgba(140, 48, 245, 0.2);
-  border: 1px solid rgba(110, 48, 181, 0.2);
+  background: $background-light-purple;
+  border: 1px solid $purple;
   padding: 10px 56px;
   font-weight: 800;
   font-size: 16px;
@@ -105,12 +97,12 @@
   font-weight: 700;
   font-size: 20px;
   border-radius: 8px;
-  transition: all 0.3s ease;
   width: 20%;
   text-align: center;
   &:hover {
-    opacity: 0.95;
+    font-weight: 800;
     color: $purple;
+    background: $snow;
   }
 }
 

@@ -7,17 +7,18 @@
   }
   label {
     font-size: 16px;
-    color: $grey;
-    font-weight: 300;
+    color: $dark-cloud;
+    font-weight: 600;
   }
   input, select {
     height: calc(1.5em + 0.75rem + 26px) !important;
     border-radius: 14px;
     box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
-    border: 1px solid #9378ff24;
+    border: 1px solid $grey-snow;
     &::placeholder {
       font-size: 12px;
-      color: #D9DBE1;
+      color: $taupe;
+      opacity: 0.4;
       font-weight: 300;
     }
   }
@@ -25,11 +26,11 @@
     text-decoration: none !important;
   }
   .form-control:focus {
-    border-color: rgba(140,48,245,0.35);
+    border-color: $focus-form;
     box-shadow: 0 0 0 0.2rem rgba(140,48,245,0.25);
   }
   .form-control[readonly] {
-    background: $light-purple;
+    background: $readonly;
   }
   .form-group {
     display: flex;
@@ -46,10 +47,11 @@
     height: calc(1.5em + 0.75rem + 26px) !important;
     border-radius: 14px;
     box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
-    border: 1px solid #9378ff24;
+    border: 1px solid $grey-snow;
     &::placeholder {
       font-size: 12px;
-      color: #D9DBE1;
+      color: $taupe;
+      opacity: 0.4;
       font-weight: 300;
     }
   }
@@ -60,12 +62,12 @@
     font-weight: 800;
     font-size: 18px;
     line-height: 32px;
-    color: #D9DBE1;
+    color: $grey-snow;
   }
   .sim-label {
     font-weight: 800;
     font-size: 26px;
-    color: black;
+    color: $black;
   }
   img.micro {
     width: 50px !important;
