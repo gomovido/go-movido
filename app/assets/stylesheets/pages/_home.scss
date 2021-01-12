@@ -1,14 +1,9 @@
 // Specific CSS for your home-page
 body {
-  color: $light-black;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(#F2F7FF, #fff);
-}
-
-.relative {
-  position: relative;
+  background: $body-background;
 }
 
 h2 {
@@ -16,6 +11,16 @@ h2 {
   margin-bottom: 3rem;
   font-size: 42px;
 }
+
+a {
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
 .wrapper{
   flex: 1 !important;
 }
@@ -28,26 +33,12 @@ h2 {
   display: none;
 }
 
-a {
-  color: $light-black;
-}
-
-a:hover {
-  text-decoration: none;
-  color: $light-black;
-}
-
 .background-white {
   background: $white !important;
 }
 
 section {
   margin-bottom: 5rem;
-}
-
-.ap-suggestion {
-  text-align: left;
-  color: black;
 }
 
 .font-weight {
@@ -86,7 +77,7 @@ section {
 #partners {
   p.title {
     font-weight: 800;
-    color: #978CA4;
+    color: $taupe;
     opacity: 0.6;
     font-size: 20px;
     line-height: 30px;

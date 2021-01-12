@@ -22,14 +22,14 @@
   }
   .bank-card {
     background: $white;
-    border: 1px solid #9378ff24;
+    border: 1px solid $grey-snow;
     border-radius: 27.5px;
     &:hover {
       box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
     }
     .link {
     height: 60px;
-    border-top: 1px solid #efecff;
+    border-top: 1px solid $grey-snow;
     font-size: 16px;
     text-decoration: underline;
     }
@@ -46,7 +46,7 @@
         .feature span {
           font-size: 14px;
           line-height: 26px;
-          color: #696F79;
+          color: $dark-cloud;
           font-weight: bold;
         }
       }

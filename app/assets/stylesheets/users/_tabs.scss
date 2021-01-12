@@ -3,8 +3,8 @@
   font-size: 18px;
   .nav-link {
     padding: 0.7rem 1rem;
-    border: 1px solid #D9DBE1;
-    color: #696F79 !important;
+    border: 1px solid $grey-snow;
+    color: $dark-cloud !important;
     border-radius: 40px;
   }
   .nav-link.active {

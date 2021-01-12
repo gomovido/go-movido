@@ -3,7 +3,7 @@
   a {
     display: block;
     height: 420px;
-    border: 0.5px solid #D9DBE1;
+    border: 0.5px solid $grey-snow;
     border-radius: 16px;
     box-shadow: 0px 24px 64px 0px rgba(0, 0, 0, 0.08);
     &:hover {
@@ -13,32 +13,33 @@
   .image {
     border-radius: 16px 16px 0 0;
     background: $white;
-    border-bottom: 0.5px solid #D9DBE1;
+    border-bottom: 0.5px solid $grey-snow;
     height: 40%;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content:center;
   }
   .details {
-    background: #FBFBFB;
+    background: $background-category;
     height: 45%;
     .name {
       font-weight: bold;
       font-size: 14px;
-      color: #696F79;
+      color: $dark-cloud;
     }
     .time {
       font-size: 11px;
-      color: #696F79;
+      color: $grey;
     }
     .subtitle {
       font-weight: bold;
       font-size: 18px;
+      color: $black;
     }
     .description {
       font-weight: normal;
       font-size: 12px;
-      color: #51465E;
+      color: $dark-taupe;
     }
     .flag {
       width: 32px;
@@ -47,7 +48,7 @@
     .offers {
       font-weight: bold;
       font-size: 12px;
-      color: #3175E3;
+      color: $turquoise;
     }
   }
   .state {
@@ -61,11 +62,11 @@
     }
   }
   .state.open {
-    background: rgb(240, 231, 250);
+    background: $background-see-offers;
     font-size: 14px;
   }
   .state.coming-soon {
-    background: rgb(246,246,246);
+    background: $grey-metal;
     font-size: 12px;
   }
 }
