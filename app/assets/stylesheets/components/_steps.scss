@@ -55,19 +55,16 @@
     color: #969BAB;
     height: 45px;
     width: 45px;
-    border: 1px solid #8080808a;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
     margin-bottom: 0.5rem;
-    background: white;
-    opacity: 1;
+    background: rgb(245, 244, 252) ;
   }
   .step-active {
     background: #9D4FF7;
     color: white;
-    opacity: 1;
   }
   .step-text {
     font-weight: bold;
