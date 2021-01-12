@@ -3,7 +3,6 @@
   <figure class="big-purple-bubble position-fixed"></figure>
   <figure class="small-yellow-bubble position-fixed"></figure>
   <figure class="small-blue-bubble position-fixed"></figure>
-
   <div class="step-1">
     <%= render 'subscriptions/steps', current_step: 1, title: t('.title'), subtitle: t('.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
     <%= render 'product-details'%>
