@@ -1,10 +1,9 @@
 <div class="container registration-address-container d-flex flex-column justify-content-center align-items-center">
-  <%= image_tag('address-image-girl.png', class: 'position-absolute d-lg-block d-none') %>
-  <div class="big-purple-bubble position-absolute"></div>
+  <div class="small-yellow-bubble position-absolute"></div>
   <div class="big-blue-bubble position-absolute"></div>
   <div class="row">
     <div class="col-12">
-      <h1 class="title mb-4"><%= t('.title') %> 👇</h1>
+      <h1 class="title mb-4"><%= image_tag(asset_path('location.png'), class:"picto") %> <%= t('.title') %></h1>
       <div data-controller="registration" class="form-base" data-registration-hide-class="d-none">
         <div class="switch_box box_1 d-flex align-items-center my-4">
           <input data-action='click->registration#toggleInput' type="checkbox" class="switch_1">

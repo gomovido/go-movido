@@ -6,16 +6,19 @@
           <div class="form-group">
             <label><%= t('activerecord.attributes.product.company') %></label>
             <input class="form-control" disabled value="<%= subscription.product.company %>"></input>
+            <i class="fas fa-check check green"></i>
           </div>
           <div class="form-group">
             <label><%= t('activerecord.attributes.product.name') %></label>
             <input class="form-control" disabled value="<%= subscription.product.name %>"></input>
+            <i class="fas fa-check check green"></i>
           </div>
         </div>
         <% if subscription.sim %>
           <div class="form-group">
             <label><%= t('activerecord.attributes.subscription.sim') %></label>
             <input class="form-control" disabled value="<%= subscription.sim %>"></input>
+            <i class="fas fa-check check green"></i>
           </div>
         <% end %>
         <div class="name-fields d-flex justify-content-between">
@@ -23,35 +26,41 @@
             <label><%= t('activerecord.attributes.user.first_name') %></label>
             <input class="form-control" disabled value="<%= subscription.address.user.first_name %>">
             </input>
+            <i class="fas fa-check check green"></i>
           </div>
           <div class="form-group">
             <label><%= t('activerecord.attributes.user.last_name') %></label>
             <input class="form-control" disabled value="<%= subscription.address.user.last_name %>">
             </input>
+            <i class="fas fa-check check green"></i>
           </div>
         </div>
         <div class="form-group">
           <label><%= t('activerecord.attributes.user.email') %></label>
           <input class="form-control" disabled value="<%= subscription.address.user.email %>">
           </input>
+          <i class="fas fa-check check green"></i>
         </div>
         <% if !subscription.product.is_mobile? %>
           <div class="form-group">
             <label><%= t('activerecord.attributes.address.street') %></label>
             <input class="form-control" disabled value="<%= subscription.address.street %>">
             </input>
+            <i class="fas fa-check check green"></i>
           </div>
         <% end %>
         <div class="form-group">
           <label><%= t('activerecord.attributes.billing.address') %></label>
           <input class="form-control" disabled value="<%= subscription.billing.address %>">
           </input>
+          <i class="fas fa-check check green"></i>
         </div>
         <% if subscription.delivery_address %>
           <div class="form-group">
             <label><%= t('activerecord.attributes.subscription.delivery_address') %></label>
             <input class="form-control" disabled value="<%= subscription.delivery_address %>">
             </input>
+            <i class="fas fa-check check green"></i>
           </div>
         <% end %>
         <% if subscription.product.country == 'United Kingdom'%>
@@ -59,12 +68,14 @@
             <label><%= t('activerecord.attributes.billing.holder_name') %></label>
             <input class="form-control" disabled value="<%= subscription.billing.holder_name %>">
             </input>
+            <i class="fas fa-check check green"></i>
           </div>
           <div class="name-fields d-flex justify-content-between">
             <div class="form-group">
               <label><%= t('activerecord.attributes.billing.account_number') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.account_number %>">
               </input>
+              <i class="fas fa-check check green"></i>
             </div>
             <div class="form-group">
               <label><%= t('activerecord.attributes.billing.bank') %></label>
@@ -77,17 +88,20 @@
             <label><%= t('activerecord.attributes.billing.iban') %></label>
             <input class="form-control" disabled value="<%= subscription.billing.iban_prettify %>">
             </input>
+            <i class="fas fa-check check green"></i>
           </div>
           <div class="name-fields d-flex justify-content-between">
             <div class="form-group">
               <label><%= t('activerecord.attributes.billing.bic') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.bic %>">
               </input>
+              <i class="fas fa-check check green"></i>
             </div>
             <div class="form-group">
               <label><%= t('activerecord.attributes.billing.bank') %></label>
               <input class="form-control" disabled value="<%= subscription.billing.bank %>">
               </input>
+              <i class="fas fa-check check green"></i>
             </div>
           </div>
         <% end %>
@@ -95,6 +109,7 @@
           <label><%= t('activerecord.attributes.product.price') %></label>
           <input class="form-control" disabled value="<%= subscription.product.format_price %>/ <%= t('.months') %>">
           </input>
+          <i class="fas fa-check check green"></i>
         </div>
       </div>
     </div>

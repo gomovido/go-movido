@@ -5,7 +5,7 @@
   <figure class="small-blue-bubble position-fixed"></figure>
 
   <div class="step-1">
-    <%= render 'subscriptions/steps', current_step: 1, title: t('.title'), subtitle: t('.subtitle'), product: @products.first, total_steps: @products.first.total_steps %>
+    <%= render 'subscriptions/steps', current_step: 1, title: t('.title'), subtitle: t('.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
     <%= render 'product-details'%>
     <div class="row pt-5">
       <div class="col-lg-4  d-flex justify-content-start">
