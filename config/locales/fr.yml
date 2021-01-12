@@ -286,13 +286,15 @@ fr:
       title: 'Choisissez votre offre'
       subtitle: 'Nous avons sélectionné les meilleures offres pour votre futur chez vous'
     mobile-filter:
-      title: "Filtrer les résultats"
+      title: "Filtres"
+      reset: 'Effacer les filtres'
       unlimited_data: 'Données illimitées'
       unlimited_call: 'Appel illimité'
       no_contract: 'Sans engagement'
       by_price: 'Filtrer par prix'
     wifi-filter:
-      title: 'Filtrer les résultats'
+      title: "Filtres"
+      reset: 'Effacer les filtres'
       no_contract: 'Sans engagement'
       by_price: 'Filtrer par prix'
       contract_only: 'Avec engagement'
