@@ -1,5 +1,5 @@
 .products-container {
-  padding-top: 70px !important;
+  padding-top: 80px;
   .big-blue-bubble {
     top: -225px;
     left: -205px;
@@ -9,7 +9,7 @@
     bottom: -20%;
   }
   .small-blue-bubble {
-    left: 33%;
+    left: 20%;
     top: 80%;
   }
   .small-yellow-bubble {
@@ -18,7 +18,7 @@
   }
 }
 .subscription-container {
-  padding-top: 70px !important;
+  padding-top: 80px;
   min-height: 83vh;
   h1 {
     color: $black;
@@ -40,7 +40,7 @@
     bottom: -20%;
   }
   .small-blue-bubble {
-    left: 33%;
+    left: 20%;
     top: 80%;
   }
   .small-yellow-bubble {
