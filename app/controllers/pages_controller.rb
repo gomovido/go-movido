@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :terms, :privacy, :cookies, :careers, :faq, :how_it_works ]
+  skip_before_action :authenticate_user!, only: [ :home, :terms, :privacy, :cookies, :careers, :faq, :how_it_works, :about ]
   before_action :user_has_address?, only: [:dashboard_index]
 
   def home; end
@@ -15,6 +15,8 @@ class PagesController < ApplicationController
   def careers; end
 
   def faq; end
+
+  def about; end
 
   def dashboard_index
     @categories = Category.all.order('open DESC')
