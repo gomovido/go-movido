@@ -31,15 +31,13 @@
     font-size: 18px;
     font-weight: 400;
   }
-  .big-blue-bubble {
-    top: 0px;
-    right: 0;
-    z-index: -1;
+  .small-yellow-bubble {
+    right: 10%;
+    top: 50%;
   }
-  .big-purple-bubble {
-    bottom: 0;
+  .big-blue-bubble {
     left: -20%;
-    z-index: -1;
+    top: -20%;
   }
   .or {
     font-size: 12px;

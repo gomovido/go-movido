@@ -33,6 +33,13 @@
   .form-group {
     display: flex;
     flex-direction: column;
+    position: relative;
+    .check {
+      position: absolute;
+      right: 5%;
+      top: 60%;
+      font-size: 18px;
+    }
   }
   .stripe-input {
     height: calc(1.5em + 0.75rem + 18px) !important;

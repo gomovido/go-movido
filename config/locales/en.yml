@@ -239,7 +239,7 @@ en:
           invalid: "isn't valid"
         button:
           next: 'Confirm'
-          back: 'Back to details'
+          back: 'Back'
         placeholder: 'Enter your %{placeholder}'
         hint:
           bank: 'You cannot change this field'
@@ -255,7 +255,7 @@ en:
       number: 'Card number'
       date: "Expiration date"
       legals: "By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong>"
-      pay: "Proceed payment"
+      pay: "Complete payment"
   products:
     index:
       title: 'Choose your offer'
@@ -292,7 +292,7 @@ en:
     result:
       months: 'months'
     congratulations:
-      title: 'Everything is setup 👏'
+      title: 'Everything is setup'
       subtitle: "You will receive a confirmation email with your purchase summary within 24h.  <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
       questions: "Any questions"
       support: "Please contact the movido customer service via chat, email or phone."
@@ -315,7 +315,7 @@ en:
     profil:
       submit: 'Update'
     complete_profil:
-      title: 'Please complete your profil 👌'
+      title: 'Please complete your profil'
       button: 'Continue'
     show:
       title: 'My profile'
