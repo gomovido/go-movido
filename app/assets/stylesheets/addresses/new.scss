@@ -1,25 +1,20 @@
 .registration-address-container {
   min-height: 77vh;
+  .picto {
+    width: 30px;
+    margin-right: 0.5rem;
+  }
   .title {
     font-weight: 800;
     font-size: 30px;
     color: $black ;
   }
-  .big-purple-bubble {
-    top: 0px;
-    right: 0;
-    width: 380px;
-    height: 380px;
+  .small-yellow-bubble {
+    right: 10%;
   }
   .big-blue-bubble {
-    bottom: 70px;
-    left: -140px;
-  }
-  img {
-    bottom: 70px;
-    right: -10px;
-    z-index: -1;
-    transform: scale(0.8);
+    left: -20%;
+    top: -20%;
   }
   .invalid-feedback {
     display: block;
@@ -34,7 +29,7 @@
       width: 190px;
       height: 190px;
     }
-    .big-purple-bubble {
+    .small-yellow-bubble {
       width: 100px;
       height: 100px;
       top: 50px;

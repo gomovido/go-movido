@@ -6,7 +6,7 @@
   }
   p {
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     a {
       color: $purple;
       &:hover {
@@ -15,10 +15,6 @@
     }
   }
   .steps4, .steps3 {
-    height: 4px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 35px;
     &:last-child {
       margin-right: 0 !important;
     }
@@ -28,6 +24,15 @@
   }
   .steps3 {
     width: calc(60vw / 3);
+  }
+  .line-dashed {
+    height: 2px;
+    width: 70%;
+    border-bottom: 2px dashed #20222ceb;
+    opacity: 0.1;
+    z-index: -1;
+    left: 15%;
+    top: 25px;
   }
   .grey-step {
     background: rgba(160, 171, 199, 0.76);
@@ -44,6 +49,31 @@
     i {
       color: $green;
     }
+  }
+  .step {
+    font-size: 18px;
+    color: #969BAB;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    background: rgb(245, 244, 252) ;
+  }
+  .step-active {
+    background: #9D4FF7;
+    color: white;
+  }
+  .step-text {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    color: #D9DBE1;
+  }
+  .step-text-active {
+    color: $purple;
   }
 }
 
