@@ -1,0 +1,21 @@
+.errors-container {
+  text-align: center;
+  padding: 80px 0;
+  .big-blue-bubble {
+    left: -200px;
+    top: -230px;
+  }
+  .small-yellow-bubble {
+    right: 130px;
+    top: 220px;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 100px;
+    color: $purple;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: 40px;
+  }
+}

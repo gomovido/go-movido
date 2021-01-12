@@ -510,3 +510,12 @@ en:
     complete_profile: "You must complete your profile to continue"
     existing_subscription: "You already have this subscription"
     wrong_country: "Please choose create / select an address in %{country}"
+  errors:
+    not_found:
+      title: "Sorry :("
+      content: "we cannot find the page you are looking for"
+      button: "Return to homepage"
+    internal_server:
+      title: "Sorry :("
+      content: "an error has occured, we're working on it !"
+      button: "Return to homepage"
