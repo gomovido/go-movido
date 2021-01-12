@@ -6,7 +6,7 @@
   .address-card{
     height: 112px;
     border-radius: 20px;
-    border: 1px solid #D9DBE1;
+    border: 1px solid $grey-snow;
     cursor: pointer;
     transition: 0.3s;
     background: $white;
@@ -17,7 +17,7 @@
   .unactive {
     font-weight: bold;
     font-size: 18px;
-    color: #696F79;
+    color: $dark-cloud;
   }
   #error {
     font-weight: 600;
@@ -34,7 +34,7 @@
     }
   }
   .address-input-wrapper {
-    border: 1px solid #D9DBE1;
+    border: 1px solid $grey-snow;
     box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
     border-radius: 14px;
     cursor: pointer;
@@ -46,7 +46,7 @@
     .form-group {
       margin-bottom: 0;
       width: 80%;
-      border: 1px solid #51465E;
+      border: 1px solid $grey-snow;
       box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
       border-radius: 14px;
       margin-right: 5px;
@@ -62,7 +62,7 @@
     }
   }
   i.unactive {
-    color: #75E3EA;
+    color: $cyan;
   }
   .form-control {
     background: transparent;

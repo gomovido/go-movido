@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(180deg, #333333 3.61%, #212121 100%);
+  background: $footer-gradient;
   border-radius: 27.5px 27.5px 0px 0px;
   .bot {
     padding-left: 6rem;
@@ -17,8 +17,7 @@
     font-weight: 800;
     font-size: 18px;
     &:hover {
-      text-decoration: underline;
-      color: $white;
+      color: $cyan;
     }
   }
   span {
@@ -27,7 +26,7 @@
     font-size: 12px;
   }
   hr {
-    border-top: 1px solid #f8f9fa30 !important;
+    border-top: 1px solid $footer-breaker !important;
   }
 }
 
@@ -35,7 +34,7 @@
 @include media-breakpoint-down(md) {
   .footer {
     .links {
-      display:flex;
+      display: flex;
       flex-direction: column;
     }
     .bot {

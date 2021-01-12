@@ -7,15 +7,7 @@
 }
 
 .big-blue-bubble {
-  background: $light-turquoise;
-  border-radius: 50%;
-  width: 500px;
-  height: 500px;
-  z-index: -1;
-}
-
-.big-gradient-blue-bubble {
-  background: linear-gradient(#F3F7FF, #DEEEFE);
+  background: $light-cyan;
   border-radius: 50%;
   width: 500px;
   height: 500px;
@@ -24,7 +16,7 @@
 
 
 .small-blue-bubble {
-  background: $turquoise;
+  background: $cyan;
   border-radius: 50%;
   width: 72px;
   height: 72px;
@@ -39,10 +31,3 @@
   z-index: -1;
 }
 
-.half-purple-bubble {
-  display: inline-block;
-  border-top: 400px solid $purple;
-  border-right: 400px solid $purple;
-  border-top-left-radius: 100%;
-  z-index: -1;
-}
