@@ -508,4 +508,13 @@ fr:
     complete_profile: "Vous devez compléter votre profil pour continuer"
     existing_subscription: "Vous avez déjà cet abonnement"
     wrong_country: "Merci de créer une adresse en %{country}"
+  errors:
+    not_found:
+      title: "Désolé :("
+      content: "cette page est malheureusement introuvable"
+      button: "Retour à l'accueil"
+    internal_server:
+      title: "Désolé :("
+      content: "une erreur est survenue, nous allons enquêter ..."
+      button: "Retour à l'accueil"
 
