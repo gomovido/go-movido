@@ -1,14 +1,22 @@
 .complete-profile-container {
   padding-top: 80px !important;
+  .title {
+    font-weight: 800;
+    font-size: 30px;
+    color: $black ;
+  }
+  .picto {
+    width: 30px;
+    margin-right: 0.5rem;
+  }
   .invalid-feedback {
     display: block;
   }
-  .big-blue-bubble {
-    top: -15px;
-    right: 65px;
+  .small-yellow-bubble {
+    right: 10%;
   }
-  .big-purple-bubble {
-    left: 0;
-    bottom: 100px;
+  .big-blue-bubble {
+    left: -20%;
+    top: -20%;
   }
 }

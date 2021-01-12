@@ -1,10 +1,10 @@
 <div class="container complete-profile-container d-flex align-center mb-5 mb-md-0 justify-content-center flex-column">
+  <div class="small-yellow-bubble position-absolute"></div>
+  <div class="big-blue-bubble position-absolute"></div>
   <div class="row d-flex align-center justify-content-center flex-column">
-    <figure class="big-blue-bubble position-absolute"></figure>
-    <div class="big-purple-bubble position-fixed d-lg-block d-none"></div>
     <div class="col-md-6 offset-md-3">
       <div class="form-base" data-controller="registration">
-        <h4 class="mb-4"><%= t('.title') %></h4>
+        <h1 class="title mb-4"><%= image_tag(asset_path('profile.png'), class:"picto") %> <%= t('.title') %></h1>
         <%= simple_form_for [@user], method: :put do |f| %>
         <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">
         <%= f.input :phone,

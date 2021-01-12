@@ -319,7 +319,7 @@ fr:
     result:
       months: 'mois'
     congratulations:
-      title: 'Tout est prêt 👏'
+      title: 'Tout est prêt'
       subtitle: "Vous recevrez un e-mail de confirmation de movido une fois votre abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
@@ -342,7 +342,7 @@ fr:
     profil:
       submit: 'Mettre à jour'
     complete_profil:
-      title: 'Veuillez compléter votre profil 👌'
+      title: 'Veuillez compléter votre profil'
       button: 'Continuer'
     show:
       title: 'Mon profil'

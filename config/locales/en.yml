@@ -254,7 +254,7 @@ en:
           invalid: "isn't valid"
         button:
           next: 'Confirm'
-          back: 'Back to details'
+          back: 'Back'
         placeholder: 'Enter your %{placeholder}'
         hint:
           bank: 'You cannot change this field'
@@ -270,7 +270,7 @@ en:
       number: 'Card number'
       date: "Expiration date"
       legals: "By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong>"
-      pay: "Proceed payment"
+      pay: "Complete payment"
   products:
     index:
       title: 'Choose your offer'
@@ -309,14 +309,15 @@ en:
     result:
       months: 'months'
     congratulations:
-      title: 'Everything is setup 👏'
+      title: 'Everything is setup'
       subtitle: "You will receive a confirmation email with your purchase summary within 24h.  <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
-      questions: "Any questions"
+      questions: "Any questions? Here is how you can reach us:"
       support: "Please contact the movido customer service via chat, email or phone."
       contact_us: "Contact us <i class='fas fa-arrow-right ml-2'></i>"
-      wifi_cta: "Need to setup Wifi at home ? <i class='fas fa-arrow-right ml-2'></i>"
-      bank_cta: "Need a bank account ? <i class='fas fa-arrow-right ml-2'></i>"
+      wifi_cta: "Still need WiFi at home? <i class='fas fa-arrow-right ml-2'></i>"
+      bank_cta: "Open a local bank account <i class='fas fa-arrow-right ml-2'></i>"
       community_cta: "Join our community <i class='fas fa-arrow-right ml-2'></i>"
+      next: "What's next?"
     steps:
       mobile_phone:
         step_0: 'Choose your offer'
@@ -332,7 +333,7 @@ en:
     profil:
       submit: 'Update'
     complete_profil:
-      title: 'Please complete your profil 👌'
+      title: 'Please complete your profil'
       button: 'Continue'
     show:
       title: 'My profile'

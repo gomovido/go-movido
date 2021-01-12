@@ -67,11 +67,11 @@
 .btn-exit {
   color: $grey;
   background: $white;
+  border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.14);
-  padding: 10px 51.5px;
+  padding: 15px 51.5px;
   font-weight: 700;
   font-size: 20px;
-  border-radius: 8px;
   transition: all 0.3s ease;
   text-align: center;
   &:hover {
