@@ -23,14 +23,8 @@
     .flatpickr-input {
       background: $white;
     }
-    label {
-      font-weight: 600;
-      color: #696F79;
-      font-size: 16px;
-    }
-    input {
-      border: 1px solid #D9DBE1;
-      box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
+    .is-valid {
+      border-color: $grey-snow !important;
     }
   }
 }

@@ -3,7 +3,7 @@
     background: $white;
     font-size: 15px;
     border-radius: 20px;
-    border: 1px solid #D9DBE1;
+    border: 1px solid $grey-snow;
     height: 110px;
   }
   .status {
@@ -11,12 +11,12 @@
     font-weight: bold;
   }
   .category {
-    color: #696F79;
+    color: $dark-cloud;
     font-weight: bold;
     font-size: 14px;
   }
   .date {
-    color: #696F79;
+    color: $dark-cloud;
     font-weight: bold;
     font-size: 14px;
   }
@@ -32,12 +32,12 @@
     }
   }
   .price {
-    color: #696F79;
+    color: $dark-cloud;
     font-size: 14px;
     font-weight: bold;
     strong {
       font-size: 18px;
-      color: #18191F;
+      color: $black;
     }
   }
 
@@ -68,9 +68,11 @@
   .succeeded {
     color: $yellow;
   }
+
   .activated {
     color: $green;
   }
+
   .picto {
     width: 30px;
   }
