@@ -10,7 +10,11 @@ fr:
           attributes:
             account_number:
               blank: "doit être rempli"
+            account_holder:
+              blank: "doit être rempli"
             address:
+              blank: "doit être remplie"
+            bank:
               blank: "doit être remplie"
         user:
           attributes:
