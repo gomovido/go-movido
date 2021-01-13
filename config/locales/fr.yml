@@ -20,6 +20,8 @@ fr:
               blank: "doit être rempli"
             bic:
               blank: "doit être rempli"
+            sort_code:
+              blank: "doit être rempli"
         user:
           attributes:
             first_name:
