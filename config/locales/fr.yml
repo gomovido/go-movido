@@ -16,6 +16,10 @@ fr:
               blank: "doit être remplie"
             bank:
               blank: "doit être remplie"
+            iban:
+              blank: "doit être rempli"
+            bic:
+              blank: "doit être rempli"
         user:
           attributes:
             first_name:
