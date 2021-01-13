@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-movido" data-controller="navbar" data-navbar-target="navbar" data-action="scroll@window->navbar#onScroll" data-navbar-fixed-class="fixed-nav">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag("logo.svg") %>
+    <%= image_tag("navbar/logo") %>
   <% end %>
   <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,9 @@
       <li class="nav-item dropdown" id="userDropdown" >
         <span class="btn-navbar d-flex" data-toggle="dropdown" data-navbar-target="profile" id="profileNavbar"><%= current_user.first_name %> <%= current_user.last_name %><i class="fas fa-sort-down ml-2"></i></span>
         <div class="dropdown-menu py-0" aria-labelledby="userDropdown">
-          <%= link_to "<i class='far fa-user-circle mx-2'></i>#{t('shared.dropdown.profile')}".html_safe, user_path(current_user), class: "dropdown-item py-3" %>
-          <%= link_to "<i class='far fa-file mx-2'></i>#{t('shared.dropdown.account')}".html_safe, edit_user_registration_path(current_user), class: "dropdown-item py-3" %>
-          <%= link_to "<i class='fas fa-sign-out-alt mx-2'></i>#{t('shared.dropdown.logout')}".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item pb-3 last"%>
+          <%= link_to "#{image_tag('navbar/profile', class: 'mr-2')}#{t('shared.dropdown.profile')}".html_safe, user_path(current_user), class: "dropdown-item py-3 d-flex align-items-center" %>
+          <%= link_to "#{image_tag('navbar/account', class: 'mr-2')}#{t('shared.dropdown.account')}".html_safe, edit_user_registration_path(current_user), class: "dropdown-item py-3 d-flex align-items-center" %>
+          <%= link_to "#{image_tag('navbar/logout', class: 'mr-2')}#{t('shared.dropdown.logout')}".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item pb-3 last d-flex align-items-center"%>
         </div>
       </li>
   </ul>

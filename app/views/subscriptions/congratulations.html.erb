@@ -6,14 +6,14 @@
   <%= render 'subscriptions/steps', current_step: 5, title: t('.title'), product: @subscription.product, subtitle: t('.subtitle').html_safe,total_steps: @subscription.product.total_steps, congratulations: true %>
   <div class="row pt-5">
     <div class="col-md-6 d-md-block d-none images">
-      <%= image_tag(asset_path('congratulations.png')) %>
+      <%= image_tag(asset_path('subscriptions/congratulations')) %>
     </div>
     <div class="col-md-6">
       <h3 class="mb-4"><%= t('.questions').html_safe %></h3>
       <div class="my-4 support-links">
-        <span class="support"><%= image_tag(asset_path('whatsapp-v.png')) %> +44(0)7841 598269</span><br>
-        <span class="support"><%= image_tag(asset_path('phone-call.png')) %>  +44(0)7841 598269</span><br>
-        <span class="support"><%= image_tag(asset_path('email-v.png')) %> <%= mail_to 'contact@go-movido.com', "contact@go-movido.com", class:'purple' %></span>
+        <span class="support"><%= image_tag('subscriptions/whatsapp') %> +44(0)7841 598269</span><br>
+        <span class="support"><%= image_tag('subscriptions/phone') %>  +44(0)7841 598269</span><br>
+        <span class="support"><%= image_tag('subscriptions/email') %> <%= mail_to 'contact@go-movido.com', "contact@go-movido.com", class:'purple' %></span>
       </div>
       <h3 class="mb-4"><%= t('.next').html_safe %></h3>
       <div class="mt-4">

@@ -38,7 +38,7 @@
     border: 2px solid #ABB4BD;
     border-radius: 4px;
     &:checked {
-      background-image: image_url('checkbox_filters.png');
+      background-image: image_url('products/checkbox_active');
       background-size: cover;
       border: none;
     }
