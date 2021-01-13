@@ -107,3 +107,35 @@
 }
 
 
+.btn-card {
+  color: $purple;
+  background: $background-light-purple;
+  padding: 12px 51.5px !important;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  &:hover {
+    background: $purple;
+    color: $white;
+  }
+}
+
+.btn-modal {
+  color: $purple;
+  background: $white;
+  padding: 12px 51.5px !important;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid $light-purple;
+  transition: all 0.3s ease;
+  text-align: center;
+  &:hover {
+    background: $purple;
+    color: $white;
+  }
+}
+
+
