@@ -17,20 +17,20 @@
   <% end %>
   <div class="addresses-card-wrapper my-4">
     <div class="address-input-wrapper p-3 d-flex align-items-center" data-profil-form-target="addAddressButton" data-action='click->profil-form#toggleAddressAutocomplete'>
-      <%= image_tag('address-input.png', class: 'mr-3') %>
+      <%= image_tag('users/addresses/plus-icon', class: 'mr-3 plus-img') %>
       <span class="address" id="add"><%= t('.add') %></span>
     </div>
     <div class="border-0 align-items-center d-none" data-profil-form-target="addAddressInput">
       <div class="w-100">
         <%= simple_form_for(address) do |f| %>
-        <div class="d-flex align-items-center justify-content-between form-address">
-          <%= image_tag('address-input.png', class: 'position-absolute') %>
+        <div class="d-flex align-items-center justify-content-between form-address mb-2">
+          <%= image_tag('users/addresses/plus-icon', class: 'position-absolute plus-img') %>
           <%= f.input :street,
           autofocus: true,
           placeholder: t('.form.placeholder.street'),
           required: true,
           label: false,
-          input_html: { class: 'border-0 ml-5', data: {
+          input_html: { class: 'border-0', data: {
           profil_form_target: 'addressInput',
           reflex_dataset:'combined'
           }}%>

@@ -4,7 +4,7 @@
   <div class="row d-flex align-center justify-content-center flex-column">
     <div class="col-md-6 offset-md-3">
       <div class="form-base" data-controller="registration">
-        <h1 class="title mb-4"><%= image_tag(asset_path('profile.png'), class:"picto") %> <%= t('.title') %></h1>
+        <h1 class="title mb-4"><%= image_tag('devise/profile-icon', class:"picto") %> <%= t('.title') %></h1>
         <%= simple_form_for [@user], method: :put do |f| %>
         <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">
         <%= f.input :phone,

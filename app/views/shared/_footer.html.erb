@@ -1,6 +1,6 @@
 <footer class="footer d-flex align-items-start flex-column py-4">
   <div class="top-part d-flex align-items-center justify-content-around w-100 py-4">
-    <%= image_tag('logo-footer.png') %>
+    <%= image_tag('footer/logo', class: 'logo') %>
     <div class="links d-flex">
         <%= link_to t('.about'), '#', class:"px-3 " %>
         <%= link_to t('.faq'), faq_path, class:"px-3 " %>
@@ -11,13 +11,13 @@
     </div>
     <div class="social-links d-flex justify-content-around">
       <%= link_to "https://www.facebook.com/Movido-109886614229103/", class: "mr-4", target: "_blank" do %>
-        <i class="fab fa-facebook"></i>
+        <%= image_tag('footer/facebook', class: 'icons') %>
       <% end %>
       <%= link_to "https://www.instagram.com/go_movido/", class: "mr-4", target: "_blank"  do %>
-        <i class="fab fa-instagram-square"></i>
+        <%= image_tag('footer/instagram', class: 'icons') %>
       <% end %>
       <%= link_to "#", target: "_blank" do %>
-        <i class="fab fa-linkedin-in"></i>
+        <%= image_tag('footer/linkedin', class: 'icons') %>
       <% end %>
     </div>
   </div>

@@ -6,14 +6,14 @@
           <h2><%= t('.title').html_safe %></h2>
         </div>
         <div class="why-cards-wrapper d-flex flex-column">
-            <%= render 'pages/home/why-card', img: 'fast.png', title: t('.card1.title'), desc: t('.card1.description') %>
-            <%= render 'pages/home/why-card', img: 'simple.png', title: t('.card2.title'), desc: t('.card2.description') %>
-            <%= render 'pages/home/why-card', img: 'simple.png', title: t('.card3.title'), desc: t('.card3.description') %>
-            <%= render 'pages/home/why-card', img: 'free.png', title: t('.card4.title'), desc: t('.card4.description') %>
+            <%= render 'pages/home/why-card', img: 'pages/home/fast', title: t('.card1.title'), desc: t('.card1.description') %>
+            <%= render 'pages/home/why-card', img: 'pages/home/smart', title: t('.card2.title'), desc: t('.card2.description') %>
+            <%= render 'pages/home/why-card', img: 'pages/home/simple', title: t('.card3.title'), desc: t('.card3.description') %>
+            <%= render 'pages/home/why-card', img: 'pages/home/free', title: t('.card4.title'), desc: t('.card4.description') %>
         </div>
       </div>
       <div class="col-md-6 d-lg-block d-none">
-        <%= image_tag(asset_path('iphone.png'), class:"w-100") %>
+        <%= image_tag('pages/home/iphone', class:"w-100") %>
       </div>
     </div>
   </div>

@@ -1,13 +1,16 @@
 .footer {
   background: $footer-gradient;
   border-radius: 27.5px 27.5px 0px 0px;
+  .logo {
+    width: 90px;
+  }
   .bot {
     padding-left: 6rem;
   }
-  i {
-    background: rgba(255,255,255,0.1);
+  .icons {
+    width: 32px;
     border-radius: 50%;
-    padding: 7px;
+    transition: all 0.2s ease;
     &:hover {
       background: $purple;
     }

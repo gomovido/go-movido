@@ -1,5 +1,5 @@
 <section id="how-it-works">
-  <%= image_tag(asset_path('blue-bubble-stylish.png'), class:"stylish") %>
+  <%= image_tag('pages/home/blue-bubble-stylish', class:"stylish") %>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -9,15 +9,15 @@
       </div>
     </div>
     <div class="row position-relative mb-4">
-      <%= image_tag(asset_path('steps-way.png'), class:"steps-way") %>
+      <%= image_tag('pages/home/steps-way', class:"steps-way") %>
       <div class="col-6 d-flex flex-column justify-content-between">
-        <%= render 'pages/home/explanation-card', img: 'step-1.png', title: t('.card1.title'), centered: false, desc: t('.card1.description') %>
-        <%= render 'pages/home/explanation-card', img: 'step-2.png', title: t('.card2.title'), centered: false, desc: t('.card2.description') %>
-        <%= render 'pages/home/explanation-card', img: 'step-3.png', title: t('.card3.title'), centered: true, desc: t('.card3.description') %>
+        <%= render 'pages/home/explanation-card', img: 'pages/home/step-1', title: t('.card1.title'), centered: false, desc: t('.card1.description') %>
+        <%= render 'pages/home/explanation-card', img: 'pages/home/step-2', title: t('.card2.title'), centered: false, desc: t('.card2.description') %>
+        <%= render 'pages/home/explanation-card', img: 'pages/home/step-3', title: t('.card3.title'), centered: true, desc: t('.card3.description') %>
       </div>
       <div class="col-6 d-flex flex-column justify-content-between">
-        <%= image_tag(asset_path('steps-picture.png'), class:"w-100 mb-4") %>
-        <%= render 'pages/home/explanation-card', img: 'step-4.png', title: t('.card4.title'), centered: false, desc: t('.card4.description') %>
+        <%= image_tag('pages/home/steps-picture', class:"w-100 mb-4") %>
+        <%= render 'pages/home/explanation-card', img: 'pages/home/step-4', title: t('.card4.title'), centered: false, desc: t('.card4.description') %>
       </div>
     </div>
     <div class="row">
