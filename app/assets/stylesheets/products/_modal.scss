@@ -8,8 +8,9 @@
     max-width: 1110px;
 
     .modal-content {
-      background: linear-gradient(70deg, $light-purple 50%, $white 50%);
-
+      background: linear-gradient(to right, #654ea3, #eaafc8);
+      color: $white;
+      border: none;
       position: absolute;
       .logo {
         width: 100px;
