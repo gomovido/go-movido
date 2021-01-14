@@ -21,7 +21,7 @@ en:
         account_number: 'Account number'
         bank: 'Banking Institution'
       subscription:
-        delivery_address: 'Delivery address'
+        delivery_address: 'Delivery address for your SIM card'
       address:
         street: 'Address'
         floor: 'Floor'
