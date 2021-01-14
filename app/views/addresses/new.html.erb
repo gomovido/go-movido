@@ -21,7 +21,7 @@
           <%= f.hidden_field :city, id:'address_city' %>
         </div>
         <div class="d-none" data-registration-target="countryWrapper">
-          <%= f.input :moving_country, collection: ['France', 'United Kingdom'], prompt: t('.form.prompt.moving_country'),label: t('.form.label.moving_country'), input_html: {class: 'custom-select', data: {registration_target: 'countryInput'}} %>
+          <%= f.input :moving_country, collection: [t('country.fr'), t('country.uk')], prompt: t('.form.prompt.moving_country'),label: t('.form.label.moving_country'), input_html: {class: 'custom-select', data: {registration_target: 'countryInput'}} %>
         </div>
         <%= f.button :submit, t('.form.cta'), class: 'btn-main w-100' %>
         <% end %>
