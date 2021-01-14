@@ -100,6 +100,8 @@ en:
         transportation: 'Tell us where you need to go and we will get you the right public transportation card'
         utilities: 'Water, Electricity, Gas - select your provider and we will get you set up'
         community: 'Join our community of like-minded people in your new hometown!'
+      service-card:
+        coming_soon: 'COMING SOON'
       how-it-works:
         title: 'How it works'
         start: 'Get Started'
@@ -382,10 +384,10 @@ en:
       login: 'Login'
       get_started: 'Get Started'
       services:
-        housing: "<i class='fas fa-home mr-2'></i>Housing"
-        mobile: "<i class='fas fa-mobile mr-2'></i>Mobile"
-        bank: "<i class='far fa-credit-card mr-2'></i>Bank Account"
-        wifi: "<i class='fas fa-wifi mr-2'></i>WiFi"
+        housing: "Housing"
+        mobile: "Mobile"
+        bank: "Bank Account"
+        wifi: "WiFi"
     dropdown:
         profile: 'Profile'
         account: 'Account'

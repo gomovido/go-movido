@@ -1,6 +1,6 @@
 <div class="subscription px-2 py-3 my-3 d-flex justify-content-between align-items-center" data-controller="modal">
   <div class="column"><%= image_tag(asset_path(subscription.product.logo_url), class:"img #{subscription.product.company == 'SFR' ? 'rounded-circle' : ''}") %></div>
-  <div class="column d-lg-flex align-items-center justify-content-center d-none category"><%= image_tag(asset_path("#{subscription.product.category.name}.png"), class: "picto mr-2") %> <%= t(".#{subscription.product.category.sku}") %></div>
+  <div class="column d-lg-flex align-items-center justify-content-center d-none category"><%= image_tag(asset_path("users/subscriptions/#{subscription.product.category.name}.png"), class: "picto mr-2") %> <span><%= t(".#{subscription.product.category.sku}") %></span></div>
     <div class="column">
       <span class="status <%= subscription.state %>"><i class="<%= subscription.icon_state %>"></i> <%= t(".#{subscription.state}") %></span><br>
       <span class=" date"><%= subscription.product.created_at.strftime('%d/%m/%Y') %></span>

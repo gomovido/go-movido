@@ -2,12 +2,20 @@
   color: $black;
   padding-right: 10rem;
   .title {
-    font-size: 20px;
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Montserrat;
+
+  }
+  .desc {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    font-family: Montserrat;
   }
 }
 .explanation-card-centered {
-  margin-left: 8rem !important;
+  margin-left: 6rem !important;
   padding-right: 0 !important;
 }
 @include media-breakpoint-down(md) {

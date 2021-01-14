@@ -1,9 +1,9 @@
 <div class="container registration-container py-3">
-  <%= image_tag(asset_path('girl-picture.png'), class:'inner-img') %>
+  <%= image_tag(asset_path('devise/girl-picture.png'), class:'inner-img') %>
   <figure class="big-blue-bubble position-absolute"></figure>
   <div class="row">
     <div class="col-md-7 position-relative mt-5">
-      <h1 class="mb-4"><%= t('.title_left').html_safe %> <%= image_tag(asset_path('logo-purple.png'), style:"width:50%") %></h1>
+      <h1 class="mb-4"><%= t('.title_left').html_safe %> <%= image_tag(asset_path('devise/logo.png'), style:"width:50%") %></h1>
       <p><%= t('.subtitle').html_safe %></p>
     </div>
     <div class="col-md-5 mt-5">
@@ -38,11 +38,11 @@
         <span class="mb-3 or"><%= t('.or') %></span>
         <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center' do  %>
             <%= t('.google').html_safe %>
-            <%= image_tag('google-logo.png', class: 'position-absolute') %>
+            <%= image_tag(asset_path('devise/google.png'), class: 'position-absolute') %>
         <% end %>
         <%= link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
           <%= t('.facebook').html_safe %>
-          <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
+          <%= image_tag(asset_path('devise/facebook.png'), class: 'position-absolute') %>
         <% end %>
         </a>
       </div>

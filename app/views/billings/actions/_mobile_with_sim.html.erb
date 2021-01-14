@@ -13,7 +13,7 @@
   <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Tip:</strong> You can always take a pair of scissors and cut the plastic of your SIM card to turn your Standard / Micro SIM into a Nano SIM"></i>
   <div class="d-flex sim-cards justify-content-around align-items-baseline">
     <%= s.collection_radio_buttons(:sim, [['Nano', 'nano'], ['Standard / Micro', 'micro']], :first, :last, checked: 'Nano') do |b| %>
-    <%= b.label { b.radio_button + b.value + image_tag((asset_path"#{b.text}.png"), class:b.text) } %>
+    <%= b.label { b.radio_button + b.value + image_tag((asset_path"subscriptions/#{b.text}.png"), class:b.text) } %>
     <% end %>
   </div>
   <div class="actions d-flex flex-column mt-4">

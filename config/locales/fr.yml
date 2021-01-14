@@ -99,6 +99,8 @@ fr:
         transportation: "Dites-nous où vous devez aller et nous vous fournissons la carte de transport en commun qu'il vous faut"
         utilities: 'Eau, électricité, gaz - choisissez votre fournisseur et nous vous aiderons à vous installer'
         community: 'Rejoignez notre communauté de personnes partageant les mêmes idées dans votre nouvelle ville natale !'
+      service-card:
+        coming_soon: 'BIENTÔT DISPONIBLE'
       how-it-works:
         title: 'Comment ça marche?'
         start: "C'est parti !"
@@ -401,10 +403,10 @@ fr:
       login: 'Se connecter'
       get_started: "S'inscrire"
       services:
-        housing: "<i class='fas fa-home mr-2'></i>Logement"
-        mobile: "<i class='fas fa-mobile mr-2'></i>Téléphonie"
-        bank: "<i class='far fa-credit-card mr-2'></i>Compte bancaire"
-        wifi: "<i class='fas fa-wifi mr-2'></i>WiFi"
+        housing: "Logement"
+        mobile: "Téléphonie"
+        bank: "Compte bancaire"
+        wifi: "WiFi"
     dropdown:
       profile: 'Profil'
       account: 'Compte'
