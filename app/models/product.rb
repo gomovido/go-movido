@@ -40,4 +40,12 @@ class Product < ApplicationRecord
   def format_setup_price
     self.sim_card_price_currency == 'GBP' ? self.sim_card_price.currency.symbol + '' + self.setup_price.to_f.to_s : self.setup_price.to_f.to_s + '' + self.sim_card_price.currency.symbol
   end
+
+  def country_code
+    if self.country == 'United Kingdom'
+      'uk'
+    elsif self.country == 'France'
+      'fr'
+    end
+  end
 end
