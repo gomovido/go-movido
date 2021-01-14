@@ -21,23 +21,23 @@
       </div>
       <div class="features-lite-wrapper">
         <div class="feature-lite d-flex justify-content-between">
-          <span><%= image_tag('products/wifi') %></span>
+          <span><%= image_tag(asset_path('products/wifi.png')) %></span>
           <span class="desc-grey"><%= @product.data_limit %></span>
         </div>
         <hr>
         <div class="feature-lite d-flex justify-content-between ">
-          <span><%= image_tag('products/sim', class: 'mr-3') %> </span>
+          <span><%= image_tag(asset_path('products/sim.png'), class: 'mr-3') %> </span>
           <span class="desc-grey"><%= @product.format_sim_card_price %></span>
         </div>
         <hr>
         <% if @product.obligation %>
         <div class="feature-lite d-flex justify-content-between ">
-          <span><%= image_tag('products/contract', class: 'mr-3') %></span>
+          <span><%= image_tag(asset_path('products/contract.png'), class: 'mr-3') %></span>
           <span class="desc-grey"><%= @product.time_contract %> months</span>
         </div>
         <% else %>
         <div class="feature-lite d-flex justify-content-between ">
-          <span><%= image_tag('products/contract', class: 'mr-3') %></span>
+          <span><%= image_tag(asset_path('products/contract.png'), class: 'mr-3') %></span>
           <span class="desc-grey"><strong>No obligation</strong></span>
         </div>
         <% end %>

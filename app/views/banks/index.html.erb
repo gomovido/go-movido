@@ -9,7 +9,7 @@
       <div class="col-10 offset-1">
         <div class="bank-card m-3 d-flex flex-column">
           <div class="d-flex align-items-center justify-content-around p-4">
-            <%= image_tag(bank.logo_url) %>
+            <%= image_tag(asset_path(bank.logo_url + ".png")) %>
             <div class="content">
               <div class="title">
                 <span class="mb-2"><%= t("services.bank.#{bank.name.downcase}.#{bank.headline}").html_safe %></span>
