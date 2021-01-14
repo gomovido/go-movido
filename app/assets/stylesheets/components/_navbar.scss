@@ -41,10 +41,7 @@
     animation-duration: 0.1s;
     animation-fill-mode: both;
     animation-name: slideIn;
-    .dropdown-item{
-      font-weight: 600;
-      font-size: 14px;
-      color: $black;
+    .dropdown-item {
       &:hover {
         background-color: $dropdown-hover;
       }
@@ -71,6 +68,8 @@
       width: 20px;
     }
     a {
+      letter-spacing: 1px;
+      font-family: Montserrat;
       font-weight: 600;
       font-size: 14px;
       display: block;
@@ -87,15 +86,22 @@
   width: 5rem;
   a {
     border-radius: 0 0 20px 20px;
+
   }
 }
 .services .dropdown-menu {
   width: 220px;
+  img {
+    width: 24px;
+  }
 }
 
 .profile .dropdown-menu {
   width: 100%;
   top: 88%;
+  img {
+    width: 24px;
+  }
 }
 
 .nav-link {

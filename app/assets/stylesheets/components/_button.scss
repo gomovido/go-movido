@@ -23,6 +23,7 @@
   height: 60px !important;
   img {
     left: 35px;
+    width: 22px;
     transition: all 1s ease;
   }
   &:hover {
@@ -44,6 +45,7 @@
   img {
     left: 35px;
     transition: all 1s ease;
+    width: 22px;
   }
   &:hover {
     color: $white;

@@ -26,11 +26,11 @@
         <span class="mb-3 or"><%= t('.or') %></span>
         <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 mb-3 position-relative d-flex align-items-center justify-content-center' do  %>
             <%= t('.google').html_safe %>
-            <%= image_tag('google-logo.png', class: 'position-absolute') %>
+            <%= image_tag(asset_path('devise/google.png'), class: 'position-absolute') %>
         <% end %>
         <%= link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
           <%= t('.facebook').html_safe %>
-          <%= image_tag('facebook-logo.png', class: 'position-absolute') %>
+          <%= image_tag(asset_path('devise/facebook.png'), class: 'position-absolute') %>
         <% end %>
         </a>
       </div>

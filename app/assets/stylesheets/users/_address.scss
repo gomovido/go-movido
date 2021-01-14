@@ -50,16 +50,20 @@
       box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
       border-radius: 14px;
       margin-right: 5px;
-      padding: 0.4rem;
+      padding: 0.55rem;
       .form-control {
+        margin-left: 2.2rem;
         font-weight: bold;
         color: $black;
         font-size: 18px;
       }
     }
     img {
-      left: 28px;
+      left: 32px;
     }
+  }
+  .plus-img {
+    width: 25px;
   }
   i.unactive {
     color: $cyan;
