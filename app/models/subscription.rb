@@ -13,7 +13,7 @@ class Subscription < ApplicationRecord
 
   def delivery_address_country
     if self.product.company != "GifGaff" && self.delivery_address.split(',')[-1].strip != self.address.country
-      self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.wrong_country', country: self.product.country))
+      self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country_code}")))
     elsif self.product.company == "GifGaff" && self.delivery_address.split(',').length < 2
       self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.invalid'))
     end

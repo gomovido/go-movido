@@ -522,3 +522,6 @@ en:
       title: "Sorry :("
       content: "an error has occured, we're working on it !"
       button: "Return to homepage"
+  country:
+    fr: 'France'
+    uk: 'United Kingdom'

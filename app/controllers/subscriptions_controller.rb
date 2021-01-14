@@ -62,7 +62,7 @@ class SubscriptionsController < ApplicationController
   def active_address_do_not_exist?(product)
     if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
       redirect_to user_path(current_user)
-      flash[:alert] = I18n.t 'flashes.wrong_country', country: product.country
+      flash[:alert] = I18n.t 'flashes.wrong_country', country: t("country.#{product.country_code}")
     end
   end
 

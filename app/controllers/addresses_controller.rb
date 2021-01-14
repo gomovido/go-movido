@@ -41,7 +41,7 @@ class AddressesController < ApplicationController
   def active_address_do_not_exist?(product)
     if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
       redirect_to user_path(current_user)
-      flash[:alert] = I18n.t 'flashes.wrong_country', country: product.country
+      flash[:alert] = I18n.t 'flashes.wrong_country', country: t("country.#{product.country_code}")
     end
   end
 
@@ -51,9 +51,9 @@ class AddressesController < ApplicationController
   end
 
   def get_address(country)
-    if country == 'France'
+    if country == t('country.fr')
       return {city: 'Paris', street: '3 Avenue des Champs Élysées, Paris 8e Arrondissement, Île-de-France, France', zipcode: '75008'}
-    elsif country == 'United Kingdom'
+    elsif country == t('country.uk')
       return {city: 'London', street: '123 London Bridge Street, London Borough of Southwark, England, United Kingdom', zipcode: 'SE1 9SE'}
     end
   end
