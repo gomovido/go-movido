@@ -10,7 +10,6 @@ export default class extends ApplicationController {
   static values = { locale: String }
 
   connect() {
-    console.log(this.localeValue)
     StimulusReflex.register(this);
     this.birthCity = addressAutocomplete(this.birthCityTarget);
     searchByCity(this.birthCity);
