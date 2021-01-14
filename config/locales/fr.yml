@@ -529,4 +529,6 @@ fr:
       title: "Désolé :("
       content: "une erreur est survenue, nous allons enquêter ..."
       button: "Retour à l'accueil"
-
+  country:
+    fr: 'France'
+    uk: 'Royaume Uni'
