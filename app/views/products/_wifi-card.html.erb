@@ -1,7 +1,10 @@
-<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
+<% datas = [] %>
+<% datas.push('u_obligation') if !product.obligation %>
+<% datas.push('l_obligation') if product.obligation %>
+<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4 w-100" data-controller="modal" data-price="<%= product.price %>" data-groups="<%= datas %>" data-filters-target="card" data-action="click->modal#redirect" id=<%= product.id %>>
   <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {modal_target: 'link'} do %>
     <div class="d-flex align-items-center justify-content-center"><%= image_tag(asset_path(product.logo_url), class: 'logo') %></div>
-    <div class="offer">
+     <div class="offer">
       <span class="company d-none d-sm-block"><%= product.company %></span>
       <h5 class="name mt-2 "><%= product.company %> <%= product.name %></h5>
       <span class="localization d-none d-sm-block"><i class="fas fa-map-pin mr-2"></i><%= product.description %></span>
@@ -20,4 +23,4 @@
       <div class="sim align-items-center mt-3 d-none d-sm-flex"><i class="fas fa-plug mr-3"></i><%= product.format_setup_price %><span class="ml-1"> <%= t('products.card.setup_costs') %></span></div>
     </div>
   <% end %>
-  </div>
+</div>

@@ -12,7 +12,7 @@
 
   </head>
 
-  <body>
+  <body <%= "data-turbolinks='false'".html_safe if controller_name=="products" && action_name=="index" %>>
     <%= render 'shared/navbars' %>
     <%= render 'shared/flashes' %>
     <div class="wrapper d-flex flex-column justify-content-center">
