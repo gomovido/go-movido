@@ -4,20 +4,8 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create_from_forest_admin]
 
   def index
-    if params[:q].present?
-      @category = Category.friendly.find(params[:q][:category_id])
-      params[:q]["price_gteq"]= params[:q]["price_gteq"].to_i
-      params[:q]["price_lteq"]= params[:q]["price_lteq"].to_i
-      @q = Product.ransack(params[:q])
-    else
-      @category = Category.friendly.find(params[:category_id])
-      @q = Product.where(category: @category, country: current_user.country).ransack
-    end
-    @products = @q.result(distinct: true)
-    @products = @products.where(category: @category, country: current_user.country).map{ |product| product unless product.product_features.blank? }.compact
-    if @products.blank?
-      @products = Product.where(category: @category, country: current_user.country).map{ |product| product unless product.product_features.blank? }.compact
-    end
+    @category = Category.friendly.find(params[:category_id])
+    @products = Product.where(category: @category, country: current_user.country).map{ |product| product unless product.product_features.blank? }.compact
   end
 
   def create_from_forest_admin
