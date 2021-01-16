@@ -4,7 +4,7 @@ import 'nouislider/distribute/nouislider.css';
 import Shuffle from 'shufflejs';
 
 export default class extends ApplicationController {
-  static targets = ['input', 'card']
+  static targets = ['input']
 
   connect() {
     this.slider = this.inputTarget;

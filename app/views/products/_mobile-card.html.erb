@@ -2,7 +2,7 @@
 <% datas.push('u_data') if product.unlimited_data %>
 <% datas.push('u_call') if product.unlimited_call %>
 <% datas.push('no_ob') if !product.obligation %>
-<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4 w-100" data-controller="modal" data-price="<%= product.price %>" data-groups="<%= datas %>" data-filters-target="card" data-action="click->modal#redirect" id=<%= product.id %>>
+<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4 w-100" data-controller="modal" data-price="<%= product.price %>" data-groups="<%= datas %>" data-action="click->modal#redirect" id=<%= product.id %>>
   <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {modal_target: 'link'} do %>
     <div class="d-flex align-items-center justify-content-center"><%= image_tag(asset_path(product.logo_url), class: 'logo') %></div>
     <div class="offer">
