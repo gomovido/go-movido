@@ -22,23 +22,23 @@
     <% if @product.is_mobile? %>
       <div class="features-lite-wrapper">
         <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag('products/modal/wifi.png', class:"picto") %></span>
+          <span><%= image_tag('products/modal/wifi-purple.png', class:"picto") %></span>
           <span class="desc"><%= @product.data_limit %></span>
         </div>
         <hr>
         <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag('products/modal/sim-card.png', class: "picto") %> </span>
+          <span><%= image_tag('products/modal/sim-card-purple.png', class: "picto") %> </span>
           <span class="desc"><%= @product.format_sim_card_price %> <%= t('.sim_card') %></span>
         </div>
         <hr>
         <% if @product.obligation %>
         <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag('products/modal/contract.png', class: 'picto') %></span>
+          <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
           <span class="desc"><%= @product.time_contract %> <%= t('.months') %></span>
         </div>
         <% else %>
         <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag('products/modal/contract.png', class: 'picto') %></span>
+          <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
           <span class="desc"><strong><%= t('.no_obligation') %></strong></span>
         </div>
         <% end %>
@@ -46,7 +46,7 @@
     <% elsif @product.is_wifi? %>
       <div class="features-lite-wrapper">
         <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag(asset_path('products/modal/wifi.png'), class:'picto ') %></span>
+          <span><%= image_tag(asset_path('products/modal/wifi-purple.png'), class:'picto ') %></span>
           <div class="d-flex flex-column align-items-center"><span class="mr-1 font-weight"><%=@product.data_speed %></span> <span>Ø <%= t('products.card.speed') %></span></div>
         </div>
         <hr>

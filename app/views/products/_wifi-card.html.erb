@@ -20,14 +20,14 @@
           <% if product.time_contract != 'no' %>
             <div class="offer">
               <div class="d-flex flex-column align-items-center">
-                <%= image_tag(asset_path('products/contract.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
               </div>
             </div>
             <div class="margin"></div>
           <% end %>
           <div class="offer">
             <div class="d-flex flex-column align-items-center">
-              <%= image_tag(asset_path('products/wifi.png'), class:'picto ') %><div class="d-flex flex-column align-items-center"><span class="mr-1 font-weight"><%= product.data_speed %></span> <span>Ø <%= t('products.card.speed') %></span></div>
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto ') %><div class="d-flex flex-column align-items-center"><span class="mr-1 font-weight"><%= product.data_speed %></span> <span>Ø <%= t('products.card.speed') %></span></div>
             </div>
           </div>
           <div class="margin"></div>

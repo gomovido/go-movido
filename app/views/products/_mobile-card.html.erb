@@ -12,34 +12,34 @@
           <% if product.time_contract != 'no' %>
             <div class="offer">
               <div class="d-flex flex-column align-items-center">
-                <%= image_tag(asset_path('products/contract.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
               </div>
             </div>
           <% else %>
             <div class="offer">
               <div class="d-flex flex-column align-items-center">
-                <%= image_tag(asset_path('products/contract.png'), class:'picto') %><div class="d-flex"><span class="font-weight"><%= t('products.card.no_obligation') %></span></div>
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><div class="d-flex"><span class="font-weight"><%= t('products.card.no_obligation') %></span></div>
               </div>
             </div>
           <% end %>
           <div class="margin"></div>
           <div class="offer">
             <div class="d-flex flex-column align-items-center">
-              <%= image_tag(asset_path('products/wifi.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.data_limit %></span></div>
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.data_limit %></span></div>
             </div>
           </div>
           <div class="margin"></div>
           <% if product.sim_card_price > 0 %>
             <div class="offer">
               <div class="d-flex flex-column align-items-center">
-                <%= image_tag(asset_path('products/sim-card.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.format_sim_card_price %></span></div>
+                <%= image_tag(asset_path('products/sim-card-black.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.format_sim_card_price %></span></div>
               </div>
             </div>
             <div class="margin"></div>
           <% else %>
             <div class="offer">
               <div class="d-flex flex-column align-items-center">
-                <%= image_tag(asset_path('products/sim-card.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= t('products.card.free') %></span></div>
+                <%= image_tag(asset_path('products/sim-card-black.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= t('products.card.free') %></span></div>
               </div>
             </div>
             <div class="margin"></div>
