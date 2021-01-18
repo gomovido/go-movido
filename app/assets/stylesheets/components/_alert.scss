@@ -4,3 +4,9 @@
   left: 16px;
   z-index: 1000;
 }
+
+.alert-success {
+  background: $green;
+  border-color: $green;
+  color: $white;
+}

@@ -42,6 +42,7 @@ fr:
         holder_name: 'Propriétaire du compte'
         account_number: 'Numéro de compte'
         bank: 'Banque'
+        sort_code: 'BIC'
       subscription:
         delivery_address: 'Adresse de livraison de votre carte SIM'
       address:
@@ -82,13 +83,13 @@ fr:
         role: 'Développeur'
     home:
       banner:
-        headline1: 'Installez-vous'
-        headline2: 'en seulement <br> 10 minutes'
-        subheadline: "movido s'occupe de vos démarches administratives"
-        start: "C'est parti !"
+        headline1: '<span class="purple">Installez</span>-vous'
+        headline2: 'en seulement <br> <span class="purple">10 minutes</span>'
+        subheadline: "<strong>movido</strong> s'occupe de vos démarches administratives"
+        start: "C'est parti!"
       get-started:
-        headline: "Rejoignez une communauté de 569 étudiants du monde entier sur movido"
-        start: "C'est parti !"
+        headline: "Rejoignez une communauté de 10,269 étudiants du monde entier sur movido"
+        start: "C'est parti!"
       services-cards:
         title: 'Nos Offres'
         housing: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces dans votre nouvelle ville"
@@ -143,7 +144,7 @@ fr:
           sentence: "''La plupart des démarches administratives étaient en français - movido m'a fait gagner du temps et de l'argent lors de mon semestre en échange à Paris''"
         testimonial2:
           from: 'de Buenos Aires'
-          to: 'à Lyon'
+          to: 'à Londres'
           sentence: "''Ça m'a pris 10 minutes et tout était fait - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
         testimonial3:
           from: 'de Berlin'
@@ -191,7 +192,7 @@ fr:
       answer_7: "R: Dans ta section 'Mon profil', tu as un bon aperçu de tous tes contrats. Malheureusement, pour des raisons de confidentialité, nous ne pourrons pas annuler tous les types de contrats. Pour ceux-ci, tu recevras soit un lien pour te diriger en un rien de temps vers l'action respective, soit le numéro de la ligne d'assistance téléphonique pour le faire par téléphone."
       contact:
         title: "D'autres questions?"
-        description: "Merci de contacter le support de movido par chat, email <br>ou téléphone"
+        description: "Merci de contacter le support de movido par chat, email ou téléphone"
         cta: "Contactez-nous"
     dashboard_index:
       title: "Selectionnez les services dont vous avez besoin"
@@ -296,7 +297,7 @@ fr:
   products:
     index:
       title: 'Choisissez votre offre'
-      subtitle: 'Nous avons sélectionné les meilleures offres pour votre futur chez vous'
+      subtitle: ''
     mobile-filter:
       title: "Filtres"
       reset: 'Effacer les filtres'
@@ -330,8 +331,8 @@ fr:
     summary:
       title: "Confirmez vos informations"
       subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Accédez à %{href} pour les modifier. "
-      profile_link: "votre profil"
-      next: 'Confirmer'
+      profile_link: "<strong>votre profil</strong>"
+      next: 'Acheter maintenant'
       back: 'Retour'
     result:
       months: 'mois'
@@ -361,10 +362,11 @@ fr:
     complete_profil:
       title: 'Veuillez compléter votre profil'
       button: 'Continuer'
+      placeholder: 'Entrez votre %{placeholder}'
     show:
       title: 'Mon profil'
       addresses_tab: 'Mes adresses'
-      subscriptions_tab: 'Abonnements'
+      subscriptions_tab: 'Mon portefeuille'
       profile_tab: "Mon profil"
     addresses:
       current: 'Mon adresse'
@@ -404,7 +406,7 @@ fr:
   shared:
     navbar_visitor:
       about_us: 'À propos'
-      how_it_works: 'Comment ça marche ?'
+      how_it_works: 'Comment ça marche'
       login: 'Se connecter'
       get_started: "S'inscrire"
       services:
