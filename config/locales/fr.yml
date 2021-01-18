@@ -312,15 +312,20 @@ fr:
       contract_only: 'Avec engagement'
     card:
       see_details: 'Plus de détails'
+      select_offer: 'Choisir <i class="fas fa-arrow-square-right"></i>'
       months: 'mois'
       only: 'seulement'
       frequency: 'mensuel'
       speed: 'vitesse'
       setup_costs: "à l'installation"
-      free: 'Gratuit'
+      free: 'gratuit'
+      no_obligation: 'sans engagement'
     modal:
-      cta: 'Sélectionner'
-      months: 'par mois'
+      cta: 'Selectionner <i class="fas fa-arrow-square-right"></i>'
+      monthly: 'par mois'
+      sim_card: 'carte sim'
+      months: 'mois'
+      no_obligation: "sans engagement"
   subscriptions:
     summary:
       title: "Confirmez vos informations"

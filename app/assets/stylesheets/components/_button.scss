@@ -109,3 +109,19 @@
 }
 
 
+.btn-card {
+  color: $purple;
+  background: $background-light-purple;
+  padding: 15px 10.5px !important;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  text-align: center;
+  &:hover {
+    background: $purple;
+    color: $white;
+  }
+}
+
+

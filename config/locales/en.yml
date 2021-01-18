@@ -292,15 +292,20 @@ en:
       contract_only: 'Long-term contract'
     card:
       see_details: 'See details'
+      select_offer: '<span class="w-100 d-flex justify-content-around align-items-center">Select offer <i class="fas fa-arrow-square-right"></i></span>'
       months: 'months'
       only: 'only'
       frequency: 'monthly'
       speed: 'speed'
       setup_costs: 'setup costs'
       free: 'Free'
+      no_obligation: 'no obligation'
     modal:
-      cta: 'Choose'
-      months: 'per month'
+      cta: '<span class="w-100 d-flex justify-content-around align-items-center">Select Offer<i class="fas fa-arrow-square-right"></i></span>'
+      monthly: 'monthy cost'
+      sim_card: 'sim card'
+      monthis: 'months'
+      no_obligation: 'no obligation'
   subscriptions:
     summary:
       title: 'Please confirm your details'

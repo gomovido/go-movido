@@ -1,16 +1,16 @@
 .modal-product {
-  hr {
-    border-top: 1px solid $light-purple !important;
+  .picto {
+    width: 25px;
   }
-
-
   .modal-dialog {
     max-width: 1110px;
-
+    .btn-m {
+      width: 150px;
+      i {
+        font-size: 20px;
+      }
+    }
     .modal-content {
-      background: linear-gradient(to right, #654ea3, #eaafc8);
-      color: $white;
-      border: none;
       position: absolute;
       .logo {
         width: 100px;
@@ -25,6 +25,7 @@
             }
             .main-title {
               font-size: 20px;
+              font-weight: 800;
             }
             .title {
               font-size: 18px;
@@ -35,15 +36,22 @@
             }
           }
           .right {
+            width: 15%;
+            &:first-child {
+              width: 100%;
+            }
             .price {
               font-weight: 800;
               font-size: 36px;
             }
+            .sub-price {
+              font-size: 14px;
+              color: $dark-cloud;
+            }
             .feature-lite {
-              font-weight: 500;
-              img {
-                width: 24px;
-              }
+              font-weight: 800;
+              color: $dark-cloud;
+              font-size: 14px;
             }
           }
         }
