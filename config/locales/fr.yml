@@ -303,12 +303,12 @@ fr:
       unlimited_data: 'Données illimitées'
       unlimited_call: 'Appel illimité'
       no_contract: 'Sans engagement'
-      by_price: 'Filtrer par prix'
+      by_price: 'Filtrer par prix (en %{unit})'
     wifi-filter:
       title: "Filtres"
       reset: 'Effacer les filtres'
       no_contract: 'Sans engagement'
-      by_price: 'Filtrer par prix'
+      by_price: 'Filtrer par prix (en %{unit})'
       contract_only: 'Avec engagement'
     card:
       see_details: 'Plus de détails'

@@ -1,4 +1,7 @@
-<div class="product-card px-3 py-4 mb-4" data-controller="modal" id=<%= product.id %>>
+<% datas = [] %>
+<% datas.push('u_obligation') if !product.obligation %>
+<% datas.push('l_obligation') if product.obligation %>
+<div class="product-card px-3 py-4 mb-4" data-controller="modal" data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
   <div class="d-flex align-items-center mb-3">
     <%= image_tag(product.logo_url, class: 'logo') %>
     <div class="d-flex flex-column offers w-100">

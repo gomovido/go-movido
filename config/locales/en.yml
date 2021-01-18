@@ -295,12 +295,12 @@ en:
       unlimited_data: 'Unlimited data'
       unlimited_call: 'Unlimited call'
       no_contract: 'Monthly contract'
-      by_price: 'Filter by price'
+      by_price: 'Filter by price (in %{unit})'
     wifi-filter:
       title: 'Filter'
       reset: 'Reset filters'
       no_contract: 'Monthly contract'
-      by_price: 'Filter by price'
+      by_price: 'Filter by price (in %{unit})'
       contract_only: 'Long-term contract'
     card:
       see_details: 'See details'
