@@ -12,6 +12,18 @@ en:
               blank: "can't be blank"
             address:
               blank: "can't be blank"
+        user:
+          attributes:
+            first_name:
+              blank: "can't be blank"
+            last_name:
+              blank: "can't be blank"
+            phone:
+              blank: "can't be blank"
+            birth_city:
+              blank: "can't be blank"
+            email:
+              blank: "can't be blank"
     attributes:
       billing:
         iban: 'IBAN'

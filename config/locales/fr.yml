@@ -43,7 +43,7 @@ fr:
         account_number: 'Numéro de compte'
         bank: 'Banque'
       subscription:
-        delivery_address: 'Adresse de livraison'
+        delivery_address: 'Adresse de livraison de votre carte SIM'
       address:
         street: 'Adresse'
         floor: 'Étage'
