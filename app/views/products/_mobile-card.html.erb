@@ -2,7 +2,7 @@
 <% datas.push('u_data') if product.unlimited_data %>
 <% datas.push('u_call') if product.unlimited_call %>
 <% datas.push('no_ob') if !product.obligation %>
-<div class="product-card px-3 py-4 mb-4" data-controller="modal"  data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
+<div class="product-card px-3 py-4 mb-4 w-100" data-controller="modal"  data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
   <div class="d-flex align-items-center mb-3">
     <%= image_tag(product.logo_url, class: 'logo') %>
     <div class="d-flex flex-column offers w-100">
