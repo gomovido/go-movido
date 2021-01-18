@@ -17,9 +17,12 @@
       </div>
       <h3 class="mb-4"><%= t('.next').html_safe %></h3>
       <div class="mt-4">
-        <%= link_to t('.contact_us').html_safe, '#', class: 'links d-block mb-2' %><br>
-        <%= link_to t('.wifi_cta').html_safe, category_products_path(Category.find_by(name: 'wifi').id), class: 'links d-block mb-2' %><br>
-        <%= link_to t('.bank_cta').html_safe, '#', class: 'links d-block mb-2' %><br>
+        <% if @subscription.product.is_mobile? %>
+          <%= link_to t('.wifi_cta').html_safe, category_products_path(Category.find_by(name: 'wifi').id), class: 'links d-block mb-2' %><br>
+        <% elsif @subscription.product.is_wifi? %>
+          <%= link_to t('.mobile_cta').html_safe, category_products_path(Category.find_by(name: 'mobile').id), class: 'links d-block mb-2' %><br>
+        <% end %>
+        <%= link_to t('.bank_cta').html_safe, category_banks_path(Category.find_by(name: 'bank').id), class: 'links d-block mb-2' %><br>
         <%= link_to t('.community_cta').html_safe.html_safe, '#', class: 'links d-block mb-2' %><br>
       </div>
     </div>

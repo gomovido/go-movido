@@ -34,6 +34,7 @@ fr:
               blank: 'doit être remplie'
             email:
               blank: 'doit être rempli'
+              taken: "déjà utilisé"
     attributes:
       billing:
         iban: 'IBAN'
@@ -42,7 +43,7 @@ fr:
         holder_name: 'Propriétaire du compte'
         account_number: 'Numéro de compte'
         bank: 'Banque'
-        sort_code: 'BIC'
+        sort_code: 'Code guichet'
       subscription:
         delivery_address: 'Adresse de livraison de votre carte SIM'
       address:
@@ -337,11 +338,11 @@ fr:
     result:
       months: 'mois'
     congratulations:
-      title: 'Tout est prêt'
+      title: 'Tout est prêt 🎉'
       subtitle: "Vous recevrez un e-mail de confirmation de movido une fois votre abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
-      contact_us: "Contactez nous <i class='fas fa-arrow-right ml-2'></i>"
+      mobile_cta: "Besoin d'un nouveau numéro de téléphone? <i class='fas fa-arrow-right ml-2'></i>"
       wifi_cta: "Il vous manque la box WiFi? <i class='fas fa-arrow-right ml-2'></i>"
       bank_cta: "Ouvrez un compte bancaire local <i class='fas fa-arrow-right ml-2'></i>"
       community_cta: "Rejoignez notre communauté <i class='fas fa-arrow-right ml-2'></i>"

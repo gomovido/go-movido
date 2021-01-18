@@ -27,7 +27,7 @@
     border-radius: 24px;
     height: 90px;
     background: $white;
-    button {
+    h5 {
       font-weight: 800;
       font-size: 18px;
       color: $black;
@@ -43,6 +43,7 @@
     background: transparent;
     border: none;
     border-radius: 24px;
+    cursor: pointer;
   }
   .card-body {
     font-size: 18px;

@@ -26,6 +26,24 @@
     .is-valid {
       border-color: $grey-snow !important;
     }
+    .flash {
+      color: $green !important;
+      font-weight: 700;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s;
+      i {
+        font-size: 18px;
+      }
+    }
+    .show {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
   }
 }
 
