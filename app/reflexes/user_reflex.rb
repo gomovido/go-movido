@@ -1,12 +1,13 @@
 class UserReflex < ApplicationReflex
   delegate :current_user, to: :connection
+  include ActionController::Flash
 
   before_reflex do
     current_user.assign_attributes(user_params)
   end
 
   def submit
-    morph :nothing unless with_locale{current_user.save!}
+    with_locale{current_user.save!}
   end
 
   private

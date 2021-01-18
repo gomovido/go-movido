@@ -78,6 +78,7 @@ fr:
         title: "Mes informations d'accès"
         update: 'Mettre à jour'
         delete: 'Suppression'
+        popup: "Êtes vous sûr de vouloir supprimer votre compte? Cela supprimera toutes vos données de connexion à movido. \n\nVos abonnements ne seront pas résiliés."
         form:
           label:
             password: 'Nouveau mot de passe'
