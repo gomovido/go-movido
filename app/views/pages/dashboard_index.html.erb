@@ -5,7 +5,11 @@
   <div class="row">
     <div class="col-md-12 text-center d-flex align-items-center justify-content-center flex-column">
       <h1 class="title mb-4"><%= t('.title') %></h1>
-      <span class="address"><i class="fas fa-map-marker-alt mr-2"></i><%= truncate(current_user.active_address.street, :length => 70) %></span>
+      <% if current_user.active_address.valid_address %>
+        <span class="address"><i class="fas fa-map-marker-alt mr-2"></i><%= truncate(current_user.active_address.street, :length => 70) %></span>
+      <% else %>
+        <%= link_to t('.new_address'), user_path(current_user), class: 'btn-main' %>
+      <% end %>
     </div>
   </div>
   <div class="row">
