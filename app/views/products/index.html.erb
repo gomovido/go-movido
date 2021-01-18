@@ -7,10 +7,10 @@
     <%= render 'subscriptions/steps', current_step: 1, title: t('.title'), subtitle: t('.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
     <%= render 'product-details'%>
     <div class="row pt-5">
-      <div class="col-lg-4  d-flex justify-content-start">
+      <div class="col-lg-3  d-flex justify-content-start">
         <%= render 'filters', products: @products %>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-9">
         <div class="products-cards-wrapper">
           <% @products.each do |product| %>
             <% if product.is_wifi? %>
