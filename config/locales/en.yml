@@ -29,9 +29,10 @@ en:
         iban: 'IBAN'
         bic: 'BIC'
         address: 'Billing address'
-        holder_name: 'Holder name'
+        holder_name: 'Cardholder name'
         account_number: 'Account number'
         bank: 'Banking Institution'
+        sort_code: 'Sort code'
       subscription:
         delivery_address: 'Delivery address for your SIM card'
       address:
@@ -59,9 +60,9 @@ en:
     about:
       title: 'About us'
       part_1: "You are excited to start a new chapter in your life and move to a new city – the only thing that annoys you is all the cumbersome admin work that comes with it?"
-      part_2: "We at movido have gone through this exhausting process many times and know exactly how you feel. That is why we decided to do something against this admin nightmare . Our mission is to make your relocation process as simple and convenient as it can possibly get and at the same time save you time and money. Our international team of developers, marketing and finance professionals work s hard every day to reduce your admin burden so that you can focus on the adventures to come."
-      part_3: "movido is a platform that offers you all the services you need in your new city – from getting your local phone number to a new local bank account. We have picked the best offers service from our reputable partners and optimized the subscription process. This means that you only need t o sign up once and get set up in your new home in about 10 minutes . We will handle the entire application process including follow - up with subscription companies , saving you days of admin work."
-      part_4: "And the best part? All of that does not cost you anything. We ar e not just doing you but also the providers a favour for which they grant us a small fee. So now , let movido deal with your admin work and start exploring your new hometown!"
+      part_2: "We at movido have gone through this exhausting process many times and know exactly how you feel. That is why we decided to do something against this admin nightmare. Our mission is to make your relocation process as simple and convenient as it can possibly get and at the same time save you time and money. Our international team of developers, marketing and finance professionals works hard every day to reduce your admin burden so that you can focus on the adventures to come."
+      part_3: "movido is a platform that offers you all the services you need in your new city – from getting your local phone number to a new local bank account. We have picked the best offers from our reputable partners and optimized the subscription process. This means that you only need to sign up once and get set up in your new home in about 10 minutes. We will handle the entire application process including follow-up with subscription companies, saving you days of admin work."
+      part_4: "And the best part? All of that does not cost you anything. We are not just doing you but also the providers a favour for which they grant us a small fee. So now, let movido deal with your admin work and start exploring your new hometown!"
       team: "Our team"
       alice:
         role: 'Co-founder'
@@ -82,16 +83,16 @@ en:
       question_5: 'Q: How do I know if my purchase was successful?'
       question_6: 'Q: I have not received my phone / wifi box / transport card yet – what shall I do?'
       question_7: 'Q: How can I cancel my contract?'
-      answer_1: "A: movido bundles all services you need in your new city on one platform. You sign up once and can start selecting your new bank account, local phone number,broadband, gym and many more services you need right away. We synchronize these service offers and prices continuously with our partners so that you always subscribe to the latest offers in the market. In your profile section, you can afterwards conveniently manage your contracts"
-      answer_2: "A: Movido is completely free of charge for you, we work on a commission basis only paid by the service provider. Due to the large number of users we refer, we often achieve special conditions. So on top of the perfect offer, you most likely get it at the cheapest price in the market."
-      answer_3: "A: Most of the contracts such as phone, broadband, gym, etc. require a local bankaccount. We therefore recommend to start with conveniently setting up your transferwise, bunq or revolut account. Afterwards, an apartment will give you thechance to have a fixed address. Check out our cool housing offers. All other services can then be booked in parallel."
-      answer_4: "A: We are a team with diverse backgrounds – from finance professionals to front/back-end developers. However, what we all share is the cumbersome adminexperience when moving to a new city and the vision to make this process easier for you."
-      answer_5: "A: Once you have submitted the order form, you will receive two emails – the firstone will confirm your order. Now, movido will work in the background with the service provider to get your contract set up. Especially, when it comes to housing, this may take up to 48 hours. The second email with the purchase confirmation then guarantees you that your purchase was successful."
+      answer_1: "A: movido bundles all services you need in your new city on one platform. You sign up once and can start selecting your new bank account, local phone number, broadband, gym and many more services you need right away. We synchronize these service offers and prices continuously with our partners so that you always subscribe to the latest offers in the market. In your profile section, you can afterwards conveniently manage your contracts"
+      answer_2: "A: movido is completely free of charge for you, we work on a commission basis only paid by the service provider. Due to the large number of users we refer, we often achieve special conditions. So on top of the perfect offer, you most likely get it at the cheapest price in the market."
+      answer_3: "A: Most of the contracts such as phone, broadband, gym, etc. require a local bank account. We therefore recommend to start with conveniently setting up your transferwise, bunq or revolut account. Afterwards, an apartment will give you the chance to have a fixed address. Check out our cool housing offers. All other services can then be booked in parallel."
+      answer_4: "A: We are a team with diverse backgrounds – from finance professionals to front/back-end developers. However, what we all share is the cumbersome admin experience when moving to a new city and the vision to make this process easier for you."
+      answer_5: "A: Once you have submitted the order form, you will receive two emails – the first one will confirm your order. Now, movido will work in the background with the service provider to get your contract set up. Especially, when it comes to housing, this may take up to 48 hours. The second email with the purchase confirmation then guarantees you that your purchase was successful."
       answer_6: "A: Please note that this will take up to 3 business days depending on the provider. You can also always get in touch with our support team – they will be able to trace your delivery and help you."
       answer_7: "A: In your “My profile” section, you have a good overview of all your contracts. Unfortunately, due to confidentiality reasons, we will not be able to cancel every type of contract. For these, you will either be provided a link to direct you to the respective action in no time or the helpline number to do so via phone."
       contact:
         title: "Any additional questions ?"
-        description: "Please contact the movido customer service via chat, email <br>or phone."
+        description: "Please contact the movido customer service via chat, email or phone."
         cta: "Contact us"
     home:
       banner:
@@ -100,11 +101,11 @@ en:
         subheadline: '<strong>movido</strong> takes care of your admin work'
         start: 'Get Started'
       get-started:
-        headline: 'Join a community of 569 students from all over the world on movido'
+        headline: 'Join a community of 10,269 students from all over the world on movido'
         start: 'Get Started'
       services-cards:
         title: 'Our Offerings'
-        housing: 'Entire Place, Flatshare, Student Housing or Upscale Offers - we have all housing options available in your hometown.'
+        housing: 'Entire Place, Flatshare, Student Housing or Upscale Offers - we have all housing options available in your hometown'
         bank: 'Open a local bank account in no time and fully online. See the best offers from our trusted banking partners'
         mobile: 'Get your local phone number with movido - our partners offer you pay as you go or contract based services'
         wifi: 'Choose from a variety of WiFi options for your new home and get your subscription in no time'
@@ -137,7 +138,7 @@ en:
         text: 'Making moving simple is our philosophy. Easy, fast and intuitive - sign up to movido to get set in your new city in no time and 100% for free'
         card1:
           title: 'Fast'
-          description: 'Get set-up in your new home in only 10 minutes instead of the usual 4.5 hours'
+          description: 'Get set up in your new home in only 10 minutes instead of the usual 4.5 hours'
         card2:
           title: 'Smart'
           description: 'Compare services and benefit from the best prices and offers available'
@@ -156,7 +157,7 @@ en:
           sentence: '"Most of the admin was in French. movido saved me time and money for my semester abroad in Paris"'
         testimonial2:
           from: 'From Buenos Aires'
-          to: 'To Lyon'
+          to: 'To London'
           sentence: '"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi abo on top"'
         testimonial3:
           from: 'From Berlin'
@@ -165,11 +166,11 @@ en:
         testimonial4:
           from: 'From Barcelona'
           to: 'To London'
-          sentence: '"Find a good WiFi service in London is not easy. movido offers a list of local companies with flexible options and great features."'
+          sentence: '"Finding a good WiFi service in London is not easy. movido offers a list of local companies with flexible options and great features."'
         testimonial5:
           from: 'From Warsaw'
           to: 'To Paris'
-          sentence: '"I secured my place to study in Paris for a year. Thanks to movido, it was easy to setup all services I need in the new city."'
+          sentence: '"I secured my place to study in Paris a year ago. Thanks to movido, it was easy to set up all services I needed there."'
     how_it_works:
       title: 'How it works'
       first_step:
@@ -245,7 +246,7 @@ en:
         cta: 'Confirm'
     edit:
       title: 'We just need a couple of more details'
-      subtitle: 'We need this information to help the technician find you home.<br> This is the address the technician will come to for the installation of your internet box'
+      subtitle: 'We need this information to help the technician find your home.<br> This is the address the technician will come to for the installation of your internet box'
       form:
         failure:
           wrong_country: "needs to be in %{country}"
@@ -288,7 +289,7 @@ en:
   products:
     index:
       title: 'Choose your offer'
-      subtitle: 'We choosed the best partners for your future home'
+      subtitle: ''
     mobile-filter:
       title: 'Filter'
       reset: 'Reset filters'
@@ -322,8 +323,8 @@ en:
     summary:
       title: 'Please confirm your details'
       subtitle: "Make sure the information is correct. <br> Go to %{href} to modify it"
-      profile_link: 'your profile'
-      next: 'Continue'
+      profile_link: '<strong>your profile</strong>'
+      next: 'Purchase now'
       back: 'Back'
     result:
       months: 'months'
@@ -354,10 +355,11 @@ en:
     complete_profil:
       title: 'Please complete your profil'
       button: 'Continue'
+      placeholder: 'Enter your %{placeholder}'
     show:
       title: 'My profile'
       addresses_tab: 'My addresses'
-      subscriptions_tab: 'Subscriptions'
+      subscriptions_tab: 'My Wallet'
       profile_tab: 'My details'
     addresses:
       current: 'My current address'
@@ -397,7 +399,7 @@ en:
   shared:
     navbar_visitor:
       about_us: 'About us'
-      how_it_works: 'How it works?'
+      how_it_works: 'How it works'
       login: 'Login'
       get_started: 'Get Started'
       services:
@@ -431,7 +433,7 @@ en:
       faq: 'FAQ'
       terms: 'Terms of Services'
       cookie: 'Cookie Policy'
-      legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
+      legal: 'movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
   services:
     wifi:
       title: 'WIFI'

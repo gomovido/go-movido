@@ -10,14 +10,14 @@ Bank.create(name: 'TransferWise', logo_url: 'banks/transferwise', headline: 'hea
 category = Category.create(
   name: 'bank',
   sku: 'bank',
-  form_timer: 4,
+  form_timer: 6,
   subtitle: 'subtitle',
   description: 'description',
   open: true)
 
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
-form_timer: 2,
+form_timer: 3,
 subtitle: 'subtitle',
 description: 'description',
 open: true)
@@ -315,7 +315,7 @@ product = Product.create(
 category = Category.create(
   name: 'wifi',
   sku: 'wifi',
-  form_timer: 3,
+  form_timer: 6,
   subtitle: 'subtitle',
   description: 'description',
   open: true)
@@ -396,7 +396,7 @@ ProductFeature.create(
 category = Category.create(
   name: 'housing',
   sku: 'housing',
-  form_timer: 10,
+  form_timer: 8,
   subtitle: 'subtitle',
   description: 'description',
   open: false)
