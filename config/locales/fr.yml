@@ -306,10 +306,14 @@ fr:
       frequency: 'mensuel'
       speed: 'vitesse'
       setup_costs: "à l'installation"
-      free: 'Gratuit'
+      free: 'gratuit'
+      no_obligation: 'sans engagement'
     modal:
-      cta: 'Choisir cette offre <i class="fas fa-arrow-square-right"></i>'
-      months: 'par mois'
+      cta: 'Selectionner <i class="fas fa-arrow-square-right"></i>'
+      monthly: 'par mois'
+      sim_card: 'carte sim'
+      months: 'mois'
+      no_obligation: "sans engagement"
   subscriptions:
     summary:
       title: "Confirmez vos informations"

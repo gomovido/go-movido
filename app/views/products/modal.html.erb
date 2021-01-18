@@ -16,7 +16,7 @@
   <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around">
     <div class="pricing d-flex flex-column align-items-center w-100">
       <span class='price text-center'><%= @product.format_price %></span>
-      <span class="sub-price text-center"><%= t('.months') %></span>
+      <span class="sub-price text-center"><%= t('.monthly') %></span>
       <%= link_to t('.cta').html_safe, category_product_subscriptions_path(@product.category, @product), class:'btn-card m-b2 w-100 mt-3', method: :post %>
       </div>
       <% if @product.is_mobile? %>
@@ -28,22 +28,22 @@
           <hr>
           <div class="feature-lite d-flex flex-column align-items-center">
             <span><%= image_tag('products/modal/sim-card.png', class: "picto") %> </span>
-            <span class="desc"><%= @product.format_sim_card_price %></span>
+            <span class="desc"><%= @product.format_sim_card_price %> <%= t('.sim_card') %></span>
           </div>
           <hr>
           <% if @product.obligation %>
           <div class="feature-lite d-flex flex-column align-items-center">
             <span><%= image_tag('products/modal/contract.png', class: 'picto') %></span>
-            <span class="desc"><%= @product.time_contract %> months</span>
+            <span class="desc"><%= @product.time_contract %> <%= t('.months') %></span>
           </div>
           <% else %>
           <div class="feature-lite d-flex flex-column align-items-center">
             <span><%= image_tag('products/modal/contract.png', class: 'picto') %></span>
-            <span class="desc"><strong>No obligation</strong></span>
+            <span class="desc"><strong><%= t('.no_obligation') %></strong></span>
           </div>
           <% end %>
         </div>
-      <% else %>
+      <% elsif @product.is_wifi? %>
         <div class="features-lite-wrapper">
           <div class="feature-lite d-flex flex-column align-items-center">
             <span><%= image_tag(asset_path('products/modal/wifi.png'), class:'picto ') %></span>
