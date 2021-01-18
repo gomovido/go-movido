@@ -16,14 +16,24 @@
         <span><%= t("pages.dashboard_index.see_offers") %></span>
         <%= image_tag(asset_path('dashboard/arrow-right.png'), class: 'arrow ml-2') %>
       </div>
+      <span class="subtitle"><%= t("pages.dashboard_index.#{category.sku}.subtitle") %></span>
+      <span class="description"><%= t("pages.dashboard_index.#{category.sku}.description") %></span>
+      <span class="mt-2 d-flex offers align-items-center"><%= image_tag(asset_path(current_user.country.downcase.split(' ').join('-') + '-flag.png'), class:'flag mr-3') %> + <%= category.products.length %> <%= t("pages.dashboard_index.offers") %></span>
     </div>
-  <% else %>
-    <div class="state coming-soon w-100">
-      <div class="coming-soon d-flex align-items-center justify-content-center h-100">
-        <span><%= t("pages.dashboard_index.coming_soon") %></span>
+    <% if category.open %>
+      <div class="state open w-100">
+        <div class="see-offers d-flex align-items-center justify-content-center h-100">
+          <span><%= t("pages.dashboard_index.see_offers") %></span>
+          <i class="fas fa-arrow-circle-right ml-2"></i>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% else %>
+      <div class="state coming-soon w-100">
+        <div class="coming-soon d-flex align-items-center justify-content-center h-100">
+          <span><%= t("pages.dashboard_index.coming_soon") %></span>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
