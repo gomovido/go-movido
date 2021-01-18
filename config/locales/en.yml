@@ -290,6 +290,7 @@ en:
       contract_only: 'Long-term contract'
     card:
       see_details: 'See details'
+      select_offer: '<span class="w-100 d-flex justify-content-around align-items-center">Select offer <i class="fas fa-arrow-square-right"></i></span>'
       months: 'months'
       only: 'only'
       frequency: 'monthly'
@@ -297,8 +298,8 @@ en:
       setup_costs: 'setup costs'
       free: 'Free'
     modal:
-      cta: 'Choose'
-      months: 'per month'
+      cta: '<span class="w-100 d-flex justify-content-around align-items-center">Select Offer<i class="fas fa-arrow-square-right"></i></span>'
+      months: 'monthy cost'
   subscriptions:
     summary:
       title: 'Please confirm your details'

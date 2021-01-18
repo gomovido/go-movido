@@ -1,48 +1,62 @@
-<div class="product-card d-flex flex-column px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
-  <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {modal_target: 'link'}, class:"w-100 d-flex align-items-center justify-content-between" do %>
-    <div class="d-flex justify-content-between mb-3">
-      <%= image_tag(product.logo_url, class: 'logo') %>
-      <div class="d-flex flex-column offers">
-        <div>
-          <h5 class="name mt-2"><%= product.company %> <%= product.name %></h5>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex flex-column align-items-center">
-            <%= image_tag(asset_path('card-wifi.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.data_limit %></span></div>
-          </div>
+<div class="product-card px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
+  <div class="d-flex align-items-center mb-3">
+    <%= image_tag(product.logo_url, class: 'logo') %>
+    <div class="d-flex flex-column offers w-100">
+      <h5 class="name mt-2"><%= product.company %> <%= product.name %></h5>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center mr-4 w-100">
           <% if product.time_contract != 'no' %>
-            <div class="d-flex flex-column align-items-center">
-              <%= image_tag(asset_path('card-contract.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
+            <div class="offer">
+              <div class="d-flex flex-column align-items-center">
+                <%= image_tag(asset_path('products/contract.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
+              </div>
             </div>
+            <div class="margin"></div>
           <% end %>
+          <div class="offer">
+            <div class="d-flex flex-column align-items-center">
+              <%= image_tag(asset_path('products/wifi.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.data_limit %></span></div>
+            </div>
+          </div>
+          <div class="margin"></div>
           <% if product.sim_card_price > 0 %>
-            <div class="d-flex flex-column align-items-center">
-              <%= image_tag(asset_path('card-sim-card.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.format_sim_card_price %></span></div>
+            <div class="offer">
+              <div class="d-flex flex-column align-items-center">
+                <%= image_tag(asset_path('products/sim-card.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.format_sim_card_price %></span></div>
+              </div>
             </div>
+            <div class="margin"></div>
           <% else %>
-            <div class="d-flex flex-column align-items-center">
-              <%= image_tag(asset_path('card-sim-card.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= t('products.card.free') %></span></div>
+            <div class="offer">
+              <div class="d-flex flex-column align-items-center">
+                <%= image_tag(asset_path('products/sim-card.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= t('products.card.free') %></span></div>
+              </div>
             </div>
+            <div class="margin"></div>
           <% end %>
           <div class="price">
             <span class="number"><%= product.format_price %></span><br>
             <span class="frequency"><%= t('products.card.frequency') %></span>
           </div>
         </div>
-      </div>
-      <div class="d-flex flex-column actions">
-        <%= link_to 'Select offer', category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
-        <%= link_to t('products.card.see_details'), modal_product_path(product), data: {target: '#exampleModal',
-        action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link', class:"btn-modal" %>
-
+        <div class="d-flex flex-column actions">
+          <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
+          <%= link_to t('products.card.see_details'), modal_product_path(product), data: {target: '#exampleModal',
+          action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link', class:"text-center purple modal-link" %>
+        </div>
       </div>
     </div>
-    <div class="d-flex justify-content-between features">
-      <span><%= image_tag(asset_path('location-cyan.png'), style:"width: 20px;") %><%= product.description %></span>
-      <span><%= product.description %></span>
-      <span><%= product.description %></span>
-      <span><%= product.description %></span>
-      <span><%= product.description %></span>
-    </div>
-  <% end %>
+  </div>
+  <div class="d-flex justify-content-between features">
+    <span><%= product.description %></span>
+    <% if product.special_offer.nil? %>
+      <% i = 3 %>
+    <% else %>
+      <% i = 2 %>
+      <span><%= product.special_offer %></span>
+    <% end %>
+    <% product.product_features.take(product.product_features.size - 1).first(i).each do |feature| %>
+      <span><%= feature.name %></span>
+    <% end %>
+  </div>
 </div>

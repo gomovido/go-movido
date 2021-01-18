@@ -1,9 +1,13 @@
 .products-cards-wrapper {
-  font-family: "Montserra", sans-serif;
+  font-family: "Montserrat", sans-serif;
   .product-card {
     background: $white;
     border: 1px solid $grey-snow;
     border-radius: 20px;
+    .margin {
+      height: 55px;
+      border-right: 1px solid #C7C7C7;
+    }
     span {
       font-size: 14px;
     }
@@ -11,15 +15,17 @@
       box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
     }
     .offers {
-      width: 90%;
       margin-right: 1rem;
     }
     .actions {
-      width: 35%;
+      width: 25%;
     }
     .logo {
-      margin-right: 1rem;
-      width: 20%;
+      margin-right: 2rem;
+      width: 15%;
+    }
+    .modal-link {
+     text-decoration: underline !important;
     }
     h5 {
       font-weight: bold;
@@ -41,20 +47,10 @@
       width: 25px;
     }
     .features span {
+      color: $blue;
+      font-weight: bold;
       &:first-child {
         color: $taupe;
-      }
-      &:nth-child(2) {
-        color: $blue;
-      }
-      &:nth-child(3) {
-        color: $green;
-      }
-      &:nth-child(4) {
-        color: $blue;
-      }
-      &:nth-child(5) {
-        color: $cyan;
       }
     }
   }
