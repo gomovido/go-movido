@@ -297,9 +297,13 @@ en:
       speed: 'speed'
       setup_costs: 'setup costs'
       free: 'Free'
+      no_obligation: 'no obligation'
     modal:
       cta: '<span class="w-100 d-flex justify-content-around align-items-center">Select Offer<i class="fas fa-arrow-square-right"></i></span>'
-      months: 'monthy cost'
+      monthly: 'monthy cost'
+      sim_card: 'sim card'
+      monthis: 'months'
+      no_obligation: 'no obligation'
   subscriptions:
     summary:
       title: 'Please confirm your details'
