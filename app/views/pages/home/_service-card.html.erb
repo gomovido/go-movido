@@ -2,9 +2,11 @@
   <%= link_to path, class:"d-flex align-items-center w-100 justify-content-between flex-column" do %>
   <div class="d-flex align-items-center w-100 justify-content-between top-line">
     <%= image_tag(asset_path(picto)) %>
-    <div class="timer">
-      <span><%= timer %> minutes</span>
-    </div>
+    <% if timer != 'no_timer' %>
+      <div class="timer">
+        <span><%= timer %> minutes</span>
+      </div>
+    <% end %>
   </div>
   <div class="title mb-2 w-100">
     <%= title %>

@@ -70,6 +70,12 @@
             </input>
             <i class="fas fa-check check green"></i>
           </div>
+          <div class="form-group">
+            <label><%= t('activerecord.attributes.billing.sort_code') %></label>
+            <input class="form-control" disabled value="<%= subscription.billing.sort_code %>">
+            </input>
+            <i class="fas fa-check check green"></i>
+          </div>
           <div class="name-fields d-flex justify-content-between">
             <div class="form-group">
               <label><%= t('activerecord.attributes.billing.account_number') %></label>

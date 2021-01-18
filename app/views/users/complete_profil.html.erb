@@ -17,7 +17,7 @@
         <%= f.input :birth_city,
                 required: true,
                 input_html: {
-                  placeholder: 'Paris, 17eme arrondissement, France',
+                  placeholder: t('.placeholder', placeholder: t('activerecord.attributes.user.birth_city')).capitalize,
                   data: {
                     registration_target: 'cityInput'}} %>
         <div class="mt-4">
