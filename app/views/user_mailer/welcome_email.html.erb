@@ -132,6 +132,10 @@
       color: #8C30F5 !important;
     }
 
+    .black {
+      color: #000000 !important;
+    }
+
     .button--green {
       background-color: #22BC66;
       border-top: 10px solid #22BC66;
@@ -634,27 +638,27 @@
             </tr>
             <tr>
               <td>
-                <table class="email-body_inner mb-1 d-flex justify-content-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                <table class="email-body_inner mb-1 d-flex justify-content-center flex-column" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr class="marketing-row text-center d-flex justify-content-center">
-                    <td class="content-cell d-flex justify-content-center" align="center">
+                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
                       <span><strong>Any questions? This is how you can reach us</strong></span>
                       <div class="d-flex marketing-inputs">
-                        <a href="" class="support-links mr-1" target="_blank">
+                        <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
                           <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
-                          <span>contact@go-movido.com</span>
+                          <span class="black">contact@go-movido.com</span>
                         </a>
-                        <a href="" class="support-links mr-1" target="_blank">
+                        <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
                           <%= image_tag(asset_path('emails/phone-logo.png')) %>
-                          <span>+44(0)78415988269</span>
+                          <span class="black">+44(0)78415988269</span>
                         </a>
-                        <a href="" class="support-links" target="_blank">
+                        <a href="" class="support-links flex-column align-items-center justify-content-center" target="_blank">
                           <%= image_tag(asset_path('emails/email-logo.png')) %>
-                          <span>+44(0)78415988269</span>
+                          <span class="black">+44(0)78415988269</span>
                         </a>
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="marketing-row text-center d-flex justify-content-center">
                     <td class="content-cell marketing-inputs-flex d-flex flex-column justify-content-center" align="center">
                       <span><strong>Want to stay in touch? Find us here</strong></span>
                       <div class="d-flex marketing-inputs justify-content-center">
