@@ -604,7 +604,7 @@
             <tr>
               <td>
                 <table class="email-body_inner email-cards mb-1 d-flex justify-content-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr>
+                  <tr class="text-center">
                     <td class="content-cell card-link" align="center">
                       <a href="<%= new_user_session_url %>" target="_blank">
                         <%= image_tag(asset_path('emails/housing.png')) %>
@@ -616,7 +616,7 @@
                       </a>
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="text-center">
                     <td class="content-cell card-link" align="center">
                       <a href="<%= new_user_session_url %>" target="_blank">
                         <%= image_tag(asset_path('emails/mobile.png')) %>
@@ -628,7 +628,7 @@
                       </a>
                     </td>
                   </tr>
-                  <tr class="d-flex justify-content-center align-items-center">
+                  <tr class="text-center">
                     <td class="text-center mt-1">
                       <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
                     </td>
@@ -642,6 +642,10 @@
                   <tr class="marketing-row text-center d-flex justify-content-center">
                     <td class="content-cell d-flex justify-content-center flex-column" align="center">
                       <span><strong>Any questions? This is how you can reach us</strong></span>
+                    </td>
+                  </tr>
+                  <tr class="marketing-row text-center d-flex justify-content-center">
+                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
                       <div class="d-flex marketing-inputs">
                         <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
                           <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
@@ -661,6 +665,10 @@
                   <tr class="marketing-row text-center d-flex justify-content-center">
                     <td class="content-cell marketing-inputs-flex d-flex flex-column justify-content-center" align="center">
                       <span><strong>Want to stay in touch? Find us here</strong></span>
+                    </td>
+                  </tr>
+                  <tr class="marketing-row text-center d-flex justify-content-center">
+                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
                       <div class="d-flex marketing-inputs justify-content-center">
                         <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
                         <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
