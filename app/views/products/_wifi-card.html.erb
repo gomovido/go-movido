@@ -1,23 +1,57 @@
-<div class="product-card d-flex align-items-center justify-content-between px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
-  <%= link_to category_product_subscriptions_path(product.category, product), method: :post, id: product.id, data: {modal_target: 'link'} do %>
-    <div class="d-flex align-items-center justify-content-center"><%= image_tag(product.logo_url, class: 'logo') %></div>
-    <div class="offer">
-      <span class="company d-none d-sm-block"><%= product.company %></span>
-      <h5 class="name mt-2 "><%= product.company %> <%= product.name %></h5>
-      <span class="localization d-none d-sm-block"><i class="fas fa-map-pin mr-2"></i><%= product.description %></span>
-      <p class="description mt-3 mb-0"><%= product.product_features.first.description %> <%= link_to t('products.card.see_details'), modal_product_path(product), data: {target: '#exampleModal',
-      action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link' %></p>
-    </div>
-    <div class="pricing text-center">
-      <div class="price">
-        <span class="number px-1"><%= product.format_price %></span><br>
-        <span class="frequency"><%= t('products.card.frequency') %></span>
+
+<div class="product-card px-3 py-4 mb-4" data-controller="modal" data-action="click->modal#redirect" id=<%= product.id %>>
+  <div class="d-flex align-items-center mb-3">
+    <%= image_tag(product.logo_url, class: 'logo') %>
+    <div class="d-flex flex-column offers w-100">
+      <h5 class="name mt-2"><%= product.company %> <%= product.name %></h5>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center mr-4 w-100">
+          <div class="offer">
+            <div class="d-flex flex-column align-items-center">
+              <i class="fas fa-plug mb-2"></i>
+              <div class="d-flex flex-column align-items-center">
+                <span class="mr-1 font-weight"><%= product.format_setup_price %></span><span><%= t('products.card.setup_costs') %></span>
+              </div>
+            </div>
+          </div>
+          <div class="margin"></div>
+          <% if product.time_contract != 'no' %>
+            <div class="offer">
+              <div class="d-flex flex-column align-items-center">
+                <%= image_tag(asset_path('products/contract.png'), class:'picto') %><div class="d-flex"><span class="mr-1 font-weight"><%= product.time_contract %></span> <span><%= t('products.card.months') %></span></div>
+              </div>
+            </div>
+            <div class="margin"></div>
+          <% end %>
+          <div class="offer">
+            <div class="d-flex flex-column align-items-center">
+              <%= image_tag(asset_path('products/wifi.png'), class:'picto ') %><div class="d-flex flex-column align-items-center"><span class="mr-1 font-weight"><%= product.data_speed %></span> <span>Ø <%= t('products.card.speed') %></span></div>
+            </div>
+          </div>
+          <div class="margin"></div>
+          <div class="price">
+            <span class="number"><%= product.format_price %></span><br>
+            <span class="frequency"><%= t('products.card.frequency') %></span>
+          </div>
+        </div>
+        <div class="d-flex flex-column actions">
+          <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
+          <%= link_to t('products.card.see_details'), modal_product_path(product), data: {target: '#exampleModal',
+          action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link', class:"text-center purple modal-link" %>
+        </div>
       </div>
-      <div class="data align-items-center my-3 d-none d-sm-flex"><i class="fas fa-wifi mr-3"></i> <%= product.data_speed %> Ø <%= t('products.card.speed') %></div>
-      <% if product.time_contract != 'no' %>
-          <div class="contract align-items-center my-3 d-none d-sm-flex"><i class="fas fa-file-signature mr-3"></i> <%= product.time_contract %> <span class="ml-1"><%= t('products.card.months') %></span></div>
-      <% end %>
-      <div class="sim align-items-center mt-3 d-none d-sm-flex"><i class="fas fa-plug mr-3"></i><%= product.format_setup_price %><span class="ml-1"> <%= t('products.card.setup_costs') %></span></div>
     </div>
-  <% end %>
   </div>
+  <div class="d-flex justify-content-between features">
+    <span><%= product.description %></span>
+    <% if product.special_offer.nil? %>
+      <% i = 3 %>
+    <% else %>
+      <% i = 2 %>
+      <span><%= product.special_offer %></span>
+    <% end %>
+    <% product.product_features.take(product.product_features.size - 1).first(i).each do |feature| %>
+      <span><%= feature.name %></span>
+    <% end %>
+  </div>
+</div>
