@@ -14,33 +14,48 @@
     </div>
   </div>
   <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around">
-    <div class="pricing d-flex flex-column align-items-center ">
+    <div class="pricing d-flex flex-column align-items-center w-100">
       <span class='price text-center'><%= @product.format_price %></span>
-      <span class="sub-price text-center"><%= t('.month') %></span>
-      <%= link_to t('.cta'), category_product_subscriptions_path(@product.category, @product), class:'btn-main mt-3', method: :post %>
-      </div>
+      <span class="sub-price text-center"><%= t('.monthly') %></span>
+      <%= link_to t('.cta').html_safe, category_product_subscriptions_path(@product.category, @product), class:'btn-card m-b2 w-100 mt-3', method: :post %>
+    </div>
+    <% if @product.is_mobile? %>
       <div class="features-lite-wrapper">
-        <div class="feature-lite d-flex justify-content-between">
-          <span><%= image_tag(asset_path('products/wifi.png')) %></span>
-          <span class="desc-grey"><%= @product.data_limit %></span>
+        <div class="feature-lite d-flex flex-column align-items-center">
+          <span><%= image_tag('products/modal/wifi.png', class:"picto") %></span>
+          <span class="desc"><%= @product.data_limit %></span>
         </div>
         <hr>
-        <div class="feature-lite d-flex justify-content-between ">
-          <span><%= image_tag(asset_path('products/sim.png'), class: 'mr-3') %> </span>
-          <span class="desc-grey"><%= @product.format_sim_card_price %></span>
+        <div class="feature-lite d-flex flex-column align-items-center">
+          <span><%= image_tag('products/modal/sim-card.png', class: "picto") %> </span>
+          <span class="desc"><%= @product.format_sim_card_price %> <%= t('.sim_card') %></span>
         </div>
         <hr>
         <% if @product.obligation %>
-        <div class="feature-lite d-flex justify-content-between ">
-          <span><%= image_tag(asset_path('products/contract.png'), class: 'mr-3') %></span>
-          <span class="desc-grey"><%= @product.time_contract %> months</span>
+        <div class="feature-lite d-flex flex-column align-items-center">
+          <span><%= image_tag('products/modal/contract.png', class: 'picto') %></span>
+          <span class="desc"><%= @product.time_contract %> <%= t('.months') %></span>
         </div>
         <% else %>
-        <div class="feature-lite d-flex justify-content-between ">
-          <span><%= image_tag(asset_path('products/contract.png'), class: 'mr-3') %></span>
-          <span class="desc-grey"><strong>No obligation</strong></span>
+        <div class="feature-lite d-flex flex-column align-items-center">
+          <span><%= image_tag('products/modal/contract.png', class: 'picto') %></span>
+          <span class="desc"><strong><%= t('.no_obligation') %></strong></span>
         </div>
         <% end %>
       </div>
+    <% elsif @product.is_wifi? %>
+      <div class="features-lite-wrapper">
+        <div class="feature-lite d-flex flex-column align-items-center">
+          <span><%= image_tag(asset_path('products/modal/wifi.png'), class:'picto ') %></span>
+          <div class="d-flex flex-column align-items-center"><span class="mr-1 font-weight"><%=@product.data_speed %></span> <span>Ø <%= t('products.card.speed') %></span></div>
+        </div>
+        <hr>
+        <div class="feature-lite d-flex flex-column align-items-center">
+          <span><i class="fas fa-plug mb-2 purple"></i> </span>
+          <span class="desc"><%= @product.format_setup_price %></span>
+          <span><%= t('products.card.setup_costs') %></span>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -63,23 +63,25 @@ fr:
       send_paranoid_instructions: "Si votre compte existe, vous allez bientôt recevoir un email contenant les instructions pour le déverrouiller."
       unlocked: "Votre compte a été déverrouillé avec succès, vous êtes maintenant connecté."
     registrations:
-        new:
-          title_left: "Bienvenue sur "
-          title_right: 'Inscription'
-          subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
-          facebook: "S'inscrire avec <strong>&nbsp Facebook</strong>"
-          google: "S'inscrire avec <strong>&nbsp Google</strong>"
-          or: "Ou"
-          register: 'Enregistrer'
-          mandatory: '* Champs obligatoire'
-        edit:
-          title: "Mes informations d'accès"
-          update: 'Mettre à jour'
-          delete: 'Suppression'
-          form:
-            label:
-              password: 'Nouveau mot de passe'
-              password_confirmation: 'Confirmation du nouveau mot de passe'
+      user:
+        signed_up: "Félicitations & bienvenue chez movido !"
+      new:
+        title_left: "Bienvenue sur "
+        title_right: 'Inscription'
+        subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
+        facebook: "S'inscrire avec <strong>&nbsp Facebook</strong>"
+        google: "S'inscrire avec <strong>&nbsp Google</strong>"
+        or: "Ou"
+        register: 'Enregistrer'
+        mandatory: '* Champs obligatoire'
+      edit:
+        title: "Mes informations d'accès"
+        update: 'Mettre à jour'
+        delete: 'Suppression'
+        form:
+          label:
+            password: 'Nouveau mot de passe'
+            password_confirmation: 'Confirmation du nouveau mot de passe'
     shared:
       links:
         already_account: "Vous avez déjà un compte ?"
