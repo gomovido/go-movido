@@ -68,6 +68,9 @@ fr:
         birth_city: 'Ville de naissance'
         password_confirmation: 'Confirmation du mot de passe'
   pages:
+    contact:
+      title: 'Contactez nous'
+      subline: "Nos moyens de contact:"
     about:
       title: 'Qui sommes-nous'
       part_1: "Tu as hâte de commencer un nouveau chapitre de ta vie et de déménager dans une nouvelle ville - la seule chose qui t'ennuie, c'est tout le travail administratif qui va avec?"
