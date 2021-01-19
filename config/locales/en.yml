@@ -35,7 +35,7 @@ en:
         bank: 'Banking Institution'
         sort_code: 'Sort code'
       subscription:
-        delivery_address: 'Delivery address for your SIM card'
+        delivery_address: 'Delivery address'
       address:
         street: 'Address'
         floor: 'Floor'
@@ -262,6 +262,7 @@ en:
           address: 'You can change this field in your profil'
   billings:
     new:
+      mandatory: '* Mandatory fields'
       title: 'We just need a couple more details...'
       subtitle: 'We need your bank details to set up the direct debit option of your subscription'
       form:
@@ -272,6 +273,7 @@ en:
           next: 'Confirm'
           back: 'Back'
         placeholder: 'Enter your %{placeholder}'
+        sim_delivery_address: 'SIM card delivery address'
         hint:
           bank: 'You cannot change this field'
           delivery_address: 'Billing and delivery addresses need to be the same'

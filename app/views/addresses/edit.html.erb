@@ -8,8 +8,9 @@
       <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('.title'), subtitle: t('.subtitle').html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>
     </div>
     <div class="col-md-6 offset-md-3 mb-5">
-      <div class="form-base mt-4 p-1">
-        <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put do |f| %>
+      <div class="form-base p-1">
+        <span class="mandatory"><%= t('billings.new.mandatory') %></span>
+        <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put, html: {class: 'mt-2'} do |f| %>
           <%= f.simple_fields_for :address  do |s| %>
             <%= s.hidden_field :id, value: current_user.active_address.id%>
             <div class="mb-2">
