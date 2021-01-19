@@ -4,7 +4,7 @@ import 'nouislider/distribute/nouislider.css';
 import Shuffle from 'shufflejs';
 
 export default class extends ApplicationController {
-  static targets = ['input']
+  static targets = ['input', 'noResult']
 
   connect() {
     this.slider = this.inputTarget;
@@ -29,18 +29,30 @@ export default class extends ApplicationController {
       document.getElementById('max').innerText = parseInt(this.slider.noUiSlider.get()[1], 10);
       if (document.getElementById('unlimited_data')) {
         this.mobileFilter();
+        this.checkProducts();
       } else {
         this.wifiFilter();
+        this.checkProducts();
       }
     });
   }
 
   mobileFilter() {
-    this.baseFilter(this.mobileFiltersArray())
+    this.baseFilter(this.mobileFiltersArray());
+    this.checkProducts();
   }
 
   wifiFilter() {
-    this.baseFilter(this.wifiFiltersArray())
+    this.baseFilter(this.wifiFiltersArray());
+    this.checkProducts();
+  }
+
+  checkProducts() {
+    if (document.querySelectorAll('.shuffle-item--visible').length === 0) {
+      this.noResultTarget.classList.remove('d-none');
+    } else {
+      this.noResultTarget.classList.add('d-none')
+    }
   }
 
   baseFilter(arrayFilters) {
@@ -75,16 +87,14 @@ export default class extends ApplicationController {
     return filters;
   }
 
-  arrayEquals(a, b) {
+  arrayEquals(filterArray, productArray) {
     if (Array.from(document.querySelectorAll('input')).some(checkbox => checkbox.checked)) {
-      return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((val, index) => val === b[index]);
+      return Array.isArray(filterArray) && Array.isArray(productArray) && filterArray.every(val => productArray.includes(val));
     } else {
       return true;
     }
   }
 }
-
-
 
 
 

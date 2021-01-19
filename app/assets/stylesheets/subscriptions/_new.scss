@@ -16,6 +16,18 @@
     right: 10%;
     top: 40%;
   }
+  .no-result {
+    font-weight: 800;
+    font-size: 30px;
+    color: $dark-cloud;
+  }
+  .fa-empty-set {
+    color: $red;
+    opacity: 0.3;
+    font-size: 250px;
+    width: 100%;
+    text-align: center;
+  }
 }
 .subscription-container {
   padding-top: 80px;

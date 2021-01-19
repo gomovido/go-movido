@@ -292,13 +292,14 @@ en:
   products:
     index:
       title: 'Choose your offer'
+      no_result: "Sorry, we didn't find any offers <br><br><i class='fal fa-empty-set'></i>"
       subtitle: ''
     mobile-filter:
       title: 'Filter'
       reset: 'Reset filters'
       unlimited_data: 'Unlimited data'
       unlimited_call: 'Unlimited call'
-      no_contract: 'Monthly contract'
+      no_contract: 'SIM only'
       by_price: 'Filter by price (in %{unit})'
     wifi-filter:
       title: 'Filter'
