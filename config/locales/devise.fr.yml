@@ -73,7 +73,7 @@ fr:
         google: "S'inscrire avec <strong>&nbsp Google</strong>"
         or: "Ou"
         register: 'Enregistrer'
-        mandatory: '* Champs obligatoire'
+        mandatory: '* Champs obligatoires'
       edit:
         title: "Mes informations d'accès"
         update: 'Mettre à jour'

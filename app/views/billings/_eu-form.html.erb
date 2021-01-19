@@ -1,6 +1,7 @@
 <div class="col-md-6 offset-md-3 mb-5">
   <div class="form-base">
-    <%= simple_form_for [@subscription, @billing], data: {controller: "subscription", subscription_locale_value: I18n.locale.to_s, subscription_hide_class: "d-none", subscription_disabled_class: "disabled"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
+    <span class="mandatory"><%= t('billings.new.mandatory') %></span>
+    <%= simple_form_for [@subscription, @billing], data: {controller: "subscription", subscription_locale_value: I18n.locale.to_s, subscription_hide_class: "d-none", subscription_disabled_class: "disabled"}, html: {id: 'billing-form', class:"d-flex flex-column mt-3"} do |f| %>
     <%= f.hidden_field :subscription_id, value: @subscription.id %>
     <div data-subscription-target="firstPart">
       <div class="mb-2">

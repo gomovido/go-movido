@@ -45,7 +45,7 @@ fr:
         bank: 'Banque'
         sort_code: 'Code guichet'
       subscription:
-        delivery_address: 'Adresse de livraison de votre carte SIM'
+        delivery_address: 'Adresse de livraison'
       address:
         street: 'Adresse'
         floor: 'Étage'
@@ -270,6 +270,7 @@ fr:
           address: "Vous pouvez modifier ce champ dans votre profil"
   billings:
     new:
+      mandatory: '* Champs obligatoires'
       title: "On y est presque..."
       subtitle: "Nous avons besoin de vos coordonnées bancaires pour l'option de prélèvement automatique de votre abonnement"
       form:
@@ -280,6 +281,7 @@ fr:
           next: 'Confirmer'
           back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
+        sim_delivery_address: 'Adresse de livraison de votre carte SIM'
         hint:
           bank: 'Vous ne pouvez pas modifier ce champ'
           delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'

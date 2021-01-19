@@ -1,7 +1,7 @@
 <%= f.simple_fields_for :subscription do |s| %>
   <div class="mb-2">
       <%= s.hidden_field :id, value: @subscription.id %>
-      <%= s.input :delivery_address, required: true, placeholder: t('billings.new.form.hint.bank'), readonly: true, input_html: { class: 'form-control', data: {subscription_target: 'deliveryAddressInput'}} %>
+      <%= s.input :delivery_address, required: true, placeholder: t('billings.new.form.hint.bank'), label: t('billings.new.form.sim_delivery_address'), readonly: true, input_html: { class: 'form-control', data: {subscription_target: 'deliveryAddressInput'}} %>
   </div>
    <div class="actions d-flex flex-column mt-4">
     <span class="btn btn-main disabled mb-4" id="continueButton" data-subscription-target='continueButton' data-action="click->subscription#stepForward"><%= t('billings.new.form.button.next') %></span>
