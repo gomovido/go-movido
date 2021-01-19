@@ -15,6 +15,11 @@
     top: 90px;
     right: 20px;
   }
+  .delete-link {
+    color: $dark-cloud;
+    text-decoration: underline;
+    font-weight: 500;
+  }
 }
 
 @include media-breakpoint-down(md) {

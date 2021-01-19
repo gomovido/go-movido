@@ -60,17 +60,18 @@ en:
     registrations:
       new:
         title_left: 'Welcome to '
-        title_right: 'Sign-up'
+        title_right: 'Sign up'
         subtitle: "Sign up now and let movido deal with your admin work"
         facebook: "Sign up with <strong>&nbsp Facebook</strong>"
         google: "Sign up with <strong>&nbsp Google</strong>"
         or: "Or"
-        register: 'Sign-up'
+        register: 'Sign up'
         mandatory: '* Mandatory fields'
       edit:
         title: 'My credentials'
         update: 'Update'
         delete: 'Delete account'
+        popup: "Are you sure you want to delete your account? This will erase all data in connection with movido. \n\nYour active subscriptions will however not be deleted."
         form:
             label:
               password: 'New password'

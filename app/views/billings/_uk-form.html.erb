@@ -1,6 +1,7 @@
 <div class="col-md-6 offset-md-3 mb-5">
   <div class="form-base">
-    <%= simple_form_for [@subscription, @billing], class:"d-flex flex-column", data: {controller: "subscription-uk"} do |f| %>
+    <span class="mandatory"><%= t('billings.new.mandatory') %></span>
+    <%= simple_form_for [@subscription, @billing], html: {class: "d-flex flex-column mt-2"}, data: {controller: "subscription-uk"} do |f| %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div class="mb-2">
         <%= f.input :holder_name, required: true, class:'form-control pl-5', input_html: {value: current_user.first_name + ' ' + current_user.last_name} %>
@@ -14,7 +15,7 @@
             <%= f.simple_fields_for :subscription do |s| %>
               <div class="mb-2">
                 <%= s.hidden_field :id, value: @subscription.id %>
-                <%= s.input :delivery_address, required: true, input_html: { class: 'form-control w-100', data: {subscription_uk_target: 'deliveryAddressInput'}}, placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.subscription.delivery_address')).capitalize %>
+                <%= s.input :delivery_address, required: true, label: t('billings.new.form.sim_delivery_address'),input_html: { class: 'form-control w-100', data: {subscription_uk_target: 'deliveryAddressInput'}}, placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.subscription.delivery_address')).capitalize %>
               </div>
             <% end %>
           <% end %>
