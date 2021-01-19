@@ -38,7 +38,11 @@ export default class extends ApplicationController {
       this.spinnerTarget.classList.add('show');
       setTimeout(() => {
         this.wheelTarget.outerHTML = `<i class="fas fa-check text-success"></i>`
-        this.savingTextTarget.innerHTML = `Saved`
+        if (this.localeValue === 'fr') {
+          this.savingTextTarget.innerHTML = `Profil mis à jour`
+        } else {
+          this.savingTextTarget.innerHTML = `Profile updated`
+        }
         setTimeout(() => {
           this.spinnerTarget.classList.remove('show');
         }, 1500);

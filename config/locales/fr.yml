@@ -362,6 +362,7 @@ fr:
         step_3: 'Confirmation'
   users:
     profil:
+      saving: 'Sauvegarde en cours'
       submit: 'Mettre à jour'
     complete_profil:
       title: 'Veuillez compléter votre profil'
