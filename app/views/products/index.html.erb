@@ -11,6 +11,7 @@
         <%= render 'filters', products: @products %>
       </div>
       <div class="col-lg-9">
+        <span class="d-none no-result" data-filters-target="noResult"><%= t('.no_result').html_safe %></span>
         <div class="products-cards-wrapper">
           <% @products.each do |product| %>
             <% if product.is_wifi? %>

@@ -300,6 +300,7 @@ fr:
   products:
     index:
       title: 'Choisissez votre offre'
+      no_result: "Désolé, nous n'avons pas trouvé d'offres <br><br><i class='fal fa-empty-set'></i>"
       subtitle: ''
     mobile-filter:
       title: "Filtres"
