@@ -355,6 +355,7 @@ en:
         step_3: 'Confirmation'
   users:
     profil:
+      saving: 'Saving changes'
       submit: 'Update'
     complete_profil:
       title: 'Please complete your profile'
