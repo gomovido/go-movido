@@ -73,11 +73,12 @@ fr:
         google: "S'inscrire avec <strong>&nbsp Google</strong>"
         or: "Ou"
         register: 'Enregistrer'
-        mandatory: '* Champs obligatoire'
+        mandatory: '* Champs obligatoires'
       edit:
         title: "Mes informations d'accès"
         update: 'Mettre à jour'
         delete: 'Suppression'
+        popup: "Êtes vous sûr de vouloir supprimer votre compte? Cela supprimera toutes vos données de connexion à movido. \n\nVos abonnements ne seront pas résiliés."
         form:
           label:
             password: 'Nouveau mot de passe'

@@ -1,13 +1,14 @@
 <div class="col-md-6 offset-md-3 mb-5">
   <div class="form-base">
-    <%= simple_form_for [@subscription, @billing], data: {controller: "subscription", subscription_locale_value: I18n.locale.to_s, subscription_hide_class: "d-none", subscription_disabled_class: "disabled"}, html: {id: 'billing-form', class:"d-flex flex-column"} do |f| %>
+    <span class="mandatory"><%= t('billings.new.mandatory') %></span>
+    <%= simple_form_for [@subscription, @billing], data: {controller: "subscription", subscription_locale_value: I18n.locale.to_s, subscription_hide_class: "d-none", subscription_disabled_class: "disabled"}, html: {id: 'billing-form', class:"d-flex flex-column mt-3"} do |f| %>
     <%= f.hidden_field :subscription_id, value: @subscription.id %>
     <div data-subscription-target="firstPart">
       <div class="mb-2">
         <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="<%= t('billings.new.form.tooltip.iban') %>"></i>
         <%= f.input :iban, required: true, placeholder: "FR7630001007941234567890185", input_html: {data: { subscription_target: 'ibanInput' , action: 'change->subscription#fillBank' }} %>
         <%= f.input :bic, class:'form-control', placeholder: "MISYGB22EXE", required: true, input_html: {data: { subscription_target: 'bicInput' , action: 'change->subscription#enableButton'}} %>
-        <%= f.input :bank, required: true, readonly: true, hint: t('billings.new.form.hint.bank'), class:'form-control', input_html: {data: {subscription_target: 'bankInput' }} %>
+        <%= f.input :bank, required: true, readonly: true, class:'form-control', input_html: {data: {subscription_target: 'bankInput' }} %>
        <hr>
         <%= f.input :address, required: true, input_html: { class:'form-control', placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.address')).capitalize, data: {subscription_target: 'billingAddressInput', action: "change->subscription#enableButton"}} %>
       </div>

@@ -5,7 +5,7 @@ import {addressAutocomplete, searchByCity, searchByCountry, autoFill} from '../p
 const places = require('places.js');
 
 export default class extends ApplicationController {
-  static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity', 'errors'];
+  static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity', 'errors', 'spinner', 'savingText', 'wheel'];
   static classes = [ 'hide', 'flex', 'readonly' ]
   static values = { locale: String }
 
@@ -24,12 +24,25 @@ export default class extends ApplicationController {
   }
 
   afterReflex(event, response, error) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     if (error) {
       let errors = this.localeValue === 'fr' ? error.replace("La validation a échoué : ", "").replace(/,/g, '<br>') : error.replace("Validation failed: ", "").replace(/,/g, '<br>');
       this.errorsTarget.innerHTML = "";
       this.errorsTarget.insertAdjacentHTML('beforeend', errors);
     } else {
       this.connect();
+      this.spinnerTarget.classList.add('show');
+      setTimeout(() => {
+        this.wheelTarget.outerHTML = `<i class="fas fa-check text-success"></i>`
+        this.savingTextTarget.innerHTML = `Saved`
+        setTimeout(() => {
+          this.spinnerTarget.classList.remove('show');
+        }, 1500);
+      }, 1100);
     }
   }
 
