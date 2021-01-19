@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'privacy', to: 'pages#privacy'
   get 'cookies', to: 'pages#cookies'
+  get 'contact', to: 'pages#contact'
   get 'terms', to: 'pages#terms'
   get 'how_it_works', to: 'pages#how_it_works'
   get 'about', to: 'pages#about'

@@ -58,6 +58,9 @@ en:
         password: 'Password'
         password_confirmation: 'Password confirmation'
   pages:
+    contact:
+      title: 'Contact us'
+      subline: "Here is how you can reach us:"
     about:
       title: 'About us'
       part_1: "You are excited to start a new chapter in your life and move to a new city – the only thing that annoys you is all the cumbersome admin work that comes with it?"
@@ -416,21 +419,6 @@ en:
         profile: 'Profile'
         account: 'Account'
         logout: 'Log out'
-    modal-navbar:
-      dashboard_title: 'Dashboard'
-      dashboard_subtitle: 'Create and discover new subscriptions'
-      subscriptions_title: 'My subscriptions'
-      subscriptions_subtitle: 'Manage your subscriptions'
-      profile_title: 'My profile'
-      profile_subtitle: 'Edit your details'
-      addresses_title: 'My address'
-      addresses_subtitle: 'Change your address'
-      contact_title: 'Contact us'
-      contact_subtitle: 'WhatsApp, E-mail or phone'
-      about_title: 'About us'
-      about_subtitle: 'Discover our vision'
-      support_title: 'Support'
-      support_subtitle: "We're here for you !"
     footer:
       about: 'About us'
       contact: 'Contact'
