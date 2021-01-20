@@ -23,7 +23,6 @@ en:
             birth_city:
               blank: "can't be blank"
             email:
-              blank: "can't be blank"
               taken: "already in use"
     attributes:
       billing:
