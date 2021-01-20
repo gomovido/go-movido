@@ -2,7 +2,6 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :subscriptions, dependent: :destroy
   has_many :product_features, dependent: :destroy
-  after_create :set_currency
 
   def is_wifi?
     self.category.name == 'wifi'
@@ -20,12 +19,8 @@ class Product < ApplicationRecord
     self.is_mobile? && !self.has_payment? ? 3 : 4
   end
 
-  def set_currency
-    self.country == 'United Kingdom' ? self.update(currency: '£') : self.update(currency: '€')
-  end
-
   def currency_code
-    self.currency == '£' ? 'GBP' : 'EUR'
+    self.currency == 'GBP' ? '£' : '€'
   end
 
   def price_cents
@@ -37,15 +32,15 @@ class Product < ApplicationRecord
   end
 
   def format_price
-    self.currency == '£' ? self.currency + '' + self.price.to_f.to_s : self.price.to_f.to_s + '' + self.currency
+    self.currency == 'GBP' ? self.currency_code + '' + self.price.to_f.to_s : self.price.to_f.to_s + '' + self.currency_code
   end
 
   def format_sim_card_price
-    self.currency == '£' ? self.currency + '' + self.sim_card_price.to_f.to_s : self.sim_card_price.to_f.to_s + '' + self.currency
+    self.currency == 'GBP' ? self.currency_code + '' + self.sim_card_price.to_f.to_s : self.sim_card_price.to_f.to_s + '' + self.currency_code
   end
 
   def format_setup_price
-    self.currency == '£' ? self.currency + '' + self.setup_price.to_f.to_s : self.setup_price.to_f.to_s + '' + self.currency
+    self.currency == 'GBP' ? self.currency_code + '' + self.setup_price.to_f.to_s : self.setup_price.to_f.to_s + '' + self.currency_code
   end
 
   def country_code
