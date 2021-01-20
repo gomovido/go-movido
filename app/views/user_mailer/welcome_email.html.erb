@@ -122,6 +122,10 @@
     .no-l-padding {
       padding-left: 0 !important;
     }
+
+    .h-100 {
+      height: 100px;
+    }
     /* Buttons ------------------------------ */
 
     .button {
@@ -438,8 +442,8 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
     }
 
     .marketing-inputs {
@@ -649,62 +653,87 @@
                       </table>
                     </td>
                   </tr>
-                  <tr class="d-flex justify-content-center align-items-center">
-                    <td class="text-center mt-1" align="center">
-                      <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
-                    </td>
-                  </tr>
                 </table>
               </td>
             </tr>
             <tr>
               <td align="center">
-                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr class="marketing-row">
-                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
-                      <span><strong>Any questions? This is how you can reach us</strong></span>
-                    </td>
-                  </tr>
-                  <tr class="marketing-row">
-                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
-                      <div class="d-flex marketing-inputs">
-                        <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
-                          <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
-                          <span class="black">contact@go-movido.com</span>
-                        </a>
-                        <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
-                          <%= image_tag(asset_path('emails/phone-logo.png')) %>
-                          <span class="black">+44(0)78415988269</span>
-                        </a>
-                        <a href="" class="support-links flex-column align-items-center justify-content-center" target="_blank">
-                          <%= image_tag(asset_path('emails/email-logo.png')) %>
-                          <span class="black">+44(0)78415988269</span>
-                        </a>
-                      </div>
-                    </td>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
-                    <tr class="marketing-row">
-                      <td class="content-cell d-flex justify-content-center flex-column" align="center">
-                        <span><strong>Want to stay in touch? Find us here</strong></span>
-                      </td>
-                    </tr>
-                    <tr class="marketing-row">
-                      <td class="content-cell d-flex justify-content-center flex-column" align="center">
-                        <div class="d-flex marketing-inputs">
-                          <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
-                          <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
-                          <a href="" target="_blank"><%= image_tag(asset_path('emails/linkedin-logo.png')) %></a>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
+                <tr>
+                  <td class="text-center mt-1" align="center">
+                    <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td>
+                          <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <tr>
+                  <td class="text-center mt-1" align="center">
+                    <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td>
+                          <span><strong>Any questions? This is how you can reach us</strong></span>
+                        </td>
+                      </tr>
+                      <tr class="marketing-row">
+                          <td class="content-cell d-flex justify-content-center flex-column" align="center">
+                            <div class="d-flex marketing-inputs">
+                              <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
+                                <%= image_tag(asset_path('emails/whatsapp-logo.png')) %><br>
+                                <span class="black">contact@go-movido.com</span>
+                              </a>
+                              <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
+                                <%= image_tag(asset_path('emails/phone-logo.png')) %><br>
+                                <span class="black">+44(0)78415988269</span>
+                              </a>
+                              <a href="" class="support-links flex-column align-items-center justify-content-center" target="_blank">
+                                <%= image_tag(asset_path('emails/email-logo.png')) %><br>
+                                <span class="black">+44(0)78415988269</span>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <tr>
+                  <td class="text-center mt-1" align="center">
+                    <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td>
+                          <span><strong>Want to stay in touch? Find us here</strong></span>
+                        </td>
+                      </tr>
+                      <tr class="marketing-row">
+                          <td class="content-cell d-flex justify-content-center flex-column" align="center">
+                            <div class="d-flex marketing-inputs">
+                              <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
+                                <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
+                              </a>
+                              <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
+                                <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
+                              </a>
+                              <a href="" class="support-links flex-column align-items-center justify-content-center" target="_blank">
+                                <a href="" target="_blank"><%= image_tag(asset_path('emails/linkedin-logo.png')) %></a>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </tr>
             <tr>
               <td align="center">
                 <table class="email-footer align-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
