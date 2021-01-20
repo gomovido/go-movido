@@ -39,7 +39,7 @@
       text-align: center;
     }
     .image img {
-      max-width: 45% !important;
+      max-width: 100% !important;
     }
     .preheader {
       display: none !important;
@@ -471,9 +471,14 @@
     }
 
     .body-action {
-      width: 100%;
+
+      width: 570px;
       margin: 30px auto;
       padding: 0;
+      text-align: center;
+      margin-bottom: 0;
+      margin-top: 0;
+      background: #ffffff;
       -premailer-width: 100%;
       -premailer-cellpadding: 0;
       -premailer-cellspacing: 0;
@@ -587,7 +592,7 @@
                   </td>
                 </tr>
               </table>
-                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                <table class="email-body_inner align-left" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <!-- Body content -->
                   <tr>
                     <td class="content-cell">
@@ -605,10 +610,10 @@
             </tr>
             <tr>
               <td align="center">
-                <table class="email-body_inner email-cards" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td align="center">
-                      <table class="email-body_inner email-cards mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td class="content-cell card-link" align="center">
                             <a href="<%= new_user_session_url %>" target="_blank">
@@ -671,9 +676,14 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="content-cell marketing-inputs-flex d-flex flex-column justify-content-center" align="center">
+                  <tr class="marketing-row">
+                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
                       <span><strong>Want to stay in touch? Find us here</strong></span>
-                      <div class="d-flex marketing-inputs justify-content-center">
+                    </td>
+                  </tr>
+                  <tr class="marketing-row">
+                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
+                      <div class="d-flex marketing-inputs">
                         <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
                         <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
                         <a href="" target="_blank"><%= image_tag(asset_path('emails/linkedin-logo.png')) %></a>
