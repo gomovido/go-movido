@@ -40,7 +40,7 @@
       margin-bottom: -2.3rem;
     }
     .image img {
-      width: 100%;
+      width: 570px;
       background: white;
       margin-bottom: 2rem;
     }
@@ -355,6 +355,11 @@
       margin: 10px;
     }
 
+    .card-link a img {
+      width: 130px;
+      margin: 10px;
+    }
+
     .email-masthead_name {
       font-size: 22px;
       font-weight: bold;
@@ -585,7 +590,7 @@
                             <tr>
                               <td>
                                 <div class="image">
-                                  <%= image_tag(asset_path('emails/welcome.png')) %>
+                                  <%= image_tag(asset_path('emails/welcome.png'), class:"banner") %>
                                 </div>
                               </td>
                             </tr>
@@ -616,27 +621,33 @@
               <td>
                 <table class="email-body_inner email-cards" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <td class="content-cell card-link" align="center">
-                      <a href="<%= new_user_session_url %>" target="_blank">
-                        <%= image_tag(asset_path('emails/housing.png')) %>
-                      </a>
-                    </td>
-                    <td class="content-cell card-link" align="center">
-                      <a href="<%= new_user_session_url %>" target="_blank">
-                        <%= image_tag(asset_path('emails/bank.png')) %>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="content-cell card-link" align="center">
-                      <a href="<%= new_user_session_url %>" target="_blank">
-                        <%= image_tag(asset_path('emails/mobile.png')) %>
-                      </a>
-                    </td>
-                    <td class="content-cell card-link" align="center">
-                      <a href="<%= new_user_session_url %>" target="_blank">
-                        <%= image_tag(asset_path('emails/wifi.png')) %>
-                      </a>
+                    <td>
+                      <table class="email-body_inner email-cards mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                        <tr>
+                          <td class="content-cell card-link" align="center">
+                            <a href="<%= new_user_session_url %>" target="_blank">
+                              <%= image_tag(asset_path('emails/housing.png')) %>
+                            </a>
+                          </td>
+                          <td class="content-cell card-link" align="center">
+                            <a href="<%= new_user_session_url %>" target="_blank">
+                              <%= image_tag(asset_path('emails/bank.png')) %>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="content-cell card-link" align="center">
+                            <a href="<%= new_user_session_url %>" target="_blank">
+                              <%= image_tag(asset_path('emails/mobile.png')) %>
+                            </a>
+                          </td>
+                          <td class="content-cell card-link" align="center">
+                            <a href="<%= new_user_session_url %>" target="_blank">
+                              <%= image_tag(asset_path('emails/wifi.png')) %>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                   <tr class="d-flex justify-content-center align-items-center">
