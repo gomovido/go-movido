@@ -114,6 +114,14 @@
     .align-center {
       text-align: center;
     }
+
+    .no-r-padding {
+      padding-right: 0 !important;
+    }
+
+    .no-l-padding {
+      padding-left: 0 !important;
+    }
     /* Buttons ------------------------------ */
 
     .button {
@@ -615,24 +623,24 @@
                     <td align="center">
                       <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
-                          <td class="content-cell card-link" align="center">
+                          <td class="content-cell card-link no-r-padding align-right" align="center">
                             <a href="<%= new_user_session_url %>" target="_blank">
                               <%= image_tag(asset_path('emails/housing.png')) %>
                             </a>
                           </td>
-                          <td class="content-cell card-link" align="center">
+                          <td class="content-cell card-link no-l-padding align-left" align="center">
                             <a href="<%= new_user_session_url %>" target="_blank">
                               <%= image_tag(asset_path('emails/bank.png')) %>
                             </a>
                           </td>
                         </tr>
                         <tr>
-                          <td class="content-cell card-link" align="center">
+                          <td class="content-cell card-link no-r-padding align-right" align="center">
                             <a href="<%= new_user_session_url %>" target="_blank">
                               <%= image_tag(asset_path('emails/mobile.png')) %>
                             </a>
                           </td>
-                          <td class="content-cell card-link" align="center">
+                          <td class="content-cell card-link no-l-padding align-left" align="center">
                             <a href="<%= new_user_session_url %>" target="_blank">
                               <%= image_tag(asset_path('emails/wifi.png')) %>
                             </a>
@@ -674,29 +682,33 @@
                         </a>
                       </div>
                     </td>
-                  </tr>
-                  <tr>
-                  <tr class="marketing-row">
-                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
-                      <span><strong>Want to stay in touch? Find us here</strong></span>
-                    </td>
-                  </tr>
-                  <tr class="marketing-row">
-                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
-                      <div class="d-flex marketing-inputs">
-                        <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
-                        <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
-                        <a href="" target="_blank"><%= image_tag(asset_path('emails/linkedin-logo.png')) %></a>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
+                    <tr class="marketing-row">
+                      <td class="content-cell d-flex justify-content-center flex-column" align="center">
+                        <span><strong>Want to stay in touch? Find us here</strong></span>
+                      </td>
+                    </tr>
+                    <tr class="marketing-row">
+                      <td class="content-cell d-flex justify-content-center flex-column" align="center">
+                        <div class="d-flex marketing-inputs">
+                          <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
+                          <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
+                          <a href="" target="_blank"><%= image_tag(asset_path('emails/linkedin-logo.png')) %></a>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
             <tr>
               <td align="center">
-                <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr>
+                <table class="email-footer align-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr align="center">
                     <td class="content-cell" align="center">
                       <p class="f-fallback sub align-center">movido Ltd is a company registered [in] England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
                     </td>
