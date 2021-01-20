@@ -34,9 +34,6 @@ class ChargesController < ApplicationController
 
 
   def create_charge(stripe_charge, subscription)
-    p 'PUT STRIPE CHARGE'
-    p stripe_charge
-    p stripe_charge.id
     charge = Charge.create(
       stripe_charge_id: stripe_charge.id,
       status: stripe_charge.status,
