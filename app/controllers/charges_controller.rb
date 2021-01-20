@@ -26,6 +26,8 @@ class ChargesController < ApplicationController
       UserMailer.with(user: subscription.address.user, subscription: subscription).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(subscription)
     rescue Stripe::CardError => e
+      p "STRIPE ERROR"
+      p e
       subscription.update(state: 'payment_failed')
       flash[:alert] = e
       redirect_back(fallback_location: root_path)
