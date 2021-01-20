@@ -5,6 +5,7 @@ class ChargesController < ApplicationController
     @subscription = Subscription.find(params[:subscription][:subscription_id])
     stripe_token = params[:stripeToken]
     process_payment(@subscription, stripe_token)
+
   end
 
   def new
