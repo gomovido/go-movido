@@ -20,6 +20,9 @@
           max-height: 600px;
           .left {
             overflow: scroll;
+            .features-wrapper {
+              min-height: 250px;
+            }
             .modal-img {
               width: 100px;
             }
