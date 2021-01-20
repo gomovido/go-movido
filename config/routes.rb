@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
   post 'create-products', to: 'products#create_from_forest_admin'
+  put 'update-products', to: 'products#update_from_forest_admin'
 
   resources :categories, only: [:index] do
     resources :banks, only: [:index]
