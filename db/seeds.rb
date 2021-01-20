@@ -435,3 +435,7 @@ category = Category.create(
   subtitle: 'subtitle',
   description: 'description',
   open: false)
+
+
+Product.where(country: 'France').each{|product| product.update(currency: 'EUR')}
+Product.where(country: 'United Kingdom').each{|product| product.update(currency: 'GBP')}
