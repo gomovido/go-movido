@@ -27,7 +27,7 @@ product = Product.create(
   company: "SFR",
   name: "5 Go 4G+",
   description: 'France & Europe',
-  price: 12,
+  price: 12.00,
   sim_needed: true,
   category: category,
   unlimited_data: false,
