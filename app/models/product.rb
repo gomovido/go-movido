@@ -2,8 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :subscriptions, dependent: :destroy
   has_many :product_features, dependent: :destroy
-  monetize :sim_card_price_cents
-  after_create :set_sim_card_price_currency
+  after_create :set_currency
 
   def is_wifi?
     self.category.name == 'wifi'
@@ -14,31 +13,39 @@ class Product < ApplicationRecord
   end
 
   def has_payment?
-    self.sim_card_price_cents >= 1
+    self.sim_card_price_cents >= 100
   end
 
   def total_steps
     self.is_mobile? && !self.has_payment? ? 3 : 4
   end
 
-  def set_sim_card_price_currency
-    if self.country == 'United Kingdom'
-      self.update(sim_card_price_currency: 'GBP')
-    else
-      self.update(sim_card_price_currency: 'EUR')
-    end
+  def set_currency
+    self.country == 'United Kingdom' ? self.update(currency: '£') : self.update(currency: '€')
+  end
+
+  def currency_code
+    self.currency == '£' ? 'GBP' : 'EUR'
+  end
+
+  def price_cents
+    (self.price * 100).to_i
+  end
+
+  def sim_card_price_cents
+    (self.sim_card_price * 100).to_i
   end
 
   def format_price
-    self.sim_card_price_currency == 'GBP' ? self.sim_card_price.currency.symbol + '' + self.price.to_f.to_s : self.price.to_f.to_s + '' + self.sim_card_price.currency.symbol
+    self.currency == '£' ? self.currency + '' + self.price.to_f.to_s : self.price.to_f.to_s + '' + self.currency
   end
 
   def format_sim_card_price
-    self.sim_card_price_currency == 'GBP' ? self.sim_card_price.currency.symbol + '' + self.sim_card_price.to_f.to_s : self.sim_card_price.to_f.to_s + '' + self.sim_card_price.currency.symbol
+    self.currency == '£' ? self.currency + '' + self.sim_card_price.to_f.to_s : self.sim_card_price.to_f.to_s + '' + self.currency
   end
 
   def format_setup_price
-    self.sim_card_price_currency == 'GBP' ? self.sim_card_price.currency.symbol + '' + self.setup_price.to_f.to_s : self.setup_price.to_f.to_s + '' + self.sim_card_price.currency.symbol
+    self.currency == '£' ? self.currency + '' + self.setup_price.to_f.to_s : self.setup_price.to_f.to_s + '' + self.currency
   end
 
   def country_code
