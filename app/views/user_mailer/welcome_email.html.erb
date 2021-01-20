@@ -37,12 +37,9 @@
     }
     .image {
       text-align: center;
-      margin-bottom: -2.3rem;
     }
     .image img {
-      width: 570px;
-      background: white;
-      margin-bottom: 2rem;
+      max-width: 45% !important;
     }
     .preheader {
       display: none !important;
@@ -332,7 +329,7 @@
 
     .email-masthead {
       background: #fff;
-      color: white !important;
+      color: #fffff !important;
       text-align: left;
       font-weight: bold;
       padding: 12px !important;
@@ -355,17 +352,12 @@
       margin: 10px;
     }
 
-    .card-link a img {
-      width: 130px;
-      margin: 10px;
-    }
-
     .email-masthead_name {
       font-size: 22px;
       font-weight: bold;
       color: #fff !important;
       text-decoration: none;
-      text-shadow: 0 1px 0 white;
+      text-shadow: 0 1px 0 #fffff;
     }
     /* Body ------------------------------ */
 
@@ -402,7 +394,6 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      justify-content: center;
     }
 
     .email-cards tr {
@@ -459,12 +450,6 @@
       margin-right: 1rem;
     }
 
-    .marketing-inputs a img {
-      width: 35px !important;
-      height: 35px !important;
-      margin-right: 1rem;
-    }
-
     .support-links {
       display: flex;
       flex-direction: column;
@@ -487,9 +472,7 @@
 
     .body-action {
       width: 100%;
-      margin-left: 30px auto;
-      margin-right: 30px auto;
-      margin-bottom: 30px auto;
+      margin: 30px auto;
       padding: 0;
       -premailer-width: 100%;
       -premailer-cellpadding: 0;
@@ -505,7 +488,6 @@
 
     .content-cell {
       padding: 0px 45px;
-      background: #ffffff;
     }
     /*Media Queries ------------------------------ */
 
@@ -524,7 +506,7 @@
       .email-wrapper,
       .email-footer {
         color: #ffffff !important;
-        background-color: transparent; !important;
+        background-color: #ffffff00 !important;
       }
       p,
       ul,
@@ -543,23 +525,21 @@
       }
       .attributes_content,
       .discount {
-        background-color: transparent !important;
+        background-color: #ffffff00 !important;
       }
       .attributes_item {
         color: #ffffff !important;
-        background-color: transparent; !important;
+        background-color: #ffffff00 !important;
       }
       .email-masthead_name {
         text-shadow: none !important;
       }
     }
 
-
     :root {
       color-scheme: light dark;
       supported-color-schemes: light dark;
     }
-
     </style>
     <!--[if mso]>
     <style type="text/css">
