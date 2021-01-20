@@ -37,12 +37,9 @@
     }
     .image {
       text-align: center;
-      margin-bottom: -2.3rem;
     }
     .image img {
-      width: 570px;
-      background: white;
-      margin-bottom: 2rem;
+      max-width: 45% !important;
     }
     .preheader {
       display: none !important;
@@ -133,10 +130,6 @@
 
     .purple {
       color: #8C30F5 !important;
-    }
-
-    .black {
-      color: #000000 !important;
     }
 
     .button--green {
@@ -355,11 +348,6 @@
       margin: 10px;
     }
 
-    .card-link a img {
-      width: 130px;
-      margin: 10px;
-    }
-
     .email-masthead_name {
       font-size: 22px;
       font-weight: bold;
@@ -402,7 +390,6 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      justify-content: center;
     }
 
     .email-cards tr {
@@ -459,12 +446,6 @@
       margin-right: 1rem;
     }
 
-    .marketing-inputs a img {
-      width: 35px !important;
-      height: 35px !important;
-      margin-right: 1rem;
-    }
-
     .support-links {
       display: flex;
       flex-direction: column;
@@ -487,9 +468,7 @@
 
     .body-action {
       width: 100%;
-      margin-left: 30px auto;
-      margin-right: 30px auto;
-      margin-bottom: 30px auto;
+      margin: 30px auto;
       padding: 0;
       -premailer-width: 100%;
       -premailer-cellpadding: 0;
@@ -505,7 +484,6 @@
 
     .content-cell {
       padding: 0px 45px;
-      background: #ffffff;
     }
     /*Media Queries ------------------------------ */
 
@@ -523,8 +501,8 @@
       .email-content,
       .email-wrapper,
       .email-footer {
-        color: #ffffff !important;
-        background-color: transparent; !important;
+        background-color: #fff !important;
+        color: #333333 !important;
       }
       p,
       ul,
@@ -533,33 +511,24 @@
       h1,
       h2,
       h3 {
-        color: #ffffff !important;
-      }
-      .email-body {
-        color: #ffffff !important;
-      }
-      .black {
-        color: #ffffff !important;
+        color: #333333 !important;
       }
       .attributes_content,
       .discount {
-        background-color: transparent; !important;
+        background-color: #fff !important;
       }
       .attributes_item {
-        color: #ffffff !important;
-        background-color: transparent; !important;
+        color: #333333 !important;
       }
       .email-masthead_name {
         text-shadow: none !important;
       }
     }
 
-
     :root {
       color-scheme: light dark;
       supported-color-schemes: light dark;
     }
-
     </style>
     <!--[if mso]>
     <style type="text/css">
@@ -570,10 +539,10 @@
   <![endif]-->
   </head>
   <body>
-    <table class="email-wrapper" width="570" cellpadding="0" cellspacing="0" role="presentation">
+    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
       <tr>
         <td align="center">
-          <table class="email-content" width="570" cellpadding="0" cellspacing="0" role="presentation">
+          <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td class="email-masthead">
                 <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
@@ -589,15 +558,20 @@
                 <tr>
                   <td align="center">
                     <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-                    <table width="570" border="0" cellspacing="0" cellpadding="0">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td align="center">
                           <table border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td>
                                 <div class="image">
-                                  <%= image_tag(asset_path('emails/welcome.png'), class:"banner") %>
+                                  <%= image_tag(asset_path('emails/welcome.png')) %>
                                 </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
                               </td>
                             </tr>
                           </table>
@@ -624,40 +598,34 @@
               </td>
             </tr>
             <tr>
-              <td align="center">
-                <table class="email-body_inner email-cards" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+              <td>
+                <table class="email-body_inner email-cards mb-1 d-flex justify-content-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <td align="center">
-                      <table class="email-body_inner email-cards mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                          <td class="content-cell card-link" align="center">
-                            <a href="<%= new_user_session_url %>" target="_blank">
-                              <%= image_tag(asset_path('emails/housing.png')) %>
-                            </a>
-                          </td>
-                          <td class="content-cell card-link" align="center">
-                            <a href="<%= new_user_session_url %>" target="_blank">
-                              <%= image_tag(asset_path('emails/bank.png')) %>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="content-cell card-link" align="center">
-                            <a href="<%= new_user_session_url %>" target="_blank">
-                              <%= image_tag(asset_path('emails/mobile.png')) %>
-                            </a>
-                          </td>
-                          <td class="content-cell card-link" align="center">
-                            <a href="<%= new_user_session_url %>" target="_blank">
-                              <%= image_tag(asset_path('emails/wifi.png')) %>
-                            </a>
-                          </td>
-                        </tr>
-                      </table>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag(asset_path('emails/housing.png')) %>
+                      </a>
+                    </td>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag(asset_path('emails/bank.png')) %>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag(asset_path('emails/mobile.png')) %>
+                      </a>
+                    </td>
+                    <td class="content-cell card-link" align="center">
+                      <a href="<%= new_user_session_url %>" target="_blank">
+                        <%= image_tag(asset_path('emails/wifi.png')) %>
+                      </a>
                     </td>
                   </tr>
                   <tr class="d-flex justify-content-center align-items-center">
-                    <td class="text-center mt-1" align="center">
+                    <td class="text-center mt-1">
                       <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
                     </td>
                   </tr>
@@ -665,27 +633,23 @@
               </td>
             </tr>
             <tr>
-              <td align="center">
-                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr class="marketing-row">
-                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
+              <td>
+                <table class="email-body_inner mb-1 d-flex justify-content-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr class="marketing-row text-center d-flex justify-content-center">
+                    <td class="content-cell d-flex justify-content-center" align="center">
                       <span><strong>Any questions? This is how you can reach us</strong></span>
-                    </td>
-                  </tr>
-                  <tr class="marketing-row">
-                    <td class="content-cell d-flex justify-content-center flex-column" align="center">
                       <div class="d-flex marketing-inputs">
-                        <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
+                        <a href="" class="support-links mr-1" target="_blank">
                           <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
-                          <span class="black">contact@go-movido.com</span>
+                          <span>contact@go-movido.com</span>
                         </a>
-                        <a href="" class="support-links mr-1 flex-column align-items-center justify-content-center" target="_blank">
+                        <a href="" class="support-links mr-1" target="_blank">
                           <%= image_tag(asset_path('emails/phone-logo.png')) %>
-                          <span class="black">+44(0)78415988269</span>
+                          <span>+44(0)78415988269</span>
                         </a>
-                        <a href="" class="support-links flex-column align-items-center justify-content-center" target="_blank">
+                        <a href="" class="support-links" target="_blank">
                           <%= image_tag(asset_path('emails/email-logo.png')) %>
-                          <span class="black">+44(0)78415988269</span>
+                          <span>+44(0)78415988269</span>
                         </a>
                       </div>
                     </td>
@@ -704,7 +668,7 @@
               </td>
             </tr>
             <tr>
-              <td align="center">
+              <td>
                 <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td class="content-cell" align="center">
