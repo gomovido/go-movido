@@ -603,7 +603,6 @@
       .centered-large-padding {
         padding-left: 35%;
       }
-
       .centered-lite-padding {
         padding-left: 13%;
       }
@@ -700,7 +699,7 @@
               </td>
             </tr>
             <tr>
-              <td align="center">
+              <td>
                 <tr>
                   <td class="text-center mt-1" align="center">
                     <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
@@ -715,7 +714,7 @@
               </td>
             </tr>
             <tr>
-              <td align="center">
+              <td>
                 <tr>
                   <td class="text-center mt-1" align="center">
                     <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
@@ -725,19 +724,21 @@
                         </td>
                       </tr>
                       <tr class="marketing-row">
-                        <td class="d-flex marketing-inputs w-100 centered-lite-padding" align="center">
-                          <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center d-table sup-div" target="_blank">
-                            <%= image_tag(asset_path('emails/whatsapp-logo.png')) %><br>
-                            <span class="black">+44(0)78415988269</span>
-                          </a>
-                          <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center d-table sup-div" target="_blank">
-                            <%= image_tag(asset_path('emails/phone-logo.png')) %><br>
-                            <span class="black">+44(0)78415988269</span>
-                          </a>
-                          <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center d-table sup-div" target="_blank">
-                            <%= image_tag(asset_path('emails/email-logo.png')) %><br>
-                            <span class="black">contact@go-movido</span>
-                          </a>
+                        <td class="content-cell" align="center">
+                          <div class="d-flex marketing-inputs">
+                            <a href="" class="support-links mr-1 d-table" target="_blank">
+                              <%= image_tag(asset_path('emails/whatsapp-logo.png')) %><br>
+                              <span>contact@go-movido.com</span>
+                            </a>
+                            <a href="" class="support-links mr-1 d-table" target="_blank">
+                              <%= image_tag(asset_path('emails/phone-logo.png')) %><br>
+                              <span>+44(0)78415988269</span>
+                            </a>
+                            <a href="" class="support-links d-table" target="_blank">
+                              <%= image_tag(asset_path('emails/email-logo.png')) %><br>
+                              <span>+44(0)78415988269</span>
+                            </a>
+                          </div>
                         </td>
                       </tr>
                     </table>
