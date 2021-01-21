@@ -139,13 +139,14 @@
       display: table !important;
     }
 
-    .pl-30 {
-      padding-left: 30% !important;
+    .centered-large-padding {
+      padding-left: 29%;
     }
 
-    .pl-10 {
-      padding-left: 10% !important;
+    .centered-lite-padding {
+      padding-left: 14%;
     }
+
     /* Buttons ------------------------------ */
 
     .button {
@@ -594,8 +595,12 @@
       .f-fallback  {
         font-family: Arial, sans-serif;
       }
-      .pl-30 {
+      .centered-large-padding {
         padding-left: 35%;
+      }
+
+      .centered-lite-padding {
+        padding-left: 13%;
       }
     </style>
   <![endif]-->
@@ -715,7 +720,7 @@
                         </td>
                       </tr>
                       <tr class="marketing-row">
-                        <td class="d-flex marketing-inputs w-100 pl-10" align="center">
+                        <td class="d-flex marketing-inputs w-100 centered-lite-padding" align="center">
                           <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center d-table" target="_blank">
                             <%= image_tag(asset_path('emails/whatsapp-logo.png')) %><br>
                             <span class="black">+44(0)78415988269</span>
@@ -746,9 +751,9 @@
                         </td>
                       </tr>
                       <tr class="marketing-row">
-                        <td class="d-flex marketing-inputs w-100 pl-30" align="center">
+                        <td class="d-flex marketing-inputs w-100 centered-large-padding" align="center">
                           <a href="" class="content-cell no-r-padding support-links align-items-center justify-content-center" target="_blank">
-                            <%= image_tag(asset_path('emails/facebook-logo.png'), class:"mr-15 ml_15") %>
+                            <%= image_tag(asset_path('emails/facebook-logo.png'), class:"mr-15 ml-15") %>
                           </a>
                           <a href="" class="content-cell no-padding support-links align-items-center justify-content-center" target="_blank">
                             <%= image_tag(asset_path('emails/instagram-logo.png')) %>
