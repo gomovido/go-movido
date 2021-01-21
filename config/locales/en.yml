@@ -117,6 +117,8 @@ en:
         headline2: 'in only <span class="purple">10 mins</span>'
         subheadline: '<strong>movido</strong> takes care of your admin work'
         start: 'Get Started'
+      partners:
+        title: 'In collaboration with:'
       get-started:
         headline: 'Join a community of 10,269 students from all over the world on movido'
         start: 'Get Started'
@@ -292,9 +294,7 @@ en:
         sim_delivery_address: 'SIM card delivery address'
         hint:
           bank: 'You cannot change this field'
-          delivery_address: 'Billing and delivery addresses need to be the same'
-        tooltip:
-          iban: "We need your bank account detail for your direct debit option."
+          delivery_address: "SIM card delivery address is the same as billing address"
   charges:
     new:
       title: 'Pay for your SIM card'
@@ -342,7 +342,7 @@ en:
   subscriptions:
     summary:
       title: 'Please confirm your details'
-      subtitle: "Make sure the information is correct. <br> Go to %{href} to modify it"
+      subtitle: "Make sure the information is correct <br> Go to %{href} to modify it"
       profile_link: '<strong>your profile</strong>'
       next: 'Purchase now'
       back: 'Back'
@@ -350,7 +350,7 @@ en:
       months: 'month'
     congratulations:
       title: "You're all set 🎉"
-      subtitle: "You will receive a confirmation e-mail with your purchase summary within 24 hours.  <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
+      subtitle: "You will receive a confirmation e-mail with your purchase summary within 24 hours. <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
       questions: "Any questions? Here is how you can reach us:"
       support: "Please contact the movido customer service via chat, email or phone."
       mobile_cta: "Need a new phone number? <i class='fas fa-arrow-right ml-2'></i>"
@@ -501,18 +501,6 @@ en:
       card_2:
         title: "Speed: "
         description: "Getting your local bank account takes only 2 minutes! And the best part: you don’t even need to physically go to your new bank’s branch. You can do everything easily online."
-      bunq:
-        headline: "The <span class='purple'>banking app</span> that makes life easy"
-        feature_1: 'Download the bunq app and open your bank account in no time'
-        feature_2: 'Benefit from various options to invest your savings'
-        feature_3: 'Categorize your spendings across multiple bank accounts'
-        feature_4: 'Easily share receipts with your housemates'
-      transferwise:
-        headline: "The <span class='purple'>multi-currency</span> bank account"
-        feature_1: 'Sign up to all movido services using your Transferwise account'
-        feature_2: 'Send money instantly in any currency at real exchange rates'
-        feature_3: 'Up to 8x cheaper than traditional banks'
-        feature_4: 'Also compatible with Apple Pay'
     real_estate:
       title: 'Housing'
       headline: "New to the city and need an accommodation?  <br>Let movido find your new home!"
@@ -532,6 +520,22 @@ en:
       card_3:
         title: "Your long-term partner:"
         description: "If you have any questions, contact us! Our team is available to help you out with any relocation enquires - even beyond your flat search!"
+  banks:
+    index:
+      title: 'Open your bank account online'
+      cta: 'See details'
+      bunq:
+        headline: "The <span class='purple'>banking app</span> that makes life easy"
+        feature_1: 'Download the bunq app and open your bank account in no time'
+        feature_2: 'Benefit from various options to invest your savings'
+        feature_3: 'Categorize your spendings across multiple bank accounts'
+        feature_4: 'Easily share receipts with your housemates'
+      transferwise:
+        headline: "The <span class='purple'>multi-currency</span> bank account"
+        feature_1: 'Sign up to all movido services using your Transferwise account'
+        feature_2: 'Send money instantly in any currency at real exchange rates'
+        feature_3: 'Up to 8x cheaper than traditional banks'
+        feature_4: 'Also compatible with Apple Pay'
   flashes:
     global_failure: 'An error has occured'
     not_allowed: "You are not allowed to see this page"

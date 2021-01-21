@@ -335,8 +335,7 @@ product = Product.create(
   delivery: true,
   logo_url: 'https://www.directsavetelecom.co.uk/img/direct-save-logo.png',
   data_speed: '80',
-  setup_price: 143.75,
-  tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
+  setup_price: 143.75
 )
 
 ProductFeature.create(
@@ -371,8 +370,7 @@ product = Product.create(
   delivery: true,
   logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Free_logo.svg/langfr-560px-Free_logo.svg.png',
   data_speed: '80',
-  setup_price: 143.75,
-  tooltip: "Offer summaryShould say: “For this contract, you need a valid UK phone number and UKbank account – all services are available at movido"
+  setup_price: 143.75
 )
 
 ProductFeature.create(
