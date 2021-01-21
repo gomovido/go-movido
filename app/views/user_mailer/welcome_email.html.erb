@@ -484,7 +484,7 @@
       align-items: center;
     }
 
-    .marketing-inputs img {
+    .marketing-inputs img, .marketing-inputs-no-flex img {
       width: 35px !important;
       height: 35px !important;
     }
@@ -598,9 +598,6 @@
     <style type="text/css">
       .f-fallback  {
         font-family: Arial, sans-serif;
-      }
-      .centered-large-padding {
-        padding-left: 35%;
       }
       .centered-lite-padding {
         padding-left: 13%;
@@ -757,15 +754,15 @@
                         </td>
                       </tr>
                       <tr class="marketing-row">
-                        <td class="d-flex marketing-inputs w-100 centered-large-padding" align="center">
-                          <a href="" class="content-cell no-r-padding support-links align-items-center justify-content-center" target="_blank">
-                            <%= image_tag(asset_path('emails/facebook-logo.png'), class:"mr-15 ml-15") %>
+                        <td class="marketing-inputs-no-flex mr-1 w-100" align="center">
+                          <a href="" class="content-cell no-r-padding support-links" target="_blank">
+                            <%= image_tag(asset_path('emails/facebook-logo.png')) %>
                           </a>
-                          <a href="" class="content-cell no-padding support-links align-items-center justify-content-center" target="_blank">
+                          <a href="" class="content-cell no-padding support-links" target="_blank">
                             <%= image_tag(asset_path('emails/instagram-logo.png')) %>
                           </a>
-                          <a href="" class="content-cell no-l-padding support-links align-items-center justify-content-center" target="_blank">
-                            <%= image_tag(asset_path('emails/linkedin-logo.png'), class:"ml-15") %>
+                          <a href="" class="content-cell no-l-padding support-links" target="_blank">
+                            <%= image_tag(asset_path('emails/linkedin-logo.png')) %>
                           </a>
                         </td>
                       </tr>
