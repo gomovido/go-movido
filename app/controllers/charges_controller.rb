@@ -14,7 +14,7 @@ class ChargesController < ApplicationController
   end
 
   def process_payment(subscription, stripe_token)
-    stripe_charge = StripeApiService.new(subscription_id: subscription.id, stripe_token: stripe_token).create_charge
+    stripe_charge = StripeApiService.new(subscription_id: subscription.id, stripe_token: stripe_token, user_id: current_user.id).proceed_stripe
     if payment_is_succeeded?(stripe_charge)
       charge = create_or_update_charge(stripe_charge, subscription)
       subscription.update(state: 'succeeded')
