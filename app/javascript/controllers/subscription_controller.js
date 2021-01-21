@@ -11,7 +11,6 @@ export default class extends Controller {
       this.deliveryAddressInputTarget.value = e.suggestion.value;
       this.enableButton();
     });
-    $('[data-toggle="tooltip"]').tooltip();
     this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
   }
 
