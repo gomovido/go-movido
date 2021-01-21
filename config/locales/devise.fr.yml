@@ -52,9 +52,9 @@ fr:
         google: "Se connecter avec <strong>&nbsp Google</strong>"
         or: "Ou"
         login: 'Connexion'
-        title_left: 'Bon retour parmis nous'
+        title_left: 'Content de te revoir'
         title_right: 'Se connecter'
-        subtitle: "movido vou accompagne durant votre installation – de votre <br>nouvel abonnement mobile à votre nouvelle salle de sport – <br>afin que vous vous occupiez de ce qui est réellement important"
+        subtitle: "Connecte toi et nous nous occupons de tout"
       signed_in: "Connecté."
       signed_out: "Déconnecté."
       already_signed_out: "Déconnecté."
@@ -68,7 +68,7 @@ fr:
       new:
         title_left: "Bienvenue sur "
         title_right: 'Inscription'
-        subtitle: "Inscrivez-vous maintenant et laissez movido gérer vos démarches administratives"
+        subtitle: "Inscris toi maintenant et laisse movido gérer tes démarches administratives"
         facebook: "S'inscrire avec <strong>&nbsp Facebook</strong>"
         google: "S'inscrire avec <strong>&nbsp Google</strong>"
         or: "Ou"

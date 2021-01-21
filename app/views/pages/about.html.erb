@@ -1,4 +1,4 @@
-<div class="container about-container">
+<div class="container about-container mb-5">
   <div class="big-blue-bubble position-absolute"></div>
   <div class="big-purple-bubble position-fixed"></div>
   <div class="small-yellow-bubble position-absolute"></div>
@@ -6,9 +6,9 @@
   <p class="mb-4"><%= t('.part_1') %></p>
   <p class="mb-4"><%= t('.part_2') %></p>
   <p class="mb-4"><%= t('.part_3') %></p>
-  <p class="mb-4"><%= t('.part_4') %></p>
-  <h2 class="text-center mb-5">Our team</h2>
-  <div class="row">
+  <p class="mb-5"><%= t('.part_4') %></p>
+  <h2 class="text-center mb-5"><%= t('.our_team') %></h2>
+  <div class="row mb-4">
     <div class="col-md-3 offset-md-1 text-center text-md-left">
       <%= image_tag(asset_path('pages/about/alice.png'), class: 'mb-3') %>
       <h5>Alice Strecker</h5>
@@ -37,21 +37,21 @@
       <h5>Tim Grobshäuser</h5>
       <h6><%= t('.tim.role') %></h6>
       <p class="experiences mb-1">Private Equity <br>@ Credit Suisse</p>
-      <p class="experiences">Investment Banking <br>@ Morgan Stanley</p>
+      <p class="experiences mb-0">Investment Banking <br>@ Morgan Stanley</p>
     </div>
     <div class="col-md-3 offset-md-1 text-center text-md-left">
       <%= image_tag(asset_path('pages/about/vitaliy.png'), class: 'mb-3') %>
       <h5>Vitaliy Didukh</h5>
       <h6>Designer</h6>
       <p class="experiences mb-1">UI/UX Designer <br>@ Allez</p>
-      <p class="experiences">UI/ UX Designer <br>@ BeWithMe</p>
+      <p class="experiences mb-0">UI/ UX Designer <br>@ BeWithMe</p>
     </div>
     <div class="col-md-3 offset-md-1 text-center text-md-left">
       <%= image_tag(asset_path('pages/about/yoni.png'), class: 'mb-3') %>
       <h5>Yoni Touboul</h5>
       <h6><%= t('.yoni.role') %></h6>
       <p class="experiences mb-1">Regional Account Manager <br>@ Doctolib</p>
-      <p class="experiences">Full Stack <br>Web Developer</p>
+      <p class="experiences mb-0">Full Stack <br>Web Developer</p>
     </div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 <div class="col-md-6 offset-md-3 mb-5">
   <div class="form-base">
-    <span class="mandatory"><%= t('billings.new.mandatory') %></span>
     <%= simple_form_for [@subscription, @billing], html: {class: "d-flex flex-column mt-2"}, data: {controller: "subscription-uk"} do |f| %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div class="mb-2">
@@ -19,6 +18,7 @@
               </div>
             <% end %>
           <% end %>
+          <span class="mandatory"><%= t('billings.new.mandatory') %></span>
           <div class="actions d-flex flex-column justify-content-center mt-4">
             <%= f.button :submit, t('billings.new.form.button.next'), class: 'btn-main mb-4'%>
             <% if @subscription.product.is_wifi? %>
