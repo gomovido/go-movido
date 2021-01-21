@@ -138,10 +138,18 @@
     .d-table {
       display: table !important;
     }
+
+    .pl-30 {
+      padding-left: 30% !important;
+    }
+
+    .pl-10 {
+      padding-left: 10% !important;
+    }
     /* Buttons ------------------------------ */
 
     .button {
-      color: #fff;
+      color: #ffffff !important;
       background: #8C30F5;
       padding: 11px 51.5px;
       font-weight: 700;
@@ -166,6 +174,7 @@
       border-right: 18px solid #22BC66;
       border-bottom: 10px solid #22BC66;
       border-left: 18px solid #22BC66;
+      color: #ffffff !important;
     }
 
     .button--red {
@@ -291,6 +300,10 @@
       color: #51545E;
       font-size: 15px;
       line-height: 18px;
+    }
+
+    .body-cell {
+      padding: 0px 35px;
     }
 
     .purchase_heading {
@@ -466,7 +479,6 @@
     .marketing-inputs img {
       width: 35px !important;
       height: 35px !important;
-      margin-right: 1rem;
     }
 
     .support-links {
@@ -510,7 +522,7 @@
     }
 
     .content-cell {
-      padding: 0px 45px;
+      padding: 0px 0px;
     }
 
     .content-cell-min {
@@ -618,12 +630,11 @@
                   <!-- Body content -->
                   <tr>
                     <td class="content-cell">
-                      <div class="f-fallback">
+                      <div class="f-fallback body-cell">
                         <h1>Welcome, <span class="purple"><%= @user.first_name %></span></h1>
                         <p>Thanks for signing up to movido. Let’s get you set up in your new home <strong>in only 10 mins.</strong></p>
                         <p>With movido, simply select the services you need - from your  local bank account to your WiFi subscription – and let us deal with the admin work.</p>
-                        <p>Thanks,</p>
-                        <p>Your movido team</p>
+                        <p>Thanks, <br>Your movido team</p>
                       </div>
                     </td>
                   </tr>
@@ -692,7 +703,7 @@
                         </td>
                       </tr>
                       <tr class="marketing-row">
-                        <td class="d-flex justify-content-center marketing-inputs w-100" align="center">
+                        <td class="d-flex marketing-inputs w-100 pl-10" align="center">
                           <div class="support-links d-table">
                           <%= image_tag(asset_path('emails/whatsapp-logo.png')) %><br>
                           <a href="mailto:contact@go-movido.com" target="_blank" class="black">contact@go-movido.com</a>
@@ -723,7 +734,7 @@
                         </td>
                       </tr>
                       <tr class="marketing-row">
-                        <td class="d-flex justify-content-center marketing-inputs w-100" align="center">
+                        <td class="d-flex marketing-inputs w-100 pl-30" align="center">
                           <a href="" class="content-cell no-r-padding support-links align-items-center justify-content-center" target="_blank">
                             <%= image_tag(asset_path('emails/facebook-logo.png')) %>
                           </a>
