@@ -37,9 +37,10 @@ class StripeApiService
       customer = Stripe::Customer.create( email: user.email, source: @stripe_token, description: "Customer ##{user.id} - #{user.email}")
       user.update(stripe_id: customer.id)
       return {customer: customer, error: nil}
+    rescue Stripe::CardError => error
+      return {customer: customer, error: error}
     rescue Stripe::InvalidRequestError => error
-      hash = {customer: customer, error: error}
-      return hash
+      return {customer: customer, error: error}
     end
   end
 
