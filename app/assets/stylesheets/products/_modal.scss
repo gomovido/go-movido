@@ -1,6 +1,7 @@
 .modal-product {
   .picto {
     width: 25px;
+    margin-bottom: 12px;
   }
   .modal-dialog {
     max-width: 1110px;
@@ -12,6 +13,7 @@
     }
     .modal-content {
       position: absolute;
+      border-radius: 20px;
       .logo {
         width: 100px;
       }
@@ -19,7 +21,6 @@
         .content {
           max-height: 600px;
           .left {
-            overflow: scroll;
             .features-wrapper {
               min-height: 250px;
             }
@@ -27,19 +28,21 @@
               width: 100px;
             }
             .main-title {
-              font-size: 20px;
-              font-weight: 800;
+              font-size: 18px;
+              font-weight: 700;
+              font-family: 'Montserrat';
             }
             .title {
               font-size: 18px;
             }
             .desc {
               font-weight: 400;
-              font-size: 16px;
+              font-size: 18px;
+              color: $dark-cloud;
             }
           }
           .right {
-            width: 15%;
+            width: 20%;
             &:first-child {
               width: 100%;
             }
@@ -50,11 +53,19 @@
             .sub-price {
               font-size: 14px;
               color: $dark-cloud;
+              font-weight: 700;
+            }
+            .fa-arrow-square-right {
+              font-size: 16px;
             }
             .feature-lite {
-              font-weight: 800;
+              font-weight: 700;
               color: $dark-cloud;
+              font-family: 'Montserrat';
               font-size: 14px;
+              .black {
+                color: $black;
+              }
             }
           }
         }
