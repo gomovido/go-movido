@@ -10,7 +10,7 @@
       <div class="col-lg-8">
         <span class="d-none no-result" data-filters-target="noResult"><%= t('.no_result').html_safe %></span>
         <div class="products-cards-wrapper">
-          <% @products.each do |product| %>
+          <% @products.sort_by{ |product| product.price }.each do |product| %>
             <% if product.is_wifi? %>
               <%= render 'wifi-card', product: product %>
             <% elsif product.is_mobile?%>
