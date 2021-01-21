@@ -38,9 +38,11 @@ export default class extends Controller {
     });
     const form = document.getElementById('payment-form');
     form.addEventListener('submit',(event) => {
+      document.getElementById('loader').classList.remove('d-none')
       event.preventDefault();
       stripe.createToken(cardNumberElement).then((result) => {
         if (result.error) {
+          document.getElementById('loader').classList.add('d-none')
           const errorElement = document.getElementById('card-errors');
           errorElement.textContent = result.error.message;
         } else {

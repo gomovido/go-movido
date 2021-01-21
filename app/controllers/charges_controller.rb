@@ -5,7 +5,6 @@ class ChargesController < ApplicationController
     @subscription = Subscription.find(params[:subscription][:subscription_id])
     stripe_token = params[:stripeToken]
     process_payment(@subscription, stripe_token)
-
   end
 
   def new
@@ -15,32 +14,29 @@ class ChargesController < ApplicationController
   end
 
   def process_payment(subscription, stripe_token)
-    begin
-      stripe_charge = Stripe::Charge.create({
-          amount: subscription.product.sim_card_price_cents,
-          currency: subscription.product.currency,
-          source: stripe_token,
-          description: "Subscription ##{subscription.id}",
-        })
-      charge = create_charge(stripe_charge, subscription)
-      subscription.update(state: 'succeeded') if charge.status == 'succeeded'
+    stripe_charge = StripeApiService.new(subscription_id: subscription.id, stripe_token: stripe_token, user_id: current_user.id).proceed_stripe
+    if payment_is_succeeded?(stripe_charge)
+      charge = create_or_update_charge(stripe_charge, subscription)
+      subscription.update(state: 'succeeded')
       UserMailer.with(user: subscription.address.user, subscription: subscription).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(subscription)
-    rescue Stripe::CardError => e
-      create_charge(stripe_charge, subscription)
+    else
       subscription.update(state: 'payment_failed')
+      I18n.locale = params[:subscription][:locale].to_sym
+      flash[:alert] = I18n.t("stripe.errors.#{stripe_charge[:error].code}")
       redirect_back(fallback_location: root_path)
-      flash[:alert] = e.message
     end
   end
 
 
-  def create_charge(stripe_charge, subscription)
-    charge = Charge.create(
-      stripe_charge_id: stripe_charge.id,
-      status: stripe_charge.status,
-      subscription_id: subscription.id,
-    )
+  def payment_is_succeeded?(stripe_charge)
+    stripe_charge[:stripe_charge].status == 'succeeded' if stripe_charge[:stripe_charge]
+  end
+
+
+  def create_or_update_charge(stripe_charge, subscription)
+    charge = Charge.where(subscription: subscription).first_or_create
+    charge.update(stripe_charge_id: stripe_charge[:stripe_charge].id, status: stripe_charge[:stripe_charge].status)
     return charge
   end
 
