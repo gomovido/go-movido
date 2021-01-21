@@ -320,7 +320,7 @@ fr:
       contract_only: 'Avec engagement'
     card:
       see_details: 'Plus de détails'
-      select_offer: 'Choisir <i class="fas fa-arrow-square-right"></i>'
+      select_offer: 'Choisir'
       months: 'mois'
       only: 'seulement'
       frequency: 'mensuel'
@@ -329,11 +329,11 @@ fr:
       free: 'gratuit'
       no_obligation: 'sans engagement'
     modal:
-      cta: 'Selectionner <i class="fas fa-arrow-square-right"></i>'
+      cta: '<span class="d-flex align-items-baseline justify-content-center">Sélectionner<i class="ml-3 fas fa-arrow-square-right"></i></span>'
       monthly: 'par mois'
-      sim_card: 'carte sim'
+      sim_card: 'carte SIM'
       months: 'mois'
-      no_obligation: "sans engagement"
+      no_obligation: "<span class='black'>sans</span> engagement"
   subscriptions:
     summary:
       title: "Confirmez vos informations"

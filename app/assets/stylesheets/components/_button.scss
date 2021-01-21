@@ -111,11 +111,12 @@
 
 .btn-card {
   color: $purple;
-  background: $background-light-purple;
-  padding: 15px 10.5px !important;
+  background: rgb(244,234,254);
+  padding: 9px 10.5px !important;
   font-weight: 700;
   font-size: 14px;
   border-radius: 16px;
+  font-family: 'Montserrat';
   transition: all 0.3s ease;
   text-align: center;
   &:hover {

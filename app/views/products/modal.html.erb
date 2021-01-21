@@ -2,13 +2,13 @@
   <div class="left">
     <div class="d-sm-flex align-items-center ">
       <%= image_tag(asset_path(@product.logo_url), class:'mr-4 mb-3 mb-sm-0 logo') %><br>
-      <span class='main-title'><strong><%= @product.company %> <%= @product.name %></strong></span>
+      <span class='main-title'><%= @product.company %> <%= @product.name %></span>
     </div>
     <div class="features-wrapper mt-5">
       <% @product.product_features.each do |feature, index| %>
-      <div class="feature d-flex flex-column">
+      <div class="feature mb-4">
         <p class="title"><strong><%= feature.name %></strong></p>
-        <span class='desc mb-3'><%= feature.description %></span>
+        <span class='desc'><%= feature.description %></span>
       </div>
       <% end %>
     </div>
@@ -28,18 +28,18 @@
         <hr>
         <div class="feature-lite d-flex flex-column align-items-center">
           <span><%= image_tag('products/modal/sim-card-purple.png', class: "picto") %> </span>
-          <span class="desc"><%= @product.format_sim_card_price %> <%= t('.sim_card') %></span>
+          <span class="desc"><span class="black"><%= @product.format_sim_card_price %></span> <%= t('.sim_card') %></span>
         </div>
         <hr>
         <% if @product.obligation %>
         <div class="feature-lite d-flex flex-column align-items-center">
           <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
-          <span class="desc"><%= @product.time_contract %> <%= t('.months') %></span>
+          <span class="desc"><span class="black"><%= @product.time_contract %></span> <%= t('.months') %></span>
         </div>
         <% else %>
         <div class="feature-lite d-flex flex-column align-items-center">
           <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
-          <span class="desc"><strong><%= t('.no_obligation') %></strong></span>
+          <span class="desc"><strong><%= t('.no_obligation').html_safe %></strong></span>
         </div>
         <% end %>
       </div>
