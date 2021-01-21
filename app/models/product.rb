@@ -32,15 +32,22 @@ class Product < ApplicationRecord
   end
 
   def format_price
-    self.currency == 'GBP' ? self.currency_code + '' + self.price.to_f.to_s : self.price.to_f.to_s + '' + self.currency_code
+    format_price = self.price % 1 != 0 ? self.price.to_f.to_s : self.price.to_i.to_s
+    self.currency == 'GBP' ? self.currency_code + '' + format_price : format_price + '' + self.currency_code
   end
 
   def format_sim_card_price
-    self.currency == 'GBP' ? self.currency_code + '' + self.sim_card_price.to_f.to_s : self.sim_card_price.to_f.to_s + '' + self.currency_code
+    format_price = self.sim_card_price % 1 != 0 ? self.sim_card_price.to_f.to_s : self.sim_card_price.to_i.to_s
+    self.currency == 'GBP' ? self.currency_code + '' + format_price : format_price + '' + self.currency_code
   end
 
   def format_setup_price
-    self.currency == 'GBP' ? self.currency_code + '' + self.setup_price.to_f.to_s : self.setup_price.to_f.to_s + '' + self.currency_code
+    format_price = self.setup_price % 1 != 0 ? self.setup_price.to_f.to_s : self.setup_price.to_i.to_s
+    self.currency == 'GBP' ? self.currency_code + '' + format_price : format_price + '' + self.currency_code
+  end
+
+  def desc_preview
+    self.description.size >= 20 ? self.description.first(17) + '...' : self.description
   end
 
   def country_code

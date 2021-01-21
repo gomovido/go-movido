@@ -4,9 +4,13 @@
     background: $white;
     border: 1px solid $grey-snow;
     border-radius: 20px;
+    padding: 1.8rem 1rem 1.1rem 1.3rem ;
     .margin {
       height: 55px;
       border-right: 1px solid #C7C7C7;
+    }
+    .box-offer {
+      margin-right: 2rem;
     }
     span {
       font-size: 14px;
@@ -25,6 +29,8 @@
     }
     .modal-link {
      text-decoration: underline !important;
+     font-weight: bold;
+     font-size: 14px;
     }
     h5 {
       font-weight: bold;
@@ -39,19 +45,31 @@
       .frequency {
         font-weight: bold;
         font-size: 14px;
-        color: $dark-cloud;
+        color: $black;
       }
     }
     .picto {
       width: 25px;
+      margin-bottom: 9px;
+    }
+    .picto-icon {
+      margin-bottom: 9px;
     }
     .features span {
-      color: $blue;
+      color: $turquoise;
       font-weight: bold;
-      &:first-child {
-        color: $taupe;
-      }
+    }
+    .country span {
+      color: $country-card-color !important;
+    }
+    .cyan {
+      color: $cyan;
     }
   }
 }
 
+@media (min-width: 1200px) {
+  .container.products-container {
+    max-width: 1300px !important;
+  }
+}
