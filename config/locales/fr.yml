@@ -81,6 +81,7 @@ fr:
         birthdate: 'Date de naissance'
         birth_city: 'Ville de naissance'
         password_confirmation: 'Confirmation du mot de passe'
+        current_password: 'Mot de passe actuel'
   pages:
     contact:
       title: 'Contacte nous'
