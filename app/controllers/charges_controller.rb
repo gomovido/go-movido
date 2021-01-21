@@ -22,7 +22,8 @@ class ChargesController < ApplicationController
       redirect_to subscription_congratulations_path(subscription)
     else
       subscription.update(state: 'payment_failed')
-      flash[:alert] = stripe_charge[:error].message
+      I18n.locale = params[:subscription][:locale].to_sym
+      flash[:alert] = I18n.t("stripe.errors.#{stripe_charge[:error].code}")
       redirect_back(fallback_location: root_path)
     end
   end
