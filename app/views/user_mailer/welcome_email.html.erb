@@ -464,6 +464,7 @@
       width: 100%;
       margin-top: 1rem;
       margin-bottom: 2rem;
+      justify-content: center;
     }
 
     .marketing-inputs {
@@ -707,7 +708,7 @@
               <td align="center">
                 <tr>
                   <td class="text-center mt-1" align="center">
-                    <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                    <table class="email-body_inner" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td>
                           <span><strong>Any questions? This is how you can reach us</strong></span>
@@ -738,7 +739,7 @@
               <td align="center">
                 <tr>
                   <td class="text-center mt-1" align="center">
-                    <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                    <table class="email-body_inner" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td>
                           <span><strong>Want to stay in touch? Find us here</strong></span>
@@ -746,14 +747,14 @@
                       </tr>
                       <tr class="marketing-row">
                         <td class="d-flex marketing-inputs w-100 pl-30" align="center">
-                          <a href="" class="content-cell no-r-padding support-links align-items-center justify-content-center mr-15" target="_blank">
-                            <%= image_tag(asset_path('emails/facebook-logo.png')) %>
+                          <a href="" class="content-cell no-r-padding support-links align-items-center justify-content-center" target="_blank">
+                            <%= image_tag(asset_path('emails/facebook-logo.png'), class:"mr-15") %>
                           </a>
                           <a href="" class="content-cell no-padding support-links align-items-center justify-content-center" target="_blank">
                             <%= image_tag(asset_path('emails/instagram-logo.png')) %>
                           </a>
-                          <a href="" class="content-cell no-l-padding support-links align-items-center justify-content-center ml-15" target="_blank">
-                            <%= image_tag(asset_path('emails/linkedin-logo.png')) %>
+                          <a href="" class="content-cell no-l-padding support-links align-items-center justify-content-center" target="_blank">
+                            <%= image_tag(asset_path('emails/linkedin-logo.png'), class:"ml-15") %>
                           </a>
                         </td>
                       </tr>
@@ -764,10 +765,10 @@
             </tr>
             <tr>
               <td align="center">
-                <table class="email-footer align-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                <table class="email-footer align-center" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr align="center">
                     <td class="content-cell" align="center">
-                      <p class="f-fallback sub align-center">movido Ltd is a company registered [in] England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
+                      <p class="f-fallback sub align-center">movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
                     </td>
                   </tr>
                 </table>
