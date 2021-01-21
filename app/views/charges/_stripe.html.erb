@@ -12,6 +12,7 @@
   <div class="form-base">
     <%= simple_form_for @subscription, url: "/charge", method: :post, data: {controller: "charge", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
       <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
+      <%= f.hidden_field :locale, value: params[:locale].to_s.strip.to_sym %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div class="form-divs-wrapper mb-5">
         <div class="form-group">
