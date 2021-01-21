@@ -83,14 +83,15 @@ fr:
         password_confirmation: 'Confirmation du mot de passe'
   pages:
     contact:
-      title: 'Contactez nous'
+      title: 'Contacte nous'
       subline: "Nos moyens de contact:"
     about:
       title: 'Qui sommes-nous'
-      part_1: "Tu as hâte de commencer un nouveau chapitre de ta vie et de déménager dans une nouvelle ville - la seule chose qui t'ennuie, c'est tout le travail administratif qui va avec?"
-      part_2: "A movido, nous sommes passés par ce processus épuisant de nombreuses fois et nou s savons exactement ce que tu ressens. Nous avons donc décidé de faire quelque chose pour mettre fin à ce cauchemar administratif. Notre mission est de rendre ton processus de relocalisation aussi simple et pratique que possible et en même temps de te fair e économiser du temps et de l'argent. Notre équipe internationale de développeurs, de professionnels du marketing et de la finance travaille dur chaque jour pour réduire ta charge administrative afin que tu puisses te concentrer sur les aventures à venir."
-      part_3: "movido est une plateforme qui t'offre tous les services dont tu as besoin dans ta nouvelle ville - de l'obtention de ton numéro de téléphone local à un nouveau compte bancaire local. Nous avons choisi les meilleures offres de service de nos partenaires ré putés et avons optimisé le processus d'abonnement. Cela signifie que tu n'as besoin de t'inscrire qu'une seule fois et de t'installer dans ta nouvelle maison en 10 minutes environ, contre 4,5 heures habituellement."
-      part_4: "Et la meilleure partie? Tout cela ne te coûte rien. Nous ne faisons pas seulement une faveur à toi, nous faisons aussi une faveur aux fournisseurs pour lesquels ils nous accordent une petite rémunération Et maintenant, laisse movido s'occuper de ton travail administratif et commence à explorer ta nouvelle ville!"
+      part_1: "Tu es excité de commencer un nouveau chapitre de ta vie en déménageant dans une nouvelle ville - la seule chose qui t’ennuie c’est la lourdeur des démarches administratives qui viennent avec?"
+      part_2: "Nous à movido, nous sommes déjà passés par ce processus de recherche épuisant et savons exactement comment tu te sens. C’est pour ça que nous avons décidé de faire quelque chose pour mettre fin à ce cauchemar administratif. Notre mission est de rendre les étapes qui accompagnent ton changement de ville le plus simple et efficace possible, en te faisant économiser du temps et de l’argent. Notre équipe internationale de développeurs, de professionnels du marketing et de la finance travaillent dur chaque jour pour réduire ta charge administrative pour que tu puisses te concentrer sur tes futures aventures"
+      part_3: "movido est une plateforme qui offre tous les services dont tu as besoin dans la nouvelle ville ou tu t’installes - du forfait mobile au nouveau compte bancaire. Nous avons sélectionné les meilleures offres venant de nos partenaires les plus fiables et optimisé les processus d’abonnement. Tu t’inscris, et en 10 minutes tu peux avoir réglé ton installation dans la nouvelle ville de ton choix. Nous gérons les processus d’abonnement, ainsi que le suivi des dossiers avec les fournisseurs, ce qui t’évite quelques jours de démarches administratives"
+      part_4: "Et la meilleure partie? Cela ne te coûte rien. Nous ne te faisons pas une faveur seulement à toi mais aussi aux fournisseurs qui nous accordent une petite rémunération. A partir de maintenant, laisse movido gérer tes démarches administratives et commence à explorer ta nouvelle ville!"
+      our_team: "Notre équipe"
       alice:
         role: 'Co-fondatrice'
       jordan:
@@ -101,39 +102,41 @@ fr:
         role: 'Développeur'
     home:
       banner:
-        headline1: '<span class="purple">Installez</span>-vous'
+        headline1: '<span class="purple">Installe</span> toi'
         headline2: 'en seulement <br> <span class="purple">10 minutes</span>'
-        subheadline: "<strong>movido</strong> s'occupe de vos démarches administratives"
+        subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"
         start: "C'est parti!"
+      partners:
+        title: 'En collaboration avec:'
       get-started:
-        headline: "Rejoignez une communauté de 10,269 étudiants du monde entier sur movido"
+        headline: "Rejoins une communauté de 10,269 étudiants du monde entier sur movido"
         start: "C'est parti!"
       services-cards:
         title: 'Nos Offres'
-        housing: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces dans votre nouvelle ville"
-        bank: "Ouvrez votre compte bancaire en quelques minutes - et tout ça entièrement en ligne sans vous déplacer"
-        mobile: "Obtenez votre numéro de mobile avec movido - nos vous proposons des forfaits avec ou sans engagement avec nos partenaires"
-        wifi: "Choisissez parmi une variété de forfaits WiFi l'offre idéale pour vos besoins et obtenez votre abonnement en quelques minutes "
-        gym: "Toujours à la recherche de salles de sport ? Nous avons sélectionné les meilleures offres"
-        transportation: "Dites-nous où vous devez aller et nous vous fournissons la carte de transport en commun qu'il vous faut"
-        utilities: 'Eau, électricité, gaz - choisissez votre fournisseur et nous vous aiderons à vous installer'
-        community: 'Rejoignez notre communauté de personnes partageant les mêmes idées dans votre nouvelle ville natale !'
+        housing: "Appartement entier, colocation, logement étudiant ou offre haut de gamme, nous proposons un large choix de logements disponibles dans ta nouvelle ville"
+        bank: "Ouvre un compte bancaire en ligne en un instant grâce aux meilleures offres de nos partenaires"
+        mobile: "Obtiens un numéro de téléphone adapté dans ta nouvelle ville, nos partenaires proposent des forfaits avec ou sans engagement selon tes besoins."
+        wifi: "Choisis parmi une sélection d’options wifi pour ta nouvelle maison et inscris toi en un clic"
+        gym: "À la recherche de sport à pratiquer dans ta nouvelle ville? Nous avons sélectionné les meilleures offres pour toi"
+        transportation: "Dis nous où tu veux aller et nous te conseillerons les meilleures offres de transport"
+        utilities: "Eau, électricité, gaz, sélectionne ton fournisseur et nous t’aiderons à t’installer"
+        community: 'Rejoins une communauté qui partage tes goûts et intérêts dans ta nouvelle ville'
       service-card:
         coming_soon: 'BIENTÔT DISPONIBLE'
       how-it-works:
         title: 'Comment ça marche?'
         start: "C'est parti !"
         card1:
-          title: "Choisir son service"
-          description: "Sélectionnez les services dont vous avez besoin parmi une variété d'offres - du WiFi à la salle de sport, movido a tout ce qu'il vous faut pour démarrer dans votre nouvelle ville"
+          title: "Choisis un service"
+          description: "Sélectionne tous les services dont tu as besoin dans nos offres, du wifi au sport, movido peut t’aider pour commencer dans une nouvelle ville."
         card2:
-          title: "Comparer"
-          description: "movido rassemble les services que vous avez sélectionnés et compare différents fournisseurs - cela vous garantit d'obtenir le meilleur forfait au meilleur prix"
+          title: "Compare les offres"
+          description: "movido liste les services que tu sélectionnes et compare les fournisseurs, cela t’assure d’avoir les meilleurs choix au meilleur prix"
         card3:
-          title: "Choisir son offre"
-          description: "Choisissez votre offre préférée et laissez-nous gérer le reste du travail administratif. D'ici 24 heures, votre nouvel abonnement sera actif"
+          title: "Choisir ton offre"
+          description: "Choisis ton offre préférée et laisse nous le reste des démarches administratives. Tes nouveaux abonnements seront actifs sous 24h"
         card4:
-          title: "Gérer ses abonnements"
+          title: "Gére tes abonnements"
           description: "Depuis votre compte movido : gérez, annulez ou modifiez vos abonnements à tout moment"
       about-us:
         title: 'Qui sommes nous?'
@@ -143,16 +146,16 @@ fr:
         text: 'Notre philosophie consiste à simplifier les déplacements. Facile, rapide et intuitif - inscrivez-vous à movido pour vous installer dans votre nouvelle ville en un quelques minutes.<br>Et c’est 100 % gratuit!'
         card1:
           title: 'Rapide'
-          description: "Installez-vous chez vous en seulement 10 minutes au lieu des 4.5 heures habituelles"
+          description: "Installe-toi dans ta nouvelle maison en seulement 10 minutes au lieu de 4h30"
         card2:
-          title: 'Intelligent'
-          description: "Comparez les prestataires et bénéficiez des meilleurs prix et offres disponibles"
+          title: 'Malin'
+          description: "Compare les services et profite des meilleurs prix et offres disponibles"
         card3:
           title: 'Simple'
-          description: "Choisissez tout simplement votre abonnement préféré parmi une variété d'offres"
+          description: "Choisis simplement tes abonnements favoris dans notre variété d’offres"
         card4:
           title: 'Gratuit'
-          description: "Avec movido, choisissez et gérez vos abonnements entièrement gratuitement"
+          description: "Choisis et gère tes abonnements entièrement gratuitement"
       testimonials:
         title: "Ce que disent les étudiants"
         subtitle: "Laissez-vous inspirer par leurs expériences"
@@ -163,7 +166,7 @@ fr:
         testimonial2:
           from: 'de Buenos Aires'
           to: 'à Londres'
-          sentence: "''Ça m'a pris 10 minutes et tout était fait - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
+          sentence: "''En seulement 10 minutes c'était réglé - et en plus j'ai fait une bonne affaire pour mon nouvel abonnement mobile''"
         testimonial3:
           from: 'de Berlin'
           to: 'à Londres'
@@ -171,11 +174,11 @@ fr:
         testimonial4:
           from: 'de Barcelona'
           to: 'à London'
-          sentence: "''Trouver un bon service WiFi à Londres n'est pas facile. movido propose une liste d'entreprises locales avec des options flexibles.''"
+          sentence: "''Trouver un bon service wifi à Londres c’est pas facile. Les offres movido m’ont permis de trouver une liste de fournisseurs qui offrent des options flexibles et de bonne qualité''"
         testimonial5:
           from: 'de Warsaw'
           to: 'à Paris'
-          sentence: "''J'ai obtenu mon appartement pour étudier à Paris pendant un an. Grâce à movido, il m'a été facile de mettre en place tous les services dont j'avais besoin.''"
+          sentence: "''J'ai obtenu mon appartement pour étudier à Paris pendant un an. Merci movido, c’était simple de mettre en place tous les services nécessaires lors de mon emménagement ''"
     how_it_works:
       title: 'Comment ça marche'
       first_step:
@@ -198,22 +201,22 @@ fr:
       question_2: "Q: Combien coûte movido? "
       question_3: "Q: Par quel service dois-je commencer? "
       question_4: "Q: Qui est l'équipe derrière movido? "
-      question_5: "Q: Comment puis-je savoir si mon achat a réussi? "
-      question_6: "Q: Je n'ai pas encore reçu mon téléphone / ma boîte wifi / ma carte de transport - que dois-je faire? "
-      question_7: "Q: Comment puis-je annuler mon contrat ? "
-      answer_1: "R: movido regroupe tous les services dont tu as besoin dans ta nouvelle ville sur une seule plateforme. Tu t'inscris une seule fois et tu peux commencer à choisir ton nouveau compte bancaire, ton numéro de téléphone local, le haut débit, la salle de gym et beaucoup d'autres services dont tu as besoin tout de suite. Nous synchronisons ces offres de services et les prix en permanence avec nos partenaires afin que tu t'abonnes toujours aux dernières offres du marché. Dans la section de ton profil, tu peux ensuite gérer tes contrats de manière pratique."
-      answer_2: "R: Movido est complètement gratuit pour toi, nous travaillons sur la base d'une commission payée uniquement par le prestataire de services. En raison du grand nombre d'utilisateurs que nous référons, nous obtenons souvent des conditions spéciales. Ainsi, en plus de l'offre parfaite, tu l'obtiens probablement au prix le plus bas du marché."
-      answer_3: "R: La plupart des contrats tels que le téléphone, le haut débit, la salle de gym, etc. nécessitent un compte bancaire local. Nous te recommandons donc de commencer par créer ton compte de transferwise, bunq ou revolut. Ensuite, un appartement te donnera la possibilité d'avoir une adresse fixe. Consulte nos offres de logements sympas. Tous les autres services peuvent alors être réservésen parallèle."
-      answer_4: "R: Nous sommes une équipe avec des antécédents divers - des financiers aux développeurs front/back-end. Cependant, ce que nous partageons tous, c'est la lourdeur de l'expérience administrative lors d'un déménagement dans une nouvelle ville et la vision de rendre ce processus plus facile pour toi."
-      answer_5: "R: Une fois que tu as soumis le formulaire de commande, tu recevras deuxemails - le premier confirmera ta commande. Maintenant, movido va travailler enarrière-plan avec le fournisseur de services pour mettre en place ton contrat. Surtout en ce qui concerne le logement, cela peut prendre jusqu'à 48 heures. Le deuxième email avec la confirmation d'achat te garantit alors que ton achat a été réussi."
-      answer_6: "R: Veuillez noter que cela peut prendre jusqu'à 3 jours ouvrables selon le fournisseur. Tu peux aussi toujours contacter notre équipe de support - ils seront en mesure de suivre ta livraison et de t'aider"
-      answer_7: "R: Dans ta section 'Mon profil', tu as un bon aperçu de tous tes contrats. Malheureusement, pour des raisons de confidentialité, nous ne pourrons pas annuler tous les types de contrats. Pour ceux-ci, tu recevras soit un lien pour te diriger en un rien de temps vers l'action respective, soit le numéro de la ligne d'assistance téléphonique pour le faire par téléphone."
+      question_5: "Q: Comment savoir si ma commande a fonctionné? "
+      question_6: "Q: Je n'ai pas encore reçu mon téléphone / ma box wifi / ma carte de transport - que dois-je faire? "
+      question_7: "Q: Comment puis-je résilier mon contrat ? "
+      answer_1: "R: movido regroupe sur une plateforme tous les services dont tu as besoin dans ta nouvelle ville. Tu t’inscris et tu peux commencer à sélectionner une nouvelle banque, un nouveau numéro de téléphone, une salle de sport et bien d’autres services. Nous synchronisons ces offres et ces prix continuellement avec nos partenaires pour que tu puisses toujours profiter des meilleurs prix du marché. Par la suite, sur ton profil, tu peux facilement gérer tes contrats."
+      answer_2: "R: movido est complètement gratuit, nous travaillons sur une base de commission payée uniquement par les fournisseurs de services. Grâce au grand nombre d’utilisateurs que nous avons, nous obtenons souvent des conditions préférentielles. Donc mieux que l’offre parfaite, nous la proposons encore moins chère."
+      answer_3: "R: La plupart des contrats tels que le téléphone, internet, la salle de gym, etc. nécessitent un compte bancaire local. Nous te recommandons donc de commencer par créer ton compte de Transferwise, Bunq ou Revolut. Ensuite, un appartement te donnera la possibilité d'avoir une adresse fixe. Jette un oeil à nos annonces d'appartement. Tous les autres services peuvent alors être gérés en parallèle."
+      answer_4: "R: Nous sommes une équipe venant de divers horizons, de la finance au développement. Ce que nous partageons tous, c’est la fastidieuse expérience des démarches administratives quand tu t’installes dans une nouvelle ville et la vision qui va avec aujourd’hui pour vous rendre cette expérience bien plus simple."
+      answer_5: "R: Après chaque souscription, tu recevras deux emails - le premier confirmera ta commande. Après ça, movido travaillera en arrière plan avec le fournisseur pour valider ton contrat. Pour les demandes de logement, cela peut prendre jusqu’à 48h. Le second e-mail avec la confirmation de la commande te garantira que la commande a fonctionné avec succès."
+      answer_6: "R: Note bien que cela peut prendre jusqu’à 3 jours ouvrables selon les fournisseurs. Il est toujours possible de contacter notre équipe technique - elle pourra t’aider à tracer ta commande."
+      answer_7: "R: Dans la section “Mon profil”, tu as une vue d’ensemble de tous tes contrats. Malheureusement, pour des raisons de confidentialité, nous ne serons pas capables d’annuler tous les types de contrat. Pour cela, tu recevras rapidement un lien pour te rediriger vers les actions adéquates à mettre en place ou un numéro d’appel vers le service pour les appeler directement."
       contact:
         title: "D'autres questions?"
-        description: "Merci de contacter le support de movido par chat, email ou téléphone"
-        cta: "Contactez-nous"
+        description: "N'hésite pas contacter le support movido par chat, email ou téléphone"
+        cta: "Contacte-nous"
     dashboard_index:
-      title: "Selectionnez les services dont vous avez besoin"
+      title: "Selectionne le service dont tu as besoin"
       subtitle: "Mon adresse"
       new_address: "Ajouter une adresse"
       time: 'En %{time} minutes'
@@ -222,57 +225,57 @@ fr:
       see_offers: 'Voir les offres'
       mobile_phone:
         name: "Téléphonie"
-        subtitle: "Obtenez votre numéro de mobile local "
-        description: "Choisissez parmi une variété d’offres – du forfait sans engagement au contrat long-terme"
+        subtitle: "Obtiens ton nouveau numéro de mobile"
+        description: "Choisis parmi une variété d’offres – de la carte prépayée au forfait longue durée"
       wifi:
         name: "WiFi"
-        subtitle: 'Obtenez votre installation wifi à la maison'
-        description: "Choisissez parmi une variété de forfaits WiFi l'offre idéale adaptée à vos besoins"
+        subtitle: 'Offre toi une nouvelle offre internet'
+        description: "Choisis parmi une variété de forfaits WiFi l'offre idéale adaptée à tes besoins"
       housing:
         name: "Logement"
-        subtitle: 'Trouvez votre logement dans votre nouvelle ville'
-        description: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consultez nos dernières annonces"
+        subtitle: 'Trouve ton logement dans ta nouvelle ville'
+        description: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consulte nos dernières annonces"
       bank:
         name: 'Compte bancaire'
-        subtitle: 'Ouvrez un nouveau compte en quelques minutes'
-        description: "Ouvrez votre compte bancaire local en ligne sans vous déplacer"
+        subtitle: 'Ouvre un nouveau compte en quelques minutes'
+        description: "Ouvre ton compte bancaire local en ligne sans te déplacer"
       gym:
         name: 'Sport'
         subtitle: "Cours de Yoga, Boxe ou salle de sport classique"
-        description: "Nous avons sélectionné les meilleures offres de sport dans votre ville - maintenant à vous de choisir"
+        description: "Nous avons sélectionné les meilleures offres de sport dans ta ville - maintenant à toi de choisir"
       transportation:
         name: 'Transport'
-        subtitle: 'Obtenez votre carte de transports en communs'
-        description: "Dites-nous où vous allez et nous vous fournissons votre carte de transport en commun"
+        subtitle: 'Obtiens ta carte de transports en communs'
+        description: "Dis-nous où tu veux aller et nous te fournissons ta carte de transport en commun"
       utilities:
         name: 'Services publics'
         subtitle: "Eau, électricité, gaz"
-        description: "Sélectionnez votre fournisseur et nous nous occupons de vos démarches adminstratives"
+        description: "Sélectionne ton fournisseur et nous nous occupons de tes démarches adminstratives"
       community:
         name: 'Communauté'
-        subtitle: 'Rejoignez la communauté movido dans votre ville'
-        description: 'Discutez avec des étudiants du monde entier'
+        subtitle: 'Rejoins la communauté movido dans ta ville'
+        description: 'Discute avec des étudiants du monde entier'
     careers:
       title: "Carrières"
-      content: "Tu es un développeur, un designer, un expert en marketing ou un spécialiste des produits ? Ou bien tu as toi-même souffert des longues démarches administratives lors de tes déménagements et tu veux simplement améliorer cette expérience? Chez movido, nous sommes toujours à la recherche de nouveaux talents pour rejoindre notre équipe. Il suffit de nous envoyer un mail à <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> - nous sommes ravis de te rencontrer!"
+      content: "Tu es un développeur, un designer, un expert en marketing ou un expert produit ? Ou bien tu as toi-même souffert des longues démarches administratives lors de tes déménagements et tu veux nous aider à changer les choses? Chez movido, nous sommes toujours à la recherche de nouveaux talents pour rejoindre notre équipe. Écris nous simplement à <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> - nous serons ravis de te rencontrer!"
   addresses:
     new:
-      title: "Quelle est votre adresse ?"
+      title: "Quelle est ton adresse ?"
       form:
         placeholder:
-          street: "Votre nouvelle adresse"
+          street: "Ta nouvelle adresse"
         label:
-          street: 'Votre adresse dans votre nouvelle ville'
-          moving_country: "Dans quel pays voyagez-vous?"
+          street: 'Ton adresse dans ta nouvelle ville'
+          moving_country: "Dans quel pays voyages-tu?"
         prompt:
-          moving_country: "Choisissez votre pays"
+          moving_country: "Choisis ton pays"
         switch:
           no_address: "Je n'ai pas encore d'adresse"
           got_address: "J'ai une adresse"
         cta: 'Confirmer'
     edit:
       title: 'Nous avons besoin de quelques informations supplémentaires ...'
-      subtitle: "Nous avons besoin de ces informations pour aider le technicien à vous trouver chez vous.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de votre boîte internet"
+      subtitle: "Nous avons besoin de ces informations pour aider le technicien à trouver ton adresse.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de ta box wifi"
       form:
         failure:
           wrong_country: "doit être en %{country}"
@@ -282,14 +285,14 @@ fr:
           back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
         label:
-          delivery_address: "Adresse de livraison de votre box internet"
+          delivery_address: "Adresse de livraison de ta box wifi"
         hint:
-          address: "Vous pouvez modifier ce champ dans votre profil"
+          address: "Tu peux modifier ce champ dans ton profil"
   billings:
     new:
       mandatory: '* Champs obligatoires'
       title: "On y est presque..."
-      subtitle: "Nous avons besoin de vos coordonnées bancaires pour l'option de prélèvement automatique de votre abonnement"
+      subtitle: "Nous avons besoin de tes coordonnées bancaires pour l'option de prélèvement automatique de ton abonnement"
       form:
         failure:
           wrong_country: "doit être en %{country}"
@@ -298,16 +301,14 @@ fr:
           next: 'Confirmer'
           back: 'Retour'
         placeholder: 'Entrer votre %{placeholder}'
-        sim_delivery_address: 'Adresse de livraison de votre carte SIM'
+        sim_delivery_address: 'Adresse de livraison de ta carte SIM'
         hint:
-          bank: 'Vous ne pouvez pas modifier ce champ'
-          delivery_address: 'Les adresses de facturation et de livraison doivent être les mêmes'
-        tooltip:
-          iban: "Nous avons besoin des détails de votre compte bancaire pour votre option de prélèvement automatique."
+          bank: 'Tu ne poeux pas modifier ce champ'
+          delivery_address: "L'adresse de livraison de ta carte SIM est la même que ton adresse de facturation"
   charges:
     new:
-      title: 'Paiement de votre carte SIM'
-      subtitle: "Votre carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
+      title: 'Paiement de ta carte SIM'
+      subtitle: "Ta carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
     stripe:
       connection: 'Connexion sécurisée'
       number: 'Numéro de carte'
@@ -316,14 +317,14 @@ fr:
       pay: "Procéder au paiement"
   products:
     index:
-      title: 'Choisissez votre offre'
+      title: 'Choisis ton offre'
       no_result: "Désolé, nous n'avons pas trouvé d'offres <br><br><i class='fal fa-empty-set'></i>"
       subtitle: ''
     mobile-filter:
       title: "Filtres"
-      reset: 'Effacer les filtres'
-      unlimited_data: 'Données illimitées'
-      unlimited_call: 'Appel illimité'
+      reset: 'Réinitialiser les filtres'
+      unlimited_data: 'Datas illimités'
+      unlimited_call: 'Appels illimités'
       no_contract: 'Sans engagement'
       by_price: 'Filtrer par prix (en %{unit})'
     wifi-filter:
@@ -350,22 +351,22 @@ fr:
       no_obligation: "<span class='black'>sans</span> engagement"
   subscriptions:
     summary:
-      title: "Confirmez vos informations"
-      subtitle: "Veuillez vous assurer que toutes les informations sont correctes.<br> Accédez à %{href} pour les modifier. "
-      profile_link: "<strong>votre profil</strong>"
+      title: "Confirme tes informations"
+      subtitle: "Assure toi que toutes les informations sont correctes.<br> Accéde à %{href} pour les modifier. "
+      profile_link: "<strong>ton profil</strong>"
       next: 'Acheter maintenant'
       back: 'Retour'
     result:
       months: 'mois'
     congratulations:
-      title: 'Tout est prêt 🎉'
-      subtitle: "Vous recevrez un e-mail de confirmation de movido une fois votre abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
+      title: 'Tout est en ordre 🎉'
+      subtitle: "Tu recevras un e-mail de confirmation de movido une fois ton abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
-      support: "N'hésitez pas à contacter notre service client (chat, email & téléphone) !"
+      support: "N'hésite pas à contacter notre service client (chat, email & téléphone) !"
       mobile_cta: "Besoin d'un nouveau numéro de téléphone? <i class='fas fa-arrow-right ml-2'></i>"
-      wifi_cta: "Il vous manque la box WiFi? <i class='fas fa-arrow-right ml-2'></i>"
-      bank_cta: "Ouvrez un compte bancaire local <i class='fas fa-arrow-right ml-2'></i>"
-      community_cta: "Rejoignez notre communauté <i class='fas fa-arrow-right ml-2'></i>"
+      wifi_cta: "Besoin d'une nouvelle offre internet? <i class='fas fa-arrow-right ml-2'></i>"
+      bank_cta: "Ouvre un compte bancaire local <i class='fas fa-arrow-right ml-2'></i>"
+      community_cta: "Rejoins notre communauté <i class='fas fa-arrow-right ml-2'></i>"
     steps:
       mobile_phone:
         step_0: 'Choisir son offre'
@@ -373,16 +374,32 @@ fr:
         step_2: 'Confirmation'
         step_3: 'Paiement'
       wifi:
-        step_0: 'Choisissez votre offre'
+        step_0: 'Choisis ton offre'
         step_1: 'Détails'
         step_2: 'Facturation'
         step_3: 'Confirmation'
+  banks:
+    index:
+      title: 'Ouvre ton compte bancaire en ligne'
+      cta: 'Plus de détails'
+      bunq:
+        headline: "<span class='purple'>L'application bancaire</span> qui rend la vie facile"
+        feature_1: 'Télécharge l’application Bunq et ouvre un compte en banque rapidement'
+        feature_2: 'Bénéficie d’options variées pour investir'
+        feature_3: 'Organise tes dépenses à travers différents comptes bancaires'
+        feature_4: 'Partage facilement tes reçus avec tes colocataires'
+      transferwise:
+        headline: "Le compte bancaire <span class='purple'>multi-devise</span>"
+        feature_1: 'Inscris toi à tous les services movido avec ton compte Transferwise'
+        feature_2: 'Envoie de l’argent instantanément dans différentes devises'
+        feature_3: " Jusqu'à 8 fois moins cher que les banques traditionnelles"
+        feature_4: 'Compatible Apple Pay'
   users:
     profil:
       saving: 'Sauvegarde en cours'
       submit: 'Mettre à jour'
     complete_profil:
-      title: 'Veuillez compléter votre profil'
+      title: 'Complète ton profil'
       button: 'Continuer'
       placeholder: 'Entrez votre %{placeholder}'
     show:
@@ -397,7 +414,7 @@ fr:
       cta: 'Confirmer'
       form:
         placeholder:
-          street: "Entrer votre adresse"
+          street: "Entre ton adresse"
         failure:
           street: "Adresse invalide"
     subscriptions:
@@ -407,7 +424,7 @@ fr:
       start_date: 'Ouverture'
       status: 'Statut'
       see_offers: 'Voir les offres'
-      no_subscription: "Vous n'avez pas d'abonnements actifs"
+      no_subscription: "Tu n'as pas d'abonnements actifs"
     subscription:
       draft: 'Brouillon'
       succeeded: 'En attente'
@@ -440,38 +457,23 @@ fr:
       profile: 'Profil'
       account: 'Compte'
       logout: 'Déconnexion'
-    modal-navbar:
-      dashboard_title: 'Tableau de bord'
-      dashboard_subtitle: 'Découvrez nos abonnements'
-      subscriptions_title: 'Mes abonnements'
-      subscriptions_subtitle: 'Gérez vos abonnements'
-      profile_title: 'Mon profil'
-      profile_subtitle: 'Modifiez vos coordonnées'
-      addresses_title: 'Mon adresse'
-      addresses_subtitle: 'Changez votre adresse'
-      contact_title: 'Contactez nous'
-      contact_subtitle: 'WhatsApp, E-mail ou par téléphone'
-      about_title: 'À propos'
-      about_subtitle: 'Découvrez la vision de movido'
-      support_title: 'Support'
-      support_subtitle: 'Nous répondons à toutes vos questions'
     footer:
       about: "À propos"
       contact: "Contact"
       careers: "Carrières"
       faq: "Support"
-      terms: "Conditions Générales"
+      terms: "Conditions de service"
       cookie: "Cookies"
-      legal: 'movido Ltd is a company registered England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
+      legal: 'movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
   services:
     wifi:
       title: 'WIFI'
-      headline: "Tu viens t’installer dans ta nouvelle ville et tu as besoin d’une box internet? <br>Choisis ton abonnement et movido s’occupe des démarches administratives"
-      question: "Sais-tu qu’en Europe il a plus de <strong>200 fournisseurs d'accès à internet (FAI)</strong> et plus de <strong>1 000 offres différentes</strong> ?"
-      answer: "Trouver le fournisseur d'accès à internet idéal, c’est vraiment compliqué!"
-      explanation: "Pour commencer, chaque FAI te demande de remplir plusieurs formulairesen demandant ton adresse précise et tes données personnelles pour que la demande soit acceptée. Les offres varient en fonction de la vitesse de téléchargement, de la durée de contrat et des extras dont tu n’as peut-être pas besoin, ce qui rend la comparaison presque impossible. Et si tu as des questions, tu vas perdre beaucoup de temps en file d’attente téléphonique du service client. <br><br>Tu finiras par passer de nombreuses heures à comparer toutes les offres pour choisir l’abonnement WiFi adapté à tes besoins."
-      solution: "Nous avons une meilleure solution pour toi: movido, une plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement"
-      button: "Voir les meilleures offres de box"
+      headline: "Tu t’installes dans une nouvelle ville et tu n’as pas encore internet? <br>Laisse movido trouver les meilleures offres haut débit qui conviendront à tes besoins!"
+      question: "Sais-tu qu'il y a plus de <strong>200 fournisseurs d'accès internet (FAI)</strong> et plus de <strong>1 000 offres haut débit</strong> disponibles en Europe?"
+      answer: "Trouver une bonne offre internet est toujours compliqué!"
+      explanation: "Pour commencer, chaque fournisseur d’accès internet te demande de compléter différents formulaires indiquant ton adresse et tes données personnelles pour approuver ta demande. Les offres varient en fonction de la vitesse de téléchargement, de la durée du contrat et de différents services en extras dont tu n’auras peut-être même pas besoin, tout ça rend la comparaison quasiment impossible. En plus, chaque fournisseur a son propre service client en ligne et par email avec des qualités d’accompagnement variées. Tu finiras par passer des jours à comparer les offres pour trouver l’abonnement qui correspond à tes besoins"
+      solution: "Nous avons une meilleure solution pour toi: movido, la plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement"
+      button: "Trouver la meilleure offre internet"
       offer: "Les avantages de <font>movido</font>"
       last_header: "Dis au revoir aux process de souscription interminable et commence à profiter de ton temps libre!"
       card_1:
@@ -479,7 +481,7 @@ fr:
         description: "Crée facilement ton profil movido et abonne-toi à ton offre WiFi préférée en seulement quelques clics"
       card_2:
         title: "Pertinence: "
-        description: "movido a présélectionné les meilleures offres sur le marché et te permet d'obtenir le meilleur service au meilleur prix"
+        description: "movido a pré-sélectionné pour toi les meilleures offres sur le marché pour te permettre d’avoir le meilleur service au meilleur prix"
       card_3:
         title: "Exclusivité: "
         description: "Avec movido, tu as accès à des offres uniques qui ne sont pas disponibles publiquement sur le marché"
@@ -488,66 +490,66 @@ fr:
         description: "Si tu as des questions, n’hésite pas à nous contacter! Notre équipe est à ta disposition pour t’aider dans tes démarches administratives - même au-delà de ton abonnement à la box internet!"
     mobile:
       title: 'Mobile'
-      headline: "Tu viens d’arriver dans ton nouveau pays et tu asbesoin d'un abonnement mobile? <br>Choisis ton abonnement et movido s’occupe des démarches administratives"
-      question: "Sais-tu qu'il existe plus de <strong>150 fournisseurs </strong>de téléphonie mobile et plus de <strong>2 000 offres différentes </strong>en Europe ?"
-      answer: "Trouver ton offre mobile idéale, c'est pas facile!"
-      explanation: "Pour commencer, chaque fournisseur de téléphonie mobile te demande deremplir plusieurs formulaires comprenant des données personnelles pour que la demande soit approuvée. Les offres proposent de nombreuses options telles que la limite maximale d’appels et de consommation de données par mois, la durée de contrat et des services supplémentaires quirendent la comparaison presque impossible. Si tu as une question, tu devras te renseigner auprès du service d'assistance téléphonique de chaque fournisseur et passeras un temps infini au téléphone pour peut-être obtenir une réponse à tes questions. Sans compter que chaque fournisseur a ses propres conditions générales, politiques de remboursement et de résiliation, y compris des délais de préavis minimums, ce qui rend le changement de contrat ou la résiliation très compliquée.<br><br>Tu vas finir par passer de nombreuses heures à comparer toutes les offrespour obtenir une offre de téléphonie adapte à tes besoins."
-      solution: "Nous avons une meilleure solution pour toi: movido, une plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement"
-      button: "Voir les meilleur offres mobile"
+      headline: "Tu t’installes dans une nouvelle ville et tu as besoin d’un numéro de téléphone local? <br>Choisis ton abonnement et movido s’occupe des démarches administratives"
+      question: "Sais-tu qu'il existe plus de <strong>150 fournisseurs </strong>de téléphonie mobile et <strong>2 000 offres offres de mobile </strong>disponibles en Europe?"
+      answer: "Pas facile de trouver ton offre mobile idéale!"
+      explanation: "Pour commencer, chaque opérateur te demande de remplir plusieurs formulaires indiquant tes données personnelles avant d’approuver ta demande. Toutes les offres proposent différentes options, la limite maximale d’appels et de datas, la durée de contrat, des services supplémentaires, qui rendent la comparaison des offres quasiment impossible. ​Si tu as une question, tu devras te renseigner auprès du service d'assistance téléphonique de chaque fournisseur et passeras un temps infini au téléphone pour peut-être obtenir une réponse à tes questions. Sans parler du fait que chaque fournisseur a ses propres conditions générales, ses propres moyens de remboursement et d’annulation incluant différents temps de préavis selon les contrats, ce qui rend le changement ou l’annulation très difficile. Tu finirais par passer ton temps à comparer toutes les offres.."
+      solution: "Nous avons une meilleure solution pour toi: movido, la plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement"
+      button: "Trouver la meilleure offre mobile"
       offer: "Les avantages de <font>movido</font>"
-      last_header: "Dis au revoir aux process de souscription interminable et commence à profiter de ton temps libre!"
+      last_header: "Fini les longues démarches d’abonnement, profite de ton temps libre!"
       card_1:
         title: "Simplicité: "
         description: "Crée facilement ton profil movido et abonne-toi à ton offre mobile préférée en seulement quelques clics"
       card_2:
         title: "Pertinence: "
-        description: "movido a présélectionné les meilleures offres sur le marché et te permet d'obtenir le meilleur service au meilleur prix"
+        description: "movido a pré-sélectionné les meilleures offres sur le marché pour te permet d'accéder au meilleur service au meilleur prix"
       card_3:
         title: "Exclusivité: "
         description: "Avec movido, tu as accès à des offres uniques qui ne sont pas disponibles publiquement sur le marché"
       card_4:
         title: "Un partenaire long-terme "
-        description: " Si tu as des questions, n’hésite pas à nous contacter! Notre équipe est à ta disposition pour t’aider dans tes démarches administratives - même au-delà de ton abonnement mobile!"
+        description: "Si tu as des questions contacte nous! Notre équipe est là pour t’aider dans tes démarches administratives, au-delà de ton abonnement téléphonique"
     bank:
-      title: 'Compte bancaie'
-      headline: "Tu viens d’arriver dans ton nouveau pays et tu asbesoin d'un compte bancaire local ? <br>Choisis la banque qui te convient et movido s’occupe des démarches administratives"
-      question: "Sais-tu qu'il existe deux types de banques sur le marché: les banques traditionelles et les 'néobanques' ? <br><br>Contrairement aux banques traditionnelles, les néobanques sont 100 % digitales et se servent d’applications mobiles et de plateformes en ligne pour aider leurs clients, plutôt que des agences physiques traditionnelles. Elles gagnent également en popularité grâce à leurs taux de change moins élevés et à une gestion plus simple et plus rapide de ton argent au quotidien."
-      answer: "Indécis sur les différentes options bancaires disponibles ?"
-      explanation: "Pour commencer, chaque banque exige que tu remplisses plusieurs formulaires contenant tes données personnelles, un justificatif de domicile, une pièce d'identité (et bien plus), pour faire traiter ta demande.Les frais liés aux opérations bancaires telles que le découvert autorisé, la limite de dépenses de carte de crédit, et surtout les taux de change varient fortement d'une banque à l'autre. Sans parler du temps qu'il faut pour que ton compte soit finalement ouvert - dans la plupart des cas, tu devras prendre rendez-vous dans une agence locale avant que le compte puisse être activé. En cas de mauvais choix de banque, tu risques d’attendre des semaines entières jusqu’à l’ouverture de ton compte, et payer des frais plus élevés pour envoyer et recevoir de l'argent depuis l’étranger."
+      title: 'Compte bancaire'
+      headline: "Tu t’installes dans une nouvelle ville et tu as besoin d’un compte bancaire? <br>Choisis la banque qui te convient et movido s’occupe des démarches administratives"
+      question: "Sais-tu qu’il existe deux types de banque sur le marché: les banques traditionnelles et les ''néo banques''?<br><br>Contrairement aux banques traditionnelles, les néo banques sont 100% digitales et accompagnent leurs clients en utilisant des applications mobiles et des plateformes en ligne plutôt que des agences physiques. Elles gagnent en popularité grâce à leurs taux de change moins élevés et une manière plus simple et rapide de gérer ton argent"
+      answer: "Tu te sens perdu dans les différents choix de banques disponibles?"
+      explanation: "Pour commencer, chaque banque te demandera de remplir différents renseignements comme tes coordonnées et tes données personnelles, un justificatif de domicile, une vérification de ton identité (et bien plus) pour valider ta demande. Les frais liés aux opérations bancaires comme les découverts autorisés, le plafond de la carte de crédit, et surtout les taux de change varient fortement selon les banques. Sans parler du temps que peut prendre l’ouverture d’un compte. Dans la plupart des cas, tu as besoin d’un rendez-vous en physique en agence sur place avant que le compte bancaire soit activé. Si tu choisis la mauvaise banque, tu attendras certainement des semaines avant l’activation de ton compte pour souvent finir avec des frais plus élevés quand tu envoies ou reçois de l’argent de l’étranger"
       solution: "Nous avons une meilleure solution pour toi: movido, une plateforme tout-en-un, qui te permet de comparer toutes ces offres et simplifier le processus d'abonnement."
-      button: "Voir les meilleures offres bancaires"
+      button: "Trouver la meilleure offre bancaire"
       offer: "Les avantages de <font>movido</font>"
-      last_header: "Fini les frais bancaires élevés - dépense ton argent comme tu lesouhaites !"
+      last_header: "Refuse les frais bancaires élevés et dépense ton argent comme tu le veux vraiment."
       card_1:
         title: "Pertinence "
-        description: "Nous voulons nous assurer que tu puisses détenir plusieurs devises sur ton compte en payant le moins de frais possible. Sur la base de ces critères, nous avons choisi nos partenaires bancaires."
+        description: "Nous voulons nous assurer que tu puisses avoir plusieurs devises sur ton compte bancaire tout en payant le moins possible. Nous avons choisi nos partenaires sur ces critères."
       card_2:
         title: "Rapidité: "
-        description: "L'ouverture de ton compte bancaire local ne prend que 2 minutes ! Et la meilleure chose: tu n’as même pas besoin de te rendre sur place - tout se fait facilement en ligne."
+        description: "Obtenir un compte bancaire dans ta nouvelle ville ne te prendra que 2 minutes! Tu n’as même pas besoin de te déplacer en agence. Tu peux tout faire facilement en ligne."
     real_estate:
       title: 'Logement'
-      headline: "Tu viens t’installer dans une nouvelle ville et tu cherches un logement? <br>Compte sur movido pour trouver ton logement idéal !"
-      question: "Sais-tu qu’actuellement plus <strong>10 000 studios privés </strong>sont disponibles à la location dans ta ville? Sans tenir compte des autres types de logement tels que les résidences étudiantes, les colocations, etc."
-      answer: "Trouver rapidement ton logement idéal, c’est un sacré défi!"
-      explanation: "Trouver un logement dans une nouvelle ville peut être stressant, voire risqué si tu fais confiance à des agences ou propriétaires sans expérience.En plus, la liste des éléments à vérifier est tellement longue: l’équipementdu logement, les meubles, les obligations légales du locataire (toi), les conditions de paiement du loyer, etc., etc. "
-      solution: "Nous avons une meilleure solution: movido, une plateforme tout-en-un, qui t’aide à trouver le logement idéal."
-      button: "Trouver mon logement idéal"
+      headline: "Tu t’installes dans une nouvelle ville et tu cherches un logement? <br>movido peut t'aider!"
+      question: "Sais-tu qu'il y a plus de <strong>10 000 logements </strong>disponibles à louer dans ta ville actuelle? Sans tenir compte des résidences étudiantes, des colocations etc."
+      answer: "Trouver rapidement ton lieu de vie idéal, c’est un sacré défi!"
+      explanation: "Nouveau en ville, tu peux vivre des expériences stressantes pendant ta recherche de logement, voire risquées si tu fais confiance à des agences ou propriétaires sans expérience. Visiter, vérifier les équipements, comprendre les obligations légales et les conditions de paiement du loyer etc. <br>La liste des tâches est longue!"
+      solution: "Nous avons une meilleure solution pour toi: movido, la plateforme tout-en-un qui t’aide à trouver le logement idéal."
+      button: "Trouver mon nouvel appartement"
       offer: "Les avantages de <font>movido</font>"
-      last_header: "Fini la recherche de logement sans fin – prends enfin le temps de profiter de ta nouvelle aventure!"
+      last_header: "Fini le stress dans ta recherche d’appartement! Commence par profiter de ta nouvelle aventure!"
       card_1:
         title: "Simplicité "
-        description: " Crée facilement ton profil movido et réserve ton logement en quelques clics. Toutes les information liées à ton logement sont accessibles et comparables, ce qui facilite la recherche de ton logement idéal!"
+        description: "Crée facilement ton profil movido et réserve un logement. Toutes les informations et services liés à ton logement sont accessibles et comparables en quelques clics."
       card_2:
-        title: "Accompagnement: "
-        description: "Nos équipes et celles de nos partenaires se tiennent à ta disposition pour répondre à toutes tes questions concernant nos logements."
+        title: "Flexibilité: "
+        description: "Les filtres sélectionnés par movido vont t’aider à trouver des logements basés uniquement sur tes préférences"
       card_3:
-        title: "Un partenaire long-terme"
-        description: "Même au-delà de la recherche de ton logement, nos équipes sont là pour t’accompagner lors de ton déménagement"
+        title: "Partenaire long-terme"
+        description: "Si tu as des questions, contacte-nous! Notre équipe est là pour t’aider et te renseigner pour ton déménagement et plus encore!"
   flashes:
     global_failure: 'Oups, il y a un problème'
     not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
-    complete_profile: "Vous devez compléter votre profil pour continuer"
-    existing_subscription: "Vous avez déjà cet abonnement"
+    complete_profile: "Tu dois compléter ton profil pour continuer"
+    existing_subscription: "Tu as déjà cet abonnement"
     wrong_country: "Merci de créer une adresse en %{country}"
   errors:
     not_found:

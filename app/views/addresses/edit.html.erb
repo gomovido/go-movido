@@ -9,7 +9,6 @@
     </div>
     <div class="col-md-6 offset-md-3 mb-5">
       <div class="form-base p-1">
-        <span class="mandatory"><%= t('billings.new.mandatory') %></span>
         <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put, html: {class: 'mt-2'} do |f| %>
           <%= f.simple_fields_for :address  do |s| %>
             <%= s.hidden_field :id, value: current_user.active_address.id%>
@@ -30,7 +29,8 @@
           <% end %>
           <hr>
           <%= f.input :delivery_address, label: t('.form.label.delivery_address'), class:'form-control', input_html: { data: {wifi_subscription_target: 'delivery', country: @subscription.product.country}, placeholder: t('.form.placeholder', placeholder: t('activerecord.attributes.subscription.delivery_address')).capitalize} %>
-          <div class="actions d-flex flex-column mt-5">
+          <span class="mandatory"><%= t('billings.new.mandatory') %></span>
+          <div class="actions d-flex flex-column mt-4">
             <%= f.button :submit, t('.form.button.next'), class: 'btn-main mb-4'%>
             <%= link_to t('.form.button.back'), category_products_path(@subscription.product.category), class: 'btn-exit' %>
           </div>

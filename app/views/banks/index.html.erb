@@ -3,7 +3,7 @@
   <div class="small-yellow-bubble position-absolute"></div>
   <div class="small-blue-bubble position-absolute"></div>
   <div class="big-purple-bubble position-fixed"></div>
-  <h2 class="text-center">Open your bank account online</h2>
+  <h2 class="text-center"><%= t('.title') %></h2>
   <div class="row">
     <% @banks.each do |bank| %>
       <div class="col-10 offset-1">
@@ -12,30 +12,30 @@
             <%= image_tag(asset_path(bank.logo_url + ".png")) %>
             <div class="content">
               <div class="title">
-                <span class="mb-2"><%= t("services.bank.#{bank.name.downcase}.#{bank.headline}").html_safe %></span>
+                <span class="mb-2"><%= t(".#{bank.name.downcase}.#{bank.headline}").html_safe %></span>
               </div>
               <div class="features d-flex flex-column align-items-start">
                 <div class="feature py-2">
                   <i class="fas fa-check-circle green mr-2"></i>
-                  <span><%= t("services.bank.#{bank.name.downcase}.#{bank.feature_1}").html_safe %></span>
+                  <span><%= t(".#{bank.name.downcase}.#{bank.feature_1}").html_safe %></span>
                 </div>
                 <div class="feature py-2">
                   <i class="fas fa-check-circle green mr-2"></i>
-                  <span><%= t("services.bank.#{bank.name.downcase}.#{bank.feature_2}").html_safe %></span>
+                  <span><%= t(".#{bank.name.downcase}.#{bank.feature_2}").html_safe %></span>
                 </div>
                 <div class="feature py-2">
                   <i class="fas fa-check-circle green mr-2"></i>
-                  <span><%= t("services.bank.#{bank.name.downcase}.#{bank.feature_3}").html_safe %></span>
+                  <span><%= t(".#{bank.name.downcase}.#{bank.feature_3}").html_safe %></span>
                 </div>
                 <div class="feature py-2">
                   <i class="fas fa-check-circle green mr-2"></i>
-                  <span><%= t("services.bank.#{bank.name.downcase}.#{bank.feature_4}").html_safe %></span>
+                  <span><%= t(".#{bank.name.downcase}.#{bank.feature_4}").html_safe %></span>
                 </div>
               </div>
             </div>
           </div>
           <div class="link d-flex align-items-center justify-content-center">
-            <%= link_to "See details", bank.affiliate_link, class:"purple font-weight" %>
+            <%= link_to t('.cta'), bank.affiliate_link, class:"purple font-weight" %>
           </div>
         </div>
       </div>
