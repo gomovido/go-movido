@@ -23,7 +23,7 @@ export default class extends ApplicationController {
     }
   }
 
-  afterReflex(event, response, error) {
+  afterSubmit(event, response, error) {
     window.scroll({
       top: 0,
       left: 0,

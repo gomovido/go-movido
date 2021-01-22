@@ -9,7 +9,7 @@ class AddressReflex < ApplicationReflex
     morph ".addresses-container",  with_locale {render(partial: "addresses", locals: {address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false)})}
   end
 
-  def submit
+  def create
     @address = Address.new
     @address.assign_attributes(address_params)
     @address.valid_address = true
