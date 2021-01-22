@@ -55,6 +55,7 @@ en:
         sort_code: 'Sort code'
       subscription:
         delivery_address: 'Delivery address'
+        contact_phone: 'Contact phone number for technician'
       address:
         street: 'Address'
         floor: 'Floor'
