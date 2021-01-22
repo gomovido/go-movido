@@ -1,10 +1,12 @@
 <div class="p-lg-5 py-3">
-    <button type="button" class="close position-absolute d-none d-md-block" data-dismiss="modal" aria-label="Close">
-      <i class="far fa-times-circle"></i>
-    </button>
       <div class="d-flex flex-column">
         <div class="mb-2">
-          <h3 class="mb-4">Subscription number # <%= @subscription.id %></h3>
+          <div class="mb-4 d-flex align-items-center justify-content-between">
+            <h3>Subscription number # <%= @subscription.id %></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="far fa-times-circle"></i>
+            </button>
+          </div>
           <div class="d-flex align-items-center justify-content-between mb-3">
             <span class="font-weight"><%= t('user.subscription.table.status') %></span>
             <span class="status <%= @subscription.state %>"><i class="<%= @subscription.icon_state %>"></i> <%= t("users.subscription.#{@subscription.state}") %></span>
