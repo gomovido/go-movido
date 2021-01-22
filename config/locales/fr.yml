@@ -350,6 +350,9 @@ fr:
       sim_card: 'carte SIM'
       months: 'mois'
       no_obligation: "<span class='black'>sans</span> engagement"
+    address_modal:
+      congrats: "Félicitations, votre nouvelle adresse est sauvegardée !"
+      back_products: "Retour aux offres"
   subscriptions:
     summary:
       title: "Confirme tes informations"

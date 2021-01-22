@@ -1,8 +1,9 @@
-<div class="container products-container"data-controller="filters">
+<div class="container products-container" data-controller="filters">
   <figure class="big-blue-bubble position-absolute"></figure>
   <div class="step-1">
     <%= render 'subscriptions/steps', current_step: 1, title: t('.title'), subtitle: t('.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
     <%= render 'product-details'%>
+    <%= render 'address_modal' %>
     <div class="row pt-5">
       <div class="col-lg-4  d-flex justify-content-start">
         <%= render 'filters', products: @products %>
