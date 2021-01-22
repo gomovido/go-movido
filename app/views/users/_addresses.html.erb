@@ -36,7 +36,7 @@
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>
-          <span data-reflex="click->AddressReflex#submit" data-reflex-dataset=“combined” class="btn-main"><%= t('.cta') %></span>
+          <span data-reflex="click->AddressReflex#create" data-reflex-dataset=“combined” class="btn-main"><%= t('.cta') %></span>
         </div>
         <% end %>
         <span id="error" class="text-danger"></span>
