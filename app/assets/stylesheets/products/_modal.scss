@@ -18,6 +18,14 @@
         width: 100px;
       }
       .modal-body {
+        .close {
+          top: 43px;
+          right: 61px;
+          height: 40px;
+        }
+        .close i {
+          font-size: 35px;
+        }
         .content {
           max-height: 600px;
           .left {
