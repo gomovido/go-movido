@@ -2,31 +2,36 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = params[:user]
-    mail(to: @user.email, subject: 'Welcome to movido')
+    @locale = params[:locale]
+    mail(to: @user.email, subject: I18n.t('mail.welcome_email'))
   end
 
   def subscription_under_review_email
     @user = params[:user]
     @subscription = params[:subscription]
-    mail(to: @user.email, subject: 'Congratulations on your purshase')
+    @locale = params[:locale]
+    mail(to: @user.email, subject: I18n.t('mail.subscription_under_review'))
   end
 
   def booking_under_review_email
     @user = params[:user]
     @booking = params[:booking]
-    mail(to: @user.email, subject: 'Congratulations on your booking')
+    @locale = params[:locale]
+    mail(to: @user.email, subject: I18n.t('mail.subscription_under_review'))
   end
 
   def subscription_confirmed_email
     @user = params[:user]
     @subscription = params[:subscription]
-    mail(to: @user.email, subject: 'Subscription confirmed')
+    @locale = params[:locale]
+    mail(to: @user.email, subject:  I18n.t('mail.subscription_confirmed'))
   end
 
   def booking_confirmed_email
     @user = params[:user]
     @booking = params[:booking]
-    mail(to: @user.email, subject: 'Booking confirmed')
+    @locale = params[:locale]
+    mail(to: @user.email, subject: I18n.t('mail.booking_confirmed'))
   end
 
 end
