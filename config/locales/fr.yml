@@ -1,4 +1,10 @@
 fr:
+  mail:
+    welcome_email: 'Bienvenue chez movido'
+    subscription_under_review: 'Abonnement - en cours de traitement'
+    booking_under_review: 'Réservation - en cours de traitement'
+    subscription_confirmed: 'Abonnement - confirmé'
+    booking_confirmed: 'Réservation confirmée'
   stripe:
     errors:
       incorrect_number: "Le numéro de carte est incorrect."
