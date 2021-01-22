@@ -4,9 +4,6 @@
       <%= image_tag(asset_path(@product.logo_url), class:'mr-4 mb-3 mb-sm-0 logo') %><br>
       <span class='main-title'><%= @product.company %> <%= @product.name %></span>
     </div>
-    <button type="button" class="close position-absolute d-none d-md-block" data-dismiss="modal" aria-label="Close">
-      <i class="far fa-times-circle"></i>
-    </button>
     <div class="features-wrapper mt-5">
       <% @product.product_features.each do |feature, index| %>
       <div class="feature mb-4">
@@ -16,7 +13,10 @@
       <% end %>
     </div>
   </div>
-  <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around mt-4">
+  <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around">
+    <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+      <i class="far fa-times-circle"></i>
+    </button>
     <div class="pricing d-flex flex-column align-items-center w-100">
       <span class='price text-center'><%= @product.format_price %></span>
       <span class="sub-price text-center"><%= t('.monthly') %></span>
