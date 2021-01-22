@@ -1,5 +1,6 @@
 .btn-main {
   color: $white;
+  cursor: pointer;
   background: $purple;
   padding: 15px 51.5px !important;
   font-weight: 700;
@@ -110,6 +111,7 @@
 
 
 .btn-card {
+  cursor: pointer;
   color: $purple;
   background: rgb(244,234,254);
   padding: 9px 10.5px !important;

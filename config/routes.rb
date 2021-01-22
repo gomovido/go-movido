@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get 'products/modal/:id', to: 'products#modal', as: 'modal_product'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
+
   resources :categories, only: [:index] do
     resources :banks, only: [:index]
     resources :products, only: [:index] do
