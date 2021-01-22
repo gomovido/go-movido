@@ -6,6 +6,8 @@ class Subscription < ApplicationRecord
   accepts_nested_attributes_for :address
   validates :delivery_address, presence: true, on: :update
   validate :delivery_address_country, on: :update, if: :delivery_address?
+  validates_plausible_phone :contact_phone, presence: true, on: :update, if: :product_is_wifi?
+  validate :contact_phone_country, on: :update, if: :product_is_wifi?
 
   def product_is_wifi?
     self.product.category.name == 'wifi'
@@ -30,6 +32,14 @@ class Subscription < ApplicationRecord
       "fas fa-times-circle"
     else
       "fab fa-cc-visa"
+    end
+  end
+
+  def contact_phone_country
+    if self.product.country_code == 'fr' && !self.contact_phone.start_with?('+33')
+      self.errors.add(:contact_phone, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country_code}")))
+    elsif self.product.country_code == 'uk' && !self.contact_phone.start_with?('+44')
+      self.errors.add(:contact_phone, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country_code}")))
     end
   end
 

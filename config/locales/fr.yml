@@ -60,6 +60,7 @@ fr:
         sort_code: 'Code guichet'
       subscription:
         delivery_address: 'Adresse de livraison'
+        contact_phone: 'Numéro de téléphone de contact pour le technicien'
       address:
         street: 'Adresse'
         floor: 'Étage'
@@ -416,6 +417,7 @@ fr:
       form:
         placeholder:
           street: "Entre ton adresse"
+          contact: 'Entre le'
         failure:
           street: "Adresse invalide"
     subscriptions:
