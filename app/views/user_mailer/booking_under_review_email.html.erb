@@ -25,7 +25,7 @@
     }
 
     a {
-      color: #0D4D90;
+      color: #fffff !important;
     }
 
     a img {
@@ -39,7 +39,7 @@
       text-align: center;
     }
     .image img {
-      max-width: 45% !important;
+      max-width: 100% !important;
     }
     .preheader {
       display: none !important;
@@ -107,6 +107,10 @@
       text-align: right;
     }
 
+    .sup-div {
+      width: 115px;
+    }
+
     .align-left {
       text-align: left;
     }
@@ -114,10 +118,43 @@
     .align-center {
       text-align: center;
     }
+
+    .no-r-padding {
+      padding-right: 0 !important;
+    }
+
+    .no-l-padding {
+      padding-left: 0 !important;
+    }
+
+    .no-padding {
+      padding: 0 !important;
+    }
+
+    .h-100 {
+      height: 100px;
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+
+    .d-table {
+      display: table !important;
+    }
+
+    .centered-large-padding {
+      padding-left: 25%;
+    }
+
+    .centered-lite-padding {
+      padding-left: 14%;
+    }
+
     /* Buttons ------------------------------ */
 
     .button {
-      color: #fff;
+      color: #ffffff !important;
       background: #8C30F5;
       padding: 11px 51.5px;
       font-weight: 700;
@@ -132,12 +169,17 @@
       color: #8C30F5 !important;
     }
 
+    .black {
+      color: #000000 !important;
+    }
+
     .button--green {
       background-color: #22BC66;
       border-top: 10px solid #22BC66;
       border-right: 18px solid #22BC66;
       border-bottom: 10px solid #22BC66;
       border-left: 18px solid #22BC66;
+      color: #ffffff !important;
     }
 
     .button--red {
@@ -161,7 +203,7 @@
     }
 
     .attributes_content {
-      background-color: #f2f4f6;
+      background-color: #fff;
       padding: 25px;
       border-radius: 10px !important;
     }
@@ -265,6 +307,10 @@
       line-height: 18px;
     }
 
+    .body-cell {
+      padding: 0px 35px;
+    }
+
     .purchase_heading {
       padding-bottom: 8px;
       border-bottom: 1px solid #EAEAEC;
@@ -325,7 +371,7 @@
 
     .email-masthead {
       background: #fff;
-      color: white !important;
+      color: #ffffff !important;
       text-align: left;
       font-weight: bold;
       padding: 12px !important;
@@ -333,6 +379,7 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #80808030;
+      justify-content: space-between;
     }
 
     .email-masthead img {
@@ -353,7 +400,7 @@
       font-weight: bold;
       color: #fff !important;
       text-decoration: none;
-      text-shadow: 0 1px 0 white;
+      text-shadow: 0 1px 0 #fffff;
     }
     /* Body ------------------------------ */
 
@@ -410,16 +457,25 @@
       display: flex;
     }
 
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
     .marketing-row {
       display: flex;
+      width: 570px;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
       justify-content: center;
-      width: 100%;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
     }
 
     .marketing-inputs {
       margin-top: 1rem;
+      display: flex;
     }
 
     .marketing-inputs-flex {
@@ -428,30 +484,30 @@
       align-items: center;
     }
 
-    .marketing-inputs img {
+    .marketing-inputs img, .marketing-inputs-no-flex img {
       width: 35px !important;
       height: 35px !important;
-      margin-right: 1rem;
     }
 
     .support-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       font-size: 12px;
+      margin: 0 1rem;
     }
 
     .mr-1 {
       margin-right: 1rem;
     }
 
-    .btn-td {
-      height: 100px;
-    }
-
     .mt-1 {
       margin-top: 1rem !important;
+    }
+
+    .mr-15 {
+     margin-right: 1.5rem;
+    }
+
+    .ml-15 {
+     margin-left: 1.5rem;
     }
 
     .mb-1 {
@@ -459,9 +515,14 @@
     }
 
     .body-action {
-      width: 100%;
+
+      width: 570px;
       margin: 30px auto;
       padding: 0;
+      text-align: center;
+      margin-bottom: 0;
+      margin-top: 0;
+      background: #ffffff;
       -premailer-width: 100%;
       -premailer-cellpadding: 0;
       -premailer-cellspacing: 0;
@@ -475,7 +536,11 @@
     }
 
     .content-cell {
-      padding: 0px 45px;
+      padding: 0px 0px;
+    }
+
+    .content-cell-min {
+      padding: 0px 15px;
     }
     /*Media Queries ------------------------------ */
 
@@ -493,8 +558,8 @@
       .email-content,
       .email-wrapper,
       .email-footer {
-        background-color: #fff !important;
-        color: #333333 !important;
+        color: #ffffff !important;
+        background-color: #ffffff00 !important;
       }
       p,
       ul,
@@ -503,14 +568,21 @@
       h1,
       h2,
       h3 {
-        color: #333333 !important;
+        color: #ffffff !important;
+      }
+      .email-body {
+        color: #ffffff !important;
+      }
+      .black {
+        color: #ffffff !important;
       }
       .attributes_content,
       .discount {
-        background-color: #fff !important;
+        background-color: #ffffff00 !important;
       }
       .attributes_item {
-        color: #333333 !important;
+        color: #ffffff !important;
+        background-color: #ffffff00 !important;
       }
       .email-masthead_name {
         text-shadow: none !important;
@@ -527,18 +599,21 @@
       .f-fallback  {
         font-family: Arial, sans-serif;
       }
+      .centered-lite-padding {
+        padding-left: 13%;
+      }
     </style>
   <![endif]-->
   </head>
   <body>
-    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <table class="email-wrapper" width="570" cellpadding="0" cellspacing="0" role="presentation">
       <tr>
         <td align="center">
-          <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+          <table class="email-content" width="570" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td class="email-masthead">
                 <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
-                  <%= image_tag(asset_path('navbar/logo.svg')) %>
+                  <%= image_tag(asset_path('emails/logo-main.png')) %>
                 </a>
                 <a href="" class="purple">View in browser</a>
               </td>
@@ -546,97 +621,134 @@
             <!-- Email Body -->
             <tr>
               <td class="email-body" width="570" cellpadding="0" cellspacing="0">
-                <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center">
-                      <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td align="center">
-                            <table border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td>
-                                  <div class="image">
-                                    <%= image_tag(asset_path('emails/booking_under_review.png')) %>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+              <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
+                    <table width="570" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td align="center">
+                          <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td>
+                                <div class="image">
+                                  <%= image_tag(asset_path('emails/booking_under_review.png'), class:"banner") %>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+                <table class="email-body_inner align-left" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <!-- Body content -->
                   <tr>
                     <td class="content-cell">
-                      <div class="f-fallback">
-                        <h1>Hi <span class="purple"><%= @user.first_name %></span></h1>
+                      <div class="f-fallback body-cell">
+                        <h1>Hi, <span class="purple"><%= @user.first_name %></span></h1>
                         <p>Thank you for placing a booking request with movido. The booking information is now on its way to our [product category] partner [provider name].</p>
                       </div>
                     </td>
                   </tr>
-                  <tr class='text-center'>
-                    <td class="btn-td">
-                      <a href="<%= user_url(@user) %>" class="button button--" target="_blank">See my booking status</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="content-cell">
-                      <div class="f-fallback">
-                        <p><strong>What’s next?</strong></p>
-                        <p>To complete your booking, our partner will contact you via e-mail or phone to complete the deposit payment. Once the payment is completed, you will receive a booking confirmation e-mail.</p>
-                        <p>Thanks,</p>
-                        <p>Your movido team.</p>
-                      </div>
-                    </td>
-                  </tr>
                 </table>
               </td>
             </tr>
             <tr>
               <td>
-                <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr class="marketing-row">
-                    <td class="content-cell" align="center">
-                      <span><strong>Any questions? This is how you can reach us</strong></span>
-                      <div class="d-flex marketing-inputs">
-                        <a href="" class="support-links mr-1" target="_blank">
-                          <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
-                          <span>contact@go-movido.com</span>
-                        </a>
-                        <a href="" class="support-links mr-1" target="_blank">
-                          <%= image_tag(asset_path('emails/phone-logo.png')) %>
-                          <span>+44(0)78415988269</span>
-                        </a>
-                        <a href="" class="support-links" target="_blank">
-                          <%= image_tag(asset_path('emails/email-logo.png')) %>
-                          <span>+44(0)78415988269</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="content-cell marketing-inputs-flex" align="center">
-                      <span><strong>Want to stay in touch? Find us here</strong></span>
-                      <div class="d-flex marketing-inputs">
-                        <a href="" target="_blank"><%= image_tag(asset_path('emails/facebook-logo.png')) %></a>
-                        <a href="" target="_blank"><%= image_tag(asset_path('emails/instagram-logo.png')) %></a>
-                        <a href="" target="_blank"><%= image_tag(asset_path('emails/linkedin-logo.png')) %></a>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
+                <tr>
+                  <td class="text-center mt-1" align="center">
+                    <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td>
+                          <a href="<%= user_url(@user) %>" class="button button--" target="_blank">See my booking status</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td class="content-cell">
+                        <div class="f-fallback body-cell">
+                          <p><strong>What’s next?</strong></p>
+                          <p>To complete your booking, our partner will contact you via e-mail or phone to complete the deposit payment. Once the payment is completed, you will receive a booking confirmation e-mail.</p>
+                          <p>Thanks, <br>Your movido team</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </tr>
               </td>
             </tr>
             <tr>
               <td>
-                <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                  <tr>
+                <tr>
+                  <td class="text-center mt-1" align="center">
+                    <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td>
+                          <span><strong>Any questions? This is how you can reach us</strong></span>
+                        </td>
+                      </tr>
+                      <tr class="marketing-row">
+                        <td class="marketing-inputs w-100 centered-lite-padding" align="center">
+                          <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
+                            <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
+                            <span class="black">+44(0)78415988269</span>
+                          </a>
+                          <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
+                            <%= image_tag(asset_path('emails/phone-logo.png')) %>
+                            <span class="black">+44(0)78415988269</span>
+                          </a>
+                          <a href="mailto:contact@go-movido.com" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
+                            <%= image_tag(asset_path('emails/email-logo.png')) %>
+                            <span class="black">contact@go-movido.com</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <tr>
+                  <td class="text-center mt-1" align="center">
+                    <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td>
+                          <span><strong>Want to stay in touch? Find us here</strong></span>
+                        </td>
+                      </tr>
+                      <tr class="marketing-row">
+                        <td class="marketing-inputs-no-flex mr-1 w-100" align="center">
+                          <a href="" class="content-cell no-r-padding support-links" target="_blank">
+                            <%= image_tag(asset_path('emails/facebook-logo.png')) %>
+                          </a>
+                          <a href="" class="content-cell no-padding support-links" target="_blank">
+                            <%= image_tag(asset_path('emails/instagram-logo.png')) %>
+                          </a>
+                          <a href="" class="content-cell no-l-padding support-links" target="_blank">
+                            <%= image_tag(asset_path('emails/linkedin-logo.png')) %>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <table class="email-footer align-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr align="center">
                     <td class="content-cell" align="center">
-                      <p class="f-fallback sub align-center">movido Ltd is a company registered [in] England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
+                      <p class="f-fallback sub align-center">movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
                     </td>
                   </tr>
                 </table>
