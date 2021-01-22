@@ -1,4 +1,10 @@
 en:
+  mail:
+    welcome_email: 'Welcome to movido'
+    subscription_under_review: 'Congratulations on your purshase'
+    booking_under_review: 'Congratulations on your booking'
+    subscription_confirmed: 'Subscription confirmed'
+    booking_confirmed: 'Booking confirmed'
   stripe:
     errors:
       incorrect_number: "The card number is incorrect."
