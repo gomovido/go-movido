@@ -2,7 +2,7 @@
 <div class="modal modal-product fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModal" aria-hidden="true" data-controller="address-modal" data-address-modal-country-value="<%= country_code %>" data-reflex-root="#addressModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content address">
-      <div class="modal-body modal-address p-5 d-flex flex-column justify-content-center align-items-center">
+      <div class="modal-body modal-address p-5 d-flex flex-column justify-content-center">
         <div class="bubbles">
           <div class="bubble small-yellow-bubble"></div>
           <div class="bubble small-blue-bubble"></div>
@@ -15,7 +15,12 @@
           <div class="bubble small-yellow-bubble"></div>
           <div class="bubble small-blue-bubble"></div>
         </div>
-        <h3 class="mb-4"><%= t('addresses.new.title') %></h3>
+        <div class="mb-4 d-flex align-items-center justify-content-between">
+        <h3 class="mb-0"><%= t('addresses.new.title') %></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="far fa-times-circle"></i>
+        </button>
+        </div>
         <div class="form-base mt-3">
           <%= simple_form_for @address, method: :post do |f| %>
             <%= f.input :street,
