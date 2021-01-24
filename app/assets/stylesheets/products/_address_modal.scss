@@ -1,15 +1,10 @@
 .modal-address {
   h3 {
-    color: $purple;
-    font-weight: bold;
+    font-weight: 800;
     z-index: 1;
   }
   .form-base {
     z-index: 1;
-  }
-  i {
-    font-size: 80px;
-    color: $green;
   }
   .form-control:focus.is-invalid {
     border-color: $red;
