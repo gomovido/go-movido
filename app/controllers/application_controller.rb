@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action -> { I18n.backend.reload! } if Rails.env.development?
 
+
   private
 
   def after_sign_in_path_for(resource)
@@ -15,7 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    locale = params[:locale].to_s.strip.to_sym
+    if request.env["omniauth.params"]["locale"]
+      locale = request.env["omniauth.params"]["locale"].to_s.strip.to_sym
+    else
+      locale = params[:locale].to_s.strip.to_sym
+    end
     I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
   end
 
