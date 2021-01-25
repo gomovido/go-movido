@@ -3,7 +3,9 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
   skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
   skip_before_action :authenticate_user!, only: [:send_confirmed_email]
-  http_basic_authenticate_with name: ENV['API_NAME'], password: ENV['API_SECRET'], only: [:send_confirmed_email]
+  http_basic_authenticate_with name: Rails.application.credentials.development[:forest_admin][:api_name], password: Rails.application.credentials.development[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.development?
+  http_basic_authenticate_with name: Rails.application.credentials.production[:forest_admin][:api_name], password: Rails.application.credentials.production[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.production?
+
 
   def create
     return if subscription_draft?(@product)
