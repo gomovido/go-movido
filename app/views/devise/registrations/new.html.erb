@@ -28,6 +28,8 @@
         <%= f.input :password_confirmation,
               required: true,
               input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
+        <%= f.hidden_field :locale, value: I18n.locale %>
+
         <span class="mandatory"><%= t('.mandatory') %></span>
         <div class="mt-4">
           <%= f.button :submit, t('.register'), class:'btn-main w-100' %>

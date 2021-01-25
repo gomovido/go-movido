@@ -2,6 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def google_oauth2
     @user = User.from_omniauth_google(request.env['omniauth.auth'])
+    I18n.locale = request.env["omniauth.params"]["locale"]
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
       sign_in_and_redirect @user, event: :authentication
@@ -13,6 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
+    I18n.locale = request.env["omniauth.params"]["locale"]
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Facebook' if is_navigational_format?
