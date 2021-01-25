@@ -36,6 +36,7 @@ class SubscriptionsController < ApplicationController
       redirect_to subscription_payment_path(@subscription)
     else
       @subscription.update(state: 'succeeded', locale: I18n.locale)
+      UserMailer.with(user: @subscription.address.user, subscription: @subscription, locale: @subscription.locale).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(@subscription)
     end
   end
