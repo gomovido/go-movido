@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
   skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
   skip_before_action :authenticate_user!, only: [:send_confirmed_email]
+  http_basic_authenticate_with name: ENV['API_NAME'], password: ENV['API_SECRET'], only: [:send_confirmed_email]
 
   def create
     return if subscription_draft?(@product)
