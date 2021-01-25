@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    current_user.active_address.nil? ? new_user_address_path(current_user.id) : dashboard_index_path
+    resource.active_address.nil? ? new_user_address_path(resource.id) : dashboard_index_path
   end
 
   def after_sign_out_path_for(resource)
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
       keys: [
-        :email, :first_name, :last_name, :phone, :birthdate, :city,
+        :email, :first_name, :last_name, :phone, :birthdate, :city, :locale,
         :country, :not_housed, :birth_city, addresses_attributes: [:street, :zipcode, :country, :city]
       ]
     )
