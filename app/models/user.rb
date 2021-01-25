@@ -22,10 +22,10 @@ class User < ApplicationRecord
   before_create :generate_username
   after_create :send_welcome_email
 
+
   def user_subscriptions_country
     self.subscriptions.select {|s| s if s.product.country == self.active_address.country }
   end
-
 
   def active_address
     Address.find_by(user: self, active: true)
@@ -60,12 +60,12 @@ class User < ApplicationRecord
     data = access_token.info
     user = User.find_by(email: data['email'])
     unless user
-        user = User.create(
-           email: data['email'],
-           password: Devise.friendly_token[0,20],
-           first_name: data['first_name'],
-           last_name: data['last_name']
-        )
+      user = User.create(
+         email: data['email'],
+         password: Devise.friendly_token[0,20],
+         first_name: data['first_name'],
+         last_name: data['last_name']
+      )
     end
     return user
   end
@@ -73,7 +73,7 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.with(user: self, locale: I18n.locale).welcome_email.deliver_now
+    UserMailer.with(user: self, locale: @locale).welcome_email.deliver_now
   end
 
   protected
