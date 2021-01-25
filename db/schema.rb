@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_164638) do
+ActiveRecord::Schema.define(version: 2021_01_25_160408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2021_01_22_164638) do
     t.string "delivery_address"
     t.string "sim"
     t.string "contact_phone"
+    t.string "locale"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["product_id"], name: "index_subscriptions_on_product_id"
   end
