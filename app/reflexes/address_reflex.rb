@@ -24,6 +24,18 @@ class AddressReflex < ApplicationReflex
     end
   end
 
+  def create_with_modal
+    @address = current_user.active_address.valid_address ? current_user.active_address : Address.new
+    @address.assign_attributes(address_params)
+    @address.valid_address = true
+    @address.user = current_user
+    if @address.save!
+      @address.set_has_active
+      current_user.update_user_country
+      morph :nothing
+    end
+  end
+
 
 
   private

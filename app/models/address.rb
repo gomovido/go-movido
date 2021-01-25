@@ -14,6 +14,7 @@ class Address < ApplicationRecord
   def set_has_active
     Address.where(user: self.user).each {|address| address.update_columns(active: false)}
     self.update_columns(active: true)
+    Address.where(user: self.user, valid_address: false).destroy_all unless self.user.addresses.length == 1
   end
 
   def country

@@ -2,35 +2,31 @@
   <div class="big-blue-bubble position-absolute"></div>
   <div class="big-purple-bubble position-fixed"></div>
   <div class="small-yellow-bubble position-absolute"></div>
-  <div class="row">
-    <div class="col-11 offset-1">
-      <div class="header mb-5 d-flex align-items-center justify-content-center">
-        <%= image_tag(asset_path('pages/dashboard/housing-card.png'), class: 'housing-image') %>
-        <h2 class="mb-0 ml-3"><%= t('.title') %></h2>
-      </div>
-      <h4 class="mb-3"><%= t('.headline').html_safe %></h4>
-      <p class="mb-4"><%= t('.question').html_safe %></p>
-      <h6 class="mb-3"><%= t('.answer') %></h6>
-      <p class="mb-4"><%= t('.explanation').html_safe %></p>
-      <h6 class="mb-5"><%= t('.solution') %></h6>
-      <%= link_to t('.button'), dashboard_index_path, class: 'btn-main text-center' %>
-      <h3 class="my-5"><%= t('.offer').html_safe %></h3>
-      <div class="features-wrapper mb-4">
-        <div class="feature-card mb-4 p-3">
-          <h4><i class="fas fa-check-circle green mr-2"></i> <%= t('.card_1.title') %> </h4>
-          <p><%= t('.card_1.description') %></p>
-        </div>
-        <div class="feature-card mb-4 p-3">
-          <h4><i class="fas fa-check-circle green mr-2"></i> <%= t('.card_2.title') %>  </h4>
-          <p><%= t('.card_2.description') %></p>
-        </div>
-        <div class="feature-card mb-5 p-3">
-          <h4><i class="fas fa-check-circle green mr-2"></i> <%= t('.card_3.title') %>  </h4>
-          <p><%= t('.card_3.description') %></p>
-        </div>
-      </div>
-      <h3 class="footer-header mb-5"><%= t('.last_header') %></h3>
-      <%= link_to t('.button'), dashboard_index_path, class: 'btn-main text-center' %>
+    <div class="header mb-5 d-flex align-items-center justify-content-center">
+      <%= image_tag(asset_path('pages/dashboard/housing-card.png'), class: 'service-image') %>
+      <h2 class="mb-0 ml-3"><%= t('.title') %></h2>
     </div>
-  </div>
+    <h4 class="mb-3"><%= t('.headline').html_safe %></h4>
+    <p class="mb-4"><%= t('.question').html_safe %></p>
+    <h6 class="mb-3"><%= t('.answer') %></h6>
+    <p class="mb-4"><%= t('.explanation').html_safe %></p>
+    <h6 class="mb-5"><%= t('.solution') %></h6>
+    <%= link_to t('.button'), dashboard_index_path, class: 'btn-main text-center' %>
+    <h3 class="my-5"><%= t('.offer').html_safe %></h3>
+    <div class="features-wrapper mb-4">
+      <div class="feature-card mb-4 p-3">
+        <h4><i class="fas fa-check-circle green mr-2"></i> <%= t('.card_1.title') %> </h4>
+        <p><%= t('.card_1.description') %></p>
+      </div>
+      <div class="feature-card mb-4 p-3">
+        <h4><i class="fas fa-check-circle green mr-2"></i> <%= t('.card_2.title') %>  </h4>
+        <p><%= t('.card_2.description') %></p>
+      </div>
+      <div class="feature-card mb-5 p-3">
+        <h4><i class="fas fa-check-circle green mr-2"></i> <%= t('.card_3.title') %>  </h4>
+        <p><%= t('.card_3.description') %></p>
+      </div>
+    </div>
+    <h3 class="footer-header mb-5"><%= t('.last_header') %></h3>
+    <%= link_to t('.button'), dashboard_index_path, class: 'btn-main text-center' %>
 </div>
