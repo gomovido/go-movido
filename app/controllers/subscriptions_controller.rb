@@ -1,7 +1,11 @@
 class SubscriptionsController < ApplicationController
-
   before_action :set_product, only: [:new, :create, :create_wifi_subcription, :new_wifi]
   before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
+  skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
+  skip_before_action :authenticate_user!, only: [:send_confirmed_email]
+  http_basic_authenticate_with name: Rails.application.credentials.development[:forest_admin][:api_name], password: Rails.application.credentials.development[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.development?
+  http_basic_authenticate_with name: Rails.application.credentials.production[:forest_admin][:api_name], password: Rails.application.credentials.production[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.production?
+
 
   def create
     return if subscription_draft?(@product)
@@ -27,11 +31,11 @@ class SubscriptionsController < ApplicationController
   def summary; end
 
   def validate_subscription
-    if @subscription.product.has_payment?
-      @subscription.update(state: 'pending_processed')
+    if @subscription.product.is_mobile? && @subscription.product.has_payment?
+      @subscription.update(state: 'pending_processed', locale: I18n.locale)
       redirect_to subscription_payment_path(@subscription)
     else
-      @subscription.update(state: 'succeeded')
+      @subscription.update(state: 'succeeded', locale: I18n.locale)
       redirect_to subscription_congratulations_path(@subscription)
     end
   end
@@ -49,6 +53,11 @@ class SubscriptionsController < ApplicationController
     respond_to do |format|
       format.html { render layout: false }
     end
+  end
+
+  def send_confirmed_email
+    subscription = Subscription.find(params[:subscription_id])
+    UserMailer.with(user: subscription.address.user, subscription: subscription, locale: subscription.locale).subscription_confirmed_email.deliver_now
   end
 
   private

@@ -20,8 +20,23 @@ class User < ApplicationRecord
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, presence: true, on: :update
   before_create :generate_username
-  after_create :send_welcome_email
 
+
+  def self.from_omniauth_google(access_token)
+    data = access_token['omniauth.auth']['info']
+    locale = access_token['omniauth.params']['locale']
+    user = User.find_by(email: data['email'])
+    unless user
+      user = User.create(
+        email: data['email'],
+        password: Devise.friendly_token[0,20],
+        first_name: data['first_name'],
+        last_name: data['last_name']
+      )
+      UserMailer.with(user: user, locale: locale).welcome_email.deliver_now
+    end
+    return user
+  end
 
   def user_subscriptions_country
     self.subscriptions.select {|s| s if s.product.country == self.active_address.country }
@@ -47,34 +62,8 @@ class User < ApplicationRecord
     end
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.first_name = auth.info.name.split(' ')[0]
-      user.last_name = auth.info.name.split(' ').drop(1).join('-')
-    end
-  end
-
-  def self.from_omniauth_google(access_token)
-    data = access_token.info
-    user = User.find_by(email: data['email'])
-    unless user
-      user = User.create(
-        email: data['email'],
-        password: Devise.friendly_token[0,20],
-        first_name: data['first_name'],
-        last_name: data['last_name']
-      )
-    end
-    return user
-  end
 
   private
-
-  def send_welcome_email
-    UserMailer.with(user: self).welcome_email.deliver_now
-  end
 
   protected
 
