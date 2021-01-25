@@ -61,10 +61,10 @@ class User < ApplicationRecord
     user = User.find_by(email: data['email'])
     unless user
       user = User.create(
-         email: data['email'],
-         password: Devise.friendly_token[0,20],
-         first_name: data['first_name'],
-         last_name: data['last_name']
+        email: data['email'],
+        password: Devise.friendly_token[0,20],
+        first_name: data['first_name'],
+        last_name: data['last_name']
       )
     end
     return user
@@ -73,7 +73,7 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.with(user: self, locale: @locale).welcome_email.deliver_now
+    UserMailer.with(user: self).welcome_email.deliver_now
   end
 
   protected
