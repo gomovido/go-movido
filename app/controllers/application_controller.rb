@@ -16,11 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    if request.env["omniauth.params"]["locale"]
-      locale = request.env["omniauth.params"]["locale"].to_s.strip.to_sym
-    else
-      locale = params[:locale].to_s.strip.to_sym
-    end
+    locale = params[:locale].to_s.strip.to_sym
     I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
   end
 
