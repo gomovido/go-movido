@@ -1,9 +1,8 @@
 import { Controller } from "stimulus";
 import { addressAutocomplete } from '../packs/algolia';
-import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
-  static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
+  static targets = [ "continueButton", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "ibanInput" ]
   static classes = [ "hide", "disabled" ]
   static values = { locale: String }
   connect() {
@@ -11,7 +10,6 @@ export default class extends Controller {
       this.deliveryAddressInputTarget.value = e.suggestion.value;
       this.enableButton();
     });
-    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
   }
 
   stepForward() {
@@ -26,15 +24,9 @@ export default class extends Controller {
     this.secondPartTarget.classList.add(this.hideClass);
   }
 
-  fillBank() {
-    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
-    this.enableButton();
-  }
-
   enableButton() {
     if (document.getElementById('continueButton')) {
-      if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
-
+      if (this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
         this.continueButtonTarget.classList.remove(this.disabledClass);
       }
     }
