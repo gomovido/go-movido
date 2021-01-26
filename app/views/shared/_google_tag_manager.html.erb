@@ -5,5 +5,5 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', <%= Rails.application.credentials.production[:google][:tag_id] %>);
+  gtag('config', <%= "#{Rails.application.credentials.production[:google][:tag_id]}" %>);
 </script>
