@@ -4,9 +4,7 @@
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div class="mb-2">
         <%= f.input :holder_name, required: true, class:'form-control pl-5', input_html: {value: current_user.first_name + ' ' + current_user.last_name} %>
-        <%= f.input :account_number, class:'form-control', required: true, placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.account_number')).capitalize %>
-        <%= f.input :sort_code, class:'form-control', required: true, placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.sort_code')).capitalize %>
-        <%= f.input :bank, required: true, placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.bank')).capitalize, class:'form-control'%>
+        <%= f.input :iban, required: true, placeholder: "GB77BARC20201530093459" %>
         <hr>
         <div class="mb-2">
           <%= f.input :address, required: true, input_html: {class:'form-control', data: {subscription_uk_target: 'billingAddressInput'}}, placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.address')).capitalize %>

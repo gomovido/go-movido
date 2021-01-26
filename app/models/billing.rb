@@ -1,11 +1,11 @@
 class Billing < ApplicationRecord
   belongs_to :subscription
   belongs_to :user
-  validates_presence_of :address, :bank, :bic, :iban, unless: :product_is_uk?
-  validates_presence_of :address, :bank, :holder_name, :account_number, if: :product_is_uk?
-  validates_format_of :bic, with: /\A[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$\z/i, unless: :product_is_uk?
-  validates_with IbanValidator, unless: :product_is_uk?
+  validates_presence_of :iban, :address, :bank
+  validates_presence_of :bic, unless: :product_is_uk?
+  validates_presence_of :holder_name, :account_number, :sort_code, if: :product_is_uk?
   validate :billing_address_country
+  validate :check_iban
   accepts_nested_attributes_for :subscription
 
   def product_is_uk?
@@ -14,6 +14,21 @@ class Billing < ApplicationRecord
 
   def iban_prettify
     IBANTools::IBAN.new(self.iban).prettify
+  end
+
+  def check_iban
+    if self.iban.blank?
+      self.errors.add(:iban, :blank)
+    else
+      response = JSON.parse(IbanApiService.new(iban: self.iban).api_call)
+      response["validations"].each do |validation, details|
+        self.errors.add(:iban, I18n.t("iban.errors.error_#{details["code"]}")) if details["code"].to_i < 208 && details["code"].to_i > 200
+      end
+      self.bic = response["bank_data"]["bic"]
+      self.bank = response["bank_data"]["bank"]
+      self.account_number = response["bank_data"]["account"]
+      self.sort_code = response["bank_data"]["branch_code"]
+    end
   end
 
   def billing_address_country

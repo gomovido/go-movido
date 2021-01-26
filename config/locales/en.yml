@@ -19,6 +19,14 @@ en:
       missing: "There is no card on a customer that is being charged."
       processing_error: "An error occurred while processing the card."
       rate_limit: "An error occurred due to requests hitting the API too quickly. Please let us know if you're consistently running into this error."
+  iban:
+    errors:
+      error_201: "check digit not correct"
+      error_202: "check digit not correct"
+      error_203: "length is not correct"
+      error_205: "structure is not correct"
+      error_206: "contains illegal characters"
+      error_207: "country does not support IBAN standard"
   activerecord:
     errors:
       models:

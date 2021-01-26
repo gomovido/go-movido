@@ -1,11 +1,11 @@
 class BillingsController < ApplicationController
-  before_action :set_subscription, only: [:new, :new_uk, :new_fr, :create]
+  before_action :set_subscription, only: [:new, :new_uk, :new_fr, :create, :update]
 
   def new
     if !current_user.is_complete?
       redirect_to subscription_complete_profil_path(@subscription)
     else
-      @billing = Billing.new
+      @billing = @subscription.billing.nil? ? Billing.new : @subscription.billing
       @billing.build_subscription if @subscription.product.is_mobile?
       redirect_to_new(@subscription)
     end
@@ -17,12 +17,19 @@ class BillingsController < ApplicationController
 
   def create
     @billing = Billing.new
-    @billing.subscription = @subscription
     @billing.user = current_user
+    @billing.subscription = @subscription
     @billing.update(billing_params)
-    @billing.iban = sanitized_iban
-    @billing.bic = sanitized_bic
     if @billing.save
+      redirect_to subscription_summary_path(@billing.subscription)
+    else
+      redirect_to_new(@subscription)
+    end
+  end
+
+  def update
+    @billing = @subscription.billing
+    if @billing.update(billing_params)
       redirect_to subscription_summary_path(@billing.subscription)
     else
       redirect_to_new(@subscription)
@@ -36,16 +43,12 @@ class BillingsController < ApplicationController
 
   private
 
-  def sanitized_bic
-    billing_params[:bic].upcase if billing_params[:bic].present?
-  end
-
   def sanitized_iban
     billing_params[:iban].upcase.gsub(" ","") if billing_params[:iban].present?
   end
 
   def billing_params
-    params.require(:billing).permit(:address, :bic, :iban, :bank, :holder_name, :account_number, :sort_code, :subscription_id, subscription_attributes: [:id, :delivery_address, :sim])
+    params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, subscription_attributes: [:id, :delivery_address, :sim])
   end
 
   def set_subscription

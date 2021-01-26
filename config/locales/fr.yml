@@ -19,6 +19,14 @@ fr:
       missing: "Aucun client associé à cette carte"
       processing_error: "Une erreur est survenue lors du contrôle de la carte."
       rate_limit: "Une erreur est survenue en raison d'un trop grand nombre de requêtes vers le serveur. Veuillez nous contacter si vous rencontrez cette erreur systématiquement."
+  iban:
+    errors:
+      error_201: ": vérification numérique incorrecte"
+      error_202: ": vérification numérique incorrecte"
+      error_203: ": longueur incorrecte"
+      error_205: ": structure incorrecte"
+      error_206: ": caractères invalides"
+      error_207: ": le pays n'est pas supporté"
   activerecord:
     errors:
       models:
