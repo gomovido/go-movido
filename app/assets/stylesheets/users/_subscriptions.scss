@@ -41,15 +41,28 @@
     }
   }
 
-  .action {
-    color: $purple;
+  .actions {
+    cursor: pointer;
     font-weight: bold;
-    border: 1px solid rgba(140, 48, 245, 0.1);
     border-radius: 16px;
     padding: 0.7rem 0rem;
     font-size: 14px;
-    &:hover {
-      text-decoration: underline;
+    hr {
+      border: 1px solid rgba(140, 48, 245, 0.1);
+      margin: 16px auto;
+      width: 50%;
+    }
+    .action {
+      color: $purple;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .cancel {
+      color: $red;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
