@@ -454,6 +454,7 @@ fr:
         resume: 'Continuer'
         pay: 'Payer'
         details: 'Détails'
+        cancel: "Résilier l'abonnement"
   shared:
     navbar_visitor:
       about_us: 'À propos'

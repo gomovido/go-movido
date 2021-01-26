@@ -427,6 +427,7 @@ en:
         resume: 'Resume'
         pay: 'Pay'
         details: 'Details'
+        cancel: 'Cancel subscription'
   shared:
     navbar_visitor:
       about_us: 'About us'
