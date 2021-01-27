@@ -1,10 +1,9 @@
-<div class="actions d-flex flex-column mt-4">
-  <%= f.button :submit, t('billings.new.form.button.next'), class: 'btn-main mb-4'%>
-  <% if subscription.product.is_wifi? %>
-  <%= link_to t('billings.new.form.button.back'), edit_subscription_address_path(subscription, subscription.address), class: 'btn-exit' %>
-  <% else %>
-  <%= link_to t('billings.new.form.button.back'), category_products_path(subscription.product.category), class: 'btn-exit' %>
-  <% end %>
-
-</div>
+  <div class="actions d-flex flex-column mt-4">
+    <%= f.button :submit, t('billings.new.form.button.next'), class: 'btn-main mb-4'%>
+    <% if subscription.product.is_wifi? %>
+    <%= link_to t('billings.new.form.button.back'), edit_subscription_address_path(subscription, subscription.address), class: 'btn-exit' %>
+    <% else %>
+    <%= link_to t('billings.new.form.button.back'), category_products_path(subscription.product.category), class: 'btn-exit' %>
+    <% end %>
+  </div>
 </div>

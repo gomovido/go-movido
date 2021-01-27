@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   resources :subscriptions, only: [:show ] do
     get 'complete-profil', to: 'users#complete_profil'
-    resources :billings, only: [:new, :create]
+    resources :billings, only: [:new, :create, :update]
     resources :addresses, only: [:update, :edit]
   end
 

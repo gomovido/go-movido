@@ -1,17 +1,23 @@
 import { Controller } from "stimulus";
 import { addressAutocomplete } from '../packs/algolia';
-import iban_to_bank from '../packs/iban_to_bank'
 
 export default class extends Controller {
-  static targets = [ "continueButton", "bicInput", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "bankInput", "ibanInput" ]
+  static targets = [ "continueButton", "billingAddressInput", "firstPart", "secondPart", "ibanInput", "giffgaffAddressInput" ]
   static classes = [ "hide", "disabled" ]
   static values = { locale: String }
   connect() {
-    addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
-      this.deliveryAddressInputTarget.value = e.suggestion.value;
-      this.enableButton();
-    });
-    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
+    let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
+    if (deliveryField && deliveryField.dataset.company === "giffgaff") {
+      addressAutocomplete(deliveryField);
+      addressAutocomplete(this.billingAddressInputTarget);
+    } else if (deliveryField) {
+      addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
+        deliveryField.value = e.suggestion.value;
+        this.enableButton();
+      });
+    } else {
+      addressAutocomplete(this.billingAddressInputTarget);
+    }
   }
 
   stepForward() {
@@ -26,15 +32,10 @@ export default class extends Controller {
     this.secondPartTarget.classList.add(this.hideClass);
   }
 
-  fillBank() {
-    this.bankInputTarget.value = iban_to_bank(this.ibanInputTarget.value, this.localeValue);
-    this.enableButton();
-  }
-
   enableButton() {
+    let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
     if (document.getElementById('continueButton')) {
-      if (this.bicInputTarget.value && this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
-
+      if (deliveryField.value && this.ibanInputTarget.value) {
         this.continueButtonTarget.classList.remove(this.disabledClass);
       }
     }
