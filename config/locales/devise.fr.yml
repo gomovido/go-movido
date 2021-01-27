@@ -55,6 +55,9 @@ fr:
         title_left: 'Content de te revoir'
         title_right: 'Se connecter'
         subtitle: "Connecte toi et nous nous occupons de tout"
+        placeholders:
+          email: 'Entrer votre adresse e-mail'
+          password: '6 caractères minimum'
       signed_in: "Connecté."
       signed_out: "Déconnecté."
       already_signed_out: "Déconnecté."
@@ -74,6 +77,8 @@ fr:
         or: "Ou"
         register: 'Enregistrer'
         mandatory: '* Champs obligatoires'
+        account_present: "Déjà inscrit ?"
+        login: "Se connecter"
       edit:
         title: "Mes informations d'accès"
         update: 'Mettre à jour'

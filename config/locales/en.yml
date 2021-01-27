@@ -393,8 +393,10 @@ en:
       submit: 'Update'
     complete_profil:
       title: 'Please complete your profile'
+      mobile_title: 'Complete your profile'
       button: 'Continue'
       placeholder: 'Enter your %{placeholder}'
+      mandatory: '* Mandatory fields'
     show:
       title: 'My profile'
       addresses_tab: 'My addresses'

@@ -2,24 +2,29 @@
 <% content_for :meta_description, "Sign in now and let movido deal with your admin work" %>
 <div class="container registration-container d-flex align-items-center justify-content-center">
   <div class="row w-100">
-    <div class="col-md-7 position-relative d-flex justify-content-center flex-column">
+    <div class="col-md-7 position-relative d-md-flex justify-content-center flex-column d-none">
       <h1><%= t('.title_left').html_safe %></h1>
       <p><%= t('.subtitle').html_safe %></p>
-      <figure class="big-blue-bubble position-absolute"></figure>
+      <figure class="big-blue-bubble position-absolute d-none d-md-block"></figure>
     </div>
     <div class="col-md-5">
       <div class="form-base">
-        <h4 class="mb-4"><%= t('.title_right') %></h4>
+        <h4 class="mb-4 login"><%= t('.title_right') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.input :email,
           required: true,
           autofocus: true,
-          input_html: { autocomplete: "email" } %>
+          input_html: { autocomplete: "email", placeholder: t('.placeholders.email') } %>
         <%= f.input :password,
           required: true,
-          input_html: { autocomplete: "current-password" } %>
+          input_html: { autocomplete: "current-password", placeholder: t('.placeholders.password') } %>
         <div class="mt-4">
+          <%= link_to t('devise.shared.links.forgot_password'), new_password_path(resource_name), class: 'd-md-none d-block links mb-4 text-center' %>
           <%= f.button :submit, t('.login'), class:'btn btn-main w-100' %>
+          <div class="d-md-none d-flex align-items-baseline links mt-4 justify-content-center">
+            <%= link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name), class: 'links' %>
+            <i class='fas fa-arrow-right ml-2'></i>
+          </div>
            <%= render "devise/shared/links" %>
         </div>
         <% end %>
