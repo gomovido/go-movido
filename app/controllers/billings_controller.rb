@@ -1,19 +1,15 @@
 class BillingsController < ApplicationController
-  before_action :set_subscription, only: [:new, :new_uk, :new_fr, :create, :update]
+  before_action :set_subscription, only: [:new, :create, :update]
 
   def new
     if !current_user.is_complete?
       redirect_to subscription_complete_profil_path(@subscription)
     else
       @billing = @subscription.billing.nil? ? Billing.new : @subscription.billing
-      @billing.build_subscription if @subscription.product.is_mobile?
-      redirect_to_new(@subscription)
+      @billing.build_subscription(delivery_address: @subscription.delivery_address) if @subscription.product.is_mobile?
+      render :new
     end
   end
-
-  def new_uk; end
-
-  def new_europe; end
 
   def create
     @billing = Billing.new
@@ -23,7 +19,7 @@ class BillingsController < ApplicationController
     if @billing.save
       redirect_to subscription_summary_path(@billing.subscription)
     else
-      redirect_to_new(@subscription)
+      render :new
     end
   end
 
@@ -32,20 +28,11 @@ class BillingsController < ApplicationController
     if @billing.update(billing_params)
       redirect_to subscription_summary_path(@billing.subscription)
     else
-      redirect_to_new(@subscription)
+      render :new
     end
   end
 
-
-  def redirect_to_new(subscription)
-    subscription.product.country == 'United Kingdom' ? (render :new_uk) : (render :new_europe)
-  end
-
   private
-
-  def sanitized_iban
-    billing_params[:iban].upcase.gsub(" ","") if billing_params[:iban].present?
-  end
 
   def billing_params
     params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, subscription_attributes: [:id, :delivery_address, :sim])

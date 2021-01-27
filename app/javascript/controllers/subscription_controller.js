@@ -2,14 +2,22 @@ import { Controller } from "stimulus";
 import { addressAutocomplete } from '../packs/algolia';
 
 export default class extends Controller {
-  static targets = [ "continueButton", "billingAddressInput", "deliveryAddressInput", "firstPart", "secondPart", "ibanInput" ]
+  static targets = [ "continueButton", "billingAddressInput", "firstPart", "secondPart", "ibanInput", "giffgaffAddressInput" ]
   static classes = [ "hide", "disabled" ]
   static values = { locale: String }
   connect() {
-    addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
-      this.deliveryAddressInputTarget.value = e.suggestion.value;
-      this.enableButton();
-    });
+    let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
+    if (deliveryField && deliveryField.dataset.company === "giffgaff") {
+      addressAutocomplete(deliveryField);
+      addressAutocomplete(this.billingAddressInputTarget);
+    } else if (deliveryField) {
+      addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
+        deliveryField.value = e.suggestion.value;
+        this.enableButton();
+      });
+    } else {
+      addressAutocomplete(this.billingAddressInputTarget);
+    }
   }
 
   stepForward() {
@@ -25,8 +33,9 @@ export default class extends Controller {
   }
 
   enableButton() {
+    let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
     if (document.getElementById('continueButton')) {
-      if (this.deliveryAddressInputTarget.value && this.ibanInputTarget.value) {
+      if (deliveryField.value && this.ibanInputTarget.value) {
         this.continueButtonTarget.classList.remove(this.disabledClass);
       }
     }

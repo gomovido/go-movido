@@ -29,7 +29,12 @@
         }
         .content {
           max-height: 600px;
+          .left::-webkit-scrollbar {
+            display: none;
+          }
           .left {
+            max-width: 75%;
+            overflow-y: scroll;
             .features-wrapper {
               min-height: 250px;
             }

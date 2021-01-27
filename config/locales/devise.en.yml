@@ -48,13 +48,13 @@ en:
     sessions:
       new:
         facebook: "Sign up with <strong>&nbsp Facebook</strong>"
-        google: "Sign up with <strong>&nbsp Google</strong>"
+        google: "Login with <strong>&nbsp Google</strong>"
         or: "Or"
         login: 'Login'
         title_left: 'Welcome back <br> to movido'
-        title_right: 'Sign in'
-        subtitle: 'Sign in now and let movido deal with your admin work'
-      signed_in: "Signed in successfully."
+        title_right: 'Login'
+        subtitle: 'Login now and let movido deal with your admin work'
+      signed_in: "Logged in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
     registrations:
@@ -86,7 +86,7 @@ en:
         no_account: "Don't have an account yet?"
         login: 'Log in'
         sign_up: 'Sign up'
-        sign_in: 'Sign in'
+        sign_in: 'Login'
         forgot_password: 'Forgot your password?'
         confirmation_instruction: "Didn't receive confirmation instructions?"
         unlock_instruction: "Didn't receive unlock instructions?"
