@@ -20,6 +20,10 @@
       <%= link_to t('.cta.pay'), subscription_payment_path(subscription), class: "action", data: { turbolinks: false } %>
     <% end %>
     <hr>
-    <span class="cancel"><%= t('.cta.cancel') %></span>
+    <% if subscription.state == 'draft' %>
+      <%= link_to t('.cta.abort'), abort_subscription_path(subscription), method: :post, class: "cancel" %>
+    <% else %>
+      <span class="cancel"><%= t('.cta.cancel') %></span>
+    <% end %>
   </div>
 </div>

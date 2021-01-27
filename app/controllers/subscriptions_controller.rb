@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_product, only: [:new, :create, :create_wifi_subcription, :new_wifi]
-  before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment]
+  before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment, :abort_subscription]
   skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
   skip_before_action :authenticate_user!, only: [:send_confirmed_email]
   http_basic_authenticate_with name: Rails.application.credentials.development[:forest_admin][:api_name], password: Rails.application.credentials.development[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.development?
@@ -59,6 +59,17 @@ class SubscriptionsController < ApplicationController
   def send_confirmed_email
     subscription = Subscription.find(params[:subscription_id])
     UserMailer.with(user: subscription.address.user, subscription: subscription, locale: subscription.locale).subscription_confirmed_email.deliver_now
+  end
+
+  def abort_subscription
+    if @subscription.state == 'draft'
+      @subscription.update_columns(state: 'aborted')
+      flash[:alert] = I18n.t 'flashes.subscription_aborted'
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = I18n.t 'flashes.global_failure'
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
