@@ -463,6 +463,7 @@ fr:
         pay: 'Payer'
         details: 'Détails'
         cancel: "Résilier l'abonnement"
+        abort: "Abandonner l'abonnement"
   shared:
     navbar_visitor:
       about_us: 'À propos'
@@ -572,6 +573,7 @@ fr:
     complete_profile: "Tu dois compléter ton profil pour continuer"
     existing_subscription: "Tu as déjà cet abonnement"
     wrong_country: "Merci de créer une adresse en %{country}"
+    subscription_aborted: "L'abonnement a été abandonné"
   errors:
     not_found:
       title: "Désolé :("
