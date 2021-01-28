@@ -36,16 +36,21 @@
 
 @include media-breakpoint-down(md) {
   .footer {
-    .links {
-      display: flex;
-      flex-direction: column;
+    .logo {
+      margin: 0 auto;
     }
-    .bot {
-      padding-right: 0;
-      padding-left: 0;
-      .copyright {
-        padding-left: 3rem;
-      }
+    span {
+      font-size: 14px;
+      opacity: 0.4;
+      line-height: 26px;
+    }
+    a {
+      font-size: 14px;
+      font-family: 'Montserrat';
+    }
+    .fa-chevron-right {
+      font-size: 14px;
+      color: $white;
     }
   }
 }
