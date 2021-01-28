@@ -1,0 +1,36 @@
+<section id="services-cards" data-controller="animate">
+  <div class="services-cards-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex align-items-center w-100 justify-content-between mb-3">
+          <h2 class="m-0"><%= t('pages.home.services-cards.title') %></h2>
+          <div class="arrow-wrapper">
+            <i class="fas fa-arrow-circle-left light-purple mr-3" data-action='click->animate#slideLeft' data-animate-target="leftArrow"></i>
+            <i class="fas fa-arrow-circle-right purple" data-action='click->animate#slideRight' data-animate-target="rightArrow"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="container-fluid service-cards-scroller">
+      <ul class="hs" data-animate-target="container">
+        <li class="item">
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/housing.png', title: t('pages.dashboard_index.housing.name'), description: t('pages.home.services-cards.housing'), timer: '8',comming_soon: false, path: services_real_estate_path %>
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/wifi.png', title: t('pages.dashboard_index.wifi.name'), description: t('pages.home.services-cards.wifi'), timer: '6',comming_soon: false, path: services_wifi_path %>
+        </li>
+        <li class="item">
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/bank.png', title: t('pages.dashboard_index.bank.name'), description: t('pages.home.services-cards.bank'), timer: '6',comming_soon: false, path: services_bank_path %>
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/utilities.png', title: t('pages.dashboard_index.utilities.name'), description: t('pages.home.services-cards.utilities'), timer: 'no_timer',comming_soon: true, path: new_user_registration_path %>
+        </li>
+        <li class="item">
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/mobile.png', title: t('pages.dashboard_index.mobile_phone.name'), description: t('pages.home.services-cards.mobile'), timer: '3',comming_soon: false, path: services_mobile_path %>
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/transportation.png', title: t('pages.dashboard_index.transportation.name'), description: t('pages.home.services-cards.transportation'), timer: 'no_timer',comming_soon: true, path: new_user_registration_path %>
+        </li>
+        <li class="item">
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/gym.png', title: t('pages.dashboard_index.gym.name'), description: t('pages.home.services-cards.gym'), timer: 'no_timer',comming_soon: true, path: new_user_registration_path %>
+          <%=  render 'pages/home/desktop/service-card', picto: 'pages/home/community.png', title: t('pages.dashboard_index.community.name'), description: t('pages.home.services-cards.community'), timer: 'no_timer',comming_soon: true, path: new_user_registration_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
