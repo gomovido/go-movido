@@ -14,7 +14,7 @@
 
   p {
     font-size: 18px;
-    color:  #969BAB;
+    color: $grey;
     line-height: 40px;
   }
   .big-blue-bubble {
@@ -28,5 +28,36 @@
   .big-purple-bubble {
     bottom: -120px;
     right: -280px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .how-it-works-container {
+    h2, h4, p, .step {
+      font-family: 'Montserrat';
+    }
+    h2 {
+      font-size: 26px;
+    }
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 19px;
+      text-align: justify;
+    }
+    .step {
+      font-size: 26px;
+      font-weight: bold;
+      color: $purple;
+      background: $snow;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      border-radius: 50%;
+    }
   }
 }

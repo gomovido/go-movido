@@ -1,35 +1,5 @@
-<% content_for :meta_title, "movido | How it works in 5 simple steps" %>
-<% content_for :meta_description, "movido allows you to select, activate and manage all your admin contracts - simple, fast and 100\% for free. Try it now." %>
-<div class="container how-it-works-container mb-3">
-  <div class="big-blue-bubble position-absolute"></div>
-  <div class="big-purple-bubble position-fixed"></div>
-  <div class="small-yellow-bubble position-absolute"></div>
-  <h2 class="text-center mb-5"><%= t('.title') %></h2>
-  <div class="row">
-    <div class="col-3 left">
-      <%= image_tag(asset_path('pages/how-it-works/way.png')) %>
-    </div>
-    <div class="col-9 right d-flex flex-column justify-content-around">
-      <div class="step mb-3">
-        <h4 class="mb-4"><%= t('.first_step.title') %></h4>
-        <p><%= t('.fifth_step.description') %></p>
-      </div>
-      <div class="step my-3">
-        <h4 class="mb-4"><%= t('.second_step.title') %></h4>
-        <p><%= t('.second_step.description') %></p>
-      </div>
-      <div class="step my-3">
-        <h4 class="mb-4"><%= t('.third_step.title') %></h4>
-        <p><%= t('.third_step.description') %></p>
-      </div>
-      <div class="step my-3">
-        <h4 class="mb-4"><%= t('.fourth_step.title') %></h4>
-        <p><%= t('.fourth_step.description') %></p>
-      </div>
-      <div class="step my-3">
-        <h4 class="mb-4"><%= t('.fifth_step.title') %></h4>
-        <p><%= t('.fifth_step.description') %></p>
-      </div>
-    </div>
-  </div>
-</div>
+<% if browser.device.mobile? %>
+  <%= render 'how_it_works_mobile' %>
+<% else %>
+  <%= render 'how_it_works_desktop' %>
+<% end %>
