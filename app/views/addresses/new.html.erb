@@ -1,31 +1,5 @@
-<div class="container registration-address-container d-block d-md-flex flex-column justify-content-center align-items-center mb-5 mb-md-0">
-  <div class="small-yellow-bubble position-absolute d-none d-md-block"></div>
-  <div class="big-blue-bubble position-absolute d-none d-md-block"></div>
-  <div class="row">
-    <div class="col-12">
-      <h1 class="title mb-4"><%= image_tag(asset_path('addresses/location.png'), class:"picto") %> <%= t('.title') %></h1>
-      <div data-controller="registration" class="form-base" data-registration-hide-class="d-none">
-        <div class="switch_box box_1 d-flex align-items-center my-4">
-          <input data-action='click->registration#toggleInput' type="checkbox" class="switch_1">
-          <p class="mb-0 ml-4"><%= t('.form.switch.no_address') %></p>
-        </div>
-        <%= simple_form_for @address, url: user_addresses_path, method: :post, data: {registration_target: 'form'} do |f| %>
-        <div data-registration-target="streetWrapper">
-          <%= f.input :street,
-          label: t('.form.label.street'),
-          placeholder: t('.form.placeholder.street'),
-          input_html: { data: {
-          registration_target: 'streetInput'
-          }}%>
-          <%= f.hidden_field :zipcode, id:'address_zipcode' %>
-          <%= f.hidden_field :city, id:'address_city' %>
-        </div>
-        <div class="d-none" data-registration-target="countryWrapper">
-          <%= f.input :moving_country, collection: [t('country.fr'), t('country.uk')], prompt: t('.form.prompt.moving_country'),label: t('.form.label.moving_country'), input_html: {class: 'custom-select', data: {registration_target: 'countryInput'}} %>
-        </div>
-        <%= f.button :submit, t('.form.cta'), class: 'btn-main w-100' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<% if browser.device.mobile? %>
+  <%= render 'new_mobile' %>
+<% else %>
+  <%= render 'new_desktop' %>
+<% end %>
