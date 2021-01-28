@@ -207,6 +207,7 @@ en:
           sentence: '"I secured my place to study in Paris a year ago. Thanks to movido, it was easy to set up all services I needed there."'
     how_it_works:
       title: 'How it works'
+      cta: 'Get started'
       first_step:
         title: 'Create an account'
         description: 'Easily create your movido account to get started: you can sign up instantly using your Facebook, Google or email account. '
