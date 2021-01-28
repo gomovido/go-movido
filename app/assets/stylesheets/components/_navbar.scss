@@ -133,8 +133,14 @@
   }
   .nav-item {
     margin-left: 0;
+    position: absolute;
+    left: 0;
   }
   .navbar-movido {
     background: $white;
+    justify-content: center;
+  }
+  li {
+    list-style-type: none;
   }
 }

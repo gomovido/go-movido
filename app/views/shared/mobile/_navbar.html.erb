@@ -1,0 +1,21 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-movido" data-controller="navbar" data-navbar-target="navbar" data-action="scroll@window->navbar#onScroll" data-navbar-fixed-class="fixed-nav">
+  <% if I18n.locale == :fr %>
+    <li class="nav-item dropdown language">
+      <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">FR <i class="fas fa-sort-down ml-2"></i></span>
+      <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
+        <%= link_to "EN", locale: :en %>
+      </div>
+    </li>
+  <% else %>
+    <li class="nav-item dropdown language">
+      <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">EN <i class="fas fa-sort-down ml-2"></i></span>
+      <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
+        <%= link_to "FR", locale: :fr %>
+      </div>
+    </li>
+  <% end %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag(asset_path("navbar/logo.svg")) %>
+  <% end %>
+</div>
+
