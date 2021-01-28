@@ -27,6 +27,10 @@
     <div class="wrapper d-flex flex-column justify-content-center">
     <%= yield %>
     </div>
-    <%= render 'shared/footer' %>
+    <% if browser.device.mobile? %>
+      <%= render 'shared/footer_mobile' %>
+    <% else %>
+      <%= render 'shared/footer_desktop' %>
+    <% end %>
   </body>
 </html>
