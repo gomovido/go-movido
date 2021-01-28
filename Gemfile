@@ -80,12 +80,7 @@ gem "friendly_id", "~> 5.4"
 
 gem "iban-tools", "~> 1.1"
 
-gem "money-rails", "~> 1.13"
-
 gem "stripe", "~> 5.28"
 
-gem "emoji_flag", "~> 0.1.1"
+gem "browser"
 
-gem "valid_url", "~> 0.0.4"
-
-gem "httparty", "~> 0.18.1"

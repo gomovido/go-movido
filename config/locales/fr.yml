@@ -419,7 +419,9 @@ fr:
       submit: 'Mettre à jour'
     complete_profil:
       title: 'Complète ton profil'
+      mobile_title: 'Complète ton profil'
       button: 'Continuer'
+      mandatory: '* Champs obligatoires'
       placeholder: 'Entrez votre %{placeholder}'
     show:
       title: 'Mon profil'

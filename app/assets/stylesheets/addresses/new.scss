@@ -19,21 +19,22 @@
   .invalid-feedback {
     display: block;
   }
+  p {
+    font-weight: bold;
+    font-size: 14px;
+    color: $dark-cloud;
+  }
 }
 
 @include media-breakpoint-down(md) {
   .registration-address-container {
-    .big-blue-bubble {
-      bottom: 60px;
-      left: -40px;
-      width: 190px;
-      height: 190px;
+    min-height: auto;
+    padding-top: 80px;
+    .title {
+      font-size: 20px;
     }
-    .small-yellow-bubble {
-      width: 100px;
-      height: 100px;
-      top: 50px;
-      right: 20px;
+    .picto {
+      width: 40px;
     }
   }
 }
