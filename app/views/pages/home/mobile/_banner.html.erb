@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="banner">
+        <h1><%= t('mobile.pages.home.banner.headline1').html_safe %> </h1>
+        <p> <%= t('mobile.pages.home.banner.subheadline').html_safe %> </p>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-purple-bubble.png'), class:'position-absolute bubble') %>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-blue-bubble.png'), class:'position-absolute bubble') %>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-purple-bubble.png'), class:'bubble-position-right') %>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-blue-bubble.png'), class:'bubble-position-left') %>
+        <div class="w-100 text-center banner-img position-absolute">
+          <%= image_tag(asset_path('pages/home/banner-mobile/main-picture.png')) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

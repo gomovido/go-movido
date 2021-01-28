@@ -578,3 +578,9 @@ en:
   country:
     fr: 'France'
     uk: 'United Kingdom'
+  mobile:
+    pages:
+      home:
+        banner:
+          headline1: "Get set up in your new home in <span class='purple'>only 10 mins</span>"
+          subheadline: '<strong>movido</strong> takes care of your admin work'

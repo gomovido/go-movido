@@ -26,13 +26,33 @@
 
 @include media-breakpoint-down(md) {
   .banner {
-    padding-top: 4rem;
     height: auto;
+    margin-top: 5rem;
     h1 {
-      font-size: 35px;
+      font-size: 26px;
+      line-height: inherit;
     }
     p {
-      font-size: 19px;
+      font-size: 12px;
+    }
+    .banner-img {
+      top: 40%;
+      img {
+        width: 70%;
+        position: relative;
+      }
+    }
+    .bubble-position-right {
+      position: relative;
+      left: 84%;
+      width: 20%;
+      top: -80px;
+    }
+    .bubble-position-left {
+      position: relative;
+      right: 25%;
+      width: 20%;
+      top: 100px;
     }
     .container, .content {
       height: 100%;
