@@ -39,7 +39,7 @@ class User < ApplicationRecord
   end
 
   def user_subscriptions_country
-    self.subscriptions.select {|s| s if s.product.country == self.active_address.country }
+    self.subscriptions.where.not(state: 'aborted').select {|s| s if s.product.country == self.active_address.country }
   end
 
   def active_address

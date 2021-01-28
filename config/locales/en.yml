@@ -431,11 +431,13 @@ en:
       transportation: 'Transportation'
       housing: 'Real Estate'
       utilities: 'Utilities'
+      popup: "Are you sure you want to abort the subscription?"
       cta:
         resume: 'Resume'
         pay: 'Pay'
         details: 'Details'
         cancel: 'Cancel subscription'
+        abort: 'Abort subscription'
   shared:
     navbar_visitor:
       about_us: 'About us'
@@ -561,6 +563,7 @@ en:
     complete_profile: "You must complete your profile to continue"
     existing_subscription: "You already have this subscription"
     wrong_country: "Please choose create / select an address in %{country}"
+    subscription_aborted: "Subscription aborted"
   errors:
     not_found:
       title: "Sorry :("
