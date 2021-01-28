@@ -28,6 +28,7 @@
     <%= yield %>
     </div>
     <% if browser.device.mobile? %>
+      <%= render 'shared/navbar_mobile' %>
       <%= render 'shared/footer_mobile' %>
     <% else %>
       <%= render 'shared/footer_desktop' %>
