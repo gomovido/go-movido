@@ -36,7 +36,8 @@
       font-size: 12px;
     }
     .banner-img {
-      top: 34%;
+      top: -38%;
+      position: relative;
       img {
         width: 78%;
         position: relative;
@@ -44,6 +45,7 @@
     }
     .cta {
       bottom: 5%;
+      left: 25%;
     }
     .bubble-position-right {
       position: relative;
