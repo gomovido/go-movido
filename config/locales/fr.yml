@@ -468,6 +468,12 @@ fr:
         cancel: "Résilier l'abonnement"
         abort: "Abandonner l'abonnement"
   shared:
+    navbar_mobile:
+      home: 'Accueil'
+      services: 'Services'
+      about: 'À propos'
+      how_it_works: 'Fonctionnement'
+      account: "Inscription"
     navbar_visitor:
       about_us: 'À propos'
       how_it_works: 'Comment ça marche'

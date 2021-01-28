@@ -1,0 +1,50 @@
+<footer class="footer">
+  <div class="top-part d-flex flex-column justify-content-around py-3">
+    <%= link_to root_path, class: 'text-center' do %>
+      <%= image_tag(asset_path('footer/logo.png'), class: 'logo py-4') %>
+    <% end %>
+    <hr class="w-100">
+    <div class="links mb-4 px-4 mt-3">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <%= link_to t('shared.footer.about'), about_path %>
+          <i class="far fa-chevron-right"></i>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <%= link_to t('shared.footer.contact'), contact_path %>
+          <i class="far fa-chevron-right"></i>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <%= link_to t('shared.footer.careers'), careers_path %>
+          <i class="far fa-chevron-right"></i>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <%= link_to t('shared.footer.faq'), faq_path %>
+          <i class="far fa-chevron-right"></i>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <%= link_to t('shared.footer.terms'), terms_path %>
+          <i class="far fa-chevron-right"></i>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+          <%= link_to t('shared.footer.cookie'), cookies_path %>
+          <i class="far fa-chevron-right"></i>
+        </div>
+
+    </div>
+    <div class="social-links px-4">
+      <%= link_to "#", class: "mr-2", target: "_blank" do %>
+        <%= image_tag(asset_path('footer/facebook.png'), class: 'icons') %>
+      <% end %>
+      <%= link_to "#", class: "mr-2", target: "_blank"  do %>
+        <%= image_tag(asset_path('footer/instagram.png'), class: 'icons') %>
+      <% end %>
+      <%= link_to "#", target: "_blank" do %>
+        <%= image_tag(asset_path('footer/linkedin.png'), class: 'icons') %>
+      <% end %>
+    </div>
+  </div>
+  <hr class="w-100">
+  <div class="bot mt-3 mb-4 text-center ml-0">
+    <span><%= t('shared.footer.legal') %></span>
+  </div>
+</footer>

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action -> { I18n.backend.reload! } if Rails.env.development?
 
-
   private
 
   def after_sign_in_path_for(resource)
