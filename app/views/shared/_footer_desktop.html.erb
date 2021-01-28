@@ -1,13 +1,13 @@
-<footer class="footer d-flex align-items-start flex-column py-4">
+<footer class="footer py-4">
   <div class="top-part d-flex align-items-center justify-content-around w-100 py-4">
     <%= image_tag(asset_path('footer/logo.png'), class: 'logo') %>
     <div class="links d-flex">
-        <%= link_to t('.about'), about_path, class:"px-3 " %>
-        <%= link_to t('.faq'), faq_path, class:"px-3 " %>
-        <%= link_to t('.terms'), terms_path, class:"px-3 " %>
-        <%= link_to t('.careers'), careers_path, class:"px-3 " %>
-        <%= link_to t('.cookie'), cookies_path, class:"px-3 " %>
-        <%= link_to t('.contact'), contact_path, class:"px-3 " %>
+        <%= link_to t('shared.footer.about'), about_path, class:"px-3 " %>
+        <%= link_to t('shared.footer.faq'), faq_path, class:"px-3 " %>
+        <%= link_to t('shared.footer.terms'), terms_path, class:"px-3 " %>
+        <%= link_to t('shared.footer.careers'), careers_path, class:"px-3 " %>
+        <%= link_to t('shared.footer.cookie'), cookies_path, class:"px-3 " %>
+        <%= link_to t('shared.footer.contact'), contact_path, class:"px-3 " %>
     </div>
     <div class="social-links d-flex justify-content-around">
       <%= link_to "#", class: "mr-4", target: "_blank" do %>
@@ -23,6 +23,6 @@
   </div>
   <hr class="w-100">
   <div class="bot d-flex">
-    <span><%= t('.legal') %></span>
+    <span><%= t('shared.footer.legal') %></span>
   </div>
 </footer>
