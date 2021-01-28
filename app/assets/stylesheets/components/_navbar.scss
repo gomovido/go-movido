@@ -130,11 +130,15 @@
 @include media-breakpoint-down(md) {
   .navbar {
     padding-left: 2rem;
+    height: 75px;
   }
   .nav-item {
     margin-left: 0;
     position: absolute;
-    left: 0;
+    left: 2%;
+  }
+  .nav-link {
+    font-weight: bold;
   }
   .navbar-movido {
     background: $white;
