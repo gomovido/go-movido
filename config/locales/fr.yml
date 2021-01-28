@@ -595,3 +595,9 @@ fr:
   country:
     fr: 'France'
     uk: 'Royaume Uni'
+  mobile:
+    pages:
+      home:
+        banner:
+          headline1: "Installe toi en seulement <span class='purple'>10 minutes</span>"
+          subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"
