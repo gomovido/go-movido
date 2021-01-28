@@ -26,7 +26,7 @@
 
 @include media-breakpoint-down(md) {
   .banner {
-    height: 80vh;
+    height: auto;
     margin-top: 5rem;
     h1 {
       font-size: 26px;
@@ -48,16 +48,16 @@
       left: 25%;
     }
     .bubble-position-right {
-      position: relative;
+      position: absolute;
       left: 84%;
       width: 20%;
-      top: -80px;
+      top: 20%;
     }
     .bubble-position-left {
-      position: relative;
-      right: 25%;
+      position: absolute;
       width: 20%;
-      top: 100px;
+      top: 45%;
+      left: 0%;
     }
     .container, .content {
       height: 100%;
