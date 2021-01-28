@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'payment/:subscription_id', to: 'charges#new', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
-
+  post 'abort-subscription/:subscription_id', to: 'subscriptions#abort_subscription', as: 'abort_subscription'
   get 'services/wifi', to: 'services#wifi'
   get 'services/bank', to: 'services#bank'
   get 'services/mobile', to: 'services#mobile'
