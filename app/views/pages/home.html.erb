@@ -1,7 +1,8 @@
-<%= render 'pages/home/banner' %>
-<%= render 'pages/home/partners' %>
-<%= render 'pages/home/services-cards' %>
-<%= render 'pages/home/how-it-works' %>
-<%= render 'pages/home/why-us' %>
-<%= render 'pages/home/testimonials' %>
-<%= render 'pages/home/get-started' %>
+<% if browser.device.mobile? %>
+  <%= render 'home/mobile' %>
+<% else %>
+  <%= render 'pages/home/desktop' %>
+<% end %>
+
+
+
