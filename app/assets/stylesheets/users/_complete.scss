@@ -1,6 +1,6 @@
 .complete-profile-container {
-  padding-top: 80px !important;
-  .title {
+  padding-top: 80px;
+  h1 {
     font-weight: 800;
     font-size: 30px;
     color: $black ;
@@ -18,5 +18,23 @@
   .big-blue-bubble {
     left: -20%;
     top: -20%;
+  }
+  .iti__flag {
+    border-radius: 2px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .complete-profile-container {
+    h1 {
+      font-size: 20px;
+    }
+    .picto {
+      width: 40px;
+    }
+    .tel {
+      font-weight: 800;
+      font-size: 18px;
+    }
   }
 }

@@ -1,0 +1,40 @@
+<% content_for :meta_title, "Welcome to movido" %>
+<% content_for :meta_description, "Sign in now and let movido deal with your admin work" %>
+<div class="container registration-container d-flex align-items-center justify-content-center">
+  <div class="row w-100">
+    <div class="col-md-7 position-relative d-flex justify-content-center flex-column">
+      <h1><%= t('devise.sessions.new.title_left').html_safe %></h1>
+      <p><%= t('devise.sessions.new.subtitle').html_safe %></p>
+      <figure class="big-blue-bubble position-absolute"></figure>
+    </div>
+    <div class="col-md-5">
+      <div class="form-base">
+        <h4 class="mb-4 login"><%= t('devise.sessions.new.title_right') %></h4>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.input :email,
+          required: true,
+          autofocus: true,
+          input_html: { autocomplete: "email", placeholder: t('devise.sessions.new.placeholders.email') } %>
+        <%= f.input :password,
+          required: true,
+          input_html: { autocomplete: "current-password", placeholder: t('devise.sessions.new.placeholders.password') } %>
+        <div class="mt-4">
+          <%= f.button :submit, t('devise.sessions.new.login'), class:'btn btn-main w-100' %>
+           <%= render "devise/shared/links" %>
+        </div>
+        <% end %>
+      </div>
+      <div class="social-registrations text-center mt-3">
+        <span class="mb-3 or"><%= t('devise.sessions.new.or') %></span>
+        <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 my-3 position-relative d-flex align-items-center justify-content-center' do  %>
+            <%= t('devise.sessions.new.google').html_safe %>
+            <%= image_tag(asset_path('devise/google.png'), class: 'position-absolute') %>
+        <% end %>
+        <% link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
+          <%= t('devise.sessions.new.facebook').html_safe %>
+          <%= image_tag(asset_path('devise/facebook.png'), class: 'position-absolute') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

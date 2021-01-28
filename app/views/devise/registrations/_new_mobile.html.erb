@@ -1,0 +1,52 @@
+<% content_for :meta_title, "movido | Sign up once now to access the all-in-one platform" %>
+<% content_for :meta_description, "Sign up now and get access to customized offers you won't find anywhere else. Once selected, you can also easily manage your contracts." %>
+<div class="container registration-container py-3">
+  <div class="row">
+    <div class="col-md-7 position-relative mt-5">
+      <h1 class="mb-4"><%= t('devise.registrations.new.title_left').html_safe %> <%= image_tag(asset_path('devise/logo.png'), class:"logo ml-2") %></h1>
+      <p><%= t('devise.registrations.new.subtitle').html_safe %></p>
+    </div>
+    <div class="col-md-5 mt-3">
+      <div class="form-base">
+        <h4 class="mb-4"><%= t('devise.registrations.new.title_right') %></h4>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", placeholder: 'john.doe@sorbonne-universite.fr'}%>
+        <div class="name-fields d-flex justify-content-between">
+          <%= f.input :first_name,
+                    required: true,
+                    input_html: { placeholder: 'John' }%>
+          <%= f.input :last_name,
+                    required: true,
+                    input_html: { placeholder: 'Doe' }%>
+        </div>
+        <%= f.input :password,
+              required: true,
+              input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password')}%>
+        <%= f.input :password_confirmation,
+              required: true,
+              input_html: { autocomplete: "new-password", placeholder: t('activerecord.attributes.user.password_confirmation')} %>
+        <span class="mandatory"><%= t('devise.registrations.new.mandatory') %></span>
+        <div class="mt-4">
+          <%= f.button :submit, t('devise.registrations.new.register'), class:'btn-main w-100' %>
+        </div>
+        <% end %>
+      </div>
+      <div class="social-registrations text-center mt-3">
+        <span class="mb-3 or"><%= t('devise.registrations.new.or') %></span>
+        <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn-google w-100 my-3 position-relative d-flex align-items-center justify-content-center' do  %>
+            <%= t('devise.registrations.new.google').html_safe %>
+            <%= image_tag(asset_path('devise/google.png'), class: 'position-absolute') %>
+        <% end %>
+        <% link_to user_facebook_omniauth_authorize_path, class:"btn-facebook w-100 mb-4 position-relative d-flex align-items-center justify-content-center" do %>
+          <%= t('devise.registrations.new.facebook').html_safe %>
+          <%= image_tag(asset_path('devise/facebook.png'), class: 'position-absolute') %>
+        <% end %>
+      </div>
+      <h6 class="mt-4 text-center"><%= t('devise.registrations.new.account_present') %> <%= link_to t('devise.registrations.new.login'), new_user_session_path %></h6>
+    </div>
+  </div>
+</div>
+

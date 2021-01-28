@@ -1,30 +1,5 @@
-<div class="container complete-profile-container d-flex align-center pb-5 mb-md-0 justify-content-center flex-column">
-  <div class="small-yellow-bubble position-absolute"></div>
-  <div class="big-blue-bubble position-absolute"></div>
-  <div class="row d-flex align-center justify-content-center flex-column">
-    <div class="col-md-6 offset-md-3">
-      <div class="form-base" data-controller="registration">
-        <h1 class="title mb-4"><%= image_tag(asset_path('devise/profile-icon.png'), class:"picto") %> <%= t('.title') %></h1>
-        <%= simple_form_for [@user], method: :put do |f| %>
-        <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">
-        <%= f.input :phone,
-              required: true,
-              input_html: { data: { registration_target: 'phone' } } %>
-        <%= f.input :birthdate, as: :string,
-                 required: true,
-                 input_html: { placeholder: 'DD/MM/YYYY', class:'background-white datepicker p-xs-0 ml-xs-2', data: {
-                  controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years} } %>
-        <%= f.input :birth_city,
-                required: true,
-                input_html: {
-                  placeholder: t('.placeholder', placeholder: t('activerecord.attributes.user.birth_city')).capitalize,
-                  data: {
-                    registration_target: 'cityInput'}} %>
-        <div class="mt-4">
-          <%= f.button :submit, t('.button'), class:'btn-main w-100' %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<% if browser.device.mobile? %>
+  <%= render 'complete_profil_mobile' %>
+<% else %>
+  <%= render 'complete_profil_desktop' %>
+<% end %>
