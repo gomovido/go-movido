@@ -21,7 +21,7 @@
     <% end %>
     <hr>
     <% if subscription.state == 'draft' %>
-      <%= link_to t('.cta.abort'), abort_subscription_path(subscription), method: :post, class: "cancel" %>
+      <%= link_to t('.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('.popup')}, class: "cancel" %>
     <% else %>
       <span class="cancel"><%= t('.cta.cancel') %></span>
     <% end %>
