@@ -431,6 +431,7 @@ en:
       transportation: 'Transportation'
       housing: 'Real Estate'
       utilities: 'Utilities'
+      popup: "Are you sure you want to abort the subscription?"
       cta:
         resume: 'Resume'
         pay: 'Pay'
