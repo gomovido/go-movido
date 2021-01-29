@@ -1,4 +1,4 @@
-<div class="service-card d-flex flex-column align-items-center justify-content-around" id="<%= title.downcase %>Card" data-service-name="<%= title.downcase %>Card" data-action='click->animate#displayCard'>
+<div class="service-card d-flex flex-column align-items-center justify-content-around" data-animate-target="card" data-service-name="<%= title.downcase %>Card" data-action='click->animate#displayCard'>
   <div class="d-flex w-100 justify-content-between align-items-center top-line">
     <div class="title">
       <%= image_tag(asset_path(picto), class:"mr-3") %>
