@@ -30,3 +30,35 @@
     }
   }
 }
+
+
+.explanation-cards-mobile-wrapper {
+  .open-card {
+    height: 100px !important;
+  }
+}
+
+.explanation-card-mobile {
+  font-family: "Montserrat", sans-serif;
+  .illustration {
+    padding-top: 0 !important;
+  }
+  .title {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    span {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17.1px;
+    }
+    i {
+      font-size: 22px;
+    }
+  }
+  .desc {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
