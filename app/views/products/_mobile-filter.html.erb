@@ -2,7 +2,7 @@
   <div class="filter-wrapper mb-3">
     <div class="d-flex align-items-center justify-content-between">
       <span class="title"><%= t('.title') %></span>
-      <%= link_to t('.reset'), category_products_path(@category), class: 'reset' %>
+      <%= link_to t('.reset'), category_products_path(@category), data: { turbolinks: false }, class: 'reset' %>
     </div>
     <div class="round my-3" data-action="click->filters#mobileFilter">
       <%= check_box_tag :unlimited_data %>
