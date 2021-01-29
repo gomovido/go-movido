@@ -63,9 +63,6 @@
 
 @include media-breakpoint-down(md) {
   .steps-wrapper {
-    .steps4, .steps3 {
-      font-size: 0 !important;
-    }
     h1 {
       font-size: 26px;
       font-family: 'Montserrat';
