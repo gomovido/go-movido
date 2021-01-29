@@ -601,3 +601,12 @@ fr:
         banner:
           headline1: "Installe toi en seulement<br> <span class='purple'>10 minutes</span>"
           subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"
+        why-us:
+          card1:
+            description: "Installe-toi dans ta nouvelle maison en seulement 10 minutes"
+          card2:
+            description: "Choisis simplement tes abonnements favoris dans notre variété d’offres"
+          card3:
+            description: "Compare les services et profite des meilleurs prix et offres disponibles"
+          card4:
+            description: "Gère tes abonnements entièrement gratuitement"
