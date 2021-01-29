@@ -67,6 +67,7 @@
 
 @include media-breakpoint-down(md) {
   .congratulations-container {
+    padding-top: 2rem;
     .big-blue-bubble {
       left: -170px;
     }

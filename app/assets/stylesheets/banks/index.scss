@@ -55,3 +55,8 @@
 
 }
 
+@include media-breakpoint-down(md) {
+  .banks-container {
+    padding-top: 2rem;
+  }
+}
