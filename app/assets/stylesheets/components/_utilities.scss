@@ -1,0 +1,63 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $body-background;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+.wrapper{
+  flex: 1 !important;
+}
+
+.termly-style-cookie-preference-44d002 {
+  font-size: 14px !important;
+}
+
+.background-white {
+  background: $white !important;
+}
+
+
+.font-weight {
+  font-weight: 800;
+}
+
+.green {
+  color: $green;
+}
+
+.grey {
+  color: $grey;
+}
+
+.light-purple {
+  color: $light-purple !important;
+}
+
+.purple {
+  color: $purple !important;
+}
+
+
+.disabled {
+  pointer-events: none;
+}
+
+.cookies-container, .terms-container {
+  padding-top: 80px;
+}
+
+@include media-breakpoint-down(md) {
+  .intercom-launcher, .intercom-launcher-frame {
+    bottom: 80px !important;
+  }
+}
