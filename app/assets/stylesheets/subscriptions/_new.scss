@@ -20,17 +20,6 @@
 .subscription-container {
   padding-top: 80px;
   min-height: 83vh;
-  h1 {
-    color: $black;
-    font-weight: 800;
-    font-size: 38px;
-    text-align: center;
-  }
-  p {
-    color: $black;
-    font-size: 18px;
-    font-weight: 400;
-  }
   .big-blue-bubble {
     top: -225px;
     left: -205px;
@@ -50,11 +39,13 @@
   .name-fields .form-group {
     width: 45%;
   }
-  .legals {
-    font-size: 14px;
-    color: $dark-cloud;
-  }
   .invalid-feedback {
     display: block;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .subscription-container {
+    padding-top: 100px;
   }
 }

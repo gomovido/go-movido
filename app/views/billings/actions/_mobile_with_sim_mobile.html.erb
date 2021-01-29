@@ -1,0 +1,24 @@
+<%= f.simple_fields_for :subscription do |s| %>
+  <div class="mb-2">
+      <%= s.hidden_field :id, value: @subscription.id %>
+      <%= s.input :delivery_address, required: true, placeholder: t('billings.new.form.hint.delivery_address'), label: t('billings.new.form.sim_delivery_address'), readonly: true, input_html: { class: 'form-control', data: {subscription_target: 'deliveryAddressInput'}} %>
+  </div>
+  <span class="mandatory"><%= t('billings.new.mandatory') %></span>
+   <div class="actions d-flex flex-column mt-4">
+    <span class="btn btn-main disabled mb-4" id="continueButton" data-subscription-target='continueButton' data-action="click->subscription#stepForward"><%= t('billings.new.form.button.next') %></span>
+    <%= link_to t('billings.new.form.button.back'), url_for(:back), class: 'btn-exit' %>
+  </div>
+</div>
+<div class="d-none sim-wrapper" data-subscription-target="secondPart">
+  <label for="sim" class="sim-label mr-2 mb-4"><%= t('billings.new.sim_format') %></label>
+  <div class="d-flex sim-cards justify-content-around">
+    <%= s.collection_radio_buttons(:sim, [['Nano', 'nano'], ['Standard / Micro', 'micro']], :first, :last, checked: 'Nano') do |b| %>
+    <%= b.label { "<div class='d-flex align-items-center mb-4'>#{b.radio_button + b.value}</div>".html_safe + image_tag((asset_path"subscriptions/#{b.text}.png"), class: b.text) } %>
+    <% end %>
+  </div>
+  <div class="actions d-flex flex-column mt-4">
+    <%= s.button :submit, t('billings.new.form.button.next'), class: 'btn-main mb-4' %>
+    <span class="btn-exit" data-action="click->subscription#stepBackward"><%= t('billings.new.form.button.back') %></span>
+  </div>
+</div>
+<% end %>

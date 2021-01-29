@@ -1,10 +1,10 @@
 <script src="https://js.stripe.com/v3/"></script>
-<div class="col-md-6 offset-md-3 mb-5">
+<div class="col-md-6 offset-md-3 mb-5 stripe-wrapper">
   <div class="d-flex align-items-center">
      <i class="fas fa-lock mr-4 p-2"></i>
      <div class="texts">
       <%= image_tag(asset_path('subscriptions/stripe.png')) %>
-      <h4 class="text-left"><strong><%= t('.connection') %></strong></h4>
+      <h4 class="text-left"><strong><%= t('charges.stripe.connection') %></strong></h4>
       <span class="bit-info">HTTPS - 256-bit encryption - Stripe certified</span>
      </div>
   </div>
@@ -16,13 +16,13 @@
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div class="form-divs-wrapper mb-5">
         <div class="form-group">
-          <label for="card-number-element" class="my-3"><%= t('.number') %></label>
+          <label for="card-number-element" class="my-3"><%= t('charges.stripe.number') %></label>
           <div id="card-number-element" class="form-control d-flex align-items-center stripe-input"></div>
           <div id="card-errors" class="mt-2" role="alert"></div>
         </div>
         <div class="name-fields d-flex justify-content-between">
           <div class="form-group">
-            <label for="card-expiry-element" class="my-3"><%= t('.date') %></label>
+            <label for="card-expiry-element" class="my-3"><%= t('charges.stripe.date') %></label>
             <div id="card-expiry-element" class="form-control stripe-input d-flex align-items-center"></div>
           </div>
           <div class="form-group">
@@ -32,9 +32,9 @@
         </div>
         <hr>
         <div class="form-group">
-          <span class="legals text-justify"><%= t('.legals').html_safe %></span>
+          <span class="legals text-justify"><%= t('charges.stripe.legals').html_safe %></span>
         </div>
-        <%= f.button :submit, t('.pay'), class: 'btn-main w-100', data: {disable_with: false}%>
+        <%= f.button :submit, t('charges.stripe.pay'), class: 'btn-main w-100', data: {disable_with: false}%>
       </div>
     <% end %>
   </div>

@@ -1,0 +1,56 @@
+.sim-wrapper {
+  input[type='radio'] {
+    width: 1.3em;
+    height: 1.3em !important;
+    -webkit-appearance: none;
+    cursor: pointer;
+    border: 2px solid #ABB4BD !important;
+    border-radius: 4px;
+    margin-right: 9px;
+    &:checked {
+      background: url(asset_path('products/checkbox_active.png'));
+      background-size: cover;
+      border: none !important;
+    }
+  }
+  .sim-label {
+    font-weight: 800;
+    font-size: 26px;
+    color: $black;
+  }
+  .sim-cards {
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      img.micro {
+        width: 50px;
+      }
+      img.nano {
+      width: 30px;
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  .sim-wrapper {
+    .sim-label {
+      font-size: 20px;
+    }
+    .sim-cards {
+      label {
+        font-weight: bold;
+        font-size: 16px;
+        color: $black;
+      }
+      img.micro {
+        width: 80px !important;
+      }
+      img.nano {
+        width: 50px !important;
+      }
+    }
+  }
+}
