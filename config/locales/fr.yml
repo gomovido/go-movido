@@ -197,6 +197,7 @@ fr:
           sentence: "''J'ai obtenu mon appartement pour étudier à Paris pendant un an. Merci movido, c’était simple de mettre en place tous les services nécessaires lors de mon emménagement ''"
     how_it_works:
       title: 'Comment ça marche'
+      cta: "C'est parti"
       first_step:
         title: 'Créer un compte'
         description: "Pour commencer, crée facilement ton compte movido: inscris-toi instantanément avec Facebook, Google ou ton adresse mail."
