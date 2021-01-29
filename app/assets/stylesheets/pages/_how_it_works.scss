@@ -33,6 +33,7 @@
 
 @include media-breakpoint-down(md) {
   .how-it-works-container {
+    padding-top: 2rem;
     h2, h4, p, .step {
       font-family: 'Montserrat';
     }

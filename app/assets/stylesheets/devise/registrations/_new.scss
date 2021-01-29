@@ -1,5 +1,5 @@
 .registration-container {
-  padding-top: 80px !important;
+  padding-top: 80px;
   position: relative;
   .inner-img {
     position: absolute;
@@ -50,6 +50,7 @@
 
 @include media-breakpoint-down(md) {
   .registration-container {
+    padding-top: 2rem;
     h1 {
       font-size: 26px;
       display: flex;

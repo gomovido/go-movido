@@ -28,8 +28,8 @@
 
 @include media-breakpoint-down(md) {
   .registration-address-container {
-    min-height: auto;
-    padding-top: 80px;
+    min-height: 80vh;
+    padding-top: 2rem;
     .title {
       font-size: 20px;
     }

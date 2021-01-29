@@ -33,3 +33,9 @@
     right: -230px;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .careers-container {
+    padding-top: 2rem;
+  }
+}

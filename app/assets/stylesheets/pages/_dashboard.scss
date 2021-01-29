@@ -1,5 +1,5 @@
 .dashboard-container {
-  padding-top: 80px !important;
+  padding-top: 80px;
   h1 {
     color: $black;
     font-weight: 800;
@@ -31,5 +31,11 @@
     right: 0px;
     bottom: 0%;
     z-index: -1;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .dashboard-container {
+    padding-top: 2rem;
   }
 }
