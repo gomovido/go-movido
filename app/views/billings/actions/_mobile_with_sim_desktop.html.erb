@@ -10,10 +10,10 @@
   </div>
 </div>
 <div class="d-none sim-wrapper" data-subscription-target="secondPart">
-  <label for="sim" class="sim-label mr-2"><%= t('billings.new.sim_format') %></label>
+  <label for="sim" class="sim-label mr-2 mb-4"><%= t('billings.new.sim_format') %></label>
   <div class="d-flex sim-cards justify-content-around align-items-baseline">
     <%= s.collection_radio_buttons(:sim, [['Nano', 'nano'], ['Standard / Micro', 'micro']], :first, :last, checked: 'Nano') do |b| %>
-    <%= b.label { b.radio_button + b.value + image_tag((asset_path"subscriptions/#{b.text}.png"), class:b.text) } %>
+    <%= b.label { "<div class='d-flex align-items-center mb-4'>#{b.radio_button + b.value}</div>".html_safe + image_tag((asset_path"subscriptions/#{b.text}.png"), class:b.text) } %>
     <% end %>
   </div>
   <div class="actions d-flex flex-column mt-4">
