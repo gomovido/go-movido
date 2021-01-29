@@ -109,3 +109,43 @@
     bottom: -6px;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .hs {
+    grid-template-columns: repeat(6, calc(105% - var(--gutter) * 2));
+    padding-left: 0;
+    overflow-x: scroll;
+  }
+  .open-card {
+    height: 208px !important;
+  }
+  .service-card {
+    font-family: "Montserrat", sans-serif;
+    padding: 0% 5% !important;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 92px;
+    img {
+      transform: translateX(0%) scale(0.90);
+      width: 24px;
+    }
+    .top-line {
+      height: 92px;
+      border-bottom: 1px solid $grey-snow;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .desc {
+      font-size: 12px;
+    }
+    .service-card-dropdown .dropdown-button {
+      font-size: 20px;
+    }
+    .timer {
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
