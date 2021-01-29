@@ -1,6 +1,6 @@
-:root {
-  --gutter: 20px;
-}
+  :root {
+    --gutter: 20px;
+  }
 
 .testimonial-cards-scroller {
   padding: var(--gutter) 0;
@@ -86,9 +86,6 @@
 }
 
 @include media-breakpoint-down(md) {
-  :root {
-    --gutter: 35px;
-  }
   .hs-mobile {
     padding-left: 0.1rem;
     grid-gap: calc(var(--gutter) / 0);
