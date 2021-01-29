@@ -27,6 +27,16 @@
 @include media-breakpoint-down(md) {
   .complete-profile-container {
     padding-top: 2rem;
+    input[type='date'] {
+      display: flex;
+    }
+    input[type='date']:after {
+      font-size: 12px;
+      color: $taupe;
+      opacity: 0.4;
+      font-weight: 300;
+      content: attr(placeholder);
+    }
     h1 {
       font-size: 20px;
     }
