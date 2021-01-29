@@ -3,13 +3,15 @@ import "flatpickr/dist/themes/dark.css";
 
 export default class extends Flatpickr {
   connect() {
-    let field = document.querySelector('.flatpickr-mobile')
-    field.addEventListener('change', e => {
-      if (field.value) {
-          field.placeholder = ''
-      } else {
-          field.placeholder = 'DD/MM/YYYY'
-      }
-    });
+    let field = document.querySelector('.flatpickr-mobile');
+    if (field) {
+      field.addEventListener('change', e => {
+        if (field.value) {
+            field.placeholder = ''
+        } else {
+            field.placeholder = 'DD/MM/YYYY'
+        }
+      });
+    }
   }
 }
