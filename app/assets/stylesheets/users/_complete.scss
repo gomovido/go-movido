@@ -26,6 +26,7 @@
 
 @include media-breakpoint-down(md) {
   .complete-profile-container {
+    padding-top: 2rem;
     h1 {
       font-size: 20px;
     }

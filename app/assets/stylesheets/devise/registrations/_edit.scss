@@ -24,6 +24,7 @@
 
 @include media-breakpoint-down(md) {
   .edit-container {
+    padding-top: 2rem;
     .form-base {
       width: 100% !important;
     }

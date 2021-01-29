@@ -64,3 +64,9 @@
     color: $purple;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .faq-container {
+    padding-top: 2rem;
+  }
+}
