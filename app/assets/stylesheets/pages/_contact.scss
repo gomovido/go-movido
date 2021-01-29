@@ -45,6 +45,7 @@
 
 @include media-breakpoint-down(md) {
   .contact-container {
+    padding-top: 2rem;
     .support{
       width: 80% !important;
     }
