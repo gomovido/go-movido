@@ -1,32 +1,5 @@
-<div class="steps-wrapper d-flex flex-column align-items-center justify-content-center mb-5">
-  <h1 class="mb-3 text-center"><%= title.capitalize %></h1>
-  <p class="subtitle mb-5 text-center"><%= subtitle.html_safe %></p>
-  <% unless congratulations %>
-    <div class="lines d-flex align-items-center justify-content-between position-relative">
-      <div class='line-dashed position-absolute'></div>
-      <% i = 0 %>
-      <% if current_step != 1 %>
-        <% (current_step - 1).times do %>
-          <div class="<%= total_steps == 4 ? 'steps4' : 'steps3' %> mr-3 d-flex flex-column justify-content-center align-items-center">
-            <span class="step <%= 'step-active' if current_step == i + 1 %>"><%= i + 1 %></span> <span class="step-text <%= 'step-text-active' if current_step == i + 1 %>"><%= t(".#{product.category.sku}.step_#{i}") %></span>
-          </div>
-          <% i += 1 %>
-        <% end %>
-      <% end %>
-      <% if current_step <= total_steps %>
-        <div class="<%= total_steps == 4 ? 'steps4' : 'steps3' %> mr-3 d-flex flex-column justify-content-center align-items-center">
-          <span class="step <%= 'step-active' if current_step == i + 1 %>"><%= i + 1 %></span> <span class="step-text <%= 'step-text-active' if current_step == i + 1 %>"><%= t(".#{product.category.sku}.step_#{i}") %></span></div>
-      <% end %>
-      <% if current_step != total_steps %>
-      <% i = current_step %>
-        <% (total_steps - current_step).times do %>
-          <div class="<%= total_steps == 4 ? 'steps4' : 'steps3' %> mr-3 d-flex flex-column justify-content-center align-items-center">
-            <span class="step <%= 'step-active' if current_step == i + 1 %>"><%= i + 1 %></span> <span class="step-text <%= 'step-text-active' if current_step == i + 1 %>"><%= t(".#{product.category.sku}.step_#{i}") %></span>
-          </div>
-          <% i += 1 %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
+<% if browser.device.mobile? %>
+  <%= render 'subscriptions/steps_mobile', title: title, subtitle: subtitle %>
+<% else %>
+  <%= render 'subscriptions/steps_desktop', product: product, current_step: current_step, title: title, subtitle: subtitle, total_steps: total_steps, congratulations: congratulations %>
+<% end %>
