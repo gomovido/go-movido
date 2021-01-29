@@ -1,0 +1,20 @@
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="banner">
+        <h1><%= t('mobile.pages.home.banner.headline1').html_safe %> </h1>
+        <p> <%= t('mobile.pages.home.banner.subheadline').html_safe %> </p>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-purple-bubble.png'), class:'position-absolute bubble') %>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-blue-bubble.png'), class:'position-absolute bubble') %>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-purple-bubble.png'), class:'bubble-position-right') %>
+        <%= image_tag(asset_path('pages/home/banner-mobile/half-blue-bubble.png'), class:'bubble-position-left') %>
+        <div class="text-center banner-img">
+          <%= image_tag(asset_path('pages/home/banner-mobile/main-picture.png')) %>
+        </div>
+        <div class="text-center cta position-absolute">
+          <%= link_to t('pages.home.banner.start'), new_user_registration_path, class:'btn btn-main' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

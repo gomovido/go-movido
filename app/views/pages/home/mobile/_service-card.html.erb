@@ -1,0 +1,22 @@
+<div class="service-card d-flex flex-column align-items-center justify-content-around" id="<%= title.downcase %>Card" data-service-name="<%= title.downcase %>Card" data-action='click->animate#displayCard'>
+  <div class="d-flex w-100 justify-content-between align-items-center top-line">
+    <div class="title">
+      <%= image_tag(asset_path(picto), class:"mr-3") %>
+      <%= title %>
+    </div>
+    <div class="service-card-dropdown d-flex align-items-baseline">
+      <% if timer != 'no_timer' %>
+        <div class="timer mr-2">
+          <span><%= timer %> minutes</span>
+        </div>
+      <% end %>
+      <i class="fas fa-sort-down ml-2 purple dropdown-button" aria-hidden="true"></i>
+    </div>
+  </div>
+  <%= link_to path, class:"card-link d-none" do %>
+    <div class="desc">
+      <span><%= description %></span>
+    </div>
+  <% end %>
+</div>
+

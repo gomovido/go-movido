@@ -1,5 +1,5 @@
-<% if current_user %>
-  <%= render 'shared/navbar_user' %>
+<% if browser.device.mobile? %>
+  <%= render 'shared/mobile/navbar' %>
 <% else %>
-  <%= render 'shared/navbar_visitor' %>
+  <%= render 'shared/desktop/navbars' %>
 <% end %>

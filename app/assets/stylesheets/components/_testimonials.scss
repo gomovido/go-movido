@@ -1,6 +1,6 @@
-:root {
-  --gutter: 20px;
-}
+  :root {
+    --gutter: 20px;
+  }
 
 .testimonial-cards-scroller {
   padding: var(--gutter) 0;
@@ -82,5 +82,36 @@
   }
   .picto img {
     width: 30px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .hs-mobile {
+    padding-left: 0.1rem;
+    grid-gap: calc(var(--gutter) / 0);
+    grid-template-columns: repeat(6, calc(90% - var(--gutter) * 2)) !important;
+    overflow-x: scroll;
+  }
+  .hs-mobile > li, .item {
+    padding: 0;
+  }
+  .testimonial-card {
+    height: 218px;
+    width: 264px;
+    img {
+      width: 25%;
+    }
+    .sentence {
+      font-size: 14px;
+    }
+    .from {
+      font-size: 12px;
+    }
+    .destination {
+      font-size: 12px;
+    }
+    .name {
+      font-size: 18px;
+    }
   }
 }

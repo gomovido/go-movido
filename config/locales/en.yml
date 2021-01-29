@@ -585,3 +585,18 @@ en:
   country:
     fr: 'France'
     uk: 'United Kingdom'
+  mobile:
+    pages:
+      home:
+        banner:
+          headline1: "Get set up in your new home in <span class='purple'>only 10 mins</span>"
+          subheadline: '<strong>movido</strong> takes care of your admin work'
+        why-us:
+          card1:
+            description: "Get set-up in your new home in only 10 minutes"
+          card2:
+            description: "Simply choose your preferred subscription"
+          card3:
+            description: "Compare services and get your best offer"
+          card4:
+            description: "Choose and manage your subscriptions for free"
