@@ -1,138 +1,76 @@
-// Specific CSS for your home-page
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: $body-background;
-}
-
-h2 {
-  font-weight: 800;
-  margin-bottom: 3rem;
-  font-size: 42px;
-}
-
-a {
-  text-decoration: none;
-  color: $black;
-  &:hover {
-    text-decoration: none;
-    color: $black;
-  }
-}
-
-.wrapper{
-  flex: 1 !important;
-}
-
-.termly-style-cookie-preference-44d002 {
-  font-size: 14px !important;
-}
-
-.ap-input-icon {
-  display: none;
-}
-
-.background-white {
-  background: $white !important;
-}
-
-section {
-  margin-bottom: 5rem;
-}
-
-.font-weight {
-  font-weight: 800;
-}
-
-.green {
-  color: $green;
-}
-
-.grey {
-  color: $grey;
-}
-
-.light-purple {
-  color: $light-purple !important;
-}
-
-.purple {
-  color: $purple !important;
-}
-
-
-.disabled {
-  pointer-events: none;
-}
-
-.main-title h1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 54px;
-  margin-bottom: 4rem;
-}
-
-#testimonials i {
-  font-size: 45px;
-  cursor: pointer;
-  transition: 1s;
-}
-
-#partners {
-  p.title {
+.home-container {
+  h2 {
     font-weight: 800;
-    color: $taupe;
-    opacity: 0.6;
-    font-size: 20px;
-    line-height: 30px;
+    margin-bottom: 3rem;
+    font-size: 42px;
   }
-  .partner {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
-    border-radius: 27.5px;
-    img {
-      width: 60%;
+  section {
+    margin-bottom: 5rem;
+  }
+  .main-title h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 54px;
+    margin-bottom: 4rem;
+  }
+
+  #testimonials i {
+    font-size: 45px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  #partners {
+    p.title {
+      font-weight: 800;
+      color: $taupe;
+      opacity: 0.6;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .partner {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+      border-radius: 27.5px;
+      img {
+        width: 60%;
+      }
     }
   }
 }
 
-.cookies-container, .terms-container {
-  padding-top: 80px;
-}
+
 
 @include media-breakpoint-down(md) {
-  .min-height {
-    height: 100%;
+  .home-container {
+    section {
+      margin-bottom: 4rem;
+    }
+    .main-title h1 {
+      font-size: 38px;
+      text-align: center;
+    }
+    #partners .partner {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    #partners .partner img {
+      width: 60%;
+    }
+    #about-us .wrapper {
+      padding: 0;
+    }
+    h2 {
+      font-weight: 800;
+      margin-bottom: 3rem;
+      font-size: 20px;
+    }
   }
-  section {
-    margin-bottom: 4rem;
-  }
-  .main-title h1 {
-    font-size: 38px;
-    text-align: center;
-  }
-  #partners .partner {
-    height: 60px;
-    margin-bottom: 1rem;
-  }
-  #partners .partner img {
-    width: 60%;
-  }
-  #about-us .wrapper {
-    padding: 0;
-  }
-  .intercom-launcher, .intercom-launcher-frame {
-    bottom: 80px !important;
-  }
-  h2 {
-    font-weight: 800;
-    margin-bottom: 3rem;
-    font-size: 20px;
-  }
-
 }
+
+
+
+
 
