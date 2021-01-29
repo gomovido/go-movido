@@ -27,19 +27,20 @@
 @include media-breakpoint-down(md) {
   .banner {
     height: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
     h1 {
       font-size: 26px;
       line-height: inherit;
+      margin-bottom: 0;
     }
     p {
       font-size: 12px;
+      margin-bottom: 0;
     }
     .banner-img {
-      top: -38%;
       position: relative;
       img {
-        width: 78%;
+        width: 65%;
         position: relative;
       }
     }
