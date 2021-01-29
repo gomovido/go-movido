@@ -36,6 +36,7 @@
 
 @include media-breakpoint-down(md) {
   .footer {
+    border-radius: 0;
     .logo {
       margin: 0 auto;
     }

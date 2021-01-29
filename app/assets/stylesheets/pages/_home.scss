@@ -61,6 +61,11 @@ section {
   color: $purple !important;
 }
 
+
+.disabled {
+  pointer-events: none;
+}
+
 .main-title h1 {
   font-style: normal;
   font-weight: 600;

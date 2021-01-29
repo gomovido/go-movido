@@ -11,6 +11,7 @@ export default class extends Controller {
       addressAutocomplete(deliveryField);
       addressAutocomplete(this.billingAddressInputTarget);
     } else if (deliveryField) {
+      this.enableButton();
       addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
         deliveryField.value = e.suggestion.value;
         this.enableButton();

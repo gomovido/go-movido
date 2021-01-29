@@ -310,6 +310,7 @@ fr:
       mandatory: '* Champs obligatoires'
       title: "On y est presque..."
       subtitle: "Nous avons besoin de tes coordonnées bancaires pour l'option de prélèvement automatique de ton abonnement"
+      sim_format: "Format carte SIM"
       form:
         failure:
           wrong_country: "doit être en %{country}"
@@ -325,9 +326,9 @@ fr:
   charges:
     new:
       title: 'Paiement de ta carte SIM'
-      subtitle: "Ta carte SIM coûte %{price}. <br> Nous acceptons Visa & Master Card"
+      subtitle: "Ta carte SIM coûte <strong>%{price}</strong>. <br> Nous acceptons Visa & Master Card"
     stripe:
-      connection: 'Connexion sécurisée'
+      connection: 'Connexion sécurisée 🔒'
       number: 'Numéro de carte'
       date: "Date d'expiration"
       legals: "En cliquant sur procéder au paiement, vous acceptez <strong>nos conditions générales</strong> ainsi que <strong>les conditons générales de Stripe.</strong>"

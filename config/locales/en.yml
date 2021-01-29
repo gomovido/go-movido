@@ -299,6 +299,7 @@ en:
       mandatory: '* Mandatory fields'
       title: 'We just need a couple more details...'
       subtitle: 'We need your bank details to set up the direct debit option of your subscription'
+      sim_format: "SIM card size"
       form:
         failure:
           wrong_country: "needs to be in %{country}"
@@ -314,9 +315,9 @@ en:
   charges:
     new:
       title: 'Pay for your SIM card'
-      subtitle: "Your SIM card cost %{price}. <br> We accept Visa & Master Card"
+      subtitle: "Your SIM card costs <strong>%{price}</strong>. <br> We accept Visa & Master Card"
     stripe:
-      connection: 'Secured connection'
+      connection: 'Secured connection 🔒'
       number: 'Card number'
       date: "Expiration date"
       legals: "By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong>"
