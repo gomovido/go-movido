@@ -1,0 +1,78 @@
+<section id="testimonials">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="m-0"><%= t('pages.home.testimonials.title') %></h2>
+      </div>
+    </div>
+  </div>
+  <div class="container testimonials-cards-scroller pr-0">
+    <ul class="hs hs-mobile">
+      <li class="item">
+          <div class="testimonial-card d-flex flex-column justify-content-center">
+            <div class="d-flex align-items-center">
+              <%= image_tag(asset_path('pages/home/ellen.png'), class:"mr-3") %>
+              <div class="d-flex flex-column">
+                <span class="name">Ellen</span>
+                <span class="from"><%= t('pages.home.testimonials.testimonial1.from') %></span>
+                <span class="destination"><%= t('pages.home.testimonials.testimonial1.to') %></span>
+              </div>
+            </div>
+            <p class="sentence my-3"><%= t('pages.home.testimonials.testimonial1.sentence').html_safe %></p>
+          </div>
+      </li>
+      <li class="item">
+        <div class="testimonial-card d-flex flex-column justify-content-center my-5">
+          <div class="d-flex align-items-center">
+            <%= image_tag(asset_path('pages/home/mariana.png'), class:"mr-3") %>
+            <div class="d-flex flex-column">
+              <span class="name">Mariana</span>
+              <span class="from"><%= t('pages.home.testimonials.testimonial2.from') %></span>
+              <span class="destination"><%= t('pages.home.testimonials.testimonial2.to') %></span>
+            </div>
+          </div>
+          <p class="sentence my-3"><%= t('pages.home.testimonials.testimonial2.sentence').html_safe %></p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="testimonial-card d-flex flex-column justify-content-center">
+          <div class="d-flex align-items-center">
+            <%= image_tag(asset_path('pages/home/etienne.png'), class:"mr-3") %>
+            <div class="d-flex flex-column">
+              <span class="name">Etienne</span>
+              <span class="from"><%= t('pages.home.testimonials.testimonial3.from') %></span>
+              <span class="destination"><%= t('pages.home.testimonials.testimonial3.to') %></span>
+            </div>
+          </div>
+          <p class="sentence my-3"><%= t('pages.home.testimonials.testimonial3.sentence').html_safe %></p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="testimonial-card d-flex flex-column justify-content-center">
+          <div class="d-flex align-items-center">
+            <%= image_tag(asset_path('pages/home/mateo.png'), class:"mr-3") %>
+            <div class="d-flex flex-column">
+              <span class="name">Mateo</span>
+              <span class="from"><%= t('pages.home.testimonials.testimonial4.from') %></span>
+              <span class="destination"><%= t('pages.home.testimonials.testimonial4.to') %></span>
+            </div>
+          </div>
+          <p class="sentence my-3"><%= t('pages.home.testimonials.testimonial4.sentence').html_safe %></p>
+        </div>
+      </li>
+      <li class="item">
+        <div class="testimonial-card d-flex flex-column justify-content-center">
+          <div class="d-flex align-items-center">
+            <%= image_tag(asset_path('pages/home/lena.png'), class:"mr-3") %>
+            <div class="d-flex flex-column">
+              <span class="name">Lena</span>
+              <span class="from"><%= t('pages.home.testimonials.testimonial5.from') %></span>
+              <span class="destination"><%= t('pages.home.testimonials.testimonial5.to') %></span>
+            </div>
+          </div>
+          <p class="sentence my-3"><%= t('pages.home.testimonials.testimonial5.sentence').html_safe %></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
