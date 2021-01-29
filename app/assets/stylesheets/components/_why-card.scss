@@ -24,6 +24,22 @@
 
 @include media-breakpoint-down(md) {
   .why-cards-wrapper .why-card {
+
     padding: 5%;
+    .illustration {
+      padding: 0.9rem !important;
+      img {
+        width: 25px;
+      }
+    }
+    .title {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .desc {
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      opacity: 0.6;
+    }
   }
 }

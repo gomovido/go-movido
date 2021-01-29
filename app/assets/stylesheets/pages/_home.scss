@@ -110,8 +110,12 @@ section {
     font-size: 38px;
     text-align: center;
   }
+  #partners .partner {
+    height: 60px;
+    margin-bottom: 1rem;
+  }
   #partners .partner img {
-      width: 100%;
+    width: 60%;
   }
   #about-us .wrapper {
     padding: 0;
@@ -119,5 +123,11 @@ section {
   .intercom-launcher, .intercom-launcher-frame {
     bottom: 80px !important;
   }
+  h2 {
+    font-weight: 800;
+    margin-bottom: 3rem;
+    font-size: 20px;
+  }
+
 }
 

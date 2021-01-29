@@ -18,14 +18,9 @@
 @include media-breakpoint-down(md) {
   .banner-lite {
     .title {
-      font-size: 19px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
     }
-    img {
-      margin-right: 2rem;
-      width: 50px;
-    }
-  }
-  .btn-main-reverse {
-     padding: 3px 35.5px;
   }
 }
