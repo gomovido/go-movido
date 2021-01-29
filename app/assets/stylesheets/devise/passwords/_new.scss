@@ -1,9 +1,16 @@
 .password-container {
-  padding-top: 80px !important;
+  padding-top: 80px;
   .form-b-links a{
     color: $purple;
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  .password-container {
+    padding-top: 2rem;
   }
 }

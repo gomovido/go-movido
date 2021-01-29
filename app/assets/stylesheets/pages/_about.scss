@@ -41,3 +41,9 @@
     color: $black;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .about-container {
+    padding-top: 2rem;
+  }
+}

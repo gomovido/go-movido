@@ -5,7 +5,7 @@
 <div class="product-card mb-4 w-100" data-controller="modal"  data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
   <div class="d-flex align-items-center mb-3">
     <div class="d-flex align-items-center justify-content-center box-offer">
-      <%= image_tag(product.logo_url, class: 'logo') %>
+      <%= image_tag(product.logo_url, class: 'logo d-none d-sm-block') %>
     </div>
     <div class="d-flex flex-column offers w-100">
       <h5 class="name mt-2"><%= product.company %> <%= product.name %></h5>
