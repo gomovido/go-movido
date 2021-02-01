@@ -19,6 +19,10 @@ class Product < ApplicationRecord
     self.is_mobile? && !self.has_payment? ? 3 : 4
   end
 
+  def obligation
+    self.time_contract != 'no'
+  end
+
   def currency_code
     self.currency == 'GBP' ? '£' : '€'
   end

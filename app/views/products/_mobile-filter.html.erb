@@ -13,7 +13,7 @@
       <span class="ml-3"><%= t('.unlimited_call') %></span>
     </div>
     <div class="round mb-4" data-action="click->filters#mobileFilter">
-      <%= check_box_tag :obligation %>
+      <%= check_box_tag :without_obligation %>
       <span class="ml-3"><%= t('.no_contract') %></span>
     </div>
     <% unit = current_user.country === 'France' ? '€' : '£' %>
