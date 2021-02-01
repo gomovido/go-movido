@@ -31,7 +31,7 @@
         <hr>
         <div class="feature-lite d-flex flex-column align-items-center">
           <span><%= image_tag('products/modal/sim-card-purple.png', class: "picto") %> </span>
-          <span class="desc"><span class="black"><%= @product.format_sim_card_price %></span> <%= t('.sim_card') %></span>
+          <span class="desc"><span><%= @product.format_sim_card_price %></span> <%= t('.sim_card') %></span>
         </div>
         <hr>
       </div>
@@ -53,7 +53,7 @@
     <% if @product.obligation %>
       <div class="feature-lite d-flex flex-column align-items-center">
         <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
-        <span class="desc"><span class="black"><%= @product.time_contract %></span> <%= t('.months') %></span>
+        <span class="desc"><span><%= @product.time_contract %></span> <%= t('.months') %></span>
       </div>
     <% else %>
       <div class="feature-lite d-flex flex-column align-items-center">
