@@ -3,7 +3,6 @@ import ApplicationController from './application_controller'
 export default class extends ApplicationController {
   static targets = ['container', 'leftArrow', 'rightArrow', 'card']
 
-
   displayCard(event) {
     const card = this.cardTargets.find(card => card.dataset.serviceName === event.currentTarget.dataset.serviceName);
     card.classList.toggle('open-card')
@@ -14,7 +13,6 @@ export default class extends ApplicationController {
       icon.classList.toggle('fa-window-minimize')
     }
   }
-
 
   slideRight() {
     this.containerTarget.scrollLeft += 2000;
