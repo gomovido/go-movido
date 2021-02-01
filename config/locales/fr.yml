@@ -367,6 +367,7 @@ fr:
       sim_card: 'carte SIM'
       months: 'mois'
       no_obligation: "<span class='black'>sans</span> engagement"
+      setup_price: 'coûts de mise en place'
     address_modal:
       congrats: "Félicitations, votre nouvelle adresse est sauvegardée !"
       back_products: "Retour aux offres"
@@ -399,6 +400,29 @@ fr:
         step_1: 'Détails'
         step_2: 'Facturation'
         step_3: 'Confirmation'
+    modal:
+      subscription: 'Abonnement'
+      subscriber: 'Abonné'
+      provider: 'Fournisseur'
+      plan: 'Abonnement'
+      price: 'Prix'
+      setup_price: "Frais d'installation"
+      time_contract: "Durée d'engagement"
+      data_speed: "Débit"
+      first_name: 'Prénom'
+      last_name: 'Nom'
+      email: 'Email'
+      birthdate: 'Date de naissance'
+      phone: 'Téléphone'
+      address: 'Adresse'
+      delivery_address: 'Adresse de livraison'
+      iban: 'IBAN'
+      sort_code: 'Branche'
+      bank: 'Banque'
+      billing_address: 'Adresse de facturation'
+      sim_format: 'Format de carte SIM'
+      holder_name: 'Titulaire du compte'
+      account_number: 'Numéro de compte'
   banks:
     index:
       title: 'Ouvre ton compte bancaire en ligne'
