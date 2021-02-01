@@ -2,8 +2,14 @@
   <div class="services-cards-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-6">
           <h2 class="m-0"><%= t('pages.home.services-cards.title') %></h2>
+        </div>
+        <div class="col-6 text-right">
+          <div class="arrow-wrapper">
+            <i class="fas fa-arrow-circle-left light-purple mr-3" data-action='click->animate#slideLeft' data-animate-target="leftArrow"></i>
+            <i class="fas fa-arrow-circle-right purple" data-action='click->animate#slideRight' data-animate-target="rightArrow"></i>
+          </div>
         </div>
       </div>
     </div>
