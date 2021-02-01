@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_160408) do
+ActiveRecord::Schema.define(version: 2021_02_01_114559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,17 +113,11 @@ ActiveRecord::Schema.define(version: 2021_01_25_160408) do
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rating"
-    t.integer "reviews"
     t.string "logo_url"
     t.boolean "unlimited_data"
     t.boolean "unlimited_call"
-    t.boolean "obligation"
     t.string "time_contract"
     t.string "data_limit"
-    t.string "delivery_price"
-    t.string "delivery_time"
-    t.boolean "delivery"
     t.float "sim_card_price"
     t.string "call_limit"
     t.string "special_offer"
@@ -131,7 +125,6 @@ ActiveRecord::Schema.define(version: 2021_01_25_160408) do
     t.string "country"
     t.string "data_speed"
     t.float "setup_price"
-    t.string "tooltip"
     t.string "currency"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
