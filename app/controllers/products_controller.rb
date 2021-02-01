@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @category = Category.friendly.find(params[:category_id])
-    @products = Product.where(category: @category, country: current_user.country).map{ |product| product unless product.product_features.blank? }.compact
+    @products = Product.where(category: @category, country: current_user.country, active: true).map{ |product| product unless product.product_features.blank? }.compact
     @address ||= Address.new
   end
 

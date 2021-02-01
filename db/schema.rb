@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_114559) do
+ActiveRecord::Schema.define(version: 2021_02_01_140943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_114559) do
     t.string "data_speed"
     t.float "setup_price"
     t.string "currency"
+    t.boolean "active"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
