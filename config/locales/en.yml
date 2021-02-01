@@ -356,6 +356,7 @@ en:
       sim_card: 'SIM card'
       months: 'months'
       no_obligation: "<span class='black'>no</span> obligation"
+      setup_price: 'set-up costs'
     address_modal:
       congrats: "Congratulations, your new address is saved !"
       back_products: "Back to products"
@@ -389,6 +390,29 @@ en:
         step_1: 'Details'
         step_2: 'Billing details'
         step_3: 'Confirmation'
+    modal:
+      subscription: 'Subscription'
+      subscriber: 'Subscriber'
+      provider: 'Provider'
+      plan: 'Plan'
+      price: 'Price'
+      setup_price: 'Set-up costs'
+      time_contract: 'Contract duration'
+      data_speed: 'Data speed'
+      first_name: 'First name'
+      last_name: 'Surname'
+      email: 'Email'
+      birthdate: 'Date of birth'
+      phone: 'Phone number'
+      address: 'Address'
+      delivery_address: 'Delivery address'
+      iban: 'IBAN'
+      sort_code: 'Sort Code'
+      bank: 'Banking institution'
+      billing_address: 'Billing address'
+      sim_format: 'SIM format'
+      holder_name: 'Holder name'
+      account_number: 'Account number'
   users:
     profil:
       saving: 'Saving changes'

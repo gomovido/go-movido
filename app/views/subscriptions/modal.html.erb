@@ -1,8 +1,8 @@
 <div class="p-lg-5 py-3">
   <div class="d-flex flex-column">
     <div class="mb-2">
-      <div class="mb-4 d-flex align-items-center justify-content-between">
-        <h3>Subscription number # <%= @subscription.id %></h3>
+      <div class="d-flex align-items-center justify-content-between">
+        <h3 class="m-0"><%= t('subscriptions.modal.subscription') %></h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <i class="far fa-times-circle"></i>
         </button>
@@ -12,77 +12,92 @@
         <span class="status <%= @subscription.state %>"><i class="<%= @subscription.icon_state %>"></i> <%= t("users.subscription.#{@subscription.state}") %></span>
       </div>
       <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.provider') %></span>
+        <span class="font-weight"><%= t('subscriptions.modal.provider') %></span>
         <div><%= @subscription.product.company %></div>
       </div>
       <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.plan') %></span>
+        <span class="font-weight"><%= t('subscriptions.modal.plan') %></span>
         <div><%= @subscription.product.name %></div>
       </div>
-      <% if @subscription.sim %>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight"><%= t('step.summary.form.label.sim_card') %></span>
-          <div><%= @subscription.sim %></div>
-        </div>
-      <% end %>
       <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.name') %></span>
-        <div><%= @subscription.address.user.first_name %></div>
-      </div>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.surname') %></span>
-        <div><%= @subscription.address.user.last_name %></div>
-      </div>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.email') %></span>
-        <div><%= @subscription.address.user.email %></div>
-      </div>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.address') %></span>
-        <div><%= @subscription.address.street %></div>
-      </div>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.billing_address') %></span>
-        <div><%= @subscription.billing.address %></div>
-      </div>
-      <% if @subscription.delivery_address %>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight"><%= t('step.summary.form.label.delivery_address') %></span>
-          <div><%= @subscription.delivery_address %></div>
-        </div>
-      <% end %>
-      <% if @subscription.product.country == 'United Kingdom'%>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight"><%= t('step.summary.form.label.account_holder') %></span>
-          <div><%= @subscription.billing.holder_name %></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight"><%= t('step.summary.form.label.account_number') %></span>
-          <div><%= @subscription.billing.account_number %></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight"><%= t('step.summary.form.label.banking_institution') %></span>
-          <div><%= @subscription.billing.bank %></div>
-        </div>
-      <% else %>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight">IBAN</span>
-          <div><%= @subscription.billing.iban_prettify %></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight">BIC</span>
-          <div><%= @subscription.billing.bic %></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <span class="font-weight"><%= t('step.summary.form.label.banking_institution') %></span>
-          <div><%= @subscription.billing.bank %></div>
-        </div>
-      <% end %>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('step.summary.form.label.price') %></span>
+        <span class="font-weight"><%= t('subscriptions.modal.price') %></span>
         <div>
           <%= @subscription.product.format_price %>/month
         </div>
+      </div>
+      <% if @subscription.product.is_mobile? && @subscription.sim %>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <span class="font-weight"><%= t('subscriptions.modal.sim_format') %></span>
+          <div><%= @subscription.sim %></div>
+        </div>
+      <% elsif @subscription.product.is_wifi? %>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <span class="font-weight"><%= t('subscriptions.modal.setup_price') %></span>
+          <div><%= @subscription.product.setup_price %></div>
+        </div>
+      <% end %>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.time_contract') %></span>
+        <div><%= @subscription.product.time_contract %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.data_speed') %></span>
+        <div><%= @subscription.product.data_speed %></div>
+      </div>
+      <h3><%= t('subscriptions.modal.subscriber') %></h3>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.first_name') %></span>
+        <div><%= @subscription.address.user.first_name %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.last_name') %></span>
+        <div><%= @subscription.address.user.last_name %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.email') %></span>
+        <div><%= @subscription.address.user.email %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.birthdate') %></span>
+        <div><%= @subscription.address.user.birthdate %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.phone') %></span>
+        <div><%= @subscription.address.user.phone %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.address') %></span>
+        <div><%= @subscription.address.street %></div>
+      </div>
+      <% if @subscription.delivery_address %>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <span class="font-weight"><%= t('subscriptions.modal.delivery_address') %></span>
+          <div><%= @subscription.delivery_address %></div>
+        </div>
+      <% end %>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.holder_name') %></span>
+        <div><%= @subscription.billing.holder_name %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.account_number') %></span>
+        <div><%= @subscription.billing.account_number %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight">IBAN</span>
+        <div><%= @subscription.billing.iban_prettify %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight">BIC</span>
+        <div><%= @subscription.billing.bic %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.bank') %></span>
+        <div><%= @subscription.billing.bank %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="font-weight"><%= t('subscriptions.modal.billing_address') %></span>
+        <div><%= @subscription.billing.address %></div>
       </div>
     </div>
   </div>
