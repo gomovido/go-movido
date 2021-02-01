@@ -337,7 +337,7 @@ en:
     wifi-filter:
       title: 'Filter'
       reset: 'Reset filters'
-      no_contract: 'Monthly contract'
+      no_contract: 'No obligation'
       by_price: 'Filter by price (in %{unit})'
       contract_only: 'Long-term contract'
     card:
