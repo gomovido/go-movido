@@ -34,17 +34,6 @@
           <span class="desc"><span class="black"><%= @product.format_sim_card_price %></span> <%= t('.sim_card') %></span>
         </div>
         <hr>
-        <% if @product.obligation %>
-        <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
-          <span class="desc"><span class="black"><%= @product.time_contract %></span> <%= t('.months') %></span>
-        </div>
-        <% else %>
-        <div class="feature-lite d-flex flex-column align-items-center">
-          <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
-          <span class="desc"><%= t('.no_obligation').html_safe %></span>
-        </div>
-        <% end %>
       </div>
     <% elsif @product.is_wifi? %>
       <div class="features-lite-wrapper">
@@ -58,6 +47,18 @@
           <span class="desc"><%= @product.format_setup_price %></span>
           <span><%= t('products.card.setup_costs') %></span>
         </div>
+      </div>
+      <hr>
+    <% end %>
+    <% if @product.obligation %>
+      <div class="feature-lite d-flex flex-column align-items-center">
+        <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
+        <span class="desc"><span class="black"><%= @product.time_contract %></span> <%= t('.months') %></span>
+      </div>
+    <% else %>
+      <div class="feature-lite d-flex flex-column align-items-center">
+        <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
+        <span class="desc"><%= t('.no_obligation').html_safe %></span>
       </div>
     <% end %>
   </div>

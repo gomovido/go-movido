@@ -68,9 +68,9 @@ export default class extends ApplicationController {
   wifiFiltersArray() {
     let filters = [];
     if (document.getElementById('with_obligation').checked) {
-      filters.push('u_obligation');
+      filters.push('with_obligation');
     } if (document.getElementById('without_obligation').checked) {
-      filters.push('l_obligation');
+      filters.push('without_obligation');
     }
     return filters;
   }
@@ -78,11 +78,11 @@ export default class extends ApplicationController {
   mobileFiltersArray() {
     let filters = [];
     if (document.getElementById('unlimited_data').checked) {
-      filters.push('u_data');
+      filters.push('unlimited_data');
     } if (document.getElementById('unlimited_call').checked) {
-      filters.push('u_call');
-    } if (document.getElementById('obligation').checked) {
-      filters.push('no_ob');
+      filters.push('unlimited_call');
+    } if (document.getElementById('without_obligation').checked) {
+      filters.push('without_obligation');
     }
     return filters;
   }

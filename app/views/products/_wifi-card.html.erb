@@ -1,6 +1,6 @@
 <% datas = [] %>
-<% datas.push('u_obligation') if !product.obligation %>
-<% datas.push('l_obligation') if product.obligation %>
+<% datas.push('without_obligation') if !product.obligation %>
+<% datas.push('with_obligation') if product.obligation %>
 <div class="product-card mb-4 w-100" data-controller="modal" data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
   <div class="d-flex align-items-center mb-3">
     <div class="d-flex align-items-center justify-content-center box-offer">
@@ -22,8 +22,14 @@
                 <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <%= t('products.card.months') %></span>
               </div>
             </div>
-            <div class="margin"></div>
+          <% else %>
+            <div class="offer">
+              <div class="text-center">
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation') %></span>
+              </div>
+            </div>
           <% end %>
+          <div class="margin"></div>
           <div class="offer">
             <div class="text-center">
               <%= image_tag(asset_path('products/wifi-black.png'), class:'picto ') %><br><span class="font-weight"><%= product.data_speed %> Ø<br><%= t('products.card.speed') %></span>
