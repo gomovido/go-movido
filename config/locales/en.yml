@@ -235,34 +235,42 @@ en:
       mobile_phone:
         name: 'Mobile'
         subtitle: 'Get your local mobile phone number'
+        subtitle_mobile: 'Get your local phone number'
         description: 'Choose from a variety of mobile options, from pay as you go to long-term contracts'
       wifi:
         name: 'WiFi'
         subtitle: 'Set up WiFi in your new home'
+        subtitle_mobile: 'Set up WiFi in your new home'
         description: 'Find the right WiFi option for your home depending on your needs'
       housing:
         name: 'Housing'
         subtitle: 'Find the perfect place in your new hometown'
+        subtitle_mobile: 'Find your perfect place'
         description: 'Entire Place, Flatshare, Student Housing or Upscale Offers - find the perfect place for you to stay at'
       bank:
         name: 'Bank account'
         subtitle: 'Open your local bank account'
+        subtitle_mobile: 'Open your local bank account'
         description: 'Open your local bank account fully online with one of our trusted partners'
       gym:
         name: 'Workout'
         subtitle: 'Find the best workouts in your area'
+        subtitle_mobile: 'Find the best workouts around'
         description: 'Sign up to the best gyms and workout classes in your area'
       transportation:
         name: 'Transportation'
         subtitle: 'Get the right local transportation card'
+        subtitle_mobile: 'Get your local transport card'
         description: 'Tell us where you need to go and we will get you the right public transportation card'
       utilities:
         name: 'Utilities'
         subtitle: 'Water, Electricity, Gas - we get you all set-up'
+        subtitle_mobile: 'Water, electricity, gas'
         description: 'Choose your preferred utilities provider and we take care of your admin work'
       community:
         name: 'Community'
         subtitle: 'Join the movido community in your town'
+        subtitle_mobile: 'Join the movido community'
         description: 'Join our community of like-minded people in your new hometown!'
   addresses:
     new:

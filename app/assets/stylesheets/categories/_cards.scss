@@ -66,3 +66,42 @@
     font-size: 12px;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .category-card-mobile {
+    height: 90px;
+    filter: drop-shadow(0px 16px 40px rgba(166, 163, 173, 0.2));
+    border-radius: 14px;
+    border: 1px solid $snow;
+    background: $white;
+  }
+  img {
+    width: 36px;
+  }
+  .time {
+    font-weight: normal;
+    font-size: 11px;
+    color: $purple;
+  }
+  .coming-soon {
+    font-weight: normal;
+    font-size: 11px;
+    color: $grey;
+  }
+  .details {
+    width: 60%;
+  }
+  .subtitle {
+    font-weight: normal;
+    font-size: 12px;
+  }
+  .name {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .time, .coming-soon {
+    height: 83%;
+    width: 28%;
+    text-align: right;
+  }
+}
