@@ -587,7 +587,8 @@ en:
   banks:
     index:
       title: 'Open your bank account online'
-      cta: 'See details'
+      cta: 'Select offer'
+      details: 'See details'
       bunq:
         headline: "The <span class='purple'>banking app</span> that makes life easy"
         feature_1: 'Download the bunq app and open your bank account in no time'
@@ -600,6 +601,41 @@ en:
         feature_2: 'Send money instantly in any currency at real exchange rates'
         feature_3: 'Up to 8x cheaper than traditional banks'
         feature_4: 'Also compatible with Apple Pay'
+    modal:
+      bunq:
+        feature_1:
+          title: 'Security'
+          description_1: "Bunq is a fully licensed European bank"
+          description_2: "This means customers‘ deposits are protected up to €100,000"
+        feature_2:
+          title: "Send money"
+          description_1: "Bunq is an app-only bank – available for Android or iOS"
+          description_2: "For a small fee (€7.99/month), you can easily send money between friends or colleagues"
+        feature_3:
+          title: "Debit card"
+          description_1: "You will receive the Bunq debit card that can be used globally where Mastercard is accepted"
+          description_2: "Especially useful for people who travel frequently – you have a functional bank account abroad"
+        feature_4:
+          title: "Hold currencies"
+          description_1: "You can benefit from various options to invest your euro savings "
+          description_2: "No fees for spending euros in Europe, however, there is no multi currency account in place yet"
+      transferwise:
+        feature_1:
+          title: 'Security'
+          description_1: "TransferWise is regulated by the FCA like any other bank – your money is safe"
+          description_2: "TransferWise moves over £4 billion of their customers‘ money every month"
+        feature_2:
+          title: "Send money"
+          description_1: "You can register for free online or via app - no subscription is needed "
+          description_2: "To transfer money, TransferWise uses the real exchange rate and charges you a transparent fee shown upfront (no hidden charges)"
+        feature_3:
+          title: "Receive payments"
+          description_1: "You can get your own UK account number, Euro IBAN, US routing number and many more"
+          description_2: "Anyone can use these to pay you just like they would pay a local (works for: €, £, $, lei, ft, ₺)"
+        feature_4:
+          title: "Convert & hold currencies"
+          description_1: "You can hold and convert up to 55 currencies and send it to 70+ countries"
+          description_2: "Holding multiple currencies is completely free"
   flashes:
     global_failure: 'An error has occured'
     not_allowed: "You are not allowed to see this page"
