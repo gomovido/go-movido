@@ -3,7 +3,7 @@
     <%= image_tag(asset_path(bank.logo_url + ".png")) %>
     <div class="content">
       <div class="title">
-        <span class="mb-2"><%= t(".#{bank.name.downcase}.#{bank.headline}").html_safe %></span>
+        <span class="mb-2"><%= t("banks.index.#{bank.name.downcase}.#{bank.headline}").html_safe %></span>
       </div>
       <div class="features d-flex flex-column align-items-start">
         <div class="feature py-2">
