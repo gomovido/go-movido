@@ -230,6 +230,7 @@ en:
       new_address: 'Add a new address'
       time: 'in %{time} minutes'
       coming_soon: 'COMING SOON'
+      coming_soon_mobile: 'COMING SOON'
       offers: 'offers available'
       see_offers: 'See offers'
       mobile_phone:
