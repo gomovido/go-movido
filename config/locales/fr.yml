@@ -238,6 +238,7 @@ fr:
       new_address: "Ajouter une adresse"
       time: 'En %{time} minutes'
       coming_soon: 'BIENTÔT DISPONIBLE'
+      coming_soon_mobile: 'BIENTÔT'
       offers: 'offres disponibles'
       see_offers: 'Voir les offres'
       mobile_phone:
@@ -248,7 +249,7 @@ fr:
       wifi:
         name: "WiFi"
         subtitle: 'Offre toi une nouvelle offre internet'
-        subtitle_mobile: "Trouve ta nouvelle offre internet"
+        subtitle_mobile: "Explore nos offres WiFi"
         description: "Choisis parmi une variété de forfaits WiFi l'offre idéale adaptée à tes besoins"
       housing:
         name: "Logement"
@@ -278,7 +279,7 @@ fr:
       community:
         name: 'Communauté'
         subtitle: 'Rejoins la communauté movido dans ta ville'
-        subtitle_mobile: "Rejoins la communauté movido"
+        subtitle_mobile: "Rejoins notre communauté"
         description: 'Discute avec des étudiants du monde entier'
     careers:
       title: "Carrières"
