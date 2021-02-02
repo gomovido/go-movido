@@ -68,5 +68,38 @@
 @include media-breakpoint-down(md) {
   .faq-container {
     padding-top: 2rem;
+    h2 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 37px;
+    }
+    h3 {
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 26px;
+    }
+    .img-link {
+      width: 105px;
+    }
+    .card-header {
+      height: 60px;
+      h5 {
+        font-size: 14px;
+        color: $black;
+        font-weight: bold;
+      }
+    }
+    .card-body {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 26px;
+    }
   }
 }
