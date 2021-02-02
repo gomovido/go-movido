@@ -1,28 +1,5 @@
-<div class="container dashboard-container py-3">
-  <div class="big-blue-bubble position-absolute d-lg-block d-none"></div>
-  <div class="small-yellow-bubble position-absolute"></div>
-  <div class="small-blue-bubble position-absolute"></div>
-  <div class="row">
-    <div class="col-md-12 text-center d-flex align-items-center justify-content-center flex-column">
-      <h1 class="title mb-4"><%= t('.title') %></h1>
-      <% if current_user.active_address.valid_address %>
-        <span class="address"><i class="fas fa-map-marker-alt mr-2"></i><%= truncate(current_user.active_address.street, :length => 70) %></span>
-      <% else %>
-        <%= link_to t('.new_address'), user_path(current_user), class: 'btn-main' %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-10 offset-1 categories-cards-wrapper mt-5">
-      <div class="row">
-        <% @categories.each_with_index do |category, index| %>
-          <% if category.name == 'bank' %>
-            <%=  render 'categories/card-bank', category: category, index: index %>
-          <% else %>
-            <%=  render 'categories/card', category: category, index: index %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<% if browser.device.mobile? %>
+  <%= render 'dashboard_index_mobile' %>
+<% else %>
+  <%= render 'dashboard_index_desktop' %>
+<% end %>

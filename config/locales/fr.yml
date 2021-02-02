@@ -243,34 +243,42 @@ fr:
       mobile_phone:
         name: "Téléphonie"
         subtitle: "Obtiens ton nouveau numéro de mobile"
+        subtitle_mobile: "Obtiens ton nouveau numéro"
         description: "Choisis parmi une variété d’offres – de la carte prépayée au forfait longue durée"
       wifi:
         name: "WiFi"
         subtitle: 'Offre toi une nouvelle offre internet'
+        subtitle_mobile: "Trouve ta nouvelle offre internet"
         description: "Choisis parmi une variété de forfaits WiFi l'offre idéale adaptée à tes besoins"
       housing:
         name: "Logement"
         subtitle: 'Trouve ton logement dans ta nouvelle ville'
+        subtitle_mobile: "Trouve le logement parfait"
         description: "Logement classique, colocation, logement étudiant ou offres haut de gamme - consulte nos dernières annonces"
       bank:
         name: 'Compte bancaire'
         subtitle: 'Ouvre un nouveau compte en quelques minutes'
+        subtitle_mobile: "Ouvre un nouveau compte"
         description: "Ouvre ton compte bancaire local en ligne sans te déplacer"
       gym:
         name: 'Sport'
         subtitle: "Cours de Yoga, Boxe ou salle de sport classique"
+        subtitle_mobile: "Ton nouvel espace de sport "
         description: "Nous avons sélectionné les meilleures offres de sport dans ta ville - maintenant à toi de choisir"
       transportation:
         name: 'Transport'
         subtitle: 'Obtiens ta carte de transports en communs'
+        subtitle_mobile: "Obtiens ta carte de transports"
         description: "Dis-nous où tu veux aller et nous te fournissons ta carte de transport en commun"
       utilities:
         name: 'Services publics'
         subtitle: "Eau, électricité, gaz"
+        subtitle_mobile: "Eau, électricité, gaz"
         description: "Sélectionne ton fournisseur et nous nous occupons de tes démarches adminstratives"
       community:
         name: 'Communauté'
         subtitle: 'Rejoins la communauté movido dans ta ville'
+        subtitle_mobile: "Rejoins la communauté movido"
         description: 'Discute avec des étudiants du monde entier'
     careers:
       title: "Carrières"
