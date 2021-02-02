@@ -6,6 +6,11 @@ export default class extends ApplicationController {
     $(".product-body").load(event.target.getAttribute("data-href"));
   }
 
+
+  loadBankModal(event) {
+    $(".bank-body").load(event.target.getAttribute("data-href"));
+  }
+
   loadSubscriptionModal(event) {
     $('.modal-body').load(event.target.getAttribute("data-href"));
   }

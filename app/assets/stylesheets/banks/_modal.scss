@@ -1,0 +1,36 @@
+.modal-bank {
+  padding-top: 1rem !important;
+  .modal-dialog {
+    max-width: 1110px;
+  }
+  .modal-content {
+    position: absolute;
+    border-radius: 20px;
+    img {
+      width: 25%;
+      margin-top: -1rem;
+    }
+    .modal-body {
+      .close {
+        height: 40px;
+      }
+      .close i {
+        font-size: 35px;
+      }
+    }
+    .bank-content .features-wrapper {
+      .title {
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 32px;
+      }
+      li {
+        color: $dark-cloud;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
