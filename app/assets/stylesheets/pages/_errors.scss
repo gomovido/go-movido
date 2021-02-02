@@ -12,10 +12,23 @@
   h1 {
     font-weight: 800;
     font-size: 100px;
+    font-family: 'Montserrat';
     color: $purple;
   }
   h2 {
     font-weight: 800;
     font-size: 40px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .errors-container {
+    min-height: 80vh;
+    h1 {
+      font-size: 70px;
+    }
+    h2 {
+      font-size: 20px;
+    }
   }
 }
