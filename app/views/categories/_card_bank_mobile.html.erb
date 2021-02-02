@@ -1,7 +1,7 @@
 
 <div class="category-card-mobile mb-3 px-2 py-3 <%= category.open ? '' : 'disabled' %>">
   <%= link_to category_banks_path(category), class: 'w-100 h-100 d-flex justify-content-between align-items-center' do %>
-    <%= image_tag(asset_path("pages/dashboard/" + category.sku + "-card.png"), class: 'mr-3') %>
+    <%= image_tag(asset_path("pages/dashboard/" + category.sku + "-card.png"), class: 'ml-2 mr-3') %>
     <div class="details">
       <span class="name"><%= t("pages.dashboard_index.#{category.sku}.name") %></span>
       <br>
