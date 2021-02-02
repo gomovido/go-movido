@@ -256,7 +256,7 @@ en:
       gym:
         name: 'Workout'
         subtitle: 'Find the best workouts in your area'
-        subtitle_mobile: 'Find the best workouts around'
+        subtitle_mobile: 'Find the best workouts'
         description: 'Sign up to the best gyms and workout classes in your area'
       transportation:
         name: 'Transportation'
