@@ -1,0 +1,52 @@
+<div class="content p-lg-5 p-3 d-flex justify-content-between">
+  <div class="bank-content w-100">
+    <div class="text-center">
+      <%= image_tag(asset_path("banks/#{@bank.name.downcase}.png"), class:'mr-4 mb-3 mb-sm-0 logo') %>
+    </div>
+      <div class="features-wrapper">
+        <span class="title"><strong><%= t("banks.modal.#{@bank.name.downcase}.feature_1.title") %></strong></span>
+        <ul>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_1.description_1") %>
+          </li>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_1.description_2") %>
+          </li>
+        </ul>
+        <span class="title"><strong><%= t("banks.modal.#{@bank.name.downcase}.feature_2.title") %></strong></span>
+        <ul>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_2.description_1") %>
+          </li>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_2.description_2") %>
+          </li>
+        </ul>
+        </ul>
+        <span class="title"><strong><%= t("banks.modal.#{@bank.name.downcase}.feature_3.title") %></strong></span>
+        <ul>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_3.description_1") %>
+          </li>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_3.description_2") %>
+          </li>
+        </ul>
+        </ul>
+        <span class="title"><strong><%= t("banks.modal.#{@bank.name.downcase}.feature_4.title") %></strong></span>
+        <ul>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_4.description_1") %>
+          </li>
+          <li>
+            <%= t("banks.modal.#{@bank.name.downcase}.feature_4.description_2") %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <div class="right d-flex flex-column align-items-center justify-content-between justify-content-szm-around">
+    <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+    <i class="far fa-times-circle"></i>
+    </button>
+  </div>
+</div>

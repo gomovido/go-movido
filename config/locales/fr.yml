@@ -426,7 +426,8 @@ fr:
   banks:
     index:
       title: 'Ouvre ton compte bancaire en ligne'
-      cta: 'Plus de détails'
+      cta: 'Sélectionner cette offre'
+      details: 'Plus de détails'
       bunq:
         headline: "<span class='purple'>L'application bancaire</span> qui rend la vie facile"
         feature_1: 'Télécharge l’application Bunq et ouvre un compte en banque rapidement'
