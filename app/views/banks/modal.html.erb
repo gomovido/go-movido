@@ -1,7 +1,7 @@
 <div class="content p-lg-5 p-3 d-flex justify-content-between">
   <div class="bank-content w-100">
     <div class="text-center">
-      <%= image_tag(asset_path("banks/#{@bank.name.downcase}.png"), class:'mr-4 mb-3 mb-sm-0 logo') %>
+      <%= image_tag(asset_path("banks/#{@bank.name.downcase}.png"), class:'mb-3') %>
     </div>
       <div class="features-wrapper">
         <span class="title"><strong><%= t("banks.modal.#{@bank.name.downcase}.feature_1.title") %></strong></span>

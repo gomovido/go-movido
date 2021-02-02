@@ -449,6 +449,41 @@ fr:
         feature_2: 'Envoie de l’argent instantanément dans différentes devises'
         feature_3: " Jusqu'à 8 fois moins cher que les banques traditionnelles"
         feature_4: 'Compatible Apple Pay'
+    modal:
+      bunq:
+        feature_1:
+          title: 'Sécurité'
+          description_1: "Bunq est une banque européenne"
+          description_2: "Cela signifique que les dépôts sont assurés jusqu'à 100,000€"
+        feature_2:
+          title: "Envoyer de l'argent"
+          description_1: "Bunq est une application bancaire– disponible sur Android ou iOS"
+          description_2: "Avec des frais avantageux (7.99€/mois), tu peux facilement envoyer de l'argent à tes amis ou collègues"
+        feature_3:
+          title: "Carte bancaire"
+          description_1: "Tu vas recevoir une carte bancaire Bunq x Mastercard utilisable partout"
+          description_2: "Très pratique pour les personnes voyageant régulièrement - tu disposeras d'un compte bancaire depuis n'importe où"
+        feature_4:
+          title: "Gestion des devises"
+          description_1: "Tu disposeras de plusieurs options pour investir tes économies"
+          description_2: "Pas de frais lors de transfert d'argent en Europe. En revanche, la gestion des multi-devises n'est pas encore prête"
+      transferwise:
+        feature_1:
+          title: 'Sécurité'
+          description_1: "Transferwise est protégé par la FCA comme n'importe quelle autre banque. Ton compte sera en lieu sûr"
+          description_2: "Transferwise effectue des mouvements de l'ordre de 4 milliards d'euros pour ses clients chaque mois"
+        feature_2:
+          title: "Envoyer de l'argent"
+          description_1: "Tu peux t'inscrire via leur site internet ou l'application Transferwise - aucun abonnement n'est requis"
+          description_2: "Pour transférer de l'argent Transferwise utilise le taux de devise le plus avantagé pour toi et te débitera en conséquence (aucun frais caché)"
+        feature_3:
+          title: "Recevoir des paiements"
+          description_1: "Tu peux avoir ton propre numéro de compte UK, IBAN européen ou encore un numéro de compte US"
+          description_2: "Tout le monde peut te payer comme ils le feraient avec n'importe quel compte bancaire (devises: €, £, $, lei, ft, ₺)"
+        feature_4:
+          title: "Conversion & gestion des devises"
+          description_1: "Tu peux gérer et convertir jusqu'à 55 types de devises valables dans plus de 70 pays"
+          description_2: "La gestion de compte multi-devises est totalement gratuite"
   users:
     profil:
       saving: 'Sauvegarde en cours'
