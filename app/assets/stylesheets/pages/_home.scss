@@ -44,6 +44,9 @@
 
 
 @include media-breakpoint-down(md) {
+  .home-container #partners p.title {
+    font-size: 16px;
+  }
   .home-container {
     section {
       margin-bottom: 4rem;
