@@ -67,13 +67,15 @@
     </div>
   </div>
   <div class="dropdown-card d-none" data-animate-target="dropdown">
-    <div class="special-offers py-4">
-      <% product.special_offers.each do |sp| %>
-      <ul>
-        <li class="special-offer"><%= sp.name %></li>
-      </ul>
-      <% end %>
-    </div>
+    <% unless product.special_offers.blank? %>
+      <div class="special-offers py-3">
+        <% product.special_offers.each do |sp| %>
+        <ul>
+          <li class="special-offer"><%= sp.name %></li>
+        </ul>
+        <% end %>
+      </div>
+    <% end %>
     <div class="product-features py-4">
       <% product.product_features.each do |pf| %>
       <span class="title"> <%= pf.name %> </span>
