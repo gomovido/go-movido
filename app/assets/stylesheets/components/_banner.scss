@@ -40,16 +40,15 @@
       font-size: 16px;
       margin-bottom: 0;
     }
-    .banner-img {
-      position: relative;
-      img {
-        width: 60%;
-        position: relative;
+    .cta {
+      left: 22%;
+      bottom: 15%;
+      .btn-main {
+        padding: 15px 40px !important;
       }
     }
-    .cta {
-      bottom: 5%;
-      left: 25%;
+    .banner-img {
+      position: relative;
     }
     .bubble-position-right {
       position: absolute;
