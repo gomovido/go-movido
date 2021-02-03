@@ -1,0 +1,14 @@
+<div class="container products-container" data-controller="filters">
+  <div class="col-12">
+    <h1 class="title mb-4"><%= t('products.index.title') %></h1>
+  </div>
+    <div class="col-12">
+      <span class="d-none no-result" data-filters-target="noResult"><%= t('.no_result').html_safe %></span>
+      <div class="products-cards-wrapper">
+        <% @products.sort_by{ |product| product.price }.each do |product| %>
+          <%= render 'card_mobile', product: product %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

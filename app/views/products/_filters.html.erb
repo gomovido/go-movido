@@ -1,5 +1,5 @@
 <% if products[0].is_mobile? %>
-  <%= render 'mobile-filter', products: products  %>
+  <%= render 'mobile_filter', products: products  %>
 <% elsif products[0].is_wifi? %>
-  <%= render 'wifi-filter', products: products  %>
+  <%= render 'wifi_filter', products: products  %>
 <% end %>
