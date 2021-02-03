@@ -91,7 +91,6 @@
           }
           .special-offers {
             border-top: 1px solid $grey-snow;
-            border-bottom: 1px solid $grey-snow;
             .special-offer {
               list-style: none;
               font-weight: bold;
@@ -101,6 +100,7 @@
             }
           }
           .product-features {
+            border-top: 1px solid $grey-snow;
             .title {
               padding-left: 1rem;
               padding-right: 1rem;
