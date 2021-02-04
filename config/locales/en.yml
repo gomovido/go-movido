@@ -355,6 +355,7 @@ en:
       months: 'months'
       only: 'only'
       frequency: 'monthly <br>cost'
+      frequency_mobile: 'monthly cost'
       speed: 'speed'
       setup_costs: 'setup costs'
       free: 'Free'

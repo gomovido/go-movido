@@ -16,7 +16,7 @@
       </div>
       <div class="price">
         <span class="number"><%= product.format_price %></span><br>
-        <span class="frequency"><%= t('products.card.frequency').html_safe %></span>
+        <span class="frequency"><%= t('products.card.frequency_mobile') %></span>
       </div>
     </div>
     <div class="d-flex align-items-center justify-content-around">
@@ -74,7 +74,7 @@
     <% unless product.special_offers.blank? %>
       <div class="special-offers py-3">
         <% product.special_offers.each do |sp| %>
-        <ul>
+        <ul class="mb-0">
           <li class="special-offer"><%= sp.name %></li>
         </ul>
         <% end %>
