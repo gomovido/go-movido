@@ -30,7 +30,7 @@
         <% else %>
           <div class="offer">
             <div class="d-flex align-items-center">
-              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation').html_safe %></span>
+              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation_mobile') %></span>
             </div>
           </div>
         <% end %>
@@ -39,7 +39,7 @@
         <div class="offer">
           <div class="d-flex align-items-center">
             <% if product.is_wifi? %>
-              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %> Ø<br><%= t('products.card.speed') %></span>
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %></span>
             <% else %>
               <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_limit ? product.data_limit : 'unlimited' %></span>
             <% end %>
@@ -62,7 +62,7 @@
         <% else %>
           <div class="offer">
             <div class="d-flex align-items-center">
-              <i class="fas fa-plug picto-icon picto"></i><br><span class="font-weight"><%= product.setup_price %></span>
+              <i class="fas fa-plug picto-icon picto"></i><br><span class="font-weight"><%= product.format_setup_price %></span>
             </div>
           </div>
         <% end %>
