@@ -23,6 +23,7 @@ description: 'description',
 open: true)
 
 product = Product.create(
+  active: true,
   country: "France",
   company: "SFR",
   name: "5 Go 4G+",
@@ -56,6 +57,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "France",
   company: "SFR",
   name: "80 Go 4G+",
@@ -88,6 +90,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "France",
   company: "SFR",
   name: "2h 100mo",
@@ -120,6 +123,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "United Kingdom",
   company: "GifGaff",
   name: "9 gb",
@@ -158,6 +162,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "United Kingdom",
   company: "GifGaff",
   name: "10 gb",
@@ -195,6 +200,7 @@ ProductFeature.create(
   description: "No contract means you can change your offer each month or cancel anytime.With your third top-up, you will get 1 GB extra data from for free on top."
 )
 product = Product.create(
+  active: true,
   country: "United Kingdom",
   company: "GifGaff",
   name: "80 gb",
@@ -233,6 +239,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "United Kingdom",
   company: "GifGaff",
   name: "Always On",
@@ -271,6 +278,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "France",
   company: "Bouygues Telecom",
   name: "100 go",
@@ -298,6 +306,7 @@ category = Category.create(
 
 
 product = Product.create(
+  active: true,
   country: "United Kingdom",
   company: "Direct Save Telecom",
   name: "DetailsDirect Save 80",
@@ -330,6 +339,7 @@ ProductFeature.create(
 )
 
 product = Product.create(
+  active: true,
   country: "France",
   company: "Free",
   name: "Free fibre optique",
