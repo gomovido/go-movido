@@ -50,17 +50,23 @@
     }
     .picto {
       width: 25px;
-      margin-bottom: 9px;
+      margin-bottom: 5px;
     }
     .picto-icon {
-      margin-bottom: 9px;
+      margin-bottom: 5px;
     }
     .features span {
       color: $turquoise;
       font-weight: bold;
     }
-    .country span {
-      color: $country-card-color !important;
+    .country {
+      min-width: 22%;
+      span {
+        color: $country-card-color !important;
+      }
+    }
+    .special-offer {
+      font-size: 12px;
     }
     .cyan {
       color: $cyan;

@@ -40,6 +40,11 @@ product = Product.create(
   logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
 )
 
+SpecialOffer.create(name: 'Includes a £30 Amazon Gift Card', product: Product.first)
+SpecialOffer.create(name: '14 day returns policy', product: Product.first)
+SpecialOffer.create(name: 'Includes capping + data rollover', product: Product.first)
+SpecialOffer.create(name: 'Free Delivery', product: Product.first)
+
 ProductFeature.create(
   product: product,
   name: "5GB of data per month",
@@ -136,8 +141,7 @@ product = Product.create(
   data_limit: '9gb',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
-  special_offer: 'Receive £5 bonus credit'
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
 )
 
 ProductFeature.create(
@@ -175,8 +179,7 @@ product = Product.create(
   data_limit: '10gb',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
-  special_offer: 'Receive £5 bonus credit'
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
 )
 
 ProductFeature.create(
@@ -213,8 +216,7 @@ product = Product.create(
   data_limit: '80gb',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
-  special_offer: 'Receive £5 bonus credit'
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
 )
 
 ProductFeature.create(
@@ -252,8 +254,7 @@ product = Product.create(
   data_limit: 'Always on',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png',
-  special_offer: 'Receive £5 bonus credit'
+  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
 )
 
 ProductFeature.create(
@@ -291,8 +292,7 @@ product = Product.create(
   data_limit: '100go',
   call_limit: 'unlimited',
   sim_card_price: 1,
-  logo_url: 'https://i.ibb.co/MDvQ5m1/fai-bouygues-telecom-001-1.png',
-  special_offer: '3month Spotify Premium for free'
+  logo_url: 'https://i.ibb.co/MDvQ5m1/fai-bouygues-telecom-001-1.png'
 )
 
 
