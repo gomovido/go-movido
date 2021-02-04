@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_125637) do
+ActiveRecord::Schema.define(version: 2021_02_04_145158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 2021_02_03_125637) do
     t.string "data_limit"
     t.float "sim_card_price"
     t.string "call_limit"
-    t.string "special_offer"
     t.boolean "sim_needed", default: false
     t.string "country"
     t.string "data_speed"

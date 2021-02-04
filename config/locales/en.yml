@@ -162,7 +162,7 @@ en:
           title: 'Choose your product'
           description: 'Choose your preferred offer and leave the rest of the admin work to us. Within 24 hours your new subscription will be active'
         card4:
-          title: 'Manage your subscriptions'
+          title: 'Manage subscriptions'
           description: 'movido provides a personalized overview of all your active subscriptions - easily manage your account and cancel / change your subscription anytime'
       about-us:
         title: 'About movido'
@@ -354,11 +354,11 @@ en:
       select_offer: 'Select offer'
       months: 'months'
       only: 'only'
-      frequency: 'monthly cost'
+      frequency: 'monthly <br>cost'
       speed: 'speed'
       setup_costs: 'setup costs'
       free: 'Free'
-      no_obligation: 'no obligation'
+      no_obligation: 'no <br> obligation'
     modal:
       cta: '<span class="d-flex align-items-baseline justify-content-center">Select Offer<i class="ml-3 fas fa-arrow-square-right"></i></span>'
       monthly: 'monthly cost'

@@ -1,5 +1,5 @@
 <div class="category-card col-md-4 <%= category.open ? '' : 'disabled' %>">
-  <%= link_to category_products_path(category), data: { turbolinks: false }, class: 'mb-3 d-flex flex-column align-items-center' do %>
+  <%= link_to path, data: { turbolinks: false }, class: 'mb-3 d-flex flex-column align-items-center' do %>
   <div class="w-100 text-center image p-3"><%= image_tag(asset_path("pages/dashboard/" + category.sku + "-card.png")) %></div>
   <div class="details px-3 py-2 w-100 d-flex flex-column justify-content-between">
     <div class="d-flex align-items-center justify-content-between">
