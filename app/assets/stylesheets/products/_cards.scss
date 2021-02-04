@@ -22,10 +22,10 @@
       margin-right: 1rem;
     }
     .actions {
-      width: 25%;
+      width: 35%;
     }
     .logo {
-      width: 45px;
+      width: 100px;
     }
     .modal-link {
      text-decoration: underline !important;
@@ -127,6 +127,9 @@
         border-radius: 14px;
         border: 1px solid $snow;
         background: #FFFFFF;
+        .logo {
+          width: 45px;
+        }
         i {
           font-size: 18px;
         }
