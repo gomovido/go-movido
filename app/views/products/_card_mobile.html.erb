@@ -16,7 +16,7 @@
       </div>
       <div class="price">
         <span class="number"><%= product.format_price %></span><br>
-        <span class="frequency"><%= t('products.card.frequency') %></span>
+        <span class="frequency"><%= t('products.card.frequency').html_safe %></span>
       </div>
     </div>
     <div class="d-flex align-items-center justify-content-around">
@@ -30,7 +30,7 @@
         <% else %>
           <div class="offer">
             <div class="d-flex align-items-center">
-              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation') %></span>
+              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation').html_safe %></span>
             </div>
           </div>
         <% end %>
