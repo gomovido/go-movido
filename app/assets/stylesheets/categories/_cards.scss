@@ -74,34 +74,34 @@
     border-radius: 14px;
     border: 1px solid $snow;
     background: $white;
-  }
-  img {
-    width: 34px;
-  }
-  .time {
-    font-weight: normal;
-    font-size: 11px;
-    color: $purple;
-  }
-  .coming-soon {
-    font-weight: normal;
-    font-size: 11px;
-    color: $grey;
-  }
-  .details {
-    width: 60%;
-  }
-  .subtitle {
-    font-weight: normal;
-    font-size: 12px;
-  }
-  .name {
-    font-weight: bold;
-    font-size: 14px;
-  }
-  .time, .coming-soon {
-    height: 83%;
-    width: 28%;
-    text-align: center;
+    img {
+      width: 34px;
+    }
+    .time {
+      font-weight: normal;
+      font-size: 11px;
+      color: $purple;
+    }
+    .coming-soon {
+      font-weight: normal;
+      font-size: 11px;
+      color: $grey;
+    }
+    .details {
+      width: 60%;
+    }
+    .subtitle {
+      font-weight: normal;
+      font-size: 12px;
+    }
+    .name {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .time, .coming-soon {
+      height: 83%;
+      width: 28%;
+      text-align: center;
+    }
   }
 }
