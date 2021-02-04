@@ -68,8 +68,98 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .container.products-container {
-    max-width: 1300px !important;
+@include media-breakpoint-down(md) {
+  .products-container {
+    padding-top: 2rem !important;
+    font-family: 'Montserrat';
+    h1 {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 26px;
+    }
+    .products-cards-wrapper {
+      .product-open-card {
+        height: 100% !important;
+        box-shadow: 0px 16px 40px 0px #A6A3AD;
+        .main-card {
+          padding-bottom: 1rem;
+        }
+        .dropdown-card {
+          ul {
+          padding-left: 1rem;
+          padding-right: 1rem;
+          }
+          .special-offers {
+            border-top: 1px solid $grey-snow;
+            .special-offer {
+              list-style: none;
+              font-weight: bold;
+              font-size: 12px;
+              line-height: 15px;
+              color: $dark-cloud;
+            }
+          }
+          .product-features {
+            border-top: 1px solid $grey-snow;
+            .title {
+              padding-left: 1rem;
+              padding-right: 1rem;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 17px;
+            }
+            li {
+              padding-left: 0;
+              font-size: 12px;
+              line-height: 19px;
+              color: $dark-cloud;
+              list-style: none;
+            }
+          }
+          .btn-card {
+            padding: 15px 108.5px !important;
+          }
+        }
+      }
+      .product-card {
+        height: 112px;
+        filter: drop-shadow(0px 16px 40px rgba(166, 163, 173, 0.2));
+        border-radius: 14px;
+        border: 1px solid $snow;
+        background: #FFFFFF;
+        i {
+          font-size: 18px;
+        }
+        .title {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .description {
+          font-size: 12px;
+          color: $taupe;
+        }
+        .price {
+          text-align: center;
+          .number {
+            font-family: 'Manrope';
+            font-weight: 800;
+            font-size: 18px;
+          }
+          .frequency {
+            font-size: 11px;
+            font-weight: normal;
+          }
+        }
+        span {
+          font-size: 12px;
+          font-weight: 700;
+        }
+        .picto {
+          width: 16px;
+          margin-bottom: 0;
+          margin-right: 0.25rem;
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,25 @@
+<div class="container products-container" data-controller="filters">
+  <figure class="big-blue-bubble position-absolute"></figure>
+  <div class="step-1">
+    <%= render 'subscriptions/steps', current_step: 1, title: t('products.index.title'), subtitle: t('products.index.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
+    <%= render 'product_details'%>
+    <%= render 'address_modal' %>
+    <div class="row pt-5">
+      <div class="col-lg-4  d-flex justify-content-start">
+        <%= render 'filters', products: @products %>
+      </div>
+      <div class="col-lg-8">
+        <span class="d-none no-result" data-filters-target="noResult"><%= t('products.index.no_result').html_safe %></span>
+        <div class="products-cards-wrapper">
+          <% @products.sort_by{ |product| product.price }.each do |product| %>
+            <% if product.is_wifi? %>
+              <%= render 'wifi_card_desktop', product: product %>
+            <% elsif product.is_mobile?%>
+              <%= render 'mobile_card_desktop', product: product %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
