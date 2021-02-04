@@ -38,7 +38,11 @@
       <div class="feature">
         <div class="offer">
           <div class="d-flex align-items-center">
-            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_limit ? product.data_limit : 'unlimited' %></span>
+            <% if product.is_wifi? %>
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %> Ø<br><%= t('products.card.speed') %></span>
+            <% else %>
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_limit ? product.data_limit : 'unlimited' %></span>
+            <% end %>
           </div>
         </div>
       </div>

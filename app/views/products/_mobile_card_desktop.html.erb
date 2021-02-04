@@ -59,8 +59,10 @@
       </div>
     </div>
   </div>
-  <div class="d-flex features">
+  <div class="d-flex features align-items-center">
     <span class="country mr-3"><i class="fas fa-map-marker-alt mr-2 cyan"></i><span><%= product.desc_preview %></span></span>
-    <span class="mr-3"><%= product.special_offer %></span>
+    <% product.special_offers.first(4).each do |offer| %>
+      <span class="mr-3 special-offer"><%= offer.name %></span>
+    <% end %>
   </div>
 </div>
