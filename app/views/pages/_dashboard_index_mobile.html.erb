@@ -5,7 +5,7 @@
       <% if current_user.active_address.valid_address %>
         <span class="address"><i class="fas fa-map-marker-alt mr-2"></i><%= truncate(current_user.active_address.street, :length => 70) %></span>
       <% else %>
-        <%= link_to t('pages.dashboard_index.new_address'), user_path(current_user), class: 'btn-main' %>
+        <div class="w-100 text-center mb-3"><%= link_to t('pages.dashboard_index.new_address'), user_path(current_user), class: 'btn-main' %></div>
       <% end %>
     </div>
   </div>
