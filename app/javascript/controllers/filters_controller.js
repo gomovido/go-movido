@@ -7,6 +7,11 @@ export default class extends ApplicationController {
   static targets = ['input', 'noResult']
 
   connect() {
+    $(window).bind("pageshow", function(event) {
+      if (event.originalEvent.persisted) {
+        window.location.reload()
+      }
+    });
     this.slider = this.inputTarget;
     noUiSlider.create(this.slider, {
       start: [1, 50],
