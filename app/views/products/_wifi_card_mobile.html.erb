@@ -1,7 +1,6 @@
 <% datas = [] %>
-<% datas.push('unlimited_data') if product.unlimited_data %>
-<% datas.push('unlimited_call') if product.unlimited_call %>
 <% datas.push('without_obligation') if !product.obligation %>
+<% datas.push('with_obligation') if product.obligation %>
 <div class="product-card mb-3 px-2 py-3" data-controller="animate" data-animate-target="card" data-product-name="<%= product.name.split(' ').join('-').downcase %>Card"  data-action='click->animate#displayProductCard'>
   <div class="main-card">
     <div class="d-flex align-items-center justify-content-between mb-2 px-2" data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
@@ -38,34 +37,16 @@
       <div class="feature">
         <div class="offer">
           <div class="d-flex align-items-center">
-            <% if product.is_wifi? %>
-              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %></span>
-            <% else %>
-              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_limit ? product.data_limit : 'unlimited' %></span>
-            <% end %>
+            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %></span>
           </div>
         </div>
       </div>
       <div class="feature">
-        <% if product.sim_card_price && product.sim_card_price > 0 %>
-          <div class="offer">
-            <div class="d-flex align-items-center">
-              <%= image_tag(asset_path('products/sim-card-black.png'), class:'picto') %><br><span class="font-weight"><%= product.format_sim_card_price %></span>
-            </div>
+        <div class="offer">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-plug picto-icon picto"></i><br><span class="font-weight"><%= product.format_setup_price %></span>
           </div>
-        <% elsif product.sim_card_price %>
-          <div class="offer">
-            <div class="d-flex align-items-center">
-              <%= image_tag(asset_path('products/sim-card-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.free') %></span>
-            </div>
-          </div>
-        <% else %>
-          <div class="offer">
-            <div class="d-flex align-items-center">
-              <i class="fas fa-plug picto-icon picto"></i><br><span class="font-weight"><%= product.format_setup_price %></span>
-            </div>
-          </div>
-        <% end %>
+        </div>
       </div>
       <i class="fas fa-sort-down ml-2 purple" aria-hidden="true"></i>
     </div>
@@ -89,7 +70,13 @@
       <% end %>
     </div>
     <div class="w-100 text-center mb-2">
-      <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
+      <% if current_user.active_address.nil? || !current_user.active_address.valid_address %>
+        <span class="btn-card mb-2" data-toggle="modal" data-target="#addressModal" data-action="click->animate#updateButton" data-product="<%= product.id %>">
+          <%= t('products.card.select_offer').html_safe %>
+        </span>
+      <% else %>
+        <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
+      <% end %>
     </div>
   </div>
 </div>
