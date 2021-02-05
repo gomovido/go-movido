@@ -25,7 +25,6 @@ export default class extends Controller {
 
 
   borderColor() {
-    console.log('hey')
     if (document.querySelector('#address_zipcode').value === "" || document.querySelector('#address_city').value === "" || this.streetInputTarget.value === "") {
       this.streetInputTarget.classList.remove('is-valid');
       this.streetInputTarget.classList.add('is-invalid');
