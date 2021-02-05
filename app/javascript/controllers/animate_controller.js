@@ -37,4 +37,9 @@ export default class extends ApplicationController {
     newTarget.classList.add('purple')
   }
 
+  updateButton(event) {
+    let id = event.target.dataset.product;
+    document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
+  }
+
 }
