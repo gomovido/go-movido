@@ -1,0 +1,5 @@
+<% if products.first.is_mobile? %>
+  <%= render 'mobile_filter_desktop', products: products  %>
+<% elsif products.first.is_wifi? %>
+  <%= render 'wifi_filter_mobile', products: products  %>
+<% end %>
