@@ -78,14 +78,17 @@
   .products-container {
     padding-top: 2rem !important;
     font-family: 'Montserrat';
+    .fa-sliders-h {
+      font-size: 24px;
+    }
     h1 {
       font-family: 'Montserrat';
       font-weight: bold;
       font-size: 26px;
     }
     .products-cards-wrapper {
+      overflow: unset !important;
       .product-open-card {
-        height: 100% !important;
         box-shadow: 0px 16px 40px 0px #A6A3AD;
         .main-card {
           padding-bottom: 1rem;
@@ -128,10 +131,11 @@
         }
       }
       .product-card {
-        height: 112px;
+        transition-property: transform, opacity, box-shadow !important;
         border-radius: 14px;
         border: 1px solid $snow;
         background: #FFFFFF;
+        transition-duration: 450ms !important;
         .logo {
           width: 45px;
         }

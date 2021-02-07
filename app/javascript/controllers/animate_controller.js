@@ -1,7 +1,7 @@
 import ApplicationController from './application_controller'
 
 export default class extends ApplicationController {
-  static targets = ['container', 'leftArrow', 'rightArrow', 'card', 'dropdown']
+  static targets = ['container', 'leftArrow', 'rightArrow', 'card']
 
   displayCard(event) {
     const card = this.cardTargets.find(card => card.dataset.serviceName === event.currentTarget.dataset.serviceName);
@@ -12,12 +12,6 @@ export default class extends ApplicationController {
       icon.classList.toggle('fa-plus')
       icon.classList.toggle('fa-window-minimize')
     }
-  }
-
-  displayProductCard(event) {
-    const card = this.cardTargets.find(card => card.dataset.serviceName === event.currentTarget.dataset.serviceName);
-    card.classList.toggle('product-open-card')
-    this.dropdownTarget.classList.toggle('d-none')
   }
 
   slideRight() {

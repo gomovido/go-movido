@@ -2,9 +2,9 @@
 <% datas.push('unlimited_data') if product.unlimited_data %>
 <% datas.push('unlimited_call') if product.unlimited_call %>
 <% datas.push('without_obligation') if !product.obligation %>
-<div class="product-card mb-3 px-2 py-3" data-controller="animate" data-animate-target="card" data-product-name="<%= product.name.split(' ').join('-').downcase %>Card"  data-action='click->animate#displayProductCard'>
+<div class="product-card mb-3 px-2 py-3 w-100" data-price="<%= product.price %>" data-groups="<%= datas %>" id="<%= product.id %>" data-action='click->filters#displayProductCard'>
   <div class="main-card">
-    <div class="d-flex align-items-center justify-content-between mb-2 px-2" data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
+    <div class="d-flex align-items-center justify-content-between mb-2 px-2">
       <div class="d-flex">
         <div class="mr-3">
           <%= image_tag(product.logo_url, class:"logo") %>
@@ -60,7 +60,7 @@
       <i class="fas fa-sort-down ml-2 purple" aria-hidden="true"></i>
     </div>
   </div>
-  <div class="dropdown-card d-none" data-animate-target="dropdown">
+  <div class="dropdown-card d-none">
     <% unless product.special_offers.blank? %>
       <div class="special-offers py-3">
         <% product.special_offers.each do |sp| %>
