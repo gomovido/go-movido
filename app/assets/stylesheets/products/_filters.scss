@@ -92,3 +92,16 @@
     content: none;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .filters-container {
+    .filter-wrapper {
+      padding: 30px 17px;
+      position: unset;
+      border: none;
+      .price-input {
+        font-weight: bold;
+      }
+    }
+  }
+}
