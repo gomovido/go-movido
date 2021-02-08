@@ -1,9 +1,10 @@
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src=<%= "https://www.googletagmanager.com/gtag/js?id=#{Rails.application.credentials.production[:google][:tag_id]}" %>></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<% if Rails.env.production? %>
+  <script async src=<%= "https://www.googletagmanager.com/gtag/js?id=#{Rails.application.credentials.production[:google][:tag_id]}" %>></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', "<%= Rails.application.credentials.production[:google][:tag_id] %>");
-</script>
+    gtag('config', "<%= Rails.application.credentials.production[:google][:tag_id] %>");
+  </script>
+<% end %>
