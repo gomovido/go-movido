@@ -83,3 +83,9 @@ production:
   database: go_movido_production
   username: go_movido
   password: <%= ENV['GO_MOVIDO_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: movido_app_staging
+  username: go_movido
+  password: <%= ENV['GO_MOVIDO_DATABASE_PASSWORD'] %>

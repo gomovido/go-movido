@@ -1,6 +1,6 @@
 # Users & Adresses
 
-
+return if Rails.env.production?
 
 Bank.create(name: 'Bunq', logo_url: 'banks/bunq', headline: 'headline', feature_1: 'feature_1', feature_2: 'feature_2', feature_3: 'feature_3', feature_4: 'feature_4')
 Bank.create(name: 'TransferWise', logo_url: 'banks/transferwise', headline: 'headline', feature_1: 'feature_1', feature_2: 'feature_2', feature_3: 'feature_3', feature_4: 'feature_4', affiliate_link: 'https://transferwise.prf.hn/l/KX9eQlV')
