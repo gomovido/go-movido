@@ -85,3 +85,5 @@ gem "stripe", "~> 5.28"
 
 gem "browser"
 
+
+gem "money-rails", "~> 1.13"
