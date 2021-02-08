@@ -4,6 +4,7 @@ class SubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
   skip_before_action :authenticate_user!, only: [:send_confirmed_email]
   http_basic_authenticate_with name: Rails.application.credentials.development[:forest_admin][:api_name], password: Rails.application.credentials.development[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.development?
+  http_basic_authenticate_with name: Rails.application.credentials.staging[:forest_admin][:api_name], password: Rails.application.credentials.staging[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.staging?
   http_basic_authenticate_with name: Rails.application.credentials.production[:forest_admin][:api_name], password: Rails.application.credentials.production[:forest_admin][:api_secret], only: [:send_confirmed_email] if Rails.env.production?
 
 
