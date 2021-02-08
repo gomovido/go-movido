@@ -86,6 +86,7 @@ test:
 staging:
   <<: *default
   compile: false
+  extract_css: true
 
 production:
   <<: *default
