@@ -24,7 +24,6 @@ require("flatpickr")
 
 
 // External imports
-import 'stylesheets/application'
 import "bootstrap";
 import "flatpickr/dist/flatpickr.min.css"
 import 'intl-tel-input/build/css/intlTelInput.css';
