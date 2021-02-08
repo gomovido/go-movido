@@ -38,6 +38,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'postmark-rails', '~> 0.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem "omniauth", "~> 1.9.1"
 gem 'travis'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
