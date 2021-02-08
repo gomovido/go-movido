@@ -6,7 +6,7 @@
     <%= render 'address_modal' %>
     <div class="row pt-5">
       <div class="col-lg-4  d-flex justify-content-start">
-        <%= render 'filters', products: @products %>
+        <%= render 'filters_desktop', products: @products %>
       </div>
       <div class="col-lg-8">
         <span class="d-none no-result" data-filters-target="noResult"><%= t('products.index.no_result').html_safe %></span>

@@ -42,6 +42,12 @@ export default class extends ApplicationController {
     });
   }
 
+  displayProductCard(event) {
+    event.currentTarget.classList.toggle('product-open-card');
+    event.currentTarget.querySelector('.dropdown-card').classList.toggle('d-none');
+    this.shuffleInstance.update();
+  }
+
   mobileFilter() {
     this.baseFilter(this.mobileFiltersArray());
     this.checkProducts();
