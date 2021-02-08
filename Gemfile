@@ -29,7 +29,7 @@ gem "hiredis"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise'
 gem 'ransack'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
@@ -38,6 +38,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'postmark-rails', '~> 0.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'travis'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -84,3 +85,5 @@ gem "stripe", "~> 5.28"
 
 gem "browser"
 
+
+gem "money-rails", "~> 1.13"
