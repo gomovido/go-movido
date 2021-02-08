@@ -7,6 +7,7 @@ export default class extends ApplicationController {
   static targets = ['input', 'noResult']
 
   connect() {
+    console.log('done')
     $(window).bind("pageshow", function(event) {
       if (event.originalEvent.persisted) {
         window.location.reload()
