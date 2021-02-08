@@ -2,9 +2,20 @@ language: ruby
 rvm:
 - 2.7.0
 services:
-  - postgresql
+- postgresql
 env:
   secure: CfIFcl9IQfifoDDjZIFWniHhqo4hRBIjPO+0CCiA47NTX2MPcQiIM4s7fFnH0KcT1XJ15bm40jbRyaR2ian3i+IXITd8G78+21eWQzg8MiXMyERC09XkjSSeEZje1yrV4xBRCxeo9i7K8K5Gapq29K8U1F/BVNhBQknJouWTqAlfsed9GxYzvYaqbNoOTJZmmNROFPsd1BBSEzGZpIumbHvrqHH1DEz9axDpK09o2Qc16aWW03aOpfQp6Eoyyvay+/JDY3ojuBK7pFOmcjS0dN6lyeTYhU1esaR5T3l96hXjiKK6JheUl3TzoMfNpuFAhP+dxXzsGTTd7jk9GvJ8DJD9f2UgrSN8+Cdx7wq3l/w7nidCXPE4Jcajkqx9VnuuDYT3EiJnORokxElMaXCODN7WSnc0Osvx5TNVcuAbaoj83VWYoBELzHAlVh/cf4h80CISREGxz6BugQGFBTLmynikvFV/NoTkoCah2Ryf6WYyQ9cu/361kUoTP+BO+6w16+ofWozU4e/GwasgHZjGsYexfy8xGQijRIi47GQ4QAFEU85lIEzeNR+l4TE6h2BDII6BmasOdef2fhoXseNdzGNdbmbzC2niQmc5VAXBQakMUPX5uwp34jFZ8a2VmYejN8RjLa8yHGXwtt2GYF8M3GROcKgU6w7CLWygcHE2L6s=
 script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+branches:
+  only:
+  - master
+deploy:
+  provider: heroku
+  api_key:
+    secure: Jqhh8m3HRGpISeSPkI89QBqigAcbJrG/ZI9lebuX0joUQexkuKYTqASaoIcSxdL4URdlG90JwEUODY+gVRewfyvaTk8T/DObzmTCOL0CkWTtMYIGFS9VMqiNufaGO5xcQ0kfx2fILmk+Bm50BXTzi++FzIXjH/abZelm2MEZZL/DZQ4TwimehpP4+DFOKsZNIQJJUPbf0P9NTzJrUD2gHIw8m0x0nO1Q+/nF0nTSiHmwtRbSfO0s2qsn5NvAdVUzQUg0l/k3RFTbFxHbDIPS4jCcrzf3lVrD/Q5YXEAqw2ecS4kp6hYn7dtsahNKrPGSCecgzo854S6KUDk5OH5qfc3vJt1wvHoZz99w5hjmKJXvtUj1zslRnQ4gTVsKptY/3K6DeQYroapmJOk0mX6WJSKHIvHPggBjdZgdhf0VmUAvV0Z/6m/OMiescJAJmaP6xvfkZHkQZnPinFg/k1p9MqGfC1byhy0XOCRPAwU7sbypLQhSBaDWFRjEsnPhwNPR5e5F+eURM3+tyvn8hErYakpmHIGumghT3miaxYmRMnvuaZp98ej6TGyIGvXrGiCpPpXmioFsBmRBlgCn1ZzZca1Zq6D3mtT66bcXf0sWdq7hJUtMcTC/oRc//mG4sZK2Hmif3RgS9i16N62I7Kx2AIf8TzowgKvpgLiLsupo5yg=
+  app: movido-app-staging
+  on:
+    repo: yonitou/go-movido
+  skip_cleanup: 'true'
