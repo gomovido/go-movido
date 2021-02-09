@@ -31,6 +31,12 @@ export default class extends ApplicationController {
     newTarget.classList.add('purple')
   }
 
+  displayPurpleBackground(event) {
+    const card = this.cardTargets.find(card => card.dataset.teamName === event.currentTarget.dataset.teamName);
+    card.classList.toggle('team-card')
+    card.getElementsByClassName("inside")[0].classList.toggle('d-none')
+  }
+
   updateButton(event) {
     let id = event.target.dataset.product;
     document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
