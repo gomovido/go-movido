@@ -1,5 +1,8 @@
 .products-container {
   padding-top: 80px;
+  .products-cards-wrapper {
+    font-family: "Montserrat", sans-serif;
+  }
   .big-blue-bubble {
     top: -225px;
     left: -205px;
@@ -47,5 +50,20 @@
 @include media-breakpoint-down(md) {
   .subscription-container {
     padding-top: 2rem;
+  }
+  .products-container {
+    padding-top: 2rem !important;
+    font-family: 'Montserrat';
+    .fa-sliders-h {
+      font-size: 24px;
+    }
+    h1 {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 26px;
+    }
+    .products-cards-wrapper {
+      overflow: unset !important;
+    }
   }
 }

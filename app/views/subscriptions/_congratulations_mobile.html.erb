@@ -1,0 +1,32 @@
+<div class="container congratulations-container mb-5">
+  <h2><%= t('subscriptions.congratulations.title') %></h2>
+  <span class="subline"><%= t('subscriptions.congratulations.subline') %></span>
+  <% if @subscription.product.is_mobile? %>
+    <%= render 'subscriptions/cards/mobile_product_card', product: @subscription.product %>
+  <% elsif @subscription.product.is_wifi? %>
+    <%= render 'subscriptions/cards/wifi_product_card', product: @subscription.product %>
+  <% end %>
+  <p class="infos"><%= t('subscriptions.congratulations.subtitle').html_safe %></p>
+  <h3 class="my-4"><%= t('subscriptions.congratulations.upsell') %></h3>
+  <% bank_category = Category.find_by(name: 'bank') %>
+  <%= render 'categories/card_mobile', path: category_banks_path(bank_category), category: bank_category %>
+  <% if @subscription.product.is_mobile? %>
+    <% wifi_category = Category.find_by(name: 'wifi') %>
+    <%= render 'categories/card_mobile', path: category_products_path(wifi_category), category: wifi_category %>
+  <% elsif @subscription.product.is_wifi? %>
+    <% mobile_category = Category.find_by(name: 'mobile') %>
+    <%= render 'categories/card_mobile', path: category_products_path(mobile_category), category: mobile_category %>
+  <% end %>
+  <h3 class="mt-4"><%= t('subscriptions.congratulations.questions') %></h3>
+  <div class="d-flex justify-content-between align-items-center contact-links mt-3">
+    <%= mail_to "contact@go-movido.com" do %>
+      <%= image_tag(asset_path('subscriptions/email_mobile.png')) %>
+    <% end %>
+    <%= link_to "tel: +447841598269" do %>
+      <%= image_tag(asset_path('subscriptions/phone_mobile.png')) %>
+    <% end %>
+    <%= link_to "tel: +447841598269" do %>
+      <%= image_tag(asset_path('subscriptions/whatsapp_mobile.png')) %>
+    <% end %>
+  </div>
+</div>

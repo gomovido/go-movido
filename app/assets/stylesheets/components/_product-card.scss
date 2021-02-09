@@ -1,0 +1,159 @@
+  .product-card {
+    background: $white;
+    border: 1px solid $grey-snow;
+    border-radius: 20px;
+    padding: 1.8rem 1rem 1.1rem 1.3rem ;
+    .margin {
+      height: 55px;
+      border-right: 1px solid #C7C7C7;
+    }
+    .box-offer {
+      margin-right: 2rem;
+    }
+    span {
+      font-size: 14px;
+    }
+    &:hover {
+      box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+    }
+    .offers {
+      margin-right: 1rem;
+    }
+    .actions {
+      width: 35%;
+    }
+    .logo {
+      width: 100px;
+    }
+    .modal-link {
+     text-decoration: underline !important;
+     font-weight: bold;
+     font-size: 14px;
+    }
+    h5 {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .price {
+      .number {
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        font-size: 26px;
+      }
+      .frequency {
+        font-weight: bold;
+        font-size: 14px;
+        color: $black;
+      }
+    }
+    .picto {
+      width: 25px;
+      margin-bottom: 5px;
+    }
+    .picto-icon {
+      margin-bottom: 5px;
+    }
+    .features span {
+      color: $turquoise;
+      font-weight: bold;
+    }
+    .country {
+      min-width: 22%;
+      span {
+        color: $country-card-color !important;
+      }
+    }
+    .special-offer {
+      font-size: 12px;
+    }
+    .cyan {
+      color: $cyan;
+    }
+  }
+
+@include media-breakpoint-down(md) {
+  .product-open-card {
+    box-shadow: 0px 16px 40px 0px #A6A3AD;
+    .main-card {
+      padding-bottom: 1rem;
+    }
+    .dropdown-card {
+      ul {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      }
+      .special-offers {
+        border-top: 1px solid $grey-snow;
+        .special-offer {
+          list-style: none;
+          font-weight: bold;
+          font-size: 12px;
+          line-height: 15px;
+          color: $dark-cloud;
+        }
+      }
+      .product-features {
+        border-top: 1px solid $grey-snow;
+        .title {
+          padding-left: 1rem;
+          padding-right: 1rem;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 17px;
+        }
+        li {
+          padding-left: 0;
+          font-size: 12px;
+          line-height: 19px;
+          color: $dark-cloud;
+          list-style: none;
+        }
+      }
+      .btn-card {
+        padding: 15px 90px !important;
+      }
+    }
+  }
+  .product-card {
+    transition-property: transform, opacity, box-shadow !important;
+    border-radius: 14px;
+    border: 1px solid $snow;
+    background: #FFFFFF;
+    transition-duration: 450ms !important;
+    .logo {
+      width: 45px;
+    }
+    i {
+      font-size: 18px;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 12px;
+      color: $taupe;
+    }
+    .price {
+      text-align: center;
+      .number {
+        font-family: 'Manrope';
+        font-weight: 800;
+        font-size: 18px;
+      }
+      .frequency {
+        font-size: 11px;
+        font-weight: normal;
+      }
+    }
+    span {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .picto {
+      width: 16px;
+      margin-bottom: 0;
+      margin-right: 0.25rem;
+    }
+  }
+}

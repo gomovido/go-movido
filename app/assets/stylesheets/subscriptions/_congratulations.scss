@@ -68,11 +68,29 @@
 @include media-breakpoint-down(md) {
   .congratulations-container {
     padding-top: 2rem;
-    .big-blue-bubble {
-      left: -170px;
+    h2 {
+      font-weight: bold;
+      font-size: 26px;
+      font-family: 'Montserrat';
     }
-    .small-yellow-bubble {
-      top: 28%;
+    .subline {
+      font-weight: 500;
+      font-size: 14px;
+      color: $grey;
+    }
+    .infos {
+      font-size: 14px;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 18px;
+      font-family: Montserrat;
+    }
+    .contact-links img {
+      width: 100px;
+    }
+    .category-card-mobile {
+      font-family: 'Montserrat';
     }
   }
 }
