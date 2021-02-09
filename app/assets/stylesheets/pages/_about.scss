@@ -45,5 +45,88 @@
 @include media-breakpoint-down(md) {
   .about-container {
     padding-top: 2rem;
+    h2, h4 {
+      font-family: 'Montserrat';
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 19px;
+      text-align: justify;
+      font-weight: 500;
+      color: $grey;
+    }
+    .team-card {
+      position: relative;
+      .inside {
+        opacity: 1;
+        top: 10%;
+        left: 10%;
+        z-index: 2;
+      }
+      .inside .name {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 30px;
+        color: $white;
+      }
+      .inside .role {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 22px;
+        color: $cyan;
+      }
+    }
+    .team-card img {
+      width: 100%;
+      border-radius: 30px;
+      height: 100%;
+      display: block;
+    }
+    img {
+      width: 100%;
+      border-radius: 30px;
+      height: 100%;
+      display: block;
+    }
+    .mid-section {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 24px;
+      color: $black;
+    }
+    .background-box {
+      background: $dark-taupe;
+      color: $white;
+      width: 100vw;
+      margin-left: calc((100% - 100vw) / 2);
+      p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+        color: $white;
+      }
+    }
+    .team-card:after {
+      position: absolute;
+      content:"";
+      height: 100%;
+      width: 90%;
+      top: 0;
+      left: 17px;
+      background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
+      opacity: 0.8;
+      border-radius: 30px;
+    }
   }
 }
