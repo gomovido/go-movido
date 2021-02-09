@@ -366,10 +366,12 @@ fr:
       months: 'mois'
       only: 'seulement'
       frequency: 'mensuel'
+      frequency_mobile: 'mensuel'
       speed: 'vitesse'
       setup_costs: "à l'installation"
       free: 'gratuit'
-      no_obligation: 'sans engagement'
+      no_obligation: 'sans <br>engagement'
+      no_obligation_mobile: 'sans engagement'
     modal:
       cta: '<span class="d-flex align-items-baseline justify-content-center">Sélectionner<i class="ml-3 fas fa-arrow-square-right"></i></span>'
       monthly: 'par mois'
@@ -391,6 +393,8 @@ fr:
       months: 'mois'
     congratulations:
       title: 'Tout est en ordre 🎉'
+      subline: 'Ton abonnement'
+      upsell: "Psst, nous avons d'autres offres"
       subtitle: "Tu recevras un e-mail de confirmation de movido une fois ton abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésite pas à contacter notre service client (chat, email & téléphone) !"
