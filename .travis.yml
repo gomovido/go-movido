@@ -1,13 +1,28 @@
 language: ruby
 rvm:
 - 2.7.0
+cache:
+  bundler: true
+  yarn: true
 services:
-- postgresql
+  - redis-server
+  - postgresql
+sudo: required
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install google-chrome-stable
+  - nvm install --lts
+addons:
+  postgresql: '9.6'
+before_script:
+- psql -c 'create database go_movido_test;' -U postgres
 env:
   secure: CfIFcl9IQfifoDDjZIFWniHhqo4hRBIjPO+0CCiA47NTX2MPcQiIM4s7fFnH0KcT1XJ15bm40jbRyaR2ian3i+IXITd8G78+21eWQzg8MiXMyERC09XkjSSeEZje1yrV4xBRCxeo9i7K8K5Gapq29K8U1F/BVNhBQknJouWTqAlfsed9GxYzvYaqbNoOTJZmmNROFPsd1BBSEzGZpIumbHvrqHH1DEz9axDpK09o2Qc16aWW03aOpfQp6Eoyyvay+/JDY3ojuBK7pFOmcjS0dN6lyeTYhU1esaR5T3l96hXjiKK6JheUl3TzoMfNpuFAhP+dxXzsGTTd7jk9GvJ8DJD9f2UgrSN8+Cdx7wq3l/w7nidCXPE4Jcajkqx9VnuuDYT3EiJnORokxElMaXCODN7WSnc0Osvx5TNVcuAbaoj83VWYoBELzHAlVh/cf4h80CISREGxz6BugQGFBTLmynikvFV/NoTkoCah2Ryf6WYyQ9cu/361kUoTP+BO+6w16+ofWozU4e/GwasgHZjGsYexfy8xGQijRIi47GQ4QAFEU85lIEzeNR+l4TE6h2BDII6BmasOdef2fhoXseNdzGNdbmbzC2niQmc5VAXBQakMUPX5uwp34jFZ8a2VmYejN8RjLa8yHGXwtt2GYF8M3GROcKgU6w7CLWygcHE2L6s=
 script:
-- bundle exec rake db:create
-- bundle exec rake db:migrate
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:test:prepare
+  - SECRET_KEY_BASE=a RAILS_ENV=production bundle exec rake assets:precompile
+  - bundle exec rspec
 branches:
   only:
   - master
