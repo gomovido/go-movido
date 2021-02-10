@@ -44,6 +44,8 @@ class SubscriptionsController < ApplicationController
 
   def congratulations
     redirect_to subscription_payment_path(@subscription) if !@subscription.state == 'succeeded'
+    actual_category = @subscription.product.category.name
+    @categories = Category.where.not(name: actual_category).where(open: true)
   end
 
   def show
