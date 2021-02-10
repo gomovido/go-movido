@@ -7,7 +7,6 @@ cache:
 services:
   - redis-server
   - postgresql
-sudo: required
 before_install:
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
@@ -33,4 +32,4 @@ deploy:
   app: movido-app-staging
   on:
     repo: yonitou/go-movido
-  skip_cleanup: 'true'
+  cleanup: 'true'
