@@ -1,5 +1,5 @@
 <div class="container-fluid about-container mb-5 px-4" data-controller="animate">
-  <h2 class="mb-5"><%= t('pages.about.title') %></h2>
+  <h2 class="mb-4"><%= t('pages.about.title') %></h2>
   <div class="row mb-5">
     <div class="col-12">
       <p class="mb-4"><%= t('pages.about.part_1') %></p>
@@ -20,7 +20,8 @@
   <div class="row px-4">
     <h2 class="mb-5"><%= t('pages.about.team') %></h2>
     <div class="col-12 mb-5" data-animate-target="card" data-team-name="alice" data-action='click->animate#displayPurpleBackground'>
-      <div class="inside position-absolute d-none">
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
         <div class="name">
           Alice Strecker
         </div>
@@ -31,7 +32,8 @@
       <%= image_tag(asset_path('team/alice.png')) %>
     </div>
     <div class="col-12 mb-5" data-animate-target="card" data-team-name="jordan" data-action='click->animate#displayPurpleBackground'>
-      <div class="inside position-absolute d-none">
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
         <div class="name">
           Jordan Demmouche
         </div>
@@ -42,7 +44,8 @@
       <%= image_tag(asset_path('team/jordan.png')) %>
     </div>
     <div class="col-12 mb-5" data-animate-target="card" data-team-name="paul" data-action='click->animate#displayPurpleBackground'>
-      <div class="inside position-absolute d-none">
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
         <div class="name">
           Paul Sipassteuh
         </div>
@@ -53,7 +56,8 @@
       <%= image_tag(asset_path('team/paul.png')) %>
     </div>
     <div class="col-12 mb-5" data-animate-target="card" data-team-name="tim" data-action='click->animate#displayPurpleBackground'>
-      <div class="inside position-absolute d-none">
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
         <div class="name">
           Tim Grobshäuser
         </div>
@@ -64,7 +68,8 @@
       <%= image_tag(asset_path('team/tim.png')) %>
     </div>
     <div class="col-12 mb-5" data-animate-target="card" data-team-name="vitaliy" data-action='click->animate#displayPurpleBackground'>
-      <div class="inside position-absolute d-none">
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
         <div class="name">
           Vitaliy Didukh
         </div>
@@ -75,7 +80,8 @@
       <%= image_tag(asset_path('team/vitaliy.png')) %>
     </div>
     <div class="col-12 mb-5" data-animate-target="card" data-team-name="yoni" data-action='click->animate#displayPurpleBackground'>
-      <div class="inside position-absolute d-none">
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
         <div class="name">
           Yoni Touboul
         </div>

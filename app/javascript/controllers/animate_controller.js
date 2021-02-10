@@ -32,9 +32,21 @@ export default class extends ApplicationController {
   }
 
   displayPurpleBackground(event) {
-    const card = this.cardTargets.find(card => card.dataset.teamName === event.currentTarget.dataset.teamName);
-    card.classList.toggle('team-card')
-    card.getElementsByClassName("inside")[0].classList.toggle('d-none')
+    const cards = this.cardTargets;
+    let activeCard = cards.find(card => card.dataset.teamName === event.currentTarget.dataset.teamName);
+    cards.forEach(card => {
+      if (card !== activeCard) {
+        card.querySelector('.inside').style.opacity = '0';
+        card.querySelector('.purple-card').style.opacity = '0';
+        card.querySelector('.purple-card').style.width = '0%';
+      }
+    });
+    const card = cards.find(card => card.dataset.teamName === event.currentTarget.dataset.teamName);
+    let inside = card.querySelector(".inside");
+    let purpleCard = card.querySelector(".purple-card");
+    inside.style.opacity === '1' ? inside.style.opacity = '0' : inside.style.opacity = '1';
+    purpleCard.style.opacity === '0.8' ? purpleCard.style.opacity = '0' : purpleCard.style.opacity = '0.8';
+    purpleCard.style.width === '90%' ? purpleCard.style.width = '0%' : purpleCard.style.width = '90%';
   }
 
   updateButton(event) {
