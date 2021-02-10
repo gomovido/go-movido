@@ -19,7 +19,6 @@ class HomeTest < ApplicationSystemTestCase
     visit "users/#{User.first.id}/addresses/new"
     fill_in "address_street", with: "57 Rue de Fécamp, Paris 12e Arrondissement, Île-de-France, France"
     find('#address_city', visible: false).execute_script("this.value = 'Paris'")
-    find('#address_zipcode', visible: false).execute_script("this.value = '75012'")
     click_on 'Confirm'
     assert_equal root_path, page.current_path
     assert_selector "h1", text: "Select the services you need"
