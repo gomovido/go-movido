@@ -1,0 +1,27 @@
+<div class="navbar-mobile p-3 d-flex align-items-center justify-content-around">
+  <% active = controller_name == 'pages' && action_name == 'dashboard_index' %>
+  <%= link_to root_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
+    <%= image_tag(asset_path("bottom_bar/dashboard#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.dashboard') %></span>
+  <% end %>
+  <% active = controller_name == 'pages' && action_name == 'how_it_works' %>
+  <%= link_to how_it_works_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
+    <%= image_tag(asset_path("bottom_bar/how_it_works#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.how_it_works') %></span>
+  <% end %>
+  <% active = controller_name == 'users' && params[:active_tab] == 'profile' %>
+  <%= link_to user_path(current_user, active_tab: 'profile'), class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
+    <%= image_tag(asset_path("bottom_bar/account#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.profile') %></span>
+  <% end %>
+  <% active = controller_name == 'users' && params[:active_tab] == 'addresses' %>
+  <%= link_to user_path(current_user, active_tab: 'addresses'), class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
+    <%= image_tag(asset_path("bottom_bar/addresses#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.location').html_safe %></span>
+  <% end %>
+  <% active = controller_name == 'users' && !params[:active_tab] %>
+  <%= link_to user_path(current_user), class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
+    <%= image_tag(asset_path("bottom_bar/wallet#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.wallet') %></span>
+  <% end %>
+</div>

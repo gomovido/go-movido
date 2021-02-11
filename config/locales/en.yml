@@ -481,12 +481,16 @@ en:
         cancel: 'Cancel subscription'
         abort: 'Abort subscription'
   shared:
-    navbar_mobile:
+    bottom_bar:
       home: 'Home'
       services: 'Services'
       about: 'About us'
       how_it_works: 'How it works'
       account: 'Sign up'
+      profile: 'Profile'
+      dashboard: 'Dashboard'
+      location: 'Location'
+      wallet: 'Wallet'
     navbar_visitor:
       about_us: 'About us'
       how_it_works: 'How it works'
