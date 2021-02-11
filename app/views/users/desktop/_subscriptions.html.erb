@@ -7,11 +7,11 @@
         <span class="header column"><%= t('.rate') %></span>
         <span class="header column">Actions</span>
       </div>
-      <%= render 'subscription-details'%>
+      <%= render 'users/desktop/subscription-details'%>
       <div class="rows position-relative">
         <% subscriptions.order(state: :asc).each do |subscription| %>
           <% if subscription.product.country == current_user.active_address.country %>
-            <%= render 'subscription', subscription: subscription %>
+            <%= render 'users/desktop/subscription', subscription: subscription %>
           <% end %>
         <% end %>
         <% if current_user.user_subscriptions_country.blank?  %>

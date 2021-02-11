@@ -1,0 +1,25 @@
+<div class="col-12 profil-form-wrapper mb-5 tab-pane fade p-0 <%= params[:active_tab] == 'profile' ? 'show active' : '' %>" id="pills-profile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+  <div class="title d-flex align-items-center justify-content-between mb-4">
+    <h2><%= t('users.profil.title') %></h2>
+    <%= link_to edit_user_registration_path(current_user) do %>
+      <i class="far fa-cog purple"></i>
+    <% end %>
+  </div>
+  <%= simple_form_for user, html: {id:"profile", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
+  <div class="d-flex justify-content-between first-row">
+    <div class="mr-1">
+      <%= f.input :first_name, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
+    </div>
+    <div class="ml-1">
+      <%= f.input :last_name, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
+    </div>
+  </div>
+    <%= f.input :email, label: 'E-mail' %>
+    <%= f.input :phone , input_html: {data: {profile_target: 'phone'}} %>
+    <%= f.input :birthdate , as: :string,
+      required: true,
+      input_html: { value: (current_user.birthdate.strftime("%d-%m-%Y") if current_user.birthdate) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years}}%>
+    <%= f.input :birth_city , input_html: {data: {profile_target: 'birthCity'}, class:"mb-3"} %>
+    <%= f.button :submit, t('users.profil.submit'), class:'btn-main w-100 border-0' %>
+  <% end %>
+</div>

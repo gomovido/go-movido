@@ -431,6 +431,7 @@ en:
     profil:
       saving: 'Saving changes'
       submit: 'Update'
+      title: 'My profile'
     complete_profil:
       title: 'Please complete your profile'
       mobile_title: 'Complete your profile'
