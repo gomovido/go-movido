@@ -1,4 +1,4 @@
-<div class="col-12 profil-form-wrapper mb-5 tab-pane fade p-0 <%= params[:active_tab] == 'profile' ? 'show active' : '' %>" id="pills-profile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+<div class="col-12 profil-form-wrapper mb-5 tab-pane fade px-4 <%= params[:active_tab] == 'profile' ? 'show active' : '' %>" id="pills-profile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
   <div class="title d-flex align-items-center justify-content-between mb-4">
     <h2><%= t('users.profil.title') %></h2>
     <%= link_to edit_user_registration_path(current_user) do %>
