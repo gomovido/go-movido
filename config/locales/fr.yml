@@ -509,6 +509,7 @@ fr:
       previous: 'Adresses précédentes'
       add: 'Ajouter une adresse'
       cta: 'Confirmer'
+      title: 'Mes Adresses'
       form:
         placeholder:
           street: "Entre ton adresse"

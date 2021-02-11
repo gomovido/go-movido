@@ -448,6 +448,7 @@ en:
       previous: 'My previous addresses'
       add: 'Add new address'
       cta: 'Save'
+      title: 'My Location'
       form:
         placeholder:
           street: "Enter your address"
