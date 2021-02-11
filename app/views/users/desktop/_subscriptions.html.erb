@@ -1,10 +1,10 @@
 <div class="col-12 subscriptions-addresses-container fade tab-pane <%= params[:active_tab] ? '' : 'show active' %>" id="pills-subscriptions" role="tabpanel">
   <div class="subscriptions-wrapper">
       <div class="headers d-flex px-2 mb-3 align-items-center justify-content-between">
-        <span class="header column"><%= t('.provider') %></span>
-        <span class="header column d-lg-block d-none"><%= t('.service') %></span>
-        <span class="header column"><%= t('.status') %></span>
-        <span class="header column"><%= t('.rate') %></span>
+        <span class="header column"><%= t('users.subscriptions.provider') %></span>
+        <span class="header column d-lg-block d-none"><%= t('users.subscriptions.service') %></span>
+        <span class="header column"><%= t('users.subscriptions.status') %></span>
+        <span class="header column"><%= t('users.subscriptions.rate') %></span>
         <span class="header column">Actions</span>
       </div>
       <%= render 'users/desktop/subscription-details'%>
@@ -16,8 +16,8 @@
         <% end %>
         <% if current_user.user_subscriptions_country.blank?  %>
         <div class="no-offers w-100 text-center pt-3">
-          <h5 class="mb-5"><%= t('.no_subscription') %></h5>
-          <%= link_to t('.see_offers'), dashboard_index_path, class: "btn-main" %>
+          <h5 class="mb-5"><%= t('users.subscriptions.no_subscription') %></h5>
+          <%= link_to t('users.subscriptions.see_offers'), dashboard_index_path, class: "btn-main" %>
         </div>
         <% end %>
       </div>
