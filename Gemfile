@@ -41,6 +41,7 @@ gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
 gem 'travis'
 group :development, :test do  gem 'pry-byebug'
+  gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
