@@ -524,6 +524,7 @@ fr:
       status: 'Statut'
       see_offers: 'Voir les offres'
       no_subscription: "Tu n'as pas d'abonnements actifs"
+      title: 'Mon portefeuille'
     subscription:
       draft: 'Brouillon'
       succeeded: 'En attente'
@@ -531,6 +532,7 @@ fr:
       failed: 'Paiement échoué'
       pending_processed: 'À payer'
       months: 'mois'
+      month: 'mois'
       mobile_phone: 'Mobile'
       wifi: 'Wifi'
       gym: 'Gym'
@@ -538,8 +540,38 @@ fr:
       housing: 'Logement'
       utilities: 'Services publics'
       popup: 'Êtes vous sûr de vouloir abandonner la souscription?'
+      no_obligation: 'Sans engagement'
+      subscription: 'Abonnement'
+      subscriber: 'Abonné'
+      subscription_details : "Détails de la souscription"
+      subscriber_details : "Détails de l'abonné"
+      provider: 'Fournisseur'
+      plan: 'Abonnement'
+      price: 'Prix'
+      setup_price: "Frais d'installation"
+      time_contract: "Durée d'engagement"
+      data_speed: "Débit"
+      data_limit: 'Limite de données'
+      first_name: 'Prénom'
+      last_name: 'Nom'
+      email: 'Email'
+      birthdate: 'Date de naissance'
+      phone: 'Téléphone'
+      address: 'Adresse'
+      delivery_address: 'Adresse de livraison'
+      iban: 'IBAN'
+      sort_code: 'Branche'
+      bank: 'Banque'
+      billing_address: 'Adresse de facturation'
+      sim_format: 'Format de carte SIM'
+      holder_name: 'Titulaire du compte'
+      account_number: 'Numéro de compte'
+      sim_card_price: 'Coût de la carte SIM'
+      status: 'Status'
       cta:
         resume: 'Continuer'
+        resume_subscription: 'Continuer la souscription'
+        pay_to_activate: 'Payer pour activer'
         pay: 'Payer'
         details: 'Détails'
         cancel: "Résilier l'abonnement"
