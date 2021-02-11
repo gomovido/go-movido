@@ -31,6 +31,19 @@ export default class extends ApplicationController {
     newTarget.classList.add('purple')
   }
 
+  displaySubscriptionCard(event) {
+    const cards = this.cardTargets;
+    let activeCard = cards.find(card => card.dataset.id === event.currentTarget.dataset.id);
+    cards.forEach(card => {
+      if (card !== activeCard) {
+        card.classList.remove('subscription-open-card');
+        card.querySelector('.dropdown-card').classList.add('d-none');
+      }
+    });
+    event.currentTarget.classList.toggle('subscription-open-card');
+    event.currentTarget.querySelector('.dropdown-card').classList.toggle('d-none');
+  }
+
   displayPurpleBackground(event) {
     const cards = this.cardTargets;
     let activeCard = cards.find(card => card.dataset.teamName === event.currentTarget.dataset.teamName);
