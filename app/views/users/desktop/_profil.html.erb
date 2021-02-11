@@ -4,7 +4,7 @@
   <div data-profile-target="errors" class=" mt-2 text-danger font-weight-bold"></div>
   <div class="flash mb-2" data-profile-target="spinner">
     <div class="spinner-border text-success" data-profile-target="wheel"></div>
-    <span class="ml-2 text-success" data-profile-target="savingText"><%= t('.saving') %></span>
+    <span class="ml-2 text-success" data-profile-target="savingText"><%= t('users.profil.saving') %></span>
   </div>
 
   <%= simple_form_for user, html: {id:"profile", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
@@ -18,6 +18,6 @@
       required: true,
       input_html: { value: (current_user.birthdate.strftime("%d-%m-%Y") if current_user.birthdate) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years}}%>
     <%= f.input :birth_city , input_html: {data: {profile_target: 'birthCity'}} %>
-    <%= f.button :submit, t('.submit'), class:'btn-main w-100 border-0' %>
+    <%= f.button :submit, t('users.profil.submit'), class:'btn-main w-100 border-0' %>
   <% end %>
 </div>
