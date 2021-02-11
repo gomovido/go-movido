@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_145158) do
+ActiveRecord::Schema.define(version: 2021_02_11_024501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(version: 2021_02_04_145158) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "people", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "birthdate"
+    t.string "birth_city"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
   create_table "product_features", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "name"
@@ -161,13 +171,10 @@ ActiveRecord::Schema.define(version: 2021_02_04_145158) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "phone"
     t.string "country"
     t.boolean "not_housed"
     t.string "slug"
     t.string "username"
-    t.string "birth_city"
-    t.date "birthdate"
     t.string "city"
     t.string "provider"
     t.string "uid"
@@ -181,6 +188,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_145158) do
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
   add_foreign_key "charges", "subscriptions"
+  add_foreign_key "people", "users"
   add_foreign_key "product_features", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "special_offers", "products"

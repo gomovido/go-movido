@@ -35,7 +35,8 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   config.action_mailer.perform_caching = true
-
+  config.action_controller.asset_host = "file://#{::Rails.root}/public"
+  config.assets.prefix = 'assets_test'
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
