@@ -1,0 +1,60 @@
+<div class="container services-container mb-0">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="ml-4"><%= t('services.title') %></h2>
+    </div>
+  </div>
+</div>
+<div class="container-fluid service-cards-scroller tabs">
+  <ul class="hs nav nav-pills" id="pills-tab" role="tablist">
+    <li class="item ml-0">
+      <a class="<%= params[:active_tab] == 'housing' ? 'active' : '' %>" id="pills-housing-tab" data-toggle="pill" href="#pills-housing" role="tab" data-toggle="pill">
+        <div class="service-card-tab d-flex align-items-center justify-content-center">
+          <%= image_tag(asset_path('pages/dashboard/housing-card.png'), class:'service-picto mr-2') %>
+          <span>Housing</span>
+        </div>
+      </a>
+    </li>
+    <li class="item">
+      <a class="<%= params[:active_tab] == 'banking' ? 'active' : '' %>" id="pills-banking-tab" data-toggle="pill" href="#pills-banking" role="tab" data-toggle="pill">
+        <div class="service-card-tab d-flex align-items-center justify-content-center">
+          <%= image_tag(asset_path('pages/dashboard/bank-card.png'), class:'service-picto mr-2') %>
+          <span>Banking</span>
+        </div>
+      </a>
+    </li>
+    <li class="item">
+      <a class="<%= params[:active_tab] == 'mobile' ? 'active' : '' %>" id="pills-mobile-tab" data-toggle="pill" href="#pills-mobile" role="tab" data-toggle="pill">
+        <div class="service-card-tab d-flex align-items-center justify-content-center">
+          <%= image_tag(asset_path('pages/dashboard/mobile_phone-card.png'), class:'service-picto mr-2') %>
+          <span>Mobile</span>
+        </div>
+      </a>
+    </li>
+    <li class="item">
+      <a class="<%= params[:active_tab] == 'wifi' ? 'active' : '' %>" id="pills-wifi-tab" data-toggle="pill" href="#pills-wifi" role="tab" data-toggle="pill">
+        <div class="service-card-tab d-flex align-items-center justify-content-center">
+          <%= image_tag(asset_path('pages/dashboard/wifi-card.png'), class:'service-picto mr-2') %>
+          <span>Wifi</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content row" id="pills-tabContent">
+    <div class="tab-pane fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-housing" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+      <div class="col-12">
+        <p class="text-center"><strong><%= t('services.real_estate.question').html_safe %></strong></p>
+      </div>
+    </div>
+    <div class="tab-pane fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-banking" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+      <p>Banking</p>
+    </div>
+    <div class="tab-pane fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-mobile" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+      <p>Mobile</p>
+    </div>
+    <div class="tab-pane fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-wifi" role="tabpanel" data-reflex-root=".profil-form-wrapper">
+      <p>Wifi</p>
+    </div>
+  </div>
+</div>
+
