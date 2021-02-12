@@ -21,7 +21,7 @@
   <% end %>
   <% active = controller_name == 'users' && params[:active_tab] == 'subscriptions' %>
   <%= link_to user_path(current_user, active_tab: 'subscriptions'), class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("bottom_bar/wallet#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <i class="fas fa-browser"></i>
     <span><%= t('shared.bottom_bar.wallet') %></span>
   <% end %>
 </div>
