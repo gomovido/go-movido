@@ -1,7 +1,7 @@
 <div class="navbar-mobile p-3 d-flex align-items-center justify-content-around">
   <% active = controller_name == 'pages' && action_name == 'dashboard_index' %>
   <%= link_to root_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("bottom_bar/dashboard#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <i class="far fa-window"></i>
     <span><%= t('shared.bottom_bar.dashboard') %></span>
   <% end %>
   <% active = controller_name == 'pages' && action_name == 'how_it_works' %>
@@ -11,7 +11,7 @@
   <% end %>
   <% active = controller_name == 'users' && params[:active_tab] == 'profile' %>
   <%= link_to user_path(current_user, active_tab: 'profile'), class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("bottom_bar/account#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <i class="fas fa-user"></i>
     <span><%= t('shared.bottom_bar.profile') %></span>
   <% end %>
   <% active = controller_name == 'users' && params[:active_tab] == 'addresses' %>
