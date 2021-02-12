@@ -49,13 +49,22 @@
 
 @include media-breakpoint-down(md) {
   .profile-container {
-    .big-blue-bubble {
-      top: -211px !important;
-      left: -221px !important;
+    padding-top: 2rem;
+    background: $white;
+    h2 {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 37px;
     }
-    .big-purple-bubble {
-      top: 334px !important;
-      right: -270px !important;
+    i {
+      font-size: 26px;
+      margin-right: 1rem;
+    }
+    .form-base {
+      .form-group {
+        margin-bottom: 2rem;
+      }
     }
   }
 }

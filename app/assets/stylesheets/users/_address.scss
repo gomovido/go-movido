@@ -79,3 +79,57 @@
     cursor: pointer;
   }
 }
+
+@include media-breakpoint-down(md) {
+  .addresses-container {
+    .subtitle {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 30px;
+      color: $taupe;
+    }
+    .address-card {
+      height: 64px;
+      border: 1px solid #F4F5F7;
+      box-shadow: 0px 24px 64px 0px rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      span.unactive {
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        }
+    }
+    .active-address {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+    }
+    .address-input-wrapper {
+      font-size: 14px;
+      height: 64px;
+      position: relative;
+    }
+    .form-address {
+      .plus-img {
+        left: 41px;
+      }
+      .address_street {
+        height: 64px;
+        display: flex;
+        align-items: center;
+      }
+      .form-group {
+        width: 100% !important;
+        .form-control {
+        margin-left: 2rem;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 14px;
+        }
+      }
+    }
+  }
+}
