@@ -1,27 +1,28 @@
 <div class="navbar-mobile p-3 d-flex align-items-center justify-content-around">
   <% active = controller_name == 'pages' && action_name == 'home' %>
   <%= link_to root_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("navbar_mobile/home#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
-    <span><%= t('shared.navbar_mobile.home') %></span>
+    <%= image_tag(asset_path("bottom_bar/home#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.home') %></span>
   <% end %>
   <% active = controller_name == 'services'%>
   <%= link_to services_wifi_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("navbar_mobile/services#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
-    <span><%= t('shared.navbar_mobile.services') %></span>
+    <i class="fas fa-layer-group"></i>
+    <span><%= t('shared.bottom_bar.services') %></span>
   <% end %>
   <% active = controller_name == 'pages' && action_name == 'about' %>
   <%= link_to about_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("navbar_mobile/about#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
-    <span><%= t('shared.navbar_mobile.about') %></span>
+    <i class="fas fa-info-square"></i>
+    <span><%= t('shared.bottom_bar.about') %></span>
   <% end %>
   <% active = controller_name == 'pages' && action_name == 'how_it_works' %>
   <%= link_to how_it_works_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("navbar_mobile/how_it_works#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
-    <span><%= t('shared.navbar_mobile.how_it_works').html_safe %></span>
+    <i class="fas fa-question-circle"></i>
+    <span><%= t('shared.bottom_bar.how_it_works').html_safe %></span>
   <% end %>
   <% active = controller_name == 'registrations' && action_name == 'new' %>
   <%= link_to new_user_registration_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("navbar_mobile/account#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
-    <span><%= t('shared.navbar_mobile.account') %></span>
+    <%= image_tag(asset_path("bottom_bar/account#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <span><%= t('shared.bottom_bar.account') %></span>
   <% end %>
 </div>
+
