@@ -6,7 +6,7 @@
   <% end %>
   <% active = controller_name == 'pages' && action_name == 'how_it_works' %>
   <%= link_to how_it_works_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("bottom_bar/how_it_works#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <i class="fas fa-question-circle"></i>
     <span><%= t('shared.bottom_bar.how_it_works') %></span>
   <% end %>
   <% active = controller_name == 'users' && params[:active_tab] == 'profile' %>
@@ -16,7 +16,7 @@
   <% end %>
   <% active = controller_name == 'users' && params[:active_tab] == 'addresses' %>
   <%= link_to user_path(current_user, active_tab: 'addresses'), class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
-    <%= image_tag(asset_path("bottom_bar/addresses#{active ? '_purple.png' : '.png'}"), class: 'picto') %>
+    <i class="fas fa-compass"></i>
     <span><%= t('shared.bottom_bar.location').html_safe %></span>
   <% end %>
   <% active = controller_name == 'users' && !params[:active_tab] %>
