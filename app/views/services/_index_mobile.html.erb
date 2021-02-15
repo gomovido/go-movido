@@ -44,11 +44,16 @@
     <div class="tab-pane services-card-static fade <%= !params[:active_tab].present? ? 'show active' : '' %>" id="pills-housing" role="tabpanel">
       <div class="col-12 features">
         <h4 class="mb-3"><%= t('services.real_estate.headline').html_safe %></h4>
-        <p class="mb-4"><%= t('services.real_estate.question').html_safe %></p>
+        <div class="info-block d-flex align-items-center my-4">
+          <%= image_tag(asset_path('pages/services/informations.png'), class:'mr-3') %>
+          <p class="mb-0"><%= t('services.real_estate.question').html_safe %></p>
+        </div>
         <h6 class="mb-3"><%= t('services.real_estate.answer') %></h6>
         <p class="mb-4"><%= t('services.real_estate.explanation').html_safe %></p>
         <h6 class="mb-5"><%= t('services.real_estate.solution') %></h6>
-        <%= link_to t('services.real_estate.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.real_estate.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
         <h3 class="my-5 text-center"><%= t('services.real_estate.offer').html_safe %></h3>
         <div class="benefits-wrapper mb-4">
           <div class="benefit-card mb-4 p-3">
@@ -65,17 +70,24 @@
           </div>
         </div>
         <h6 class="footer-header mb-5"><%= t('services.real_estate.last_header') %></h6>
-        <%= link_to t('services.real_estate.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.real_estate.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
       </div>
     </div>
     <div class="tab-pane services-card-static fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-banking" role="tabpanel">
       <div class="col-12 features">
         <h4 class="mb-3"><%= t('services.bank.headline').html_safe %></h4>
-        <p class="mb-4"><%= t('services.bank.question').html_safe %></p>
+        <div class="info-block d-flex align-items-center my-4">
+          <%= image_tag(asset_path('pages/services/informations.png'), class:'mr-3') %>
+          <p class="mb-0"><%= t('services.bank.question').html_safe %></p>
+        </div>
         <h6 class="mb-3"><%= t('services.bank.answer') %></h6>
         <p class="mb-4"><%= t('services.bank.explanation').html_safe %></p>
         <h6 class="mb-5"><%= t('services.bank.solution') %></h6>
-        <%= link_to t('services.bank.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.bank.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
         <h3 class="my-5 text-center"><%= t('services.bank.offer').html_safe %></h3>
         <div class="benefits-wrapper mb-4">
           <div class="benefit-card mb-4 p-3">
@@ -88,17 +100,24 @@
           </div>
         </div>
         <h6 class="footer-header mb-5"><%= t('services.bank.last_header') %></h6>
-        <%= link_to t('services.bank.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.bank.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
       </div>
     </div>
     <div class="tab-pane services-card-static fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-mobile" role="tabpanel">
       <div class="col-12 features">
         <h4 class="mb-3"><%= t('services.mobile.headline').html_safe %></h4>
-        <p class="mb-4"><%= t('services.mobile.question').html_safe %></p>
+        <div class="info-block d-flex align-items-center my-4">
+          <%= image_tag(asset_path('pages/services/informations.png'), class:'mr-3') %>
+          <p class="mb-0"><%= t('services.mobile.question').html_safe %></p>
+        </div>
         <h6 class="mb-3"><%= t('services.mobile.answer') %></h6>
         <p class="mb-4"><%= t('services.mobile.explanation').html_safe %></p>
         <h6 class="mb-5"><%= t('services.mobile.solution') %></h6>
-        <%= link_to t('services.mobile.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.mobile.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
         <h3 class="my-5 text-center"><%= t('services.mobile.offer').html_safe %></h3>
         <div class="benefits-wrapper mb-4">
           <div class="benefit-card mb-4 p-3">
@@ -119,17 +138,24 @@
           </div>
         </div>
         <h6 class="footer-header mb-5"><%= t('services.mobile.last_header') %></h6>
-        <%= link_to t('services.mobile.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.mobile.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
       </div>
     </div>
     <div class="tab-pane services-card-static fade <%= params[:active_tab] == 'housing' ? 'show active' : '' %>" id="pills-wifi" role="tabpanel">
       <div class="col-12 features">
         <h4 class="mb-3"><%= t('services.wifi.headline').html_safe %></h4>
-        <p class="mb-4"><%= t('services.wifi.question').html_safe %></p>
+        <div class="info-block d-flex align-items-center my-4">
+          <%= image_tag(asset_path('pages/services/informations.png'), class:'mr-3') %>
+          <p class="mb-0"><%= t('services.wifi.question').html_safe %></p>
+        </div>
         <h6 class="mb-3"><%= t('services.wifi.answer') %></h6>
         <p class="mb-4"><%= t('services.wifi.explanation').html_safe %></p>
         <h6 class="mb-5"><%= t('services.wifi.solution') %></h6>
-        <%= link_to t('services.wifi.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.wifi.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
         <h3 class="my-5 text-center"><%= t('services.wifi.offer').html_safe %></h3>
         <div class="benefits-wrapper mb-4">
           <div class="benefit-card mb-4 p-3">
@@ -150,7 +176,9 @@
           </div>
         </div>
         <h6 class="footer-header mb-5"><%= t('services.wifi.last_header') %></h6>
-        <%= link_to t('services.wifi.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        <div class="w-100 text-center">
+          <%= link_to t('services.wifi.button'), new_user_registration_path, class: 'btn-main text-center' %>
+        </div>
       </div>
     </div>
   </div>
