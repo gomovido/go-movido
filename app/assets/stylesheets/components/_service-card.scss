@@ -115,18 +115,35 @@
 
 
 @include media-breakpoint-down(md) {
+  .hs > li,
+    .item {
+      padding: 0;
+    }
+
   .service-cards-scroller {
+    padding-bottom: 0;
+    overflow-y: hidden;
+    padding: 20px 15px;
     .hs {
-      grid-template-columns: repeat(6, calc(105% - var(--gutter) * 2));
+      grid-template-columns: repeat(6, calc(105% - var(--gutter)));
       padding-left: 0;
       overflow-x: scroll;
+      padding-bottom: 0;
     }
+  }
+  .service-cards-scroller > * {
+    grid-column: 1 / -1;
   }
   .open-card {
     height: 208px !important;
   }
-  .services-cards-wrapper i {
-    font-size: 30px;
+  .services-cards-wrapper {
+    .arrow {
+      width: 50px;
+    }
+    i {
+      font-size: 30px;
+    }
   }
   .service-card {
     font-family: "Montserrat", sans-serif;
