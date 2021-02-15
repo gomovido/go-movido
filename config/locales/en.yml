@@ -547,6 +547,7 @@ en:
       cookie: 'Cookie Policy'
       legal: 'movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
   services:
+    title: 'Services'
     wifi:
       title: 'WIFI'
       headline: "New to the city and don’t have internet yet?  <br>Let movido find the best broadband offer to suit your needs!"
