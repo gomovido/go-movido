@@ -1,0 +1,8 @@
+<div class="container banks-container mb-5">
+  <h2 class="mb-4"><%= t('banks.index.title') %></h2>
+    <% @banks.each do |bank| %>
+      <%= render 'bank_card_mobile', bank: bank %>
+    <% end %>
+</div>
+
+

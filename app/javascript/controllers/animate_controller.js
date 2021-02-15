@@ -44,6 +44,20 @@ export default class extends ApplicationController {
     event.currentTarget.querySelector('.dropdown-card').classList.toggle('d-none');
   }
 
+  displayBankCard(event) {
+    const cards = this.cardTargets;
+    let activeCard = cards.find(card => card.dataset.id === event.currentTarget.dataset.id);
+    cards.forEach(card => {
+      if (card !== activeCard) {
+        card.classList.remove('bank-open-card');
+        card.querySelector('.dropdown-card').classList.add('d-none');
+      }
+    });
+    event.currentTarget.classList.toggle('bank-open-card');
+    event.currentTarget.querySelector('.dropdown-card').classList.toggle('d-none');
+    event.currentTarget.scrollIntoView({behavior: "smooth"})
+  }
+
   displayPurpleBackground(event) {
     const cards = this.cardTargets;
     let activeCard = cards.find(card => card.dataset.teamName === event.currentTarget.dataset.teamName);
