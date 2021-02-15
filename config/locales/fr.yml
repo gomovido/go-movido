@@ -141,7 +141,7 @@ fr:
         coming_soon: 'BIENTÔT DISPONIBLE'
       how-it-works:
         title: 'Comment ça marche?'
-        start: "C'est parti !"
+        start: "C'est parti!"
         card1:
           title: "Choisis un service"
           description: "Sélectionne tous les services dont tu as besoin dans nos offres, du wifi au sport, movido peut t’aider pour commencer dans une nouvelle ville."
@@ -197,7 +197,7 @@ fr:
           sentence: "''J'ai obtenu mon appartement pour étudier à Paris pendant un an. Merci movido, c’était simple de mettre en place tous les services nécessaires lors de mon emménagement ''"
     how_it_works:
       title: 'Comment ça marche'
-      cta: "C'est parti"
+      cta: "C'est parti!"
       first_step:
         title: 'Créer un compte'
         description: "Pour commencer, crée facilement ton compte movido: inscris-toi instantanément avec Facebook, Google ou ton adresse mail."
@@ -577,16 +577,20 @@ fr:
         cancel: "Résilier l'abonnement"
         abort: "Abandonner l'abonnement"
   shared:
-    navbar_mobile:
+    bottom_bar:
       home: 'Accueil'
       services: 'Services'
       about: 'À propos'
       how_it_works: 'Fonctionnement'
       account: "Inscription"
+      profile: 'Profil'
+      dashboard: 'Dashboard'
+      location: 'Adresses'
+      wallet: 'Portefeuille'
     navbar_visitor:
       about_us: 'À propos'
       how_it_works: 'Comment ça marche'
-      login: 'Se connecter'
+      login: 'Connexion'
       get_started: "S'inscrire"
       services:
         housing: "Logement"
@@ -709,7 +713,7 @@ fr:
       home:
         banner:
           headline1: "Installe toi en seulement<br> <span class='purple'>10 minutes</span>"
-          subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"
+          subheadline: "<strong>movido</strong> s'occupe de ton déménagement"
         why-us:
           card1:
             description: "Installe-toi dans ta nouvelle maison en seulement 10 minutes"

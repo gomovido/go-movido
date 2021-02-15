@@ -1,0 +1,5 @@
+<% if current_user %>
+  <%= render 'shared/mobile/bottom_bar_user' %>
+<% else %>
+  <%= render 'shared/mobile/bottom_bar_visitor' %>
+<% end %>

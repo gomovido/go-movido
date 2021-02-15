@@ -3,10 +3,10 @@
     <div class="tabs text-center mb-4">
       <ul class="nav nav-pills d-flex align-items-center justify-content-center" id="pills-tab" role="tablist">
         <li class="nav-item ml-0">
-          <a class="nav-link <%= params[:active_tab] ? '' : 'active' %>" id="pills-subscriptions-tab" data-toggle="pill" href="#pills-subscriptions" role="tab"><%= t('.subscriptions_tab') %></a>
+          <a class="nav-link <%= params[:active_tab] ? '' : 'active' %>" id="pills-subscriptions-tab" data-toggle="pill" href="#pills-subscriptions" role="tab"><%= t('users.show.subscriptions_tab') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <%= params[:active_tab] == 'addresses' ? 'active' : '' %>" id="pills-addresses-tab" data-toggle="pill" href="#pills-addresses" role="tab"><%= t('.addresses_tab') %></a>
+          <a class="nav-link <%= params[:active_tab] == 'addresses' ? 'active' : '' %>" id="pills-addresses-tab" data-toggle="pill" href="#pills-addresses" role="tab"><%= t('users.show.addresses_tab') %></a>
         </li>
         <li class="nav-item">
           <a class="nav-link <%= params[:active_tab] == 'profile' ? 'active' : '' %>" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"><%= t('.profile_tab') %></a>
