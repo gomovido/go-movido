@@ -122,6 +122,14 @@
       }
     }
     .services-card-static {
+      .info-block {
+        img {
+          width: 30px
+        }
+        p {
+          color: $grey !important;
+        }
+      }
       .features {
         h4, p, h6 {
           font-family: 'Montserrat';
