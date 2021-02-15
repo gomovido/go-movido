@@ -87,10 +87,22 @@
       line-height: 19px;
       text-align: justify;
     }
+    .bubble-position-right {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      top: 80%;
+    }
+    .bubble-position-left {
+      position: absolute;
+      width: 20%;
+      top: 36%;
+      left: 0%;
+    }
   }
   .static-scroller {
     .hs {
-      grid-template-columns: repeat(6, calc(80% - var(--gutter) * 2));
+      grid-template-columns: repeat(6, calc(75% - var(--gutter) * 2));
       grid-template-rows: minmax(100px, 1fr);
       .item {
         a {
