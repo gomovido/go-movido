@@ -1,17 +1,5 @@
-<div class="container banks-container mb-5">
-  <div class="big-blue-bubble position-absolute"></div>
-  <div class="small-yellow-bubble position-absolute"></div>
-  <div class="small-blue-bubble position-absolute"></div>
-  <div class="big-purple-bubble position-fixed"></div>
-  <h2 class="text-center"><%= t('.title') %></h2>
-  <%= render 'bank-details'%>
-  <div class="row">
-    <% @banks.each do |bank| %>
-      <div class="col-10 offset-1">
-        <%= render 'bank-card', bank: bank %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
+<% if browser.device.mobile? %>
+  <%= render 'index_mobile' %>
+<% else %>
+  <%= render 'index_desktop' %>
+<% end %>
