@@ -68,3 +68,110 @@
     }
   }
 }
+
+@include media-breakpoint-down(md) {
+  .services-container {
+    padding-top: 2rem;
+    h2, h4 {
+      font-family: 'Montserrat';
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 19px;
+      text-align: justify;
+    }
+  }
+  .static-scroller {
+    .hs {
+      grid-template-columns: repeat(6, calc(80% - var(--gutter) * 2));
+      grid-template-rows: minmax(100px, 1fr);
+      .item {
+        a {
+          border: 2px solid $grey;
+          border-radius: 40px;
+        }
+        a.active {
+          border: 2px solid $purple !important;
+        }
+      }
+    }
+    .service-card-tab {
+      padding: 11px 20px;
+      border-radius: 40px;
+      width: 210px;
+      height: 60px;
+      background: $snow;
+      box-sizing: border-box;
+      span {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 24px;
+        color: $purple;
+      }
+      .service-picto {
+        width: 30px;
+      }
+    }
+    .services-card-static {
+      .info-block {
+        img {
+          width: 30px
+        }
+        p {
+          color: $grey !important;
+        }
+      }
+      .features {
+        h4, p, h6 {
+          font-family: 'Montserrat';
+        }
+        h4 {
+          font-weight: 700;
+          font-size: 14px
+        }
+        h3 {
+          font-style: normal;
+          font-weight: 800;
+          font-size: 16px;
+          line-height: 22px;
+          font {
+            color: $purple;
+          }
+        }
+        p:first-child {
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 19px;
+          color: $grey;
+        }
+        h6 {
+          font-weight: bold;
+          font-size: 12px;
+          line-height: 15px;
+          letter-spacing: 0.05em;
+          color: $purple;
+        }
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 19px;
+          color: $black;
+        }
+        .btn-main {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
