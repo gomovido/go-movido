@@ -5,7 +5,7 @@
     <span><%= t('shared.bottom_bar.home') %></span>
   <% end %>
   <% active = controller_name == 'services'%>
-  <%= link_to services_wifi_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
+  <%= link_to services_path, class: "d-flex flex-column align-items-center link #{'purple' if active}" do %>
     <i class="fas fa-layer-group"></i>
     <span><%= t('shared.bottom_bar.services') %></span>
   <% end %>
