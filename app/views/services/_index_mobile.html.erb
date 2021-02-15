@@ -1,11 +1,13 @@
 <div class="container services-container mb-0">
+    <%= image_tag(asset_path('pages/home/banner-mobile/half-purple-bubble.png'), class:'bubble-position-right') %>
+    <%= image_tag(asset_path('pages/home/banner-mobile/half-blue-bubble.png'), class:'bubble-position-left') %>
   <div class="row">
     <div class="col-12">
       <h2 class="ml-4"><%= t('services.title') %></h2>
     </div>
   </div>
 </div>
-<div class="container-fluid service-cards-scroller static-scroller tabs mb-5 pt-0">
+<div class="container-fluid service-cards-scroller static-scroller tabs mb-5 pt-0 px-0">
   <ul class="hs nav nav-pills" id="pills-tab" role="tablist">
     <li class="item ml-0">
       <a class="<%= !params[:active_tab].present? ? 'active' : '' %>" id="pills-housing-tab" data-toggle="pill" href="#pills-housing" role="tab" data-toggle="pill">
@@ -40,7 +42,7 @@
       </a>
     </li>
   </ul>
-  <div class="tab-content row" id="pills-tabContent">
+  <div class="tab-content row px-3" id="pills-tabContent">
     <div class="tab-pane services-card-static fade <%= !params[:active_tab].present? ? 'show active' : '' %>" id="pills-housing" role="tabpanel">
       <div class="col-12 features">
         <h4 class="mb-3"><%= t('services.real_estate.headline').html_safe %></h4>
