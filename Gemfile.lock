@@ -389,7 +389,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   browser
   byebug
-  capybara (>= 2.15)
+  capybara
   devise!
   dotenv-rails
   factory_bot_rails

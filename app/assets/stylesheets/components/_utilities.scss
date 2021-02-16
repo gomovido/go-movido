@@ -14,6 +14,12 @@ a {
   }
 }
 
+.iti__flag {background-image: image-url("flags/flags.png") !important;}
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {background-image: image-url("flags/flags@2x.png") !important;
+  }
+}
+
 .ap-input-icon {
   display: none;
 }

@@ -5,7 +5,6 @@ class Person < ApplicationRecord
   validates_plausible_phone :phone, presence: true
   validate :validate_age
 
-
   private
 
   def validate_age
