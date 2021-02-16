@@ -1,12 +1,12 @@
 <div class="addresses-container col-12 tab-pane fade <%= params[:active_tab] == 'addresses' ? 'show active' : '' %>" id="pills-addresses" role="tabpanel">
-  <span class="current"><%= t('.current') %></span>
+  <span class="current"><%= t('users.addresses.current') %></span>
   <div class="addresses-card-wrapper" data-id="<%= current_user.active_address.id %>" data-reflex="click->AddressReflex#default" >
     <div class="address-card p-4 d-flex align-items-center my-3 active-address"  >
       <i class="fas fa-map-marker-alt mr-3"></i>
       <span class="address"> <%= active_address.street %> </span>
     </div>
   </div>
-  <span class="current"><%= t('.previous') %></span>
+  <span class="current"><%= t('users.addresses.previous') %></span>
   <% addresses.each do |address| %>
     <div class="addresses-card-wrapper" data-id="<%= address.id %>" data-reflex="click->AddressReflex#default" >
       <div class="address-card p-4 d-flex align-items-center my-3"  >
@@ -18,7 +18,7 @@
   <div class="addresses-card-wrapper my-4">
     <div class="address-input-wrapper p-3 d-flex align-items-center" data-profile-target="addAddressButton" data-action='click->profile#toggleAddressAutocomplete'>
       <%= image_tag(asset_path('users/addresses/plus-icon.png'), class: 'mr-3 plus-img') %>
-      <span class="address" id="add"><%= t('.add') %></span>
+      <span class="address" id="add"><%= t('users.addresses.add') %></span>
     </div>
     <div class="border-0 align-items-center d-none" data-profile-target="addAddressInput">
       <div class="w-100">
@@ -27,7 +27,7 @@
           <%= image_tag(asset_path('users/addresses/plus-icon.png'), class: 'position-absolute plus-img') %>
           <%= f.input :street,
           autofocus: true,
-          placeholder: t('.form.placeholder.street'),
+          placeholder: t('users.addresses.form.placeholder.street'),
           required: true,
           label: false,
           input_html: { class: 'border-0', data: {
@@ -36,7 +36,7 @@
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>
-          <span data-reflex="click->AddressReflex#create" data-reflex-dataset=“combined” class="btn-main"><%= t('.cta') %></span>
+          <span data-reflex="click->AddressReflex#create" data-reflex-dataset=“combined” class="btn-main"><%= t('users.addresses.cta') %></span>
         </div>
         <% end %>
         <span id="error" class="text-danger"></span>

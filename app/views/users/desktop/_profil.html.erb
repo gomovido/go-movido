@@ -4,7 +4,7 @@
   <div data-profile-target="errors" class=" mt-2 text-danger font-weight-bold"></div>
   <div class="flash mb-2" data-profile-target="spinner">
     <div class="spinner-border text-success" data-profile-target="wheel"></div>
-    <span class="ml-2 text-success" data-profile-target="savingText"><%= t('.saving') %></span>
+    <span class="ml-2 text-success" data-profile-target="savingText"><%= t('users.profil.saving') %></span>
   </div>
 
   <%= simple_form_for user, html: {id:"profile", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>

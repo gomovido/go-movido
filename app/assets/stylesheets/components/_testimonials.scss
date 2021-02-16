@@ -8,7 +8,7 @@
     line-height: 32px;
   }
 
-  .testimonial-cards-scroller {
+  .testimonials-cards-scroller {
     padding: var(--gutter) 0;
     display: grid;
     grid-gap: var(--gutter) 0;
@@ -16,16 +16,16 @@
     align-content: start;
   }
 
-  .testimonial-cards-scroller > * {
+  .testimonials-cards-scroller > * {
     grid-column: 2 / -1;
   }
 
-  .testimonial-cards-scroller > .full {
+  .testimonials-cards-scroller > .full {
     grid-column: 1 / -1;
   }
 
 
-  .testimonial-cards-scroller {
+  .testimonials-cards-scroller {
     width: 100%;
     overflow-y: hidden;
     .hs {
@@ -86,10 +86,10 @@
 
   @include media-breakpoint-down(md) {
     .hs-mobile {
-      padding-left: 0.1rem;
-      grid-gap: calc(var(--gutter) / 0);
-      grid-template-columns: repeat(6, calc(90% - var(--gutter) * 2)) !important;
-      overflow-x: scroll;
+      padding-left: 0.1rem !important;
+      grid-gap: calc(var(--gutter) / 0) !important;
+      grid-template-columns: repeat(6, calc(100% - var(--gutter) * 2)) !important;
+      overflow-x: scroll !important;
     }
     .hs-mobile > li, .item {
       padding: 0;

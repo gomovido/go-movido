@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   get 'services/bank', to: 'services#bank'
   get 'services/mobile', to: 'services#mobile'
   get 'services/real_estate', to: 'services#real_estate'
-  resources :users, only: [:show ] do
+
+  resources :services, only: [:index]
+  resources :users, only: [:show, :update] do
     resources :addresses, only: [:create, :new]
   end
 

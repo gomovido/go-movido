@@ -1,14 +1,14 @@
 <section id="services-cards" data-controller="animate">
   <div class="services-cards-wrapper">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-6">
           <h2 class="m-0"><%= t('pages.home.services-cards.title') %></h2>
         </div>
         <div class="col-6 text-right">
           <div class="arrow-wrapper">
-            <i class="fas fa-arrow-circle-left light-purple mr-3" data-action='click->animate#slideLeft' data-animate-target="leftArrow"></i>
-            <i class="fas fa-arrow-circle-right purple" data-action='click->animate#slideRight' data-animate-target="rightArrow"></i>
+            <%= image_tag(asset_path('pages/home/arrow-left.png'), class: 'arrow mr-2', data: {action: 'click->animate#slideLeft', animate_target: 'leftArrow'}) %>
+            <%= image_tag(asset_path('pages/home/arrow-right.png'), class: 'arrow', data: {action: 'click->animate#slideRight', animate_target: 'rightArrow'}) %>
           </div>
         </div>
       </div>
