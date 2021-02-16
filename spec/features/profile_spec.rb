@@ -18,7 +18,6 @@ RSpec.feature "Profile", :type => :feature do
     it "should display user's profile details"  do
       visit user_path(user, active_tab: 'profile')
       find('.iti__selected-flag').click
-      save_and_open_screenshot
     end
   end
 end

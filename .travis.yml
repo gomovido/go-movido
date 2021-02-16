@@ -13,6 +13,7 @@ before_install:
   - nvm install --lts
 addons:
   postgresql: '9.6'
+  chrome: stable
 before_script:
 - psql -c 'create database go_movido_test;' -U postgres
 env:
@@ -20,7 +21,7 @@ env:
 script:
   - bundle exec rake db:schema:load
   - bundle exec rake db:test:prepare
-  - SECRET_KEY_BASE=a RAILS_ENV=production bundle exec rake assets:precompile
+  - RAILS_ENV=production bundle exec rake assets:precompile
   - bundle exec rspec
 branches:
   only:

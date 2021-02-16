@@ -40,7 +40,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
 gem 'travis'
-group :development, :test do  gem 'pry-byebug'
+
+group :development, :test do
+  gem 'pry-byebug'
   gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'dotenv-rails'
