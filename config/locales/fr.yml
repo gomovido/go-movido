@@ -141,7 +141,7 @@ fr:
         coming_soon: 'BIENTÔT DISPONIBLE'
       how-it-works:
         title: 'Comment ça marche?'
-        start: "C'est parti !"
+        start: "C'est parti!"
         card1:
           title: "Choisis un service"
           description: "Sélectionne tous les services dont tu as besoin dans nos offres, du wifi au sport, movido peut t’aider pour commencer dans une nouvelle ville."
@@ -197,7 +197,7 @@ fr:
           sentence: "''J'ai obtenu mon appartement pour étudier à Paris pendant un an. Merci movido, c’était simple de mettre en place tous les services nécessaires lors de mon emménagement ''"
     how_it_works:
       title: 'Comment ça marche'
-      cta: "C'est parti"
+      cta: "C'est parti!"
       first_step:
         title: 'Créer un compte'
         description: "Pour commencer, crée facilement ton compte movido: inscris-toi instantanément avec Facebook, Google ou ton adresse mail."
@@ -492,6 +492,7 @@ fr:
     profil:
       saving: 'Sauvegarde en cours'
       submit: 'Mettre à jour'
+      title: 'Mon Profil'
     complete_profil:
       title: 'Complète ton profil'
       mobile_title: 'Complète ton profil'
@@ -508,6 +509,7 @@ fr:
       previous: 'Adresses précédentes'
       add: 'Ajouter une adresse'
       cta: 'Confirmer'
+      title: 'Mes Adresses'
       form:
         placeholder:
           street: "Entre ton adresse"
@@ -522,6 +524,7 @@ fr:
       status: 'Statut'
       see_offers: 'Voir les offres'
       no_subscription: "Tu n'as pas d'abonnements actifs"
+      title: 'Mon portefeuille'
     subscription:
       draft: 'Brouillon'
       succeeded: 'En attente'
@@ -529,6 +532,7 @@ fr:
       failed: 'Paiement échoué'
       pending_processed: 'À payer'
       months: 'mois'
+      month: 'mois'
       mobile_phone: 'Mobile'
       wifi: 'Wifi'
       gym: 'Gym'
@@ -536,23 +540,57 @@ fr:
       housing: 'Logement'
       utilities: 'Services publics'
       popup: 'Êtes vous sûr de vouloir abandonner la souscription?'
+      no_obligation: 'Sans engagement'
+      subscription: 'Abonnement'
+      subscriber: 'Abonné'
+      subscription_details : "Détails de la souscription"
+      subscriber_details : "Détails de l'abonné"
+      provider: 'Fournisseur'
+      plan: 'Abonnement'
+      price: 'Prix'
+      setup_price: "Frais d'installation"
+      time_contract: "Durée d'engagement"
+      data_speed: "Débit"
+      data_limit: 'Limite de données'
+      first_name: 'Prénom'
+      last_name: 'Nom'
+      email: 'Email'
+      birthdate: 'Date de naissance'
+      phone: 'Téléphone'
+      address: 'Adresse'
+      delivery_address: 'Adresse de livraison'
+      iban: 'IBAN'
+      sort_code: 'Branche'
+      bank: 'Banque'
+      billing_address: 'Adresse de facturation'
+      sim_format: 'Format de carte SIM'
+      holder_name: 'Titulaire du compte'
+      account_number: 'Numéro de compte'
+      sim_card_price: 'Coût de la carte SIM'
+      status: 'Status'
       cta:
         resume: 'Continuer'
+        resume_subscription: 'Continuer la souscription'
+        pay_to_activate: 'Payer pour activer'
         pay: 'Payer'
         details: 'Détails'
         cancel: "Résilier l'abonnement"
         abort: "Abandonner l'abonnement"
   shared:
-    navbar_mobile:
+    bottom_bar:
       home: 'Accueil'
       services: 'Services'
       about: 'À propos'
       how_it_works: 'Fonctionnement'
       account: "Inscription"
+      profile: 'Profil'
+      dashboard: 'Dashboard'
+      location: 'Adresses'
+      wallet: 'Portefeuille'
     navbar_visitor:
       about_us: 'À propos'
       how_it_works: 'Comment ça marche'
-      login: 'Se connecter'
+      login: 'Connexion'
       get_started: "S'inscrire"
       services:
         housing: "Logement"
@@ -572,6 +610,7 @@ fr:
       cookie: "Cookies"
       legal: 'movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom'
   services:
+    title: 'Services'
     wifi:
       title: 'WIFI'
       headline: "Tu t’installes dans une nouvelle ville et tu n’as pas encore internet? <br>Laisse movido trouver les meilleures offres haut débit qui conviendront à tes besoins!"
@@ -675,7 +714,7 @@ fr:
       home:
         banner:
           headline1: "Installe toi en seulement<br> <span class='purple'>10 minutes</span>"
-          subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"
+          subheadline: "<strong>movido</strong> s'occupe de ton déménagement"
         why-us:
           card1:
             description: "Installe-toi dans ta nouvelle maison en seulement 10 minutes"

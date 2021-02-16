@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-movido d-flex align-items-center justify-content-between" data-controller="navbar" data-navbar-target="navbar" data-action="scroll@window->navbar#onScroll" data-navbar-fixed-class="fixed-nav">
   <% if I18n.locale == :fr %>
-    <li class="nav-item <%= 'grow' unless current_user %> dropdown language">
+    <li class="nav-item dropdown language">
       <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">FR <i class="fas fa-sort-down ml-2"></i></span>
       <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
         <%= link_to "EN", locale: :en %>
@@ -14,13 +14,13 @@
       </div>
     </li>
   <% end %>
-  <%= link_to root_path, class: "navbar-brand mr-0 pt-0 pb-0 #{'grow' unless current_user }" do %>
+  <%= link_to root_path, class: "navbar-brand mr-0 pt-0 pb-0" do %>
     <%= image_tag(asset_path("navbar/logo.svg")) %>
   <% end %>
   <% if current_user %>
-    <%= link_to t('shared.dropdown.logout').html_safe, destroy_user_session_path, method: :delete, class: 'logout' %>
+    <%= link_to t('shared.dropdown.logout'), destroy_user_session_path, method: :delete, class: 'logout' %>
     <% else %>
-    <span></span>
+    <%= link_to t('shared.navbar_visitor.login'), new_user_session_path, class: 'logout' %>
   <% end %>
 </div>
 
