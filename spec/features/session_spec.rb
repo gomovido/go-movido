@@ -13,7 +13,7 @@ RSpec.feature "Session", :type => :feature do
       click_button 'Login'
     end
     it "shows welcome message" do
-      expect(page).to have_content('Logged in successfully.')
+      expect(page).to have_content('eezaezaezae')
     end
     it "shows addresses new" do
       assert_equal "/users/#{user.id}/addresses/new", page.current_path
