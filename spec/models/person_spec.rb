@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Person do
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
   subject { create(:person, user: user) }
   describe "Associations" do
     it { should belong_to(:user) }
@@ -9,7 +9,7 @@ RSpec.describe Person do
   describe "Validations" do
     it { should belong_to(:user) }
     it { should validate_presence_of(:birthdate) }
-    it 'should be major' do
+    it 'is expected to validate that :birthdate is at least 18 years ago' do
       subject.birthdate = Date.today
       expect(subject).to_not be_valid
     end

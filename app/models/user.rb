@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses, dependent: :destroy
   has_many :billings, dependent: :destroy
-  has_one :person
+  has_one :person, dependent: :destroy
+  accepts_nested_attributes_for :person
+
   COUNTRIES = [:fr, :uk]
 
   extend FriendlyId
@@ -47,7 +49,7 @@ class User < ApplicationRecord
   end
 
   def is_complete?
-    self.first_name.present? && self.last_name.present? && self.email.present? && self.birthdate.present? && self.birth_city.present?.present? && self.phone.present?
+    !Person.find_by(user: self).nil?
   end
 
   def self.new_with_session(params, session)
@@ -57,7 +59,6 @@ class User < ApplicationRecord
       end
     end
   end
-
 
   private
 

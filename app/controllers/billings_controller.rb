@@ -3,7 +3,7 @@ class BillingsController < ApplicationController
 
   def new
     if !current_user.is_complete?
-      redirect_to subscription_complete_profil_path(@subscription)
+      redirect_to new_subscription_person_path(@subscription)
     else
       @billing = @subscription.billing.nil? ? Billing.new : @subscription.billing
       @billing.build_subscription(delivery_address: @subscription.delivery_address) if @subscription.product.is_mobile?
