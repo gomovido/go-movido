@@ -29,6 +29,7 @@
     width: 100%;
     overflow-y: hidden;
     .hs {
+      scroll-behavior: smooth;
       display: grid;
       grid-gap: calc(var(--gutter) / 2);
       grid-template-columns: repeat(6, calc(34% - var(--gutter) * 2));

@@ -1,20 +1,5 @@
-<% content_for :meta_title, "movido | Contact" %>
-<% content_for :meta_description, "Contact us, we'd be happy to help you" %>
-<div class="container contact-container mb-5">
-  <figure class="big-blue-bubble position-absolute "></figure>
-  <figure class="small-yellow-bubble position-absolute"></figure>
-  <h2 class="text-center"><%= t('.title') %></h2>
-  <div class="row pt-md-3">
-    <div class="col-md-6 d-md-block d-none illustration">
-      <%= image_tag(asset_path('subscriptions/congratulations.png')) %>
-    </div>
-    <div class="col-md-6">
-      <h3 class="mb-4 d-md-block d-none"><%= t('.subline').html_safe %></h3>
-      <div class="my-4 support-links">
-        <span class="support"><%= image_tag(asset_path('subscriptions/whatsapp.png')) %> <%= link_to '+44(0)7841 598269', "tel: +447841598269" %></span><br>
-        <span class="support"><%= image_tag(asset_path('subscriptions/phone.png')) %>  <%= link_to '+44(0)7841 598269', "tel: +447841598269" %></span><br>
-        <span class="support"><%= image_tag(asset_path('subscriptions/email.png')) %> <%= mail_to 'contact@go-movido.com', "contact@go-movido.com", class:'purple' %></span>
-      </div>
-    </div>
-  </div>
-</div>
+<% if browser.device.mobile? %>
+  <%= render 'pages/mobile/contact' %>
+<% else %>
+  <%= render 'pages/desktop/contact' %>
+<% end %>

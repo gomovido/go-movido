@@ -46,14 +46,38 @@
 @include media-breakpoint-down(md) {
   .contact-container {
     padding-top: 2rem;
-    .support{
-      width: 80% !important;
+    min-height: 70vh;
+      h2 {
+      font-weight: bold;
+      font-size: 26px;
+      font-family: 'Montserrat';
     }
-    .big-blue-bubble {
-      left: -170px;
+    h3 {
+      font-weight: 500;
+      font-size: 14px;
+      color: $grey;
     }
-    .small-yellow-bubble {
-      top: 28%;
+    .support-links img {
+      width: 100px;
+    }
+    .illustration-mobile {
+      width: 260px;
+      left: -11px;
+      top: 210px;
+    }
+    .bubble-position-right {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      top: 32%;
+      z-index: -1;
+    }
+    .bubble-position-left {
+      position: absolute;
+      width: 20%;
+      top: 66%;
+      z-index: -1;
+      left: 0%;
     }
   }
 }
