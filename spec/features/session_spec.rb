@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Session", :type => :feature do
-  describe "User Sign in" do
+  describe "User Sign in", :headless_chrome do
     let(:user) { create(:user) }
 
     before :each do

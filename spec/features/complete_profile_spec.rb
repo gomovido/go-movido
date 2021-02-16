@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Complete Profile", :type => :feature do
-  describe "User take a subscription", :js do
+  describe "User take a subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let(:person) { build(:person) }
     let!(:address) { create(:address, user: user) }
