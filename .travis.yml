@@ -11,6 +11,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
   - nvm install --lts
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 addons:
   postgresql: '9.6'
   chrome: stable
@@ -21,7 +22,6 @@ env:
 script:
   - bundle exec rake db:schema:load
   - bundle exec rake db:test:prepare
-  - RAILS_ENV=production bundle exec rake assets:precompile
   - bundle exec rspec
 branches:
   only:
