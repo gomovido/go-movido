@@ -1,7 +1,7 @@
 <% content_for :meta_title, "movido | Meet the international movido team" %>
 <% content_for :meta_description, "We are a diverse group of people. However, all of us are dedicated to creating a smart marketplace and wallet for everyone’s admin contracts" %>
 <% if browser.device.mobile? %>
-  <%= render 'about_us_mobile' %>
+  <%= render 'pages/mobile/about_us' %>
 <% else %>
-  <%= render 'about_us_desktop' %>
+  <%= render 'pages/desktop/about_us' %>
 <% end %>

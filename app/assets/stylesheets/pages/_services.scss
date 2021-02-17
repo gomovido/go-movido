@@ -100,7 +100,7 @@
       left: 0%;
     }
   }
-  .static-scroller {
+  .service-cards-scroller.static-scroller {
     .hs {
       grid-template-columns: repeat(6, calc(75% - var(--gutter) * 2));
       grid-template-rows: minmax(100px, 1fr);

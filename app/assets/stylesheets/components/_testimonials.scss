@@ -17,7 +17,7 @@
   }
 
   .testimonials-cards-scroller > * {
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
   }
 
   .testimonials-cards-scroller > .full {
@@ -29,6 +29,7 @@
     width: 100%;
     overflow-y: hidden;
     .hs {
+      scroll-behavior: smooth;
       display: grid;
       grid-gap: calc(var(--gutter) / 2);
       grid-template-columns: repeat(6, calc(34% - var(--gutter) * 2));
