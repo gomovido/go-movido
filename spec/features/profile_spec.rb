@@ -51,6 +51,7 @@ RSpec.feature "Profile", :type => :feature do
         find('.iti__selected-flag').click
         find('span.iti__country-name', text: user.country, match: :first).click
         country_code = IsoCountryCodes.search_by_name(user.country)[0].calling
+        sleep 2
         expect(page).to have_field('Phone', with: country_code)
       end
 
