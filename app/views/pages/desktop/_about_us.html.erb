@@ -1,45 +1,90 @@
-<div class="container about-container mb-5">
+<div class="container about-container mb-5" data-controller="animate">
   <div class="big-blue-bubble position-absolute"></div>
   <div class="big-purple-bubble position-fixed"></div>
   <div class="small-yellow-bubble position-absolute"></div>
   <h2 class="text-center"><%= t('pages.about.title') %></h2>
-  <p class="mb-4"><%= t('pages.about.part_1') %></p>
-  <p class="mb-4"><%= t('pages.about.part_2').html_safe %></p>
-  <p class="mb-4"><%= t('pages.about.part_3') %></p>
+  <p class="mb-3"><%= t('pages.about.part_1') %></p>
+  <p class="mb-5"><%= t('pages.about.part_2').html_safe %></p>
+  <div class="d-flex align-items-center">
+    <i class="fas fa-info mr-5"></i>
+    <p class="mb-3 text-justify"><%= t('pages.about.part_3') %></p>
+  </div>
   <p class="mb-5"><%= t('pages.about.part_4').html_safe %></p>
   <h2 class="text-center mb-5"><%= t('pages.about.our_team') %></h2>
-  <div class="row mb-4">
-    <div class="col-md-3 offset-md-1 text-center text-md-left">
-      <%= image_tag(asset_path('pages/about/alice.png'), class: 'mb-3') %>
-      <h5>Alice Strecker</h5>
-      <h6><%= t('pages.about.alice.role') %></h6>
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="position-relative" data-animate-target="card" data-team-name="alice" data-action='click->animate#displayPurpleBackground'>
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
+        <div class="name">
+          Alice Strecker
+        </div>
+        <div class="role">
+          <%= t('pages.about.alice.role') %>
+        </div>
+      </div>
+      <%= image_tag(asset_path('team/alice.png')) %>
     </div>
-    <div class="col-md-3 offset-md-1 text-center text-md-left">
-      <%= image_tag(asset_path('pages/about/jordan.png'), class: 'mb-3') %>
-      <h5>Jordan Demmouche</h5>
-      <h6><%= t('pages.about.jordan.role') %></h6>
+    <div class="position-relative" data-animate-target="card" data-team-name="jordan" data-action='click->animate#displayPurpleBackground'>
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
+        <div class="name">
+          Jordan Demmouche
+        </div>
+        <div class="role">
+          <%= t('pages.about.jordan.role') %>
+        </div>
+      </div>
+      <%= image_tag(asset_path('team/jordan.png')) %>
     </div>
-    <div class="col-md-3 offset-md-1 text-center text-md-left">
-      <%= image_tag(asset_path('pages/about/paul.png'), class: 'mb-3') %>
-      <h5>Paul Sipassteuh</h5>
-      <h6>Marketing</h6>
+    <div class="position-relative" data-animate-target="card" data-team-name="paul" data-action='click->animate#displayPurpleBackground'>
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
+        <div class="name">
+          Paul Sipassteuh
+        </div>
+        <div class="role">
+          Marketing
+        </div>
+      </div>
+      <%= image_tag(asset_path('team/paul.png')) %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3 offset-md-1 text-center text-md-left">
-      <%= image_tag(asset_path('pages/about/tim.png'), class: 'mb-3') %>
-      <h5>Tim Grobshäuser</h5>
-      <h6><%= t('pages.about.tim.role') %></h6>
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="position-relative" data-animate-target="card" data-team-name="tim" data-action='click->animate#displayPurpleBackground'>
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
+        <div class="name">
+          Tim Grobshäuser
+        </div>
+        <div class="role">
+          <%= t('pages.about.tim.role') %>
+        </div>
+      </div>
+      <%= image_tag(asset_path('team/tim.png')) %>
     </div>
-    <div class="col-md-3 offset-md-1 text-center text-md-left">
-      <%= image_tag(asset_path('pages/about/vitaliy.png'), class: 'mb-3') %>
-      <h5>Vitaliy Didukh</h5>
-      <h6>Designer</h6>
+    <div class="position-relative" data-animate-target="card" data-team-name="vitaliy" data-action='click->animate#displayPurpleBackground'>
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
+        <div class="name">
+          Vitaliy Didukh
+        </div>
+        <div class="role">
+          Designer
+        </div>
+      </div>
+      <%= image_tag(asset_path('team/vitaliy.png')) %>
     </div>
-    <div class="col-md-3 offset-md-1 text-center text-md-left">
-      <%= image_tag(asset_path('pages/about/yoni.png'), class: 'mb-3') %>
-      <h5>Yoni Touboul</h5>
-      <h6><%= t('pages.about.yoni.role') %></h6>
+    <div class="position-relative" data-animate-target="card" data-team-name="yoni" data-action='click->animate#displayPurpleBackground'>
+      <div class="purple-card"></div>
+      <div class="inside position-absolute">
+        <div class="name">
+          Yoni Touboul
+        </div>
+        <div class="role">
+          <%= t('pages.about.yoni.role') %>
+        </div>
+      </div>
+      <%= image_tag(asset_path('team/yoni.png')) %>
     </div>
   </div>
 </div>

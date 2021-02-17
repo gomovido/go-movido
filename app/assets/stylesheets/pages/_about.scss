@@ -19,26 +19,56 @@
   p {
     font-weight: 500;
     font-size: 18px;
+    color: $grey;
     line-height: 40px;
   }
+  .fa-info {
+    font-size: 48px;
+  }
+  .mid-section {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    color: $black;
+    line-height: 0;
+    display: block;
+  }
   img {
-    height: 146px;
+    width: 295px;
     border-radius: 30px;
+    display: block;
   }
-  h5 {
-    font-weight: 800;
-    font-size: 20px;
-    color: $black;
+  .inside {
+    opacity: 0;
+    top: 10%;
+    left: 10%;
+    z-index: 2;
+    transition: all 0.3s ease-in;
+    .name {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 30px;
+      color: $white;
+    }
+    .role {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 22px;
+      color: $cyan;
+    }
   }
-  h6 {
-    font-weight: 800;
-    font-size: 18px;
-    color: $purple;
-  }
-  .experiences {
-    font-weight: normal;
-    font-size: 18px;
-    color: $black;
+  .purple-card {
+    position: absolute;
+    content:"";
+    height: 100%;
+    width: 0%;
+    top: 0;
+    background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
+    opacity: 0;
+    border-radius: 30px;
+    transition: all 0.3s ease-in;
   }
 }
 
@@ -83,12 +113,6 @@
       line-height: 22px;
       color: $cyan;
     }
-    .team-card img {
-      width: 100%;
-      border-radius: 30px;
-      height: 100%;
-      display: block;
-    }
     img {
       width: 100%;
       border-radius: 30px;
@@ -121,7 +145,6 @@
       height: 100%;
       width: 0%;
       top: 0;
-      left: 17px;
       background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
       opacity: 0;
       border-radius: 30px;
