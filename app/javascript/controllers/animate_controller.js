@@ -73,7 +73,7 @@ export default class extends ApplicationController {
     let purpleCard = card.querySelector(".purple-card");
     inside.style.opacity === '1' ? inside.style.opacity = '0' : inside.style.opacity = '1';
     purpleCard.style.opacity === '0.8' ? purpleCard.style.opacity = '0' : purpleCard.style.opacity = '0.8';
-    purpleCard.style.width === '90%' ? purpleCard.style.width = '0%' : purpleCard.style.width = '90%';
+    purpleCard.style.width === '100%' ? purpleCard.style.width = '0%' : purpleCard.style.width = '100%';
   }
 
   updateButton(event) {
