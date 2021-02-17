@@ -1,12 +1,12 @@
 **Issue Policy**
 
 Create issue
-- Link issue to the associated project
+- Go on https://app.zenhub.com/workspaces/movido-development-5fe0d9422465560021649b40/board
+- Create issue / add issue to existing epic 
 - Add related labels
-- Feature flow init
-
 
 **PR Policy**
 
 On terminal : ``git commit -m "Fixes #<ISSUE ID>"``
-On GitHub : Link PR to the associated project
+- Wait for the build to pass 
+- Fix errors if needed 
