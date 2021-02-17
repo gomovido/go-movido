@@ -15,14 +15,14 @@ RSpec.describe User do
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:email) }
-    it { should allow_value("user@example.com").for(:email) }
+    it { should allow_value(subject.email).for(:email) }
     it { should_not allow_value("not-an-email").for(:email) }
   end
   context "instance method" do
     let(:user) { create(:user) }
 
     it 'is expected to validate that the user profil is complete' do
-      create(:person, user: user)
+      create(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user)
       expect(user.is_complete?).to be true
     end
 

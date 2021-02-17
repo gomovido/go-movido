@@ -9,7 +9,7 @@ class Person < ApplicationRecord
 
   def validate_age
     if self.birthdate.present? && self.birthdate > 18.years.ago.to_date
-        self.errors.add(:birthdate, 'You should be over 18 years old.')
+        self.errors.add(:birthdate, I18n.t('people.form.failure.min_age'))
     end
   end
 end
