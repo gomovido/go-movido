@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Profile", :type => :feature do
-  describe "User visit profile", :selenium_chrome do
+  describe "User visit profile", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:person) { create(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
     let!(:address) { create(:address, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
