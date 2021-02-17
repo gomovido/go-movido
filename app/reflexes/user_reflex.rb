@@ -1,6 +1,5 @@
 class UserReflex < ApplicationReflex
   delegate :current_user, to: :connection
-  include ActionController::Flash
 
   before_reflex do
     current_user.assign_attributes(user_params)
@@ -13,6 +12,6 @@ class UserReflex < ApplicationReflex
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, person_attributes: [ :phone, :birthdate, :birth_city ])
+    params.require(:user).permit(:email, :first_name, :last_name, person_attributes: [ :phone, :birthdate, :birth_city, :id ])
   end
 end

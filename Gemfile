@@ -54,6 +54,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
+  gem 'iso_country_codes'
 end
 
 group :development do

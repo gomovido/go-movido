@@ -14,7 +14,7 @@ export default class extends ApplicationController {
     this.birthCity = addressAutocomplete(this.birthCityTarget);
     searchByCity(this.birthCity);
     phoneInput(this.phoneTarget);
-    this.phoneTarget.value = document.getElementById('user_phone').value;
+    this.phoneTarget.value = document.getElementById('user_person_attributes_phone').value;
   }
 
   updateNavbar(event) {
