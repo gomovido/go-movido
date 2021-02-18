@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_024501) do
+ActiveRecord::Schema.define(version: 2021_02_18_094329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,10 +172,8 @@ ActiveRecord::Schema.define(version: 2021_02_11_024501) do
     t.string "first_name"
     t.string "last_name"
     t.string "country"
-    t.boolean "not_housed"
     t.string "slug"
     t.string "username"
-    t.string "city"
     t.string "provider"
     t.string "uid"
     t.string "stripe_id"
