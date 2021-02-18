@@ -67,6 +67,7 @@ RSpec.feature "Profile", :type => :feature do
           fill_in 'user_person_attributes_phone', with: new_user_person_phone
           fill_in 'user_person_attributes_birth_city', with: new_user_person_birth_city
           find('.ap-suggestion').click
+          sleep 1
         end
         expect {
           click_button 'Update'
