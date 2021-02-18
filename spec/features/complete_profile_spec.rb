@@ -6,7 +6,8 @@ RSpec.feature "Complete Profile", :type => :feature do
     let!(:person) { build(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym) }
     let!(:address) { create(:address, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
     let!(:category) { create(:category) }
-    let!(:product) {create(:product, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, category: category)}
+    let!(:company) {create(:company)}
+    let!(:product) {create(:product, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, category: category, company: company)}
     let!(:product_feature) {create(:product_feature, product: product)}
 
     before :each do
