@@ -4,7 +4,7 @@ class Company < ApplicationRecord
 
   validates_presence_of :name, :logo_url
   validates_uniqueness_of :name
-  validates :logo_url, format: {with: /\.(png|jpg)\Z/i}
+  validates :logo_url, format: {with: /\.(png|jpg|svg)\Z/i}
   validates :cancel_link, format: { with: URI.regexp }, if: :cancel_link?
 
 end
