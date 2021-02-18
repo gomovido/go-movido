@@ -12,7 +12,6 @@ export default class extends ApplicationController {
   }
 
   loadSubscriptionModal(event) {
-    console.log(event.target)
     $('.modal-body').load(event.target.getAttribute("data-href"));
   }
 
