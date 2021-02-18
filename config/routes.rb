@@ -32,13 +32,14 @@ Rails.application.routes.draw do
   get 'services/bank', to: 'services#bank'
   get 'services/mobile', to: 'services#mobile'
   get 'services/real_estate', to: 'services#real_estate'
+
   resources :services, only: [:index]
   resources :users, only: [:show, :update] do
     resources :addresses, only: [:create, :new]
   end
 
-  resources :subscriptions, only: [:show] do
-    get 'complete-profil', to: 'users#complete_profil'
+  resources :subscriptions, only: [:show ] do
+    resources :people, only: [:new, :create, :update]
     resources :billings, only: [:new, :create, :update]
     resources :addresses, only: [:update, :edit]
   end

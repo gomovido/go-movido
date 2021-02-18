@@ -85,11 +85,11 @@
       </ul>
       <span class="title"><%= t('users.subscription.birthdate') %></span>
       <ul>
-        <li><%= subscription.address.user.birthdate.strftime('%m/%d/%Y') %></li>
+        <li><%= subscription.address.user.person.birthdate.strftime('%m/%d/%Y') %></li>
       </ul>
       <span class="title"><%= t('users.subscription.phone') %></span>
       <ul>
-        <li><%= subscription.address.user.phone %></li>
+        <li><%= subscription.address.user.person.phone %></li>
       </ul>
       <span class="title"><%= t('users.subscription.address') %></span>
       <ul>

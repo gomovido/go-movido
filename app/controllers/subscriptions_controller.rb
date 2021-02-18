@@ -79,7 +79,7 @@ class SubscriptionsController < ApplicationController
 
   def user_profil_is_uncomplete?
     if !current_user.is_complete?
-      redirect_to subscription_complete_profil_path(@subscription)
+      redirect_to new_subscription_person_path(@subscription)
     end
   end
 
@@ -102,7 +102,7 @@ class SubscriptionsController < ApplicationController
     subscription_check = Subscription.find_by(state: 'draft', product: product, address: current_user.active_address)
     if subscription_check && !current_user.is_complete?
       @subscription = subscription_check
-      redirect_to subscription_complete_profil_path(@subscription)
+      redirect_to new_subscription_person_path(@subscription)
     elsif subscription_check && product.is_mobile?
       redirect_to new_subscription_billing_path(subscription_check)
     elsif subscription_check && product.is_wifi?
