@@ -40,13 +40,21 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
 gem 'travis'
-group :development, :test do  gem 'pry-byebug'
+
+group :development, :test do
+  gem 'pry-byebug'
+  gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.2'
   gem "factory_bot_rails"
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'launchy'
+  gem 'iso_country_codes'
 end
 
 group :development do
@@ -62,12 +70,8 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-  gem 'launchy'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -46,12 +46,14 @@ en:
               blank: "can't be blank"
             last_name:
               blank: "can't be blank"
+            email:
+              taken: "already in use"
+        person:
+          attributes:
             phone:
               blank: "can't be blank"
             birth_city:
               blank: "can't be blank"
-            email:
-              taken: "already in use"
     attributes:
       billing:
         iban: 'IBAN'
@@ -79,12 +81,13 @@ en:
       user:
         first_name: 'First name'
         last_name: 'Surname'
-        phone: 'Phone'
-        birthdate: 'Date of birth'
-        birth_city: 'City of birth'
         email: 'E-mail'
         password: 'Password'
         password_confirmation: 'Password confirmation'
+      person:
+        phone: 'Phone'
+        birthdate: 'Date of birth'
+        birth_city: 'City of birth'
   pages:
     contact:
       title: 'Contact us'
@@ -273,6 +276,10 @@ en:
         subtitle: 'Join the movido community in your town'
         subtitle_mobile: 'Join the movido community'
         description: 'Join our community of like-minded people in your new hometown!'
+  people:
+    form:
+      failure:
+        min_age: 'You should over 18 years old'
   addresses:
     new:
       title: 'What is your address ?'

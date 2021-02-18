@@ -59,11 +59,11 @@
       </div>
       <div class="d-flex align-items-center justify-content-between mb-3">
         <span class="font-weight"><%= t('subscriptions.modal.birthdate') %></span>
-        <div><%= @subscription.address.user.birthdate %></div>
+        <div><%= @subscription.address.user.person.birthdate %></div>
       </div>
       <div class="d-flex align-items-center justify-content-between mb-3">
         <span class="font-weight"><%= t('subscriptions.modal.phone') %></span>
-        <div><%= @subscription.address.user.phone %></div>
+        <div><%= @subscription.address.user.person.phone %></div>
       </div>
       <div class="d-flex align-items-center justify-content-between mb-3">
         <span class="font-weight"><%= t('subscriptions.modal.address') %></span>

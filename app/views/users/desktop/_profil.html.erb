@@ -8,16 +8,18 @@
   </div>
 
   <%= simple_form_for user, html: {id:"profile", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
-  <div class="d-flex justify-content-between first-row">
-    <%= f.input :first_name, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
-    <%= f.input :last_name, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
-  </div>
+    <div class="d-flex justify-content-between first-row">
+      <%= f.input :first_name, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
+      <%= f.input :last_name, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
+    </div>
     <%= f.input :email, label: 'E-mail' %>
-    <%= f.input :phone , input_html: {data: {profile_target: 'phone'}} %>
-    <%= f.input :birthdate , as: :string,
-      required: true,
-      input_html: { value: (current_user.birthdate.strftime("%d-%m-%Y") if current_user.birthdate) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years}}%>
-    <%= f.input :birth_city , input_html: {data: {profile_target: 'birthCity'}} %>
+    <%= f.simple_fields_for :person  do |s| %>
+      <%= s.input :phone , input_html: {data: {profile_target: 'phone'}} %>
+      <%= s.input :birthdate , as: :string,
+        required: true,
+        input_html: { value: (current_user.person.birthdate.strftime("%d-%m-%Y") if current_user.person) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 18.years}}%>
+      <%= s.input :birth_city , input_html: {data: {profile_target: 'birthCity'}} %>
+    <% end %>
     <%= f.button :submit, t('users.profil.submit'), class:'btn-main w-100 border-0' %>
   <% end %>
 </div>

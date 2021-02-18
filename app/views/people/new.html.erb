@@ -1,0 +1,5 @@
+<% if browser.device.mobile? %>
+  <%= render 'people/mobile/new' %>
+<% else %>
+  <%= render 'people/desktop/new' %>
+<% end %>

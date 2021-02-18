@@ -7,18 +7,16 @@ class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses, dependent: :destroy
   has_many :billings, dependent: :destroy
+  has_one :person, dependent: :destroy
+  accepts_nested_attributes_for :person
 
   COUNTRIES = [:fr, :uk]
 
   extend FriendlyId
   friendly_id :username, use: :slugged
-
   validates_presence_of :first_name, :last_name, :email
-  validates_presence_of :birthdate, :birth_city, :phone, on: :update
   validates_uniqueness_of :email, :username
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
-  phony_normalize :phone, default_country_code: 'FR'
-  validates_plausible_phone :phone, presence: true, on: :update
   before_create :generate_username
 
 
@@ -51,7 +49,7 @@ class User < ApplicationRecord
   end
 
   def is_complete?
-    self.first_name.present? && self.last_name.present? && self.email.present? && self.birthdate.present? && self.birth_city.present?.present? && self.phone.present?
+    !Person.find_by(user: self).nil?
   end
 
   def self.new_with_session(params, session)
@@ -61,7 +59,6 @@ class User < ApplicationRecord
       end
     end
   end
-
 
   private
 

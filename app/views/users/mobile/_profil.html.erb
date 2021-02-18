@@ -18,7 +18,7 @@
     <%= f.input :phone , input_html: {data: {profile_target: 'phone'}} %>
     <%= f.input :birthdate , as: :string,
       required: true,
-      input_html: { value: (current_user.birthdate.strftime("%d-%m-%Y") if current_user.birthdate) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years}}%>
+      input_html: { value: (current_user.person.birthdate.strftime("%d-%m-%Y") if current_user.person) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 16.years}}%>
     <%= f.input :birth_city , input_html: {data: {profile_target: 'birthCity'}, class:"mb-3"} %>
     <%= f.button :submit, t('users.profil.submit'), class:'btn-main w-100 border-0' %>
   <% end %>

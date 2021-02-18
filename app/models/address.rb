@@ -8,7 +8,7 @@ class Address < ApplicationRecord
   after_create :set_has_active
 
   def fake_address
-    self.errors.add(:street, 'is not valid') if self.city.blank? || self.zipcode.blank?
+    self.errors.add(:street, I18n.t('addresses.edit.form.failure.invalid')) if self.city.blank? || self.zipcode.blank?
   end
 
   def set_has_active
