@@ -650,7 +650,7 @@
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
                           <h1>Hi, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Congratulations! Your order is now fully confirmed and <%= @subscription.product.company %> <%= @subscription.product.name %> activated.</p>
+                          <p>Congratulations! Your order is now fully confirmed and <%= @subscription.product.company.name %> <%= @subscription.product.name %> activated.</p>
                           <p>To see the summary of your order information, please go to my profile page.</p>
                         </div>
                       </td>
@@ -841,7 +841,7 @@
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
                           <h1>Salut, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Félicitations! Ta commande est à présent confirmée et le produit <%= @subscription.product.company %> <%= @subscription.product.name %> activé.</p>
+                          <p>Félicitations! Ta commande est à présent confirmée et le produit <%= @subscription.product.company.name %> <%= @subscription.product.name %> activé.</p>
                           <p>Tu peux trouver le résumé de tes commandes sur ton profil,</p>
                         </div>
                       </td>

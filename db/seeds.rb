@@ -13,7 +13,8 @@ category = Category.create(
   form_timer: 6,
   subtitle: 'subtitle',
   description: 'description',
-  open: true)
+  open: true
+)
 
 category = Category.create(name: 'mobile',
 sku: 'mobile_phone',
@@ -22,12 +23,14 @@ subtitle: 'subtitle',
 description: 'description',
 open: true)
 
+company = Company.create(name: 'SFR', logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png')
+
 product = Product.create(
   active: true,
   country: "France",
-  company: "SFR",
   name: "5 Go 4G+",
   description: 'France & Europe',
+  currency: 'EUR',
   price: 12.00,
   sim_needed: true,
   category: category,
@@ -37,7 +40,7 @@ product = Product.create(
   call_limit: 'unlimited',
   data_limit: '5go',
   sim_card_price: 1,
-  logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
+  company: company
 )
 
 SpecialOffer.create(name: 'Includes a £30 Amazon Gift Card', product: Product.first)
@@ -64,7 +67,7 @@ ProductFeature.create(
 product = Product.create(
   active: true,
   country: "France",
-  company: "SFR",
+  currency: 'EUR',
   name: "80 Go 4G+",
   description: 'France & Europe',
   price: 20,
@@ -75,7 +78,7 @@ product = Product.create(
   call_limit: 'unlimited',
   data_limit: '80go',
   sim_card_price: 1,
-  logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
+  company: company
 )
 
 ProductFeature.create(
@@ -97,8 +100,8 @@ ProductFeature.create(
 product = Product.create(
   active: true,
   country: "France",
-  company: "SFR",
   name: "2h 100mo",
+  currency: 'EUR',
   description: 'France only',
   price: 3,
   category: category,
@@ -108,7 +111,7 @@ product = Product.create(
   data_limit: '100mo',
   call_limit: '2 hours',
   sim_card_price: 1,
-  logo_url: 'https://i.ibb.co/d5YVkHr/1200px-Logo-SFR-2014-2.png'
+  company: company
 )
 
 ProductFeature.create(
@@ -127,11 +130,13 @@ ProductFeature.create(
   description: "This contract has a 12 month duration.The throughput data speed will be reduced once you exceed your plan’s data package"
 )
 
+company = Company.create(name: 'GifGaff', logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png')
+
 product = Product.create(
   active: true,
   country: "United Kingdom",
-  company: "GifGaff",
   name: "9 gb",
+  currency: 'GBP',
   description: 'UK & Europe roaming',
   price: 10,
   category: category,
@@ -141,7 +146,7 @@ product = Product.create(
   data_limit: '9gb',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
+  company: company
 )
 
 ProductFeature.create(
@@ -168,18 +173,18 @@ ProductFeature.create(
 product = Product.create(
   active: true,
   country: "United Kingdom",
-  company: "GifGaff",
   name: "10 gb",
   description: 'UK & Europe roaming',
   price: 12,
   category: category,
+  currency: 'GBP',
   unlimited_data: false,
   unlimited_call: true,
   time_contract: 'no',
   data_limit: '10gb',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
+  company: company
 )
 
 ProductFeature.create(
@@ -205,7 +210,7 @@ ProductFeature.create(
 product = Product.create(
   active: true,
   country: "United Kingdom",
-  company: "GifGaff",
+  currency: 'GBP',
   name: "80 gb",
   description: 'UK roaming & EU roaming up to 20GB',
   price: 20,
@@ -216,7 +221,7 @@ product = Product.create(
   data_limit: '80gb',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
+  company: company
 )
 
 ProductFeature.create(
@@ -243,10 +248,10 @@ ProductFeature.create(
 product = Product.create(
   active: true,
   country: "United Kingdom",
-  company: "GifGaff",
   name: "Always On",
   description: 'UK roaming & EU roaming up to 20GB',
   price: 25,
+  currency: 'GBP',
   category: category,
   unlimited_data: true,
   unlimited_call: true,
@@ -254,7 +259,7 @@ product = Product.create(
   data_limit: 'Always on',
   call_limit: 'unlimited',
   sim_card_price: 0,
-  logo_url: 'https://i.ibb.co/b1d8cLH/Giffgaff-logo-1.png'
+  company: company
 )
 
 ProductFeature.create(
@@ -278,11 +283,13 @@ ProductFeature.create(
   description: "No contract means you can change your offer each month or cancel anytime.With your third top-up, you will get 1 GB extra data from for free on top."
 )
 
+company = Company.create(name: 'Bouygues Telecom', logo_url: 'https://i.ibb.co/MDvQ5m1/fai-bouygues-telecom-001-1.png')
+
 product = Product.create(
   active: true,
   country: "France",
-  company: "Bouygues Telecom",
   name: "100 go",
+  currency: 'EUR',
   description: 'France & Europe',
   price: 19.99,
   category: category,
@@ -292,7 +299,7 @@ product = Product.create(
   data_limit: '100go',
   call_limit: 'unlimited',
   sim_card_price: 1,
-  logo_url: 'https://i.ibb.co/MDvQ5m1/fai-bouygues-telecom-001-1.png'
+  company: company
 )
 
 
@@ -304,20 +311,21 @@ category = Category.create(
   description: 'description',
   open: true)
 
+company = Company.create(name: 'Direct Save Telecom', logo_url: 'https://www.directsavetelecom.co.uk/img/direct-save-logo.png')
 
 product = Product.create(
   active: true,
   country: "United Kingdom",
-  company: "Direct Save Telecom",
   name: "DetailsDirect Save 80",
   description: 'xxxxx',
   price: 39.95,
+  currency: 'GBP',
   category: category,
   unlimited_data: false,
   time_contract: 'no',
-  logo_url: 'https://www.directsavetelecom.co.uk/img/direct-save-logo.png',
   data_speed: '80',
-  setup_price: 143.75
+  setup_price: 143.75,
+  company: company
 )
 
 ProductFeature.create(
@@ -338,19 +346,21 @@ ProductFeature.create(
   description: "No contract option, cancel every month. Pay as you go calls."
 )
 
+company = Company.create(name: 'Free', logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Free_logo.svg/langfr-560px-Free_logo.svg.png')
+
 product = Product.create(
   active: true,
   country: "France",
-  company: "Free",
-  name: "Free fibre optique",
+  name: "Fibre optique",
   description: 'xxxxx',
+  currency: 'EUR',
   price: 39.95,
   category: category,
   unlimited_data: false,
   time_contract: 'no',
-  logo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Free_logo.svg/langfr-560px-Free_logo.svg.png',
   data_speed: '80',
-  setup_price: 143.75
+  setup_price: 143.75,
+  company: company
 )
 
 ProductFeature.create(

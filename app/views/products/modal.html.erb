@@ -1,8 +1,8 @@
 <div class="content p-lg-5 p-3 d-flex justify-content-between">
   <div class="left">
     <div class="d-sm-flex align-items-center ">
-      <%= image_tag(asset_path(@product.logo_url), class:'mr-4 mb-3 mb-sm-0 logo') %><br>
-      <span class='main-title'><%= @product.company %> <%= @product.name %></span>
+      <%= image_tag(asset_path(@product.company.logo_url), class:'mr-4 mb-3 mb-sm-0 logo') %><br>
+      <span class='main-title'><%= @product.company.name %> <%= @product.name %></span>
     </div>
     <div class="features-wrapper mt-5">
       <% @product.product_features.each do |feature, index| %>
