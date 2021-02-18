@@ -40,7 +40,7 @@ RSpec.feature "Profile", :type => :feature do
         end
         expect {
           click_button 'Update'
-          sleep 2
+          sleep 1
           user.reload
         }.to change { user.email }.to(new_user_email)
          .and change { user.first_name }.to(new_user_first_name)
@@ -51,7 +51,7 @@ RSpec.feature "Profile", :type => :feature do
         find('.iti__selected-flag').click
         find('span.iti__country-name', text: user.country, match: :first).click
         country_code = IsoCountryCodes.search_by_name(user.country)[0].calling
-        sleep 2
+        sleep 1
         expect(page).to have_field('Phone', with: country_code)
       end
 
@@ -70,7 +70,7 @@ RSpec.feature "Profile", :type => :feature do
         end
         expect {
           click_button 'Update'
-          sleep 2
+          sleep 1
           user.person.reload
         }.to change { user.person.phone }.to(new_user_person_phone)
           .and change { user.person.birthdate }.to(new_user_person_birthdate)
