@@ -95,3 +95,5 @@ gem "browser"
 
 
 gem "money-rails", "~> 1.13"
+
+gem "httparty", "~> 0.18.1"

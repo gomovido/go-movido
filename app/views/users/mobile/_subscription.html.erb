@@ -2,9 +2,9 @@
   <div class="main-card">
     <div class="d-flex align-items-center mb-2 px-2">
       <div class="d-flex align-items-center w-100 justify-content-between">
-        <%= image_tag(subscription.product.logo_url, class:"logo") %>
+        <%= image_tag(subscription.product.company.logo_url, class:"logo") %>
         <div class="d-flex flex-column justify-content-center">
-          <span class="title"><%= subscription.product.company %></span>
+          <span class="title"><%= subscription.product.company.name %></span>
           <span class="price"><%= subscription.product.format_price %>/<%= t('users.subscription.month') %></span>
         </div>
           <%= image_tag(asset_path("categories/#{subscription.product.category.sku}.png"), class:'company-picto') %>
@@ -25,7 +25,7 @@
       </ul>
       <span class="title"><%= t('users.subscription.provider') %></span>
       <ul>
-        <li><%= subscription.product.company %></li>
+        <li><%= subscription.product.company.name %></li>
       </ul>
       <span class="title"><%= t('users.subscription.plan') %></span>
       <ul>
