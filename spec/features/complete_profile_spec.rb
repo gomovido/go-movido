@@ -25,7 +25,9 @@ RSpec.feature "Complete Profile", :type => :feature do
         fill_in 'person_phone', with: person.phone.gsub(country_code, '')
         fill_in 'person_birthdate', with: person.birthdate
         fill_in 'person_birth_city', with: person.birth_city
+        find('.ap-suggestion', match: :first).click
       end
+      sleep 2
       click_button 'Continue'
       expect(user.person).to eq(Person.find_by(phone: person.phone))
     end
