@@ -7,7 +7,7 @@ const places = require('places.js');
 export default class extends ApplicationController {
   static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity', 'errors', 'spinner', 'savingText', 'wheel'];
   static classes = [ 'hide', 'flex', 'readonly' ]
-  static values = { locale: String }
+  static values = { locale: String, countries: String }
 
   connect() {
     StimulusReflex.register(this);
@@ -53,7 +53,7 @@ export default class extends ApplicationController {
 
   toggleAddressAutocomplete() {
     this.movingStreet = addressAutocomplete(this.addressInputTarget);
-    searchByCountry(this.movingStreet, ['FR', 'GB']);
+    searchByCountry(this.movingStreet, JSON.parse(this.countriesValue));
     autoFill(this.movingStreet);
     this.addAddressInputTarget.classList.remove(this.hideClass);
     this.addAddressInputTarget.classList.add(this.flexClass);

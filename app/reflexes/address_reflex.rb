@@ -6,7 +6,6 @@ class AddressReflex < ApplicationReflex
   def default
     address = Address.find(element.dataset.id)
     address.set_has_active
-    current_user.update_user_country
     morph ".subscriptions-wrapper", with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: {subscriptions: current_user.subscriptions})}
     morph ".addresses-container",  with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: {address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false)})}
   end
@@ -14,11 +13,10 @@ class AddressReflex < ApplicationReflex
   def create
     @address = Address.new
     @address.assign_attributes(address_params)
-    @address.valid_address = true
+    @address.country = Country.find_by(code: address_params[:algolia_country_code])
     @address.user = current_user
-    if @address.save
+    if @address.save!
       @address.set_has_active
-      current_user.update_user_country
       morph ".subscriptions-wrapper", with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: {subscriptions: current_user.subscriptions})}
       morph ".addresses-container",  with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: {address: Address.new, active_address: @address, addresses: current_user.addresses.where(active: false)})}
     else
@@ -27,13 +25,12 @@ class AddressReflex < ApplicationReflex
   end
 
   def create_with_modal
-    @address = current_user.active_address.valid_address ? current_user.active_address : Address.new
+    @address = current_user.active_address.is_complete? ? current_user.active_address : Address.new
     @address.assign_attributes(address_params)
-    @address.valid_address = true
+    @address.country = Country.find_by(code: address_params[:algolia_country_code])
     @address.user = current_user
     if @address.save!
       @address.set_has_active
-      current_user.update_user_country
       morph :nothing
     end
   end
@@ -47,6 +44,6 @@ class AddressReflex < ApplicationReflex
   end
 
   def address_params
-    params.require(:address).permit(:city, :zipcode, :street)
+    params.require(:address).permit(:city, :zipcode, :street, :algolia_country_code)
   end
 end

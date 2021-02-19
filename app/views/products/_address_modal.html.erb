@@ -1,5 +1,4 @@
-<% country_code = @products.first.country == 'France' ? 'FR' : 'GB' %>
-<div class="modal modal-product fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModal" aria-hidden="true" data-controller="address-modal" data-address-modal-country-value="<%= country_code %>" data-reflex-root="#addressModal">
+<div class="modal modal-product fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModal" aria-hidden="true" data-controller="address-modal" data-address-modal-country-value="<%= @products.first.country.code.upcase %>" data-reflex-root="#addressModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content address">
       <div class="modal-body modal-address p-5 d-flex flex-column justify-content-center">

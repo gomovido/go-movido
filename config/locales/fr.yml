@@ -717,7 +717,9 @@ fr:
       button: "Retour à l'accueil"
   country:
     fr: 'France'
-    uk: 'Royaume Uni'
+    gb: 'Royaume-Uni'
+    eur: '€'
+    gbp: '£'
   mobile:
     pages:
       home:

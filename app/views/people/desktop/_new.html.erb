@@ -3,7 +3,7 @@
   <div class="big-blue-bubble position-absolute"></div>
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <div class="form-base" data-controller="registration">
+      <div class="form-base" data-controller="registration" data-registration-countries-value="<%= Country.all.map{ |country| country.code.upcase }.to_json %>">
         <h1 class="mb-4 d-flex align-items-center"><%= image_tag(asset_path('devise/profile-icon.png'), class:"picto") %> <%= t('users.complete_profil.title') %></h1>
         <%= simple_form_for [@subscription, @person] do |f| %>
           <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">

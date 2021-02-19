@@ -6,15 +6,15 @@ class AddressesController < ApplicationController
   end
 
   def create
+
     if address_params[:moving_country].present?
-      @address = generate_fake_address
+      @address = Address.new(country: Country.find_by(code: address_params[:moving_country]))
     else
       @address = Address.new(address_params)
-      @address.valid_address = true
+      @address.country = Country.find_by(code: address_params[:algolia_country_code])
     end
     @address.user = current_user
     if @address.save
-      current_user.update_columns(country: @address.country)
       redirect_to dashboard_index_path
     else
       render :new
@@ -22,7 +22,6 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    return if active_address_do_not_exist?(@subscription.product)
     redirect_to subscription_complete_profil_path(@subscription) if !current_user.is_complete?
   end
 
@@ -38,28 +37,8 @@ class AddressesController < ApplicationController
 
   private
 
-  def active_address_do_not_exist?(product)
-    if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
-      redirect_to user_path(current_user)
-      flash[:alert] = I18n.t 'flashes.wrong_country', country: t("country.#{product.country_code}")
-    end
-  end
-
-  def generate_fake_address
-    address = get_address(address_params[:moving_country])
-    return Address.new(city: address[:city], street: address[:street], zipcode: address[:zipcode], valid_address: false)
-  end
-
-  def get_address(country)
-    if country == t('country.fr')
-      return {city: 'Paris', street: 'France', zipcode: '75008'}
-    elsif country == t('country.uk')
-      return {city: 'London', street: 'United Kingdom', zipcode: 'SE1 9SE'}
-    end
-  end
-
   def address_params
-    params.require(:address).permit(:street, :zipcode , :city, :moving_country)
+    params.require(:address).permit(:street, :zipcode , :city, :moving_country, :algolia_country_code)
   end
 
 

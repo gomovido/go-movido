@@ -704,7 +704,9 @@ en:
       button: "Return to homepage"
   country:
     fr: 'France'
-    uk: 'United Kingdom'
+    gb: 'United Kingdom'
+    eur: '€'
+    gbp: '£'
   mobile:
     pages:
       home:

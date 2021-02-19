@@ -1,7 +1,7 @@
 class Person < ApplicationRecord
   belongs_to :user
   validates_presence_of :birthdate, :birth_city, :phone
-  phony_normalize :phone, default_country_code: 'FR'
+  phony_normalize :phone, default_country_code: I18n.locale.to_s.upcase
   validates_plausible_phone :phone, presence: true
   validate :validate_age
 
