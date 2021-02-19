@@ -1,15 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  subject {
-    described_class.new(first_name: "George",
-                        last_name: "Floyd",
-                        email: 'georgefloyd@test.com',
-                        password: '123456')
-  }
+  subject { build(:user) }
   it "is valid with valid attributes" do
     expect(subject).to be_valid
   end
+
   context "validations" do
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
@@ -18,6 +14,7 @@ RSpec.describe User do
     it { should allow_value(subject.email).for(:email) }
     it { should_not allow_value("not-an-email").for(:email) }
   end
+
   context "instance method" do
     let(:user) { create(:user) }
 
