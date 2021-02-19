@@ -30,6 +30,7 @@
             }}%>
             <%= f.hidden_field :zipcode, id:'address_zipcode' %>
             <%= f.hidden_field :city, id:'address_city' %>
+            <%= f.hidden_field :algolia_country_code, id:'algolia_country_code' %>
             <div class="text-center w-100 mt-5">
               <%= link_to t('addresses.new.form.cta').html_safe, "#", method: :post, id: 'addressButton' ,class: 'btn-main disabled', data: { address_modal_target: "button" }  %>
             </div>
