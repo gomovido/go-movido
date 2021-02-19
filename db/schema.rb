@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_191037) do
+ActiveRecord::Schema.define(version: 2021_02_19_120713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_02_18_191037) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "active"
     t.boolean "valid_address"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_addresses_on_country_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -93,6 +95,12 @@ ActiveRecord::Schema.define(version: 2021_02_18_191037) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -137,14 +145,15 @@ ActiveRecord::Schema.define(version: 2021_02_18_191037) do
     t.float "sim_card_price"
     t.string "call_limit"
     t.boolean "sim_needed", default: false
-    t.string "country"
     t.string "data_speed"
     t.float "setup_price"
     t.string "currency"
     t.boolean "active"
     t.bigint "company_id"
+    t.bigint "country_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["country_id"], name: "index_products_on_country_id"
   end
 
   create_table "special_offers", force: :cascade do |t|
@@ -179,7 +188,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_191037) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "country"
     t.string "slug"
     t.string "username"
     t.string "provider"
@@ -190,6 +198,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_191037) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "users"
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
@@ -198,6 +207,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_191037) do
   add_foreign_key "product_features", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "companies"
+  add_foreign_key "products", "countries"
   add_foreign_key "special_offers", "products"
   add_foreign_key "subscriptions", "addresses"
   add_foreign_key "subscriptions", "products"

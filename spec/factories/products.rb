@@ -11,10 +11,10 @@ FactoryBot.define do
     call_limit { 'unlimited' }
     data_limit { '5go' }
     sim_card_price { 1 }
-    trait :from_france do
+    trait :fr do
       country  { "France"}
     end
-    trait :from_united_kingdom do
+    trait :gb do
       country  { "United Kingdom"}
     end
   end
