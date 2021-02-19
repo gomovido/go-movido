@@ -11,7 +11,6 @@ class SubscriptionsController < ApplicationController
   def create
     return if subscription_draft?(@product)
     return if subscription_active?(@product)
-    return if active_address_do_not_exist?(@product)
     @subscription = Subscription.new
     @subscription.address = current_user.active_address
     @subscription.product = @product
@@ -80,13 +79,6 @@ class SubscriptionsController < ApplicationController
   def user_profil_is_uncomplete?
     if !current_user.is_complete?
       redirect_to new_subscription_person_path(@subscription)
-    end
-  end
-
-  def active_address_do_not_exist?(product)
-    if current_user.active_address.nil? || (!current_user.active_address.valid_address && !product.is_mobile?)
-      redirect_to user_path(current_user)
-      flash[:alert] = I18n.t 'flashes.wrong_country', country: t("country.#{product.country_code}")
     end
   end
 

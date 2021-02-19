@@ -14,6 +14,7 @@ export default class extends Controller {
     addressInput.on('change', (e) => {
       document.querySelector('#address_zipcode').value = e.suggestion.postcode
       document.querySelector('#address_city').value = e.suggestion.county
+      document.querySelector('#algolia_country_code').value = e.suggestion.countryCode
       this.streetInputTarget.classList.remove('is-invalid')
       this.streetInputTarget.classList.add('is-valid')
       this.stimulate('AddressReflex#create_with_modal', this.streetInputTarget)
@@ -25,7 +26,7 @@ export default class extends Controller {
 
 
   borderColor() {
-    if (document.querySelector('#address_zipcode').value === "" || document.querySelector('#address_city').value === "" || this.streetInputTarget.value === "") {
+    if (document.querySelector('#address_zipcode').value === "" || document.querySelector('#address_city').value === "" || document.querySelector('#algolia_country_code').value === "" || this.streetInputTarget.value === "") {
       this.streetInputTarget.classList.remove('is-valid');
       this.streetInputTarget.classList.add('is-invalid');
     }

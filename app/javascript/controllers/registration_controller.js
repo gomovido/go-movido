@@ -6,11 +6,12 @@ const places = require('places.js');
 export default class extends Controller {
   static targets = ["streetInput", "streetWrapper", "countryWrapper", "phone", "cityInput", "countryInput"]
   static classes = [ "hide" ]
+  static values = { countries: String }
 
   connect() {
     if (document.getElementById('address_street')) {
       const addressInput = addressAutocomplete(this.streetInputTarget);
-      searchByCountry(addressInput, ['FR', 'GB'])
+      searchByCountry(addressInput, JSON.parse(this.countriesValue))
       autoFill(addressInput);
     } else if (this.phoneTarget && this.cityInputTarget) {
       phoneInput(this.phoneTarget);

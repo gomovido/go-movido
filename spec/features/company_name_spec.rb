@@ -7,7 +7,7 @@ RSpec.feature "Company name", type: :feature do
     let!(:company) { create(:company) }
     let!(:country) { create(:country, [:fr, :gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
-    let!(:product) {create(:product, country.code.to_sym, category: category, company: company)}
+    let!(:product) {create(:product, category: category, company: company, country: country)}
     let!(:product_feature) {create(:product_feature, product: product)}
 
     before :each do

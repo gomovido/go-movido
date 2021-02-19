@@ -35,6 +35,7 @@
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>
+          <%= f.hidden_field :algolia_country_code, id: 'algolia_country_code' %>
         </div>
         <div class="actions d-flex flex-column mt-4 text-center">
           <span data-reflex="click->AddressReflex#create" data-reflex-dataset=“combined” class="btn-main"><%= t('users.addresses.cta') %></span>

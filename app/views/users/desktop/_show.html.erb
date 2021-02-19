@@ -1,4 +1,4 @@
-<div class="container profile-container my-4" data-controller="profile" data-profile-locale-value="<%= I18n.locale.to_s %>"  data-profile-readonly-class="readonly" data-profile-hide-class="d-none" data-profile-flex-class="d-flex">
+<div class="container profile-container my-4" data-controller="profile" data-profile-locale-value="<%= I18n.locale.to_s %>"  data-profile-countries-value="<%= Country.all.map{ |country| country.code.upcase }.to_json %>" data-profile-readonly-class="readonly" data-profile-hide-class="d-none" data-profile-flex-class="d-flex">
   <h2 class="text-center mb-4"><%= t('users.profil.title') %></h2>
     <div class="tabs text-center mb-4">
       <ul class="nav nav-pills d-flex align-items-center justify-content-center" id="pills-tab" role="tablist">

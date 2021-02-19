@@ -14,8 +14,8 @@ class Subscription < ApplicationRecord
   end
 
   def delivery_address_country
-    if self.product.company.name.downcase != "giffgaff" && self.delivery_address.split(',')[-1].strip != self.address.country
-      self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country_code}")))
+    if self.product.company.name.downcase != "giffgaff" && self.delivery_address.split(',')[-1].strip != self.address.country.name
+      self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country.code}")))
     elsif self.product.company.name.downcase == "giffgaff" && self.delivery_address.split(',').length < 2
       self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.invalid'))
     end
@@ -36,10 +36,9 @@ class Subscription < ApplicationRecord
   end
 
   def contact_phone_country
-    if self.product.country_code == 'fr' && !self.contact_phone.start_with?('+33')
-      self.errors.add(:contact_phone, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country_code}")))
-    elsif self.product.country_code == 'uk' && !self.contact_phone.start_with?('+44')
-      self.errors.add(:contact_phone, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country_code}")))
+    country_code_number = IsoCountryCodes.find(self.product.country.code).calling
+    if !self.contact_phone.start_with?(country_code_number)
+      self.errors.add(:contact_phone, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country.code}")))
     end
   end
 

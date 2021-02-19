@@ -50,7 +50,7 @@ RSpec.feature "Profile", :type => :feature do
 
       it "should display the right callsign" do
         find('.iti__selected-flag').click
-        find('span.iti__country-name', text: user.country, match: :first).click
+        find("#{'.iti_country[data-country-code="' + country.code + '"]'}", visible: false).click
         country_code = IsoCountryCodes.find(country.code).calling
         sleep 2
         expect(page).to have_field('Phone', with: country_code)
