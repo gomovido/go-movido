@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature "Company name", type: :feature do
   describe "Check companies on products cards", :headless_chrome do
     let!(:user) { create(:user) }
-    let!(:person) { build(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym) }
     let!(:category) { create(:category) }
     let!(:company) { create(:company) }
     let!(:product) {create(:product, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, category: category, company: company)}
@@ -12,15 +11,15 @@ RSpec.feature "Company name", type: :feature do
 
     before :each do
       login_as(user, :scope => :user)
-      visit category_products_path(product.category)
+      visit category_products_path(category)
     end
 
-    it "should display company names" do
-      expect(page).to have_content('SFR')
+    it "should display company name " do
+      expect(page).to have_content(company.name)
     end
 
-    it "should not have broken images" do
-      expect(page).to have_css("img[src*='SFR']")
+    it "should display company logo" do
+      expect(page).to have_css("img[src*='#{company.logo_url}']")
     end
   end
 end

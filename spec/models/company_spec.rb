@@ -10,7 +10,7 @@ RSpec.describe Company, type: :model do
     it { should allow_value(subject.logo_url).for(:logo_url) }
     it { should_not allow_value('https://facebook.com').for(:logo_url) }
     it { should allow_value(subject.cancel_link).for(:cancel_link) }
-    it { should_not allow_value('coucou').for(:cancel_link) }
+    it { should_not allow_value('no-a-valid-link').for(:cancel_link) }
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:logo_url) }
     it 'should save successfully' do
