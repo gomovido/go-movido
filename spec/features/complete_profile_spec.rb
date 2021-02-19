@@ -3,11 +3,12 @@ require 'rails_helper'
 RSpec.feature "Complete Profile", :type => :feature do
   describe "User take a subscription", :headless_chrome do
     let!(:user) { create(:user) }
-    let!(:person) { build(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym) }
-    let!(:address) { create(:address, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
+    let!(:country) { create(:country, [:fr, :gb].sample) }
     let!(:category) { create(:category) }
     let!(:company) {create(:company)}
-    let!(:product) {create(:product, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, category: category, company: company)}
+    let!(:person) { build(:person, country.code.to_sym) }
+    let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
+    let!(:product) {create(:product, country.code.to_sym, category: category, company: company)}
     let!(:product_feature) {create(:product_feature, product: product)}
 
     before :each do
@@ -21,7 +22,7 @@ RSpec.feature "Complete Profile", :type => :feature do
     end
 
     it "should create the person"  do
-      country_code = IsoCountryCodes.search_by_name(user.country)[0].calling
+      country_code = IsoCountryCodes.search_by_name(country.code).calling
       within("#new_person") do
         fill_in 'person_phone', with: person.phone.gsub(country_code, '')
         fill_in 'person_birthdate', with: person.birthdate

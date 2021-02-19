@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   before_create :generate_username
 
-
   def self.from_omniauth_google(access_token)
     data = access_token['omniauth.auth']['info']
     locale = access_token['omniauth.params']['locale']

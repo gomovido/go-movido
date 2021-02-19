@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.feature "Profile", :type => :feature do
   describe "User visit profile", :headless_chrome do
     let!(:user) { create(:user) }
-    let!(:person) { create(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
-    let!(:address) { create(:address, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
+    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
+    let!(:person) { create(:person, country.code.to_sym, user: user) }
 
     before :each do
       login_as(user, :scope => :user)
@@ -50,7 +51,7 @@ RSpec.feature "Profile", :type => :feature do
       it "should display the right callsign" do
         find('.iti__selected-flag').click
         find('span.iti__country-name', text: user.country, match: :first).click
-        country_code = IsoCountryCodes.search_by_name(user.country)[0].calling
+        country_code = IsoCountryCodes.find(country.code).calling
         sleep 2
         expect(page).to have_field('Phone', with: country_code)
       end
