@@ -3,7 +3,11 @@
   <span class="subtitle"><%= t('users.addresses.current') %></span>
   <div class="address-card d-flex align-items-center active-address my-4 px-4">
     <i class="fas fa-map-marker-alt mr-3"></i>
-    <span class="address"> <%= truncate(active_address.street, :length => 32) %> </span>
+    <% if active_address.street %>
+      <span class="address"> <%= truncate(active_address.street, :length => 32) %> </span>
+    <% else %>
+      <span class="address"> <%= t("country.#{active_address.country.code}") %> </span>
+    <% end %>
   </div>
   <span class="subtitle"><%= t('users.addresses.previous') %></span>
   <% addresses.each do |address| %>
@@ -31,7 +35,7 @@
           label: false,
           input_html: { class: 'border-0 w-100', data: {
           profile_target: 'addressInput',
-          reflex_dataset:'combined'
+          reflex_dataset:'combined', action: 'change->profile#cleanCountryCode'
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>

@@ -50,18 +50,18 @@ RSpec.feature "Profile", :type => :feature do
 
       it "should display the right callsign" do
         find('.iti__selected-flag').click
-        find("#{'.iti_country[data-country-code="' + country.code + '"]'}", visible: false).click
+        find("li[data-country-code='#{country.code}']", visible: false, match: :first).click
         country_code = IsoCountryCodes.find(country.code).calling
         sleep 2
         expect(page).to have_field('Phone', with: country_code)
       end
 
       it "should update person"  do
-        find('input.datepicker').click
-        find('.numInput').fill_in with: 1992
-        find('option[value="7"]').click
-        find('span[aria-label="August 14, 1992"]').click
         new_user_person_birthdate = Date.new(1992, 8, 14)
+        find('input.datepicker').click
+        find('.numInput').fill_in with: new_user_person_birthdate.year
+        find("option[value='#{new_user_person_birthdate.month - 1}']", visible: false).click
+        find("span[aria-label='#{new_user_person_birthdate.strftime("%B %e, %Y")}']").click
         new_user_person_phone = '+447520643110'
         new_user_person_birth_city = 'Paris 15e Arrondissement, Paris, Île-de-France, France'
         within("#profile") do

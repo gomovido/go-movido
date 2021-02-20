@@ -26,9 +26,15 @@ export default class extends Controller {
 
 
   borderColor() {
-    if (document.querySelector('#address_zipcode').value === "" || document.querySelector('#address_city').value === "" || document.querySelector('#algolia_country_code').value === "" || this.streetInputTarget.value === "") {
-      this.streetInputTarget.classList.remove('is-valid');
-      this.streetInputTarget.classList.add('is-invalid');
-    }
+    document.querySelector('#algolia_country_code').value = ""
+    this.streetInputTarget.classList.remove('is-valid');
+    this.streetInputTarget.classList.add('is-invalid');
+    this.disableButton();
+  }
+
+  disableButton() {
+    if (this.streetInputTarget.classList.contains('is-invalid')) {
+      this.buttonTarget.classList.add('disabled')
+    };
   }
 }
