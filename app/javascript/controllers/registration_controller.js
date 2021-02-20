@@ -13,6 +13,10 @@ export default class extends Controller {
       const addressInput = addressAutocomplete(this.streetInputTarget);
       searchByCountry(addressInput, JSON.parse(this.countriesValue))
       autoFill(addressInput);
+      if (document.getElementById('address_street').value && document.querySelector('#algolia_country_code').value === "") {
+        document.getElementById('address_street').classList.remove('is-valid');
+        document.getElementById('address_street').classList.add('is-invalid');
+      }
     } else if (this.phoneTarget && this.cityInputTarget) {
       phoneInput(this.phoneTarget);
       this.birthCity = addressAutocomplete(this.cityInputTarget);
@@ -27,4 +31,9 @@ export default class extends Controller {
     this.streetWrapperTarget.classList.toggle(this.hideClass);
     this.countryWrapperTarget.classList.toggle(this.hideClass);
   }
+
+  cleanCountryCode() {
+    document.querySelector('#algolia_country_code').value = ""
+  }
+
 }

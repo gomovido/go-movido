@@ -50,6 +50,10 @@ export default class extends ApplicationController {
     }
   }
 
+  cleanCountryCode() {
+    document.querySelector('#algolia_country_code').value = ""
+  }
+
 
   toggleAddressAutocomplete() {
     this.movingStreet = addressAutocomplete(this.addressInputTarget);

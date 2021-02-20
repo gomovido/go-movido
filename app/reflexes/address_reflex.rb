@@ -15,7 +15,7 @@ class AddressReflex < ApplicationReflex
     @address.assign_attributes(address_params)
     @address.country = Country.find_by(code: address_params[:algolia_country_code])
     @address.user = current_user
-    if @address.save!
+    if @address.save
       @address.set_has_active
       morph ".subscriptions-wrapper", with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: {subscriptions: current_user.subscriptions})}
       morph ".addresses-container",  with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: {address: Address.new, active_address: @address, addresses: current_user.addresses.where(active: false)})}
