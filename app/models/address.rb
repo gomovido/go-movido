@@ -11,7 +11,7 @@ class Address < ApplicationRecord
     Address.where(user: self.user).each {|address| address.update_columns(active: false)}
     self.update_columns(active: true)
     Address.where(user: self.user).each do |address|
-      address.destroy unless address.is_complete? || self.user.addresses.length == 1
+      address.destroy unless address.is_complete? || self.user.addresses.length == 1 || !address.subscriptions.blank?
     end
   end
 
@@ -25,5 +25,9 @@ class Address < ApplicationRecord
 
   def country_name_for_migration
     self.street.split(',')[-1].strip
+  end
+
+  def formatted
+    self.street ? self.street : I18n.t("country.#{self.country.code}")
   end
 end

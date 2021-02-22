@@ -4,7 +4,7 @@ RSpec.feature "Complete Profile", :type => :feature do
   describe "User take a subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, [:fr, :gb].sample) }
-    let!(:category) { create(:category) }
+    let!(:category) { create(:category, :mobile) }
     let!(:company) {create(:company)}
     let!(:person) { build(:person, country.code.to_sym) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
@@ -17,7 +17,7 @@ RSpec.feature "Complete Profile", :type => :feature do
       click_on 'Select offer'
     end
 
-    it "should be redirect to complete profile"  do
+    it "should be redirected to complete profile"  do
       expect(page).to have_content('Please complete your profile')
     end
 

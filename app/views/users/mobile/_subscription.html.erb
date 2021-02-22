@@ -133,7 +133,7 @@
         <% if subscription.product.is_mobile? %>
           <%= link_to t('users.subscription.cta.resume_subscription'), new_subscription_billing_path(subscription), class: 'btn-main text-center mb-3' %>
         <% else %>
-          <%= link_to t('users.subscription.cta.resume_subscription'), edit_subscription_address_path(subscription, subscription.address), class: 'main-btn mb-3' %>
+          <%= link_to t('users.subscription.cta.resume_subscription'), edit_subscription_address_path(subscription, subscription.address), class: 'btn-main text-center mb-3' %>
         <% end %>
       <% elsif subscription.state == 'pending_processed' %>
         <%= link_to t('users.subscription.cta.pay_to_activate'), subscription_payment_path(subscription), class: "btn-main text-center mb-3", data: { turbolinks: false } %>
