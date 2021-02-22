@@ -18,8 +18,7 @@
               <%= check_box_tag :without_obligation %>
               <span class="ml-3"><%= t('products.wifi-filter.no_contract') %></span>
             </div>
-            <% unit = current_user.country === 'France' ? '€' : '£' %>
-            <span class="price-label"><%= t('products.wifi-filter.by_price', unit: unit) %></span>
+            <span class="price-label"><%= t('products.wifi-filter.by_price', unit: @category.products.first.country.currency_sign) %></span>
             <div class="bot-box mt-4 mb-4 ml-3">
               <div class="d-flex justify-content-between align-items-center">
                 <span class="price-input" id="min">1</span>

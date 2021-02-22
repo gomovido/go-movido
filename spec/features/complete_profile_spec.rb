@@ -3,11 +3,12 @@ require 'rails_helper'
 RSpec.feature "Complete Profile", :type => :feature do
   describe "User take a subscription", :headless_chrome do
     let!(:user) { create(:user) }
-    let!(:person) { build(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym) }
-    let!(:address) { create(:address, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
-    let!(:category) { create(:category) }
+    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:category) { create(:category, :mobile) }
     let!(:company) {create(:company)}
-    let!(:product) {create(:product, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, category: category, company: company)}
+    let!(:person) { build(:person, country.code.to_sym) }
+    let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
+    let!(:product) {create(:product, category: category, company: company, country: country)}
     let!(:product_feature) {create(:product_feature, product: product)}
 
     before :each do
@@ -16,12 +17,12 @@ RSpec.feature "Complete Profile", :type => :feature do
       click_on 'Select offer'
     end
 
-    it "should be redirect to complete profile"  do
+    it "should be redirected to complete profile"  do
       expect(page).to have_content('Please complete your profile')
     end
 
     it "should create the person"  do
-      country_code = IsoCountryCodes.search_by_name(user.country)[0].calling
+      country_code = IsoCountryCodes.find(country.code).calling
       within("#new_person") do
         fill_in 'person_phone', with: person.phone.gsub(country_code, '')
         fill_in 'person_birthdate', with: person.birthdate

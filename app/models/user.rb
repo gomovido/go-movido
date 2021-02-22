@@ -10,15 +10,12 @@ class User < ApplicationRecord
   has_one :person, dependent: :destroy
   accepts_nested_attributes_for :person
 
-  COUNTRIES = [:fr, :uk]
-
   extend FriendlyId
   friendly_id :username, use: :slugged
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email, :username
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   before_create :generate_username
-
 
   def self.from_omniauth_google(access_token)
     data = access_token['omniauth.auth']['info']
@@ -42,10 +39,6 @@ class User < ApplicationRecord
 
   def active_address
     Address.find_by(user: self, active: true)
-  end
-
-  def update_user_country
-    self.update_columns(country: self.active_address.country)
   end
 
   def is_complete?

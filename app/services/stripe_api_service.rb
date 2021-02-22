@@ -16,7 +16,7 @@ class StripeApiService
     begin
       stripe_charge = Stripe::Charge.create({
           amount: subscription.product.sim_card_price_cents,
-          currency: subscription.product.currency,
+          currency: subscription.product.country.currency,
           customer: customer_id,
           description: "Subscription ##{subscription.id}",
         })

@@ -63,7 +63,7 @@
             <i class="fas fa-check check green"></i>
           </div>
         <% end %>
-        <% if subscription.product.country == 'United Kingdom'%>
+        <% if subscription.product.country.code == 'gb' %>
           <div class="form-group">
             <label><%= t('activerecord.attributes.billing.holder_name') %></label>
             <input class="form-control" disabled value="<%= subscription.billing.holder_name %>">
