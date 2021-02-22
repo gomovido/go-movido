@@ -6,7 +6,6 @@ class AddressesController < ApplicationController
   end
 
   def create
-
     if address_params[:moving_country].present?
       @address = Address.new(country: Country.find_by(code: address_params[:moving_country]))
     else

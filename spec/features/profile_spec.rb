@@ -12,7 +12,7 @@ RSpec.feature "Profile", :type => :feature do
       visit user_path(user, active_tab: 'profile', locale: 'en')
     end
 
-    context 'when user want to visit his profile' do
+    context 'when user wants to visit his profile' do
 
       it "should redirect to the profile tabs"  do
         expect(page).to have_content('My details')
@@ -28,7 +28,7 @@ RSpec.feature "Profile", :type => :feature do
       end
     end
 
-    context 'when user want to update his profile' do
+    context 'when user wants to update his profile' do
 
       it "should update user"  do
         new_user_email = 'new_email@gmail.com'
