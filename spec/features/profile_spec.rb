@@ -1,17 +1,18 @@
 require 'rails_helper'
 
 RSpec.feature "Profile", :type => :feature do
-  describe "User visit profile", :headless_chrome do
+  describe "User visits profile", :headless_chrome do
     let!(:user) { create(:user) }
-    let!(:person) { create(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
-    let!(:address) { create(:address, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user) }
+    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
+    let!(:person) { create(:person, country.code.to_sym, user: user) }
 
     before :each do
       login_as(user, :scope => :user)
       visit user_path(user, active_tab: 'profile', locale: 'en')
     end
 
-    context 'when user want to visit his profile' do
+    context 'when user wants to visit his profile' do
 
       it "should redirect to the profile tabs"  do
         expect(page).to have_content('My details')
@@ -27,7 +28,7 @@ RSpec.feature "Profile", :type => :feature do
       end
     end
 
-    context 'when user want to update his profile' do
+    context 'when user wants to update his profile' do
 
       it "should update user"  do
         new_user_email = 'new_email@gmail.com'
@@ -49,18 +50,18 @@ RSpec.feature "Profile", :type => :feature do
 
       it "should display the right callsign" do
         find('.iti__selected-flag').click
-        find('span.iti__country-name', text: user.country, match: :first).click
-        country_code = IsoCountryCodes.search_by_name(user.country)[0].calling
+        find("li[data-country-code='#{country.code}']", visible: false, match: :first).click
+        country_code = IsoCountryCodes.find(country.code).calling
         sleep 2
         expect(page).to have_field('Phone', with: country_code)
       end
 
       it "should update person"  do
-        find('input.datepicker').click
-        find('.numInput').fill_in with: 1992
-        find('option[value="7"]').click
-        find('span[aria-label="August 14, 1992"]').click
         new_user_person_birthdate = Date.new(1992, 8, 14)
+        find('input.datepicker').click
+        find('.numInput').fill_in with: new_user_person_birthdate.year
+        find("option[value='#{new_user_person_birthdate.month - 1}']", visible: false).click
+        find("span[aria-label='#{new_user_person_birthdate.strftime("%B %e, %Y")}']").click
         new_user_person_phone = '+447520643110'
         new_user_person_birth_city = 'Paris 15e Arrondissement, Paris, Île-de-France, France'
         within("#profile") do

@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
+gem 'iso_country_codes'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -54,7 +55,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
-  gem 'iso_country_codes'
 end
 
 group :development do

@@ -3,14 +3,14 @@
   <span class="subtitle"><%= t('users.addresses.current') %></span>
   <div class="address-card d-flex align-items-center active-address my-4 px-4">
     <i class="fas fa-map-marker-alt mr-3"></i>
-    <span class="address"> <%= truncate(active_address.street, :length => 32) %> </span>
+      <span class="address" id="active_address"> <%= active_address.formatted %> </span>
   </div>
   <span class="subtitle"><%= t('users.addresses.previous') %></span>
   <% addresses.each do |address| %>
     <div class="addresses-card-wrapper" data-id="<%= address.id %>" data-reflex="click->AddressReflex#default" >
       <div class="address-card p-4 d-flex align-items-center my-3"  >
         <i class="fas fa-map-marker-alt unactive mr-3"></i>
-        <span class="unactive address"> <%= truncate(address.street, :length => 32) %> </span>
+        <span class="unactive address"> <%= address.formatted %> </span>
       </div>
     </div>
   <% end %>
@@ -31,13 +31,14 @@
           label: false,
           input_html: { class: 'border-0 w-100', data: {
           profile_target: 'addressInput',
-          reflex_dataset:'combined'
+          reflex_dataset:'combined', action: 'keyup->profile#cleanCountryCode'
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>
+          <%= f.hidden_field :algolia_country_code, id: 'algolia_country_code' %>
         </div>
         <div class="actions d-flex flex-column mt-4 text-center">
-          <span data-reflex="click->AddressReflex#create" data-reflex-dataset=“combined” class="btn-main"><%= t('users.addresses.cta') %></span>
+          <button data-reflex="click->AddressReflex#create" data-reflex-dataset=“combined” class="btn-main"><%= t('users.addresses.cta') %></button>
           </div>
         <% end %>
         <span id="error" class="text-danger"></span>

@@ -1,24 +1,33 @@
 class Address < ApplicationRecord
+  attr_accessor :algolia_country_code
   attr_accessor :moving_country
+  belongs_to :country
   belongs_to :user
   has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :subscriptions
-  validates_presence_of :street, :city, :zipcode
-  validate :fake_address
   after_create :set_has_active
-
-  def fake_address
-    self.errors.add(:street, I18n.t('addresses.edit.form.failure.invalid')) if self.city.blank? || self.zipcode.blank?
-  end
 
   def set_has_active
     Address.where(user: self.user).each {|address| address.update_columns(active: false)}
     self.update_columns(active: true)
-    Address.where(user: self.user, valid_address: false).destroy_all unless self.user.addresses.length == 1
+    Address.where(user: self.user).each do |address|
+      address.destroy unless address.is_complete? || self.user.addresses.length == 1 || !address.subscriptions.blank?
+    end
   end
 
-  def country
+  def supported_country?(algolia_country_code)
+    !Country.find_by(code: algolia_country_code).nil?
+  end
+
+  def is_complete?
+    !self.city.nil? && !self.city.blank? && !self.zipcode.nil? && !self.zipcode.blank? && !self.street.nil? && !self.street.blank?
+  end
+
+  def country_name_for_migration
     self.street.split(',')[-1].strip
   end
 
+  def formatted
+    self.street ? self.street : I18n.t("country.#{self.country.code}")
+  end
 end

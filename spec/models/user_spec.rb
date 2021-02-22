@@ -17,9 +17,10 @@ RSpec.describe User do
 
   context "instance method" do
     let(:user) { create(:user) }
+    let!(:country) { create(:country, [:fr, :gb].sample) }
 
     it 'is expected to validate that the user profil is complete' do
-      create(:person, "from_#{user.country.gsub(' ', '_').downcase}".to_sym, user: user)
+      create(:person, country.code.to_sym, user: user)
       expect(user.is_complete?).to be true
     end
 
