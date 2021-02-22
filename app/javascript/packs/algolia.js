@@ -12,9 +12,9 @@ export function addressAutocomplete(element) {
 
 export function autoFill(element) {
   element.on('change', (e) => {
+    document.querySelector('#algolia_country_code').value = e.suggestion.countryCode
     document.querySelector('#address_zipcode').value = e.suggestion.postcode
     document.querySelector('#address_city').value = e.suggestion.county
-    document.querySelector('#algolia_country_code').value = e.suggestion.countryCode
   });
 }
 
