@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Company name", type: :feature do
   describe "Check companies on products cards", :headless_chrome do
     let!(:user) { create(:user) }
-    let!(:category) { create(:category) }
+    let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
     let!(:country) { create(:country, [:fr, :gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }

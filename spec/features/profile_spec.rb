@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Profile", :type => :feature do
-  describe "User visit profile", :headless_chrome do
+  describe "User visits profile", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, [:fr, :gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }

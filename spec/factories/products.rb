@@ -11,5 +11,9 @@ FactoryBot.define do
     call_limit { 'unlimited' }
     data_limit { '5go' }
     sim_card_price { 1 }
+    trait :wifi do
+      setup_price { 128 }
+      data_speed { '200' }
+    end
   end
 end

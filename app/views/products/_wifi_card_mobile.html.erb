@@ -71,9 +71,9 @@
     </div>
     <div class="w-100 text-center mb-2">
       <% if current_user.active_address.nil? || !current_user.active_address.is_complete? %>
-        <span class="btn-card mb-2" data-toggle="modal" data-target="#addressModal" data-action="click->animate#updateButton" data-product="<%= product.id %>">
+        <button class="btn-card mb-2" data-toggle="modal" data-target="#addressModal" data-action="click->animate#updateButton" data-product="<%= product.id %>">
           <%= t('products.card.select_offer').html_safe %>
-        </span>
+        </button>
       <% else %>
         <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
       <% end %>

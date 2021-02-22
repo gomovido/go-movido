@@ -24,7 +24,7 @@ class Billing < ApplicationRecord
       response["validations"].each do |validation, details|
         self.errors.add(:iban, I18n.t("iban.errors.error_#{details["code"]}")) if details["code"].to_i < 208 && details["code"].to_i > 200
       end
-      self.errors.add(:iban, I18n.t('billings.new.form.failure.wrong_country', country: t("country.#{self.subscription.product.country.code}"))) if !response["bank_data"]["country_iso"].nil? && response["bank_data"]["country_iso"].downcase != self.subscription.product.country.code
+      self.errors.add(:iban, I18n.t('billings.new.form.failure.wrong_country', country: I18n.t("country.#{self.subscription.product.country.code}"))) if !response["bank_data"]["country_iso"].nil? && response["bank_data"]["country_iso"].downcase != self.subscription.product.country.code
       self.bic = response["bank_data"]["bic"]
       self.bank = response["bank_data"]["bank"]
       self.account_number = response["bank_data"]["account"]
@@ -33,6 +33,6 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-    self.errors.add(:address, I18n.t('billings.new.form.failure.wrong_country', country: t("country.#{self.subscription.product.country.code}"))) unless !self.address.blank? && self.address.split(',')[-1].strip == self.subscription.product.country.name
+    self.errors.add(:address, I18n.t('billings.new.form.failure.wrong_country', country: I18n.t("country.#{self.subscription.product.country.code}"))) unless !self.address.blank? && self.address.split(',')[-1].strip == self.subscription.product.country.name
   end
 end
