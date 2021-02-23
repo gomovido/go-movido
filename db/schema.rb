@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_122059) do
+ActiveRecord::Schema.define(version: 2021_02_23_163029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,7 +144,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_122059) do
   end
 
   create_table "product_features", force: :cascade do |t|
-    t.bigint "product_id", null: false
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
@@ -152,7 +151,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_122059) do
     t.bigint "mobile_id"
     t.bigint "wifi_id"
     t.index ["mobile_id"], name: "index_product_features_on_mobile_id"
-    t.index ["product_id"], name: "index_product_features_on_product_id"
     t.index ["wifi_id"], name: "index_product_features_on_wifi_id"
   end
 
@@ -182,14 +180,12 @@ ActiveRecord::Schema.define(version: 2021_02_23_122059) do
   end
 
   create_table "special_offers", force: :cascade do |t|
-    t.bigint "product_id", null: false
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
     t.bigint "wifi_id"
     t.index ["mobile_id"], name: "index_special_offers_on_mobile_id"
-    t.index ["product_id"], name: "index_special_offers_on_product_id"
     t.index ["wifi_id"], name: "index_special_offers_on_wifi_id"
   end
 
@@ -259,13 +255,11 @@ ActiveRecord::Schema.define(version: 2021_02_23_122059) do
   add_foreign_key "mobiles", "countries"
   add_foreign_key "people", "users"
   add_foreign_key "product_features", "mobiles"
-  add_foreign_key "product_features", "products"
   add_foreign_key "product_features", "wifis"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "companies"
   add_foreign_key "products", "countries"
   add_foreign_key "special_offers", "mobiles"
-  add_foreign_key "special_offers", "products"
   add_foreign_key "special_offers", "wifis"
   add_foreign_key "subscriptions", "addresses"
   add_foreign_key "subscriptions", "mobiles"

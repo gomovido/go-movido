@@ -7,12 +7,12 @@ RSpec.feature "Company name", type: :feature do
     let!(:company) { create(:company) }
     let!(:country) { create(:country, [:fr, :gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
-    let!(:product) {create(:product, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, product: product)}
+    let!(:mobile) {create(:mobile, :internet_and_call, category: category, company: company, country: country)}
+    let!(:product_feature) {create(:product_feature, mobile: mobile)}
 
     before :each do
       login_as(user, :scope => :user)
-      visit category_products_path(category)
+      visit category.path_to_index
     end
 
     it "should display company name " do

@@ -46,5 +46,10 @@ RSpec.describe Mobile, type: :model do
       it { should validate_presence_of(:call) }
       it { should_not validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
     end
+    context 'should validates presence of data' do
+      before { allow(subject).to receive(:offer_type).and_return('internet_only') }
+      it { should validate_presence_of(:data) }
+      it { should_not validate_presence_of(:call) }
+    end
   end
 end

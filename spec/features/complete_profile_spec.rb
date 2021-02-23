@@ -8,12 +8,12 @@ RSpec.feature "Complete Profile", :type => :feature do
     let!(:company) {create(:company)}
     let!(:person) { build(:person, country.code.to_sym) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
-    let!(:product) {create(:product, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, product: product)}
+    let!(:mobile) {create(:mobile, :internet_and_call, category: category, company: company, country: country)}
+    let!(:product_feature) {create(:product_feature, mobile: mobile)}
 
     before :each do
       login_as(user, :scope => :user)
-      visit category_products_path(product.category)
+      visit category.path_to_index
       click_on 'Select offer'
     end
 
