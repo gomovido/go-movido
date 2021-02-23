@@ -11,27 +11,40 @@ RSpec.describe Mobile, type: :model do
   end
 
   describe 'validations' do
-    [:name, :area, :price, :offer_type, :time_contract, :sim_card_price,
-      :active, :sim_needed].each do |field|
+    [:name, :area, :price, :offer_type, :time_contract, :sim_card_price].each do |field|
       it { should validate_presence_of(field) }
     end
-    context 'should validates presence of data & data unit' do
+    it { should_not allow_value(nil).for(:sim_needed) }
+    it { should_not allow_value(nil).for(:active) }
+
+    context 'should validates presence of data' do
       before { allow(subject).to receive(:offer_type).and_return('internet_only') }
       it { should validate_presence_of(:data) }
-      it { should validate_presence_of(:data_unit) }
       it { should_not validate_presence_of(:call) }
     end
     context 'should validates presence of call' do
       before { allow(subject).to receive(:offer_type).and_return('call_only') }
       it { should validate_presence_of(:call) }
       it { should_not validate_presence_of(:data) }
-      it { should_not validate_presence_of(:data_unit) }
+      it { should_not validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
     end
     context 'should validates presence of call & data & data unit' do
       before { allow(subject).to receive(:offer_type).and_return('internet_and_call') }
+      before { allow(subject).to receive(:data).and_return(20) }
       it { should validate_presence_of(:call) }
-      it { should validate_presence_of(:data) }
-      it { should validate_presence_of(:data_unit) }
+      it { should validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
+    end
+
+    context 'should validates presence data unit unless unlimited data' do
+      before { allow(subject).to receive(:offer_type).and_return('internet_and_call') }
+      before { allow(subject).to receive(:data).and_return(0) }
+      it { should validate_presence_of(:call) }
+      it { should_not validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
+    end
+    context 'should validates presence data unit unless no data' do
+      before { allow(subject).to receive(:offer_type).and_return('call_only') }
+      it { should validate_presence_of(:call) }
+      it { should_not validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
     end
   end
 end
