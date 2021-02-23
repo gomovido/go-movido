@@ -7,8 +7,8 @@ RSpec.feature "Wifi - Address", type: :feature do
     let!(:category) { create(:category, :wifi) }
     let!(:company) {create(:company)}
     let!(:person) { create(:person, country.code.to_sym, user: user) }
-    let!(:product) {create(:product, :wifi, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, product: product)}
+    let!(:wifi) {create(:wifi, category: category, company: company, country: country)}
+    let!(:product_feature) {create(:product_feature, wifi: wifi)}
 
 
     before :each do
@@ -18,7 +18,7 @@ RSpec.feature "Wifi - Address", type: :feature do
     context "with a complete address" do
       it "should display wifi first step" do
         address = create(:address, country.code.to_sym, country: country, user: user)
-        visit category_products_path(product.category)
+        visit category.path_to_index
         click_on 'Select offer'
          expect(page).to have_field('Address', with: address.street)
       end
@@ -26,7 +26,7 @@ RSpec.feature "Wifi - Address", type: :feature do
     context "without complete address" do
       before :each do
         @address = create(:address, country: country, user: user)
-        visit category_products_path(product.category)
+        visit category.path_to_index
         click_on 'Select offer'
         sleep 1
       end
