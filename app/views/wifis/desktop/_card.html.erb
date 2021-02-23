@@ -16,10 +16,10 @@
               </div>
             </div>
           <div class="margin"></div>
-          <% if product.time_contract != 'no' %>
+          <% if product.obligation %>
             <div class="offer">
               <div class="text-center">
-                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <%= t('products.card.months') %></span>
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <br> <%= t('products.card.months') %></span>
               </div>
             </div>
           <% else %>
@@ -32,7 +32,7 @@
           <div class="margin"></div>
           <div class="offer">
             <div class="text-center">
-              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto ') %><br><span class="font-weight"><%= product.data_speed %> Ø<br><%= t('products.card.speed') %></span>
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto ') %><br><span class="font-weight"><%= product.data_speed %> Ø<br> MB</span>
             </div>
           </div>
           <div class="margin"></div>
@@ -49,8 +49,8 @@
           <% else %>
             <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
           <% end %>
-          <%= link_to t('products.card.see_details'), modal_product_path(product), data: {target: '#exampleModal',
-          action: 'click->modal#loadModal', href: modal_product_path(product), toggle: 'modal'}, id: 'modal-link', class:"text-center purple modal-link" %>
+          <%= link_to t('products.card.see_details'), modal_wifi_path(product), data: {target: '#exampleModal',
+          action: 'click->modal#loadModal', href: modal_wifi_path(product), toggle: 'modal'}, id: 'modal-link', class:"text-center purple modal-link" %>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@
     <div class="col-10 offset-1 categories-cards-wrapper mt-5">
       <div class="row">
         <% @categories.each_with_index do |category, index| %>
-          <%=  render 'categories/card_desktop', category: category, index: index, path: category.name == 'bank' ? category_banks_path(category) : category_products_path(category) %>
+          <%=  render 'categories/desktop/card', category: category, index: index, path: category.path_to_index %>
         <% end %>
       </div>
     </div>

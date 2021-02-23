@@ -15,6 +15,52 @@ class Mobile < ApplicationRecord
   validates_presence_of :call, :data, if: :internet_and_call?
 
 
+  def format_data
+    unlimited_data? ? 'unlimited' : "#{data}#{data_unit}"
+  end
+
+  def unlimited_data?
+    data.zero? && offer_type != 'call_only'
+  end
+
+  def unlimited_call?
+    call.zero? && offer_type != 'internet_only'
+  end
+
+  def has_payment?
+    self.sim_card_price_cents >= 100
+  end
+
+  def total_steps
+    self.has_payment? ? 4 : 3
+  end
+
+  def obligation
+    !time_contract.zero?
+  end
+
+  def price_cents
+    (price * 100).to_i
+  end
+
+  def sim_card_price_cents
+    (sim_card_price * 100).to_i
+  end
+
+  def format_price
+    format_price = price % 1 != 0 ? '%.2f' % price : price.to_i.to_s
+    country.currency == 'GBP' ? country.currency_sign + '' + format_price : format_price + '' + country.currency_sign
+  end
+
+  def format_sim_card_price
+    format_price = sim_card_price % 1 != 0 ? '%.2f' % sim_card_price : sim_card_price.to_i.to_s
+    country.currency == 'GBP' ? country.currency_sign + '' + format_price : format_price + '' + country.currency_sign
+  end
+
+  def desc_preview
+    area.size >= 20 ? area.first(17) + '...' : area
+  end
+
   def internet_only?
     offer_type == 'internet_only'
   end

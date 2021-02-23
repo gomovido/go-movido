@@ -12,4 +12,13 @@ class Category < ApplicationRecord
   validates :sku, :form_timer, :description, :subtitle, presence: true
 
 
+  def path_to_index
+    if self.name == 'wifi'
+      Rails.application.routes.url_helpers.wifis_path
+    elsif self.name == 'mobile'
+      Rails.application.routes.url_helpers.mobiles_path
+    elsif self.name == 'bank'
+      Rails.application.routes.url_helpers.banks_path
+    end
+  end
 end

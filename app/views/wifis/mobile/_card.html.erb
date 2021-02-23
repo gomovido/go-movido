@@ -10,7 +10,7 @@
         </div>
         <div class="d-flex flex-column justify-content-center">
           <span class="title"><%= product.name %></span>
-          <span class="description"><%= product.description %></span>
+          <span class="description"><%= product.area %></span>
         </div>
       </div>
       <div class="price d-flex flex-column justify-content-center">
@@ -20,7 +20,7 @@
     </div>
     <div class="d-flex align-items-center justify-content-around">
       <div class="feature">
-        <% if product.time_contract != 'no' %>
+        <% if product.obligation %>
           <div class="offer">
             <div class="d-flex align-items-center">
               <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <%= t('products.card.months') %></span>
@@ -37,7 +37,7 @@
       <div class="feature">
         <div class="offer">
           <div class="d-flex align-items-center">
-            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %></span>
+            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_speed %> MB</span>
           </div>
         </div>
       </div>
