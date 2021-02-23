@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_103623) do
+ActiveRecord::Schema.define(version: 2021_02_23_122059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,8 +150,10 @@ ActiveRecord::Schema.define(version: 2021_02_23_103623) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
+    t.bigint "wifi_id"
     t.index ["mobile_id"], name: "index_product_features_on_mobile_id"
     t.index ["product_id"], name: "index_product_features_on_product_id"
+    t.index ["wifi_id"], name: "index_product_features_on_wifi_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -185,8 +187,10 @@ ActiveRecord::Schema.define(version: 2021_02_23_103623) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
+    t.bigint "wifi_id"
     t.index ["mobile_id"], name: "index_special_offers_on_mobile_id"
     t.index ["product_id"], name: "index_special_offers_on_product_id"
+    t.index ["wifi_id"], name: "index_special_offers_on_wifi_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -200,9 +204,11 @@ ActiveRecord::Schema.define(version: 2021_02_23_103623) do
     t.string "contact_phone"
     t.string "locale"
     t.bigint "mobile_id"
+    t.bigint "wifi_id"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["mobile_id"], name: "index_subscriptions_on_mobile_id"
     t.index ["product_id"], name: "index_subscriptions_on_product_id"
+    t.index ["wifi_id"], name: "index_subscriptions_on_wifi_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -225,6 +231,24 @@ ActiveRecord::Schema.define(version: 2021_02_23_103623) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  create_table "wifis", force: :cascade do |t|
+    t.string "name"
+    t.string "area"
+    t.float "price"
+    t.integer "time_contract"
+    t.integer "data_speed"
+    t.float "setup_price"
+    t.boolean "active"
+    t.bigint "category_id", null: false
+    t.bigint "company_id", null: false
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_wifis_on_category_id"
+    t.index ["company_id"], name: "index_wifis_on_company_id"
+    t.index ["country_id"], name: "index_wifis_on_country_id"
+  end
+
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "users"
   add_foreign_key "billings", "subscriptions"
@@ -236,12 +260,18 @@ ActiveRecord::Schema.define(version: 2021_02_23_103623) do
   add_foreign_key "people", "users"
   add_foreign_key "product_features", "mobiles"
   add_foreign_key "product_features", "products"
+  add_foreign_key "product_features", "wifis"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "companies"
   add_foreign_key "products", "countries"
   add_foreign_key "special_offers", "mobiles"
   add_foreign_key "special_offers", "products"
+  add_foreign_key "special_offers", "wifis"
   add_foreign_key "subscriptions", "addresses"
   add_foreign_key "subscriptions", "mobiles"
   add_foreign_key "subscriptions", "products"
+  add_foreign_key "subscriptions", "wifis"
+  add_foreign_key "wifis", "categories"
+  add_foreign_key "wifis", "companies"
+  add_foreign_key "wifis", "countries"
 end
