@@ -11,7 +11,7 @@
   </div>
   <div class="categories-cards-wrapper mt-4">
       <% @categories.each_with_index do |category, index| %>
-          <%=  render 'categories/card_mobile', category: category, index: index, path: category.name == 'bank' ? category_banks_path(category) : category_products_path(category) %>
+          <%=  render 'categories/mobile/card', category: category, index: index, path: category.path_to_index %>
       <% end %>
   </div>
 </div>

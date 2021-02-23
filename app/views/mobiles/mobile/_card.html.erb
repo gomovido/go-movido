@@ -1,6 +1,6 @@
 <% datas = [] %>
-<% datas.push('unlimited_data') if product.unlimited_data %>
-<% datas.push('unlimited_call') if product.unlimited_call %>
+<% datas.push('unlimited_data') if product.unlimited_data? %>
+<% datas.push('unlimited_call') if product.unlimited_call? %>
 <% datas.push('without_obligation') if !product.obligation %>
 <div class="product-card mb-3 px-2 py-3 w-100" data-price="<%= product.price %>" data-groups="<%= datas %>" id="<%= product.id %>" data-action='click->filters#displayProductCard'>
   <div class="main-card">
@@ -11,7 +11,7 @@
         </div>
         <div class="d-flex flex-column justify-content-center">
           <span class="title"><%= product.name %></span>
-          <span class="description"><%= product.description %></span>
+          <span class="description"><%= product.area %></span>
         </div>
       </div>
       <div class="price d-flex flex-column justify-content-center">
@@ -21,7 +21,7 @@
     </div>
     <div class="d-flex align-items-center justify-content-around">
       <div class="feature">
-        <% if product.time_contract != 'no' %>
+        <% if product.obligation %>
           <div class="offer">
             <div class="d-flex align-items-center">
               <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <%= t('products.card.months') %></span>
@@ -38,7 +38,7 @@
       <div class="feature">
         <div class="offer">
           <div class="d-flex align-items-center">
-            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.data_limit ? product.data_limit : 'unlimited' %></span>
+            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.format_data %></span>
           </div>
         </div>
       </div>

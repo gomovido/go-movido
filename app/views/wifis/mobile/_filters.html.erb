@@ -5,24 +5,20 @@
         <div class="filters-container w-100">
           <div class="filter-wrapper mb-3">
             <div class="d-flex justify-content-between align-items-center">
-              <span class="title"><%= t('products.mobile-filter.title') %></span>
+              <span class="title"><%= t('products.wifi-filter.title') %></span>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <i class="far fa-times-circle"></i>
               </button>
             </div>
-            <div class="round my-3" data-action="click->filters#mobileFilter">
-              <%= check_box_tag :unlimited_data %>
-              <span class="ml-3"><%= t('products.mobile-filter.unlimited_data') %></span>
+            <div class="round my-3" data-action="click->filters#wifiFilter">
+              <%= check_box_tag :with_obligation %>
+              <span class="ml-3"><%= t('products.wifi-filter.contract_only') %></span>
             </div>
-            <div class="round mb-3" data-action="click->filters#mobileFilter">
-              <%= check_box_tag :unlimited_call %>
-              <span class="ml-3"><%= t('products.mobile-filter.unlimited_call') %></span>
-            </div>
-            <div class="round mb-4" data-action="click->filters#mobileFilter">
+            <div class="round mb-3" data-action="click->filters#wifiFilter">
               <%= check_box_tag :without_obligation %>
-              <span class="ml-3"><%= t('products.mobile-filter.no_contract') %></span>
+              <span class="ml-3"><%= t('products.wifi-filter.no_contract') %></span>
             </div>
-            <span class="price-label"><%= t('products.mobile-filter.by_price', unit: @category.products.first.country.currency_sign) %></span>
+            <span class="price-label"><%= t('products.wifi-filter.by_price', unit: @products.first.country.currency_sign) %></span>
             <div class="bot-box mt-4 mb-4 ml-3">
               <div class="d-flex justify-content-between align-items-center">
                 <span class="price-input" id="min">1</span>
@@ -31,7 +27,7 @@
               <div id="slider-range" class="mt-3" data-filters-target="input"></div>
             </div>
             <div class="w-100 text-center mt-1">
-              <%= link_to t('products.mobile-filter.reset'), category_products_path(@category), data: { turbolinks: false }, class: 'reset' %>
+              <%= link_to t('products.wifi-filter.reset'), wifis_path, data: { turbolinks: false }, class: 'reset' %>
             </div>
           </div>
         </div>

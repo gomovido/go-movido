@@ -1,0 +1,21 @@
+<div class="container products-container" data-controller="filters">
+  <figure class="big-blue-bubble position-absolute"></figure>
+  <div class="step-1">
+    <%= render 'subscriptions/steps', current_step: 1, title: t('products.index.title'), subtitle: t('products.index.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
+    <%= render 'wifis/desktop/product_details'%>
+    <%= render 'wifis/desktop/address_modal' %>
+    <div class="row pt-5">
+      <div class="col-lg-4  d-flex justify-content-start">
+        <%= render 'wifis/desktop/filters', products: @products %>
+      </div>
+      <div class="col-lg-8">
+        <span class="d-none no-result" data-filters-target="noResult"><%= t('products.index.no_result').html_safe %></span>
+        <div class="products-cards-wrapper">
+          <% @products.sort_by{ |product| product.price }.each do |product| %>
+            <%= render 'wifis/desktop/card', product: product %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

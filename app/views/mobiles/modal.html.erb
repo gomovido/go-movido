@@ -1,0 +1,49 @@
+<div class="content p-lg-5 p-3 d-flex justify-content-between">
+  <div class="left">
+    <div class="d-sm-flex align-items-center ">
+      <%= image_tag(asset_path(@product.company.logo_url), class:'mr-4 mb-3 mb-sm-0 logo') %><br>
+      <span class='main-title'><%= @product.company.name %> <%= @product.name %></span>
+    </div>
+    <div class="features-wrapper mt-5">
+      <% @product.product_features.each do |feature, index| %>
+      <div class="feature mb-4">
+        <p class="title"><strong><%= feature.name %></strong></p>
+        <span class='desc'><%= feature.description %></span>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="right d-flex flex-column align-items-center justify-content-between justify-content-sm-around">
+    <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+      <i class="far fa-times-circle"></i>
+    </button>
+    <div class="pricing d-flex flex-column align-items-center w-100 my-4">
+      <span class='price text-center'><%= @product.format_price %></span>
+      <span class="sub-price text-center"><%= t('products.modal.monthly') %></span>
+      <%= link_to t('products.modal.cta').html_safe, category_product_subscriptions_path(@product.category, @product), class:'btn-card m-b2 w-100 mt-3', method: :post %>
+    </div>
+    <div class="features-lite-wrapper">
+      <div class="feature-lite d-flex flex-column align-items-center">
+        <span><%= image_tag('products/modal/wifi-purple.png', class:"picto") %></span>
+        <span class="desc"><%= @product.format_data %></span>
+      </div>
+      <hr>
+      <div class="feature-lite d-flex flex-column align-items-center">
+        <span><%= image_tag('products/modal/sim-card-purple.png', class: "picto") %> </span>
+        <span class="desc"><span><%= @product.format_sim_card_price %></span> <%= t('products.modal.sim_card') %></span>
+      </div>
+      <hr>
+    </div>
+    <% if @product.obligation %>
+      <div class="feature-lite d-flex flex-column align-items-center">
+        <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
+        <span class="desc"><span><%= @product.time_contract %></span> <%= t('products.modal.months') %></span>
+      </div>
+    <% else %>
+      <div class="feature-lite d-flex flex-column align-items-center">
+        <span><%= image_tag('products/modal/contract-purple.png', class: 'picto') %></span>
+        <span class="desc"><%= t('products.modal.no_obligation').html_safe %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
