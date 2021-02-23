@@ -1,5 +1,6 @@
 class Subscription < ApplicationRecord
   belongs_to :product
+  belongs_to :mobile
   belongs_to :address
   has_one :billing, dependent: :destroy
   has_one :charge, dependent: :destroy

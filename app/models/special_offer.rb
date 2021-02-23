@@ -1,3 +1,4 @@
 class SpecialOffer < ApplicationRecord
   belongs_to :product
+  belongs_to :mobile
 end
