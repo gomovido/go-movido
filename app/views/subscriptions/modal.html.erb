@@ -25,12 +25,12 @@
           <%= @subscription.product.format_price %>/month
         </div>
       </div>
-      <% if @subscription.product.is_mobile? && @subscription.sim %>
+      <% if @subscription.product_is_mobile? && @subscription.sim %>
         <div class="d-flex align-items-center justify-content-between mb-3">
           <span class="font-weight"><%= t('subscriptions.modal.sim_format') %></span>
           <div><%= @subscription.sim %></div>
         </div>
-      <% elsif @subscription.product.is_wifi? %>
+      <% elsif @subscription.product_is_wifi? %>
         <div class="d-flex align-items-center justify-content-between mb-3">
           <span class="font-weight"><%= t('subscriptions.modal.setup_price') %></span>
           <div><%= @subscription.product.setup_price %></div>

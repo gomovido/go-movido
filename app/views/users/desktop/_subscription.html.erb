@@ -1,4 +1,4 @@
-<div class="subscription px-2 py-3 my-3 d-flex justify-content-between align-items-center" data-controller="modal">
+<div class="subscription px-2 py-3 my-3 d-flex justify-content-between align-items-center" data-controller="modal" id="<%= subscription.id %>">
   <div class="column"><%= image_tag(asset_path(subscription.product.company.logo_url), class:"img #{subscription.product.company.name == 'SFR' ? 'rounded-circle' : ''}") %></div>
   <div class="column d-lg-flex align-items-center justify-content-center d-none category"><%= image_tag(asset_path("users/subscriptions/#{subscription.product.category.name}.png"), class: "picto mr-2") %> <span><%= t("users.subscription.#{subscription.product.category.sku}") %></span></div>
     <div class="column">
@@ -9,9 +9,9 @@
   <div class="actions column">
     <% if subscription.state == 'draft' %>
       <% if subscription.product_is_mobile? %>
-        <%= link_to t('user.subscription.cta.resume'), new_subscription_billing_path(subscription), class: 'action' %>
+        <%= link_to t('users.subscription.cta.resume'), new_subscription_billing_path(subscription), class: 'action' %>
       <% else %>
-        <%= link_to t('user.subscription.cta.resume'), edit_subscription_address_path(subscription, subscription.address), class: 'action' %>
+        <%= link_to t('users.subscription.cta.resume'), edit_subscription_address_path(subscription, subscription.address), class: 'action' %>
       <% end %>
     <% elsif subscription.state == 'succeeded' || subscription.state == 'activated' %>
       <%= link_to t('users.subscription.cta.details'), modal_subscription_path(subscription), class: "action", data: {target: '#exampleModal',

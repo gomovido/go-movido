@@ -24,9 +24,9 @@ class Subscription < ApplicationRecord
 
   def path_to_first_step
     if self.product_is_wifi?
-      Rails.application.routes.url_helpers.edit_subscription_address_path(self, self.address)
+      Rails.application.routes.url_helpers.edit_subscription_address_path(self, self.address, locale: I18n.locale)
     elsif self.product_is_mobile?
-      Rails.application.routes.url_helpers.new_subscription_billing_path(self)
+      Rails.application.routes.url_helpers.new_subscription_billing_path(self, locale: I18n.locale)
     end
   end
 

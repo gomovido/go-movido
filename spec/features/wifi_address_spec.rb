@@ -20,7 +20,7 @@ RSpec.feature "Wifi - Address", type: :feature do
         address = create(:address, country.code.to_sym, country: country, user: user)
         visit category.path_to_index
         click_on 'Select offer'
-         expect(page).to have_field('Address', with: address.street)
+        expect(page).to have_field('Address', with: address.street)
       end
     end
     context "without complete address" do
