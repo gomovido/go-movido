@@ -38,6 +38,13 @@ Rails.application.routes.draw do
     resources :addresses, only: [:create, :new]
   end
 
+  resources :wifis, only: [:index]
+  resources :mobiles, only: [:index]
+  resources :banks, only: [:index]
+  get 'wifis/modal/:id', to: 'wifis#modal', as: 'modal_wifi'
+  get 'mobiles/modal/:id', to: 'mobiles#modal', as: 'modal_mobile'
+
+
   resources :subscriptions, only: [:show ] do
     resources :people, only: [:new, :create, :update]
     resources :billings, only: [:new, :create, :update]
@@ -58,14 +65,6 @@ Rails.application.routes.draw do
       resources :subscriptions, only: [:create]
     end
   end
-
-  resources :wifis, only: [:index]
-  resources :mobiles, only: [:index]
-  resources :banks, only: [:index]
-  get 'wifis/modal/:id', to: 'wifis#modal', as: 'modal_wifi'
-  get 'mobiles/modal/:id', to: 'mobiles#modal', as: 'modal_mobile'
-
-
 
 
 
