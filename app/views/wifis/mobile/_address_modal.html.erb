@@ -26,7 +26,7 @@
             label: false,
             placeholder: t('addresses.new.form.placeholder.street'),
             input_html: { data: {
-            address_modal_target: 'streetInput', reflex_dataset: 'combined', action: 'keyup->address-modal#borderColor'
+            address_modal_target: 'streetInput', reflex_dataset: 'combined', action: 'keypress->address-modal#borderColor'
             }}%>
             <%= f.hidden_field :zipcode, id:'address_zipcode' %>
             <%= f.hidden_field :city, id:'address_city' %>

@@ -13,7 +13,6 @@ class SubscriptionsController < ApplicationController
     subscription = @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
     if subscription
       redirect_to subscription.path_to_first_step
-      return
     else
       @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
       @subscription = Subscription.new
@@ -22,7 +21,7 @@ class SubscriptionsController < ApplicationController
       @subscription.state = 'draft'
       if @subscription.save
         return if user_profil_is_uncomplete?
-        redirect_to edit_subscription_address_path(@subscription, @subscription.address)
+        redirect_to @subscription.path_to_first_step
       else
         redirect_back(fallback_location: root_path, locale: I18n.locale)
       end
@@ -83,7 +82,7 @@ class SubscriptionsController < ApplicationController
 
   def subscription_active?(product)
     subscription_check = Subscription.find_by(state: 'succeeded', product: product, address: current_user.active_address)
-    if subscription_check && product.category.name != 'mobile'
+    if subscription_check && !subscription_check.product_is_mobile?
       redirect_to subscription_congratulations_path(subscription_check)
       flash[:alert] = I18n.t 'flashes.existing_subscription'
     end

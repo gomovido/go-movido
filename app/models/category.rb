@@ -14,11 +14,11 @@ class Category < ApplicationRecord
 
   def path_to_index
     if self.name == 'wifi'
-      Rails.application.routes.url_helpers.wifis_path
+      Rails.application.routes.url_helpers.wifis_path(locale: I18n.locale)
     elsif self.name == 'mobile'
-      Rails.application.routes.url_helpers.mobiles_path
+      Rails.application.routes.url_helpers.mobiles_path(locale: I18n.locale)
     elsif self.name == 'bank'
-      Rails.application.routes.url_helpers.banks_path
+      Rails.application.routes.url_helpers.banks_path(locale: I18n.locale)
     end
   end
 end

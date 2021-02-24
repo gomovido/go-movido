@@ -32,4 +32,4 @@ deploy:
   app: movido-app-staging
   on:
     repo: yonitou/go-movido
-  skip_cleanup: 'true'
+  skip_cleanup: true

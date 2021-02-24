@@ -1,5 +1,4 @@
 require 'rails_helper'
-require "models/concerns/product_spec"
 
 RSpec.describe Wifi, type: :model do
   describe 'polymorphic' do

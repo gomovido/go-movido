@@ -77,6 +77,7 @@ fr:
         bank: 'Banque'
         sort_code: 'Code guichet'
       subscription:
+        sim: 'Carte SIM'
         delivery_address: 'Adresse de livraison'
         contact_phone: 'Numéro de téléphone de contact pour le technicien'
       address:
@@ -87,10 +88,11 @@ fr:
         door: 'Porte'
         gate_code: "Code d'entrée"
       product:
-        company: 'Fournisseur'
         name: 'Service'
         price: 'Prix'
         sim: 'Carte SIM'
+      company:
+        name: 'Fournisseur'
       user:
         first_name: 'Prénom'
         last_name: 'Nom'
@@ -379,7 +381,7 @@ fr:
       speed: 'vitesse'
       setup_costs: "à l'installation"
       free: 'gratuit'
-      no_obligation: 'sans <br>engagement'
+      no_obligation: 'sans<br>engagement'
       no_obligation_mobile: 'sans engagement'
     modal:
       cta: '<span class="d-flex align-items-baseline justify-content-center">Sélectionner<i class="ml-3 fas fa-arrow-square-right"></i></span>'

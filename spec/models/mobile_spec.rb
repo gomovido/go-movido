@@ -1,6 +1,4 @@
 require 'rails_helper'
-require "models/concerns/product_spec"
-
 RSpec.describe Mobile, type: :model do
 
   describe 'polymorphic' do

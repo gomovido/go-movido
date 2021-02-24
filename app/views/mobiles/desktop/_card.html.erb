@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="d-flex flex-column actions">
-          <%= link_to t('products.card.select_offer').html_safe, category_product_subscriptions_path(product.category, product), method: :post, id: product.id, class:'btn-card mb-2'  %>
+          <%= link_to t('products.card.select_offer').html_safe, subscriptions_path(product_id: product.id, product_type: product.class.name), method: :post, id: product.id, class:'btn-card mb-2'  %>
           <%= link_to t('products.card.see_details'), modal_mobile_path(product), data: {target: '#exampleModal',
           action: 'click->modal#loadModal', href: modal_mobile_path(product), toggle: 'modal'}, id: 'modal-link', class:"text-center purple modal-link" %>
         </div>
