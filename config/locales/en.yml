@@ -381,7 +381,7 @@ en:
   subscriptions:
     summary:
       title: 'Please confirm your details'
-      subtitle: "Make sure the information is correct <br> Go to %{href} to modify it"
+      subtitle: "Make sure the information is correct. <br> Go to %{href} to modify it"
       profile_link: '<strong>your profile</strong>'
       next: 'Purchase now'
       back: 'Back'
@@ -690,7 +690,7 @@ en:
     global_failure: 'An error has occured'
     not_allowed: "You are not allowed to see this page"
     complete_profile: "You must complete your profile to continue"
-    existing_subscription: "You already have this subscription"
+    existing_subscription: "You already subscribed to this product"
     wrong_country: "Please choose create / select an address in %{country}"
     subscription_aborted: "Subscription aborted"
   errors:

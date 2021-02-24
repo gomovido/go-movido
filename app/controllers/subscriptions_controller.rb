@@ -9,21 +9,30 @@ class SubscriptionsController < ApplicationController
 
 
   def create
-    @subscription = Subscription.new
-    @subscription.product = @product
-    @subscription.address = current_user.active_address
-    @subscription.state = 'draft'
-    if @subscription.save
-      redirect_to edit_subscription_address_path(@subscription, @subscription.address)
+    return if subscription_active?(@product)
+    subscription = @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
+    if subscription
+      redirect_to subscription.path_to_first_step
+      return
     else
-      redirect_back(fallback_location: root_path, locale: I18n.locale)
+      @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
+      @subscription = Subscription.new
+      @subscription.product = @product
+      @subscription.address = current_user.active_address
+      @subscription.state = 'draft'
+      if @subscription.save
+        return if user_profil_is_uncomplete?
+        redirect_to edit_subscription_address_path(@subscription, @subscription.address)
+      else
+        redirect_back(fallback_location: root_path, locale: I18n.locale)
+      end
     end
   end
 
   def summary; end
 
   def validate_subscription
-    if @subscription.product.is_mobile? && @subscription.product.has_payment?
+    if @subscription.product_is_mobile? && @subscription.product.has_payment?
       @subscription.update(state: 'pending_processed', locale: I18n.locale)
       redirect_to subscription_payment_path(@subscription)
     else
@@ -69,9 +78,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def user_profil_is_uncomplete?
-    if !current_user.is_complete?
-      redirect_to new_subscription_person_path(@subscription)
-    end
+    redirect_to new_subscription_person_path(@subscription) if !current_user.is_complete?
   end
 
   def subscription_active?(product)
@@ -79,18 +86,6 @@ class SubscriptionsController < ApplicationController
     if subscription_check && product.category.name != 'mobile'
       redirect_to subscription_congratulations_path(subscription_check)
       flash[:alert] = I18n.t 'flashes.existing_subscription'
-    end
-  end
-
-  def subscription_draft?(product)
-    subscription_check = Subscription.find_by(state: 'draft', product: product, address: current_user.active_address)
-    if subscription_check && !current_user.is_complete?
-      @subscription = subscription_check
-      redirect_to new_subscription_person_path(@subscription)
-    elsif subscription_check && product.is_mobile?
-      redirect_to new_subscription_billing_path(subscription_check)
-    elsif subscription_check && product.is_wifi?
-      redirect_to edit_subscription_address_path(subscription_check, subscription_check.address)
     end
   end
 

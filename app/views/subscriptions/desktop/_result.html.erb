@@ -41,7 +41,7 @@
           </input>
           <i class="fas fa-check check green"></i>
         </div>
-        <% if !subscription.product.is_mobile? %>
+        <% if !subscription.product_is_mobile? %>
           <div class="form-group">
             <label><%= t('activerecord.attributes.address.street') %></label>
             <input class="form-control" disabled value="<%= subscription.address.street %>">
@@ -63,7 +63,7 @@
             <i class="fas fa-check check green"></i>
           </div>
         <% end %>
-        <% if subscription.product.country.code == 'gb' %>
+        <% if subscription.product_is_uk? %>
           <div class="form-group">
             <label><%= t('activerecord.attributes.billing.holder_name') %></label>
             <input class="form-control" disabled value="<%= subscription.billing.holder_name %>">
@@ -113,7 +113,7 @@
         <% end %>
         <div class="form-group">
           <label><%= t('activerecord.attributes.product.price') %></label>
-          <input class="form-control" disabled value="<%= subscription.product.format_price %>/ <%= t('.months') %>">
+          <input class="form-control" disabled value="<%= subscription.product.format_price %>/ <%= t('subscriptions.result.months') %>">
           </input>
           <i class="fas fa-check check green"></i>
         </div>

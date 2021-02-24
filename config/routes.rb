@@ -43,9 +43,10 @@ Rails.application.routes.draw do
   resources :banks, only: [:index]
   get 'wifis/modal/:id', to: 'wifis#modal', as: 'modal_wifi'
   get 'mobiles/modal/:id', to: 'mobiles#modal', as: 'modal_mobile'
+  get 'banks/modal/:id', to: 'banks#modal', as: 'modal_bank'
 
 
-  resources :subscriptions, only: [:show ] do
+  resources :subscriptions do
     resources :people, only: [:new, :create, :update]
     resources :billings, only: [:new, :create, :update]
     resources :addresses, only: [:update, :edit]
@@ -58,6 +59,5 @@ Rails.application.routes.draw do
   post 'charge', to: 'charges#create'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
   post 'send-confirmed-email/:subscription_id', to: 'subscriptions#send_confirmed_email'
-  get 'banks/modal/:id', to: 'banks#modal', as: 'modal_bank'
 
 end
