@@ -1,5 +1,5 @@
 <% if browser.device.mobile? %>
-  <%= render 'subscriptions/steps_mobile', title: title, subtitle: subtitle %>
+  <%= render 'subscriptions/mobile/steps', title: title, subtitle: subtitle %>
 <% else %>
-  <%= render 'subscriptions/steps_desktop', product: product, current_step: current_step, title: title, subtitle: subtitle, total_steps: total_steps, congratulations: congratulations %>
+  <%= render 'subscriptions/desktop/steps', product: product, current_step: current_step, title: title, subtitle: subtitle, total_steps: total_steps, congratulations: congratulations %>
 <% end %>

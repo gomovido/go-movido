@@ -8,7 +8,7 @@
   <span class="price column"><strong><%= subscription.product.format_price %><br> </strong>/<%= t("users.subscription.months") %></span>
   <div class="actions column">
     <% if subscription.state == 'draft' %>
-      <% if subscription.product.is_mobile? %>
+      <% if subscription.product_is_mobile? %>
         <%= link_to t('user.subscription.cta.resume'), new_subscription_billing_path(subscription), class: 'action' %>
       <% else %>
         <%= link_to t('user.subscription.cta.resume'), edit_subscription_address_path(subscription, subscription.address), class: 'action' %>

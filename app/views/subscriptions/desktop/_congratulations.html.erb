@@ -17,12 +17,12 @@
       </div>
       <h3 class="mb-4"><%= t('subscriptions.congratulations.next').html_safe %></h3>
       <div class="mt-4">
-        <% if @subscription.product.is_mobile? %>
-          <%= link_to t('subscriptions.congratulations.wifi_cta').html_safe, category_products_path(Category.find_by(name: 'wifi').id), class: 'links d-block mb-2' %><br>
-        <% elsif @subscription.product.is_wifi? %>
-          <%= link_to t('subscriptions.congratulations.mobile_cta').html_safe, category_products_path(Category.find_by(name: 'mobile').id), class: 'links d-block mb-2' %><br>
+        <% if @subscription.product_is_mobile? %>
+          <%= link_to t('subscriptions.congratulations.wifi_cta').html_safe, wifis_path, class: 'links d-block mb-2' %><br>
+        <% elsif @subscription.product_is_wifi? %>
+          <%= link_to t('subscriptions.congratulations.mobile_cta').html_safe, mobiles_path, class: 'links d-block mb-2' %><br>
         <% end %>
-        <%= link_to t('subscriptions.congratulations.bank_cta').html_safe, category_banks_path(Category.find_by(name: 'bank').id), class: 'links d-block mb-2' %><br>
+        <%= link_to t('subscriptions.congratulations.bank_cta').html_safe, banks_path, class: 'links d-block mb-2' %><br>
         <%= link_to t('subscriptions.congratulations.community_cta').html_safe.html_safe, '#', class: 'links d-block mb-2' %><br>
       </div>
     </div>

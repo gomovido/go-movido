@@ -48,6 +48,13 @@ export default class extends ApplicationController {
     this.shuffleInstance.update();
   }
 
+
+  updateButton(event) {
+    console.log('wokring')
+    let id = event.target.dataset.product;
+    document.querySelector('#addressButton').href=`/subscriptions?&product_id=${id}&product_type=Wifi`
+  }
+
   mobileFilter() {
     this.baseFilter(this.mobileFiltersArray());
     this.checkProducts();

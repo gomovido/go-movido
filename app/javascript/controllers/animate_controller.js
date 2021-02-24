@@ -76,9 +76,4 @@ export default class extends ApplicationController {
     purpleCard.style.width === '100%' ? purpleCard.style.width = '0%' : purpleCard.style.width = '100%';
   }
 
-  updateButton(event) {
-    let id = event.target.dataset.product;
-    document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
-  }
-
 }

@@ -20,9 +20,7 @@ class AddressesController < ApplicationController
     end
   end
 
-  def edit
-    redirect_to subscription_complete_profil_path(@subscription) if !current_user.is_complete?
-  end
+  def edit; end
 
 
   def update

@@ -1,8 +1,4 @@
 <div class="container subscription-container d-flex flex-column align-items-center">
-  <figure class="big-blue-bubble position-absolute "></figure>
-  <figure class="small-blue-bubble position-absolute"></figure>
-  <figure class="small-yellow-bubble position-absolute"></figure>
-  <figure class="big-purple-bubble position-fixed"></figure>
   <div class="row">
     <div class="col-md-12">
       <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('billings.new.title').html_safe, subtitle: t('billings.new.subtitle'), total_steps: @subscription.product.total_steps, congratulations: false %>
@@ -18,11 +14,11 @@
            <hr>
             <%= f.input :address, required: true, input_html: { class:'form-control', placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.address')).capitalize, data: {subscription_target: 'billingAddressInput', action: "change->subscription#enableButton"}} %>
           </div>
-          <% if @subscription.product.is_mobile? && !@subscription.product.sim_needed %>
+          <% if @subscription.product_is_mobile? && !@subscription.product.sim_needed %>
             <%= render 'billings/actions/mobile_no_sim', f: f %>
             <%= render 'billings/actions/classic', f: f, subscription: @subscription %>
-          <% elsif @subscription.product.is_mobile? && @subscription.product.sim_needed%>
-            <%= render 'billings/actions/mobile_with_sim_desktop', f: f %>
+          <% elsif @subscription.product_is_mobile? && @subscription.product.sim_needed%>
+            <%= render 'billings/actions/mobile_with_sim_mobile', f: f %>
           <% else %>
             <%= render 'billings/actions/classic', f: f, subscription: @subscription %>
           <% end %>

@@ -18,6 +18,18 @@ class Subscription < ApplicationRecord
     self.product_type == 'Mobile'
   end
 
+  def product_is_uk?
+    self.product.country.code == 'gb'
+  end
+
+  def path_to_first_step
+    if self.product_is_wifi?
+      Rails.application.routes.url_helpers.edit_subscription_address_path(self, self.address)
+    elsif self.product_is_mobile?
+      Rails.application.routes.url_helpers.new_subscription_billing_path(self)
+    end
+  end
+
   def delivery_address_country
     if self.product.company.name.downcase != "giffgaff" && self.delivery_address.split(',')[-1].strip != self.address.country.name
       self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country.code}")))

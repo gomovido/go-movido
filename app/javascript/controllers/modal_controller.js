@@ -17,6 +17,6 @@ export default class extends ApplicationController {
 
   updateButton(event) {
     let id = event.target.dataset.product;
-    document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
+    document.querySelector('#addressButton').href=`/subscriptions?&product_id=${id}&product_type=Wifi`
   }
 }

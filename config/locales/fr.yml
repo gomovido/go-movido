@@ -703,7 +703,7 @@ fr:
     global_failure: 'Oups, il y a un problème'
     not_allowed: "Vous n'êtes pas autorisé à visiter cette page"
     complete_profile: "Tu dois compléter ton profil pour continuer"
-    existing_subscription: "Tu as déjà cet abonnement"
+    existing_subscription: "Tu as déjà souscrit à cet abonnement"
     wrong_country: "Merci de créer une adresse en %{country}"
     subscription_aborted: "L'abonnement a été abandonné"
   errors:
