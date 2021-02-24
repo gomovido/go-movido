@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_product, only: [:new, :create, :create_wifi_subcription, :new_wifi]
+  before_action :set_product, only: [:create]
   before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment, :abort_subscription]
   skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
   skip_before_action :authenticate_user!, only: [:send_confirmed_email]
@@ -9,22 +9,14 @@ class SubscriptionsController < ApplicationController
 
 
   def create
-    return if subscription_draft?(@product)
-    return if subscription_active?(@product)
     @subscription = Subscription.new
-    @subscription.address = current_user.active_address
     @subscription.product = @product
+    @subscription.address = current_user.active_address
     @subscription.state = 'draft'
     if @subscription.save
-      return if user_profil_is_uncomplete?
-      if @product.is_mobile?
-        redirect_to new_subscription_billing_path(@subscription)
-      elsif @product.is_wifi?
-        redirect_to edit_subscription_address_path(@subscription, @subscription.address)
-      end
+      redirect_to edit_subscription_address_path(@subscription, @subscription.address)
     else
-      @category = @product.category
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path, locale: I18n.locale)
     end
   end
 
@@ -106,12 +98,16 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:subscription_id])
   end
 
-  def subscription_params
-    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
+  def set_product
+    if params[:product_type] == 'Wifi'
+      @product = Wifi.find(params[:product_id])
+    elsif params[:product_type] == 'Mobile'
+      @product = Mobile.find(params[:product_id])
+    end
   end
 
-  def set_product
-    @product = Product.find(params[:product_id])
+  def subscription_params
+    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
   end
 
 end

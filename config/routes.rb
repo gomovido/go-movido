@@ -51,37 +51,13 @@ Rails.application.routes.draw do
     resources :addresses, only: [:update, :edit]
   end
 
-  resources :products, only: [:index]
+  resources :subscriptions, only: [:create]
+
   resources :addresses, only: [:create]
 
   post 'charge', to: 'charges#create'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
   post 'send-confirmed-email/:subscription_id', to: 'subscriptions#send_confirmed_email'
   get 'banks/modal/:id', to: 'banks#modal', as: 'modal_bank'
-
-  resources :categories, only: [:index] do
-    resources :banks, only: [:index]
-    resources :products, only: [:index] do
-      resources :subscriptions, only: [:create]
-    end
-  end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

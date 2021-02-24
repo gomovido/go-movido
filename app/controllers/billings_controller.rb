@@ -6,7 +6,7 @@ class BillingsController < ApplicationController
       redirect_to new_subscription_person_path(@subscription)
     else
       @billing = @subscription.billing.nil? ? Billing.new : @subscription.billing
-      @billing.build_subscription(delivery_address: @subscription.delivery_address) if @subscription.product.is_mobile?
+      @billing.build_subscription(delivery_address: @subscription.delivery_address) if @subscription.product_is_mobile?
       render :new
     end
   end

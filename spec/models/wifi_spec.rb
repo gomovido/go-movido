@@ -1,10 +1,14 @@
 require 'rails_helper'
+require "models/concerns/product_spec"
 
 RSpec.describe Wifi, type: :model do
+  describe 'polymorphic' do
+    it_behaves_like "product"
+  end
   describe 'associations' do
-    it { should have_many(:subscriptions) }
     it { should have_many(:product_features) }
     it { should have_many(:special_offers) }
+    it { should have_many(:subscriptions) }
     it { should belong_to(:category) }
     it { should belong_to(:company) }
     it { should belong_to(:country) }

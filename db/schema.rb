@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_163029) do
+ActiveRecord::Schema.define(version: 2021_02_24_095333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,7 +190,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_163029) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.bigint "product_id", null: false
     t.string "state"
     t.bigint "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -199,12 +198,10 @@ ActiveRecord::Schema.define(version: 2021_02_23_163029) do
     t.string "sim"
     t.string "contact_phone"
     t.string "locale"
-    t.bigint "mobile_id"
-    t.bigint "wifi_id"
+    t.string "product_type"
+    t.bigint "product_id"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
-    t.index ["mobile_id"], name: "index_subscriptions_on_mobile_id"
-    t.index ["product_id"], name: "index_subscriptions_on_product_id"
-    t.index ["wifi_id"], name: "index_subscriptions_on_wifi_id"
+    t.index ["product_type", "product_id"], name: "index_subscriptions_on_product_type_and_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -262,9 +259,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_163029) do
   add_foreign_key "special_offers", "mobiles"
   add_foreign_key "special_offers", "wifis"
   add_foreign_key "subscriptions", "addresses"
-  add_foreign_key "subscriptions", "mobiles"
-  add_foreign_key "subscriptions", "products"
-  add_foreign_key "subscriptions", "wifis"
   add_foreign_key "wifis", "categories"
   add_foreign_key "wifis", "companies"
   add_foreign_key "wifis", "countries"
