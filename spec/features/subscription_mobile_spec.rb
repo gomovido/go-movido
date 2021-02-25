@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Subscription mobile flow", type: :feature do
-  describe "User wants to take a mobile subscription", :selenium_chrome do
+  describe "User wants to take a mobile subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
@@ -76,22 +76,21 @@ RSpec.feature "Subscription mobile flow", type: :feature do
         subscription = user.subscriptions.last
         billing = subscription.billing
         array =
-          [{'Provider' => company.name},
-          {'Plan' => mobile.name},
-          {'SIM card' => subscription.sim},
-          {'First name' => user.first_name},
-          {'Surname' => user.last_name},
-          {'E-mail' => user.email},
-          {'Billing address' => billing.address},
-          {'Delivery address' => subscription.delivery_address},
-          {'IBAN' => billing.iban},
-          {'BIC' => billing.bic},
-          {'Banking Institution' => billing.bank},
-          {'Price' => mobile.price}]
+          [{'product_company_name' => company.name},
+          {'product_name' => mobile.name},
+          {'subscription_sim' => subscription.sim},
+          {'user_first_name' => user.first_name},
+          {'user_last_name' => user.last_name},
+          {'user_email' => user.email},
+          {'billing_address' => billing.address},
+          {'delivery_address' => subscription.delivery_address},
+          {'billing_iban' => billing.iban_prettify},
+          {'billing_bic' => billing.bic},
+          {'billing_bank' => billing.bank},
+          {'product_price' => "#{mobile.format_price}/ month"}]
         array.each do |input|
           input.each do |key, value|
-            expect(page).to have_content(key)
-            expect(page).to have_content(value)
+            expect(page).to have_field(key, disabled: true, with: value)
           end
         end
       end
