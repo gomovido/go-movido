@@ -36,5 +36,18 @@ FactoryBot.define do
       active { true }
       sim_needed { true }
     end
+    trait :internet_and_call_no_payment do
+      offer_type { 'internet_and_call' }
+      name { "5G" }
+      area { "Europe" }
+      price { 69.5 }
+      call { 0 }
+      data { 100 }
+      data_unit { 'GB' }
+      time_contract { 24 }
+      sim_card_price { 0 }
+      active { true }
+      sim_needed { true }
+    end
   end
 end
