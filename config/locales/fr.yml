@@ -539,7 +539,7 @@ fr:
       draft: 'Brouillon'
       succeeded: 'En attente'
       activated: 'Actif'
-      failed: 'Paiement échoué'
+      payment_failed: 'Paiement échoué'
       pending_processed: 'À payer'
       months: 'mois'
       month: 'mois'
