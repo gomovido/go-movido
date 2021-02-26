@@ -8,7 +8,7 @@
       <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('addresses.edit.title'), subtitle: t('addresses.edit.subtitle').html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>
     </div>
     <div class="col-md-6 offset-md-3 mb-5">
-      <div class="form-base p-1" data-controller="address">
+      <div class="form-base p-1">
         <%= simple_form_for [@subscription], :url => subscription_address_path, method: :put, html: {class: 'mt-2'} do |f| %>
           <%= f.simple_fields_for :address  do |s| %>
             <%= s.hidden_field :id, value: current_user.active_address.id%>
@@ -28,10 +28,11 @@
             </div>
           <% end %>
           <hr>
-          <%= f.input :delivery_address, label: t('addresses.edit.form.label.delivery_address'), class:'form-control', input_html: { data: {wifi_subscription_target: 'delivery', country: @subscription.product.country.code}, placeholder: t('addresses.edit.form.placeholder', placeholder: t('activerecord.attributes.subscription.delivery_address')).capitalize} %>
+          <%= f.input :delivery_address, label: t('addresses.edit.form.label.delivery_address'), class:'form-control', input_html: { data: {wifi_subscription_target: 'delivery', action: 'keypress->wifi-subscription#cleanCountryCode', country: @subscription.product.country.code}, placeholder: t('addresses.edit.form.placeholder', placeholder: t('activerecord.attributes.subscription.delivery_address')).capitalize} %>
+          <%= f.hidden_field :algolia_country_code, id: 'algolia_country_code' %>
           <%= f.input :contact_phone,
                 required: true,
-                input_html: { data: { address_target: 'phone' }, placeholder: t('addresses.edit.form.placeholder', placeholder: t('activerecord.attributes.subscription.contact_phone')).capitalize } %>
+                input_html: { data: { wifi_subscription_target: 'phone' }, placeholder: t('addresses.edit.form.placeholder', placeholder: t('activerecord.attributes.subscription.contact_phone')).capitalize } %>
           <span class="mandatory"><%= t('billings.new.mandatory') %></span>
           <div class="actions d-flex flex-column mt-4">
             <%= f.button :submit, t('addresses.edit.form.button.next'), class: 'btn-main mb-4'%>
