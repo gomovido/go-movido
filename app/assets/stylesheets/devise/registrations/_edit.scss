@@ -25,6 +25,14 @@
 @include media-breakpoint-down(md) {
   .edit-container {
     padding-top: 2rem;
+    h2, h4, p, .step {
+      font-family: "Montserrat", sans-serif;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 37px;
+    }
     .form-base {
       width: 100% !important;
     }
