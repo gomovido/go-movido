@@ -279,7 +279,7 @@ en:
   people:
     form:
       failure:
-        min_age: 'You should be over 18 years old'
+        min_age: 'You should over 18 years old'
   addresses:
     new:
       title: 'What is your address ?'
