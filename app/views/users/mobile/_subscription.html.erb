@@ -33,7 +33,7 @@
       </ul>
       <span class="title"><%= t('users.subscription.price') %></span>
       <ul>
-        <li><%= subscription.product.format_price %></li>
+        <li><%= subscription.product.format_price %>/<%= t('users.subscription.month') %></li>
       </ul>
       <% if subscription.product.is_wifi? %>
         <span class="title"><%= t('users.subscription.setup_price') %></span>
@@ -139,7 +139,7 @@
         <%= link_to t('users.subscription.cta.pay_to_activate'), subscription_payment_path(subscription), class: "btn-main text-center mb-3", data: { turbolinks: false } %>
       <% end %>
       <% if subscription.state == 'draft' %>
-        <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('.popup')}, class: "abort text-center" %>
+        <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('users.subscription.popup')}, class: "abort text-center" %>
       <% else %>
         <span class="cancel text-center"><%= t('users.subscription.cta.cancel') %></span>
       <% end %>

@@ -12,7 +12,7 @@
                 input_html: { data: { registration_target: 'phone' } } %>
           <%= f.input :birthdate, as: :string,
                    required: true,
-                   input_html: { placeholder: 'DD/MM/YYYY', class:'background-white datepicker', data: {
+                   input_html: { class:'background-white datepicker', data: {
                     controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 18.years} } %>
           <%= f.input :birth_city,
                   required: true,

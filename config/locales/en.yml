@@ -296,8 +296,8 @@ en:
           got_address: "I have a mooving address"
         cta: 'Confirm'
     edit:
-      title: 'We just need a couple of more details'
-      subtitle: 'We need this information to help the technician find your home.<br> This is the address the technician will come to for the installation of your internet box'
+      title: 'Where we can find you?'
+      subtitle: 'We need this information to help the technician find your home. This is the address the technician will come to for the installation of your internet box'
       form:
         failure:
           wrong_country: "needs to be in %{country}"
@@ -309,7 +309,8 @@ en:
         label:
           delivery_address: 'Delivery address for WiFi router'
         hint:
-          address: 'You can change this field in your profil'
+          address: 'You can change this field in %{href}'
+          profile_link: '<strong>your profile</strong>'
   billings:
     new:
       mandatory: '* Mandatory fields'
@@ -391,7 +392,7 @@ en:
       title: "You're all set 🎉"
       subline: "Your subscription"
       upsell: "You may also need"
-      subtitle: "You will receive a confirmation e-mail with your purchase summary within 24 hours. <br> Please regularly check your e-mail inbox and keep an eye on your mobile phone"
+      subtitle: "You will receive a confirmation e-mail with your purchase summary within 24 hours. Please regularly check your e-mail inbox and keep an eye on your mobile phone"
       questions: "Any questions? Here is how you can reach us:"
       support: "Please contact the movido customer service via chat, email or phone."
       mobile_cta: "Need a new phone number? <i class='fas fa-arrow-right ml-2'></i>"

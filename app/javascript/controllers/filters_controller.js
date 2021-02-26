@@ -105,6 +105,11 @@ export default class extends ApplicationController {
       return true;
     }
   }
+
+  updateButton(event) {
+    let id = event.target.dataset.product;
+    document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
+  }
 }
 
 
