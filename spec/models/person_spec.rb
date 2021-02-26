@@ -8,7 +8,6 @@ RSpec.describe Person do
     it { should belong_to(:user) }
   end
   describe "Validations" do
-    it { should belong_to(:user) }
     it { should validate_presence_of(:birthdate) }
     it 'is expected to validate that :birthdate is at least 18 years ago' do
       subject.birthdate = Date.today
