@@ -405,7 +405,7 @@ fr:
       title: 'Tout est en ordre 🎉'
       subline: 'Ton abonnement'
       upsell: "Psst, nous avons d'autres offres"
-      subtitle: "Tu recevras un e-mail de confirmation de movido une fois ton abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
+      subtitle: "Tu recevras un e-mail de confirmation de movido une fois ton abonnement activé. Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésite pas à contacter notre service client (chat, email & téléphone) !"
       mobile_cta: "Besoin d'un nouveau numéro de téléphone? <i class='fas fa-arrow-right ml-2'></i>"
