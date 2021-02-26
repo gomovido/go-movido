@@ -28,6 +28,6 @@
   <div class="link d-flex align-items-center">
     <%= link_to t('products.card.see_details'), modal_bank_path(bank), data: {target: '#bankModal',
           action: 'click->modal#loadBankModal', href: modal_bank_path(bank), toggle: 'modal'}, id: 'modal-link', class:"text-center purple modal-link" %>
-    <%= link_to t('banks.index.cta'), bank.affiliate_link, class:"btn-card mr-4" %>
+    <%= link_to t('banks.index.cta'), bank.affiliate_link, class:"btn-card mr-4", target: 'blank' %>
   </div>
 </div>
