@@ -3,7 +3,6 @@ rvm:
 - 2.7.0
 cache:
   bundler: true
-  yarn: true
 services:
 - redis-server
 - postgresql
@@ -32,4 +31,4 @@ deploy:
   app: movido-app-staging
   on:
     repo: yonitou/go-movido
-  skip_cleanup: 'true'
+  skip_cleanup: true
