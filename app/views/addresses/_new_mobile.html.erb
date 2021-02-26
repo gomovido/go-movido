@@ -13,7 +13,7 @@
           label: t('addresses.new.form.label.street'),
           placeholder: t('addresses.new.form.placeholder.street'),
           input_html: { data: {
-          registration_target: 'streetInput', action: 'change->registration#cleanCountryCode'
+          registration_target: 'streetInput', action: 'keyPress->registration#cleanCountryCode'
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>

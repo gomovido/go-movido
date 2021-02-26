@@ -296,8 +296,8 @@ en:
           got_address: "I have a mooving address"
         cta: 'Confirm'
     edit:
-      title: 'We just need a couple of more details'
-      subtitle: 'We need this information to help the technician find your home.<br> This is the address the technician will come to for the installation of your internet box'
+      title: 'Where we can find you?'
+      subtitle: 'We need this information to help the technician find your home. This is the address the technician will come to for the installation of your internet box'
       form:
         failure:
           wrong_country: "needs to be in %{country}"
@@ -309,7 +309,8 @@ en:
         label:
           delivery_address: 'Delivery address for WiFi router'
         hint:
-          address: 'You can change this field in your profil'
+          address: 'You can change this field in %{href}'
+          profile_link: '<strong>your profile</strong>'
   billings:
     new:
       mandatory: '* Mandatory fields'
