@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Company, type: :model do
   describe 'associations' do
-    it { should have_many(:products) }
+    it { should have_many(:mobiles) }
+    it { should have_many(:wifis) }
+    it { should have_many(:banks) }
   end
 
   describe 'validations' do
