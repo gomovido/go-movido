@@ -42,7 +42,7 @@ class User < ApplicationRecord
   end
 
   def is_complete?
-    !Person.find_by(user: self).nil?
+    !Person.find_by(user: self).nil? && !Person.find_by(user: self).birthdate.nil? && !Person.find_by(user: self).birth_city.nil? && !Person.find_by(user: self).phone.nil?
   end
 
   def self.new_with_session(params, session)

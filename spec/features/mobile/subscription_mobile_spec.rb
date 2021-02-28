@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Subscription mobile flow", type: :feature do
-  describe "User wants to take a mobile subscription", :headless_chrome do
+  describe "User wants to take a mobile subscription", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
@@ -16,6 +16,7 @@ RSpec.feature "Subscription mobile flow", type: :feature do
     before :each do
       login_as(user, scope: :user)
       visit category.path_to_index
+      find('.product-card', match: :first).click
       click_on 'Select offer'
     end
 
@@ -38,14 +39,16 @@ RSpec.feature "Subscription mobile flow", type: :feature do
       expect(page).to have_field('billing_subscription_attributes_delivery_address', with: "23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
     end
     it 'should redirect to the same subscription from profile' do
-      visit user_path(user)
+      visit user_path(user, active_tab: 'subscriptions', locale: :en)
       subscription = user.subscriptions.last
-      card = find("div[id='#{subscription.id}']")
+      card = find("div[data-id='#{subscription.id}']")
+      card.click
       expect(card).to have_selector(:css, "a[href='#{new_subscription_billing_path(subscription, locale: :en)}']")
     end
     it 'should redirect to the same subscription from products index' do
       visit mobiles_path
       subscription = user.subscriptions.last
+      find('.product-card', match: :first).click
       click_on 'Select offer'
       expect(current_path).to have_content(new_subscription_billing_path(subscription))
     end
@@ -95,12 +98,5 @@ RSpec.feature "Subscription mobile flow", type: :feature do
         end
       end
     end
-    #Summary
-      #1. No payment -> Congratulations
-      #2. Payment -> Congratulations
-    #Click on my profile
-    #Subscriptions tab
-    #Check subscription present and subscription pending?
-    #Mobiles index -> Select Offer -> Check new subscription
   end
 end
