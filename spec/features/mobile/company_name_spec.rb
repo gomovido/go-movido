@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Company name", type: :feature do
+RSpec.feature "Mobile - Company name", type: :feature do
   describe "Check companies on products cards", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }

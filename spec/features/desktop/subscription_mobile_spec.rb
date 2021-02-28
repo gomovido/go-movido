@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Subscription mobile flow", type: :feature do
+RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
   describe "User wants to take a mobile subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }

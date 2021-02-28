@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Session", :type => :feature do
+RSpec.feature "Desktop - Session", :type => :feature do
   describe "User Sign in", :headless_chrome do
     let(:user) { create(:user) }
 

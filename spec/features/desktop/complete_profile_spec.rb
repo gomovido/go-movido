@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Complete Profile", :type => :feature do
+RSpec.feature "Desktop - Complete Profile", :type => :feature do
   describe "User take a subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, [:fr, :gb].sample) }

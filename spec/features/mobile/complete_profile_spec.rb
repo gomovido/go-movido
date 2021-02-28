@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Complete Profile", :type => :feature do
+RSpec.feature "Mobile - Complete Profile", :type => :feature do
   describe "User take a subscription", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, [:fr, :gb].sample) }

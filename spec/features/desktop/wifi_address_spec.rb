@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Wifi - Address", type: :feature do
+RSpec.feature "Desktop - Wifi / Address", type: :feature do
   describe "User wants to take a wifi product", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }

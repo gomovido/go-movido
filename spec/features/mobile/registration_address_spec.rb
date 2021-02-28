@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Registration - Address", type: :feature do
+RSpec.feature "Mobile - Registration / Address", type: :feature do
   describe "User is landing on the new address page", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }

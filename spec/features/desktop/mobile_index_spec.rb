@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Mobile", type: :feature do
+RSpec.feature "Desktop - Mobile", type: :feature do
   describe "Check mobile index", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
