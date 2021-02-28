@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action -> { I18n.backend.reload! } if Rails.env.development?
+  http_basic_authenticate_with name: Rails.application.credentials.staging[:http][:username], password: Rails.application.credentials.staging[:http][:password] if Rails.env.staging?
 
   private
 
