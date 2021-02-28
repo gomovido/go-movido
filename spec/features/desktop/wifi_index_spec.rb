@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Wifi", type: :feature do
+RSpec.feature "Desktop - Wifi", type: :feature do
   describe "Check wifi index", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :wifi) }

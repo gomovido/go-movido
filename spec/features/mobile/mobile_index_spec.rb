@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Mobile", type: :feature do
+RSpec.feature "Mobile - Mobile#Index", type: :feature do
   describe "Check mobile index", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
