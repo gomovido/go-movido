@@ -8,11 +8,7 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
     @person.user = current_user
     if @person.save
-      if @subscription.product_is_mobile?
-        redirect_to new_subscription_billing_path(@subscription)
-      elsif @subscription.product_is_wifi?
-        redirect_to edit_subscription_address_path(@subscription, @subscription.address)
-      end
+      redirect_to @subscription.path_to_first_step
     else
       flash[:alert] = I18n.t 'flashes.complete_profile'
       render :new
