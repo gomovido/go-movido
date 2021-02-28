@@ -12,6 +12,10 @@ class Wifi < ApplicationRecord
     4
   end
 
+  def is_uk?
+    self.country.code == 'gb'
+  end
+
   def obligation
     !time_contract.zero?
   end
