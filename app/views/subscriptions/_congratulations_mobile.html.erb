@@ -12,7 +12,7 @@
     <%=  render 'categories/card_mobile', category: category, path: category.name == 'bank' ? category_banks_path(category) : category_products_path(category) %>
   <% end %>
   <h3 class="my-4"><%= t('subscriptions.congratulations.questions') %></h3>
-  <div class="d-flex justify-content-between align-items-center contact-links mt-3">
+  <div class="d-flex justify-content-around align-items-center contact-links mt-3">
     <%= mail_to "contact@go-movido.com" do %>
       <%= image_tag(asset_path('subscriptions/email_mobile.png')) %>
     <% end %>
