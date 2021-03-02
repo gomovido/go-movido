@@ -8,7 +8,7 @@ RSpec.feature "Mobile - Subscription mobile flow", type: :feature do
     let!(:country) { create(:country, :fr) }
     let!(:person) { create(:person, country.code.to_sym, user: user) }
     let!(:address) { create(:address, country: country, user: user) }
-    let!(:mobile) {create(:mobile, :internet_and_call, category: category, company: company, country: country)}
+    let!(:mobile) {create(:mobile, :internet_and_call_no_payment, category: category, company: company, country: country)}
     let!(:product_feature) {create(:product_feature, mobile: mobile)}
     let!(:special_offer) {create(:special_offer, mobile: mobile)}
 
@@ -54,6 +54,7 @@ RSpec.feature "Mobile - Subscription mobile flow", type: :feature do
     end
     context 'and correctly fills billing and sim card choice forms' do
       before :each do
+        sleep 1
         within("#billing-form") do
           fill_in 'IBAN', with: 'FR7630006000011234567890189'
           fill_in 'billing_address', with: '23 Le Vieux Bourg Trég'

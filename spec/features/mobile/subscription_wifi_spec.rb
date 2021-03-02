@@ -18,6 +18,7 @@ RSpec.feature "Mobile - Subscription Wifi flow", type: :feature do
       visit category.path_to_index
       find('.product-card', match: :first).click
       click_on 'Select offer'
+      sleep 2
     end
 
     it 'should initiate a new subscription' do
