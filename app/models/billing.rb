@@ -9,7 +9,7 @@ class Billing < ApplicationRecord
   accepts_nested_attributes_for :subscription
 
   def product_is_uk?
-    self.subscription.product.country == 'gb'
+    self.subscription.product.country.code == "gb"
   end
 
   def iban_prettify
