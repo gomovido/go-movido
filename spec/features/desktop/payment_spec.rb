@@ -54,7 +54,7 @@ RSpec.feature "Desktop - Payment via Stripe", type: :feature do
           click_button 'Complete payment'
           sleep 5
           subscription.reload
-        }.to change{user.subscriptions.last.state}.to ('succeeded')
+        }.to change{subscription.state}.to ('succeeded')
       end
       it "should create a charge" do
         expect {
