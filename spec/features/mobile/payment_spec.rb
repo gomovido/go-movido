@@ -9,7 +9,7 @@ RSpec.feature "Mobile - Payment via Stripe", type: :feature do
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
     let!(:mobile) {create(:mobile, :internet_and_call, category: category, company: company, country: country)}
     let!(:product_feature) {create(:product_feature, mobile: mobile)}
-    let!(:subscription) {create(:subscription, address: address, product: mobile )}
+    let!(:subscription) {create(:subscription, country.code.to_sym, address: address, product: mobile )}
 
     before :each do
       login_as(user, :scope => :user)
@@ -25,8 +25,7 @@ RSpec.feature "Mobile - Payment via Stripe", type: :feature do
       end
     end
     context 'when user proceed payment' do
-
-      before :each do
+      it "should update the state of the subscription & create a charge" do
         [
           {
             selector: "#card-number-element > div > iframe",
@@ -46,16 +45,12 @@ RSpec.feature "Mobile - Payment via Stripe", type: :feature do
         ].each do |hash|
           find_in_frame(hash[:selector], hash[:input], hash[:values])
         end
-        click_button 'Complete payment'
-        sleep 3
-        subscription.reload
-      end
-
-      it "should update the state of the subscription" do
-        expect(subscription.state).to eq('succeeded')
-      end
-      it "should create a charge" do
-        expect(subscription.charge.nil?).to eq(false)
+        expect {
+          click_button 'Complete payment'
+          sleep 4
+          subscription.reload
+        }.to change{subscription.state}.to('succeeded')
+        .and change{subscription.charge.nil?}.to(false)
       end
     end
 
