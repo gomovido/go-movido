@@ -50,7 +50,6 @@ export default class extends ApplicationController {
 
 
   updateButton(event) {
-    console.log('wokring')
     let id = event.target.dataset.product;
     document.querySelector('#addressButton').href=`/subscriptions?&product_id=${id}&product_type=Wifi`
   }
@@ -111,11 +110,6 @@ export default class extends ApplicationController {
     } else {
       return true;
     }
-  }
-
-  updateButton(event) {
-    let id = event.target.dataset.product;
-    document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
   }
 }
 
