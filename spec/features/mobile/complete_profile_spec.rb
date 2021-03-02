@@ -15,7 +15,9 @@ RSpec.feature "Mobile - Complete Profile", :type => :feature do
       login_as(user, :scope => :user)
       visit category.path_to_index
       find('.product-card', match: :first).click
+      sleep 1
       click_on 'Select offer'
+      sleep 1
     end
 
     it "should be redirected to complete profile"  do
@@ -33,6 +35,7 @@ RSpec.feature "Mobile - Complete Profile", :type => :feature do
       end
       sleep 2
       click_button 'Continue'
+      sleep 1
       expect(Person.where(user: user).count).to eq(1)
     end
     it "should display form errors" do

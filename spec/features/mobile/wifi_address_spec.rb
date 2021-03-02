@@ -20,7 +20,9 @@ RSpec.feature "Mobile - Wifi / Address", type: :feature do
         address = create(:address, country.code.to_sym, country: country, user: user)
         visit category.path_to_index
         find('.product-card', match: :first).click
+        sleep 1
         click_on 'Select offer'
+        sleep 1
         expect(page).to have_field('Address', with: address.street)
       end
     end
