@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Credentials", type: :feature do
+RSpec.feature "Mobile - Credentials", type: :feature do
   let!(:user) { create(:user) }
-  describe "User visits account page", :headless_chrome do
+  describe "User visits account page", :headless_mobile do
     before :each do
       login_as(user, scope: :user)
       visit edit_user_registration_path

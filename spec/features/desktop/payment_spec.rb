@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Payment via Stripe", type: :feature do
+RSpec.feature "Desktop - Payment via Stripe", type: :feature do
   describe "User want to proceed payment", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
@@ -46,16 +46,22 @@ RSpec.feature "Payment via Stripe", type: :feature do
         ].each do |hash|
           find_in_frame(hash[:selector], hash[:input], hash[:values])
         end
-        click_button 'Complete payment'
-        sleep 3
-        subscription.reload
+
       end
 
       it "should update the state of the subscription" do
-        expect(subscription.state).to eq('succeeded')
+        expect {
+          click_button 'Complete payment'
+          sleep 5
+          subscription.reload
+        }.to change{user.subscriptions.last.state}.to ('succeeded')
       end
       it "should create a charge" do
-        expect(subscription.charge.nil?).to eq(false)
+        expect {
+          click_button 'Complete payment'
+          sleep 5
+          subscription.reload
+        }.to change{subscription.charge.nil?}.to (false)
       end
     end
 
