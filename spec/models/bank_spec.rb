@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Bank, type: :model do
   describe 'associations' do
-    it { should belong_to(:company).optional }
+    it { should belong_to(:company) }
   end
   describe 'validations' do
     it { should allow_value("https://transferwise.com").for(:affiliate_link) }

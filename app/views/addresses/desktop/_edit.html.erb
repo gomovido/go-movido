@@ -13,7 +13,7 @@
           <%= f.simple_fields_for :address  do |s| %>
             <%= s.hidden_field :id, value: current_user.active_address.id%>
             <div class="mb-2">
-              <%= s.input :street, required: true, readonly: true, hint: t('.form.hint.address', href: link_to(t(".form.hint.profile_link").html_safe, user_path(current_user, active_tab: 'addresses'))).html_safe, input_html: {value: current_user.active_address.street, class:'form-control'} %>
+              <%= s.input :street, required: true, readonly: true, hint: t('addresses.edit.form.hint.address', href: link_to(t("addresses.edit.form.hint.profile_link").html_safe, user_path(current_user, active_tab: 'addresses'))).html_safe, input_html: {value: current_user.active_address.street, class:'form-control'} %>
               <div class="name-fields d-flex justify-content-between">
                 <%= s.input :floor, class:'form-control' %>
                 <%= s.input :building, label: t('addresses.edit.form.label.building'), class:'form-control' %>
