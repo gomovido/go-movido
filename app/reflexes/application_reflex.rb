@@ -10,6 +10,6 @@ class ApplicationReflex < StimulusReflex::Reflex
   #
   # Learn more at: https://docs.stimulusreflex.com
   def with_locale(&block)
-    I18n.with_locale(params[:locale].to_s.strip.to_sym) { yield }
+    I18n.with_locale(session[:locale]) { yield }
   end
 end
