@@ -2,7 +2,7 @@
   <div class="title d-flex align-items-center justify-content-between mb-4">
     <h2><%= t('users.profil.title') %></h2>
     <%= link_to edit_user_registration_path(current_user) do %>
-      <i class="far fa-cog purple"></i>
+      <i class="fad fa-user-circle purple"></i>
     <% end %>
   </div>
   <div data-profile-target="errors" class=" mt-2 text-danger font-weight-bold"></div>
@@ -27,6 +27,7 @@
         input_html: { value: (current_user.person.birthdate.strftime("%d-%m-%Y") if current_user.person) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 18.years}}%>
       <%= s.input :birth_city , input_html: {data: {profile_target: 'birthCity'}} %>
     <% end %>
-    <%= f.button :submit, t('users.profil.submit'), class:'btn-main w-100 border-0' %>
+    <span class="mandatory mt-0"><%= t('devise.registrations.new.mandatory') %></span>
+    <%= f.button :submit, t('users.profil.submit'), class:'btn-main w-100 border-0 mt-4' %>
   <% end %>
 </div>
