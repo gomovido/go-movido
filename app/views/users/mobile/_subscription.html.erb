@@ -130,17 +130,12 @@
     </div>
     <div class="actions d-flex flex-column">
       <% if subscription.state == 'draft' %>
-        <% if subscription.product_is_mobile? %>
-          <%= link_to t('users.subscription.cta.resume_subscription'), new_subscription_billing_path(subscription), class: 'btn-main text-center mb-3' %>
-        <% else %>
-          <%= link_to t('users.subscription.cta.resume_subscription'), edit_subscription_address_path(subscription, subscription.address), class: 'btn-main text-center mb-3' %>
-        <% end %>
+      <%= link_to t('users.subscription.cta.resume_subscription'), subscription.path_to_first_step, class: 'btn-main text-center mb-3' %>
+      <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('.popup')}, class: "abort text-center" %>
       <% elsif subscription.state == 'pending_processed' %>
         <%= link_to t('users.subscription.cta.pay_to_activate'), subscription_payment_path(subscription), class: "btn-main text-center mb-3", data: { turbolinks: false } %>
       <% end %>
-      <% if subscription.state == 'draft' %>
-        <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('.popup')}, class: "abort text-center" %>
-      <% else %>
+      <% if subscription.state != 'draft' %>
         <span class="cancel text-center"><%= t('users.subscription.cta.cancel') %></span>
       <% end %>
     </div>

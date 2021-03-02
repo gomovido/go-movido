@@ -14,6 +14,9 @@ class Mobile < ApplicationRecord
   validates_presence_of :call, if: :call_only?
   validates_presence_of :call, :data, if: :internet_and_call?
 
+  def is_uk?
+    self.country.code == 'gb'
+  end
 
   def format_data
     unlimited_data? ? 'unlimited' : "#{data}#{data_unit}"
