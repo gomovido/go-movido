@@ -1,50 +1,50 @@
 <div class="bank-card mb-3" data-controller="animate" data-action='click->animate#displayBankCard' data-animate-target="card" data-id="<%= bank.id %>">
   <div class="main-card">
     <div class="top px-2 py-3 d-flex align-items-center justify-content-around">
-      <%= image_tag(asset_path(bank.logo_url + ".png"), class: 'logo') %>
+      <%= image_tag(asset_path(bank.company.logo_url)) %>
       <div class="details">
-        <span class="company"><%= bank.name %></span>
+        <span class="company"><%= bank.company.name %></span>
         <br>
-        <span class="headline"><%= t("banks.index.#{bank.name.downcase}.headline").html_safe %></span>
+        <span class="headline"><%= t("banks.index.#{bank.company.name.downcase}.headline").html_safe %></span>
       </div>
       <i class="fas fa-sort-down purple" aria-hidden="true"></i>
     </div>
     <div class="bottom mt-3 px-2">
       <ul class="pl-4">
-        <li class="mb-2"><%= t("banks.index.#{bank.name.downcase}.feature_1") %></li>
-        <li class="mb-2"><%= t("banks.index.#{bank.name.downcase}.feature_2") %></li>
-        <li class="mb-2"><%= t("banks.index.#{bank.name.downcase}.feature_3") %></li>
-        <li><%= t("banks.index.#{bank.name.downcase}.feature_4") %></li>
+        <li class="mb-2"><%= t("banks.index.#{bank.company.name.downcase}.feature_1") %></li>
+        <li class="mb-2"><%= t("banks.index.#{bank.company.name.downcase}.feature_2") %></li>
+        <li class="mb-2"><%= t("banks.index.#{bank.company.name.downcase}.feature_3") %></li>
+        <li><%= t("banks.index.#{bank.company.name.downcase}.feature_4") %></li>
       </ul>
     </div>
   </div>
   <div class="dropdown-card px-3 mt-3 d-none">
     <div class="feature">
-      <h4 class="mb-3"><%= t("banks.modal.#{bank.name.downcase}.feature_1.title") %></h4>
+      <h4 class="mb-3"><%= t("banks.modal.#{bank.company.name.downcase}.feature_1.title") %></h4>
       <ul>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_1.description_1") %></li>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_1.description_2") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_1.description_1") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_1.description_2") %></li>
       </ul>
     </div>
     <div class="feature">
-      <h4 class="mb-3"><%= t("banks.modal.#{bank.name.downcase}.feature_2.title") %></h4>
+      <h4 class="mb-3"><%= t("banks.modal.#{bank.company.name.downcase}.feature_2.title") %></h4>
       <ul>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_2.description_1") %></li>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_2.description_2") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_2.description_1") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_2.description_2") %></li>
       </ul>
     </div>
     <div class="feature">
-      <h4 class="mb-3"><%= t("banks.modal.#{bank.name.downcase}.feature_3.title") %></h4>
+      <h4 class="mb-3"><%= t("banks.modal.#{bank.company.name.downcase}.feature_3.title") %></h4>
       <ul>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_3.description_1") %></li>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_3.description_2") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_3.description_1") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_3.description_2") %></li>
       </ul>
     </div>
     <div class="feature">
-      <h4 class="mb-3"><%= t("banks.modal.#{bank.name.downcase}.feature_4.title") %></h4>
+      <h4 class="mb-3"><%= t("banks.modal.#{bank.company.name.downcase}.feature_4.title") %></h4>
       <ul>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_4.description_1") %></li>
-        <li class="mb-1"><%= t("banks.modal.#{bank.name.downcase}.feature_4.description_2") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_4.description_1") %></li>
+        <li class="mb-1"><%= t("banks.modal.#{bank.company.name.downcase}.feature_4.description_2") %></li>
       </ul>
     </div>
     <div class="w-100 my-4">

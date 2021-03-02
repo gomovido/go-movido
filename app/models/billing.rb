@@ -1,4 +1,5 @@
 class Billing < ApplicationRecord
+  attr_accessor :algolia_country_code
   belongs_to :subscription
   belongs_to :user
   validates_presence_of :iban, :address, :bank, :holder_name
@@ -9,7 +10,7 @@ class Billing < ApplicationRecord
   accepts_nested_attributes_for :subscription
 
   def product_is_uk?
-    self.subscription.product.country == 'gb'
+    self.subscription.product.country.code == "gb"
   end
 
   def iban_prettify
@@ -33,6 +34,6 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-    self.errors.add(:address, I18n.t('billings.new.form.failure.wrong_country', country: I18n.t("country.#{self.subscription.product.country.code}"))) unless !self.address.blank? && self.address.split(',')[-1].strip == self.subscription.product.country.name
+    self.errors.add(:address, I18n.t('billings.new.form.failure.wrong_country', country: I18n.t("country.#{self.subscription.product.country.code}"))) unless !self.address.blank? && self.algolia_country_code == self.subscription.product.country.code
   end
 end
