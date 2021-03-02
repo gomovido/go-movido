@@ -19,6 +19,12 @@ RSpec.feature "Subscription mobile flow", type: :feature do
       click_on 'Select offer'
     end
 
+    it 'should initiate a new subscription' do
+      expect(user.subscriptions.last.product_type).to eq('Mobile')
+      expect(user.subscriptions.last.product).to eq(mobile)
+      expect(user.subscriptions.last.state).to eq("draft")
+    end
+
     it 'should land on the billing step' do
       expect(page).to have_selector("#billing-form")
     end
