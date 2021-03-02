@@ -311,7 +311,7 @@ fr:
           got_address: "J'ai une adresse"
         cta: 'Confirmer'
     edit:
-      title: 'Nous avons besoin de quelques informations supplémentaires ...'
+      title: 'Où pouvons-nous vous trouver ?'
       subtitle: "Nous avons besoin de ces informations pour aider le technicien à trouver ton adresse.<br> Voici l'adresse à laquelle le technicien se rendra pour l'installation de ta box wifi"
       form:
         failure:
@@ -324,7 +324,8 @@ fr:
         label:
           delivery_address: "Adresse de livraison de ta box wifi"
         hint:
-          address: "Tu peux modifier ce champ dans ton profil"
+          address: 'Tu peux modifier ce champ dans %{href}'
+          profile_link: '<strong>ton profil</strong>'
   billings:
     new:
       mandatory: '* Champs obligatoires'
@@ -406,7 +407,7 @@ fr:
       title: 'Tout est en ordre 🎉'
       subline: 'Ton abonnement'
       upsell: "Psst, nous avons d'autres offres"
-      subtitle: "Tu recevras un e-mail de confirmation de movido une fois ton abonnement activé. <br>Cela peut prendre jusqu'à 24 heures."
+      subtitle: "Tu recevras un e-mail de confirmation de movido une fois ton abonnement activé. Cela peut prendre jusqu'à 24 heures."
       questions: 'Des questions ?'
       support: "N'hésite pas à contacter notre service client (chat, email & téléphone) !"
       mobile_cta: "Besoin d'un nouveau numéro de téléphone? <i class='fas fa-arrow-right ml-2'></i>"
@@ -540,7 +541,7 @@ fr:
       draft: 'Brouillon'
       succeeded: 'En attente'
       activated: 'Actif'
-      failed: 'Paiement échoué'
+      payment_failed: 'Paiement échoué'
       pending_processed: 'À payer'
       months: 'mois'
       month: 'mois'
