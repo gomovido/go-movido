@@ -35,7 +35,7 @@ class BillingsController < ApplicationController
   private
 
   def billing_params
-    params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, subscription_attributes: [:id, :delivery_address, :sim])
+    params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, :algolia_country_code, subscription_attributes: [:id, :delivery_address, :sim])
   end
 
   def set_subscription
