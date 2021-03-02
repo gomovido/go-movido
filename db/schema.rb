@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_100925) do
+ActiveRecord::Schema.define(version: 2021_03_02_181726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,9 +143,18 @@ ActiveRecord::Schema.define(version: 2021_02_26_100925) do
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
-  create_table "product_features", force: :cascade do |t|
+  create_table "product_feature_translations", force: :cascade do |t|
+    t.bigint "product_feature_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "description"
+    t.index ["locale"], name: "index_product_feature_translations_on_locale"
+    t.index ["product_feature_id"], name: "index_product_feature_translations_on_product_feature_id"
+  end
+
+  create_table "product_features", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
@@ -154,33 +163,17 @@ ActiveRecord::Schema.define(version: 2021_02_26_100925) do
     t.index ["wifi_id"], name: "index_product_features_on_wifi_id"
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.bigint "category_id", null: false
+  create_table "special_offer_translations", force: :cascade do |t|
+    t.bigint "special_offer_id", null: false
+    t.string "locale", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "unlimited_data"
-    t.boolean "unlimited_call"
-    t.string "time_contract"
-    t.string "data_limit"
-    t.float "sim_card_price"
-    t.string "call_limit"
-    t.boolean "sim_needed", default: false
-    t.string "data_speed"
-    t.float "setup_price"
-    t.string "currency"
-    t.boolean "active"
-    t.bigint "company_id"
-    t.bigint "country_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["company_id"], name: "index_products_on_company_id"
-    t.index ["country_id"], name: "index_products_on_country_id"
+    t.string "name"
+    t.index ["locale"], name: "index_special_offer_translations_on_locale"
+    t.index ["special_offer_id"], name: "index_special_offer_translations_on_special_offer_id"
   end
 
   create_table "special_offers", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
@@ -254,9 +247,6 @@ ActiveRecord::Schema.define(version: 2021_02_26_100925) do
   add_foreign_key "people", "users"
   add_foreign_key "product_features", "mobiles"
   add_foreign_key "product_features", "wifis"
-  add_foreign_key "products", "categories"
-  add_foreign_key "products", "companies"
-  add_foreign_key "products", "countries"
   add_foreign_key "special_offers", "mobiles"
   add_foreign_key "special_offers", "wifis"
   add_foreign_key "subscriptions", "addresses"
