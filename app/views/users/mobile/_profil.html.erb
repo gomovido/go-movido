@@ -21,10 +21,10 @@
   </div>
     <%= f.input :email, label: 'E-mail' %>
     <%= f.simple_fields_for :person  do |s| %>
-      <%= s.input :phone , input_html: {data: {profile_target: 'phone'}} %>
-      <%= s.input :birthdate , as: :string,
+      <%= s.input :phone, input_html: {data: {profile_target: 'phone'}} %>
+      <%= s.input :birthdate, as: :string,
         required: true,
-        input_html: { value: (current_user.person.birthdate.strftime("%d-%m-%Y") if current_user.person) ,class:'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 18.years}}%>
+        input_html: { value: (current_user.person.birthdate.strftime("%d-%m-%Y") if current_user.person) ,class: 'datepicker width', data: {controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_max_date: Time.zone.now - 18.years}}%>
       <%= s.input :birth_city , input_html: {data: {profile_target: 'birthCity'}} %>
     <% end %>
     <span class="mandatory mt-0"><%= t('devise.registrations.new.mandatory') %></span>

@@ -6,7 +6,7 @@ class BillingsController < ApplicationController
       redirect_to new_subscription_person_path(@subscription)
     else
       @billing = @subscription.billing.nil? ? Billing.new : @subscription.billing
-      @billing.build_subscription(delivery_address: @subscription.delivery_address) if @subscription.product.is_mobile?
+      @billing.build_subscription(delivery_address: @subscription.delivery_address) if @subscription.product_is_mobile?
       render :new
     end
   end
@@ -35,7 +35,7 @@ class BillingsController < ApplicationController
   private
 
   def billing_params
-    params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, subscription_attributes: [:id, :delivery_address, :sim])
+    params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, :algolia_country_code, subscription_attributes: [:id, :delivery_address, :sim])
   end
 
   def set_subscription

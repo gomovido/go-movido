@@ -20,9 +20,7 @@ class AddressesController < ApplicationController
     end
   end
 
-  def edit
-    redirect_to subscription_complete_profil_path(@subscription) if !current_user.is_complete?
-  end
+  def edit; end
 
 
   def update
@@ -42,7 +40,7 @@ class AddressesController < ApplicationController
 
 
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :sim, :contact_phone, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
+    params.require(:subscription).permit(:delivery_address, :sim, :contact_phone, :algolia_country_code, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
   end
 
   def set_subscription

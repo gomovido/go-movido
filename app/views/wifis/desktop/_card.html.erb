@@ -1,0 +1,64 @@
+<% datas = [] %>
+<% datas.push('without_obligation') if !product.obligation %>
+<% datas.push('with_obligation') if product.obligation %>
+<div class="product-card mb-4 w-100" data-controller="modal" data-price="<%= product.price %>" data-groups="<%= datas %>" id=<%= product.id %>>
+  <div class="d-flex align-items-center mb-3">
+    <div class="d-flex align-items-center justify-content-center box-offer">
+      <%= image_tag(product.company.logo_url, class: 'logo') %>
+    </div>
+    <div class="d-flex flex-column offers w-100">
+      <h5 class="name mt-2"><%= product.company.name %> <%= product.name %></h5>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center mr-4 w-100">
+            <div class="offer">
+              <div class="text-center">
+                <i class="fas fa-plug picto-icon"></i><br><span class="font-weight"><%= product.format_setup_price %> <br><%= t('products.card.setup_costs') %></span>
+              </div>
+            </div>
+          <div class="margin"></div>
+          <% if product.obligation %>
+            <div class="offer">
+              <div class="text-center">
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <br> <%= t('products.card.months') %></span>
+              </div>
+            </div>
+          <% else %>
+            <div class="offer">
+              <div class="text-center">
+                <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation').html_safe %></span>
+              </div>
+            </div>
+          <% end %>
+          <div class="margin"></div>
+          <div class="offer">
+            <div class="text-center">
+              <%= image_tag(asset_path('products/wifi-black.png'), class:'picto ') %><br><span class="font-weight"><%= product.data_speed %> Ø<br> MB</span>
+            </div>
+          </div>
+          <div class="margin"></div>
+          <div class="price text-center">
+            <span class="number"><%= product.format_price %></span><br>
+            <span class="frequency"><%= t('products.card.frequency').html_safe %></span>
+          </div>
+        </div>
+        <div class="d-flex flex-column actions">
+          <% if current_user.active_address.nil? || !current_user.active_address.is_complete? %>
+            <button class="btn-card mb-2" data-toggle="modal" data-target="#addressModal" data-action="click->filters#updateButton" data-product="<%= product.id %>">
+              <%= t('products.card.select_offer').html_safe %>
+            </button>
+          <% else %>
+            <%= link_to t('products.card.select_offer').html_safe, subscriptions_path(product_id: product.id, product_type: product.class.name), method: :post, id: product.id, class: 'btn-card mb-2'  %>
+          <% end %>
+          <%= link_to t('products.card.see_details'), modal_wifi_path(product), data: {target: '#exampleModal',
+          action: 'click->modal#loadModal', href: modal_wifi_path(product), toggle: 'modal'}, id: 'modal-link', class: "text-center purple modal-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex features">
+    <span class="country mr-3"><i class="fas fa-map-marker-alt mr-2 cyan"></i><span><%= product.desc_preview %></span></span>
+    <% product.special_offers.first(4).each do |offer| %>
+      <span class="mr-3 special-offer"><%= offer.name %></span>
+    <% end %>
+  </div>
+</div>

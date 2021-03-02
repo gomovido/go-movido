@@ -1,15 +1,5 @@
-<div class="container subscription-container d-flex flex-column align-items-center">
-  <figure class="big-blue-bubble position-absolute "></figure>
-  <figure class="small-yellow-bubble position-absolute"></figure>
-  <figure class="big-purple-bubble position-fixed d-lg-block d-none"></figure>
-  <div class="row">
-    <div class="col-md-12">
-      <%= render 'steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('.title'), subtitle: t('.subtitle', href: link_to(t(".profile_link").html_safe, user_path(current_user, active_tab: 'profile'))).html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>
-    </div>
-    <%= render 'result', subscription: @subscription %>
-    <div class="col-md-6 offset-md-3 mb-5 d-flex flex-column">
-      <%= link_to t('.next'), validate_subscription_path(@subscription), method: :patch, class: 'btn-main mb-3 text-center'%>
-      <%= link_to t('.back'), new_subscription_billing_path(@subscription), class: 'btn-exit' %>
-    </div>
-  </div>
-</div>
+<% if browser.device.mobile? %>
+  <%= render 'subscriptions/mobile/summary' %>
+<% else %>
+  <%= render 'subscriptions/desktop/summary' %>
+<% end %>

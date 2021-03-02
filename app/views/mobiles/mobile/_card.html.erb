@@ -1,0 +1,85 @@
+<% datas = [] %>
+<% datas.push('unlimited_data') if product.unlimited_data? %>
+<% datas.push('unlimited_call') if product.unlimited_call? %>
+<% datas.push('without_obligation') if !product.obligation %>
+<div class="product-card mb-3 px-2 py-3 w-100" data-price="<%= product.price %>" data-groups="<%= datas %>" id="<%= product.id %>" data-action='click->filters#displayProductCard'>
+  <div class="main-card">
+    <div class="d-flex align-items-center justify-content-between mb-2 px-2">
+      <div class="d-flex">
+        <div class="mr-3">
+          <%= image_tag(product.company.logo_url, class:"logo") %>
+        </div>
+        <div class="d-flex flex-column justify-content-center">
+          <span class="title"><%= product.name %></span>
+          <span class="description"><%= product.area %></span>
+        </div>
+      </div>
+      <div class="price d-flex flex-column justify-content-center">
+        <span class="number"><%= product.format_price %></span>
+        <span class="frequency"><%= t('products.card.frequency_mobile') %></span>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-around">
+      <div class="feature">
+        <% if product.obligation %>
+          <div class="offer">
+            <div class="d-flex align-items-center">
+              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= product.time_contract %> <%= t('products.card.months') %></span>
+            </div>
+          </div>
+        <% else %>
+          <div class="offer">
+            <div class="d-flex align-items-center">
+              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation_mobile') %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="feature">
+        <div class="offer">
+          <div class="d-flex align-items-center">
+            <%= image_tag(asset_path('products/wifi-black.png'), class:'picto') %><br><span class="font-weight"><%= product.format_data %></span>
+          </div>
+        </div>
+      </div>
+      <div class="feature">
+        <% if product.sim_card_price > 0 %>
+          <div class="offer">
+            <div class="d-flex align-items-center">
+              <%= image_tag(asset_path('products/sim-card-black.png'), class:'picto') %><br><span class="font-weight"><%= product.format_sim_card_price %></span>
+            </div>
+          </div>
+        <% else %>
+          <div class="offer">
+            <div class="d-flex align-items-center">
+              <%= image_tag(asset_path('products/sim-card-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.free') %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <i class="fas fa-sort-down ml-2 purple" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="dropdown-card d-none">
+    <% unless product.special_offers.blank? %>
+      <div class="special-offers py-3">
+        <% product.special_offers.each do |sp| %>
+        <ul class="mb-0">
+          <li class="special-offer"><%= sp.name %></li>
+        </ul>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="product-features py-4">
+      <% product.product_features.each do |pf| %>
+      <span class="title"> <%= pf.name %> </span>
+      <ul>
+        <li><%= pf.description %></li>
+      </ul>
+      <% end %>
+    </div>
+    <div class="w-100 text-center mb-2">
+      <%= link_to t('products.card.select_offer').html_safe, subscriptions_path(product_id: product.id, product_type: product.class.name), method: :post, id: product.id, class:'btn-card mb-2'  %>
+    </div>
+  </div>
+</div>
