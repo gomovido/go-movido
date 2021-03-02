@@ -74,14 +74,16 @@ RSpec.feature "Mobile - Subscription Wifi flow", type: :feature do
       .and change{ page.current_path }.to(new_subscription_billing_path(user.subscriptions.last))
     end
      it 'should redirect to the same subscription from profile' do
-      visit user_path(user)
+      visit user_path(user, active_tab: 'subscriptions')
       subscription = user.subscriptions.last
-      card = find("div[id='#{subscription.id}']")
+      card = find("div[data-id='#{subscription.id}']")
+      card.click
       expect(card).to have_selector(:css, "a[href='#{edit_subscription_address_path(subscription, address, locale: :en)}']")
     end
     it 'should redirect to the same subscription from products index' do
       visit wifis_path
       subscription = user.subscriptions.last
+      find('.product-card', match: :first).click
       click_on 'Select offer'
       expect(current_path).to have_content(edit_subscription_address_path(subscription, address))
     end

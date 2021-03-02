@@ -50,7 +50,7 @@ RSpec.describe Billing, type: :model do
       expect(subject.valid?).to eq(false)
     end
     it "should validate billing with a correct IBAN" do
-      subject = Billing.new(subscription: subscription_fr, address: address_fr.street, user: user, holder_name: user.first_name, iban: 'FR7630006000011234567890189')
+      subject = Billing.new(subscription: subscription_fr, address: address_fr.street, algolia_country_code: 'fr', user: user, holder_name: user.first_name, iban: 'FR7630006000011234567890189')
       subject.valid?
       expect(subject.save).to eq(true)
     end
