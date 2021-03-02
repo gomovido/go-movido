@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :subscription do
     state { 'draft' }
-    locale { 'en' }
     trait :gb do
       delivery_address {"London Decorators Merchants, London, Greater London, United Kingdom"}
     end
