@@ -1,0 +1,24 @@
+<div class="container dashboard-container pb-3">
+  <div class="big-blue-bubble position-absolute"></div>
+  <div class="small-yellow-bubble position-absolute"></div>
+  <div class="small-blue-bubble position-absolute"></div>
+  <div class="row">
+    <div class="col-md-12 text-center d-flex align-items-center justify-content-center flex-column">
+      <h1 class="title mb-4"><%= t('pages.dashboard_index.title') %></h1>
+      <% if current_user.active_address.is_complete? %>
+        <span class="address"><i class="fas fa-map-marker-alt mr-2"></i><%= truncate(current_user.active_address.street, :length => 70) %></span>
+      <% else %>
+        <%= link_to t('pages.dashboard_index.new_address'), user_path(current_user), class: 'btn-main' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 offset-1 categories-cards-wrapper mt-5">
+      <div class="row">
+        <% @categories.each_with_index do |category, index| %>
+          <%=  render 'categories/desktop/card', category: category, index: index, path: category.path_to_index %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

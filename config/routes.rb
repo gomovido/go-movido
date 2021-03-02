@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root 'pages#home'
   end
   authenticated :user do
-    root 'pages#dashboard_index', as: 'dashboard_index'
+    root 'categories#index', as: 'dashboard_index'
   end
 
   #Errors pages
@@ -38,25 +38,26 @@ Rails.application.routes.draw do
     resources :addresses, only: [:create, :new]
   end
 
-  resources :subscriptions, only: [:show ] do
+  resources :wifis, only: [:index]
+  resources :mobiles, only: [:index]
+  resources :banks, only: [:index]
+  get 'wifis/modal/:id', to: 'wifis#modal', as: 'modal_wifi'
+  get 'mobiles/modal/:id', to: 'mobiles#modal', as: 'modal_mobile'
+  get 'banks/modal/:id', to: 'banks#modal', as: 'modal_bank'
+
+
+  resources :subscriptions do
     resources :people, only: [:new, :create, :update]
     resources :billings, only: [:new, :create, :update]
     resources :addresses, only: [:update, :edit]
   end
 
-  resources :products, only: [:index]
+  resources :subscriptions, only: [:create]
+
   resources :addresses, only: [:create]
 
   post 'charge', to: 'charges#create'
-  get 'products/modal/:id', to: 'products#modal', as: 'modal_product'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
   post 'send-confirmed-email/:subscription_id', to: 'subscriptions#send_confirmed_email'
-  get 'banks/modal/:id', to: 'banks#modal', as: 'modal_bank'
 
-  resources :categories, only: [:index] do
-    resources :banks, only: [:index]
-    resources :products, only: [:index] do
-      resources :subscriptions, only: [:create]
-    end
-  end
 end

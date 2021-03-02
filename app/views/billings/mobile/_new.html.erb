@@ -1,0 +1,30 @@
+<div class="container subscription-container d-flex flex-column align-items-center">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('billings.new.title').html_safe, subtitle: t('billings.new.subtitle'), total_steps: @subscription.product.total_steps, congratulations: false %>
+    </div>
+    <div class="col-md-6 offset-md-3 mb-5">
+      <div class="form-base">
+        <%= simple_form_for [@subscription, @billing], data: {controller: "subscription", subscription_locale_value: I18n.locale.to_s, subscription_hide_class: "d-none", subscription_disabled_class: "disabled"}, html: {id: 'billing-form', class:"d-flex flex-column mt-2"} do |f| %>
+        <%= f.hidden_field :subscription_id, value: @subscription.id %>
+        <div data-subscription-target="firstPart">
+          <div class="mb-2">
+            <%= f.input :holder_name, required: true, class:'form-control pl-5', input_html: {value: current_user.first_name + ' ' + current_user.last_name} %>
+            <%= f.input :iban, required: true, placeholder: "FR7630001007941234567890185", input_html: {data: { subscription_target: 'ibanInput' , action: 'change->subscription#enableButton' }} %>
+           <hr>
+            <%= f.input :address, required: true, input_html: { class:'form-control', placeholder: t('billings.new.form.placeholder', placeholder: t('activerecord.attributes.billing.address')).capitalize, data: {subscription_target: 'billingAddressInput', action: "change->subscription#enableButton keypress->subscription#cleanCountryCode"}} %>
+            <%= f.hidden_field :algolia_country_code, id:'algolia_country_code' %>
+          </div>
+          <% if @subscription.product_is_mobile? && !@subscription.product.sim_needed %>
+            <%= render 'billings/actions/mobile_no_sim', f: f %>
+            <%= render 'billings/actions/classic', f: f, subscription: @subscription %>
+          <% elsif @subscription.product_is_mobile? && @subscription.product.sim_needed%>
+            <%= render 'billings/actions/mobile_with_sim_mobile', f: f %>
+          <% else %>
+            <%= render 'billings/actions/classic', f: f, subscription: @subscription %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

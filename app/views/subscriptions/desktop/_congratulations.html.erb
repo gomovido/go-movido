@@ -1,0 +1,30 @@
+<div class="container congratulations-container mb-5">
+  <figure class="big-blue-bubble position-absolute"></figure>
+  <figure class="small-blue-bubble position-absolute"></figure>
+  <figure class="small-yellow-bubble position-absolute"></figure>
+  <figure class="big-purple-bubble position-fixed"></figure>
+  <%= render 'subscriptions/steps', current_step: 5, title: t('subscriptions.congratulations.title'), product: @subscription.product, subtitle: t('subscriptions.congratulations.subtitle').html_safe,total_steps: @subscription.product.total_steps, congratulations: true %>
+  <div class="row pt-3">
+    <div class="col-md-6 illustration">
+      <%= image_tag(asset_path('subscriptions/congratulations.png')) %>
+    </div>
+    <div class="col-md-6">
+      <h3 class="mb-4"><%= t('subscriptions.congratulations.questions').html_safe %></h3>
+      <div class="my-4 support-links">
+        <span class="support"><%= image_tag(asset_path('subscriptions/whatsapp.png')) %>  <%= link_to '+44(0)7841 598269', "tel: +447841598269" %></span><br>
+        <span class="support"><%= image_tag(asset_path('subscriptions/phone.png')) %>   <%= link_to '+44(0)7841 598269', "tel: +447841598269" %></span><br>
+        <span class="support"><%= image_tag(asset_path('subscriptions/email.png')) %> <%= mail_to 'contact@go-movido.com', "contact@go-movido.com", class: 'purple' %></span>
+      </div>
+      <h3 class="mb-4"><%= t('subscriptions.congratulations.next').html_safe %></h3>
+      <div class="mt-4">
+        <% if @subscription.product_is_mobile? %>
+          <%= link_to t('subscriptions.congratulations.wifi_cta').html_safe, wifis_path, class: 'links d-block mb-2' %><br>
+        <% elsif @subscription.product_is_wifi? %>
+          <%= link_to t('subscriptions.congratulations.mobile_cta').html_safe, mobiles_path, class: 'links d-block mb-2' %><br>
+        <% end %>
+        <%= link_to t('subscriptions.congratulations.bank_cta').html_safe, banks_path, class: 'links d-block mb-2' %><br>
+        <%= link_to t('subscriptions.congratulations.community_cta').html_safe.html_safe, '#', class: 'links d-block mb-2' %><br>
+      </div>
+    </div>
+  </div>
+</div>

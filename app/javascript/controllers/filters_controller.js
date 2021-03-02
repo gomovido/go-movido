@@ -48,6 +48,12 @@ export default class extends ApplicationController {
     this.shuffleInstance.update();
   }
 
+
+  updateButton(event) {
+    let id = event.target.dataset.product;
+    document.querySelector('#addressButton').href=`/subscriptions?&product_id=${id}&product_type=Wifi`
+  }
+
   mobileFilter() {
     this.baseFilter(this.mobileFiltersArray());
     this.checkProducts();
@@ -104,11 +110,6 @@ export default class extends ApplicationController {
     } else {
       return true;
     }
-  }
-
-  updateButton(event) {
-    let id = event.target.dataset.product;
-    document.querySelector('#addressButton').href=`/categories/wifi/products/${id}/subscriptions`
   }
 }
 

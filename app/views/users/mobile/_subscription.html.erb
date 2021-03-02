@@ -3,12 +3,12 @@
     <div class="d-flex align-items-center mb-2 px-2">
       <div class="d-flex align-items-center w-100 justify-content-between">
         <%= image_tag(subscription.product.company.logo_url, class:"logo") %>
-        <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex flex-column justify-content-center column">
           <span class="title"><%= subscription.product.company.name %></span>
           <span class="price"><%= subscription.product.format_price %>/<%= t('users.subscription.month') %></span>
         </div>
           <%= image_tag(asset_path("categories/#{subscription.product.category.sku}.png"), class:'company-picto') %>
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center column">
           <span class="status <%= subscription.state %>"><%= t("users.subscription.#{subscription.state}") %></span>
           <span class="date"><%= subscription.created_at.strftime('%m/%d/%Y') %></span>
         </div>
@@ -35,7 +35,7 @@
       <ul>
         <li><%= subscription.product.format_price %>/<%= t('users.subscription.month') %></li>
       </ul>
-      <% if subscription.product.is_wifi? %>
+      <% if subscription.product_is_wifi? %>
         <span class="title"><%= t('users.subscription.setup_price') %></span>
         <ul>
           <li><%= subscription.product.format_setup_price %></li>
@@ -57,7 +57,7 @@
           <li><%= t('users.subscription.no_obligation').html_safe %></li>
         </ul>
       <% end %>
-      <% if subscription.product.is_wifi? %>
+      <% if subscription.product_is_wifi? %>
         <span class="title"><%= t('users.subscription.data_speed') %></span>
         <ul>
           <li><%= subscription.product.data_speed %></li>
@@ -65,7 +65,7 @@
       <% else %>
         <span class="title"><%= t('users.subscription.data_limit') %></span>
         <ul>
-          <li><%= subscription.product.data_limit %></li>
+          <li><%= subscription.product.format_data %></li>
         </ul>
       <% end %>
     </div>
@@ -130,17 +130,12 @@
     </div>
     <div class="actions d-flex flex-column">
       <% if subscription.state == 'draft' %>
-        <% if subscription.product.is_mobile? %>
-          <%= link_to t('users.subscription.cta.resume_subscription'), new_subscription_billing_path(subscription), class: 'btn-main text-center mb-3' %>
-        <% else %>
-          <%= link_to t('users.subscription.cta.resume_subscription'), edit_subscription_address_path(subscription, subscription.address), class: 'btn-main text-center mb-3' %>
-        <% end %>
+      <%= link_to t('users.subscription.cta.resume_subscription'), subscription.path_to_first_step, class: 'btn-main text-center mb-3' %>
+      <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('.popup')}, class: "abort text-center" %>
       <% elsif subscription.state == 'pending_processed' %>
         <%= link_to t('users.subscription.cta.pay_to_activate'), subscription_payment_path(subscription), class: "btn-main text-center mb-3", data: { turbolinks: false } %>
       <% end %>
-      <% if subscription.state == 'draft' %>
-        <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('users.subscription.popup')}, class: "abort text-center" %>
-      <% else %>
+      <% if subscription.state != 'draft' %>
         <span class="cancel text-center"><%= t('users.subscription.cta.cancel') %></span>
       <% end %>
     </div>
