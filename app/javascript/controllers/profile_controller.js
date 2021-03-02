@@ -1,10 +1,10 @@
-import ApplicationController from './application_controller.js'
+import { Controller } from 'stimulus'
 import phoneInput from '../packs/phone-input';
 import StimulusReflex from 'stimulus_reflex';
 import {addressAutocomplete, searchByCity, searchByCountry, autoFill} from '../packs/algolia';
 const places = require('places.js');
 
-export default class extends ApplicationController {
+export default class extends Controller {
   static targets = ['phone', 'input', 'addressInput', 'addAddressInput', 'addAddressButton', 'birthCity', 'errors', 'spinner', 'savingText', 'wheel'];
   static classes = [ 'hide', 'flex', 'readonly' ]
   static values = { locale: String, countries: String }
