@@ -51,8 +51,11 @@ RSpec.feature "Mobile - Subscription mobile flow", type: :feature do
     it 'should redirect to the same subscription from products index' do
       visit mobiles_path
       subscription = user.subscriptions.last
+      sleep 1
       find('.product-card', match: :first).click
+      sleep 1
       click_on 'Select offer'
+      sleep 1
       expect(current_path).to have_content(new_subscription_billing_path(subscription))
     end
     context 'and correctly fills billing and sim card choice forms' do
