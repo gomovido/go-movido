@@ -33,7 +33,7 @@
       </ul>
       <span class="title"><%= t('users.subscription.price') %></span>
       <ul>
-        <li><%= subscription.product.format_price %></li>
+        <li><%= subscription.product.format_price %>/<%= t('users.subscription.month') %></li>
       </ul>
       <% if subscription.product_is_wifi? %>
         <span class="title"><%= t('users.subscription.setup_price') %></span>

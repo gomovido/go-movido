@@ -76,6 +76,8 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.4.0)
+    appsignal (2.11.9)
+      rack
     autoprefixer-rails (10.2.4.0)
       execjs
     backports (3.20.2)
@@ -396,6 +398,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  appsignal (~> 2.11)
   autoprefixer-rails
   better_errors
   binding_of_caller

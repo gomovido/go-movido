@@ -35,10 +35,12 @@
   .how-it-works-container {
     padding-top: 2rem;
     h2, h4, p, .step {
-      font-family: 'Montserrat';
+      font-family: "Montserrat", sans-serif;
     }
     h2 {
+      font-weight: bold;
       font-size: 26px;
+      line-height: 37px;
     }
     h4 {
       font-size: 16px;
