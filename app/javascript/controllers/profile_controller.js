@@ -29,6 +29,7 @@ export default class extends ApplicationController {
       left: 0,
       behavior: 'smooth'
     });
+    console.log('Submitted')
     if (error) {
       let errors = this.localeValue === 'fr' ? error.replace("La validation a échoué : ", "").replace(/,/g, '<br>') : error.replace("Validation failed: ", "").replace(/,/g, '<br>');
       this.errorsTarget.innerHTML = "";
