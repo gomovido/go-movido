@@ -31,6 +31,7 @@ RSpec.feature "Mobile - Wifi / Address", type: :feature do
         @address = create(:address, country: country, user: user)
         visit category.path_to_index
         find('.product-card', match: :first).click
+        sleep 1
         click_on 'Select offer'
         sleep 1
       end
