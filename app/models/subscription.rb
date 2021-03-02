@@ -32,7 +32,7 @@ class Subscription < ApplicationRecord
   end
 
   def delivery_address_country
-    if self.product.company.name.downcase != "giffgaff" && self.algolia_country_code != self.address.country.code
+    if self.product.company.name.downcase != "giffgaff" && self.product_is_wifi? && self.algolia_country_code != self.address.country.code
       self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.wrong_country', country:  I18n.t("country.#{self.product.country.code}")))
     elsif self.product.company.name.downcase == "giffgaff" && self.delivery_address.split(',').length < 2
       self.errors.add(:delivery_address, I18n.t('addresses.edit.form.failure.invalid'))
