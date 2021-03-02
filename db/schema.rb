@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_095333) do
+ActiveRecord::Schema.define(version: 2021_02_28_221246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 2021_02_24_095333) do
   end
 
   create_table "banks", force: :cascade do |t|
-    t.string "name"
-    t.string "logo_url"
     t.string "headline"
     t.string "feature_1"
     t.string "feature_2"
@@ -46,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_02_24_095333) do
     t.string "affiliate_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_banks_on_company_id"
   end
 
   create_table "billings", force: :cascade do |t|
@@ -143,9 +143,18 @@ ActiveRecord::Schema.define(version: 2021_02_24_095333) do
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
-  create_table "product_features", force: :cascade do |t|
+  create_table "product_feature_translations", force: :cascade do |t|
+    t.bigint "product_feature_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "description"
+    t.index ["locale"], name: "index_product_feature_translations_on_locale"
+    t.index ["product_feature_id"], name: "index_product_feature_translations_on_product_feature_id"
+  end
+
+  create_table "product_features", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
@@ -179,8 +188,17 @@ ActiveRecord::Schema.define(version: 2021_02_24_095333) do
     t.index ["country_id"], name: "index_products_on_country_id"
   end
 
-  create_table "special_offers", force: :cascade do |t|
+  create_table "special_offer_translations", force: :cascade do |t|
+    t.bigint "special_offer_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.index ["locale"], name: "index_special_offer_translations_on_locale"
+    t.index ["special_offer_id"], name: "index_special_offer_translations_on_special_offer_id"
+  end
+
+  create_table "special_offers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
@@ -244,6 +262,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_095333) do
 
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "users"
+  add_foreign_key "banks", "companies"
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
   add_foreign_key "charges", "subscriptions"
