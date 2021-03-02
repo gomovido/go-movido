@@ -7,18 +7,23 @@ export default class extends Controller {
   static values = { locale: String }
   connect() {
     let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
+    let billingAddress = addressAutocomplete(this.billingAddressInputTarget);
     if (deliveryField && deliveryField.dataset.company === "giffgaff") {
       addressAutocomplete(deliveryField);
-      addressAutocomplete(this.billingAddressInputTarget);
     } else if (deliveryField) {
       this.enableButton();
-      addressAutocomplete(this.billingAddressInputTarget).on('change', (e) => {
+      billingAddress.on('change', (e) => {
         deliveryField.value = e.suggestion.value;
         this.enableButton();
       });
-    } else {
-      addressAutocomplete(this.billingAddressInputTarget);
     }
+    billingAddress.on('change', e =>{
+      document.querySelector('#algolia_country_code').value = e.suggestion.countryCode
+    });
+  }
+
+  cleanCountryCode() {
+    document.querySelector('#algolia_country_code').value = ""
   }
 
   stepForward() {
