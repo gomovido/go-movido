@@ -18,7 +18,7 @@ end
 Capybara.save_path = Rails.root.join('tmp/capybara')
 Capybara.javascript_driver = :headless_chrome
 Capybara.default_driver = :rack_test
-Capybara.default_max_wait_time = 2
+Capybara.default_max_wait_time = 15
 
 RSpec.configure do |config|
 
