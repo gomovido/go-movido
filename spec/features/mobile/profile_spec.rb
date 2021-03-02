@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Profile", :type => :feature do
-  describe "User visits profile", :headless_chrome do
+RSpec.feature "Mobile - Profile", :type => :feature do
+  describe "User visits profile", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, [:fr, :gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
@@ -15,7 +15,7 @@ RSpec.feature "Profile", :type => :feature do
     context 'when user wants to visit his profile' do
 
       it "should redirect to the profile tabs"  do
-        expect(page).to have_content('My details')
+        expect(page).to have_content('My profile')
       end
 
       it "should display user's profile details"  do
@@ -23,7 +23,7 @@ RSpec.feature "Profile", :type => :feature do
         expect(page).to have_field('Surname', with: user.last_name)
         expect(page).to have_field('E-mail', with: user.email)
         expect(page).to have_field('Phone', with: user.person.phone)
-        expect(page).to have_field('Date of birth', with: user.person.birthdate.strftime('%d-%m-%Y'))
+        expect(find('input.flatpickr-mobile').value).to eq(user.person.birthdate.strftime('%Y-%m-%d'))
         expect(page).to have_field('City of birth', with: user.person.birth_city)
       end
     end
@@ -53,15 +53,12 @@ RSpec.feature "Profile", :type => :feature do
         find("li[data-country-code='#{country.code}']", visible: false, match: :first).click
         country_code = IsoCountryCodes.find(country.code).calling
         sleep 2
-        expect(page).to have_field('Phone', with: country_code)
+        expect(page).to have_field('Phone', with: country_code + '' + person.phone.gsub(country_code, ''))
       end
 
       it "should update person"  do
-        new_user_person_birthdate = Date.new(1992, 8, 14)
-        find('input.datepicker').click
-        find('.numInput').fill_in with: new_user_person_birthdate.year
-        find("option[value='#{new_user_person_birthdate.month - 1}']", visible: false).click
-        find("span[aria-label='#{new_user_person_birthdate.strftime("%B %e, %Y")}']").click
+        new_user_person_birthdate = Faker::Date.birthday(min_age: 18, max_age: 65)
+        find("input.flatpickr-mobile").set(new_user_person_birthdate)
         new_user_person_phone = '+447520643110'
         new_user_person_birth_city = 'Paris 15e Arrondissement, Paris, Île-de-France, France'
         within("#profile") do

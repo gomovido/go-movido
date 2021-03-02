@@ -1,15 +1,14 @@
 require 'rails_helper'
 
-RSpec.feature "Profile - Addresses", type: :feature do
-  describe "User visits profile", :headless_chrome do
+RSpec.feature "Mobile - Profile / Addresses", type: :feature do
+  describe "User visits profile", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
 
     before :each do
       login_as(user, scope: :user)
-      visit user_path(user, locale: 'en')
-      find('#pills-addresses-tab').click
+      visit user_path(user, active_tab: 'addresses', locale: 'en')
     end
     it "should display user addresses" do
       expect(page).to have_content(address.street)
@@ -29,6 +28,7 @@ RSpec.feature "Profile - Addresses", type: :feature do
         expect(page).to have_css("#active_address", text: "23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
       end
       it "should throw an error for invalid address" do
+        page.send_keys :escape
         click_on 'Save'
         expect(page).to have_content("Address isn't valid")
       end

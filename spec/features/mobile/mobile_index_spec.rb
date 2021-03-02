@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Mobile", type: :feature do
-  describe "Check mobile index", :headless_chrome do
+RSpec.feature "Mobile - Mobile#Index", type: :feature do
+  describe "Check mobile index", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
@@ -32,13 +32,10 @@ RSpec.feature "Mobile", type: :feature do
       expect(page).to have_content(mobile.area)
     end
 
-    it "should display special offer" do
-      expect(page).to have_content(mobile.special_offers.first.name)
-    end
-
-    it "should display modal" do
-      click_on 'See details'
+    it "should display open dropdown product card" do
+      find('.product-card', match: :first).click
       sleep 1
+      expect(page).to have_content(mobile.special_offers.first.name)
       expect(page).to have_content(mobile.product_features.first.name)
     end
   end

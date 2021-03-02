@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Wifi - Address", type: :feature do
-  describe "User wants to take a wifi product", :headless_chrome do
+RSpec.feature "Mobile - Wifi / Address", type: :feature do
+  describe "User wants to take a wifi product", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }
     let!(:category) { create(:category, :wifi) }
@@ -19,6 +19,7 @@ RSpec.feature "Wifi - Address", type: :feature do
       it "should display wifi first step" do
         address = create(:address, country.code.to_sym, country: country, user: user)
         visit category.path_to_index
+        find('.product-card', match: :first).click
         click_on 'Select offer'
         expect(page).to have_field('Address', with: address.street)
       end
@@ -27,6 +28,7 @@ RSpec.feature "Wifi - Address", type: :feature do
       before :each do
         @address = create(:address, country: country, user: user)
         visit category.path_to_index
+        find('.product-card', match: :first).click
         click_on 'Select offer'
         sleep 1
       end

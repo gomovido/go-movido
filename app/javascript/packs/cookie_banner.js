@@ -6,5 +6,7 @@ export default function cookie() {
   s.id = '780e5677-086c-403b-bffc-0418efa73946';
   s.setAttribute("data-name", "termly-embed-banner");
   const x = document.getElementsByTagName('script')[0];
-  x.parentNode.insertBefore(s, x);
+  if (document.querySelector('body').dataset.env != 'test') {
+    x.parentNode.insertBefore(s, x);
+  }
 };

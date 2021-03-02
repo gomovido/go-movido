@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Subscription mobile flow", type: :feature do
+RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
   describe "User wants to take a mobile subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
@@ -95,12 +95,5 @@ RSpec.feature "Subscription mobile flow", type: :feature do
         end
       end
     end
-    #Summary
-      #1. No payment -> Congratulations
-      #2. Payment -> Congratulations
-    #Click on my profile
-    #Subscriptions tab
-    #Check subscription present and subscription pending?
-    #Mobiles index -> Select Offer -> Check new subscription
   end
 end
