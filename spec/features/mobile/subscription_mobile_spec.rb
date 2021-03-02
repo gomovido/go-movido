@@ -17,7 +17,9 @@ RSpec.feature "Mobile - Subscription mobile flow", type: :feature do
       login_as(user, scope: :user)
       visit category.path_to_index
       find('.product-card', match: :first).click
+      sleep 1
       click_on 'Select offer'
+      sleep 1
     end
 
     it 'should land on the billing step' do
@@ -30,6 +32,7 @@ RSpec.feature "Mobile - Subscription mobile flow", type: :feature do
       expect(page).to have_css('#continueButton.disabled')
     end
     it 'should fill delivery address with billing address' do
+      sleep 1
       within("#billing-form") do
         fill_in 'billing_address', with: '23 Le Vieux Bourg Trég'
       end
@@ -63,6 +66,7 @@ RSpec.feature "Mobile - Subscription mobile flow", type: :feature do
         find('.ap-suggestion', match: :first).click
         sleep 1
         find('#continueButton').click
+        sleep 1
       end
       it 'should display sim card choice' do
         expect(page)

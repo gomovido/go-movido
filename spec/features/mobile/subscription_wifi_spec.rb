@@ -17,6 +17,7 @@ RSpec.feature "Mobile - Subscription Wifi flow", type: :feature do
       login_as(user, scope: :user)
       visit category.path_to_index
       find('.product-card', match: :first).click
+      sleep 1
       click_on 'Select offer'
       sleep 2
     end
@@ -79,13 +80,16 @@ RSpec.feature "Mobile - Subscription Wifi flow", type: :feature do
       subscription = user.subscriptions.last
       card = find("div[data-id='#{subscription.id}']")
       card.click
+      sleep 1
       expect(card).to have_selector(:css, "a[href='#{edit_subscription_address_path(subscription, address, locale: :en)}']")
     end
     it 'should redirect to the same subscription from products index' do
       visit wifis_path
       subscription = user.subscriptions.last
       find('.product-card', match: :first).click
+      sleep 1
       click_on 'Select offer'
+      sleep 1
       expect(current_path).to have_content(edit_subscription_address_path(subscription, address))
     end
   end
