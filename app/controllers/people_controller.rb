@@ -28,7 +28,8 @@ class PeopleController < ApplicationController
       end
     else
       flash[:alert] = I18n.t 'flashes.complete_profile'
-      render :update
+      current_user.person ? @person = current_user.person : @person = Person.new
+      render :new
     end
   end
 

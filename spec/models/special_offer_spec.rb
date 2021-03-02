@@ -24,7 +24,6 @@ RSpec.describe SpecialOffer, type: :model do
     context 'should validates presence at least of one belongs_to association' do
       it 'should save' do
         subject = build(:special_offer, mobile: mobile)
-        p subject
         expect(subject.save).to eq (true)
       end
     end

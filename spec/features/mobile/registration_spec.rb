@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Registration", :type => :feature do
-  describe "User registration", :headless_chrome do
+RSpec.feature "Mobile - Registration", :type => :feature do
+  describe "User registration", :headless_mobile do
     let(:user_email) { 'johndoe@gmail.com' }
     let(:user_first_name) { 'john' }
     let(:user_last_name) { 'doe' }
