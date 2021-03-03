@@ -354,6 +354,7 @@ fr:
       date: "Date d'expiration"
       legals: "En cliquant sur procéder au paiement, vous acceptez <strong>nos conditions générales</strong> ainsi que <strong>les conditons générales de Stripe.</strong>"
       pay: "Procéder au paiement"
+      policy_link: "En cliquant sur Procéder au paiement, vous acceptez les %{href_1}, les %{href_2} ainsi que les %{href_3}"
   products:
     index:
       title: 'Choisis ton offre'
@@ -401,6 +402,7 @@ fr:
       profile_link: "<strong>ton profil</strong>"
       next: 'Acheter maintenant'
       back: 'Retour'
+      policy_link: 'En cliquant sur Acheter maintenant, vous acceptez les %{href_1} et les %{href_2}'
     result:
       months: 'mois'
     congratulations:

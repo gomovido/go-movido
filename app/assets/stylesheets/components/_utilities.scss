@@ -27,6 +27,15 @@ button {
   }
 }
 
+.policy-link {
+  color: #2266CD;
+  text-decoration: underline;
+  &:hover {
+    color: #1052b5;
+    text-decoration: underline;
+  }
+}
+
 .ap-input-icon {
   display: none;
 }
