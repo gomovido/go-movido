@@ -22,6 +22,7 @@ gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
 gem "hiredis"
 gem 'iso_country_codes'
 gem 'globalize'
+gem 'forest_liana'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
