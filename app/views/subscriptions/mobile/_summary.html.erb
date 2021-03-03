@@ -4,6 +4,9 @@
       <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('subscriptions.summary.title'), subtitle: t('subscriptions.summary.subtitle', href: link_to(t("subscriptions.summary.profile_link").html_safe, user_path(current_user, active_tab: 'profile'))).html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>
     </div>
     <%= render 'subscriptions/mobile/result', subscription: @subscription %>
+    <div class="col-md-6 offset-md-3 text-center">
+      <p><%= t('subscriptions.summary.policy_link', href_1: link_to("Terms & Conditions | movido", terms_path, target:"blank", class:'policy-link').html_safe, href_2: link_to("Terms & Conditions | #{@subscription.product.company.name}", @subscription.product.company.policy_link, target:"blank", class:'policy-link').html_safe).html_safe %></p>
+    </div>
     <div class="col-md-6 offset-md-3 mb-5 d-flex flex-column">
       <%= link_to t('subscriptions.summary.next'), validate_subscription_path(@subscription), method: :patch, class: 'btn-main mb-3 text-center'%>
       <%= link_to t('subscriptions.summary.back'), new_subscription_billing_path(@subscription), class: 'btn-exit' %>
