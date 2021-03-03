@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   has_many :mobiles, dependent: :destroy
   has_many :wifis, dependent: :destroy
+  has_many :banks, dependent: :destroy
 
   CATEGORIES = %w[wifi mobile bank gym transportation housing utilities community]
   extend FriendlyId
@@ -20,4 +21,5 @@ class Category < ApplicationRecord
       Rails.application.routes.url_helpers.banks_path(locale: I18n.locale)
     end
   end
+
 end

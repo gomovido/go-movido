@@ -33,7 +33,7 @@
         <hr>
         <div class="form-group">
           <span class="legals text-justify">
-            <%= t('charges.stripe.policy_link', href_1: link_to("Terms & Conditions | movido", terms_path, target:"blank", class:'policy-link').html_safe, href_2: link_to("Terms & Conditions | #{@subscription.product.company.name}", @subscription.product.company.policy_link, target:"blank", class:'policy-link').html_safe, href_3: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
+            <%= t('charges.stripe.policy_link', href: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
           </span>
         </div>
         <%= f.button :submit, t('charges.stripe.pay'), class: 'btn-main w-100', data: {disable_with: false}%>
