@@ -23,7 +23,7 @@ env:
 script:
 - bundle exec rake db:schema:load
 - bundle exec rake db:test:prepare
-- RAILS_ENV=production bundle exec rake assets:precompile
+- DB_ADAPTER=nulldb RAILS_ENV=production bundle exec rake assets:precompile
 - bundle exec rspec
 branches:
   only:
