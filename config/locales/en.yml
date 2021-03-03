@@ -341,6 +341,7 @@ en:
       date: "Expiration date"
       legals: "By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong>"
       pay: "Complete payment"
+      policy_link: "By clicking on Complete Payment you accept the %{href_1}, the %{href_2} and the %{href_3}."
   products:
     index:
       title: 'Choose your offer'
@@ -388,6 +389,7 @@ en:
       profile_link: '<strong>your profile</strong>'
       next: 'Purchase now'
       back: 'Back'
+      policy_link: 'By clicking on Purchase now you accept the %{href_1} and the %{href_2}'
     result:
       months: 'month'
     congratulations:

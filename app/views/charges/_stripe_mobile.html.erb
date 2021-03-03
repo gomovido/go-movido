@@ -29,7 +29,9 @@
           </div>
         </div>
         <div class="form-group">
-          <span class="legals text-justify"><%= t('charges.stripe.legals').html_safe %></span>
+          <span class="legals text-justify">
+            By clicking on Complete Payment you accept the <%= link_to "Terms & Conditions | movido", terms_path, target:"blank", class:'policy-link' %> the <%= link_to "Terms & Conditions | #{@subscription.product.company.name}", @subscription.product.company.policy_link, target:"blank", class:'policy-link' %> and the <%= link_to "Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link' %>.
+          </span>
         </div>
         <%= f.button :submit, t('charges.stripe.pay'), class: 'btn-main w-100', data: {disable_with: false}%>
       </div>
