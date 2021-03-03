@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = [ "delivery", "phone"]
 
   connect() {
+
     phoneInput(this.phoneTarget);
     this.delivery = addressAutocomplete(this.deliveryTarget);
     this.delivery.on('change', e => {
