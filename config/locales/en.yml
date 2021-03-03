@@ -341,7 +341,7 @@ en:
       date: "Expiration date"
       legals: "By clicking on proceed payment you accept <strong>our terms and conditions</strong> and <strong>Stripe terms and conditions.</strong>"
       pay: "Complete payment"
-      policy_link: "By clicking on Complete Payment you accept the %{href_1}, the %{href_2} and the %{href_3}."
+      policy_link: "By clicking on Complete Payment you accept the %{href}."
   products:
     index:
       title: 'Choose your offer'
