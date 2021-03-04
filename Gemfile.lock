@@ -497,6 +497,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.1)
+  rack-cors
   rails (~> 6.0.3, >= 6.0.3.3)
   rails-i18n
   ransack
