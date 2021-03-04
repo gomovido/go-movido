@@ -1,4 +1,4 @@
-<div class="col-12 subscriptions-addresses-container fade tab-pane <%= params[:active_tab] == 'subscriptions' ? 'show active' : '' %>" id="pills-subscriptions" role="tabpanel" data-controller="animate">
+<div class="col-12 subscriptions-addresses-container px-4 fade tab-pane <%= params[:active_tab] == 'subscriptions' ? 'show active' : '' %>" id="pills-subscriptions" role="tabpanel" data-controller="animate">
   <h2 class="mb-4"><%= t('users.subscriptions.title') %></h2>
   <div class="subscriptions-wrapper">
     <% subscriptions.order(state: :asc).each do |subscription| %>
