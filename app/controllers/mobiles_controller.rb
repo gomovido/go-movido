@@ -1,6 +1,6 @@
 class MobilesController < ApplicationController
   def index
-    @products = Mobile.where(country: current_user.active_address.country, active: true).map{ |product| product unless product.product_features.blank? }.compact
+    @products = Mobile.where(country: current_user.active_address.country, active: true).map{ |product| product if product.translations? }.compact
     @address ||= Address.new
   end
 
