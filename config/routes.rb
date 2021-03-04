@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :forest do
-    post '/actions/activate-subscription' => 'subscriptions#activate_subscription'
+    post '/actions/create-mobile-features-translations' => 'mobiles#create_features_translations'
+    post '/actions/create-mobile-offers-translations' => 'mobiles#create_offers_translations'
+    post '/actions/create-wifi-features-translations' => 'wifis#create_features_translations'
+    post '/actions/create-wifi-offers-translations' => 'wifis#create_offers_translations'
+    post '/actions/upload-legal-docs' => 'companies#upload_legal_docs'
   end
   mount ForestLiana::Engine => '/forest'
   devise_for :users, controllers: { sessions: "sessions", registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks"}

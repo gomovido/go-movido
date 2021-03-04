@@ -4,7 +4,9 @@ class Mobile < ApplicationRecord
   belongs_to :country
   has_many :subscriptions, as: :product
   has_many :product_features, dependent: :destroy
+  has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
+  has_many :special_offer_translations, through: :special_offers, source: :translations
   validates :data_unit, inclusion: { in: ["GB", "MB"] }, unless: :unlimited_data?
   validates :offer_type, inclusion: { in: ["call_only", "internet_only", "internet_and_call"] }
   validates_presence_of :name, :area, :price, :offer_type, :time_contract, :sim_card_price
