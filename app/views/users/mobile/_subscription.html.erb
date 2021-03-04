@@ -131,7 +131,7 @@
     <div class="actions d-flex flex-column">
       <% if subscription.state == 'draft' %>
       <%= link_to t('users.subscription.cta.resume_subscription'), subscription.path_to_first_step, class: 'btn-main text-center mb-3' %>
-      <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('.popup')}, class: "abort text-center" %>
+      <%= link_to t('users.subscription.cta.abort'), abort_subscription_path(subscription), method: :post, data: {confirm: t('users.subscription.popup')}, class: "abort text-center" %>
       <% elsif subscription.state == 'pending_processed' %>
         <%= link_to t('users.subscription.cta.pay_to_activate'), subscription_payment_path(subscription), class: "btn-main text-center mb-3", data: { turbolinks: false } %>
       <% end %>
