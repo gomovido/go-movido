@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :forest do
+    post '/actions/activate-subscription' => 'subscriptions#activate_subscription'
+  end
   mount ForestLiana::Engine => '/forest'
   devise_for :users, controllers: { sessions: "sessions", registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks"}
   devise_scope :user do
@@ -59,6 +62,5 @@ Rails.application.routes.draw do
 
   post 'charge', to: 'charges#create'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
-  post 'send-confirmed-email/:subscription_id', to: 'subscriptions#send_confirmed_email'
 
 end

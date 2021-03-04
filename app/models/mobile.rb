@@ -18,6 +18,11 @@ class Mobile < ApplicationRecord
     self.country.code == 'gb'
   end
 
+  def translations?
+    translations = self.product_features.map { |feature| feature unless feature.translations.blank? }
+    !translations.compact.blank?
+  end
+
   def format_data
     unlimited_data? ? 'unlimited' : "#{data}#{data_unit}"
   end
