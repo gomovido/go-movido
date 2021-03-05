@@ -4,27 +4,29 @@ class Forest::Wifi
   collection :Wifi
 
   action 'Create wifi features translations', type: 'single', fields: [{
-    field: 'Name',
+    field: 'Name (english)',
     type: 'String',
     is_required: true
   }, {
-    field: 'Description',
+    field: 'Description (english)',
     type: 'String',
     is_required: true
   }, {
-    field: 'Language',
-    type: 'Enum',
-    enums: ['fr', 'en'],
+    field: 'Name (french)',
+    type: 'String',
+    is_required: true
+  }, {
+    field: 'Description (french)',
+    type: 'String',
     is_required: true
   }]
   action 'Create wifi offers translations', type: 'single', fields: [{
-  field: 'Name',
-  type: 'String',
-  is_required: true
-}, {
-  field: 'Language',
-  type: 'Enum',
-  enums: ['fr', 'en'],
-  is_required: true
-}]
+    field: 'Name (english)',
+    type: 'String',
+    is_required: true
+  }, {
+    field: 'Name (french)',
+    type: 'String',
+    is_required: true
+  }]
 end
