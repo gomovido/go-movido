@@ -13,8 +13,14 @@ RSpec.describe ProductFeature, type: :model do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:description) }
+    it 'should validate presence of name' do
+      subject = ProductFeature.new(description: 'desc', name: nil, mobile: mobile)
+      expect(subject.save).to eq(false)
+    end
+    it 'should validate presence of description' do
+      subject = ProductFeature.new(description: nil, name: 'name', mobile: mobile)
+      expect(subject.save).to eq(false)
+    end
 
     context 'should validates presence of only one belongs_to association' do
       it 'should not save' do
@@ -25,7 +31,7 @@ RSpec.describe ProductFeature, type: :model do
     context 'should validates presence at least of one belongs_to association' do
       it 'should save' do
         subject = build(:product_feature, mobile: mobile)
-        expect(subject.save).to eq (true)
+        expect(subject.save!).to eq (true)
       end
     end
   end
