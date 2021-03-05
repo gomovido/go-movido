@@ -14,11 +14,6 @@ class Wifi < ApplicationRecord
     4
   end
 
-  def translations?
-    translations = self.product_features.map { |feature| feature unless feature.translations.blank? }
-    !translations.compact.blank?
-  end
-
   def is_uk?
     self.country.code == 'gb'
   end
