@@ -9,7 +9,7 @@ class Forest::MobilesController < ForestLiana::SmartActionsController
     product_feature = ProductFeature.create!(name: name_en, description: description_en, locale: 'en', mobile: mobile)
     name_fr = attrs['Name (french)']
     description_fr = attrs['Description (french)']
-    product_feature.update(name: name_fr, description: description_fr, locale: 'fr')
+    product_feature.update!(name: name_fr, description: description_fr, locale: 'fr')
     render json: { success: 'Translations are successfully implemented.' }
   end
   def create_offers_translations
@@ -18,7 +18,7 @@ class Forest::MobilesController < ForestLiana::SmartActionsController
     name_en = attrs['Name (english)']
     special_offer = SpecialOffer.create!(name: name_en, locale: 'en', mobile: mobile)
     name_fr = attrs['Name (french)']
-    special_offer.update(name: name_fr, locale: 'fr')
+    special_offer.update!(name: name_fr, locale: 'fr')
     render json: { success: 'Translations are successfully implemented.' }
   end
 end
