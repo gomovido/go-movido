@@ -100,36 +100,6 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "internet_status",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": []
-    }, {
-      "field": "mobile_phone",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": []
-    }, {
       "field": "building",
       "type": "String",
       "default_value": null,
@@ -1635,6 +1605,22 @@
       "widget": null,
       "validations": []
     }, {
+      "field": "product_feature_translations",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "ProductFeature__Translation.id",
+      "inverse_of": null,
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
+    }, {
       "field": "special_offers",
       "type": ["Number"],
       "default_value": null,
@@ -1650,9 +1636,111 @@
       "relationship": "HasMany",
       "widget": null,
       "validations": []
+    }, {
+      "field": "special_offer_translations",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "SpecialOffer__Translation.id",
+      "inverse_of": null,
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
     }],
     "segments": [],
-    "actions": []
+    "actions": [{
+      "name": "Create mobile features translations",
+      "type": "single",
+      "base_url": null,
+      "endpoint": "forest/actions/create-mobile-features-translations",
+      "http_method": "POST",
+      "redirect": null,
+      "download": false,
+      "fields": [{
+        "field": "Name (english)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 0,
+        "widget": null
+      }, {
+        "field": "Description (english)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 1,
+        "widget": null
+      }, {
+        "field": "Name (french)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 2,
+        "widget": null
+      }, {
+        "field": "Description (french)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 3,
+        "widget": null
+      }],
+      "hooks": {
+        "load": false,
+        "change": []
+      }
+    }, {
+      "name": "Create mobile offers translations",
+      "type": "single",
+      "base_url": null,
+      "endpoint": "forest/actions/create-mobile-offers-translations",
+      "http_method": "POST",
+      "redirect": null,
+      "download": false,
+      "fields": [{
+        "field": "Name (english)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 0,
+        "widget": null
+      }, {
+        "field": "Name (french)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 1,
+        "widget": null
+      }],
+      "hooks": {
+        "load": false,
+        "change": []
+      }
+    }]
   }, {
     "name": "Person",
     "name_old": "people",
@@ -1972,13 +2060,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "description",
       "type": "String",
@@ -1987,13 +2078,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }],
     "segments": [],
     "actions": []
@@ -2198,13 +2292,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }],
     "segments": [],
     "actions": []
@@ -2417,7 +2514,20 @@
       "validations": []
     }],
     "segments": [],
-    "actions": []
+    "actions": [{
+      "name": "Activate subscription",
+      "type": "bulk",
+      "base_url": null,
+      "endpoint": "forest/actions/activate-subscription",
+      "http_method": "POST",
+      "redirect": null,
+      "download": false,
+      "fields": [],
+      "hooks": {
+        "load": false,
+        "change": []
+      }
+    }]
   }, {
     "name": "User",
     "name_old": "users",
@@ -3000,6 +3110,22 @@
       "widget": null,
       "validations": []
     }, {
+      "field": "product_feature_translations",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "ProductFeature__Translation.id",
+      "inverse_of": null,
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
+    }, {
       "field": "special_offers",
       "type": ["Number"],
       "default_value": null,
@@ -3015,9 +3141,111 @@
       "relationship": "HasMany",
       "widget": null,
       "validations": []
+    }, {
+      "field": "special_offer_translations",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "SpecialOffer__Translation.id",
+      "inverse_of": null,
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
     }],
     "segments": [],
-    "actions": []
+    "actions": [{
+      "name": "Create wifi features translations",
+      "type": "single",
+      "base_url": null,
+      "endpoint": "forest/actions/create-wifi-features-translations",
+      "http_method": "POST",
+      "redirect": null,
+      "download": false,
+      "fields": [{
+        "field": "Name (english)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 0,
+        "widget": null
+      }, {
+        "field": "Description (english)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 1,
+        "widget": null
+      }, {
+        "field": "Name (french)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 2,
+        "widget": null
+      }, {
+        "field": "Description (french)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 3,
+        "widget": null
+      }],
+      "hooks": {
+        "load": false,
+        "change": []
+      }
+    }, {
+      "name": "Create wifi offers translations",
+      "type": "single",
+      "base_url": null,
+      "endpoint": "forest/actions/create-wifi-offers-translations",
+      "http_method": "POST",
+      "redirect": null,
+      "download": false,
+      "fields": [{
+        "field": "Name (english)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 0,
+        "widget": null
+      }, {
+        "field": "Name (french)",
+        "type": "String",
+        "default_value": null,
+        "enums": null,
+        "is_required": true,
+        "reference": null,
+        "description": null,
+        "position": 1,
+        "widget": null
+      }],
+      "hooks": {
+        "load": false,
+        "change": []
+      }
+    }]
   }],
   "meta": {
     "database_type": "postgresql",

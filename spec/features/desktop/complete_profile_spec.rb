@@ -27,6 +27,7 @@ RSpec.feature "Desktop - Complete Profile", :type => :feature do
       within("#new_person") do
         fill_in 'person_phone', with: country_code + '' + person.phone.gsub(country_code, '')
         fill_in 'person_birth_city', with: person.birth_city
+        sleep 1
         find('.ap-suggestion', match: :first).click
       end
       new_user_person_birthdate = Date.new(1992, 8, 14)

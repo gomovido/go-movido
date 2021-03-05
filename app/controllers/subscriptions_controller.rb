@@ -55,11 +55,6 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  def send_confirmed_email
-    subscription = Subscription.find(params[:subscription_id])
-    UserMailer.with(user: subscription.address.user, subscription: subscription, locale: subscription.locale).subscription_confirmed_email.deliver_now
-  end
-
   def abort_subscription
     if @subscription.state == 'draft'
       @subscription.update_columns(state: 'aborted')
