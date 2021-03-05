@@ -18,11 +18,11 @@ class ChargesController < ApplicationController
     I18n.locale = params[:subscription][:locale].to_sym
     if payment_is_succeeded?(stripe_charge)
       charge = create_or_update_charge(stripe_charge, subscription)
-      subscription.update(state: 'succeeded', locale: I18n.locale)
+      subscription.update_columns(state: 'succeeded', locale: I18n.locale)
       UserMailer.with(user: subscription.address.user, subscription: subscription, locale: I18n.locale).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(subscription, locale: I18n.locale)
     else
-      subscription.update(state: 'payment_failed', locale: I18n.locale)
+      subscription.update_columns(state: 'payment_failed', locale: I18n.locale)
       flash[:alert] = I18n.t("stripe.errors.#{stripe_charge[:error].code}")
       redirect_back(fallback_location: root_path, locale: I18n.locale)
     end

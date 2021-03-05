@@ -29,10 +29,10 @@ class SubscriptionsController < ApplicationController
 
   def validate_subscription
     if @subscription.product_is_mobile? && @subscription.product.has_payment?
-      @subscription.update(state: 'pending_processed', locale: I18n.locale)
+      @subscription.update_columns(state: 'pending_processed', locale: I18n.locale)
       redirect_to subscription_payment_path(@subscription)
     else
-      @subscription.update(state: 'succeeded', locale: I18n.locale)
+      @subscription.update_columns(state: 'succeeded', locale: I18n.locale)
       UserMailer.with(user: @subscription.address.user, subscription: @subscription, locale: @subscription.locale).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(@subscription)
     end
