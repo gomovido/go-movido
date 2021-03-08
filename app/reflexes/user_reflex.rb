@@ -6,12 +6,12 @@ class UserReflex < ApplicationReflex
   end
 
   def submit
-    with_locale{current_user.save!}
+    with_locale { current_user.save! }
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, person_attributes: [ :phone, :birthdate, :birth_city, :id ])
+    params.require(:user).permit(:email, :first_name, :last_name, person_attributes: %i[phone birthdate birth_city id])
   end
 end

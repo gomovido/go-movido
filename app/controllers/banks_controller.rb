@@ -1,5 +1,4 @@
 class BanksController < ApplicationController
-
   def index
     @banks = Bank.all
   end
@@ -10,5 +9,4 @@ class BanksController < ApplicationController
       format.html { render layout: false }
     end
   end
-
 end

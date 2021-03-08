@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
-  attr_accessor :algolia_country_code
-  attr_accessor :moving_country
+  attr_accessor :algolia_country_code, :moving_country
+
   belongs_to :country
   belongs_to :user
   has_many :subscriptions, dependent: :destroy
@@ -8,10 +8,10 @@ class Address < ApplicationRecord
   after_create :set_has_active
 
   def set_has_active
-    Address.where(user: self.user).each {|address| address.update_columns(active: false)}
-    self.update_columns(active: true)
-    Address.where(user: self.user).each do |address|
-      address.destroy unless address.is_complete? || self.user.addresses.length == 1 || !address.subscriptions.blank?
+    Address.where(user: user).each { |address| address.update_columns(active: false) }
+    update_columns(active: true)
+    Address.where(user: user).each do |address|
+      address.destroy unless address.complete? || user.addresses.length == 1 || !address.subscriptions.blank?
     end
   end
 
@@ -19,15 +19,15 @@ class Address < ApplicationRecord
     !Country.find_by(code: algolia_country_code).nil?
   end
 
-  def is_complete?
-    !self.city.nil? && !self.city.blank? && !self.zipcode.nil? && !self.zipcode.blank? && !self.street.nil? && !self.street.blank?
+  def complete?
+    !city.nil? && !city.blank? && !zipcode.nil? && !zipcode.blank? && !street.nil? && !street.blank?
   end
 
   def country_name_for_migration
-    self.street.split(',')[-1].strip
+    street.split(',')[-1].strip
   end
 
   def formatted
-    self.street ? self.street : I18n.t("country.#{self.country.code}")
+    street || I18n.t("country.#{country.code}")
   end
 end

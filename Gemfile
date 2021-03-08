@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1', '>= 6.1.3'
@@ -18,11 +18,12 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
+gem "redis", ">= 4.0", require: ["redis", "redis/connection/hiredis"]
 gem "hiredis"
 gem 'iso_country_codes'
 gem 'globalize'
 gem "activerecord-nulldb-adapter"
+gem 'rubocop', require: false
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
@@ -36,7 +37,7 @@ gem 'ransack'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'postmark-rails', '~> 0.12.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
@@ -49,7 +50,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 4.0.2'
   gem "factory_bot_rails"
   gem 'capybara'
@@ -71,11 +72,10 @@ end
 
 group :test do
   # Easy installation and use of web drivers to run system tests with browsers
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem "stimulus_reflex", "~> 3.4"
 
@@ -93,8 +93,9 @@ gem "stripe", "~> 5.28"
 
 gem "browser"
 
-
 gem "money-rails", "~> 1.13"
+
+gem 'rubocop-performance', require: false
 
 gem "httparty", "~> 0.18.1"
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Desktop - Registration", :type => :feature do
+RSpec.feature "Desktop - Registration", type: :feature do
   describe "User registration", :headless_chrome do
     let(:user_email) { 'johndoe@gmail.com' }
     let(:user_first_name) { 'john' }
