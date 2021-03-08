@@ -7,7 +7,7 @@ class Mobile < ApplicationRecord
   has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
   has_many :special_offer_translations, through: :special_offers, source: :translations
-  validates :data_unit, inclusion: { in: ["GB", "MB"] }, unless: :unlimited_data?
+  validates :data_unit, inclusion: { in: ["GB", "MB"] }, unless: :not_needed?
   validates :offer_type, inclusion: { in: ["call_only", "internet_only", "internet_and_call"] }
   validates_presence_of :name, :area, :price, :offer_type, :time_contract, :sim_card_price
   validates_inclusion_of :sim_needed, in: [true, false]
@@ -24,8 +24,12 @@ class Mobile < ApplicationRecord
     unlimited_data? ? 'unlimited' : "#{data}#{data_unit}"
   end
 
+  def not_needed?
+    data.nil? or data&.zero?
+  end
+
   def unlimited_data?
-    call_only? || (offer_type != "call_only" && data&.zero?)
+    offer_type != "call_only" && data&.zero?
   end
 
   def unlimited_call?
