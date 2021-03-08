@@ -10,7 +10,7 @@ FactoryBot.define do
       time_contract { 12 }
       sim_card_price { 1 }
       active { true }
-      sim_needed { true }
+      sim_needed { false }
     end
     trait :call_only do
       offer_type { 'call_only'}
@@ -34,7 +34,7 @@ FactoryBot.define do
       time_contract { 24 }
       sim_card_price { 10 }
       active { true }
-      sim_needed { true }
+      sim_needed { false }
     end
     trait :internet_and_call_no_payment do
       offer_type { 'internet_and_call' }
@@ -47,7 +47,7 @@ FactoryBot.define do
       time_contract { 24 }
       sim_card_price { 0 }
       active { true }
-      sim_needed { true }
+      sim_needed { false }
     end
   end
 end
