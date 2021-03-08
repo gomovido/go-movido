@@ -25,11 +25,11 @@ class Mobile < ApplicationRecord
   end
 
   def unlimited_data?
-    data.zero? && offer_type != 'call_only'
+    call_only? || (offer_type != "call_only" && data&.zero?)
   end
 
   def unlimited_call?
-    call.zero? && offer_type != 'internet_only'
+    offer_type != 'internet_only' && call&.zero?
   end
 
   def payment?

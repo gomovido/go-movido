@@ -35,14 +35,14 @@
           <span class="font-weight"><%= t('subscriptions.modal.setup_price') %></span>
           <div><%= @subscription.product.setup_price %></div>
         </div>
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <span class="font-weight"><%= t('subscriptions.modal.data_speed') %></span>
+        <div><%= @subscription.product.data_speed %></div>
+      </div>
       <% end %>
       <div class="d-flex align-items-center justify-content-between mb-3">
         <span class="font-weight"><%= t('subscriptions.modal.time_contract') %></span>
         <div><%= @subscription.product.time_contract %></div>
-      </div>
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="font-weight"><%= t('subscriptions.modal.data_speed') %></span>
-        <div><%= @subscription.product.data_speed %></div>
       </div>
       <h3><%= t('subscriptions.modal.subscriber') %></h3>
       <div class="d-flex align-items-center justify-content-between mb-3">

@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Wifi, type: :model do
   describe 'polymorphic' do
-    it_behaves_like "product"
+    it { is_expected.to have_many(:subscriptions) }
   end
+
   describe 'associations' do
     it { should have_many(:product_features) }
     it { should have_many(:special_offers) }
