@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Mobile, type: :model do
   describe 'polymorphic' do
-    it_behaves_like "product"
+    it { is_expected.to have_many(:subscriptions) }
   end
 
   describe 'associations' do
@@ -41,11 +41,6 @@ RSpec.describe Mobile, type: :model do
     context 'should validates presence data unit unless unlimited data' do
       before { allow(subject).to receive(:offer_type).and_return('internet_and_call') }
       before { allow(subject).to receive(:data).and_return(0) }
-      it { should validate_presence_of(:call) }
-      it { should_not validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
-    end
-    context 'should validates presence data unit unless no data' do
-      before { allow(subject).to receive(:offer_type).and_return('call_only') }
       it { should validate_presence_of(:call) }
       it { should_not validate_inclusion_of(:data_unit).in_array(['GB', 'MB']) }
     end
