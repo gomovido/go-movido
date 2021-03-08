@@ -39,7 +39,7 @@ Lint/MissingSuper:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Layout/LineLength:
-  Max: 260
+  Max: 261
 Metrics/MethodLength:
   Max: 30
 Naming/VariableNumber:
