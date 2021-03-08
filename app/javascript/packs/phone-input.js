@@ -2,7 +2,8 @@ import intlTelInput from 'intl-tel-input';
 
 export default function phoneInput(element) {
   intlTelInput(element, {
-    preferredCountries: ['fr', 'gb']
+    preferredCountries: ['fr', 'gb'],
+    excludeCountries: ['je', 'im', 'gg']
   });
   if (!element.value) {
     element.value = document.querySelector('.iti__selected-flag').getAttribute('title').split(' ')[1];
