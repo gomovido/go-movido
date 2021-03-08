@@ -34,9 +34,7 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
     it 'should prepopulate cardholder name with user full name' do
       expect(page).to have_field('billing_holder_name', with: user.first_name + ' ' + user.last_name)
     end
-    it 'should not be able to continue without filling the form' do
-      expect(page).to have_css('#continueButton.disabled')
-    end
+
     it 'should fill delivery address with billing address' do
       within("#billing-form") do
         if mobile.is_uk?
@@ -70,8 +68,9 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
       before :each do
         within("#billing-form") do
           if mobile.is_uk?
-            fill_in 'IBAN', with: 'GB33BUKB20201555555555'
-            fill_in 'billing_address', with: 'london decorat'
+            fill_in 'Sort code', with: '090127'
+            fill_in 'Account number', with: '93496333'
+            fill_in 'billing_address', with: 'London decorat'
           else
             fill_in 'IBAN', with: 'FR7630006000011234567890189'
             fill_in 'billing_address', with: '23 Le Vieux Bourg Trég'
@@ -80,13 +79,8 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
         sleep 1
         find('.ap-suggestion', match: :first).click
         sleep 1
-        find('#continueButton').click
       end
-      it 'should display sim card choice' do
-        expect(page)
-          .to have_content("Standard / Micro")
-          .or have_content("Nano")
-      end
+
       it 'should land to summary step' do
         expect {
             click_on 'Confirm'
@@ -100,7 +94,6 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
         array =
           [{'product_company_name' => company.name},
           {'product_name' => mobile.name},
-          {'subscription_sim' => subscription.sim},
           {'user_first_name' => user.first_name},
           {'user_last_name' => user.last_name},
           {'user_email' => user.email},

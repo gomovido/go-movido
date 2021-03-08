@@ -38,6 +38,7 @@ fr:
           attributes:
             account_number:
               blank: "doit être rempli"
+              invalid: "est invalide"
             account_holder:
               blank: "doit être rempli"
             bank:
@@ -48,6 +49,7 @@ fr:
               blank: "doit être rempli"
             sort_code:
               blank: "doit être rempli"
+              invalid: "est invalide"
             address:
               blank: 'doit être remplie'
         user:

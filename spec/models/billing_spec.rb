@@ -54,5 +54,10 @@ RSpec.describe Billing, type: :model do
       subject.valid?
       expect(subject.save).to eq(true)
     end
+    it "should validate billing with a correct Sort Code & account_number" do
+      subject = Billing.new(subscription: subscription_gb, address: address_gb.street, algolia_country_code: 'gb', user: user, holder_name: user.first_name, sort_code: '090127', account_number: '93496333')
+      subject.valid?
+      expect(subject.save).to eq(true)
+    end
   end
 end

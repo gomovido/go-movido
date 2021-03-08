@@ -38,6 +38,10 @@ en:
           attributes:
             account_number:
               blank: "can't be blank"
+              invalid: "is not valid"
+            sort_code:
+              blank: "can't be blank"
+              invalid: "is not valid"
             address:
               blank: "can't be blank"
         user:
