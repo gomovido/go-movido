@@ -1,6 +1,5 @@
 require 'rails_helper'
 RSpec.describe Mobile, type: :model do
-
   describe 'polymorphic' do
     it_behaves_like "product"
   end
@@ -15,7 +14,7 @@ RSpec.describe Mobile, type: :model do
   end
 
   describe 'validations' do
-    [:name, :area, :price, :offer_type, :time_contract, :sim_card_price].each do |field|
+    %i[name area price offer_type time_contract sim_card_price].each do |field|
       it { should validate_presence_of(field) }
     end
     it { should_not allow_value(nil).for(:sim_needed) }

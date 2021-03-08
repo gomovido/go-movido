@@ -15,7 +15,7 @@ RSpec.describe Company, type: :model do
     it { should validate_presence_of(:logo_url) }
     it { should validate_presence_of(:policy_link) }
     it 'should save successfully' do
-     expect(subject.save).to eq (true)
+      expect(subject.save).to eq(true)
     end
   end
 end

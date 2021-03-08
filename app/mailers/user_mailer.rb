@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   def welcome_email
     @user = params[:user]
     @locale = params[:locale]
@@ -17,7 +16,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @subscription = params[:subscription]
     @locale = params[:locale]
-    mail(to: @user.email, subject:  I18n.t('mail.subscription_confirmed'))
+    mail(to: @user.email, subject: I18n.t('mail.subscription_confirmed'))
   end
 
   def booking_under_review_email
@@ -33,5 +32,4 @@ class UserMailer < ApplicationMailer
     @locale = params[:locale]
     mail(to: @user.email, subject: I18n.t('mail.booking_confirmed'))
   end
-
 end

@@ -19,12 +19,12 @@ RSpec.feature "Desktop - Credentials", type: :feature do
       within('#edit_user') do
         fill_in 'user_current_password', with: '1234567'
       end
-      expect {
+      expect do
         click_on 'Update'
         user.reload
-      }.to change { user.email }.to('coucou@cou.cool')
+      end.to change { user.email }.to('coucou@cou.cool')
     end
-     it 'should be able to destroy account' do
+    it 'should be able to destroy account' do
       accept_confirm do
         click_link 'Delete account'
       end

@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # rubocop:disable Naming/VariableNumber
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  devise :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+  devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
   has_many :billings, dependent: :destroy
@@ -16,7 +17,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, :username
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   before_create :generate_username
-
+  # rubocop:enable Naming/VariableNumber
   def self.from_omniauth_google(access_token)
     data = access_token['omniauth.auth']['info']
     locale = access_token['omniauth.params']['locale']
@@ -24,7 +25,7 @@ class User < ApplicationRecord
     unless user
       user = User.create(
         email: data['email'],
-        password: Devise.friendly_token[0,20],
+        password: Devise.friendly_token[0, 20],
         first_name: data['first_name'],
         last_name: data['last_name']
       )
@@ -34,31 +35,27 @@ class User < ApplicationRecord
   end
 
   def user_subscriptions_country
-    self.subscriptions.where.not(state: 'aborted').select {|s| s if s.product.country == self.active_address.country }
+    subscriptions.where.not(state: 'aborted').select { |s| s if s.product.country == active_address.country }
   end
 
   def active_address
     Address.find_by(user: self, active: true)
   end
 
-  def is_complete?
+  def complete?
     !Person.find_by(user: self).nil? && !Person.find_by(user: self).birthdate.nil? && !Person.find_by(user: self).birth_city.nil? && !Person.find_by(user: self).phone.nil?
   end
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"]
-      end
+      user.email = data["email"] if data == session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
     end
   end
-
-  private
 
   protected
 
   def generate_username
-    self.username =  (self.first_name + '-' + self.last_name).gsub(' ', '-') + '-' + Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]
-    generate_username if User.exists?(username: self.username)
+    self.username = "#{"#{first_name}-#{last_name}".tr(' ', '-')}-#{Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]}"
+    generate_username if User.exists?(username: username)
   end
 end

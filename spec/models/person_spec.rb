@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Person do
   let(:user) { create(:user) }
-  let!(:country) { create(:country, [:fr, :gb].sample) }
+  let!(:country) { create(:country, %i[fr gb].sample) }
   subject { create(:person, country.code.to_sym, user: user) }
   describe "Associations" do
     it { should belong_to(:user) }

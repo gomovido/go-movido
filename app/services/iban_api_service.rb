@@ -1,5 +1,4 @@
 class IbanApiService
-
   def initialize(params)
     @iban = params[:iban]
     @sort_code = params[:sort_code]
@@ -13,6 +12,7 @@ class IbanApiService
 
   def calculate_iban
     uri = URI('https://api.iban.com/clients/api/calc-api.php')
-    Net::HTTP.post_form(uri, "format" => "json", "api_key" => Rails.application.credentials.production[:iban_api][:api_key], "country" => "GB", "bankcode" => @sort_code, "account" => @account_number).body
+    Net::HTTP.post_form(uri, "format" => "json", "api_key" => Rails.application.credentials.production[:iban_api][:api_key], "country" => "GB",
+                             "bankcode" => @sort_code, "account" => @account_number).body
   end
 end

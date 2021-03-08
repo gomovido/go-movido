@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :set_subscription, only: [:new, :create, :update]
+  before_action :set_subscription, only: %i[new create update]
   def new
     current_user.person ? @person = current_user.person : @person = Person.new
   end
@@ -38,5 +38,4 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit(:phone, :birthdate, :birth_city)
   end
-
 end

@@ -16,8 +16,8 @@ class Mobile < ApplicationRecord
   validates_presence_of :call, if: :call_only?
   validates_presence_of :call, :data, if: :internet_and_call?
 
-  def is_uk?
-    self.country.code == 'gb'
+  def uk?
+    country.code == 'gb'
   end
 
   def format_data
@@ -32,12 +32,12 @@ class Mobile < ApplicationRecord
     call.zero? && offer_type != 'internet_only'
   end
 
-  def has_payment?
-    self.sim_card_price_cents >= 100
+  def payment?
+    sim_card_price_cents >= 100
   end
 
   def total_steps
-    self.has_payment? ? 4 : 3
+    payment? ? 4 : 3
   end
 
   def obligation
@@ -53,17 +53,17 @@ class Mobile < ApplicationRecord
   end
 
   def format_price
-    format_price = price % 1 != 0 ? '%.2f' % price : price.to_i.to_s
-    country.currency == 'GBP' ? country.currency_sign + '' + format_price : format_price + '' + country.currency_sign
+    format_price = (price % 1).zero? ? price.to_i.to_s : '%.2f' % price
+    country.currency == 'GBP' ? "#{country.currency_sign}#{format_price}" : "#{format_price}#{country.currency_sign}"
   end
 
   def format_sim_card_price
-    format_price = sim_card_price % 1 != 0 ? '%.2f' % sim_card_price : sim_card_price.to_i.to_s
-    country.currency == 'GBP' ? country.currency_sign + '' + format_price : format_price + '' + country.currency_sign
+    format_price = (sim_card_price % 1).zero? ? sim_card_price.to_i.to_s : '%.2f' % sim_card_price
+    country.currency == 'GBP' ? "#{country.currency_sign}#{format_price}" : "#{format_price}#{country.currency_sign}"
   end
 
   def desc_preview
-    area.size >= 20 ? area.first(17) + '...' : area
+    area.size >= 20 ? "#{area.first(17)}..." : area
   end
 
   def internet_only?
@@ -77,9 +77,4 @@ class Mobile < ApplicationRecord
   def internet_and_call?
     offer_type == 'internet_and_call'
   end
-
-  def unlimited_data?
-    data.nil? or data.zero?
-  end
-
 end

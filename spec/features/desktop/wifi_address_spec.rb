@@ -5,11 +5,10 @@ RSpec.feature "Desktop - Wifi / Address", type: :feature do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }
     let!(:category) { create(:category, :wifi) }
-    let!(:company) {create(:company)}
+    let!(:company) { create(:company) }
     let!(:person) { create(:person, country.code.to_sym, user: user) }
-    let!(:wifi) {create(:wifi, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, wifi: wifi)}
-
+    let!(:wifi) { create(:wifi, category: category, company: company, country: country) }
+    let!(:product_feature) { create(:product_feature, wifi: wifi) }
 
     before :each do
       login_as(user, scope: :user)
@@ -38,12 +37,12 @@ RSpec.feature "Desktop - Wifi / Address", type: :feature do
           fill_in 'address_street', with: '23 Le Vieux Bourg Trég'
         end
         sleep 1
-        expect {
+        expect do
           find('.ap-suggestion', match: :first).click
           sleep 1
           @address.reload
-        }.to change { @address.street }.to("23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
-         .and change { @address.is_complete? }.to(true)
+        end.to change { @address.street }.to("23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
+                                         .and change { @address.complete? }.to(true)
       end
       it "should redirect user to wifi first step" do
         within("#new_address") do
@@ -55,7 +54,7 @@ RSpec.feature "Desktop - Wifi / Address", type: :feature do
         click_on 'Confirm'
         expect(page).to have_field('Address', with: @address.reload.street)
       end
-       it "should throw an error if user changes the address" do
+      it "should throw an error if user changes the address" do
         within("#new_address") do
           fill_in 'address_street', with: '23 Le Vieux Bourg Trég'
           sleep 1

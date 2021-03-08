@@ -21,7 +21,6 @@ Capybara.default_driver = :rack_test
 Capybara.default_max_wait_time = 30
 
 RSpec.configure do |config|
-
   config.before(:each) do |example|
     Capybara.current_driver = :headless_chrome if example.metadata[:headless_chrome]
     Capybara.current_driver = :selenium_chrome if example.metadata[:selenium_chrome]

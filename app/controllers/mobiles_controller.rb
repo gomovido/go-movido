@@ -1,7 +1,8 @@
 class MobilesController < ApplicationController
   def index
-    @products = Mobile.where(country: current_user.active_address.country, active: true).map{ |product| product if !product.product_features.blank? }.compact
-    @address ||= Address.new
+    @products = Mobile.where(country: current_user.active_address.country, active: true).map do |product|
+      product unless product.product_features.blank?
+    end.compact
   end
 
   def modal
@@ -10,5 +11,4 @@ class MobilesController < ApplicationController
       format.html { render layout: false }
     end
   end
-
 end

@@ -1,12 +1,12 @@
 class SubscriptionsController < ApplicationController
   before_action :set_product, only: [:create]
-  before_action :set_subscription, only: [:summary, :validate_subscription, :congratulations, :payment, :abort_subscription]
+  before_action :set_subscription, only: %i[summary validate_subscription congratulations payment abort_subscription]
   skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
   skip_before_action :authenticate_user!, only: [:send_confirmed_email]
 
-
   def create
     return if subscription_active?(@product)
+
     subscription = @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
     if subscription
       redirect_to subscription.path_to_first_step
@@ -18,6 +18,7 @@ class SubscriptionsController < ApplicationController
       @subscription.state = 'draft'
       if @subscription.save
         return if user_profil_is_uncomplete?
+
         redirect_to @subscription.path_to_first_step
       else
         redirect_back(fallback_location: root_path, locale: I18n.locale)
@@ -28,12 +29,13 @@ class SubscriptionsController < ApplicationController
   def summary; end
 
   def validate_subscription
-    if @subscription.product_is_mobile? && @subscription.product.has_payment?
+    if @subscription.product_is_mobile? && @subscription.product.payment?
       @subscription.update_columns(state: 'pending_processed', locale: I18n.locale)
       redirect_to subscription_payment_path(@subscription)
     else
       @subscription.update_columns(state: 'succeeded', locale: I18n.locale)
-      UserMailer.with(user: @subscription.address.user, subscription: @subscription, locale: @subscription.locale).subscription_under_review_email.deliver_now
+      UserMailer.with(user: @subscription.address.user, subscription: @subscription,
+                      locale: @subscription.locale).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(@subscription)
     end
   end
@@ -59,25 +61,24 @@ class SubscriptionsController < ApplicationController
     if @subscription.state == 'draft'
       @subscription.update_columns(state: 'aborted')
       flash[:alert] = I18n.t 'flashes.subscription_aborted'
-      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = I18n.t 'flashes.global_failure'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
   def user_profil_is_uncomplete?
-    redirect_to new_subscription_person_path(@subscription) if !current_user.is_complete?
+    redirect_to new_subscription_person_path(@subscription) unless current_user.complete?
   end
 
   def subscription_active?(product)
     subscription_check = Subscription.find_by(state: 'succeeded', product: product, address: current_user.active_address)
-    if subscription_check && !subscription_check.product_is_mobile?
-      redirect_to subscription_congratulations_path(subscription_check)
-      flash[:alert] = I18n.t 'flashes.existing_subscription'
-    end
+    return unless subscription_check&.product_is_wifi?
+
+    redirect_to subscription_congratulations_path(subscription_check)
+    flash[:alert] = I18n.t 'flashes.existing_subscription'
   end
 
   def set_subscription
@@ -85,15 +86,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def set_product
-    if params[:product_type] == 'Wifi'
+    case params[:product_type]
+    when 'Wifi'
       @product = Wifi.find(params[:product_id])
-    elsif params[:product_type] == 'Mobile'
+    when 'Mobile'
       @product = Mobile.find(params[:product_id])
     end
   end
 
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: [:address, :bic, :iban, :bank, :user_id], address_attributes: [:id, :floor, :street, :building, :stairs, :door, :gate_code])
+    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: %i[address bic iban bank user_id],
+                                                                  address_attributes: %i[id floor street building stairs door gate_code])
   end
-
 end
