@@ -32,8 +32,10 @@ export default class extends Controller {
     this.countryWrapperTarget.classList.toggle(this.hideClass);
   }
 
-  cleanCountryCode() {
-    document.querySelector('#algolia_country_code').value = ""
+  cleanCountryCode(e) {
+    if (e.keyCode !== 13) {
+      document.querySelector('#algolia_country_code').value = "";
+    }
   }
 
 }

@@ -31,7 +31,7 @@
           label: false,
           input_html: { class: 'border-0 w-100', data: {
           profile_target: 'addressInput',
-          reflex_dataset:'combined', action: 'keypress->profile#cleanCountryCode'
+          reflex_dataset:'combined', action: 'keydown->profile#cleanCountryCode'
           }}%>
           <%= f.hidden_field :zipcode, id:'address_zipcode' %>
           <%= f.hidden_field :city, id:'address_city' %>

@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = [ "delivery", "phone"]
 
   connect() {
-
     phoneInput(this.phoneTarget);
     this.delivery = addressAutocomplete(this.deliveryTarget);
     this.delivery.on('change', e => {
@@ -15,7 +14,9 @@ export default class extends Controller {
     searchByCountry(this.delivery, [this.deliveryTarget.dataset.country.toUpperCase()])
    }
 
-  cleanCountryCode() {
-    document.querySelector('#algolia_country_code').value = "";
+  cleanCountryCode(e) {
+    if (e.keyCode !== 13) {
+      document.querySelector('#algolia_country_code').value = "";
+    }
   }
 }

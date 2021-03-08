@@ -25,8 +25,10 @@ export default class extends Controller {
   }
 
 
-  borderColor() {
-    document.querySelector('#algolia_country_code').value = ""
+  borderColor(e) {
+    if (e.keyCode !== 13) {
+      document.querySelector('#algolia_country_code').value = "";
+    }
     this.streetInputTarget.classList.remove('is-valid');
     this.streetInputTarget.classList.add('is-invalid');
     this.disableButton();
