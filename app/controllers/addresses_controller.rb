@@ -21,32 +21,35 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    if @subscription.delivery_address
-      search_for_country_code
-    else
-      @country_code = current_user.active_address.country.code
-    end
+    get_country_code
   end
 
-
-  def search_for_country_code
-    if I18n.t("country.#{@subscription.address.country.code}") == @subscription.delivery_address.split(',').last.strip
-      @country_code = @subscription.address.country.code
-    else
-      nil
-    end
-  end
 
   def update
     if @subscription.update(subscription_params)
       redirect_to new_subscription_billing_path(@subscription)
     else
+      get_country_code
       render :edit
     end
   end
 
 
   private
+
+  def get_country_code
+    if @subscription.delivery_address
+      countries = I18n.available_locales.map{|locale| I18n.t("country.#{@subscription.address.country.code}", locale: locale)}
+      delivery_address_country = @subscription.delivery_address.split(',').last.strip
+      if countries.include?(delivery_address_country)
+        @country_code = @subscription.address.country.code
+      else
+        nil
+      end
+    else
+      @country_code = current_user.active_address.country.code
+    end
+  end
 
   def address_params
     params.require(:address).permit(:street, :zipcode , :city, :moving_country, :algolia_country_code)

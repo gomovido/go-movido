@@ -27,7 +27,7 @@ module GoMovido
     null_regex = Regexp.new(/\Anull\z/)
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        hostnames = [null_regex, 'localhost:4200', 'app.forestadmin.com', 'localhost:3001']
+        hostnames = [null_regex, 'app.forestadmin.com']
         hostnames += ENV['CORS_ORIGINS'].split(',') if ENV['CORS_ORIGINS']
 
         origins hostnames
