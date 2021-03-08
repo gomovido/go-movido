@@ -39,6 +39,8 @@ class Subscription < ApplicationRecord
     end
   end
 
+
+
   def icon_state
     if self.state == 'draft'
       'far fa-clipboard-list'

@@ -22,17 +22,29 @@ export default class extends Controller {
     });
   }
 
-  cleanCountryCode() {
-    document.querySelector('#algolia_country_code').value = ""
+  cleanCountryCode(e) {
+    if (e.keyCode !== 13) {
+      document.querySelector('#algolia_country_code').value = "";
+    }
   }
 
   stepForward() {
+    if (this.localeValue === 'fr') {
+      document.querySelector('.subtitle').innerText = "Sélectionne le format de ta carte SIM"
+    } else {
+      document.querySelector('.subtitle').innerText = "Please choose your SIM card size"
+    }
     window.scroll({top: 0});
     this.firstPartTarget.classList.add(this.hideClass);
     this.secondPartTarget.classList.remove(this.hideClass);
   }
 
   stepBackward() {
+    if (this.localeValue === 'fr') {
+      document.querySelector('.subtitle').innerText = "Nous avons besoin de tes coordonnées bancaires pour l'option de prélèvement automatique de ton abonnement"
+    } else {
+      document.querySelector('.subtitle').innerText = "We need your bank details to set up the direct debit option of your subscription"
+    }
     window.scroll({top: 0});
     this.firstPartTarget.classList.remove(this.hideClass);
     this.secondPartTarget.classList.add(this.hideClass);
