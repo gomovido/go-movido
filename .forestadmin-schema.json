@@ -2512,6 +2512,36 @@
       "relationship": "HasOne",
       "widget": null,
       "validations": []
+    }, {
+      "field": "wifi",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": true,
+      "is_required": false,
+      "is_sortable": false,
+      "is_virtual": true,
+      "reference": "Wifi.id",
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "mobile",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": true,
+      "is_required": false,
+      "is_sortable": false,
+      "is_virtual": true,
+      "reference": "Mobile.id",
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
     }],
     "segments": [],
     "actions": [{
