@@ -9,6 +9,9 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
+    <% I18n.available_locales.each do |locale| %>
+      <link rel="alternate" hreflang=<%= locale %> href=<%= url_for(locale: locale, only_path: false) %>>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
@@ -17,6 +20,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/2eebd99045.js" crossorigin="anonymous"></script>
+    <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:2285455,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     <%= favicon_link_tag asset_path('layout/favicon.ico') %>
     <%= render 'shared/google_tag_manager' %>
   </head>
