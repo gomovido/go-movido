@@ -2,6 +2,7 @@ class BillingsController < ApplicationController
   before_action :set_subscription, only: [:new, :create, :update]
 
   def new
+    search_for_country_code if @subscription.delivery_address
     if !current_user.is_complete?
       redirect_to new_subscription_person_path(@subscription)
     else
@@ -33,6 +34,14 @@ class BillingsController < ApplicationController
   end
 
   private
+
+  def search_for_country_code
+    if I18n.t("country.#{@subscription.address.country.code}") == @subscription.delivery_address.split(',').last.strip
+      @country_code = @subscription.address.country.code
+    else
+      nil
+    end
+  end
 
   def billing_params
     params.require(:billing).permit(:address, :iban, :holder_name, :subscription_id, :algolia_country_code, subscription_attributes: [:id, :delivery_address, :sim])
