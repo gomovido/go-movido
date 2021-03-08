@@ -1,13 +1,16 @@
 import { Controller } from "stimulus";
-import { addressAutocomplete } from '../packs/algolia';
+import { addressAutocomplete, searchByCountry } from '../packs/algolia';
+
 
 export default class extends Controller {
   static targets = [ "continueButton", "billingAddressInput", "firstPart", "secondPart", "ibanInput", "giffgaffAddressInput" ]
   static classes = [ "hide", "disabled" ]
-  static values = { locale: String }
+  static values = { locale: String, country: String }
   connect() {
     let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
     let billingAddress = addressAutocomplete(this.billingAddressInputTarget);
+    console.log(this.countryValue)
+    searchByCountry(billingAddress, [this.countryValue])
     if (deliveryField && deliveryField.dataset.company === "giffgaff") {
       addressAutocomplete(deliveryField);
     } else if (deliveryField) {
