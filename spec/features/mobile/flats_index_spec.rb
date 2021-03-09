@@ -12,9 +12,8 @@ RSpec.describe "Mobile - Flats Index", type: :feature do
       visit flats_path(locale: :en)
     end
 
-    it 'should display flats' do
+    it 'displays flats' do
       expect(page).to have_selector('.flat-card')
     end
-
   end
 end
