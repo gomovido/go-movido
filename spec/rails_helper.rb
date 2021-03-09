@@ -43,7 +43,7 @@ RSpec.configure do |config|
   config.before :suite do
     Warden.test_mode!
   end
-  config.after :each do
+  config.after do
     Warden.test_reset!
   end
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

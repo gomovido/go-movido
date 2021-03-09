@@ -1,21 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  subject { build(:user) }
+  subject(:user) { build(:user) }
+
   it "is valid with valid attributes" do
-    expect(subject).to be_valid
+    expect(user).to be_valid
   end
 
-  context "validations" do
-    it { should validate_presence_of(:first_name) }
-    it { should validate_presence_of(:last_name) }
-    it { should validate_presence_of(:password) }
-    it { should validate_presence_of(:email) }
-    it { should allow_value(subject.email).for(:email) }
-    it { should_not allow_value("not-an-email").for(:email) }
+  context "with validations" do
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to allow_value(user.email).for(:email) }
+    it { is_expected.not_to allow_value("not-an-email").for(:email) }
   end
 
-  context "instance method" do
+  context "with instance method" do
     let(:user) { create(:user) }
     let!(:country) { create(:country, %i[fr gb].sample) }
 

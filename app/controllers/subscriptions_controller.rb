@@ -1,8 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_product, only: [:create]
-  before_action :set_subscription, only: %i[summary validate_subscription congratulations payment abort_subscription]
-  skip_before_action :verify_authenticity_token, only: [:send_confirmed_email]
-  skip_before_action :authenticate_user!, only: [:send_confirmed_email]
+  before_action :set_subscription, only: %i[summary validate_subscription congratulations abort_subscription]
 
   def create
     return if subscription_active?(@product)

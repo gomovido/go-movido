@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Desktop - Complete Profile", type: :feature do
+RSpec.describe "Desktop - Complete Profile", type: :feature do
   describe "User take a subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, %i[fr gb].sample) }
@@ -11,17 +11,17 @@ RSpec.feature "Desktop - Complete Profile", type: :feature do
     let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
     let!(:product_feature) { create(:product_feature, mobile: mobile) }
 
-    before :each do
+    before do
       login_as(user, scope: :user)
       visit category.path_to_index
       click_on 'Select offer'
     end
 
-    it "should be redirected to complete profile" do
+    it "is redirected to complete profile" do
       expect(page).to have_content('Please complete your profile')
     end
 
-    it "should create the person" do
+    it "creates the person" do
       country_code = IsoCountryCodes.find(country.code).calling
       sleep 2
       within("#new_person") do
@@ -38,7 +38,8 @@ RSpec.feature "Desktop - Complete Profile", type: :feature do
       click_button 'Continue'
       expect(Person.where(user: user).count).to eq(1)
     end
-    it "should display form errors" do
+
+    it "displays form errors" do
       click_button 'Continue'
       expect(page).to have_css('.invalid-feedback')
     end
