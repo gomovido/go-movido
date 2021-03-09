@@ -7,8 +7,8 @@ class FlatsController < ApplicationController
   end
 
   def search
-    country = params[:query][:country].downcase.gsub(' ', '-')
-    city = params[:query][:city].downcase.gsub(' ', '-')
+    country = params[:query][:country].downcase.tr(' ', '-')
+    city = params[:query][:city].downcase.tr(' ', '-')
     redirect_to flats_path(country, city)
   end
 end

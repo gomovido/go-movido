@@ -7,7 +7,7 @@ class HousingApiService
   def retrieve_city_code
     uri = URI("https://uniacco.com/api/v1/countries/#{@country_code}/cities")
     response = JSON.parse(Net::HTTP.get(uri))
-    response['cities'].find {|city| city if city['code'] == @city}
+    response['cities'].find { |city| city if city['code'] == @city }
   end
 
   def list_flats
@@ -17,4 +17,3 @@ class HousingApiService
     response['properties']
   end
 end
-
