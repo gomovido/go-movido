@@ -12,12 +12,9 @@ class HousingApiService
 
   def list_flats
     city_code = retrieve_city_code['code']
-    uri = URI("https://uniacco.com/api/v1/cities/eazea/properties?page=1&sortBy=relevance")
+    uri = URI("https://uniacco.com/api/v1/cities/#{city_code}/properties?page=1&sortBy=relevance")
     response = JSON.parse(Net::HTTP.get(uri))
-    p response
     response['properties']
   end
 end
-
-
 
