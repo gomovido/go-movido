@@ -1,23 +1,23 @@
 require 'rails_helper'
 
-RSpec.feature "Desktop - Profile", type: :feature do
+RSpec.describe "Desktop - Profile", type: :feature do
   describe "User visits profile", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, %i[fr gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
     let!(:person) { create(:person, country.code.to_sym, user: user) }
 
-    before :each do
+    before do
       login_as(user, scope: :user)
       visit user_path(user, active_tab: 'profile', locale: 'en')
     end
 
     context 'when user wants to visit his profile' do
-      it "should redirect to the profile tabs" do
+      it "redirects to the profile tabs" do
         expect(page).to have_content('My details')
       end
 
-      it "should display user's profile details" do
+      it "displays user's profile details" do
         expect(page).to have_field('First name', with: user.first_name)
         expect(page).to have_field('Surname', with: user.last_name)
         expect(page).to have_field('E-mail', with: user.email)
@@ -28,7 +28,7 @@ RSpec.feature "Desktop - Profile", type: :feature do
     end
 
     context 'when user wants to update his profile' do
-      it "should update user" do
+      it "updates user" do
         new_user_email = 'new_email@gmail.com'
         new_user_first_name = 'new_first_name'
         new_user_last_name = 'new_last_name'
@@ -41,12 +41,12 @@ RSpec.feature "Desktop - Profile", type: :feature do
           click_button 'Update'
           sleep 2
           user.reload
-        end.to change { user.email }.to(new_user_email)
-                                    .and change { user.first_name }.to(new_user_first_name)
-                                                                   .and change { user.last_name }.to(new_user_last_name)
+        end.to change(user, :email).to(new_user_email)
+                                   .and change(user, :first_name).to(new_user_first_name)
+                                                                 .and change(user, :last_name).to(new_user_last_name)
       end
 
-      it "should display the right callsign" do
+      it "displays the right callsign" do
         find('.iti__selected-flag').click
         find("li[data-country-code='#{country.code}']", visible: false, match: :first).click
         country_code = IsoCountryCodes.find(country.code).calling
@@ -54,7 +54,7 @@ RSpec.feature "Desktop - Profile", type: :feature do
         expect(page).to have_field('Phone', with: country_code)
       end
 
-      it "should update person" do
+      it "updates person" do
         new_user_person_birthdate = Date.new(1992, 8, 14)
         find('input.datepicker').click
         find('.numInput').fill_in with: new_user_person_birthdate.year

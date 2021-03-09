@@ -2,13 +2,13 @@ class Wifi < ApplicationRecord
   belongs_to :category
   belongs_to :company
   belongs_to :country
-  has_many :subscriptions, as: :product
+  has_many :subscriptions, as: :product, dependent: :nullify
   has_many :product_features, dependent: :destroy
   has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
   has_many :special_offer_translations, through: :special_offers, source: :translations
-  validates_presence_of :name, :area, :price, :time_contract, :setup_price, :data_speed
-  validates_inclusion_of :active, in: [true, false]
+  validates :name, :area, :price, :time_contract, :setup_price, :data_speed, presence: true
+  validates :active, inclusion: { in: [true, false] }
 
   def total_steps
     4

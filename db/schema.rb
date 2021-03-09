@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_173630) do
+ActiveRecord::Schema.define(version: 2021_03_09_105341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_173630) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "policy_link"
+    t.index ["name"], name: "index_companies_on_name", unique: true
   end
 
   create_table "countries", force: :cascade do |t|

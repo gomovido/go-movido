@@ -6,17 +6,18 @@ RSpec.describe Wifi, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:product_features) }
-    it { should have_many(:special_offers) }
-    it { should have_many(:subscriptions) }
-    it { should belong_to(:category) }
-    it { should belong_to(:company) }
-    it { should belong_to(:country) }
+    it { is_expected.to have_many(:product_features) }
+    it { is_expected.to have_many(:special_offers) }
+    it { is_expected.to have_many(:subscriptions) }
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to belong_to(:company) }
+    it { is_expected.to belong_to(:country) }
   end
+
   describe 'validations' do
     %i[name area price time_contract setup_price data_speed].each do |field|
-      it { should validate_presence_of(field) }
+      it { is_expected.to validate_presence_of(field) }
     end
-    it { should_not allow_value(nil).for(:active) }
+    it { is_expected.not_to allow_value(nil).for(:active) }
   end
 end
