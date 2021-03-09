@@ -5,5 +5,6 @@ FactoryBot.define do
     iban { "FR7630006000011234567890189" }
     bank { "CREDIT AGRICOLE SA" }
     holder_name { "Holder name" }
+    algolia_country_code { 'fr' }
   end
 end

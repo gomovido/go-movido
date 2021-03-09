@@ -2,19 +2,19 @@ class Mobile < ApplicationRecord
   belongs_to :category
   belongs_to :company
   belongs_to :country
-  has_many :subscriptions, as: :product
+  has_many :subscriptions, as: :product, dependent: :nullify
   has_many :product_features, dependent: :destroy
   has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
   has_many :special_offer_translations, through: :special_offers, source: :translations
   validates :data_unit, inclusion: { in: ["GB", "MB"] }, unless: :not_needed?
   validates :offer_type, inclusion: { in: ["call_only", "internet_only", "internet_and_call"] }
-  validates_presence_of :name, :area, :price, :offer_type, :time_contract, :sim_card_price
-  validates_inclusion_of :sim_needed, in: [true, false]
-  validates_inclusion_of :active, in: [true, false]
-  validates_presence_of :data, if: :internet_only?
-  validates_presence_of :call, if: :call_only?
-  validates_presence_of :call, :data, if: :internet_and_call?
+  validates :name, :area, :price, :offer_type, :time_contract, :sim_card_price, presence: true
+  validates :sim_needed, inclusion: { in: [true, false] }
+  validates :active, inclusion: { in: [true, false] }
+  validates :data, presence: { if: :internet_only? }
+  validates :call, presence: { if: :call_only? }
+  validates :call, :data, presence: { if: :internet_and_call? }
 
   def uk?
     country.code == 'gb'

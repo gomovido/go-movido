@@ -100,3 +100,7 @@ gem 'rubocop-performance', require: false
 gem "httparty", "~> 0.18.1"
 
 gem "appsignal", "~> 2.11"
+
+gem "rubocop-rails", "~> 2.9"
+
+gem "rubocop-rspec", "~> 2.2"

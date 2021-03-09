@@ -1,7 +1,7 @@
 class WifisController < ApplicationController
   def index
     @products = Wifi.where(country: current_user.active_address.country, active: true).map do |product|
-      product unless product.product_features.blank?
+      product if product.product_features.present?
     end.compact
     # rubocop:disable Naming/MemoizedInstanceVariableName
     @address ||= Address.new

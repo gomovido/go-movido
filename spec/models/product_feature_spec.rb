@@ -1,37 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe ProductFeature, type: :model do
+  subject(:product_feature) { described_class.new }
+
   let!(:category) { create(:category, :mobile) }
   let!(:company) { create(:company) }
   let!(:category_wifi) { create(:category, :wifi) }
   let!(:country) { create(:country, %i[fr gb].sample) }
   let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
   let!(:wifi) { create(:wifi, category: category_wifi, company: company, country: country) }
+
   describe 'associations' do
-    it { should belong_to(:mobile).optional }
-    it { should belong_to(:wifi).optional }
+    it { is_expected.to belong_to(:mobile).optional }
+    it { is_expected.to belong_to(:wifi).optional }
   end
 
   describe 'validations' do
-    it 'should validate presence of name' do
-      subject = ProductFeature.new(description: 'desc', name: nil, mobile: mobile)
-      expect(subject.save).to eq(false)
-    end
-    it 'should validate presence of description' do
-      subject = ProductFeature.new(description: nil, name: 'name', mobile: mobile)
-      expect(subject.save).to eq(false)
+    it 'validates presence of name' do
+      product_feature.assign_attributes(description: 'desc', name: nil, mobile: mobile)
+      expect(product_feature.save).to eq(false)
     end
 
-    context 'should validates presence of only one belongs_to association' do
-      it 'should not save' do
-        subject = build(:product_feature, mobile: mobile, wifi: wifi)
-        expect(subject.save).to eq(false)
+    it 'validates presence of description' do
+      product_feature.assign_attributes(description: nil, name: 'name', mobile: mobile)
+      expect(product_feature.save).to eq(false)
+    end
+
+    context 'when validates presence of only one belongs_to association' do
+      it 'does not save' do
+        product_feature = build(:product_feature, mobile: mobile, wifi: wifi)
+        expect(product_feature.save).to eq(false)
       end
     end
-    context 'should validates presence at least of one belongs_to association' do
-      it 'should save' do
-        subject = build(:product_feature, mobile: mobile)
-        expect(subject.save!).to eq(true)
+
+    context 'when validates presence at least of one belongs_to association' do
+      it 'saves' do
+        product_feature = build(:product_feature, mobile: mobile)
+        expect(product_feature.save!).to eq(true)
       end
     end
   end

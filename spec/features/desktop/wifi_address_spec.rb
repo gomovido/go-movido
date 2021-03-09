@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Desktop - Wifi / Address", type: :feature do
+RSpec.describe "Desktop - Wifi / Address", type: :feature do
   describe "User wants to take a wifi product", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }
@@ -10,29 +10,33 @@ RSpec.feature "Desktop - Wifi / Address", type: :feature do
     let!(:wifi) { create(:wifi, category: category, company: company, country: country) }
     let!(:product_feature) { create(:product_feature, wifi: wifi) }
 
-    before :each do
+    before do
       login_as(user, scope: :user)
     end
 
     context "with a complete address" do
-      it "should display wifi first step" do
+      it "displays wifi first step" do
         address = create(:address, country.code.to_sym, country: country, user: user)
         visit category.path_to_index
         click_on 'Select offer'
         expect(page).to have_field('Address', with: address.street)
       end
     end
+
     context "without complete address" do
-      before :each do
-        @address = create(:address, country: country, user: user)
+      let!(:address) { create(:address, country: country, user: user) }
+
+      before do
         visit category.path_to_index
         click_on 'Select offer'
         sleep 1
       end
-      it "should open address modal" do
+
+      it "opens address modal" do
         expect(page).to have_content('What is your address ?')
       end
-      it "should update user's current address" do
+
+      it "updates user's current address" do
         within("#new_address") do
           fill_in 'address_street', with: '23 Le Vieux Bourg Trég'
         end
@@ -40,11 +44,11 @@ RSpec.feature "Desktop - Wifi / Address", type: :feature do
         expect do
           find('.ap-suggestion', match: :first).click
           sleep 1
-          @address.reload
-        end.to change { @address.street }.to("23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
-                                         .and change { @address.complete? }.to(true)
+          address.reload
+        end.to change(address, :street).and change(address, :complete?)
       end
-      it "should redirect user to wifi first step" do
+
+      it "redirects user to wifi first step" do
         within("#new_address") do
           fill_in 'address_street', with: '23 Le Vieux Bourg Trég'
         end
@@ -52,9 +56,10 @@ RSpec.feature "Desktop - Wifi / Address", type: :feature do
         find('.ap-suggestion', match: :first).click
         sleep 1
         click_on 'Confirm'
-        expect(page).to have_field('Address', with: @address.reload.street)
+        expect(page).to have_field('Address', with: address.reload.street)
       end
-      it "should throw an error if user changes the address" do
+
+      it "throws an error if user changes the address" do
         within("#new_address") do
           fill_in 'address_street', with: '23 Le Vieux Bourg Trég'
           sleep 1

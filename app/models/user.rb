@@ -13,9 +13,9 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :username, use: :slugged
-  validates_presence_of :first_name, :last_name, :email
-  validates_uniqueness_of :email, :username
-  validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, :username, uniqueness: true
+  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
   before_create :generate_username
   # rubocop:enable Naming/VariableNumber
   def self.from_omniauth_google(access_token)
@@ -56,7 +56,7 @@ class User < ApplicationRecord
   protected
 
   def generate_username
-    self.username = "#{"#{first_name}-#{last_name}".tr(' ', '-')}-#{Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]}"
+    self.username = "#{"#{first_name}-#{last_name}".tr(' ', '-')}-#{Digest::SHA1.hexdigest([Time.zone.now, rand].join)[0..10]}"
     generate_username if User.exists?(username: username)
   end
 end
