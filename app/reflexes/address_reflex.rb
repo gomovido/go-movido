@@ -5,7 +5,7 @@ class AddressReflex < ApplicationReflex
   def default
     address = Address.find(element.dataset.id)
     address.set_has_active
-    morph ".subscriptions-wrapper", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: { subscriptions: current_user.subscriptions }) }
+    morph ".subscriptions-wrapper", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: { subscriptions: current_user.user_subscriptions_country }) }
     morph ".addresses-container", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: { address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false) }) }
   end
 
@@ -15,7 +15,7 @@ class AddressReflex < ApplicationReflex
     address.country = Country.find_by(code: address_params[:algolia_country_code])
     address.user = current_user
     if address.save
-      morph ".subscriptions-wrapper", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: { subscriptions: current_user.subscriptions }) }
+      morph ".subscriptions-wrapper", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: { subscriptions: current_user.user_subscriptions_country }) }
       morph ".addresses-container", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: { address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false) }) }
     else
       morph '#error', with_locale { I18n.t('users.addresses.form.failure.street') }

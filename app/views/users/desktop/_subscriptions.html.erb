@@ -9,16 +9,15 @@
       </div>
       <%= render 'users/desktop/subscription-details'%>
       <div class="rows position-relative">
-        <% subscriptions.order(state: :asc).each do |subscription| %>
-          <% if subscription.product.country == current_user.active_address.country %>
+        <% if subscriptions.blank? %>
+          <div class="no-offers w-100 text-center pt-3">
+            <h5 class="mb-5"><%= t('users.subscriptions.no_subscription') %></h5>
+            <%= link_to t('users.subscriptions.see_offers'), dashboard_index_path, class: "btn-main" %>
+          </div>
+        <% else %>
+          <% subscriptions.sort_by{ |s| s.state }.each do |subscription| %>
             <%= render 'users/desktop/subscription', subscription: subscription %>
           <% end %>
-        <% end %>
-        <% if current_user.user_subscriptions_country.blank?  %>
-        <div class="no-offers w-100 text-center pt-3">
-          <h5 class="mb-5"><%= t('users.subscriptions.no_subscription') %></h5>
-          <%= link_to t('users.subscriptions.see_offers'), dashboard_index_path, class: "btn-main" %>
-        </div>
         <% end %>
       </div>
   </div>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @address = Address.new
     @user = User.friendly.find(params[:id])
     @user.build_person if @user.person.nil?
-    @subscriptions = current_user.subscriptions.where.not(state: 'aborted')
+    @subscriptions = current_user.user_subscriptions_country
     return if @user == current_user
 
     flash[:alert] = I18n.t 'flashes.not_allowed'
