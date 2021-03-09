@@ -10,8 +10,9 @@
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
     <% I18n.available_locales.each do |locale| %>
-      <link rel="alternate" hreflang=<%= locale %> href=<%= url_for(locale: locale, only_path: false) %>>
+      <link rel="alternate" hreflang="<%= locale %>" href=<%= url_for(locale: locale, only_path: false) %>>
     <% end %>
+    <link rel="alternate" hreflang="x-default" href=<%= url_for(locale: nil, only_path: false) %>>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
