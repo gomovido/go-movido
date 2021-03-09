@@ -8,12 +8,15 @@ export default class extends Controller {
 
   connect() {
     const searchInput = addressAutocomplete(this.searchInputTarget);
-    searchInput.configure({language: 'fr'})
     searchByCountry(searchInput, ['FR', 'GB'])
     searchByCity(searchInput);
     searchInput.on('change', (e) => {
+      if (e.suggestion.countryCode === 'gb') {
+        document.querySelector('#country').value = 'uk'
+      } else if (e.suggestion.countryCode === 'fr') {
+        document.querySelector('#country').value = 'fr'
+      }
       document.querySelector('#city').value = e.suggestion.name
-      document.querySelector('#country').value = e.suggestion.countryCode
     });
   }
 }
