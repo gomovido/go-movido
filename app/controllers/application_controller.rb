@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  http_basic_authenticate_with name: Rails.application.credentials.staging[:http][:username], password: Rails.application.credentials.staging[:http][:password] if Rails.env.staging?
+  if Rails.env.staging?
+    http_basic_authenticate_with name: Rails.application.credentials.staging[:http][:username],
+                                 password: Rails.application.credentials.staging[:http][:password]
+  end
 
   private
 
@@ -10,7 +13,7 @@ class ApplicationController < ActionController::Base
     resource.active_address.nil? ? new_user_address_path(resource.id) : dashboard_index_path
   end
 
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for(_resource)
     root_path
   end
 
@@ -31,11 +34,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :email, :first_name, :last_name ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email first_name last_name])
     devise_parameter_sanitizer.permit(:sign_in,
-      keys: [
-        :email, :password, :password_confirmation
-      ]
-    )
+                                      keys: %i[
+                                        email password password_confirmation
+                                      ])
   end
 end

@@ -17,15 +17,15 @@ RSpec.describe User do
 
   context "instance method" do
     let(:user) { create(:user) }
-    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:country) { create(:country, %i[fr gb].sample) }
 
     it 'is expected to validate that the user profil is complete' do
       create(:person, country.code.to_sym, user: user)
-      expect(user.is_complete?).to be true
+      expect(user.complete?).to be true
     end
 
     it 'is expected to validate that the user profil is uncomplete' do
-      expect(user.is_complete?).to be false
+      expect(user.complete?).to be false
     end
   end
 end

@@ -5,13 +5,13 @@ RSpec.feature "Desktop - Company name", type: :feature do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
-    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:country) { create(:country, %i[fr gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
-    let!(:mobile) {create(:mobile, :internet_and_call, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, mobile: mobile)}
+    let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
+    let!(:product_feature) { create(:product_feature, mobile: mobile) }
 
     before :each do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit category.path_to_index
     end
 

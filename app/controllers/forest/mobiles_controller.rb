@@ -1,6 +1,6 @@
+# rubocop:disable Style/ClassAndModuleChildren
 class Forest::MobilesController < ForestLiana::SmartActionsController
-
-
+  # rubocop:enable Style/ClassAndModuleChildren
   def create_features_translations
     mobile = Mobile.find(ForestLiana::ResourcesGetter.get_ids_from_request(params).first)
     attrs = params.dig('data', 'attributes', 'values')
@@ -15,6 +15,7 @@ class Forest::MobilesController < ForestLiana::SmartActionsController
       redirectTo: "/go-movido-admin/#{Rails.env.capitalize}/Movido/data/Mobile/index/record/Mobile/#{mobile.id}/has-many/Mobile-product_feature_translations"
     }
   end
+
   def create_offers_translations
     mobile = Mobile.find(ForestLiana::ResourcesGetter.get_ids_from_request(params).first)
     attrs = params.dig('data', 'attributes', 'values')

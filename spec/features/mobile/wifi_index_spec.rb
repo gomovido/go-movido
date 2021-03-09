@@ -5,14 +5,14 @@ RSpec.feature "Mobile - Wifi", type: :feature do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :wifi) }
     let!(:company) { create(:company) }
-    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:country) { create(:country, %i[fr gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
-    let!(:wifi) {create(:wifi, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, wifi: wifi)}
-    let!(:special_offer) {create(:special_offer, wifi: wifi)}
+    let!(:wifi) { create(:wifi, category: category, company: company, country: country) }
+    let!(:product_feature) { create(:product_feature, wifi: wifi) }
+    let!(:special_offer) { create(:special_offer, wifi: wifi) }
 
     before :each do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit category.path_to_index
     end
 

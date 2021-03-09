@@ -87,6 +87,7 @@ GEM
       rack
     arel-helpers (2.12.0)
       activerecord (>= 3.1.0, < 7)
+    ast (2.4.2)
     attr_required (1.0.1)
     autoprefixer-rails (10.2.4.0)
       execjs
@@ -268,6 +269,9 @@ GEM
       validate_url
       webfinger (>= 1.0.1)
     orm_adapter (0.5.0)
+    parallel (1.20.1)
+    parser (3.0.0.0)
+      ast (~> 2.4.1)
     pg (1.2.3)
     phony (2.18.19)
     phony_rails (0.14.13)
@@ -336,6 +340,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
+    rainbow (3.0.0)
     rake (13.0.3)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
@@ -351,6 +356,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -368,6 +374,21 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+    rubocop (1.11.0)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.2.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.4.1)
+      parser (>= 2.7.1.5)
+    rubocop-performance (1.10.1)
+      rubocop (>= 0.90.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    ruby-progressbar (1.11.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -428,6 +449,7 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.0.0)
     useragent (0.16.10)
     validate_email (0.1.6)
       activemodel (>= 3.0)
@@ -505,6 +527,8 @@ DEPENDENCIES
   ransack
   redis (>= 4.0)
   rspec-rails (~> 4.0.2)
+  rubocop
+  rubocop-performance
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
@@ -521,7 +545,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4

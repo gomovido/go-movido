@@ -5,14 +5,14 @@ RSpec.feature "Desktop - Payment via Stripe", type: :feature do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
-    let!(:country) { create(:country, [:fr, :gb].sample) }
+    let!(:country) { create(:country, %i[fr gb].sample) }
     let!(:address) { create(:address, country.code.to_sym, country: country, user: user) }
-    let!(:mobile) {create(:mobile, :internet_and_call, category: category, company: company, country: country)}
-    let!(:product_feature) {create(:product_feature, mobile: mobile)}
-    let!(:subscription) {create(:subscription, country.code.to_sym, address: address, product: mobile )}
+    let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
+    let!(:product_feature) { create(:product_feature, mobile: mobile) }
+    let!(:subscription) { create(:subscription, country.code.to_sym, address: address, product: mobile) }
 
     before :each do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit subscription_payment_path(subscription, locale: :en)
     end
     context "when user land on the payment page" do
@@ -45,14 +45,13 @@ RSpec.feature "Desktop - Payment via Stripe", type: :feature do
         ].each do |hash|
           find_in_frame(hash[:selector], hash[:input], hash[:values])
         end
-        expect {
+        expect do
           click_button 'Complete payment'
           sleep 4
           subscription.reload
-        }.to change{subscription.state}.to('succeeded')
-        .and change{subscription.charge.nil?}.to(false)
+        end.to change { subscription.state }.to('succeeded')
+                                            .and change { subscription.charge.nil? }.to(false)
       end
     end
-
   end
 end
