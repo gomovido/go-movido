@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Desktop - Profile Wallet", type: :feature do
-  describe "User visits profile", :selenium_mobile do
+  describe "User visits profile", :headless_mobile do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
     let!(:company) { create(:company) }
