@@ -1,0 +1,9 @@
+<h1>REAL ESTATE MOBILE VERSION</h1>
+
+
+<%= simple_form_for :query, url: search_flats_path, method: :post do |f| %>
+  <%= f.input :location, input_html: { data: { controller: "flats", flats_target: 'searchInput'} } %>
+  <%= f.hidden_field :city, input_html: { id: 'city' } %>
+  <%= f.hidden_field :country %>
+  <%= f.submit "Search", class: "btn btn-main" %>
+<% end %>
