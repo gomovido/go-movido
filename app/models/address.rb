@@ -8,10 +8,10 @@ class Address < ApplicationRecord
   after_create :set_has_active
 
   def set_has_active
-    Address.where(user: user).each { |address| address.update_columns(active: false) }
+    Address.where(user: user).find_each { |address| address.update_columns(active: false) }
     update_columns(active: true)
-    Address.where(user: user).each do |address|
-      address.destroy unless address.complete? || user.addresses.length == 1 || !address.subscriptions.blank?
+    Address.where(user: user).find_each do |address|
+      address.destroy unless address.complete? || user.addresses.length == 1 || address.subscriptions.present?
     end
   end
 
@@ -20,7 +20,7 @@ class Address < ApplicationRecord
   end
 
   def complete?
-    !city.nil? && !city.blank? && !zipcode.nil? && !zipcode.blank? && !street.nil? && !street.blank?
+    !city.nil? && city.present? && !zipcode.nil? && zipcode.present? && !street.nil? && street.present?
   end
 
   def country_name_for_migration

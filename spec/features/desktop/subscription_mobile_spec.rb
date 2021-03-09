@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
+RSpec.describe "Desktop - Subscription mobile flow", type: :feature do
   describe "User wants to take a mobile subscription", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }
@@ -12,29 +12,31 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
     let!(:product_feature) { create(:product_feature, mobile: mobile) }
     let!(:special_offer) { create(:special_offer, mobile: mobile) }
 
-    before :each do
+    before do
       login_as(user, scope: :user)
       visit category.path_to_index
       click_on 'Select offer'
     end
 
-    it 'should initiate a new subscription' do
+    it 'initiates a new subscription' do
       expect(user.subscriptions.last.product_type).to eq('Mobile')
       expect(user.subscriptions.last.product).to eq(mobile)
       expect(user.subscriptions.last.state).to eq("draft")
     end
 
-    it 'should land on the billing step' do
+    it 'lands on the billing step' do
       expect(page).to have_selector("#billing-form")
     end
-    it 'should have the correct number of steps' do
+
+    it 'has the correct number of steps' do
       expect(mobile.total_steps).to eq(3)
     end
-    it 'should prepopulate cardholder name with user full name' do
+
+    it 'prepopulates cardholder name with user full name' do
       expect(page).to have_field('billing_holder_name', with: "#{user.first_name} #{user.last_name}")
     end
 
-    it 'should fill delivery address with billing address' do
+    it 'fills delivery address with billing address' do
       within("#billing-form") do
         if mobile.uk?
           fill_in 'billing_address', with: 'london decorat'
@@ -52,20 +54,23 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
         expect(page).to have_field('billing_subscription_attributes_delivery_address', with: "23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
       end
     end
-    it 'should redirect to the same subscription from profile' do
+
+    it 'redirects to the same subscription from profile' do
       visit user_path(user)
       subscription = user.subscriptions.last
       card = find("div[id='#{subscription.id}']")
       expect(card).to have_selector(:css, "a[href='#{new_subscription_billing_path(subscription, locale: :en)}']")
     end
-    it 'should redirect to the same subscription from products index' do
+
+    it 'redirects to the same subscription from products index' do
       visit mobiles_path
       subscription = user.subscriptions.last
       click_on 'Select offer'
-      expect(current_path).to have_content(new_subscription_billing_path(subscription))
+      expect(page).to have_current_path(new_subscription_billing_path(subscription, locale: :en))
     end
-    context 'and correctly fills billing and sim card choice forms' do
-      before :each do
+
+    context 'when correctly filling billing and sim card choice forms' do
+      before do
         within("#billing-form") do
           if mobile.uk?
             fill_in 'Sort code', with: '090127'
@@ -81,13 +86,14 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
         sleep 1
       end
 
-      it 'should land to summary step' do
+      it 'lands to summary step' do
         expect do
           click_on 'Confirm'
           user.reload
         end.to change { Billing.where(subscription: user.subscriptions.last).count }.to(1)
       end
-      it 'should display all user & subscription details' do
+
+      it 'displays all user & subscription details' do
         click_on 'Confirm'
         subscription = user.subscriptions.last
         billing = subscription.billing
@@ -116,7 +122,8 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
           end
         end
       end
-      it 'should initiate subscription review process' do
+
+      it 'initiates subscription review process' do
         click_on 'Confirm'
         expect do
           click_on 'Purchase now'
@@ -124,11 +131,12 @@ RSpec.feature "Desktop - Subscription mobile flow", type: :feature do
         end.to change { ActionMailer::Base.deliveries.count }.by(1)
                                                              .and change { user.subscriptions.last.state }.to('succeeded')
       end
-      it 'should display congratulations page' do
+
+      it 'displays congratulations page' do
         click_on 'Confirm'
         click_on 'Purchase now'
         subscription = user.subscriptions.last
-        expect(current_path).to have_content(subscription_congratulations_path(subscription))
+        expect(page).to have_current_path(subscription_congratulations_path(subscription, locale: :en))
       end
     end
   end

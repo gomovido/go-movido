@@ -3,9 +3,9 @@ class Billing < ApplicationRecord
 
   belongs_to :subscription
   belongs_to :user
-  validates_presence_of :iban, :address, :bank, :holder_name
-  validates_presence_of :bic, unless: :product_is_uk?
-  validates_presence_of :account_number, :sort_code, if: :product_is_uk?
+  validates :iban, :address, :bank, :holder_name, presence: true
+  validates :bic, presence: { unless: :product_is_uk? }
+  validates :account_number, :sort_code, presence: { if: :product_is_uk? }
   validate :billing_address_country
   validate :check_iban, if: :product_is_fr?
   validate :calculate_iban, if: :product_is_uk?
@@ -55,7 +55,7 @@ class Billing < ApplicationRecord
   end
 
   def billing_address_country
-    return if !address.blank? && algolia_country_code == subscription.product.country.code
+    return if address.present? && algolia_country_code == subscription.product.country.code
 
     errors.add(:address, I18n.t('billings.new.form.failure.wrong_country', country: I18n.t("country.#{subscription.product.country.code}")))
   end

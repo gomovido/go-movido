@@ -7,27 +7,29 @@ RSpec.describe SpecialOffer, type: :model do
   let!(:country) { create(:country, %i[fr gb].sample) }
   let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
   let!(:wifi) { create(:wifi, category: category_wifi, company: company, country: country) }
+
   describe 'associations' do
-    it { should belong_to(:mobile).optional }
-    it { should belong_to(:wifi).optional }
+    it { is_expected.to belong_to(:mobile).optional }
+    it { is_expected.to belong_to(:wifi).optional }
   end
 
   describe 'validations' do
-    it 'should validate presence of name' do
-      subject = ProductFeature.new(name: nil, mobile: mobile)
-      expect(subject.save).to eq(false)
+    it 'validates presence of name' do
+      special_offer = described_class.new(name: nil, mobile: mobile)
+      expect(special_offer.save).to eq(false)
     end
 
-    context 'should validates presence of only one belongs_to association' do
-      it 'should not save' do
-        subject = build(:special_offer, mobile: mobile, wifi: wifi)
-        expect(subject.save).to eq(false)
+    context 'when validates presence of only one belongs_to association' do
+      it 'does not save' do
+        special_offer = build(:special_offer, mobile: mobile, wifi: wifi)
+        expect(special_offer.save).to eq(false)
       end
     end
-    context 'should validates presence at least of one belongs_to association' do
-      it 'should save' do
-        subject = build(:special_offer, mobile: mobile)
-        expect(subject.save!).to eq(true)
+
+    context 'when validates presence at least of one belongs_to association' do
+      it 'saves' do
+        special_offer = build(:special_offer, mobile: mobile)
+        expect(special_offer.save!).to eq(true)
       end
     end
   end

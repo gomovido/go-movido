@@ -1,4 +1,7 @@
-require: rubocop-performance
+require:
+    - rubocop-performance
+    - rubocop-rails
+    - rubocop-rspec
 
 AllCops:
   NewCops: enable
@@ -39,9 +42,9 @@ Lint/MissingSuper:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Layout/LineLength:
-  Max: 261
+  Enabled: false
 Metrics/MethodLength:
-  Max: 30
+  Enabled: false
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 Metrics/BlockLength:
@@ -49,4 +52,21 @@ Metrics/BlockLength:
 Style/EmptyMethod:
   Enabled: false
 Bundler/OrderedGems:
+  Enabled: false
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+#Add this before push
+Rails/SkipsModelValidations:
+  Enabled: false
+RSpec/MultipleExpectations:
   Enabled: false

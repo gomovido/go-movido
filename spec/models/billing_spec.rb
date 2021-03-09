@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Billing, type: :model do
+  subject(:billing) { described_class.new }
+
   let!(:user) { create(:user) }
   let!(:category) { create(:category, :mobile) }
   let!(:company) { create(:company) }
@@ -13,53 +15,62 @@ RSpec.describe Billing, type: :model do
   let!(:product_feature) { create(:product_feature, mobile: mobile_fr) }
   let!(:special_offer) { create(:special_offer, mobile: mobile_fr) }
   let!(:subscription_fr) { create(:subscription, :fr, address: address_fr, product: mobile_fr) }
-  let!(:subscription_gb) { create(:subscription, :gb, address: address_gb, product: mobile_gb) }
+  let(:subscription_gb) { create(:subscription, :gb, address: address_gb, product: mobile_gb) }
 
   describe "Validations" do
-    subject { Billing.new(subscription: subscription_fr) }
-    %i[bank address bank].each do |field|
-      it { should validate_presence_of(field) }
+    %i[bank address holder_name iban].each do |field|
+      it "valides presence of #{field}" do
+        billing.subscription = subscription_fr
+        expect(billing).to validate_presence_of(field)
+      end
     end
-    it 'should validate correct billing fields for uk' do
-      subject.subscription = subscription_gb
-      expect(subject).to validate_presence_of(:account_number)
-      expect(subject).to validate_presence_of(:sort_code)
+
+    it 'validates correct billing fields for uk' do
+      billing.subscription = subscription_gb
+      expect(billing).to validate_presence_of(:account_number)
+      expect(billing).to validate_presence_of(:sort_code)
     end
-    it 'should validate correct billing fields for eu' do
-      subject.subscription = subscription_fr
-      expect(subject).to validate_presence_of(:bic)
+
+    it 'validates correct billing fields for eu' do
+      billing.subscription = subscription_fr
+      expect(billing).to validate_presence_of(:bic)
     end
-    it 'should validate throw error if billing address is not in france' do
-      subject.subscription = subscription_fr
-      subject.address = address_gb.street
-      expect(subject).to_not be_valid
-      expect(subject.errors.messages[:address]).to eq ["needs to be in #{country_fr.name}"]
+
+    it 'validates throw error if billing address is not in france' do
+      billing.subscription = subscription_fr
+      billing.address = address_gb.street
+      expect(billing).not_to be_valid
+      expect(billing.errors.messages[:address]).to eq ["needs to be in #{country_fr.name}"]
     end
-    it 'should validate throw error if billing address is not in uk' do
-      subject.subscription = subscription_gb
-      subject.address = address_fr.street
-      expect(subject).to_not be_valid
-      expect(subject.errors.messages[:address]).to eq ["needs to be in #{country_gb.name}"]
+
+    it 'validates throw error if billing address is not in uk' do
+      billing.subscription = subscription_gb
+      billing.address = address_fr.street
+      expect(billing).not_to be_valid
+      expect(billing.errors.messages[:address]).to eq ["needs to be in #{country_gb.name}"]
     end
-    it "should unvalidate fake/wrong IBAN" do
-      subject.subscription = subscription_fr
-      subject.address = address_fr.street
-      subject.user = user
-      subject.holder_name = user.first_name
-      subject.iban = 'FR77357383583'
-      expect(subject.valid?).to eq(false)
+
+    it "unvalidates fake/wrong IBAN" do
+      billing.subscription = subscription_fr
+      billing.address = address_fr.street
+      billing.user = user
+      billing.holder_name = user.first_name
+      billing.iban = 'FR77357383583'
+      expect(billing.valid?).to eq(false)
     end
-    it "should validate billing with a correct IBAN" do
-      subject = Billing.new(subscription: subscription_fr, address: address_fr.street, algolia_country_code: 'fr', user: user,
-                            holder_name: user.first_name, iban: 'FR7630006000011234567890189')
-      subject.valid?
-      expect(subject.save).to eq(true)
+
+    it "validates billing with a correct IBAN" do
+      billing = described_class.new(subscription: subscription_fr, address: address_fr.street, algolia_country_code: 'fr', user: user,
+                                    holder_name: user.first_name, iban: 'FR7630006000011234567890189')
+      billing.valid?
+      expect(billing.save).to eq(true)
     end
-    it "should validate billing with a correct Sort Code & account_number" do
-      subject = Billing.new(subscription: subscription_gb, address: address_gb.street, algolia_country_code: 'gb', user: user,
-                            holder_name: user.first_name, sort_code: '090127', account_number: '93496333')
-      subject.valid?
-      expect(subject.save).to eq(true)
+
+    it "validates billing with a correct Sort Code & account_number" do
+      billing = described_class.new(subscription: subscription_gb, address: address_gb.street, algolia_country_code: 'gb', user: user,
+                                    holder_name: user.first_name, sort_code: '090127', account_number: '93496333')
+      billing.valid?
+      expect(billing.save).to eq(true)
     end
   end
 end

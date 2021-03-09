@@ -3,7 +3,7 @@ class Country < ApplicationRecord
   has_many :mobiles, dependent: :destroy
   has_many :wifis, dependent: :destroy
   has_many :users, through: :addresses
-  validates_presence_of :code
+  validates :code, presence: true
 
   def name
     I18n.t("country.#{code}")

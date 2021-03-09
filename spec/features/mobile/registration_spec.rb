@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Mobile - Registration", type: :feature do
+RSpec.describe "Mobile - Registration", type: :feature do
   describe "User registration", :headless_mobile do
     let(:user_email) { 'johndoe@gmail.com' }
     let(:user_first_name) { 'john' }
@@ -8,7 +8,7 @@ RSpec.feature "Mobile - Registration", type: :feature do
     let(:user_password) { 'movido123456!' }
     let(:user_password_confirmation) { 'movido123456!' }
 
-    before :each do
+    before do
       visit new_user_registration_path
       within("#new_user") do
         fill_in 'user_email', with: user_email
@@ -19,9 +19,11 @@ RSpec.feature "Mobile - Registration", type: :feature do
       end
       click_button 'Sign up'
     end
+
     it "shows welcome message" do
       expect(page).to have_content('Welcome! You have signed up successfully.')
     end
+
     it "confirms user" do
       expect(User.where(email: user_email)).to exist
     end
