@@ -1,7 +1,7 @@
 class AddressReflex < ApplicationReflex
   delegate :current_user, to: :connection
   before_reflex :set_browser, only: %i[default create]
-
+  # rubocop:disable Lint/AmbiguousBlockAssociation
   def default
     address = Address.find(element.dataset.id)
     address.set_has_active
@@ -29,6 +29,8 @@ class AddressReflex < ApplicationReflex
     @address.user = current_user
     morph :nothing if @address.save!
   end
+
+  # rubocop:enable Lint/AmbiguousBlockAssociation
 
   private
 
