@@ -1,13 +1,12 @@
 class AddressReflex < ApplicationReflex
   delegate :current_user, to: :connection
-  before_reflex :set_browser, only: [:default, :create]
-
-
+  before_reflex :set_browser, only: %i[default create]
+  # rubocop:disable Lint/AmbiguousBlockAssociation
   def default
     address = Address.find(element.dataset.id)
     address.set_has_active
-    morph ".subscriptions-wrapper", with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: {subscriptions: current_user.subscriptions})}
-    morph ".addresses-container",  with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: {address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false)})}
+    morph ".subscriptions-wrapper", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: { subscriptions: current_user.subscriptions }) }
+    morph ".addresses-container", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: { address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false) }) }
   end
 
   def create
@@ -16,10 +15,10 @@ class AddressReflex < ApplicationReflex
     address.country = Country.find_by(code: address_params[:algolia_country_code])
     address.user = current_user
     if address.save
-      morph ".subscriptions-wrapper", with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: {subscriptions: current_user.subscriptions})}
-      morph ".addresses-container",  with_locale {render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: {address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false)})}
+      morph ".subscriptions-wrapper", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/subscriptions", locals: { subscriptions: current_user.subscriptions }) }
+      morph ".addresses-container", with_locale { render(partial: "users/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/addresses", locals: { address: Address.new, active_address: address, addresses: current_user.addresses.where(active: false) }) }
     else
-      morph '#error', with_locale {I18n.t('users.addresses.form.failure.street')}
+      morph '#error', with_locale { I18n.t('users.addresses.form.failure.street') }
     end
   end
 
@@ -28,12 +27,10 @@ class AddressReflex < ApplicationReflex
     @address.assign_attributes(address_params)
     @address.country = Country.find_by(code: address_params[:algolia_country_code])
     @address.user = current_user
-    if @address.save!
-      morph :nothing
-    end
+    morph :nothing if @address.save!
   end
 
-
+  # rubocop:enable Lint/AmbiguousBlockAssociation
 
   private
 

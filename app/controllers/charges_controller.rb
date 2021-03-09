@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :create ]
+  skip_before_action :authenticate_user!, only: [:create]
 
   def create
     @subscription = Subscription.find(params[:subscription][:subscription_id])
@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
     stripe_charge = StripeApiService.new(subscription_id: subscription.id, stripe_token: stripe_token, user_id: current_user.id).proceed_stripe
     I18n.locale = params[:subscription][:locale].to_sym
     if payment_is_succeeded?(stripe_charge)
-      charge = create_or_update_charge(stripe_charge, subscription)
+      create_or_update_charge(stripe_charge, subscription)
       subscription.update_columns(state: 'succeeded', locale: I18n.locale)
       UserMailer.with(user: subscription.address.user, subscription: subscription, locale: I18n.locale).subscription_under_review_email.deliver_now
       redirect_to subscription_congratulations_path(subscription, locale: I18n.locale)
@@ -28,11 +28,9 @@ class ChargesController < ApplicationController
     end
   end
 
-
   def payment_is_succeeded?(stripe_charge)
     stripe_charge[:stripe_charge].status == 'succeeded' if stripe_charge[:stripe_charge]
   end
-
 
   def create_or_update_charge(stripe_charge, subscription)
     charge = Charge.where(subscription: subscription).first_or_create

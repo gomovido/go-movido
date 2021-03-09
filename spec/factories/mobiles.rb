@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :mobile do
     trait :internet_only do
-      offer_type { 'internet_only'}
+      offer_type { 'internet_only' }
       name { "5go Internet only" }
       area { "Europe" }
       price { 12.5 }
@@ -13,7 +13,7 @@ FactoryBot.define do
       sim_needed { false }
     end
     trait :call_only do
-      offer_type { 'call_only'}
+      offer_type { 'call_only' }
       name { "320 hours Call only" }
       area { "Worldwide" }
       price { 15.5 }

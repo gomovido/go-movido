@@ -6,7 +6,7 @@ RSpec.feature "Mobile - Registration / Address", type: :feature do
     let!(:country) { create(:country, :fr) }
 
     before :each do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit root_path
     end
 
@@ -37,10 +37,10 @@ RSpec.feature "Mobile - Registration / Address", type: :feature do
         expect(page).to have_content('What is your address')
       end
 
-      it "should correctly fill the address"  do
-        zipcode_input = page.find_by_id( 'address_zipcode', visible: false )
-        city_input = page.find_by_id( 'address_city', visible: false )
-        algolia_country_code = page.find_by_id( 'algolia_country_code', visible: false )
+      it "should correctly fill the address" do
+        zipcode_input = page.find_by_id('address_zipcode', visible: false)
+        city_input = page.find_by_id('address_city', visible: false)
+        algolia_country_code = page.find_by_id('algolia_country_code', visible: false)
         expect(zipcode_input.value).to eq '29720'
         expect(city_input.value).to eq 'Finistère'
         expect(algolia_country_code.value).to eq country.code

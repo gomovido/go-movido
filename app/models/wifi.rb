@@ -14,8 +14,8 @@ class Wifi < ApplicationRecord
     4
   end
 
-  def is_uk?
-    self.country.code == 'gb'
+  def uk?
+    country.code == 'gb'
   end
 
   def obligation
@@ -27,17 +27,16 @@ class Wifi < ApplicationRecord
   end
 
   def format_price
-    format_price = price % 1 != 0 ? '%.2f' % price : price.to_i.to_s
-    country.currency == 'GBP' ? country.currency_sign + '' + format_price : format_price + '' + country.currency_sign
+    format_price = (price % 1).zero? ? price.to_i.to_s : '%.2f' % price
+    country.currency == 'GBP' ? "#{country.currency_sign}#{format_price}" : "#{format_price}#{country.currency_sign}"
   end
 
   def format_setup_price
-    format_price = setup_price % 1 != 0 ? '%.2f' % setup_price : setup_price.to_i.to_s
-    country.currency == 'GBP' ? country.currency_sign + '' + format_price : format_price + '' + country.currency_sign
+    format_price = (setup_price % 1).zero? ? setup_price.to_i.to_s : '%.2f' % setup_price
+    country.currency == 'GBP' ? "#{country.currency_sign}#{format_price}" : "#{format_price}#{country.currency_sign}"
   end
 
   def desc_preview
-    area.size >= 20 ? area.first(17) + '...' : area
+    area.size >= 20 ? "#{area.first(17)}..." : area
   end
-
 end

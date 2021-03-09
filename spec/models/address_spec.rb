@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-  let!(:country) { create(:country, [:fr, :gb].sample) }
+  let!(:country) { create(:country, %i[fr gb].sample) }
   let!(:user) { create(:user) }
 
   describe "Associations" do
@@ -10,7 +10,6 @@ RSpec.describe Address, type: :model do
   end
 
   describe 'validations' do
-
     context 'user has an address' do
       it 'should work with a french or uk address' do
         address = build(:address, country.code.to_sym, country: country, user: user)
@@ -24,11 +23,11 @@ RSpec.describe Address, type: :model do
       end
       it 'should be a complete address' do
         address = build(:address, country.code.to_sym, country: country, user: user)
-        expect(address.is_complete?).to be true
+        expect(address.complete?).to be true
       end
       it 'should not be a complete address' do
-        address = build(:address, country: country, user: user)
-        expect(subject.is_complete?).to be false
+        subject = build(:address, country: country, user: user)
+        expect(subject.complete?).to be false
       end
     end
 

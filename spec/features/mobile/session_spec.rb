@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Mobile - Session", :type => :feature do
+RSpec.feature "Mobile - Session", type: :feature do
   describe "User Sign in", :headless_mobile do
     let(:user) { create(:user) }
 

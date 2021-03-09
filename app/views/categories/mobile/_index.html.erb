@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <h1 class="title mb-4"><%= t('pages.dashboard_index.title') %></h1>
-      <% if current_user.active_address.is_complete? %>
+      <% if current_user.active_address.complete? %>
         <span class="address"><i class="fas fa-map-marker-alt mr-2"></i><%= truncate(current_user.active_address.street, :length => 70) %></span>
       <% else %>
         <div class="w-100 text-center mb-3"><%= link_to t('pages.dashboard_index.new_address'), user_path(current_user, active_tab: 'addresses'), class: 'btn-main' %></div>

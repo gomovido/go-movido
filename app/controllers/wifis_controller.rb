@@ -1,7 +1,11 @@
 class WifisController < ApplicationController
   def index
-    @products = Wifi.where(country: current_user.active_address.country, active: true).map{ |product| product if !product.product_features.blank? }.compact
+    @products = Wifi.where(country: current_user.active_address.country, active: true).map do |product|
+      product unless product.product_features.blank?
+    end.compact
+    # rubocop:disable Naming/MemoizedInstanceVariableName
     @address ||= Address.new
+    # rubocop:enable Naming/MemoizedInstanceVariableName
   end
 
   def modal
@@ -10,5 +14,4 @@ class WifisController < ApplicationController
       format.html { render layout: false }
     end
   end
-
 end

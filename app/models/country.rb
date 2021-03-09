@@ -6,15 +6,14 @@ class Country < ApplicationRecord
   validates_presence_of :code
 
   def name
-    I18n.t("country.#{self.code}")
+    I18n.t("country.#{code}")
   end
 
   def currency
-    IsoCountryCodes.find(self.code).currency
+    IsoCountryCodes.find(code).currency
   end
 
   def currency_sign
-    I18n.t("country.#{self.currency.downcase}")
+    I18n.t("country.#{currency.downcase}")
   end
-
 end

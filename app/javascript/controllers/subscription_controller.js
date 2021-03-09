@@ -9,7 +9,6 @@ export default class extends Controller {
   connect() {
     let deliveryField = document.getElementById('billing_subscription_attributes_delivery_address')
     let billingAddress = addressAutocomplete(this.billingAddressInputTarget);
-    console.log(this.countryValue)
     searchByCountry(billingAddress, [this.countryValue])
     if (deliveryField && deliveryField.dataset.company === "giffgaff") {
       addressAutocomplete(deliveryField);
