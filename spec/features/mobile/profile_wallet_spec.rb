@@ -10,7 +10,7 @@ RSpec.describe "Desktop - Profile Wallet", type: :feature do
     let!(:person) { create(:person, country.code.to_sym, user: user) }
     let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
     let!(:subscription) { create(:subscription, country.code.to_sym, address: address, product: mobile) }
-    let!(:billing) { create(:billing, subscription: subscription, user: user)}
+    let!(:billing) { create(:billing, subscription: subscription, user: user) }
 
     before do
       login_as(user, scope: :user)
@@ -23,7 +23,7 @@ RSpec.describe "Desktop - Profile Wallet", type: :feature do
     end
 
     it "displays subscription's rate" do
-      expect(page).to have_css('.price', text:"#{subscription.product.format_price}/month")
+      expect(page).to have_css('.price', text: "#{subscription.product.format_price}/month")
     end
 
     it "displays subscription's state" do

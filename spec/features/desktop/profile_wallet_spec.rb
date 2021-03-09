@@ -10,7 +10,7 @@ RSpec.describe "Desktop - Profile Wallet", type: :feature do
     let!(:person) { create(:person, country.code.to_sym, user: user) }
     let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
     let!(:subscription) { create(:subscription, country.code.to_sym, address: address, product: mobile) }
-    let!(:billing) { create(:billing, subscription: subscription, user: user)}
+    let!(:billing) { create(:billing, subscription: subscription, user: user) }
 
     before do
       login_as(user, scope: :user)
@@ -23,7 +23,7 @@ RSpec.describe "Desktop - Profile Wallet", type: :feature do
     end
 
     it "displays subscription's rate" do
-      expect(page).to have_css('.price', text:"#{subscription.product.format_price}\n/month")
+      expect(page).to have_css('.price', text: "#{subscription.product.format_price}\n/month")
     end
 
     it "displays subscription's state" do
@@ -46,7 +46,8 @@ RSpec.describe "Desktop - Profile Wallet", type: :feature do
         visit user_path(user, locale: 'en')
         sleep 1
       end
-      it "should open the details modal" do
+
+      it "opens the details modal" do
         find('#modal-link').click
         sleep 1
         expect(page).to have_css('h3', text: "Subscription")
