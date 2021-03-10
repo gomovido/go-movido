@@ -3,12 +3,22 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = HousingApiService.new(country_code: params[:country], city: params[:city]).list_flats
   end
 
   def search
-    country = params[:query][:country].downcase.tr(' ', '-')
-    city = params[:query][:city].downcase.tr(' ', '-')
-    redirect_to flats_path(country, city)
+    location = format_params(params[:location])
+    city_code = UniaccoApiService.new(location: location).check_and_return_city_code
+    if city_code
+      redirect_to providers_path(query: city_code)
+    else
+      flash[:alert] = 'Please type another location'
+      render :landing
+    end
+  end
+
+  private
+
+  def format_params(location)
+    location.split(',').map { |string| string.strip.downcase.tr(' ', '-') }
   end
 end
