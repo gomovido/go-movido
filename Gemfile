@@ -38,7 +38,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-gem 'postmark-rails', '~> 0.12.0'
+gem 'postmark-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
