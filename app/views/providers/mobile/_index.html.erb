@@ -1,0 +1,11 @@
+<h3>Uniacco flats</h3>
+<% @flats.first(5).map do |flat| %>
+  <div class="flat-card">
+    <div class="name">
+      <%= flat['name'] %>
+    </div>
+    <div class="city">
+      <%= flat['city'] %>
+    </div>
+  </div>
+<% end %>

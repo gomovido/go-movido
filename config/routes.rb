@@ -73,4 +73,6 @@ Rails.application.routes.draw do
 
   post 'search-flats', to: 'flats#search', as: 'search_flats'
 
+  get 'providers-index/:query', to: 'providers#index', as: 'providers'
+
 end
