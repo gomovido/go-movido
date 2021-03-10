@@ -12,17 +12,16 @@ RSpec.describe "Mobile - Flats Index", type: :feature do
       visit real_estate_landing_path(locale: :en)
     end
 
-    context 'test cities' do
-      cities = ["london", "nottingham", "cambridge", "preston", "newcastle", "sheffield", "manchester", "chester", "leicester", "coventry", "glasgow", "liverpool", "aberdeen", "aberystwyth", "bangor", "bath", "belfast", "birmingham", "bolton", "bournemouth", "bradford", "brighton", "bristol", "canterbury", "cardiff", "carlisle", "colchester", "derby", "dundee", "durham", "edinburgh", "egham", "exeter", "hatfield", "high-wycombe", "huddersfield", "ipswich", "kingston", "lancaster", "leeds", "lincoln", "loughborough", "luton", "middlesbrough", "newcastle-under-lyme", "newport", "norwich", "oxford", "paisley", "plymouth", "portsmouth", "reading", "salford", "southampton", "st-andrews"]
-      cities.each do |city|
-        it "works for #{city}" do
-          fill_in "location", with: "university of #{city} United Kingdom"
-          sleep 1
-          find('div.suggestions-wrapper > ul > li.active', match: :first).click
-
-          click_on 'Search'
-          expect(page).to have_content(city)
-        end
+    context 'when user want to search for a flat' do
+      it "redirects to the providers index with some flats" do
+        city = 'london'
+        flats = UniaccoApiService.new(city_code: city).list_flats
+        university = "university of #{city} United Kingdom"
+        fill_in "location", with: university
+        sleep 1
+        find('div.suggestions-wrapper > ul > li.active', match: :first).click
+        click_on 'Search'
+        expect(page).to have_content(flats.first['name'])
       end
     end
   end
