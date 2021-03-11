@@ -383,10 +383,10 @@ fr:
       frequency: 'mensuel'
       frequency_mobile: 'mensuel'
       speed: 'vitesse'
-      setup_costs: "à l'installation"
+      setup_costs: "d'installation"
       free: 'gratuit'
-      no_obligation: 'sans<br>engagement'
-      no_obligation_mobile: 'sans engagement'
+      no_obligation_breakline: 'sans<br>engagement'
+      no_obligation_inline: 'sans engagement'
     modal:
       cta: '<span class="d-flex align-items-baseline justify-content-center">Sélectionner<i class="ml-3 fas fa-arrow-square-right"></i></span>'
       monthly: 'par mois'
