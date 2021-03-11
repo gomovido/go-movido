@@ -374,8 +374,8 @@ en:
       speed: 'speed'
       setup_costs: 'setup costs'
       free: 'Free'
-      no_obligation: 'no<br>obligation'
-      no_obligation_mobile: 'no obligation'
+      no_obligation_breakline: 'no<br>obligation'
+      no_obligation_inline: 'no obligation'
     modal:
       cta: '<span class="d-flex align-items-baseline justify-content-center">Select Offer<i class="ml-3 fas fa-arrow-square-right"></i></span>'
       monthly: 'monthly cost'
