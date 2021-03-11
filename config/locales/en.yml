@@ -4,7 +4,7 @@ en:
     subscription_under_review: 'Congratulations on your purchase'
     booking_under_review: 'Congratulations on your booking'
     subscription_confirmed: 'Subscription confirmed'
-    booking_confirmed: 'Booking confirmed'
+    booking_confirmed: 'Booking confirmed!'
   stripe:
     errors:
       incorrect_number: "The card number is incorrect."
