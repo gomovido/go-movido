@@ -100,6 +100,12 @@ en:
         disclaimer: 'This service is only available for UK and France'
         location: "Please enter your location or university"
         submit: 'Search'
+  providers:
+    index:
+      count: "%{count}+ places to stay"
+      show_all: 'Show all'
+      flatshare: 'Flat Share'
+      student_housing: 'Student Housing'
   pages:
     contact:
       title: 'Contact us'
