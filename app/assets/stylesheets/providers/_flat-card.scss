@@ -1,9 +1,9 @@
 .flat-card {
-  background: #FFFFFF;
-  border: 1px solid #F4F5F7;
+  background: $white;
+  border: 1px solid $snow;
   box-sizing: border-box;
   border-radius: 14px;
-  filter: drop-shadow(0px 16px 40px rgba(166, 163, 173, 0.2));
+  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
   height: 100%;
   min-height: 108px;
   width: 100%;
@@ -13,20 +13,23 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
-    color: #18191F;
+    color: $black;
   }
   .pricing {
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
-    color: #18191F;
+    color: $black;
   }
-  img {
-    border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px;
-    width: 100%;
-    min-height:108px;
+  .img-box {
+    width: 160px;
+    img {
+      border-top-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+      width: 100%;
+      min-height:108px;
+    }
   }
 }
