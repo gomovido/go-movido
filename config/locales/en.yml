@@ -94,6 +94,12 @@ en:
         phone: 'Phone'
         birthdate: 'Date of birth'
         birth_city: 'City of birth'
+  housing:
+    flats:
+      landing:
+        disclaimer: 'This service is only available for UK and France'
+        location: "Please enter your location or university"
+        submit: 'Search'
   pages:
     contact:
       title: 'Contact us'
@@ -660,6 +666,7 @@ en:
         feature_2: 'Send money instantly in any currency at real exchange rates'
         feature_3: 'Up to 8x cheaper than traditional banks'
         feature_4: 'Also compatible with Apple Pay'
+
     modal:
       bunq:
         feature_1:
