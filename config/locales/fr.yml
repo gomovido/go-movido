@@ -111,6 +111,7 @@ fr:
       count: "%{count}+ lieux d'hébergement"
       show_all: 'Voir tout'
       flatshare: 'Colocation'
+      student_housing: 'Logement étudiants'
   pages:
     contact:
       title: 'Contacte nous'
