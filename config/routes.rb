@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post '/actions/create-wifi-offers-translations' => 'wifis#create_offers_translations'
     post '/actions/activate-subscription' => 'subscriptions#activate_subscription'
     post '/actions/upload-legal-docs' => 'companies#upload_legal_docs'
+    post '/actions/to-the-top' => 'product_features#to_the_top'
   end
   mount ForestLiana::Engine => '/forest'
   devise_for :users, controllers: { sessions: "sessions", registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks"}
