@@ -106,6 +106,12 @@ fr:
         phone: 'Téléphone'
         birthdate: 'Date de naissance'
         birth_city: 'Ville de naissance'
+  providers:
+    index:
+      count: "%{count}+ lieux d'hébergement"
+      show_all: 'Voir tout'
+      flatshare: 'Colocation'
+      student_housing: 'Logement étudiants'
   pages:
     contact:
       title: 'Contacte nous'

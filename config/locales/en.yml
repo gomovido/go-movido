@@ -94,6 +94,12 @@ en:
         phone: 'Phone'
         birthdate: 'Date of birth'
         birth_city: 'City of birth'
+  providers:
+    index:
+      count: "%{count}+ places to stay"
+      show_all: 'Show all'
+      flatshare: 'Flat Share'
+      student_housing: 'Student Housing'
   pages:
     contact:
       title: 'Contact us'
