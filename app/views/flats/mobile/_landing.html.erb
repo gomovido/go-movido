@@ -1,9 +1,19 @@
-<div class="container landing-container">
-  <h1>Where do you want to stay in?</h1>
-  <div data-controller='flats'>
-    <%= simple_form_for :query, url: search_flats_path, html: {method: :post} do |f| %>
-      <div data-flats-target="geocoder" class="geocoder"></div>
-      <%= f.submit "Search", class: "btn btn-main" %>
-    <% end %>
+<div class="landing-container">
+  <div class="disclaimer">
+    <span><%= t('housing.flats.landing.disclaimer') %></span>
   </div>
+  <div class="banner-landing" style="background-image:url(<%= asset_path 'flats/landing/banner-background.png' %>);">
+    <div class="container h-100">
+      <div class="content h-100">
+        <h1><%= t('housing.flats.landing.location') %></h1>
+        <div data-controller='flats' class="search-form h-100" data-flats-locale-value=<%= I18n.locale.to_s %>>
+          <%= simple_form_for :query, url: search_flats_path, html: {method: :post} do |f| %>
+            <div data-flats-target="geocoder" class="geocoder"></div>
+            <%= f.submit t('housing.flats.landing.submit'), class: "btn btn-main" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
