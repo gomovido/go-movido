@@ -1,11 +1,27 @@
-<h3>Uniacco flats</h3>
-<% @uniacco_flats.first(5).map do |flat| %>
-  <div class="flat-card">
-    <div class="name">
-      <%= flat['name'] %>
+<div class="container providers-container">
+  <div class="row">
+    <div class="col-12">
+      <div class="count-results text-center">
+        <span><%= t('providers.index.count', count: @flats.count) %></span>
+      </div>
     </div>
-    <div class="city">
-      <%= flat['city'] %>
+    <div class="col-12">
+      <div class="providers-wrapper">
+        <div class="title d-flex align-items-center justify-content-between">
+          <h3><%= t('providers.index.flatshare') %></h3>
+          <span class='link'><%= t('providers.index.show_all') %></span>
+        </div>
+        <div class="flats-card-scroller pt-0">
+          <ul class="hs" data-animate-target="container">
+            <% @uniacco_flats.first(5).map do |flat| %>
+              <li class="item">
+                <%= render 'providers/mobile/card', flat: flat %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
+
