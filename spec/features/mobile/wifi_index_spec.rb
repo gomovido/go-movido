@@ -35,8 +35,8 @@ RSpec.describe "Mobile - Wifi", type: :feature do
     it "displays dropdown card" do
       find('.product-card', match: :first).click
       sleep 1
-      expect(page).to have_content(wifi.special_offers.first.name)
-      expect(page).to have_content(wifi.product_features.first.name)
+      expect(page).to have_content(special_offer.name)
+      expect(page).to have_content(product_feature.name)
     end
   end
 end

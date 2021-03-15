@@ -62,7 +62,7 @@
       </div>
     <% end %>
     <div class="product-features py-4">
-      <% product.product_features.each do |pf| %>
+      <% product.product_features.order(order: :asc).each do |pf| %>
       <span class="title"> <%= pf.name %> </span>
       <ul>
         <li><%= pf.description %></li>

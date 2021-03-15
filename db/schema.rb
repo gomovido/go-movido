@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_105341) do
+ActiveRecord::Schema.define(version: 2021_03_15_102413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_105341) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "mobile_id"
     t.bigint "wifi_id"
+    t.integer "order"
     t.index ["mobile_id"], name: "index_product_features_on_mobile_id"
     t.index ["wifi_id"], name: "index_product_features_on_wifi_id"
   end

@@ -7,8 +7,8 @@
         </div>
         <div class="col-6 text-right">
           <div class="arrow-wrapper">
-            <%= image_tag(asset_path('pages/home/arrow-left.png'), class: 'arrow mr-2', data: {action: 'click->animate#slideLeft', animate_target: 'leftArrow'}) %>
-            <%= image_tag(asset_path('pages/home/arrow-right.png'), class: 'arrow', data: {action: 'click->animate#slideRight', animate_target: 'rightArrow'}) %>
+            <%= image_tag(asset_path('pages/home/arrow-left.png'), loading: 'lazy', class: 'arrow mr-2', data: {action: 'click->animate#slideLeft', animate_target: 'leftArrow'}) %>
+            <%= image_tag(asset_path('pages/home/arrow-right.png'), loading: 'lazy', class: 'arrow', data: {action: 'click->animate#slideRight', animate_target: 'rightArrow'}) %>
           </div>
         </div>
       </div>
