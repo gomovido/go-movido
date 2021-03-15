@@ -20,6 +20,19 @@
             <% end %>
           </ul>
         </div>
+        <div class="title d-flex align-items-center justify-content-between">
+          <h3><%= t('providers.index.student_housing') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
+          <span class='link'><%= t('providers.index.show_all') %></span>
+        </div>
+        <div class="flats-card-scroller pt-0">
+          <ul class="hs" data-animate-target="container">
+            <% @uniacco_flats.first(5).map do |flat| %>
+              <li class="item">
+                <%= render 'providers/mobile/card', flat: flat %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
