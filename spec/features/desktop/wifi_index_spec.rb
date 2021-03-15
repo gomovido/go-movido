@@ -39,7 +39,7 @@ RSpec.describe "Desktop - Wifi", type: :feature do
     it "displays modal" do
       click_on 'See details'
       sleep 1
-      expect(page).to have_content(wifi.product_features.first.name)
+      expect(page).to have_content(product_feature.name)
     end
   end
 end
