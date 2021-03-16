@@ -3,7 +3,7 @@ class ProvidersController < ApplicationController
     @uniacco_flats = UniaccoApiService.new(city_code: params[:query]).list_flats
     if @uniacco_flats[:status] == 200
       @uniacco_flats = @uniacco_flats[:payload]
-      session[:flats_codes] = @uniacco_flats.map{|flat| flat['code']}.join(',')
+      session[:flats_codes] = @uniacco_flats.map { |flat| flat['code'] }.join(',')
     else
       @uniacco_flats = []
     end

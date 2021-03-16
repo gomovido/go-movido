@@ -7,9 +7,13 @@ import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
 import ContentLoader from "stimulus-content-loader"
 import controller from './application_controller'
+import Prefetch from "stimulus-prefetch"
+import Carousel from "stimulus-carousel"
 
 const application = Application.start()
+application.register("carousel", Carousel)
 application.register("content-loader", ContentLoader)
+application.register("prefetch", Prefetch)
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
 StimulusReflex.initialize(application)
