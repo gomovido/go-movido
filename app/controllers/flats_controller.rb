@@ -9,13 +9,11 @@ class FlatsController < ApplicationController
   end
 
   def listing
-    @location = params[:location]
-    @type = params[:type]
     properties = session[:flats_codes]
     if !properties.blank?
-      @flats = UniaccoApiService.new(properties: properties, location: @location).avanced_list_flats
+      @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
       @flats = @flats[:payload] if @flats[:status] == 200
-      render partial: 'flats/mobile/flats', locals: { flats: @flats[:payload], layout: false, location: @location, type: @type }
+      render partial: 'flats/mobile/flats', locals: { flats: @flats, layout: false, location: params[:location], type: params[:type] }
     end
   end
 
