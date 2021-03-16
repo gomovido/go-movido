@@ -1,0 +1,38 @@
+<div class="flat-card-large mb-4">
+  <div class="img-box position-relative">
+    <%= image_tag(flat[:images][0]['url'], class:'w-100' )%>
+    <div class="facilities-img position-absolute">
+      <% flat[:facilities].each do |facility| %>
+        <%= get_icon(facility) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="facilities d-flex align-items-center justify-content-around">
+    <% if flat[:configs].last['dual_occupancy'] %>
+      <div class="facility"><i class="far fa-people-arrows"></i>Dual occupancy</div>
+    <% end %>
+    <% if flat[:configs].last['priv_bath'] %>
+      <div class="facility"><i class="far fa-bath"></i>Bathroom</div>
+    <% end %>
+    <% if flat[:configs].last['priv_room'] %>
+      <div class="facility"><i class="fad fa-bed-alt"></i>Room</div>
+    <% end %>
+    <% if flat[:configs].last['priv_kitchen'] %>
+      <div class="facility"><i class="far fa-microwave"></i> Kitchen</div>
+    <% end %>
+  </div>
+  <div class="details-wrapper d-flex justify-content-between">
+    <div class="details d-flex flex-column justify-content-around">
+      <div class="name">
+        <%= flat[:details]['name'] %>
+      </div>
+      <div class="pricing">
+        <strong><%= flat[:details]['disp_price'] %></strong>
+      </div>
+    </div>
+    <div class="cta">
+      <button class="btn-flat-card">Book</button>
+    </div>
+  </div>
+</div>
+

@@ -1,13 +1,15 @@
-<div class="flat-card d-flex mb-4">
-  <div class="img-box mr-3">
-    <%= image_tag(flat['images'][0]['url'] )%>
-  </div>
-  <div class="details d-flex flex-column justify-content-around">
-    <div class="name">
-      <%= flat['name'] %>
+<%= link_to flats_index_path(location, type), class:'w-100' do %>
+  <div class="flat-card d-flex mb-4">
+    <div class="img-box mr-3">
+      <%= image_tag(flat['images'][0]['url'] )%>
     </div>
-    <div class="pricing">
-      <%= flat['disp_price'] %>
+    <div class="details d-flex flex-column justify-content-around">
+      <div class="name">
+        <%= flat['name'] %>
+      </div>
+      <div class="pricing">
+        <%= flat['disp_price'] %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

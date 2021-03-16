@@ -69,10 +69,9 @@ Rails.application.routes.draw do
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
   get 'real-estate', to: 'flats#landing', as: 'real_estate_landing'
-  get 'flats/:country/:city', to: 'flats#index', as: 'flats'
 
   post 'search-flats', to: 'flats#search', as: 'search_flats'
-
+  get 'flats/:location/:type', to: 'flats#index', as: 'flats_index'
   get 'providers-index/:query', to: 'providers#index', as: 'providers'
 
 end
