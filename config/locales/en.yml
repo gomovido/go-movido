@@ -183,11 +183,11 @@ en:
           title: 'Fast'
           description: 'Get set up in your new home in only 10 minutes instead of the usual 4.5 hours'
         card2:
-          title: 'Smart'
-          description: 'Compare services and benefit from the best prices and offers available'
-        card3:
           title: 'Simple'
           description: 'Simply choose your preferred subscription from a variety of offerings'
+        card3:
+          title: 'Smart'
+          description: 'Compare services and benefit from the best prices and offers available'
         card4:
           title: 'Free'
           description: 'With movido, choose and manage your subscriptions completely free of charge'

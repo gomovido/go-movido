@@ -7,8 +7,8 @@
         </div>
         <div class="col-6 text-right">
           <div class="arrow-wrapper">
-            <%= image_tag(asset_path('pages/home/arrow-left.png'), loading: 'lazy', class: 'arrow mr-2', data: {action: 'click->animate#slideLeft', animate_target: 'leftArrow'}) %>
-            <%= image_tag(asset_path('pages/home/arrow-right.png'), loading: 'lazy', class: 'arrow', data: {action: 'click->animate#slideRight', animate_target: 'rightArrow'}) %>
+            <i class="fal fa-arrow-alt-circle-left purple mr-2" data-action='click->animate#slideLeft' data-animate-target="leftArrow"></i>
+            <i class="fas fa-arrow-alt-circle-right purple" data-action='click->animate#slideRight' data-animate-target="rightArrow"></i>
           </div>
         </div>
       </div>
