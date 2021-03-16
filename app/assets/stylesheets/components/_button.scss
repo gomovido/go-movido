@@ -128,6 +128,16 @@
   }
 }
 
+.btn-flat-card {
+  color: $white;
+  background: $purple;
+  border-radius: 20px;
+  text-align: center;
+  padding: 9px 17.5px !important;
+  font-weight: 700;
+  font-size: 14px;
+}
+
 @include media-breakpoint-down(md) {
   .btn-main-reverse {
     width: 240px;

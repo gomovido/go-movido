@@ -24,12 +24,10 @@
     color: $black;
   }
   .img-box {
-    width: 160px;
-    img {
-      border-top-left-radius: 14px;
-      border-bottom-left-radius: 14px;
-      width: 100%;
-      min-height:100%;
-    }
+    width: 120px;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
   }
 }
