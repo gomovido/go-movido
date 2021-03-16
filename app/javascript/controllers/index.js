@@ -5,9 +5,11 @@ import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
+import ContentLoader from "stimulus-content-loader"
 import controller from './application_controller'
 
 const application = Application.start()
+application.register("content-loader", ContentLoader)
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
 StimulusReflex.initialize(application)
