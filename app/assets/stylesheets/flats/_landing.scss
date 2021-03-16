@@ -37,6 +37,9 @@
           .mapboxgl-ctrl-geocoder--input {
             height: 60px;
             border-radius: 15px;
+            &:focus {
+              outline: none;
+            }
           }
           ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             font-family: 'Montserrat';
