@@ -10,11 +10,9 @@ class FlatsController < ApplicationController
 
   def listing
     properties = session[:flats_codes]
-    if !properties.blank?
-      @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
-      @flats = @flats[:payload] if @flats[:status] == 200
-      render partial: 'flats/mobile/flats', locals: { flats: @flats, layout: false, location: params[:location], type: params[:type] }
-    end
+    @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
+    @flats = @flats[:payload] if @flats[:status] == 200
+    render partial: 'flats/mobile/flats', locals: { flats: @flats, layout: false, location: params[:location], type: params[:type] }
   end
 
   def search
