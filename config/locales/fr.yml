@@ -173,11 +173,11 @@ fr:
           title: 'Rapide'
           description: "Installe-toi dans ta nouvelle maison en seulement 10 minutes au lieu de 4h30"
         card2:
-          title: 'Malin'
-          description: "Compare les services et profite des meilleurs prix et offres disponibles"
-        card3:
           title: 'Simple'
           description: "Choisis simplement tes abonnements favoris dans notre variété d’offres"
+        card3:
+          title: 'Malin'
+          description: "Compare les services et profite des meilleurs prix et offres disponibles"
         card4:
           title: 'Gratuit'
           description: "Choisis et gère tes abonnements entièrement gratuitement"
@@ -597,7 +597,7 @@ fr:
       home: 'Accueil'
       services: 'Services'
       about: 'À propos'
-      how_it_works: 'Fonctionnement'
+      how_it_works: 'Aide'
       account: "Inscription"
       profile: 'Profil'
       dashboard: 'Dashboard'
