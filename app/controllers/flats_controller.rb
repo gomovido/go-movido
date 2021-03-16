@@ -4,12 +4,21 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = UniaccoApiService.new(city_code: params[:location]).list_flats
+    @location = params[:location]
+    @type = params[:type]
+  end
+
+  def listing
+    @location = params[:location]
+    @type = params[:type]
+    @flats = UniaccoApiService.new(city_code: @location).list_flats
     if @flats[:status] == 200
       @flats = @flats[:payload]
-      properties = @flats.map{|flat| flat['code']}
-      @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
-      @flats = @flats[:payload] if @flats[:status] == 200
+      properties = @flats.map{ |flat| flat['code'] }
+      @flats = UniaccoApiService.new(properties: properties, location: @location).avanced_list_flats
+      if @flats[:status] == 200
+        render partial: 'flats/mobile/flats', locals: { flats: @flats[:payload], layout: false, location: @location, type: @type }
+      end
     end
   end
 
