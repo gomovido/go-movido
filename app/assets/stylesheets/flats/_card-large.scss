@@ -1,8 +1,53 @@
 .flat-card-large {
   .img-box {
-    .facilities-img {
-      top: 0;
-      right: 0;
+    height: 146px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+  }
+  .facilities-icons {
+    top: 5%;
+    left: 70%;
+    display: flex;
+    z-index: 1;
+    i {
+      background: white;
+      border-radius: 3px;
+      text-align: center;
+      padding: 5%;
+      font-size: 12px;
+      margin: 5px;
+      font-weight: lighter;
+      border: 1px solid #80808038;
+    }
+  }
+  .facilities {
+    .facility {
+      font-size: 12px;
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+  .details-wrapper {
+    .details {
+      .name {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+        color: #18191F;
+      }
+      .pricing {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: #18191F;
+      }
     }
   }
 }

@@ -6,8 +6,9 @@ class UniaccoApiService
   end
 
   def list_flats
-    uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=1&sortBy=relevance")
+    uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=8&sortBy=relevance")
     response = JSON.parse(Net::HTTP.get(uri))
+    raise
     if response && response['title'] == 'NOT_FOUND'
       { error: 'NOT_FOUND', status: 404, payload: nil }
     else
@@ -16,7 +17,7 @@ class UniaccoApiService
   end
 
   def avanced_list_flats
-    uri = URI("https://uniacco.com/api/v1/configs?properties=#{@properties.join(',')}")
+    uri = URI("https://uniacco.com/api/v1/configs?properties=#{@properties}")
     response = JSON.parse(Net::HTTP.get(uri))
     if response && response['title'] == 'NOT_FOUND'
       { error: 'NOT_FOUND', status: 404, payload: nil }

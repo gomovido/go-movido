@@ -4,10 +4,8 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = UniaccoApiService.new(city_code: params[:location]).list_flats
-    if @flats[:status] == 200
-      @flats = @flats[:payload]
-      properties = @flats.map{|flat| flat['code']}
+    properties = session[:flats_codes]
+    if !properties.blank?
       @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
       @flats = @flats[:payload] if @flats[:status] == 200
     end
