@@ -8,7 +8,6 @@ class UniaccoApiService
   def list_flats
     uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=8&sortBy=relevance")
     response = JSON.parse(Net::HTTP.get(uri))
-    raise
     if response && response['title'] == 'NOT_FOUND'
       { error: 'NOT_FOUND', status: 404, payload: nil }
     else
