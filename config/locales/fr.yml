@@ -138,14 +138,14 @@ fr:
         start: "C'est parti!"
       services-cards:
         title: 'Nos Offres'
-        housing: "Appartement entier, colocation, logement étudiant ou offre haut de gamme, nous proposons un large choix de logements disponibles dans ta nouvelle ville"
-        bank: "Ouvre un compte bancaire en ligne en un instant grâce aux meilleures offres de nos partenaires"
-        mobile: "Obtiens un numéro de téléphone adapté dans ta nouvelle ville, nos partenaires proposent des forfaits avec ou sans engagement selon tes besoins."
-        wifi: "Choisis parmi une sélection d’options wifi pour ta nouvelle maison et inscris toi en un clic"
-        gym: "À la recherche de sport à pratiquer dans ta nouvelle ville? Nous avons sélectionné les meilleures offres pour toi"
+        housing: "Appartement entier, colocation ou logement étudiant, nous proposons plusieurs logements dans ta nouvelle ville"
+        bank: "Ouvre un compte bancaire en ligne en un clic grâce à nos partenaires"
+        mobile: "Choisis ton nouveau numéro de téléphone, nos partenaires proposent des forfaits avec ou sans engagement"
+        wifi: "Choisis parmi une sélection d’options wifi et abonne toi en un clic"
+        gym: "À la recherche de salles de sport ? Nous avons sélectionné les meilleures"
         transportation: "Dis nous où tu veux aller et nous te conseillerons les meilleures offres de transport"
         utilities: "Eau, électricité, gaz, sélectionne ton fournisseur et nous t’aiderons à t’installer"
-        community: 'Rejoins une communauté qui partage tes goûts et intérêts dans ta nouvelle ville'
+        community: 'Rejoins une communauté qui partage tes goûts et intérêts'
       service-card:
         coming_soon: 'BIENTÔT DISPONIBLE'
       how-it-works:
