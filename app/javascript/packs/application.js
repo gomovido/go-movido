@@ -27,7 +27,9 @@ require("flatpickr")
 import "bootstrap";
 import "flatpickr/dist/flatpickr.min.css"
 import 'intl-tel-input/build/css/intlTelInput.css';
+import 'swiper/swiper-bundle.min.css'
 import "controllers"
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

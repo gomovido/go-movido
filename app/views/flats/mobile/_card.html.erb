@@ -1,13 +1,17 @@
-<div class="flat-card-large mb-4">
-  <div class="img-box position-relative">
-    <%= image_tag(flat[:images][0]['url'], class:'w-100' )%>
-    <div class="facilities-img position-absolute">
+<div class="flat-card-large mb-4 col-12">
+  <div data-controller="carousel" class="swiper-container position-relative">
+    <div class="swiper-wrapper position-relative">
+      <% flat[:images].first(3).each do |image| %>
+        <div class="swiper-slide img-box" style="background-image:url(<%= image['url'] %>);"></div>
+      <% end %>
+    </div>
+    <div class="facilities-icons position-absolute">
       <% flat[:facilities].each do |facility| %>
         <%= get_icon(facility) %>
       <% end %>
     </div>
   </div>
-  <div class="facilities d-flex align-items-center justify-content-around">
+  <div class="facilities my-2 d-flex align-items-center justify-content-around px-2">
     <% if flat[:configs].last['dual_occupancy'] %>
       <div class="facility"><i class="far fa-people-arrows"></i>Dual occupancy</div>
     <% end %>
@@ -21,14 +25,14 @@
       <div class="facility"><i class="far fa-microwave"></i> Kitchen</div>
     <% end %>
   </div>
-  <div class="details-wrapper d-flex justify-content-between">
+  <div class="details-wrapper d-flex justify-content-between px-2">
     <div class="details d-flex flex-column justify-content-around">
-      <div class="name">
+      <span class="name mb-2">
         <%= flat[:details]['name'] %>
-      </div>
-      <div class="pricing">
-        <strong><%= flat[:details]['disp_price'] %></strong>
-      </div>
+      </span>
+      <span class="pricing">
+        <%= flat[:details]['disp_price'] %> /<%= flat[:details]['billing'].downcase %>
+      </span>
     </div>
     <div class="cta">
       <button class="btn-flat-card">Book</button>

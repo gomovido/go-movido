@@ -4,16 +4,14 @@
       <h1>Banner Filters</h1>
     </div>
     <div class="col-12">
-      <div class="flats-wrapper">
-        <div class="title d-flex align-items-center justify-content-between">
-          <h3>Location</h3>
-        </div>
-        <div class="flats-card-wrapper">
-          <% @flats.map do |flat| %>
-            <%= render 'flats/mobile/card', flat: flat, type: 'flatshare', location: params[:query] %>
-          <% end %>
-        </div>
+      <div class="title d-flex align-items-center justify-content-between">
+        <h3>Location</h3>
       </div>
+    </div>
+    <div class="flats-card-wrapper w-100">
+      <% @flats.each do |flat| %>
+        <%= render 'flats/mobile/card', flat: flat, type: 'flatshare', location: params[:query] %>
+      <% end %>
     </div>
   </div>
 </div>
