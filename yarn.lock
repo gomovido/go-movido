@@ -7496,6 +7496,11 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
+stimulus-content-loader@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/stimulus-content-loader/-/stimulus-content-loader-2.1.0.tgz#9b9e1f2a57095136a413042bc07b87038daa610a"
+  integrity sha512-6Sf6VYeZqUHNQ+CnG+EYfPU/AZlofpziz0DEKDb8hout1jMYIWrs/Bv+Z8zUXj4QPsEYqbE3578ZRnyez8rhhw==
+
 stimulus-flatpickr@^1.3.3:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/stimulus-flatpickr/-/stimulus-flatpickr-1.4.0.tgz#a41071a3e69cfc50b7eaaacf356fc0ab1ab0543c"

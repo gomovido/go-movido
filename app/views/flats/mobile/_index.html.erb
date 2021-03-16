@@ -1,20 +1,7 @@
 <div class="container flats-container">
-  <div class="row">
-    <div class="col-12">
-      <h1>Banner Filters</h1>
+    <div class="w-100 text-center spinner-container" data-controller="content-loader" data-content-loader-url-value="<%= flats_listing_path(@location, @type) %>">
+      <div class="lds-circle"><div></div></div>
+      <h1>We are digging for awesome flats, please wait ...</h1>
     </div>
-    <div class="col-12">
-      <div class="flats-wrapper">
-        <div class="title d-flex align-items-center justify-content-between">
-          <h3>Location</h3>
-        </div>
-        <div class="flats-card-wrapper">
-          <% @flats.map do |flat| %>
-            <%= render 'flats/mobile/card', flat: flat, type: 'flatshare', location: params[:query] %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
