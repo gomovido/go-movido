@@ -1,6 +1,7 @@
 <div class="flats-container">
-    <div class="container w-100 text-center spinner-container" data-controller="content-loader" data-content-loader-url-value="<%= flats_listing_path(@location, @type) %>">
+    <div class="container w-100 text-center spinner-container" data-controller="content-loader" data-content-loader-url-value="<%= flats_listing_path(@location, @type, codes: @codes.to_json) %>">
       <div class="lds-circle"><div></div></div>
       <h1>We are digging for awesome flats, please wait ...</h1>
     </div>
+    <%== pagy_nav(@pagy) %>
 </div>
