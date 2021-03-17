@@ -104,3 +104,5 @@ gem "appsignal", "~> 2.11"
 gem "rubocop-rails", "~> 2.9"
 
 gem "rubocop-rspec", "~> 2.2"
+
+gem "pagy", "~> 3.12"

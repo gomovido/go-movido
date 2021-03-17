@@ -269,6 +269,7 @@ GEM
       validate_url
       webfinger (>= 1.0.1)
     orm_adapter (0.5.0)
+    pagy (3.12.0)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -523,6 +524,7 @@ DEPENDENCIES
   omniauth (~> 1.9.1)
   omniauth-facebook
   omniauth-google-oauth2
+  pagy (~> 3.12)
   pg (>= 0.18, < 2.0)
   phony_rails (~> 0.14.13)
   postmark-rails (~> 0.12.0)
