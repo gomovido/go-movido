@@ -35,4 +35,29 @@ module FacilitiesHelper
       '<i class="fad fa-box-open"></i>'.html_safe
     end
   end
+
+  def get_name(facility)
+    case facility
+    when 'Small Double Bed'
+      'Double bed'
+    when 'Private Bathroom'
+      'Bathroom'
+    when 'Private Kitchen'
+      'Kitchen'
+    when 'Study desk and chair'
+      'Study Desk'
+    when 'Dual Occupancy Available'
+      'Roommates'
+    when 'Queen Size Bed'
+      'Double Bed'
+    when 'Room Cleaning Services'
+      'Cleaning'
+    when 'Underfloor Heating'
+      'Heater'
+    when 'Windows / Curtains'
+      'Windows'
+    else
+      facility
+    end
+  end
 end
