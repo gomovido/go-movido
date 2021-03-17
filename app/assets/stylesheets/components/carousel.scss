@@ -1,0 +1,10 @@
+.swiper-container {
+  border-radius: 14px;
+  .swiper-pagination-bullet {
+    background: $white !important;
+    opacity: 0.6;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+}
