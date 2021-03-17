@@ -3,7 +3,7 @@ class ProvidersController < ApplicationController
     @uniacco_flats = UniaccoApiService.new(city_code: params[:query]).list_flats
     if @uniacco_flats[:status] == 200
       @uniacco_flats = @uniacco_flats[:payload]
-      @codes = Base64.encode64(@uniacco_flats.map { |flat| flat['code'] }.join(','))
+      Rails.cache.write(:codes, @uniacco_flats.map { |flat| flat['code'] }.join(','), expires_in: 30.minutes)
     else
       @uniacco_flats = []
     end
