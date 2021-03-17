@@ -1,0 +1,14 @@
+.flat-container {
+    .img-box {
+      height: 250px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      border-bottom-right-radius: 14px;
+      border-bottom-left-radius: 14px;
+      img {
+        border-bottom-right-radius: 14px;
+        border-bottom-left-radius: 14px;
+      }
+    }
+}
