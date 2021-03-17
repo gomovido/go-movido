@@ -1,7 +1,21 @@
-<div class="flats-container">
-    <div class="container w-100 text-center spinner-container" data-controller="content-loader" data-content-loader-url-value="<%= flats_listing_path(@location, @type, codes: @codes.to_json) %>">
-      <div class="lds-circle"><div></div></div>
-      <h1>We are digging for awesome flats, please wait ...</h1>
+<div class="flats-container container" data-controller="infinite-scroll">
+  <div class="row">
+    <div class="col-12">
+      <h1>Banner Filters</h1>
     </div>
-    <%== pagy_nav(@pagy) %>
+    <div class="flats-wrapper w-100">
+      <div class="title d-flex align-items-center justify-content-between">
+        <h3>Location</h3>
+      </div>
+      <div class="flats-card-wrapper w-100" data-infinite-scroll-target="entries">
+        <%= render 'flats/mobile/flats' %>
+      </div>
+    </div>
+    <div data-infinite-scroll-target="pagination">
+      <%== pagy_nav(@pagy) %>
+    </div>
+    <div class="w-100 text-center spinner-container d-none" data-infinite-scroll-target="spinner">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+  </div>
 </div>
