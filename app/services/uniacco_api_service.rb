@@ -3,6 +3,7 @@ class UniaccoApiService
     @location = params[:location]
     @city_code = params[:city_code]
     @properties = params[:properties]
+    @property = params[:property_code]
   end
 
   def list_flats
@@ -29,6 +30,14 @@ class UniaccoApiService
       array << { code: property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
     end
     { error: nil, status: 200, payload: array } if array.present?
+  end
+
+
+  def flat
+    uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
+    response = JSON.parse(Net::HTTP.get(uri))
+    hash = { code: @property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
+    { error: nil, status: 200, payload: hash } unless hash[:code].nil?
   end
 
   def check_and_return_city_code
