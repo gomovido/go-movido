@@ -1,6 +1,6 @@
 <div class="container-fluid flat-container">
   <div class="row">
-    <div class="col-12 p-0 mb-2">
+    <div class="col-12 p-0 mb-4">
       <div data-controller="carousel" class="swiper-container position-relative">
         <div class="swiper-wrapper position-relative">
           <% @flat[:images].first(8).each do |image| %>
@@ -10,13 +10,13 @@
       </div>
     </div>
     <div class="col-12">
-      <div class="d-flex flex-column">
-        <span class="location">
+      <div class="d-flex flex-column mb-4">
+        <p class="location">
           <%= @flat[:details]['city_name'] %>, <%= @flat[:details]['country_name'] %>
-        </span>
-        <span class='name mb-2'>
+        </p>
+        <p class='name mb-4'>
           <%= @flat[:details]['name'] %>
-        </span>
+        </p>
         <div class="d-flex align-items-center justify-content-around">
           <% @flat[:facilities].each do |facility| %>
             <span class="facility"> <%= get_icon(facility) %></span>
@@ -25,22 +25,22 @@
       </div>
       <hr class="w-100">
     </div>
-    <div class="col-12 d-flex align-items-center justify-content-between">
-      <span><strong>Free Cancellation</strong></span>
-      <span class="link purple">Details</span>
+    <div class="col-12 d-flex align-items-center justify-content-between my-2">
+      <span class="title">Free Cancellation</span>
+      <span class="link purple font-weight">Details</span>
     </div>
-    <div class="col-12">
+    <div class="col-12 d-flex flex-column">
       <hr class="w-100">
-      <span class="description">
+      <span class="description mb-2">
         <%= ActionView::Base.full_sanitizer.sanitize(@flat[:details]['intro']).html_safe %>
       </span>
+      <span class="link purple font-weight">Show more</span>
       <hr class="w-100">
     </div>
-
     <div class="col-12">
       <div class="room-details">
-        <span><strong>Room Details</strong></span>
-        <ul class="p-0" style="list-style: none;">
+        <span class='title mb-2'>Room Details</span>
+        <ul>
           <% @flat[:details]['configs'].each do |config| %>
             <li><%= config['name'] %></li>
           <% end %>
@@ -50,13 +50,58 @@
     <hr class="w-100">
     <div class="col-12">
       <div class="amenities">
-        <span><strong>Amenities</strong></span>
-        <ul class="p-0" style="list-style: none;">
+        <span class="title">Amenities</span>
+        <ul class="pl-3" style="list-style: none;">
           <% @flat[:details]['configs'].last['facilities'].each do |facility|  %>
             <li><%= get_icon(facility['kind'].downcase) %> <%= facility['name'] %></li>
           <% end %>
         </ul>
       </div>
+    </div>
+    <hr class="w-100">
+    <div class="col-12">
+      <div class="amenities">
+        <span class="title">Services/Community Facilities</span>
+        <ul>
+          <% @flat[:facilities].each do |facility|  %>
+            <li><%= facility %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <hr class="w-100">
+    <div class="col-12 d-flex align-items-center justify-content-between my-2">
+      <span class="title">Cancellation Policy</span>
+      <span class="link purple font-weight">Details</span>
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-between my-2">
+      <span class="title">Total Payment Information</span>
+      <span class="link purple font-weight">Details</span>
+    </div>
+    <hr class="w-100">
+    <div class="col-12">
+      <div class="amenities">
+        <span class="title">House Rules</span>
+        <ul>
+          <li>No smoking</li>
+          <li>No pets</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="w-100">
+    <div class="col-12 d-flex flex-column my-2 mb-5 pr-0">
+      <span class="title">More Accomodations</span>
+        <div class="flats-card-scroller pt-0">
+          <ul class="hs" data-animate-target="container">
+            <li class="item">
+              <%= render 'flats/mobile/card-lite', flat: @flat %>
+            </li>
+            <li class="item">
+              <%= render 'flats/mobile/card-lite', flat: @flat %>
+            </li>
+          </ul>
+        </div>
+
     </div>
   </div>
 </div>
