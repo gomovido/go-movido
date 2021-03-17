@@ -1,12 +1,13 @@
 <div class="container-fluid flat-container">
   <div class="row">
     <div class="col-12 p-0 mb-4">
-      <div data-controller="carousel" class="swiper-container position-relative">
+      <div data-controller="carousel" class="swiper-container position-relative"data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}}'>
         <div class="swiper-wrapper position-relative">
           <% @flat[:images].first(8).each do |image| %>
             <div class="swiper-slide img-box" style="background-image:url(<%= image['url'] %>);"></div>
           <% end %>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
     <div class="col-12">
