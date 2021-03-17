@@ -20,7 +20,6 @@ class UniaccoApiService
     @properties.split(',').map do |property|
       uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{property}")
       response = JSON.parse(Net::HTTP.get(uri))
-      p response
       array << { code: property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
     end
     { error: nil, status: 200, payload: array } if array.present?
