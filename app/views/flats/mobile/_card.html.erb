@@ -1,11 +1,12 @@
 <% config = flat[:details]['configs'].last %>
 <div class="flat-card-large mb-4 col-12">
-  <div data-controller="carousel" class="swiper-container position-relative">
+  <div data-controller="carousel" class="swiper-container position-relative" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}}'>
     <div class="swiper-wrapper position-relative">
       <% flat[:images].first(3).each do |image| %>
         <div class="swiper-slide img-box" style="background-image:url(<%= image['url'] %>);"></div>
       <% end %>
     </div>
+    <div class="swiper-pagination"></div>
     <div class="facilities-icons position-absolute">
       <% flat[:facilities].each do |facility| %>
         <%= get_icon(facility) %>
@@ -14,7 +15,7 @@
   </div>
   <div class="facilities my-2 d-flex align-items-center justify-content-between px-2">
     <% config['facilities'].first(3).each do |facility| %>
-      <div class="facility"><%= get_icon(facility['kind'].downcase) %> <%= facility['name'] %></div>
+      <div class="facility"><%= get_icon(facility['kind'].downcase) %> <span><%= get_name(facility['name'])  %></span> </div>
     <% end %>
   </div>
   <div class="details-wrapper d-flex justify-content-between px-2">
@@ -26,9 +27,7 @@
         <%= flat[:details]['disp_price'] %> /<%= flat[:details]['billing'].downcase %>
       </span>
     </div>
-    <div class="cta">
-      <%= link_to 'book', flat_path(location, flat[:code]), class:'btn-flat-card' %>
-    </div>
+    <%= link_to 'Book', flat_path(location, flat[:code]), class:'btn-flat-card' %>
   </div>
 </div>
 
