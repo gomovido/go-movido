@@ -1,0 +1,62 @@
+<div class="container-fluid flat-container">
+  <div class="row">
+    <div class="col-12 p-0 mb-2">
+      <div data-controller="carousel" class="swiper-container position-relative">
+        <div class="swiper-wrapper position-relative">
+          <% @flat[:images].first(8).each do |image| %>
+            <div class="swiper-slide img-box" style="background-image:url(<%= image['url'] %>);"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="d-flex flex-column">
+        <span class="location">
+          <%= @flat[:details]['city_name'] %>, <%= @flat[:details]['country_name'] %>
+        </span>
+        <span class='name mb-2'>
+          <%= @flat[:details]['name'] %>
+        </span>
+        <div class="d-flex align-items-center justify-content-around">
+          <% @flat[:facilities].each do |facility| %>
+            <span class="facility"> <%= get_icon(facility) %></span>
+          <% end %>
+        </div>
+      </div>
+      <hr class="w-100">
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-between">
+      <span><strong>Free Cancellation</strong></span>
+      <span class="link purple">Details</span>
+    </div>
+    <div class="col-12">
+      <hr class="w-100">
+      <span class="description">
+        <%= ActionView::Base.full_sanitizer.sanitize(@flat[:details]['intro']).html_safe %>
+      </span>
+      <hr class="w-100">
+    </div>
+
+    <div class="col-12">
+      <div class="room-details">
+        <span><strong>Room Details</strong></span>
+        <ul class="p-0" style="list-style: none;">
+          <% @flat[:details]['configs'].each do |config| %>
+            <li><%= config['name'] %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <hr class="w-100">
+    <div class="col-12">
+      <div class="amenities">
+        <span><strong>Amenities</strong></span>
+        <ul class="p-0" style="list-style: none;">
+          <% @flat[:details]['configs'].last['facilities'].each do |facility|  %>
+            <li><%= get_icon(facility['kind'].downcase) %> <%= facility['name'] %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

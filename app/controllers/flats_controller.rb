@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[landing search index]
+  skip_before_action :authenticate_user!, only: %i[landing search index listing]
   def landing
   end
 
@@ -7,6 +7,14 @@ class FlatsController < ApplicationController
     @location = params[:location]
     @type = params[:type]
     @pagy, @codes = pagy_array(Base64.decode64(params[:codes]).split(','))
+  end
+
+  def show
+    @location = params[:location]
+    @type = params[:type]
+    @code = params[:code]
+    @flat = UniaccoApiService.new(property_code: @code, location: params[:location]).flat
+    @flat = @flat[:payload] if @flat[:status] == 200
   end
 
   def listing

@@ -31,6 +31,8 @@ module FacilitiesHelper
       '<i class="fal fa-chair-office"></i>'.html_safe
     when 'double-bed'
       '<i class="far fa-people-arrows"></i>'.html_safe
+    when 'underbed-storage'
+      '<i class="fad fa-box-open"></i>'.html_safe
     end
   end
 end
