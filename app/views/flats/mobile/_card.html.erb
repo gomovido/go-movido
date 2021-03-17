@@ -13,9 +13,9 @@
     </div>
   </div>
   <div class="facilities my-2 d-flex align-items-center justify-content-between px-2">
-      <% config['facilities'].first(3).each do |facility| %>
-        <div class="facility"><%= get_icon(facility['kind'].downcase) %> <%= facility['name'] %></div>
-      <% end %>
+    <% config['facilities'].first(3).each do |facility| %>
+      <div class="facility"><%= get_icon(facility['kind'].downcase) %> <%= facility['name'] %></div>
+    <% end %>
   </div>
   <div class="details-wrapper d-flex justify-content-between px-2">
     <div class="details d-flex flex-column justify-content-around">
@@ -27,7 +27,7 @@
       </span>
     </div>
     <div class="cta">
-      <button class="btn-flat-card">Book</button>
+      <%= link_to 'book', flat_path(location, flat[:code]), class:'btn-flat-card' %>
     </div>
   </div>
 </div>

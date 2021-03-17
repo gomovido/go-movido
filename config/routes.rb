@@ -72,6 +72,7 @@ Rails.application.routes.draw do
 
   post 'search-flats', to: 'flats#search', as: 'search_flats'
   get 'flats/:location/:type', to: 'flats#index', as: 'flats_index'
+  get 'flat/:location/:code', to: 'flats#show', as: 'flat'
   get 'providers-index/:query', to: 'providers#index', as: 'providers'
 
 end

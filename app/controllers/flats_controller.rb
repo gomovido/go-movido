@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[landing search index]
+  skip_before_action :authenticate_user!, only: %i[landing search index listing]
   def landing
   end
 
@@ -8,13 +8,23 @@ class FlatsController < ApplicationController
     @type = params[:type]
     @pagy, properties = pagy_array(Rails.cache.read(:codes).split(','))
     @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
-    @flats = @flats[:payload] if @flats[:status] == 200
-    respond_to do |format|
-      format.html
-      format.json {
-        render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
-      }
+    if @flats[:status] == 200
+      @flats = @flats[:payload]
+      respond_to do |format|
+        format.html
+        format.json {
+          render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+        }
+      end
     end
+  end
+    
+  def show
+    @location = params[:location]
+    @type = params[:type]
+    @code = params[:code]
+    @flat = UniaccoApiService.new(property_code: @code, location: params[:location]).flat
+    @flat = @flat[:payload] if @flat[:status] == 200
   end
 
   def search
