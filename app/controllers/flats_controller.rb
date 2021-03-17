@@ -6,13 +6,13 @@ class FlatsController < ApplicationController
   def index
     @location = params[:location]
     @type = params[:type]
+    @pagy, @codes = pagy_array(Base64.decode64(params[:codes]).split(','))
   end
 
   def listing
-    properties = session[:flats_codes]
-    @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
+    @flats = UniaccoApiService.new(properties: JSON.parse(params[:codes]), location: params[:location]).avanced_list_flats
     @flats = @flats[:payload] if @flats[:status] == 200
-    render partial: 'flats/mobile/flats', locals: { flats: @flats, layout: false, location: params[:location], type: params[:type] }
+    render partial: 'flats/mobile/flats', locals: { flats: @flats, location: params[:location], type: params[:type] }
   end
 
   def search
