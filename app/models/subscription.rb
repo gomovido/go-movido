@@ -32,6 +32,19 @@ class Subscription < ApplicationRecord
     end
   end
 
+  def slack_notification
+    return unless Rails.env.production?
+
+    slack_notification = "
+    💸 Boom! New subscription purchased 💸\n
+    Product : #{product.name}\n
+    User's email : #{address.user.email}. \n
+    Price : #{product.format_price}\n
+    Company : #{product.company.name}\n
+    [Forest Admin link](https://app.forestadmin.com/go-movido-admin/#{Rails.env.capitalize}/Movido/data/Subscription/index/record/Subscription/#{id}/details)"
+    SlackNotifier::CLIENT.ping slack_notification
+  end
+
   def delivery_address_country
     if product_is_wifi? && algolia_country_code != address.country.code
       errors.add(:delivery_address,
