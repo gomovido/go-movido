@@ -24,6 +24,7 @@ gem 'iso_country_codes'
 gem 'globalize'
 gem "activerecord-nulldb-adapter"
 gem 'rubocop', require: false
+gem 'slack-notifier'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant

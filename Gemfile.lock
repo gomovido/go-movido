@@ -414,6 +414,7 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    slack-notifier (2.3.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -541,6 +542,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simple_form
+  slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
   stimulus_reflex (~> 3.4)

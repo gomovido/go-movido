@@ -2,6 +2,10 @@ class BillingsController < ApplicationController
   before_action :set_subscription, only: %i[new create update]
 
   def new
+    if @subscription.state == 'succeeded'
+      redirect_to subscription_congratulations_path(@subscription)
+      return
+    end
     fill_country_code
     if current_user.complete?
       @billing = @subscription.billing.nil? ? Billing.new : @subscription.billing
