@@ -24,7 +24,9 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  def summary; end
+  def summary
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'succeeded'
+  end
 
   def validate_subscription
     if @subscription.product_is_mobile? && @subscription.product.payment?
@@ -34,6 +36,7 @@ class SubscriptionsController < ApplicationController
       @subscription.update_columns(state: 'succeeded', locale: I18n.locale)
       UserMailer.with(user: @subscription.address.user, subscription: @subscription,
                       locale: @subscription.locale).subscription_under_review_email.deliver_now
+      @subscription.slack_notification
       redirect_to subscription_congratulations_path(@subscription)
     end
   end
