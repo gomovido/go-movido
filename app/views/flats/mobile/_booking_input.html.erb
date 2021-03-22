@@ -1,0 +1,4 @@
+<div class="booking-input d-flex align-items-center justify-content-around">
+  <span class="price"><%= flat[:details]['disp_price'] %> /<%= flat[:details]['billing'].downcase %></span>
+  <%= link_to 'Book now', booking_link(flat[:details]['city_name'], flat[:code]), class:'btn-flat-card', target:'blank' %>
+</div>
