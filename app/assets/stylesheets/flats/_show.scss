@@ -70,4 +70,8 @@
   .flats-card-scroller .hs {
         grid-template-columns: repeat(6, calc(90% - var(--gutter)));
   }
+  .flats-card-scroller .hs .item {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
 }
