@@ -33,9 +33,22 @@
     <div class="col-12 d-flex flex-column">
       <hr class="w-100">
       <span class="description mb-2">
-        <%= ActionView::Base.full_sanitizer.sanitize(@flat[:details]['intro']).html_safe %>
+        <div
+          data-controller="read-more"
+          data-read-more-more-text-value="Show more"
+          data-read-more-less-text-value="Show less"
+        >
+          <p data-read-more-target="content"><%= split_description(@flat[:details]['intro']) %></p>
+
+          <button data-action="read-more#toggle" class="link purple font-weight">
+            Show more
+          </button>
+
+          <template data-read-more-target="full">
+            <%= full_description(@flat[:details]['intro']) %>
+          </template>
+        </div>
       </span>
-      <span class="link purple font-weight">Show more</span>
       <hr class="w-100">
     </div>
     <div class="col-12">
@@ -89,20 +102,21 @@
         </ul>
       </div>
     </div>
-    <hr class="w-100">
-    <div class="col-12 d-flex flex-column my-2 mb-5 pr-0">
-      <span class="title">More Accomodations</span>
+    <% if @recommandations %>
+      <hr class="w-100">
+      <div class="col-12 d-flex flex-column my-2 pr-0">
+        <span class="title">More Accomodations</span>
         <div class="flats-card-scroller pt-0">
           <ul class="hs" data-animate-target="container">
-            <li class="item">
-              <%= render 'flats/mobile/card-lite', flat: @flat %>
-            </li>
-            <li class="item">
-              <%= render 'flats/mobile/card-lite', flat: @flat %>
-            </li>
+            <% @recommandations.each do |flat| %>
+              <li class="item">
+                <%= render 'flats/mobile/card-lite', name: flat['name'], code: flat['code'], image: flat['image'], price: flat['price'], billing: flat['billing'], location: @location %>
+              </li>
+            <% end %>
           </ul>
         </div>
-
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+<%= render 'flats/mobile/booking_input', flat: @flat %>

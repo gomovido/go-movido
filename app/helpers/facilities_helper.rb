@@ -60,4 +60,12 @@ module FacilitiesHelper
       facility
     end
   end
+
+  def split_description(description)
+    "#{ActionView::Base.full_sanitizer.sanitize(description).html_safe.first(100)}..."
+  end
+
+  def full_description(description)
+    ActionView::Base.full_sanitizer.sanitize(description).gsub(/\. /, '.<br><br>').html_safe
+  end
 end
