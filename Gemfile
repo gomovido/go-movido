@@ -68,9 +68,6 @@ group :development do
   gem "letter_opener"
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'guard'
-  gem 'guard-livereload', require: false
-  gem 'rack-livereload'
 end
 
 group :test do
