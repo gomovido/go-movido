@@ -10,6 +10,8 @@ class FlatsController < ApplicationController
     @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
     if @flats[:status] == 200
       @flats = @flats[:payload]
+      @other_flats = @flats.first(4).map {|flat| {code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] }}
+      Rails.cache.write(:recommandations, @other_flats.to_json, expires_in: 30.minutes)
       respond_to do |format|
         format.html
         format.json {
@@ -25,6 +27,7 @@ class FlatsController < ApplicationController
     @code = params[:code]
     @flat = UniaccoApiService.new(property_code: @code, location: params[:location]).flat
     @flat = @flat[:payload] if @flat[:status] == 200
+    @recommandations = JSON.parse(Rails.cache.read(:recommandations)).filter{ |reco| reco['code'] != @flat[:code] } if Rails.cache.read(:recommandations)
   end
 
   def search
