@@ -33,9 +33,22 @@
     <div class="col-12 d-flex flex-column">
       <hr class="w-100">
       <span class="description mb-2">
-        <%= ActionView::Base.full_sanitizer.sanitize(@flat[:details]['intro']).html_safe %>
+        <div
+          data-controller="read-more"
+          data-read-more-more-text-value="Show more"
+          data-read-more-less-text-value="Show less"
+        >
+          <p data-read-more-target="content"><%= split_description(@flat[:details]['intro']) %></p>
+
+          <button data-action="read-more#toggle" class="link purple font-weight">
+            Show more
+          </button>
+
+          <template data-read-more-target="full">
+            <%= full_description(@flat[:details]['intro']) %>
+          </template>
+        </div>
       </span>
-      <span class="link purple font-weight">Show more</span>
       <hr class="w-100">
     </div>
     <div class="col-12">
