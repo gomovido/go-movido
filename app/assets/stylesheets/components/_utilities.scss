@@ -38,6 +38,10 @@ button {
   display: none;
 }
 
+.flatpickr-monthDropdown-months {
+  -webkit-appearance: none !important;
+}
+
 .wrapper{
   flex: 1 !important;
 }

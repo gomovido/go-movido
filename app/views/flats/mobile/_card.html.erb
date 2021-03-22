@@ -18,6 +18,7 @@
       <% config['facilities'].first(3).each do |facility| %>
         <div class="facility"><%= get_icon(facility['kind'].downcase) %> <span><%= get_name(facility['name'])  %></span> </div>
       <% end %>
+      <%= flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date %>
     </div>
     <div class="details-wrapper d-flex justify-content-between px-2">
       <div class="details d-flex flex-column justify-content-around">
