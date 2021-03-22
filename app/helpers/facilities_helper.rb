@@ -1,4 +1,15 @@
 module FacilitiesHelper
+  def get_provider(flat_category)
+    case flat_category
+    when 'flatshare'
+      'uniacco'
+    when 'entire_place'
+      'uniplaces'
+    when 'student_housing'
+      'homelike'
+    end
+  end
+
   def get_icon(facility)
     case facility
     when 'wifi'
