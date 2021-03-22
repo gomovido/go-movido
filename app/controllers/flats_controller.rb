@@ -4,18 +4,21 @@ class FlatsController < ApplicationController
   end
 
   def index
+    @start_date = Rails.cache.read(:start_date) || Time.zone.now.to_date.strftime
     @location = params[:location]
     @type = params[:type]
     @pagy, properties = pagy_array(Rails.cache.read(:codes).split(','))
     @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
     if @flats[:status] == 200
-      @flats = @flats[:payload]
+      @flats = @flats[:payload].filter do |flat|
+        flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date >= @start_date.to_date
+      end
       @other_flats = @flats.first(4).map {|flat| {code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] }}
       Rails.cache.write(:recommandations, @other_flats.to_json, expires_in: 30.minutes)
       respond_to do |format|
         format.html
         format.json {
-          render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+          render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: {flats: @flats, location: @location, type: @type}), pagination: view_context.pagy_nav(@pagy) }
         }
       end
     end
