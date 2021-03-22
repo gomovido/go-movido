@@ -18,7 +18,7 @@ class FlatsController < ApplicationController
       end
     end
   end
-    
+
   def show
     @location = params[:location]
     @type = params[:type]
