@@ -1,4 +1,5 @@
 class FlatReflex < ApplicationReflex
+  delegate :view_context, to: :controller
   before_reflex :set_browser
   include Pagy::Backend
   # rubocop:disable Lint/AmbiguousBlockAssociation
@@ -17,8 +18,9 @@ class FlatReflex < ApplicationReflex
         end
         @other_flats = @flats.first(4).map {|flat| {code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] }}
         Rails.cache.write(:recommandations, @other_flats.to_json, expires_in: 30.minutes)
-        morph ".flats-card-wrapper", with_locale { render(partial: "flats/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/flats", locals: { flats: @flats, location: @location, type: @type}) }
+        morph ".flats-card-wrapper", render(partial: "flats/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/flats", locals: { flats: @flats, location: @location, type: @type}, pagination: view_context.pagy_nav(@pagy))
         Rails.cache.write(:start_date, start_date.strftime, expires_in: 30.minutes)
+
       end
     end
   end
