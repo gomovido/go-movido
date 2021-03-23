@@ -1978,7 +1978,20 @@
       "validations": []
     }],
     "segments": [],
-    "actions": []
+    "actions": [{
+      "name": "To the top",
+      "type": "single",
+      "base_url": null,
+      "endpoint": "forest/actions/to-the-top",
+      "http_method": "POST",
+      "redirect": null,
+      "download": false,
+      "fields": [],
+      "hooks": {
+        "load": false,
+        "change": []
+      }
+    }]
   }, {
     "name": "ProductFeature__Translation",
     "name_old": "product_feature_translations",

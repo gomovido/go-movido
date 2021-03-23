@@ -20,6 +20,7 @@ class ChargesController < ApplicationController
       create_or_update_charge(stripe_charge, subscription)
       subscription.update_columns(state: 'succeeded', locale: I18n.locale)
       UserMailer.with(user: subscription.address.user, subscription: subscription, locale: I18n.locale).subscription_under_review_email.deliver_now
+      subscription.slack_notification
       redirect_to subscription_congratulations_path(subscription, locale: I18n.locale)
     else
       subscription.update_columns(state: 'payment_failed', locale: I18n.locale)

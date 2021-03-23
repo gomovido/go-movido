@@ -83,14 +83,16 @@
       <ul>
         <li><%= subscription.address.user.email %></li>
       </ul>
-      <span class="title"><%= t('users.subscription.birthdate') %></span>
-      <ul>
-        <li><%= subscription.address.user.person.birthdate.strftime('%m/%d/%Y') %></li>
-      </ul>
-      <span class="title"><%= t('users.subscription.phone') %></span>
-      <ul>
-        <li><%= subscription.address.user.person.phone %></li>
-      </ul>
+      <% if current_user.complete? %>
+        <span class="title"><%= t('users.subscription.birthdate') %></span>
+        <ul>
+          <li><%= subscription.address.user.person.birthdate.strftime('%m/%d/%Y') %></li>
+        </ul>
+        <span class="title"><%= t('users.subscription.phone') %></span>
+        <ul>
+          <li><%= subscription.address.user.person.phone %></li>
+        </ul>
+      <% end %>
       <span class="title"><%= t('users.subscription.address') %></span>
       <ul>
         <li><%= subscription.address.street %></li>

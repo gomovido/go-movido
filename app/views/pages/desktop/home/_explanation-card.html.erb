@@ -1,5 +1,5 @@
 <div class="explanation-card d-flex <%= "explanation-card-centered" if centered %>">
-  <div class="illustration mr-3 p-3"><%= image_tag(asset_path(img), style:"width: 65px") %></div>
+  <div class="illustration mr-3 p-3"><%= image_tag(asset_path(img), width:"65", loading: 'lazy') %></div>
   <div class="d-flex flex-column">
     <span class='title pb-1'><%= title %></span>
     <span class='desc'><%= desc %></span>

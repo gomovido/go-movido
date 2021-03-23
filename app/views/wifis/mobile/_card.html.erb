@@ -29,7 +29,7 @@
         <% else %>
           <div class="offer">
             <div class="d-flex align-items-center">
-              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation_mobile') %></span>
+              <%= image_tag(asset_path('products/contract-black.png'), class:'picto') %><br><span class="font-weight"><%= t('products.card.no_obligation_inline') %></span>
             </div>
           </div>
         <% end %>
@@ -62,7 +62,7 @@
       </div>
     <% end %>
     <div class="product-features py-4">
-      <% product.product_features.each do |pf| %>
+      <% product.product_features.order(order: :asc).each do |pf| %>
       <span class="title"> <%= pf.name %> </span>
       <ul>
         <li><%= pf.description %></li>
