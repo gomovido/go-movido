@@ -16,5 +16,13 @@ FactoryBot.define do
       description { 'Best mobile offers' }
       open { true }
     end
+    trait :housing do
+      name { 'housing' }
+      sku { 'housing' }
+      form_timer { 10 }
+      subtitle { 'Choose a flat' }
+      description { 'Best flat offers' }
+      open { true }
+    end
   end
 end

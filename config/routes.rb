@@ -69,4 +69,11 @@ Rails.application.routes.draw do
   post 'charge', to: 'charges#create'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
+  get 'real-estate', to: 'flats#landing', as: 'real_estate_landing'
+
+  post 'search-flats', to: 'flats#search', as: 'search_flats'
+  get 'flats/:location/:type', to: 'flats#index', as: 'flats'
+  get 'flat/:location/:type/:code', to: 'flats#show', as: 'flat'
+  get 'providers-index/:query', to: 'providers#index', as: 'providers'
+
 end

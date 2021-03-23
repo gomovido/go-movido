@@ -18,8 +18,4 @@ class PagesController < ApplicationController
   def faq; end
 
   def about; end
-
-  def dashboard_index
-    @categories = Category.all.order('open DESC')
-  end
 end
