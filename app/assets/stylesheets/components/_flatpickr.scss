@@ -1,0 +1,12 @@
+.flatpickr-day.selected, .flatpickr-day.startRange {
+  background: $purple !important;
+  border-color: $purple !important;
+}
+.flatpickr-day.selected, .flatpickr-day.inRange {
+  cursor: pointer !important;
+  color: white !important;
+  outline: 0 !important;
+  background: #8c30f5 !important;
+  border: none !important;
+  -webkit-box-shadow: -5px 0 0 #8c30f5, 0px 0 0 #e6e6e6 !important;
+}
