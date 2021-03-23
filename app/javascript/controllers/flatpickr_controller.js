@@ -20,15 +20,22 @@ export default class extends Flatpickr {
 
   afterReflex(e) {
     this.connect();
-    document.querySelector('.spinner-container').classList.add('d-none')
-    document.querySelector('.flats-card-wrapper').classList.remove('opacity')
+    let old_url = document.querySelector("a[rel='next']").getAttribute("href");
+    document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2")
+    document.querySelector('.spinner-container').classList.add('d-none');
+    document.querySelector('.spinner-container').classList.remove('middle');
+    document.querySelector('.flats-card-wrapper').classList.remove('opacity');
+    document.querySelector('.dates_dates').classList.remove('disabled');
+
   }
 
   filterByDates(e) {
     if (e.currentTarget.value.split(' ').length === 3) {
+      document.querySelector('.dates_dates').classList.add('disabled');
       document.querySelector('.spinner-container').classList.remove('d-none')
-      document.querySelector('.flats-card-wrapper').classList.add('opacity')
-      this.stimulate('Flat#filter_by_dates', e.currentTarget)
+      document.querySelector('.spinner-container').classList.add('middle');
+      document.querySelector('.flats-card-wrapper').classList.add('opacity');
+      this.stimulate('Flat#filter_by_dates', e.currentTarget);
     }
   }
 }
