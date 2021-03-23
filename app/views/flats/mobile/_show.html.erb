@@ -45,7 +45,7 @@
           </button>
 
           <template data-read-more-target="full">
-            <%= full_description(@flat[:details]['intro']) %>
+            <%= full_description(@flat[:details]['intro']).html_safe %>
           </template>
         </div>
       </span>

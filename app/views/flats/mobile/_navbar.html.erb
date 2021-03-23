@@ -5,6 +5,6 @@
   <% end %>
   <div class="partner">
     <span class="subline">Partnered by</span>
-    <%= image_tag(asset_path("flats/partners/#{get_provider(type).downcase}.png"), width: '70px') %>
+    <%= image_tag(asset_path("flats/partners/#{FacilitiesHelper::PROVIDERS[type]}.png"), width: '70px') %>
   </div>
 </div>

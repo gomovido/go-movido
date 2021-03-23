@@ -28,7 +28,10 @@ export default class extends Controller {
 
   loadMore() {
     let next_page = this.paginationTarget.querySelector("a[rel='next']");
-    if (next_page == null) {return}
+    if (next_page == null) {
+      this.spinnerTarget.classList.add('d-none');
+      return
+    }
     this.spinnerTarget.classList.remove('d-none');
     let url = next_page.href
     Rails.ajax({
