@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang=<%= I18n.locale %>>
   <head>
     <title>movido</title>
     <meta name="description" content="<%= meta_description %>">
@@ -20,6 +20,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2eebd99045.js" crossorigin="anonymous"></script>
     <%= favicon_link_tag asset_path('layout/favicon.ico') %>
     <%= render 'shared/google_tag_manager' %>
@@ -30,6 +33,7 @@
   <body data-locale="<%= I18n.locale.to_s %>" data-env="<%= Rails.env %>">
     <%= render 'shared/navbars' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/pixel_facebook' %>
     <div class="wrapper d-flex flex-column justify-content-center">
     <%= yield %>
     </div>

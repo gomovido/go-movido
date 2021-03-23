@@ -4,7 +4,7 @@
     <%= render 'subscriptions/steps', current_step: 1, title: t('products.index.title'), subtitle: t('products.index.subtitle'), product: @products.first, total_steps: @products.first.total_steps, congratulations: false %>
     <%= render 'mobiles/desktop/product_details'%>
     <div class="row pt-5">
-      <div class="col-lg-4  d-flex justify-content-start">
+      <div class="col-lg-4 d-flex justify-content-start">
         <%= render 'mobiles/desktop/filters', products: @products %>
       </div>
       <div class="col-lg-8">

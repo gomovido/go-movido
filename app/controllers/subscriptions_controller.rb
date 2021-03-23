@@ -7,6 +7,7 @@ class SubscriptionsController < ApplicationController
 
     subscription = @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
     if subscription
+      return if user_profil_is_uncomplete?(subscription)
       redirect_to subscription.path_to_first_step
     else
       @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
@@ -15,8 +16,7 @@ class SubscriptionsController < ApplicationController
       @subscription.address = current_user.active_address
       @subscription.state = 'draft'
       if @subscription.save
-        return if user_profil_is_uncomplete?
-
+        return if user_profil_is_uncomplete?(@subscription)
         redirect_to @subscription.path_to_first_step
       else
         redirect_back(fallback_location: root_path, locale: I18n.locale)
@@ -24,7 +24,9 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  def summary; end
+  def summary
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'succeeded'
+  end
 
   def validate_subscription
     if @subscription.product_is_mobile? && @subscription.product.payment?
@@ -34,6 +36,7 @@ class SubscriptionsController < ApplicationController
       @subscription.update_columns(state: 'succeeded', locale: I18n.locale)
       UserMailer.with(user: @subscription.address.user, subscription: @subscription,
                       locale: @subscription.locale).subscription_under_review_email.deliver_now
+      @subscription.slack_notification
       redirect_to subscription_congratulations_path(@subscription)
     end
   end
@@ -67,8 +70,8 @@ class SubscriptionsController < ApplicationController
 
   private
 
-  def user_profil_is_uncomplete?
-    redirect_to new_subscription_person_path(@subscription) unless current_user.complete?
+  def user_profil_is_uncomplete?(subscription)
+    redirect_to new_subscription_person_path(subscription) unless current_user.complete?
   end
 
   def subscription_active?(product)

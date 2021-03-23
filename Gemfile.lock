@@ -278,12 +278,11 @@ GEM
     phony_rails (0.14.13)
       activesupport (>= 3.0)
       phony (> 2.15)
-    postmark (1.7.1)
+    postmark (1.21.3)
       json
-      rake
-    postmark-rails (0.12.0)
+    postmark-rails (0.20.0)
       actionmailer (>= 3.0.0)
-      postmark (~> 1.7.0)
+      postmark (~> 1.15)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -416,6 +415,7 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    slack-notifier (2.3.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -527,7 +527,7 @@ DEPENDENCIES
   pagy (~> 3.12)
   pg (>= 0.18, < 2.0)
   phony_rails (~> 0.14.13)
-  postmark-rails (~> 0.12.0)
+  postmark-rails
   pry-byebug
   pry-rails
   puma (~> 4.1)
@@ -544,6 +544,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simple_form
+  slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
   stimulus_reflex (~> 3.4)

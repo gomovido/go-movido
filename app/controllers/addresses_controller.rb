@@ -22,6 +22,7 @@ class AddressesController < ApplicationController
 
   def edit
     fill_country_code
+    redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'succeeded'
   end
 
   def update

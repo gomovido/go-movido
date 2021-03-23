@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="banner-lite" style="background-image: url(<%= asset_path 'pages/home/banner-lite-bg.png' %>);">
           <div class="d-flex align-items-center justify-content-between">
-            <%= image_tag(asset_path('pages/home/banner-lite-illustration.png')) %>
+            <%= image_tag(asset_path('pages/home/banner-lite-illustration.png'), loading: 'lazy') %>
             <span class="title mb-3 px-5"><%= t('pages.home.get-started.headline') %></span>
             <%= link_to t('pages.home.get-started.start'), new_user_registration_path, class:'btn-main-reverse' %>
           </div>

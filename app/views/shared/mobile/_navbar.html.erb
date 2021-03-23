@@ -3,14 +3,14 @@
     <li class="nav-item dropdown language">
       <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">FR <i class="fas fa-sort-down ml-2"></i></span>
       <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
-        <%= link_to "EN", locale: :en %>
+        <%= link_to("EN", url_for( locale: :en ), data: {turbolinks: false}) %>
       </div>
     </li>
   <% else %>
     <li class="nav-item dropdown language">
       <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">EN <i class="fas fa-sort-down ml-2"></i></span>
       <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
-        <%= link_to "FR", locale: :fr %>
+        <%= link_to("FR", url_for( locale: :fr ), data: {turbolinks: false}) %>
       </div>
     </li>
   <% end %>

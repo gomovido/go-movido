@@ -5,7 +5,7 @@
       <span class='main-title'><%= @product.company.name %> <%= @product.name %></span>
     </div>
     <div class="features-wrapper mt-5">
-      <% @product.product_features.each do |feature, index| %>
+      <% @product.product_features.order(order: :asc).each do |feature, index| %>
       <div class="feature mb-4">
         <p class="title"><strong><%= feature.name %></strong></p>
         <span class='desc'><%= feature.description %></span>
