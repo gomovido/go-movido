@@ -1,4 +1,10 @@
 module FacilitiesHelper
+  PROVIDERS = {
+    'flatshare' => 'uniacco',
+    'entire_places' => 'uniplaces',
+    'student_housing' => 'homelike'
+  }
+
   def get_icon(facility)
     case facility
     when 'wifi'
@@ -62,10 +68,10 @@ module FacilitiesHelper
   end
 
   def split_description(description)
-    "#{ActionView::Base.full_sanitizer.sanitize(description).html_safe.first(100)}..."
+    "#{ActionView::Base.full_sanitizer.sanitize(description).first(100)}..."
   end
 
   def full_description(description)
-    ActionView::Base.full_sanitizer.sanitize(description).gsub(/\. /, '.<br><br>').html_safe
+    ActionView::Base.full_sanitizer.sanitize(description).gsub(/\. /, '.<br><br>')
   end
 end
