@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   get 'real-estate', to: 'flats#landing', as: 'real_estate_landing'
 
   post 'search-flats', to: 'flats#search', as: 'search_flats'
-  get 'flats/:location/:type', to: 'flats#index', as: 'flats_index'
+  get 'flats/:location/:type', to: 'flats#index', as: 'flats'
   get 'flat/:location/:type/:code', to: 'flats#show', as: 'flat'
   get 'providers-index/:query', to: 'providers#index', as: 'providers'
 

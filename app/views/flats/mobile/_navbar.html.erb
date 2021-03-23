@@ -1,10 +1,10 @@
 <div class="navbar navbar-flats navbar-expand-sm navbar-light navbar-movido d-flex align-items-center justify-content-between" data-controller="navbar" data-navbar-target="navbar" data-action="scroll@window->navbar#onScroll" data-navbar-fixed-class="fixed-nav">
-  <%= link_to providers_path(@location), class: 'location d-flex align-items-center' do %>
+  <%= link_to (action == 'index' ? providers_path(location) : flats_path(location, type)), class: 'location d-flex align-items-center' do %>
     <i class="far fa-chevron-left mr-4"></i>
-    <span><%= @type.capitalize %></span>
+    <span><%= type.capitalize %></span>
   <% end %>
   <div class="partner">
     <span class="subline">Partnered by</span>
-    <%= image_tag(asset_path("flats/partners/#{get_provider(@type).downcase}.png"), width: '70px') %>
+    <%= image_tag(asset_path("flats/partners/#{get_provider(type).downcase}.png"), width: '70px') %>
   </div>
 </div>

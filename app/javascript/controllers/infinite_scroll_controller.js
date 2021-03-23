@@ -5,11 +5,7 @@ export default class extends Controller {
   static targets = ["entries", "pagination", "spinner"]
 
   initialize() {
-    let options = {
-      rootMargin: '200px',
-    }
-
-    this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries), options)
+    this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries))
   }
 
   connect() {
@@ -23,7 +19,9 @@ export default class extends Controller {
   processIntersectionEntries(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        this.loadMore()
+        if (!document.querySelector('.flats-wrapper').classList.contains('opacity')) {
+          this.loadMore()
+        }
       }
     })
   }
@@ -38,9 +36,14 @@ export default class extends Controller {
       url: url,
       dataType: 'json',
       success: (data) => {
-        this.spinnerTarget.classList.add('d-none')
-        this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
-        this.paginationTarget.innerHTML = data.pagination
+        if (data.entries) {
+          this.spinnerTarget.classList.add('d-none')
+          this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
+          this.paginationTarget.innerHTML = data.pagination
+        } else {
+          this.paginationTarget.innerHTML = data.pagination
+          this.loadMore()
+        }
       }
     })
   }
