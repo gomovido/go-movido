@@ -1,0 +1,14 @@
+<%= link_to flat_path(location, type, flat['code']), class:'w-100' do %>
+  <div class="flat-card d-flex mb-4">
+    <div class="img-box mr-3"  style="background-image:url(<%= flat['images'][0]['url'] %>);">
+    </div>
+    <div class="details d-flex flex-column justify-content-around">
+      <div class="name">
+        <%= flat['name'] %>
+      </div>
+      <div class="pricing">
+        <%= flat['disp_price'] %>
+      </div>
+    </div>
+  </div>
+<% end %>

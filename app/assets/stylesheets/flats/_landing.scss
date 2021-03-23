@@ -1,0 +1,93 @@
+@include media-breakpoint-down(md) {
+  .landing-container {
+    .banner-landing {
+      height: 80vh;
+      background-size: cover;
+      background-position: right;
+      .content {
+        padding-top: 4rem;
+        h1 {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 700;
+          color: $white;
+          font-size: 26px;
+          line-height: 37px;
+          font-feature-settings: 'liga' off;
+          margin-bottom: 1.5rem;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 60%;
+          .geocoder {
+            border-radius: 15px;
+          }
+          .mapboxgl-ctrl {
+            height: 60px;
+            border-radius: 15px;
+          }
+          .mapboxgl-ctrl-geocoder--icon-search {
+            top: 18px;
+          }
+          .mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--pin-right > * {
+            top: 13px;
+          }
+          .mapboxgl-ctrl-geocoder--input {
+            height: 60px;
+            border-radius: 15px;
+            &:focus {
+              outline: none;
+            }
+          }
+          ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            color: $grey;
+          }
+
+          :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            color: $grey;        }
+
+          ::-ms-input-placeholder { /* Microsoft Edge */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            color: $grey;
+          }
+          .btn-main {
+            padding: 10px 51.5px !important;
+          }
+        }
+      }
+    }
+    .disclaimer {
+      background: $black;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      height: 50px;
+      z-index: 9;
+      top: -15px;
+      position: relative;
+      font-size: 12px;
+      margin-bottom: -35px;
+      span {
+        position: relative;
+        top: 22px;
+        color: $white;
+        font-weight: 700;
+      }
+    }
+  }
+}

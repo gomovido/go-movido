@@ -106,6 +106,18 @@ fr:
         phone: 'Téléphone'
         birthdate: 'Date de naissance'
         birth_city: 'Ville de naissance'
+  housing:
+    flats:
+      landing:
+        disclaimer: "Service disponible au Royaume-Uni et en France"
+        location: 'Saisissez votre lieu de résidence ou votre université'
+        submit: 'Chercher'
+  providers:
+    index:
+      count: "%{count}+ lieux d'hébergement"
+      show_all: 'Voir tout'
+      flatshare: 'Colocation'
+      student_housing: 'Logement étudiants'
   pages:
     contact:
       title: 'Contacte nous'

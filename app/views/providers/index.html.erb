@@ -1,0 +1,5 @@
+<% if browser.device.mobile? %>
+  <%= render 'providers/mobile/index' %>
+<% else %>
+  <%= render 'providers/desktop/index' %>
+<% end %>

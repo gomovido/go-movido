@@ -1,0 +1,12 @@
+<div class="subnavbar col-12" data-controller="flat-filters">
+  <span class="location"><%= @location.capitalize %></span>
+  <div class="filters d-flex align-items-center">
+    <%= simple_form_for :dates, html: {method: :post} do |f| %>
+      <%= f.input :dates, as: :string, label: false, placeholder: "#{@start_date.to_date.strftime('%e %b')} - #{(@start_date.to_date + 14.days).strftime('%e %b')}",
+         required: true,
+         input_html: { class: 'background-white datepicker', id: 'date-input', data: {
+          controller: "flatpickr", action: 'change->flatpickr#filterByDates', flatpickr_alt_input: true, flatpickr_alt_format: '%e %b', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range', flatpickr_range_separator: '-', flatpickr_min_date: Time.zone.now} } %>
+    <% end %>
+    <i class="fas fa-sliders-h purple"></i>
+  </div>
+</div>
