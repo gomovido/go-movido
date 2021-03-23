@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
   def index
     @uniacco_flats = UniaccoApiService.new(city_code: params[:query]).list_flats
     if @uniacco_flats[:status] == 200

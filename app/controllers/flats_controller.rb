@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[landing search index]
+  skip_before_action :authenticate_user!, only: %i[landing search]
   def landing
   end
 
