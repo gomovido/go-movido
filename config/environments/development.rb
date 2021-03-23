@@ -16,11 +16,10 @@ Rails.application.configure do
   config.cache_classes = false
   # Do not eager load code on boot.
   config.eager_load = false
-  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
   # Show full error reports.
   config.consider_all_requests_local = true
   config.action_mailer.asset_host = 'http://localhost:3000'
-  config.action_controller.asset_host = 'http://localhost:3000'
+  config.action_controller.asset_host = "http://localhost:3000"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

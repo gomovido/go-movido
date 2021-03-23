@@ -11,7 +11,7 @@ class UniaccoApiService
     response = JSON.parse(Net::HTTP.get(uri))
     i = 1
     while i < response['pages'].to_i
-      i+= 1
+      i += 1
       uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=#{i}&sortBy=relevance")
       response['properties'] << JSON.parse(Net::HTTP.get(uri))['properties']
     end
@@ -31,7 +31,6 @@ class UniaccoApiService
     end
     { error: nil, status: 200, payload: array } if array.present?
   end
-
 
   def flat
     uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
