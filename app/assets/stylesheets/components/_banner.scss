@@ -21,6 +21,19 @@
       font-weight: bold;
     }
   }
+  .offers {
+    list-style: none;
+    padding-left: 0;
+    i {
+      color: $purple;
+      font-size: 20px;
+    }
+    li {
+      font-family: 'Manrope';
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {
