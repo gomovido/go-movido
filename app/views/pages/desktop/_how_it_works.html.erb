@@ -5,31 +5,75 @@
   <div class="big-purple-bubble position-fixed"></div>
   <div class="small-yellow-bubble position-absolute"></div>
   <h2 class="text-center mb-5"><%= t('pages.how_it_works.title') %></h2>
-  <div class="row">
-    <div class="col-3 left">
-      <%= image_tag(asset_path('pages/how-it-works/way.png'), loading: 'lazy') %>
+  <%= image_tag(asset_path('pages/how-it-works/way.png'), class:'position-absolute way') %>
+  <div class="row mb-5">
+    <div class="col-5 offset-1 d-flex align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="num">1</div>
+        <div class="box">
+          <h4 class="mb-2"><%= t('pages.how_it_works.first_step.title') %></h4>
+          <p><%= t('pages.how_it_works.fifth_step.description') %></p>
+        </div>
+      </div>
     </div>
-    <div class="col-9 right d-flex flex-column justify-content-around">
-      <div class="mb-3">
-        <h4 class="mb-4"><%= t('pages.how_it_works.first_step.title') %></h4>
-        <p><%= t('pages.how_it_works.fifth_step.description') %></p>
+    <div class="col-6 text-right">
+      <%= image_tag(asset_path('pages/how-it-works/signup.png'), style:"width: 75%") %>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6 text-center">
+      <%= image_tag(asset_path('pages/how-it-works/housing.png'), style:"width: 75%") %>
+    </div>
+    <div class="col-5 offset-1 d-flex align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="num">2</div>
+        <div class="box">
+          <h4 class="mb-2"><%= t('pages.how_it_works.second_step.title') %></h4>
+          <p><%= t('pages.how_it_works.second_step.description') %></p>
+        </div>
       </div>
-      <div class="my-3">
-        <h4 class="mb-4"><%= t('pages.how_it_works.second_step.title') %></h4>
-        <p><%= t('pages.how_it_works.second_step.description') %></p>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-5 offset-1 d-flex align-items-end">
+      <div class="d-flex align-items-center">
+        <div class="num">3</div>
+        <div class="box">
+          <h4 class="mb-2"><%= t('pages.how_it_works.third_step.title') %></h4>
+          <p><%= t('pages.how_it_works.third_step.description') %></p>
+        </div>
       </div>
-      <div class="my-3">
-        <h4 class="mb-4"><%= t('pages.how_it_works.third_step.title') %></h4>
-        <p><%= t('pages.how_it_works.third_step.description') %></p>
+    </div>
+    <div class="col-6 text-right">
+      <%= image_tag(asset_path('pages/how-it-works/offers.png'), style:"width: 75%") %>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6 text-center">
+      <%= image_tag(asset_path('pages/how-it-works/subscriptions.png'), style:"width: 75%") %>
+    </div>
+    <div class="col-5 offset-1 d-flex align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="num">4</div>
+        <div class="box">
+          <h4 class="mb-2"><%= t('pages.how_it_works.fourth_step.title') %></h4>
+          <p><%= t('pages.how_it_works.fourth_step.description') %></p>
+        </div>
       </div>
-      <div class="my-3">
-        <h4 class="mb-4"><%= t('pages.how_it_works.fourth_step.title') %></h4>
-        <p><%= t('pages.how_it_works.fourth_step.description') %></p>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-5 offset-1 d-flex align-items-end">
+      <div class="d-flex align-items-center">
+        <div class="num">5</div>
+        <div class="box">
+          <h4 class="mb-2"><%= t('pages.how_it_works.fifth_step.title') %></h4>
+          <p><%= t('pages.how_it_works.fifth_step.description') %></p>
+        </div>
       </div>
-      <div class="my-3">
-        <h4 class="mb-4"><%= t('pages.how_it_works.fifth_step.title') %></h4>
-        <p><%= t('pages.how_it_works.fifth_step.description') %></p>
-      </div>
+    </div>
+    <div class="col-6 text-right">
+      <%= image_tag(asset_path('pages/how-it-works/wallet.png'), style:"width: 75%") %>
     </div>
   </div>
 </div>
