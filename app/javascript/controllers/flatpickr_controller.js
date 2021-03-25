@@ -35,7 +35,7 @@ export default class extends Flatpickr {
       document.querySelector('.spinner-container').classList.remove('d-none')
       document.querySelector('.spinner-container').classList.add('middle');
       document.querySelector('.flats-card-wrapper').classList.add('opacity');
-      this.stimulate('Flat#filter_by_dates', e.currentTarget);
+      this.stimulate('Flat#filter', e.currentTarget);
     }
   }
 }
