@@ -27,7 +27,7 @@ class UniaccoApiService
     @properties.map do |property|
       uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{property}")
       response = JSON.parse(Net::HTTP.get(uri))
-      array << { code: property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
+      array << { code: property, details: response, images: response['images'], facilities: response['facilities'], apartment_facilities: response['apartment_facilities'] } if response && (response['title'] != 'NOT_FOUND')
     end
     { error: nil, status: 200, payload: array } if array.present?
   end
@@ -35,7 +35,7 @@ class UniaccoApiService
   def flat
     uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
     response = JSON.parse(Net::HTTP.get(uri))
-    hash = { code: @property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
+    hash = { code: @property, details: response, images: response['images'], facilities: response['facilities'], apartment_facilities: response['apartment_facilities'] } if response && (response['title'] != 'NOT_FOUND')
     { error: nil, status: 200, payload: hash } unless hash[:code].nil?
   end
 

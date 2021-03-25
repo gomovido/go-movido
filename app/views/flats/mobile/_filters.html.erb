@@ -1,0 +1,29 @@
+<div class="modal modal-product fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModal" aria-hidden="true" data-controller="flats-filters">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content address">
+      <div class="modal-body">
+        <div class="filters-container w-100">
+          <div class="filter-wrapper mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="title"><%= t('products.mobile-filter.title') %></span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="far fa-times-circle"></i>
+              </button>
+            </div>
+            <%= simple_form_for :filters, data: {flats_filters_target: 'form'} do |f| %>
+                <p id="test">hello</p>
+                <div class="round my-3">
+                  <%= f.check_box :fridge, data: { action: "change->flats-filters#filterByFacility"} %>
+                  <span class="ml-3">fridge</span>
+                </div>
+                <div class="round my-3">
+                  <%= f.check_box :microwave, data: { action: "change->flats-filters#filterByFacility"} %>
+                  <span class="ml-3">microwave</span>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
