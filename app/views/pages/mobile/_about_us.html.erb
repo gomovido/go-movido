@@ -13,6 +13,13 @@
     <div class="col-12">
       <p class="mb-5"><%= t('pages.about.part_4').html_safe %></p>
     </div>
+    <div class="col-12">
+      <p><%= t('pages.about.part_4').html_safe %></p>
+      <div class="partner d-flex flex-column justify-content-between align-items-center mb-5">
+        <%= image_tag('pages/about/boconi.png') %>
+        <p><%= t('pages.about.boconi').html_safe %></p>
+      </div>
+    </div>
     <div class="col-12 text-center">
       <%= link_to t('pages.home.banner.start'), new_user_registration_path, class:'btn btn-main' %>
     </div>
@@ -47,13 +54,13 @@
       <div class="purple-card"></div>
       <div class="inside position-absolute">
         <div class="name">
-          Paul Sipassteuh
+          Verena Lunkenheimer
         </div>
         <div class="role">
-          Marketing
+          Product Manager
         </div>
       </div>
-      <%= image_tag(asset_path('team/paul.png')) %>
+      <%= image_tag(asset_path('team/verena.png')) %>
     </div>
     <div class="col-12 px-0 mb-5" data-animate-target="card" data-team-name="tim" data-action='click->animate#displayPurpleBackground'>
       <div class="purple-card"></div>
