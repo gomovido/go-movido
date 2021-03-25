@@ -1,10 +1,5 @@
 .how-it-works-container {
   padding-top: 80px;
-  .way {
-    width: 60%;
-    left: 10%;
-    top: 27%;
-  }
   h2 {
     font-weight: 800;
     font-size: 48px;
@@ -50,22 +45,8 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .way {
-    width: 93%;
-    left: -7%;
-    top: 23%;
-  }
-}
 
 
-@media screen and (max-width: 1450px) {
-  .way {
-    width: 90% !important;
-    left: -9% !important;
-    top: 24% !important;
-  }
-}
 
 
 @include media-breakpoint-down(md) {
