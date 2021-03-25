@@ -7,6 +7,10 @@
     width: 25%;
     left: -5%;
   }
+  .student {
+    bottom: -55px;
+    z-index: 0;
+  }
   .logo {
     width: 50%;
   }
@@ -32,6 +36,10 @@
     width: 600px !important;
     height: 600px !important;
   }
+  .bottom-left {
+    bottom: -45%;
+    left: -35%;
+  }
   .big-purple-bubble {
     top: -15px;
     right: 65px;
@@ -45,6 +53,19 @@
   }
   .invalid-feedback {
     display: block;
+  }
+  .offers {
+    list-style: none;
+    padding-left: 0;
+    i {
+      color: $purple;
+      font-size: 20px;
+    }
+    li {
+      font-family: 'Manrope';
+      font-weight: bold;
+      font-size: 18px;
+    }
   }
 }
 
