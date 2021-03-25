@@ -1,8 +1,5 @@
 .how-it-works-container {
   padding-top: 80px;
-  img {
-    width: 278.09px;
-  }
   h2 {
     font-weight: 800;
     font-size: 48px;
@@ -16,6 +13,7 @@
     font-size: 18px;
     color: $grey;
     line-height: 40px;
+    font-weight: lighter;
   }
   .big-blue-bubble {
     left: -200px;
@@ -29,7 +27,27 @@
     bottom: -120px;
     right: -280px;
   }
+  .num {
+    background: #F4F5F7;
+    border-radius: 100px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #8C30F5;
+    margin-right: 1rem;
+    width: 70px;
+    min-width: 70px;
+  }
 }
+
+
+
+
 
 @include media-breakpoint-down(md) {
   .how-it-works-container {
