@@ -2,6 +2,9 @@
   <%= render 'flats/mobile/filters' %>
   <div class="row">
     <%= render 'flats/mobile/subnavbar' %>
+    <div class="col-12 clear-filters">
+      <%= render 'flats/mobile/clear_filters', active_filters: @active_filters, location: @location, type: @type %>
+    </div>
     <div class="flats-wrapper w-100">
       <div class="flats-card-wrapper w-100" data-infinite-scroll-target="entries">
         <%= render 'flats/mobile/flats', flats: @flats, type: @type, location: @location  %>

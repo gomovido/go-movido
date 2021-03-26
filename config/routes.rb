@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   get 'flats/:location/:type', to: 'flats#index', as: 'flats'
   get 'flat/:location/:type/:code', to: 'flats#show', as: 'flat'
   get 'providers-index/:query', to: 'providers#index', as: 'providers'
+  post 'flats/:location/:type', to: 'flats#clear_filters', as: 'clear_filters'
 
 
 
