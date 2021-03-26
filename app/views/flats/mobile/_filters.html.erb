@@ -11,10 +11,9 @@
               </button>
             </div>
             <%= simple_form_for :filters, data: {flats_filters_target: 'form'} do |f| %>
-                <p id="test">hello</p>
                 <div class="round my-3">
-                  <%= f.check_box :fridge, data: { action: "change->flats-filters#filterByFacility"} %>
-                  <span class="ml-3">fridge</span>
+                  <%= f.check_box :dishwasher, data: { action: "change->flats-filters#filterByFacility"} %>
+                  <span class="ml-3">dishwasher</span>
                 </div>
                 <div class="round my-3">
                   <%= f.check_box :microwave, data: { action: "change->flats-filters#filterByFacility"} %>

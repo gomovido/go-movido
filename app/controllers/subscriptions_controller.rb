@@ -8,6 +8,7 @@ class SubscriptionsController < ApplicationController
     subscription = @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
     if subscription
       return if user_profil_is_uncomplete?(subscription)
+
       redirect_to subscription.path_to_first_step
     else
       @product.subscriptions.find_by(address: current_user.active_address, state: 'draft')
@@ -17,6 +18,7 @@ class SubscriptionsController < ApplicationController
       @subscription.state = 'draft'
       if @subscription.save
         return if user_profil_is_uncomplete?(@subscription)
+
         redirect_to @subscription.path_to_first_step
       else
         redirect_back(fallback_location: root_path, locale: I18n.locale)

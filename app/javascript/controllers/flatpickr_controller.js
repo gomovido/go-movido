@@ -10,16 +10,15 @@ export default class extends Flatpickr {
     if (field) {
       field.addEventListener('change', e => {
         if (field.value) {
-            field.placeholder = ''
+          field.placeholder = ''
         } else {
-            field.placeholder = 'DD/MM/YYYY'
+          field.placeholder = 'DD/MM/YYYY'
         }
       });
     }
   }
 
   afterReflex(e) {
-    this.connect();
     let old_url = document.querySelector("a[rel='next']").getAttribute("href");
     document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2")
     document.querySelector('.spinner-container').classList.add('d-none');
@@ -35,7 +34,7 @@ export default class extends Flatpickr {
       document.querySelector('.spinner-container').classList.remove('d-none')
       document.querySelector('.spinner-container').classList.add('middle');
       document.querySelector('.flats-card-wrapper').classList.add('opacity');
-      this.stimulate('Flat#filter', e.currentTarget);
+      this.stimulate('Flat#filter', e.currentTarget.value);
     }
   }
 }
