@@ -5,7 +5,7 @@ class UniaccoApiService
     @properties = params[:properties]
     @property = params[:property_code]
     @active_filters = params[:active_filters]
-    @start_date = params[:start_date]
+    @start_date = params[:start_date].to_date
   end
 
   def list_flats
@@ -33,18 +33,18 @@ class UniaccoApiService
     end
     if array.present?
       response = { error: nil, status: 200, payload: array }
-      flats = filters(response[:payload], @filters_list, @start_date)
+      flats = filters(response[:payload], @active_filters, @start_date)
       { error: nil, status: 200, flats: flats, recommandations: recommandations(flats)}
     end
   end
 
-  def filters(flats, filters_list, start_date)
+  def filters(flats, active_filters, start_date)
     flats.filter do |flat|
       availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
-      if filters_list.present?
+      if active_filters.present?
         facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
-        flat if (filters_list - facilities).empty? && availability_date <= start_date
-      elsif availability_date <= start_date.to_date
+        flat if (active_filters - facilities).empty? && availability_date <= start_date
+      elsif availability_date <= start_date
         flat
       end
     end
