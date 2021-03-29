@@ -12,11 +12,10 @@ class FlatsController < ApplicationController
     properties_codes = Rails.cache.read(:codes)
     if properties_codes
       @pagy, properties = pagy_array(properties_codes.split(','))
-      @flats = UniaccoApiService.new(properties: properties, location: params[:location]).avanced_list_flats
-      if @flats[:status] == 200
-
-        @flats = filters(@flats[:payload], @active_filters, @start_date.to_date)
-        @other_flats = @flats.first(4).map { |flat| { code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] } }
+      response = UniaccoApiService.new(properties: properties, location: params[:location], active_filters: @active_filters, start_date: @start_date).avanced_list_flats
+      if response[:status] == 200
+        @flats = response[:flats]
+        @other_flats = response[:recommandations]
         Rails.cache.write(:recommandations, @other_flats.to_json, expires_in: 30.minutes)
         respond_to do |format|
           format.html
@@ -28,18 +27,6 @@ class FlatsController < ApplicationController
     else
       redirect_to real_estate_landing_path
       flash[:alert] = 'Your request has expired'
-    end
-  end
-
-  def filters(flats, filters_list, start_date)
-    flats.filter do |flat|
-      availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
-      if filters_list.present?
-        facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
-        flat if (filters_list - facilities).empty? && availability_date <= start_date
-      elsif availability_date <= start_date
-        flat
-      end
     end
   end
 

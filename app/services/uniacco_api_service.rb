@@ -4,6 +4,8 @@ class UniaccoApiService
     @city_code = params[:city_code]
     @properties = params[:properties]
     @property = params[:property_code]
+    @active_filters = params[:active_filters]
+    @start_date = params[:start_date]
   end
 
   def list_flats
@@ -29,8 +31,29 @@ class UniaccoApiService
       response = JSON.parse(Net::HTTP.get(uri))
       array << { code: property, details: response, images: response['images'], facilities: response['facilities'], apartment_facilities: response['apartment_facilities'] } if response && (response['title'] != 'NOT_FOUND')
     end
-    { error: nil, status: 200, payload: array } if array.present?
+    if array.present?
+      response = { error: nil, status: 200, payload: array }
+      flats = filters(response[:payload], @filters_list, @start_date)
+      { error: nil, status: 200, flats: flats, recommandations: recommandations(flats)}
+    end
   end
+
+  def filters(flats, filters_list, start_date)
+    flats.filter do |flat|
+      availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
+      if filters_list.present?
+        facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
+        flat if (filters_list - facilities).empty? && availability_date <= start_date
+      elsif availability_date <= start_date.to_date
+        flat
+      end
+    end
+  end
+
+  def recommandations(flats)
+    flats.first(4).map { |flat| { code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] } }
+  end
+
 
   def flat
     uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
