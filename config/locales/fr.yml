@@ -140,6 +140,10 @@ fr:
         role: 'Développeur'
     home:
       banner:
+        offers:
+          free: '100 % gratuit'
+          unique: 'Offres exclusives'
+          time: '< de 10 minutes'
         headline1: '<span class="purple">Installe</span> toi'
         headline2: 'en seulement <br> <span class="purple">10 minutes</span>'
         subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"

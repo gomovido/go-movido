@@ -1,6 +1,6 @@
 en:
   mail:
-    welcome_email: 'Welcome to movido'
+    welcome_email: 'Welcome to movido!'
     subscription_under_review: 'Congratulations on your purchase'
     booking_under_review: 'Congratulations on your booking'
     subscription_confirmed: 'Subscription confirmed'
@@ -150,9 +150,14 @@ en:
         cta: "Contact us"
     home:
       banner:
+        offers:
+          free: '100 % free'
+          unique: 'Unique offers'
+          time: 'In < 10 minutes'
         headline1: 'Get <span class="purple">set up</span></br> in your <span class="purple">new home</span>'
         headline2: 'in only <span class="purple">10 mins</span>'
         subheadline: '<strong>movido</strong> takes care of your admin work'
+
         start: 'Get Started'
       partners:
         title: 'In collaboration with:'

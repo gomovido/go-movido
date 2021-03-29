@@ -7,6 +7,14 @@
     <div class="col-md-7 position-relative mt-5">
       <h1 class="mb-4"><%= t('devise.registrations.new.title_left').html_safe %> <%= image_tag(asset_path('devise/logo.png'), class:"logo") %></h1>
       <p><%= t('devise.registrations.new.subtitle').html_safe %></p>
+      <ul class='offers d-flex align-items-center'>
+        <li class="mr-4">
+          <i class="fas fa-check mr-1"></i><%= t('pages.home.banner.offers.free') %>
+        </li>
+        <li>
+          <i class="fas fa-check mr-1"></i><%= t('pages.home.banner.offers.unique') %>
+        </li>
+      </ul>
     </div>
     <div class="col-md-5 mt-5">
       <div class="form-base">

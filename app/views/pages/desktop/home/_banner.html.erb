@@ -9,9 +9,13 @@
                 <h1 class="mb-3"><%= t('pages.home.banner.headline1').html_safe %><br><span><%= t('pages.home.banner.headline2').html_safe %></span></h1>
                 <p class="subheadline"><%= t('pages.home.banner.subheadline').html_safe %></p>
                 <ul class='offers'>
-                  <li><i class="fas fa-check mr-3 my-2"></i>100 % Free</li>
-                  <li><i class="fas fa-check mr-3 my-2"></i>unique offers</li>
-                  <li><i class="fas fa-check mr-3 my-2"></i>in < 10 minutes</li>
+                  <li>
+                    <i class="fas fa-check mr-3 my-2"></i><%= t('pages.home.banner.offers.free') %>
+                  </li>
+                  <li>
+                    <i class="fas fa-check mr-3 my-2"></i><%= t('pages.home.banner.offers.unique') %>
+                  </li>
+                  <li><i class="fas fa-check mr-3 my-2"></i><%= t('pages.home.banner.offers.time') %></li>
                 </ul>
               </div>
               <div>
