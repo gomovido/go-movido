@@ -2,11 +2,11 @@
 <% content_for :meta_description, "Sign in now and let movido deal with your admin work" %>
 <div class="container registration-container d-flex align-items-center justify-content-center pb-3">
   <%= image_tag(asset_path('devise/student-picture.png'), class:'inner-img student') %>
+  <figure class="big-blue-bubble position-absolute sessions-bubble"></figure>
   <div class="row w-100">
     <div class="col-md-7">
       <h1><%= t('devise.sessions.new.title_left').html_safe %></h1>
       <p><%= t('devise.sessions.new.subtitle').html_safe %></p>
-      <figure class="big-blue-bubble bottom-left position-absolute"></figure>
       <ul class='offers d-flex align-items-center'>
         <li class="mr-4">
           <i class="fas fa-check mr-1"></i><%= t('pages.home.banner.offers.free') %>
