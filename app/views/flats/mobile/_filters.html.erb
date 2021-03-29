@@ -1,4 +1,4 @@
-<div class="modal modal-product fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModal" aria-hidden="true" data-controller="flats-filters">
+<div class="modal modal-product fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content address">
       <div class="modal-body">
@@ -10,13 +10,13 @@
                 <i class="far fa-times-circle"></i>
               </button>
             </div>
-            <%= simple_form_for :filters, data: {flats_filters_target: 'form'} do |f| %>
+            <%= simple_form_for :filters, data: {flats_target: 'form'} do |f| %>
                 <div class="round my-3">
-                  <%= f.check_box :dishwasher, data: { action: "change->flats-filters#filterByFacility"} %>
+                  <%= f.check_box :dishwasher, data: { action: "change->flats#filterByFacility"} %>
                   <span class="ml-3">dishwasher</span>
                 </div>
                 <div class="round my-3">
-                  <%= f.check_box :microwave, data: { action: "change->flats-filters#filterByFacility"} %>
+                  <%= f.check_box :microwave, data: { action: "change->flats#filterByFacility"} %>
                   <span class="ml-3">microwave</span>
                 </div>
             <% end %>
