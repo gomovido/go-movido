@@ -21,15 +21,21 @@ class FlatReflex < ApplicationReflex
     @flats = response[:flats]
     @other_flats = response[:recommandations]
     Rails.cache.write(:recommandations, @other_flats.to_json, expires_in: 30.minutes)
-    morph ".flats-card-wrapper", render(partial: "flats/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/flats", locals: { flats: @flats, location: @location, type: @type }, pagination: view_context.pagy_nav(@pagy))
-    morph ".clear-filters", render(partial: "flats/#{@browser.device.mobile? ? 'mobile' : 'desktop'}/clear_filters", locals: { active_filters: @active_filters, location: @location, type: @type }) if @active_filters.present?
     Rails.cache.write(:start_date, start_date, expires_in: 30.minutes)
-    Rails.cache.write(:filters, @active_filters.to_json, expires_in: 30.minutes) if @active_filters.present?
+    morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @location, type: @type }, pagination: view_context.pagy_nav(@pagy))
+    return if @active_filters.blank?
+
+    morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @active_filters, location: @location, type: @type })
+    Rails.cache.write(:filters, @active_filters.to_json, expires_in: 30.minutes)
   end
 
   private
 
   def set_browser
     @browser = Browser.new(request.env["HTTP_USER_AGENT"])
+  end
+
+  def device
+    @browser.device.mobile? ? 'mobile' : 'desktop'
   end
 end
