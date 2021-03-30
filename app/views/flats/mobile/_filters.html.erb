@@ -21,8 +21,8 @@
                 </div>
                 <div>
                   <div class="d-flex justify-content-between align-items-center">
-                    <%= f.input :min, input_html: {value: @min_price}, class:'price-input' %>
-                    <%= f.input :max, input_html: {value: @max_price}, class:'price-input' %>
+                    <%= f.input :min, input_html: {value: @min_price || @min_range, data: {min_value: @min_range}}, class:'price-input' %>
+                    <%= f.input :max, input_html: {value: @max_price || @max_range, data: {max_value: @max_range}}, class:'price-input' %>
                   </div>
                   <div id="slider-range" data-flats-target="slider"></div>
                 </div>

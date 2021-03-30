@@ -5,16 +5,21 @@ class FlatsController < ApplicationController
   end
 
   def index
-    p 'THIS IS CONTROLLER RB'
-    p Rails.cache.read(:filters)
-    @min_price = JSON.parse(Rails.cache.read(:price_range))["min_price"]
-    @max_price = JSON.parse(Rails.cache.read(:price_range))["max_price"]
+    if Rails.cache.read(:price_range)
+      @min_range = JSON.parse(Rails.cache.read(:price_range))["min_price"]
+      @max_range = JSON.parse(Rails.cache.read(:price_range))["max_price"]
+    else
+      @min_range = 100
+      @max_range = 2000
+    end
     if Rails.cache.read(:filters)
       @active_filters = JSON.parse(Rails.cache.read(:filters))
+      @min_price = @active_filters['min']
+      @max_price = @active_filters['max']
     else
       @active_filters = {}
-      @active_filters['min'] = @min_price
-      @active_filters['max'] = @max_price
+      @active_filters['min'] = @min_range
+      @active_filters['max'] = @max_range
     end
     @start_date = Rails.cache.read(:start_date) || (Time.zone.now.to_date + 30.days).strftime
     @location = params[:location]

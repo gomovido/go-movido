@@ -27,14 +27,15 @@ export default class extends Controller {
       connect: true,
       step: 1,
       range: {
-          'min': minPrice,
-          'max': maxPrice
+        'min': parseInt(document.getElementById('filters_min').dataset.minValue),
+        'max': parseInt(document.getElementById('filters_max').dataset.maxValue)
       }
     });
     this.slider.noUiSlider.on('change.one', () => {
       const dateValue = document.getElementById('date-input').value
       document.getElementById('filters_min').value = parseInt(this.slider.noUiSlider.get()[0], 10);
       document.getElementById('filters_max').value = parseInt(this.slider.noUiSlider.get()[1], 10);
+      this.triggerLoading(this.spinnerTarget, this.entriesTarget)
       this.stimulate('flatReflex#filter', this.formTarget, dateValue)
     });
   }
