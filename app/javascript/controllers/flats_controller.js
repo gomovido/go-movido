@@ -1,9 +1,11 @@
 import { Controller } from "stimulus"
 import Rails from "@rails/ujs";
 import StimulusReflex from 'stimulus_reflex';
+import noUiSlider from 'nouislider';
+import 'nouislider/distribute/nouislider.css';
 
 export default class extends Controller {
-  static targets = ["entries", "pagination", "spinner", "form", "spinner"]
+  static targets = ["entries", "pagination", "spinner", "form", "spinner", "slider"]
 
   initialize() {
     this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries))
@@ -12,6 +14,29 @@ export default class extends Controller {
   connect() {
     this.intersectionObserver.observe(this.paginationTarget)
     StimulusReflex.register(this)
+    this.slider = this.sliderTarget;
+    const minPrice = parseInt(document.getElementById('filters_min').value);
+    const maxPrice = parseInt(document.getElementById('filters_max').value);
+    this.rangeSlider(minPrice, maxPrice);
+  }
+
+
+  rangeSlider(minPrice, maxPrice) {
+    noUiSlider.create(this.slider, {
+      start: [minPrice, maxPrice],
+      connect: true,
+      step: 1,
+      range: {
+          'min': minPrice,
+          'max': maxPrice
+      }
+    });
+    this.slider.noUiSlider.on('change.one', () => {
+      const dateValue = document.getElementById('date-input').value
+      document.getElementById('filters_min').value = parseInt(this.slider.noUiSlider.get()[0], 10);
+      document.getElementById('filters_max').value = parseInt(this.slider.noUiSlider.get()[1], 10);
+      this.stimulate('flatReflex#filter', this.formTarget, dateValue)
+    });
   }
 
   disconnect() {

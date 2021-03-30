@@ -17,10 +17,14 @@ class UniaccoApiService
       uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=#{i}&sortBy=relevance")
       response['properties'] << JSON.parse(Net::HTTP.get(uri))['properties']
     end
+    payload = response['properties'].flatten
+    min_price = payload.sort_by{|k| k['min_price']}[0]['min_price']
+    max_price = payload.sort_by{|k| k['max_price']}[-1]['max_price']
     if response && (response['title'] == 'NOT_FOUND')
       { error: 'NOT_FOUND', status: 404, payload: nil }
     else
-      { error: nil, status: 200, payload: response['properties'].flatten }
+      recommandations = payload.first(12).map { |flat| { code: flat['code'], image: flat['images'][0]['url'], price: flat['disp_price'], billing: flat['billing'], name: flat['name'] } }
+      { error: nil, status: 200, payload: payload, min_price: min_price, max_price: max_price, recommandations: recommandations, codes: codes(payload) }
     end
   end
 
@@ -39,11 +43,19 @@ class UniaccoApiService
   end
 
   def filters(flats, active_filters, start_date)
+    p 'THIS IS FILTERS METHOD IN SERVICE'
+    active_filters_flat = active_filters
+    min = active_filters['min']
+    max = active_filters['max']
+    facilities_filters = active_filters_flat.except('min', 'max').map{|k, v| k}
+    p 'THIS IS FACILITIES FILTERS'
+    p facilities_filters
     flats.filter do |flat|
       availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
-      if active_filters.present?
+      if facilities_filters.present?
         facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
-        flat if (active_filters - facilities).empty? && availability_date <= start_date
+
+        flat if (facilities_filters - facilities).empty? && availability_date <= start_date
       elsif availability_date <= start_date
         flat
       end
@@ -51,7 +63,11 @@ class UniaccoApiService
   end
 
   def recommandations(flats)
-    flats.first(4).map { |flat| { code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] } }
+    flats.first(12).map { |flat| { code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] } }
+  end
+
+  def codes(flats)
+    flats.map { |flat| flat['code'] }.join(',')
   end
 
   def flat

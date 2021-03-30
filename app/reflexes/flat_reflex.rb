@@ -7,9 +7,16 @@ class FlatReflex < ApplicationReflex
     if Rails.cache.read(:filters)
       @active_filters = JSON.parse(Rails.cache.read(:filters))
     else
-      @active_filters = []
-      params['filters']&.each { |k, v| @active_filters << k if v == "1" }
+      @active_filters = {}
+      params['filters']&.each do |k, v|
+        @active_filters[k] = v if v != "0"
+      end
     end
+    p params
+    p 'THIS IS FILTERS FROM REFLEX'
+    p @active_filters
+    @active_filters['min'] = JSON.parse(Rails.cache.read(:price_range))["min_price"] unless @active_filters['min']
+    @active_filters['max'] = JSON.parse(Rails.cache.read(:price_range))["max_price"] unless @active_filters['max']
     @location = params['location']
     @type = params['type']
     start_date = date.split[0]
