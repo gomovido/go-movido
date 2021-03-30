@@ -43,22 +43,19 @@ class UniaccoApiService
   end
 
   def filters(flats, active_filters, start_date)
-    p 'THIS IS FILTERS METHOD IN SERVICE'
     active_filters_flat = active_filters
-    min = active_filters['min']
-    max = active_filters['max']
+    min_price = active_filters['min'].to_i
+    max_price = active_filters['max'].to_i
     facilities_filters = active_filters_flat.except('min', 'max').map{|k, v| k}
-    p 'THIS IS FACILITIES FILTERS'
-    p facilities_filters
     flats.filter do |flat|
       availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
-      if facilities_filters.present?
-        facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
-
-        flat if (facilities_filters - facilities).empty? && availability_date <= start_date
-      elsif availability_date <= start_date
-        flat
-      end
+      facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
+      flat_min_price = flat[:details]['min_price'].to_i
+      flat_max_price = flat[:details]['max_price'].to_i
+      match_date_and_pricing = availability_date <= start_date && flat_min_price >= min_price && flat_max_price <= max_price
+      filters_condition = match_date_and_pricing && facilities_filters.present? && (facilities_filters - facilities).empty?
+      no_filters_condition = match_date_and_pricing && facilities_filters.blank?
+      flat if filters_condition || no_filters_condition
     end
   end
 
