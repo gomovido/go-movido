@@ -50,8 +50,9 @@ class FlatsController < ApplicationController
     if city_code
       redirect_to providers_path(query: city_code)
     else
+      Rails.cache.clear
       flash[:alert] = 'Please type another location'
-      render :landing
+      redirect_to real_estate_landing_path
     end
   end
 
