@@ -1,3 +1,3 @@
-<% if active_filters %>
+<% unless active_filters.empty? %>
   <%= link_to 'Reset filters', clear_filters_path(location, type), method: :post, class: 'btn-flat-card mb-3' %>
 <% end %>
