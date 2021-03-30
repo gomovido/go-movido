@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["entries", "pagination", "spinner", "form", "spinner"]
 
   initialize() {
-    this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries), {rootMargin: '100px'})
+    this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries))
   }
 
   connect() {
