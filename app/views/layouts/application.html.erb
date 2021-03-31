@@ -9,6 +9,7 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
     <% I18n.available_locales.each do |locale| %>
       <link rel="alternate" hreflang="<%= locale %>" href=<%= url_for(locale: locale, only_path: false) %>>
     <% end %>
@@ -17,7 +18,6 @@
     <%= csp_meta_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= action_cable_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
