@@ -15,28 +15,28 @@ export default class extends Controller {
     this.intersectionObserver.observe(this.paginationTarget)
     StimulusReflex.register(this)
     this.slider = this.sliderTarget;
-    const minPrice = parseInt(document.getElementById('filters_min').value);
-    const maxPrice = parseInt(document.getElementById('filters_max').value);
-    this.rangeSlider(minPrice, maxPrice);
+    const rangeMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').value);
+    const rangeMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').value);
+    const startMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').dataset.minValue);
+    const startMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').dataset.maxValue)
+    this.rangeSlider(startMinPrice, startMaxPrice, rangeMinPrice, rangeMaxPrice);
   }
 
 
-  rangeSlider(minPrice, maxPrice) {
+  rangeSlider(startMinPrice, startMaxPrice, rangeMinPrice, rangeMaxPrice) {
     noUiSlider.create(this.slider, {
-      start: [minPrice, maxPrice],
+      start: [startMinPrice, startMaxPrice],
       connect: true,
       step: 1,
       range: {
-        'min': parseInt(document.getElementById('filters_min').dataset.minValue),
-        'max': parseInt(document.getElementById('filters_max').dataset.maxValue)
+        'min': rangeMinPrice,
+        'max': rangeMaxPrice
       }
     });
     this.slider.noUiSlider.on('change.one', () => {
-      const dateValue = document.getElementById('date-input').value
-      document.getElementById('filters_min').value = parseInt(this.slider.noUiSlider.get()[0], 10);
-      document.getElementById('filters_max').value = parseInt(this.slider.noUiSlider.get()[1], 10);
-      this.triggerLoading(this.spinnerTarget, this.entriesTarget)
-      this.stimulate('flatReflex#filter', this.formTarget, dateValue)
+      document.getElementById('flat_preference_range_min_price').value = parseInt(this.slider.noUiSlider.get()[0], 10);
+      document.getElementById('flat_preference_range_max_price').value = parseInt(this.slider.noUiSlider.get()[1], 10);
+      this.triggerLoading(this.spinnerTarget, this.entriesTarget, this.formTarget, document.getElementById('date-input').value)
     });
   }
 
@@ -49,33 +49,31 @@ export default class extends Controller {
     let old_url = document.querySelector("a[rel='next']").getAttribute("href");
     document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2");
     this.hideLoading(this.spinnerTarget, this.entriesTarget)
-    document.querySelector('.dates_dates').classList.remove('disabled');
   }
 
   filterByFacility(e) {
-    const dateValue = document.getElementById('date-input').value
-    this.triggerLoading(this.spinnerTarget, this.entriesTarget)
-    this.stimulate('flatReflex#filter', this.formTarget, dateValue )
+    this.triggerLoading(this.spinnerTarget, this.entriesTarget, this.formTarget, document.getElementById('date-input').value)
   }
 
   filterByDates(e) {
     if (e.currentTarget.value.split(' ').length === 3) {
-      document.querySelector('.dates_dates').classList.add('disabled');
-      this.triggerLoading(this.spinnerTarget, this.entriesTarget)
-      this.stimulate('Flat#filter', e.currentTarget.value);
+      this.triggerLoading(this.spinnerTarget, this.entriesTarget, this.formTarget, e.currentTarget.value)
     }
   }
 
-  triggerLoading(spinner, wrapper) {
+  triggerLoading(spinner, wrapper, form, date) {
+    document.querySelector('.flat_preference_start_date').classList.add('disabled');
     spinner.classList.remove('d-none');
     spinner.classList.add('middle');
     wrapper.classList.add('opacity');
+    this.stimulate('FlatReflex#filter', form, date)
   }
 
   hideLoading(spinner, wrapper) {
     spinner.classList.add('d-none')
     spinner.classList.remove('middle');
     wrapper.classList.remove('opacity');
+    document.querySelector('.flat_preference_start_date').classList.remove('disabled');
   }
 
   processIntersectionEntries(entries) {

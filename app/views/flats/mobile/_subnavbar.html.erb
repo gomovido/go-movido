@@ -1,11 +1,11 @@
 <div class="subnavbar col-12">
-  <span class="location"><%= @location.capitalize %></span>
+  <span class="location"><%= location.capitalize %></span>
   <div class="filters d-flex align-items-center">
-    <%= simple_form_for :dates, html: {method: :post} do |f| %>
-      <%= f.input :dates, as: :string, label: false,
+    <%= simple_form_for flat_preference, html: {method: :put} do |f| %>
+      <%= f.input :start_date, as: :string, label: false,
          required: true,
          input_html: { class: 'background-white datepicker', id: 'date-input', data: { controller: 'flatpickr',
-          action: 'change->flats#filterByDates', flatpickr_default_date: [@start_date.to_date, (@start_date.to_date + 14.days)], flatpickr_alt_input: true, flatpickr_alt_format: '%e %b', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range', flatpickr_min_date: Time.zone.now} } %>
+          action: 'change->flats#filterByDates', flatpickr_default_date: [start_date.to_date, (start_date.to_date + 14.days)], flatpickr_alt_input: true, flatpickr_alt_format: '%e %b', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range', flatpickr_min_date: Time.zone.now} } %>
     <% end %>
     <i class="fas fa-sliders-h purple"  data-toggle="modal"  data-target="#filtersModal"></i>
   </div>
