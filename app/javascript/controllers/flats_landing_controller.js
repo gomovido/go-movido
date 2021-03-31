@@ -7,6 +7,6 @@ export default class extends Controller {
 
   connect() {
     mapBoxAutocomplete(this.geocoderTarget, this.localeValue)
-    this.geocoderTarget.querySelector('input').setAttribute("name", "location")
+    this.geocoderTarget.querySelector('input').setAttribute("name", "flat_preference[location]")
   }
 }

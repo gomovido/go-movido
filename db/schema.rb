@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_102413) do
+ActiveRecord::Schema.define(version: 2021_03_31_124444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,24 @@ ActiveRecord::Schema.define(version: 2021_03_15_102413) do
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "flat_preferences", force: :cascade do |t|
+    t.date "start_date", default: "2021-03-31"
+    t.integer "start_min_price"
+    t.integer "start_max_price"
+    t.bigint "user_id", null: false
+    t.integer "range_min_price"
+    t.integer "range_max_price"
+    t.boolean "microwave", default: false
+    t.boolean "dishwasher", default: false
+    t.string "location"
+    t.string "flat_type"
+    t.text "codes", default: [], array: true
+    t.text "recommandations", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_flat_preferences_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -246,6 +264,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_102413) do
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
   add_foreign_key "charges", "subscriptions"
+  add_foreign_key "flat_preferences", "users"
   add_foreign_key "mobiles", "categories"
   add_foreign_key "mobiles", "companies"
   add_foreign_key "mobiles", "countries"

@@ -14,34 +14,22 @@
               <span class='grey'>/weekly</span>
             </div>
             <div class="form">
-              <%= simple_form_for :filters, data: {flats_target: 'form'} do |f| %>
+              <%= simple_form_for flat_preference, data: {flats_target: 'form'}, html: {method: :put} do |f| %>
                   <div class="mb-4 text-center text-align-center d-flex flex-column justify-content-center">
                     <div class="d-flex justify-content-between align-items-center">
-                      <%= f.input :min, input_html: {value: @min_price || @min_range, data: {min_value: @min_range}, class:'price-input'}, label: false %>
-                      <%= f.input :max, input_html: {value: @max_price || @max_range, data: {max_value: @max_range}, class:'price-input'}, label: false %>
+                      <%= f.input :range_min_price, input_html: {value: range_min_price, data: {min_value: start_min_price}, class:'price-input'}, label: false %>
+                      <%= f.input :range_max_price, input_html: {value: range_max_price, data: {max_value: start_max_price}, class:'price-input'}, label: false %>
                     </div>
                     <div id="slider-range" data-flats-target="slider"></div>
                   </div>
                   <span class="title mb-3">Amenities</span>
                   <div class="round my-3">
-                    <%= f.check_box :wifi, data: { action: "change->flats#filterByFacility"} %>
-                    <span>Wifi</span>
-                  </div>
-                  <div class="round my-3">
-                    <%= f.check_box :dishwasher, data: { action: "change->flats#filterByFacility"} %>
+                    <%= f.check_box :dishwasher, checked: flat_preference.dishwasher, data: { action: "change->flats#filterByFacility"} %>
                     <span>Dishwasher</span>
                   </div>
                   <div class="round my-3">
-                    <%= f.check_box :microwave, data: { action: "change->flats#filterByFacility"} %>
+                    <%= f.check_box :microwave, checked: flat_preference.microwave, data: { action: "change->flats#filterByFacility"} %>
                     <span>Microwave</span>
-                  </div>
-                  <div class="round my-3">
-                    <%= f.check_box :tv, data: { action: "change->flats#filterByFacility"} %>
-                    <span>TV</span>
-                  </div>
-                  <div class="round my-3">
-                    <%= f.check_box :couch, data: { action: "change->flats#filterByFacility"} %>
-                    <span>Couch</span>
                   </div>
               <% end %>
             </div>

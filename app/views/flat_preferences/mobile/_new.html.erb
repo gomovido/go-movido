@@ -7,7 +7,8 @@
       <div class="content h-100">
         <h1><%= t('housing.flats.landing.location') %></h1>
         <div data-controller='flats-landing' class="search-form h-100" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
-          <%= simple_form_for :query, url: search_flats_path, html: {method: :post} do |f| %>
+          <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>
+
             <div data-flats-landing-target="geocoder" class="geocoder"></div>
             <%= f.submit t('housing.flats.landing.submit'), class: "btn btn-main" %>
           <% end %>

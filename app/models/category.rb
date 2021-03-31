@@ -19,7 +19,7 @@ class Category < ApplicationRecord
     when 'bank'
       Rails.application.routes.url_helpers.banks_path(locale: I18n.locale)
     when 'housing'
-      Rails.application.routes.url_helpers.real_estate_landing_path(locale: I18n.locale)
+      Rails.application.routes.url_helpers.real_estate_path(locale: I18n.locale)
     end
   end
 end
