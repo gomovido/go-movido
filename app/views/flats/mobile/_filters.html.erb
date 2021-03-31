@@ -1,32 +1,38 @@
-<div class="modal modal-product fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModal" aria-hidden="true">
+<div class="modal modal-flat fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content address">
+    <div class="modal-content">
+      <div class="top-nav d-flex justify-content-between align-items-center mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fad fa-times"></i></button>
+          <span class="main-title">Filters</span>
+          <span class="link purple font-weight">Clear</span>
+      </div>
       <div class="modal-body">
         <div class="filters-container w-100">
           <div class="filter-wrapper mb-3">
             <div class="d-flex justify-content-between align-items-center">
-              <span class="title"><%= t('products.mobile-filter.title') %></span>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <i class="far fa-times-circle"></i>
-              </button>
+              <span class="title">Price range</span>
+              <span class='grey'>/weekly</span>
             </div>
-            <%= simple_form_for :filters, data: {flats_target: 'form'} do |f| %>
-                <div class="round my-3">
-                  <%= f.check_box :dishwasher, data: { action: "change->flats#filterByFacility"} %>
-                  <span class="ml-3">dishwasher</span>
-                </div>
-                <div class="round my-3">
-                  <%= f.check_box :microwave, data: { action: "change->flats#filterByFacility"} %>
-                  <span class="ml-3">microwave</span>
-                </div>
-                <div>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <%= f.input :min, input_html: {value: @min_price || @min_range, data: {min_value: @min_range}}, class:'price-input' %>
-                    <%= f.input :max, input_html: {value: @max_price || @max_range, data: {max_value: @max_range}}, class:'price-input' %>
+            <div class="form">
+              <%= simple_form_for :filters, data: {flats_target: 'form'} do |f| %>
+                  <div class="mb-4 text-center text-align-center d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <%= f.input :min, input_html: {value: @min_price || @min_range, data: {min_value: @min_range}, class:'price-input'}, label: false %>
+                      <%= f.input :max, input_html: {value: @max_price || @max_range, data: {max_value: @max_range}, class:'price-input'}, label: false %>
+                    </div>
+                    <div id="slider-range" data-flats-target="slider"></div>
                   </div>
-                  <div id="slider-range" data-flats-target="slider"></div>
-                </div>
-            <% end %>
+                  <span class="title">Rooms & beds</span>
+                  <div class="round my-3">
+                    <%= f.check_box :dishwasher, data: { action: "change->flats#filterByFacility"} %>
+                    <span class="ml-3">Dishwasher</span>
+                  </div>
+                  <div class="round my-3">
+                    <%= f.check_box :microwave, data: { action: "change->flats#filterByFacility"} %>
+                    <span class="ml-3">Microwave</span>
+                  </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
