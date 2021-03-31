@@ -15,10 +15,10 @@ export default class extends Controller {
     this.intersectionObserver.observe(this.paginationTarget)
     StimulusReflex.register(this)
     this.slider = this.sliderTarget;
-    const rangeMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').value);
-    const rangeMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').value);
-    const startMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').dataset.minValue);
-    const startMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').dataset.maxValue)
+    const startMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').value);
+    const startMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').value);
+    const rangeMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').dataset.minValue);
+    const rangeMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').dataset.maxValue)
     this.rangeSlider(startMinPrice, startMaxPrice, rangeMinPrice, rangeMaxPrice);
   }
 
