@@ -45,10 +45,10 @@ class UniaccoApiService
 
   def filters(flats, start_date, min_price, max_price, facilities)
     flats.filter do |flat|
-      availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
+      flat_start_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
       flat_facilities = flat[:apartment_facilities].map { |facility| facility['kind'].tr('-', '_') }
-      average_price = (flat[:details]['min_price'].to_i + flat[:details]['max_price'].to_i) / 2
-      match_date_and_pricing = availability_date <= start_date && average_price.between?(min_price, max_price)
+      flat_price = (flat[:details]['min_price'].to_i + flat[:details]['max_price'].to_i) / 2
+      match_date_and_pricing = flat_start_date <= start_date && flat_price.between?(min_price, max_price)
       flat if match_date_and_pricing && ((facilities.present? && (facilities - flat_facilities).empty?) || facilities.blank?)
     end
   end
