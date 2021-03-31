@@ -9,7 +9,7 @@
       <div class="modal-body">
         <div class="filters-container w-100">
           <div class="filter-wrapper mb-3">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center mb-3">
               <span class="title">Price range</span>
               <span class='grey'>/weekly</span>
             </div>
@@ -22,14 +22,26 @@
                     </div>
                     <div id="slider-range" data-flats-target="slider"></div>
                   </div>
-                  <span class="title">Rooms & beds</span>
+                  <span class="title mb-3">Amenities</span>
+                  <div class="round my-3">
+                    <%= f.check_box :wifi, data: { action: "change->flats#filterByFacility"} %>
+                    <span>Wifi</span>
+                  </div>
                   <div class="round my-3">
                     <%= f.check_box :dishwasher, data: { action: "change->flats#filterByFacility"} %>
-                    <span class="ml-3">Dishwasher</span>
+                    <span>Dishwasher</span>
                   </div>
                   <div class="round my-3">
                     <%= f.check_box :microwave, data: { action: "change->flats#filterByFacility"} %>
-                    <span class="ml-3">Microwave</span>
+                    <span>Microwave</span>
+                  </div>
+                  <div class="round my-3">
+                    <%= f.check_box :tv, data: { action: "change->flats#filterByFacility"} %>
+                    <span>TV</span>
+                  </div>
+                  <div class="round my-3">
+                    <%= f.check_box :couch, data: { action: "change->flats#filterByFacility"} %>
+                    <span>Couch</span>
                   </div>
               <% end %>
             </div>
