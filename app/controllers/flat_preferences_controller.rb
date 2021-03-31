@@ -25,5 +25,4 @@ class FlatPreferencesController < ApplicationController
   def flat_preference_params
     params.require(:flat_preference).permit(:location)
   end
-
 end
