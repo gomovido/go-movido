@@ -39,23 +39,17 @@ class UniaccoApiService
     return if array.blank?
 
     response = { error: nil, status: 200, payload: array }
-    flats = filters(response[:payload], @flat_preference_id)
+    flats = filters(response[:payload], flat_preference.start_date, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
     { error: nil, status: 200, flats: flats, recommandations: recommandations(flats) }
   end
 
-  def filters(flats, flat_preference_id)
-    flat_preference = FlatPreference.find(flat_preference_id)
-    range_min_price = flat_preference.range_min_price || flat_preference.start_min_price
-    range_max_price = flat_preference.range_max_price || flat_preference.start_max_price
-    preferences = flat_preference.attributes.filter_map { |k, v| k if v == true }
+  def filters(flats, start_date, min_price, max_price, facilities)
     flats.filter do |flat|
       availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
-      facilities = flat[:apartment_facilities].map { |facility| facility['kind'].tr('-', '_') }
+      flat_facilities = flat[:apartment_facilities].map { |facility| facility['kind'].tr('-', '_') }
       average_price = (flat[:details]['min_price'].to_i + flat[:details]['max_price'].to_i) / 2
-      match_date_and_pricing = availability_date <= flat_preference.start_date && average_price.between?(range_min_price, range_max_price)
-      filters_condition = match_date_and_pricing && preferences.present? && (preferences - facilities).empty?
-      no_filters_condition = match_date_and_pricing && preferences.blank?
-      flat if filters_condition || no_filters_condition
+      match_date_and_pricing = availability_date <= start_date && average_price.between?(min_price, max_price)
+      flat if match_date_and_pricing && ((facilities.present? && (facilities - flat_facilities).empty?) || facilities.blank?)
     end
   end
 

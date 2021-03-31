@@ -7,8 +7,8 @@ class FlatsController < ApplicationController
     @type = @flat_preference.flat_type
     @start_min_price = @flat_preference.start_min_price
     @start_max_price = @flat_preference.start_max_price
-    @range_min_price = @flat_preference.range_min_price || @start_min_price
-    @range_max_price = @flat_preference.range_max_price || @start_max_price
+    @range_min_price = @flat_preference.min_price
+    @range_max_price = @flat_preference.max_price
     @codes = @flat_preference.codes
     @pagy, properties = pagy_array(@codes)
     response = UniaccoApiService.new(properties: properties, flat_preference_id: @flat_preference.id).avanced_list_flats
