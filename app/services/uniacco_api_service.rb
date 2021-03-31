@@ -21,26 +21,57 @@ class UniaccoApiService
     min_price = payload.min_by { |k| k['min_price'] }['min_price']
     max_price = payload.max_by { |k| k['max_price'] }['max_price']
     if response && (response['title'] == 'NOT_FOUND')
-      { error: 'NOT_FOUND', status: 404, flats: nil }
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: nil
+      }
     else
-      recommandations = payload.first(12).map { |flat| { code: flat['code'], image: flat['images'][0]['url'], price: flat['disp_price'], billing: flat['billing'], name: flat['name'] }.to_json }
-      { error: nil, status: 200, flats: payload, min_price: min_price, max_price: max_price, recommandations: recommandations, codes: codes(payload) }
+      recommandations = payload.first(12).map do |flat|
+        {
+          code: flat['code'],
+          image: flat['images'][0]['url'],
+          price: flat['disp_price'],
+          billing: flat['billing'],
+          name: flat['name']
+        }.to_json
+      end
+      {
+        error: nil,
+        status: 200,
+        flats: payload,
+        min_price: min_price,
+        max_price: max_price,
+        recommandations: recommandations,
+        codes: codes(payload)
+      }
     end
   end
 
   def avanced_list_flats
     flat_preference = FlatPreference.find(@flat_preference_id)
-    array = []
-    @properties.map do |property|
+    array = @properties.map do |property|
       uri = URI("https://uniacco.com/api/v1/uk/#{flat_preference.location}/#{property}")
       response = JSON.parse(Net::HTTP.get(uri))
-      array << { code: property, details: response, images: response['images'], facilities: response['facilities'], apartment_facilities: response['apartment_facilities'] } if response && (response['title'] != 'NOT_FOUND')
+      next unless response && (response['title'] != 'NOT_FOUND')
+
+      {
+        code: property,
+        details: response,
+        images: response['images'],
+        facilities: response['facilities'],
+        apartment_facilities: response['apartment_facilities']
+      }
     end
     return if array.blank?
 
-    response = { error: nil, status: 200, payload: array }
-    flats = filters(response[:payload], flat_preference.start_date, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
-    { error: nil, status: 200, flats: flats, recommandations: recommandations(flats) }
+    flats = filters(array, flat_preference.start_date, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
+    {
+      error: nil,
+      status: 200,
+      flats: flats,
+      recommandations: recommandations(flats)
+    }
   end
 
   def filters(flats, start_date, min_price, max_price, facilities)
@@ -54,7 +85,15 @@ class UniaccoApiService
   end
 
   def recommandations(flats)
-    flats.first(12).map { |flat| { code: flat[:code], image: flat[:images][0]['url'], price: flat[:details]['disp_price'], billing: flat[:details]['billing'], name: flat[:details]['name'] }.to_json }
+    flats.first(12).map do |flat|
+      {
+        code: flat[:code],
+        image: flat[:images][0]['url'],
+        price: flat[:details]['disp_price'],
+        billing: flat[:details]['billing'],
+        name: flat[:details]['name']
+      }.to_json
+    end
   end
 
   def codes(flats)
@@ -66,8 +105,17 @@ class UniaccoApiService
     response = JSON.parse(Net::HTTP.get(uri))
     return unless response && response['title'] != 'NOT_FOUND'
 
-    hash = { code: @property, details: response, images: response['images'], facilities: response['facilities'], apartment_facilities: response['apartment_facilities'] }
-    { error: nil, status: 200, payload: hash }
+    {
+      error: nil,
+      status: 200,
+      payload: {
+        code: @property,
+        details: response,
+        images: response['images'],
+        facilities: response['facilities'],
+        apartment_facilities: response['apartment_facilities']
+      }
+    }
   end
 
   def check_and_return_city_code
