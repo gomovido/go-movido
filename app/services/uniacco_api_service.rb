@@ -49,7 +49,7 @@ class UniaccoApiService
     facilities_filters = active_filters_flat.except('min', 'max').map{|k, v| k}
     flats.filter do |flat|
       availability_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
-      facilities = flat[:apartment_facilities].map { |facility| facility['kind'] }
+      facilities = flat[:apartment_facilities].map { |facility| facility['kind'].gsub('-', '_') }
       flat_min_price = flat[:details]['min_price'].to_i
       flat_max_price = flat[:details]['max_price'].to_i
       match_date_and_pricing = availability_date <= start_date && flat_min_price >= min_price && flat_max_price <= max_price

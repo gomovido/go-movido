@@ -53,12 +53,27 @@
     </div>
     <div class="col-12">
       <div class="room-details">
-        <span class='title mb-2'>Room Details</span>
-        <ul>
-          <% @flat[:details]['configs'].each do |config| %>
-            <li><%= config['name'] %></li>
-          <% end %>
-        </ul>
+        <span class='title mb-2'>Rooms</span>
+        <div class="flats-card-scroller pt-0">
+          <ul class="hs" data-animate-target="container">
+            <% @flat[:details]['configs'].each_with_index do |config, index| %>
+              <li class="item">
+                <div class="flat-card d-flex">
+                  <div class="img-box mr-3 h-100"  style="background-image:url(<%= @flat[:details]['images'][index]['url'] %>);">
+                  </div>
+                  <div class="details d-flex flex-column justify-content-around">
+                    <div class="name">
+                      <%= config['name'] %>
+                    </div>
+                    <div class="pricing">
+                      <%= config['disp_price'] %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
     <hr class="w-100">
