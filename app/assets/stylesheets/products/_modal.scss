@@ -100,7 +100,7 @@
     }
     .modal-content {
       position: absolute;
-      height: 92vh;
+      height: 55vh;
       .title {
         font-size: 18px;
       }
@@ -128,11 +128,15 @@
     .filter-wrapper {
       padding: 2% 5% !important;
     }
+    .frequency {
+      font-weight: bold;
+    }
     .round {
       flex-direction: row-reverse;
       justify-content: space-between;
       span {
         font-family: 'Manrope';
+        font-weight: normal;
         font-size: 16px;
         color: #18191F;
       }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_124444) do
+ActiveRecord::Schema.define(version: 2021_04_01_133856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_03_31_124444) do
   end
 
   create_table "flat_preferences", force: :cascade do |t|
-    t.date "start_date", default: "2021-03-31"
+    t.date "start_date", default: "2021-04-01"
     t.integer "start_min_price"
     t.integer "start_max_price"
     t.bigint "user_id", null: false
