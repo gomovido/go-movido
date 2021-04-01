@@ -85,7 +85,7 @@ class UniaccoApiService
   end
 
   def recommandations(flats)
-    flats.first(12).map do |flat|
+    flats.first(5).map do |flat|
       {
         code: flat[:code],
         image: flat[:images][0]['url'],
