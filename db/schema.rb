@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_133856) do
   end
 
   create_table "flat_preferences", force: :cascade do |t|
-    t.date "start_date", default: "2021-04-01"
+    t.date "start_date", default: -> { "CURRENT_TIMESTAMP" }
     t.integer "start_min_price"
     t.integer "start_max_price"
     t.bigint "user_id", null: false
