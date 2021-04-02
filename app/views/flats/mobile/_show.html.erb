@@ -64,9 +64,9 @@
     <hr class="w-100">
     <div class="col-12">
       <div class="amenities">
-        <span class="title">Amenities</span>
+        <span class="title">Facilities</span>
         <ul class="pl-3" style="list-style: none;">
-          <% @flat[:details]['configs'].last['facilities'].each do |facility|  %>
+          <% @flat[:apartment_facilities].each do |facility|  %>
             <li><%= get_icon(facility['kind'].downcase) %> <%= facility['name'] %></li>
           <% end %>
         </ul>

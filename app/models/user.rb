@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :subscriptions, through: :addresses
   has_many :billings, dependent: :destroy
   has_one :person, dependent: :destroy
+  has_one :flat_preference, dependent: :destroy
   accepts_nested_attributes_for :person
 
   extend FriendlyId

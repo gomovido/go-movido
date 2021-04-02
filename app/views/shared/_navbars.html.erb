@@ -1,7 +1,7 @@
 <% if browser.device.mobile? %>
   <% if controller.controller_name == 'providers' %>
-    <%= render 'providers/mobile/navbar' %>
-  <% elsif controller.controller_name == 'flats' && controller.action_name != 'landing' %>
+    <%= render 'providers/mobile/navbar', location: current_user.flat_preference.location %>
+  <% elsif controller.controller_name == 'flats' %>
     <%= render 'flats/mobile/navbar', action: controller.action_name, location: @location, type: @type %>
   <% else %>
     <%= render 'shared/mobile/navbar' %>

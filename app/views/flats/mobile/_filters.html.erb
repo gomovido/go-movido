@@ -1,0 +1,41 @@
+<div class="modal modal-flat fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="top-nav d-flex justify-content-between align-items-center mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fad fa-times"></i></button>
+          <span class="main-title">Filters</span>
+          <span class="link purple font-weight">Clear</span>
+      </div>
+      <div class="modal-body">
+        <div class="filters-container w-100">
+          <div class="filter-wrapper mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="title">Price range</span>
+              <span class='grey frequency'>/weekly</span>
+            </div>
+            <div class="form">
+              <%= simple_form_for flat_preference, data: {flats_target: 'form'}, html: {method: :put} do |f| %>
+                  <div class="mb-4 text-center text-align-center d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <%= f.input :range_min_price, input_html: {value: range_min_price, data: {min_value: start_min_price}, class: 'price-input'}, label: false %>
+                      <%= f.input :range_max_price, input_html: {value: range_max_price, data: {max_value: start_max_price}, class: 'price-input text-right'}, label: false %>
+                    </div>
+                    <div id="slider-range" data-flats-target="slider"></div>
+                  </div>
+                  <span class="title mb-3">Amenities</span>
+                  <div class="round my-3">
+                    <%= f.check_box :dishwasher, checked: flat_preference.dishwasher, data: { action: "change->flats#filterByFacility"} %>
+                    <span>Dishwasher</span>
+                  </div>
+                  <div class="round my-3">
+                    <%= f.check_box :microwave, checked: flat_preference.microwave, data: { action: "change->flats#filterByFacility"} %>
+                    <span>Microwave</span>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
