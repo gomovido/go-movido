@@ -4,6 +4,8 @@ class UniaccoApiService
     @city_code = params[:city_code]
     @properties = params[:properties]
     @property = params[:property_code]
+    @active_filters = params[:active_filters]
+    @flat_preference_id = params[:flat_preference_id]
   end
 
   def list_flats
@@ -15,28 +17,105 @@ class UniaccoApiService
       uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=#{i}&sortBy=relevance")
       response['properties'] << JSON.parse(Net::HTTP.get(uri))['properties']
     end
+    payload = response['properties'].flatten
+    min_price = payload.min_by { |k| k['min_price'] }['min_price']
+    max_price = payload.max_by { |k| k['max_price'] }['max_price']
     if response && (response['title'] == 'NOT_FOUND')
-      { error: 'NOT_FOUND', status: 404, payload: nil }
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: nil
+      }
     else
-      { error: nil, status: 200, payload: response['properties'].flatten }
+      recommandations = payload.first(12).map do |flat|
+        {
+          code: flat['code'],
+          image: flat['images'][0]['url'],
+          price: flat['disp_price'],
+          billing: flat['billing'],
+          name: flat['name']
+        }.to_json
+      end
+      {
+        error: nil,
+        status: 200,
+        flats: payload,
+        min_price: min_price,
+        max_price: max_price,
+        recommandations: recommandations,
+        codes: codes(payload)
+      }
     end
   end
 
   def avanced_list_flats
-    array = []
-    @properties.map do |property|
-      uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{property}")
+    flat_preference = FlatPreference.find(@flat_preference_id)
+    array = @properties.map do |property|
+      uri = URI("https://uniacco.com/api/v1/uk/#{flat_preference.location}/#{property}")
       response = JSON.parse(Net::HTTP.get(uri))
-      array << { code: property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
+      next unless response && (response['title'] != 'NOT_FOUND')
+
+      {
+        code: property,
+        details: response,
+        images: response['images'],
+        facilities: response['facilities'],
+        apartment_facilities: response['apartment_facilities']
+      }
     end
-    { error: nil, status: 200, payload: array } if array.present?
+    return if array.blank?
+
+    flats = filters(array, flat_preference.start_date, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
+    {
+      error: nil,
+      status: 200,
+      flats: flats,
+      recommandations: recommandations(flats)
+    }
+  end
+
+  def filters(flats, start_date, min_price, max_price, facilities)
+    flats.filter do |flat|
+      flat_start_date = flat[:details]['configs'][0]['subconfigs'][0]['available_from'].to_date
+      flat_facilities = flat[:apartment_facilities].map { |facility| facility['kind'].tr('-', '_') }
+      flat_price = (flat[:details]['min_price'].to_i + flat[:details]['max_price'].to_i) / 2
+      match_date_and_pricing = flat_start_date <= start_date && flat_price.between?(min_price, max_price)
+      flat if match_date_and_pricing && ((facilities.present? && (facilities - flat_facilities).empty?) || facilities.blank?)
+    end
+  end
+
+  def recommandations(flats)
+    flats.first(5).map do |flat|
+      {
+        code: flat[:code],
+        image: flat[:images][0]['url'],
+        price: flat[:details]['disp_price'],
+        billing: flat[:details]['billing'],
+        name: flat[:details]['name']
+      }.to_json
+    end
+  end
+
+  def codes(flats)
+    flats.map { |flat| flat['code'] }
   end
 
   def flat
     uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
     response = JSON.parse(Net::HTTP.get(uri))
-    hash = { code: @property, details: response, images: response['images'], facilities: response['facilities'] } if response && (response['title'] != 'NOT_FOUND')
-    { error: nil, status: 200, payload: hash } unless hash[:code].nil?
+    return unless response && response['title'] != 'NOT_FOUND'
+
+    {
+      error: nil,
+      status: 200,
+      payload: {
+        code: @property,
+        details: response,
+        images: response['images'],
+        facilities: response['facilities'],
+        apartment_facilities: response['apartment_facilities']
+      }
+    }
   end
 
   def check_and_return_city_code
