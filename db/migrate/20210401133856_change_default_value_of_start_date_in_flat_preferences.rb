@@ -1,5 +1,5 @@
 class ChangeDefaultValueOfStartDateInFlatPreferences < ActiveRecord::Migration[6.1]
   def change
-    change_column_default :flat_preferences, :start_date, Time.zone.now
+    change_column :flat_preferences, :start_date, :date, default: -> { 'CURRENT_TIMESTAMP' }
   end
 end

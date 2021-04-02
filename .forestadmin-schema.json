@@ -1314,7 +1314,7 @@
     }, {
       "field": "start_date",
       "type": "Dateonly",
-      "default_value": "2021-04-01",
+      "default_value": "2021-04-02",
       "enums": null,
       "integration": null,
       "is_filterable": true,
