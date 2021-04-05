@@ -35,5 +35,5 @@ deploy:
   strategy: git
   app: movido-app-staging
   on:
-    repo: yonitou/go-movido
+    repo: gomovido/go-movido
   skip_cleanup: true
