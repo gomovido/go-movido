@@ -1,8 +1,8 @@
 module FacilitiesHelper
   PROVIDERS = {
-    'flatshare' => 'uniacco',
+    'flatshare' => 'homelike',
     'entire_places' => 'uniplaces',
-    'student_housing' => 'homelike'
+    'student_housing' => 'uniacco'
   }
 
   def get_icon(facility)
@@ -10,7 +10,7 @@ module FacilitiesHelper
     when 'wifi'
       '<i class="fad fa-wifi"></i>'.html_safe
     when 'priv_kitchen'
-      '<i class="fad fa-oven"></i>'.html_safe
+      '<i class="fas fa-utensils"></i>'.html_safe
     when 'gym'
       '<i class="far fa-dumbbell"></i>'.html_safe
     when 'bed'
@@ -53,7 +53,7 @@ module FacilitiesHelper
     when 'Study desk and chair'
       'Study Desk'
     when 'Dual Occupancy Available'
-      'Roommates'
+      'Dual Occupancy'
     when 'Queen Size Bed'
       'Double Bed'
     when 'Room Cleaning Services'

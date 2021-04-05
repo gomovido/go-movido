@@ -6,6 +6,15 @@
       background-position: right;
       .content {
         padding-top: 4rem;
+        .search-form {
+          height: 65%;
+        }
+        .btn-flat-card {
+          height: auto;
+          line-height: auto;
+          width: auto;
+          font-size: 17px;
+        }
         h1 {
           font-family: 'Montserrat';
           font-style: normal;
