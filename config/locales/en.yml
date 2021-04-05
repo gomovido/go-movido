@@ -97,14 +97,14 @@ en:
   housing:
     flats:
       landing:
-        disclaimer: 'This service is only available for UK and France'
+        disclaimer: 'This service is only available for UK'
         location: "Please enter your location or university"
         submit: 'Search'
   providers:
     index:
       count: "%{count}+ places to stay"
       show_all: 'Show all'
-      flatshare: 'Flat Share'
+      student_housing: 'Student housing'
       student_housing: 'Student Housing'
   pages:
     contact:
