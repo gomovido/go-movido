@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="facilities my-2 d-flex align-items-center justify-content-between px-2">
-      <% config['facilities'].first(3).each do |facility| %>
+      <% config['facilities'].first(3).sort_by{|h| get_name(h['name'])}.each do |facility| %>
         <div class="facility"><%= get_icon(facility['kind'].downcase) %> <span><%= get_name(facility['name'])  %></span> </div>
       <% end %>
     </div>
