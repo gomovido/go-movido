@@ -4,6 +4,8 @@ export default class extends Controller {
 
   connect() {
     const stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
+    console.log(process.env.NODE_ENV);
+    console.log(process.env.STRIPE_PUBLISHABLE_KEY);
     const elements = stripe.elements({locale: document.getElementById('payment-form').dataset.locale});
 
     const style = {
