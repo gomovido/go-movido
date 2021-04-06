@@ -6,11 +6,11 @@
     <div class="container h-100">
       <div class="content h-100">
         <h1><%= t('housing.flats.landing.location') %></h1>
-        <div data-controller='flats-landing' class="search-form h-100" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
+        <div data-controller='flats-landing' class="search-form" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
           <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>
 
             <div data-flats-landing-target="geocoder" class="geocoder"></div>
-            <%= f.submit t('housing.flats.landing.submit'), class: "btn btn-main" %>
+            <%= f.submit t('housing.flats.landing.submit'), class: "btn btn-flat-card" %>
           <% end %>
         </div>
       </div>
