@@ -6,6 +6,7 @@ class UniaccoApiService
     @property = params[:property_code]
     @active_filters = params[:active_filters]
     @flat_preference_id = params[:flat_preference_id]
+    @country = params[:country]
   end
 
   def list_flats
@@ -101,7 +102,7 @@ class UniaccoApiService
   end
 
   def flat
-    uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
+    uri = URI("https://uniacco.com/api/v1/#{@country}/#{@location}/#{@property}")
     response = JSON.parse(Net::HTTP.get(uri))
     return unless response && response['title'] != 'NOT_FOUND'
 

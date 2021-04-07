@@ -1,3 +1,7 @@
 <% flats.map do |flat| %>
-  <%= render 'flats/mobile/card', flat: flat, type: type, location: location%>
+  <% if type == 'student_housing' %>
+    <%= render 'flats/mobile/uniacco_card', flat: flat, type: type, location: location %>
+  <% elsif type == 'entire_flat' %>
+    <%= render 'flats/mobile/uniplaces_card', flat: flat, type: type, location: location %>
+  <% end %>
 <% end %>

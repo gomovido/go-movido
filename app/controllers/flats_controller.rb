@@ -9,13 +9,13 @@ class FlatsController < ApplicationController
     @start_max_price = @flat_preference.start_max_price
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
-    @codes = @flat_preference.codes
-    @pagy, properties = pagy_array(@codes)
-    response = UniaccoApiService.new(properties: properties, flat_preference_id: @flat_preference.id).avanced_list_flats
-    return unless response[:status] == 200
-
-    @flats = response[:flats]
-    @flat_preference.update(recommandations: response[:recommandations])
+    if @type == 'entire_flat'
+      uniplaces_payload = uniplaces_flats(@flat_preference)
+      @flats = uniplaces_payload[:flats] if update_preferences(uniplaces_payload, @flat_preference)
+    elsif @type == 'student_housing'
+      @uniacco_payload = uniacco_flats(@flat_preference)
+      @flats = uniacco_payload[:flats] if update_preferences(uniacco_payload, @flat_preference)
+    end
     respond_to do |format|
       format.html
       format.json do
@@ -33,8 +33,29 @@ class FlatsController < ApplicationController
     @location = params[:location]
     @type = params[:type]
     @code = params[:code]
-    @flat = UniaccoApiService.new(property_code: @code, location: @location).flat
+    @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country).flat
     @flat = @flat[:payload] if @flat[:status] == 200
     @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
   end
+
+
+  def uniacco_flats(preferences)
+    @pagy, properties = pagy_array(preferences.codes)
+    payload = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
+    return unless payload[:status] == 200
+    preferences.update(recommandations: payload[:recommandations])
+    payload
+  end
+
+  def uniplaces_flats(preferences)
+    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page]).list_flats
+    @pagy = Pagy.new(count: payload[:total_pages], page: params[:page])
+    return unless payload[:status] == 200
+    payload
+  end
+
+  def update_preferences(payload, preferences)
+    preferences.update(start_min_price: payload[:min_price], start_max_price: payload[:max_price])
+  end
+
 end
