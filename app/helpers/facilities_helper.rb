@@ -1,7 +1,7 @@
 module FacilitiesHelper
   PROVIDERS = {
     'flatshare' => 'homelike',
-    'entire_places' => 'uniplaces',
+    'entire_flat' => 'uniplaces',
     'student_housing' => 'uniacco'
   }
 

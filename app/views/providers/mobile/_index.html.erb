@@ -13,15 +13,25 @@
         </div>
         <div class="flats-card-scroller pt-0">
           <ul class="hs" data-animate-target="container">
-            <% @flats.first(5).map do |flat| %>
+            <% @uniacco_payload[:flats].first(5).map do |flat| %>
               <li class="item">
-                <%= render 'providers/mobile/card', flat: flat, type: 'student_housing', location: @flat_preference.location %>
+                <%= render 'providers/mobile/card', flat: flat, type: 'student_housing', location: @flat_preference.location, code: flat['code'], image_url: flat['images'][0]['url'], name: flat['name'], price: "#{flat['disp_price']} / #{flat['billing'].downcase}" %>
               </li>
             <% end %>
           </ul>
         </div>
-        <div class="title">
-          <h3>Entire place<i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
+        <div class="title d-flex align-items-center justify-content-between">
+          <h3><%= t('providers.index.entire_flat') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
+          <%= link_to t('providers.index.show_all'), flats_path(@flat_preference.location, type: 'entire_flat'),class: 'link'%>
+        </div>
+        <div class="flats-card-scroller pt-0">
+          <ul class="hs" data-animate-target="container">
+            <% @uniplaces_payload[:flats].first(5).map do |flat| %>
+              <li class="item">
+                <%= render 'providers/mobile/card', flat: flat, type: 'student_housing', location: @flat_preference.location, code: flat['type'], image_url: flat_image(flat['attributes']['photos'][0]['hash']), name: flat['attributes']['accommodation_offer']['title'], price: flat_price(flat) %>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <div class="title">
           <h3>Flatshare<i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
