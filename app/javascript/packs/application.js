@@ -34,7 +34,6 @@ import "controllers"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import cookie from './cookie_banner';
-export const STRIPE_PUBLISHABLE_KEY = process.env.STRIPE_PUBLISHABLE_KEY;
 
 document.addEventListener('turbolinks:load', () => {
   cookie();
