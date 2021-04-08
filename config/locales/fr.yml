@@ -229,18 +229,23 @@ fr:
       title: 'Comment ça marche'
       cta: "C'est parti!"
       first_step:
+        number: 'Étape 1'
         title: 'Créer un compte'
         description: "Pour commencer, crée facilement ton compte movido: inscris-toi instantanément avec Facebook, Google ou ton adresse mail."
       second_step:
+        number: 'Étape 2'
         title: 'Sélectionner un service'
         description: "Sélectionne tous les services dont tu as besoin parmi une variété d'offres - du WiFi à la salle de sport, movido t’offre tout ce qu’il te faut pour démarrer dans ta nouvelle ville"
       third_step:
+        number: 'Étape 3'
         title: 'Comparer les offres'
         description: "movido a présélectionné les meilleures offres sur le marché et les a rendues facilement comparables - cela te garantit la meilleure offre au meilleur prix. Nousmettons nos offres à jour régulièrement pour que vous ne ratiez pas les dernièrespromotions."
       fourth_step:
+        number: 'Étape 4'
         title: 'Choisir ton abonnement'
         description: "Choisis ton abonnement préféré en seulement quelques clics et laisse movido gérer le reste des démarches administratives à ta place. Ton nouvel abonnementsera actif sous 24 heures. Tu recevras également une confirmation par mail."
       fifth_step:
+        number: 'Étape 5'
         title: 'Gère tes abonnements'
         description: "Sous ton compte personnalisé tu verras tous tes abonnements en cours – ici tu peux facilement gérer tes données et annuler ainsi que modifier tes abonnements."
     faq:

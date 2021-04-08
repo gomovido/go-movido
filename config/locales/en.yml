@@ -240,18 +240,23 @@ en:
       title: 'How it works'
       cta: 'Get started'
       first_step:
+        number: 'Step 1'
         title: 'Create an account'
         description: 'Easily create your movido account to get started: you can sign up instantly using your Facebook, Google or email account. '
       second_step:
+        number: 'Step 2'
         title: 'Select a service'
         description: 'Select all services you need from a variety of offerings – from WiFi to gym, movido has everything to get you started in your new city.'
       third_step:
+        number: 'Step 3'
         title: 'Compare offers'
         description: 'movido has pre-selected the best offers on the market and has made them easily comparable for you – this guarantees you will get the best package for the best price. The platform regularly adds new offers to make sure you regularly don’t miss any latest packages.'
       fourth_step:
+        number: 'Step 4'
         title: 'Choose your product'
         description: 'Choose your preferred offer with only a few clicks and leave the rest of the admin work to us. Within 24 hours, your new subscription will be active. You will also receive a confirmation by email.'
       fifth_step:
+        number: 'Step 5'
         title: 'Manage your subscriptions'
         description: 'movido provides a personalized overview of all your active subscriptions - easily manage your account and cancel / change your subscriptions.'
         sentence: '"I struggled to find a good gym in my area – with<br>movido I found the perfect one"'
