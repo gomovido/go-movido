@@ -71,8 +71,7 @@
   border: 1px solid $border-card;
   border-radius: 27.5px;
   margin-bottom: 2.5rem;
-  padding: 5% 9% !important;
-  height: 259px;
+  height: 280px;
   .top-line {
     height: 70px;
   }
@@ -88,7 +87,7 @@
   .desc {
     font-size: 16px;
     color: $dark-taupe;
-    min-height: 70px;
+    min-height: 90px;
   }
   img {
     transform: translateX(-37%) scale(0.25);
@@ -100,16 +99,19 @@
     font-size: 12px;
     font-weight: bold;
     font-family: Montserrat;
-    padding: 2%;
     width: 100%;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    height: 39px;
-    position: absolute;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: -6px;
+  }
+  .actions {
+    .btn-main, .btn-service {
+      padding: 5px 28px !important;
+      font-size: 14px !important;
+    }
   }
 }
 
@@ -161,6 +163,7 @@
       font-weight: 700;
     }
     .desc {
+      min-height: auto;
       font-size: 12px;
       font-weight: 400;
     }
