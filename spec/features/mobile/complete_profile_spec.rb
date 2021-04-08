@@ -20,10 +20,6 @@ RSpec.describe "Mobile - Complete Profile", type: :feature do
       sleep 1
     end
 
-    it "is redirected to complete profile" do
-      expect(page).to have_content('Complete your profile')
-    end
-
     it "creates the person" do
       country_code = IsoCountryCodes.find(country.code).calling
       within("#new_person") do
@@ -37,11 +33,6 @@ RSpec.describe "Mobile - Complete Profile", type: :feature do
       click_button 'Continue'
       sleep 1
       expect(Person.where(user: user).count).to eq(1)
-    end
-
-    it "displays form errors" do
-      click_button 'Continue'
-      expect(page).to have_css('.invalid-feedback')
     end
   end
 end

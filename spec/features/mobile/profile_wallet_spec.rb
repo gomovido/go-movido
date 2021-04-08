@@ -22,14 +22,6 @@ RSpec.describe "Desktop - Profile Wallet", type: :feature do
       expect(page).to have_selector("div[data-id='#{subscription.id}']")
     end
 
-    it "displays subscription's rate" do
-      expect(page).to have_css('.price', text: "#{subscription.product.format_price}/month")
-    end
-
-    it "displays subscription's state" do
-      expect(page).to have_css('.status', text: I18n.t("users.subscription.#{subscription.state}"))
-    end
-
     context 'when user abort a subscription' do
       it "change the subscription's state" do
         find("div[data-id='#{subscription.id}']").click
