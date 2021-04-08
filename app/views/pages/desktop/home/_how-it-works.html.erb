@@ -3,7 +3,7 @@
   <div class="purple-background"></div>
   <div class="container">
     <h2 class="mb-0"><%= t('pages.home.how-it-works.title') %></h2>
-    <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}, "effect": "flip", "flipEffect": {"slideShadows": false}}'>
+    <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}}'>
       <div  class="swiper-wrapper">
         <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-1.png', number: t('pages.how_it_works.first_step.number'), title: t('pages.how_it_works.first_step.title'), desc: t('pages.how_it_works.first_step.description') %>
         <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-2.png', number: t('pages.how_it_works.second_step.number'), title: t('pages.how_it_works.second_step.title'), desc: t('pages.how_it_works.second_step.description') %>
