@@ -129,7 +129,7 @@
   }
 }
 
-.btn-service {
+.btn-main-white {
   color: $purple;
   font-family: "Manrope", sans-serif;
   cursor: pointer;
@@ -140,6 +140,7 @@
   border-radius: 100px;
   transition: all 0.3s ease;
   border: 1px solid $purple;
+  text-align: center;
   &:hover {
     text-decoration: underline;
     color: $purple;
