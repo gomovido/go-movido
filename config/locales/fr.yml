@@ -145,6 +145,8 @@ fr:
           unique: 'Offres exclusives'
           time: '< de 10 minutes'
         headline1: '<span class="purple">Installe</span> toi'
+        desktop_headline: "s'occupe de tes démarches administratives"
+        desktop_subheadline: 'Installe toi dans ton nouveau logement'
         subheadline: "<strong>movido</strong> s'occupe de tes démarches administratives"
         start: "C'est parti!"
       partners:
@@ -154,6 +156,8 @@ fr:
         start: "C'est parti!"
       services-cards:
         title: 'Nos Offres'
+        details: 'Détails'
+        cta: "C'est parti"
         housing: "Appartement entier, colocation ou logement étudiant, nous proposons plusieurs logements dans ta nouvelle ville"
         bank: "Ouvre un compte bancaire en ligne en un clic grâce à nos partenaires"
         mobile: "Choisis ton nouveau numéro de téléphone, nos partenaires proposent des forfaits avec ou sans engagement"
@@ -184,6 +188,7 @@ fr:
         text: "movido vous aide à mettre en place tout ce dont vous avez besoin en arrivant dans votre nouveau domicile - du numéro de téléphone portable local à l'abonnement à la salle de sport - et tout ça en moins de 10 minutes, afin que vous puissiez vous concentrer sur les choses vraiment importantes dans votre nouvelle ville <br> <br>movido consolide et compare tous les services dont vous avez besoin dans votre nouvelle ville – un service entièrement gratuit - pour s'assurer que vous obtenez toujours la meilleure offre au meilleur prix. Une fois inscrit, vous pouvez gérer abonnement sur votre compte personnalisé"
       why-us:
         title: 'Découvrez la facililté'
+        cta: "C'est parti"
         text: 'Notre philosophie consiste à simplifier les déplacements. Facile, rapide et intuitif - inscrivez-vous à movido pour vous installer dans votre nouvelle ville en un quelques minutes.<br>Et c’est 100 % gratuit!'
         card1:
           title: 'Rapide'

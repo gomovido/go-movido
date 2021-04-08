@@ -9,29 +9,28 @@
     line-height: 5rem;
   }
   p {
-    font-size: 24px;
+    font-size: 28px;
     color: $black;
-    font-weight: 300;
+    font-weight: bold;
   }
   .headline {
-    .subheadline {
-      font-weight: 300;
-    }
     strong {
       font-weight: bold;
     }
   }
   .offers {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
     padding-left: 0;
     i {
       color: $purple;
-      font-size: 20px;
+      font-size: 25px;
     }
     li {
       font-family: 'Manrope';
-      font-weight: bold;
-      font-size: 18px;
+      font-size: 16px;
+      font-weight: 600;
     }
   }
 }

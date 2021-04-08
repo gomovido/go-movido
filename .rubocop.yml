@@ -49,6 +49,8 @@ Naming/VariableNumber:
   EnforcedStyle: snake_case
 Metrics/BlockLength:
   Enabled: false
+Metrics/ClassLength:
+  Enabled: false
 Style/EmptyMethod:
   Enabled: false
 Bundler/OrderedGems:
