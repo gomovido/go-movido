@@ -16,22 +16,6 @@ RSpec.describe "Mobile - Wifi", type: :feature do
       visit category.path_to_index
     end
 
-    it "displays name" do
-      expect(page).to have_content(wifi.name)
-    end
-
-    it "displays price" do
-      expect(page).to have_content(wifi.format_price)
-    end
-
-    it "displays setup price" do
-      expect(page).to have_content(wifi.format_setup_price)
-    end
-
-    it "displays area" do
-      expect(page).to have_content(wifi.area)
-    end
-
     it "displays dropdown card" do
       find('.product-card', match: :first).click
       sleep 1
