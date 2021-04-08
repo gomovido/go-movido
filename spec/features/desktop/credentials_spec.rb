@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Desktop - Credentials", type: :feature do
+RSpec.describe "Credentials", type: :feature do
   let!(:user) { create(:user) }
 
   describe "User visits account page", :headless_chrome do

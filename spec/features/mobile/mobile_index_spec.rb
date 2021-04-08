@@ -16,22 +16,6 @@ RSpec.describe "Mobile - Mobile#Index", type: :feature do
       visit category.path_to_index
     end
 
-    it "displays name" do
-      expect(page).to have_content(mobile.name)
-    end
-
-    it "displays price" do
-      expect(page).to have_content(mobile.format_price)
-    end
-
-    it "displays call limit" do
-      expect(page).to have_content(mobile.call)
-    end
-
-    it "displays area" do
-      expect(page).to have_content(mobile.area)
-    end
-
     it "displays open dropdown product card" do
       find('.product-card', match: :first).click
       sleep 1

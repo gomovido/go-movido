@@ -13,47 +13,12 @@ RSpec.describe "Mobile - Profile", type: :feature do
     end
 
     context 'when user wants to visit his profile' do
-      it "redirects to the profile tabs" do
-        expect(page).to have_content('My profile')
-      end
-
       it "displays user's profile details" do
-        expect(page).to have_field('First name', with: user.first_name)
-        expect(page).to have_field('Surname', with: user.last_name)
-        expect(page).to have_field('E-mail', with: user.email)
-        expect(page).to have_field('Phone', with: user.person.phone)
         expect(find('input.flatpickr-mobile').value).to eq(user.person.birthdate.strftime('%Y-%m-%d'))
-        expect(page).to have_field('City of birth', with: user.person.birth_city)
       end
     end
 
     context 'when user wants to update his profile' do
-      it "updates user" do
-        new_user_email = 'new_email@gmail.com'
-        new_user_first_name = 'new_first_name'
-        new_user_last_name = 'new_last_name'
-        within("#profile") do
-          fill_in 'user_email', with: new_user_email
-          fill_in 'user_first_name', with: new_user_first_name
-          fill_in 'user_last_name', with: new_user_last_name
-        end
-        expect do
-          click_button 'Update'
-          sleep 2
-          user.reload
-        end.to change(user, :email).to(new_user_email)
-                                   .and change(user, :first_name).to(new_user_first_name)
-                                                                 .and change(user, :last_name).to(new_user_last_name)
-      end
-
-      it "displays the right callsign" do
-        find('.iti__selected-flag').click
-        find("li[data-country-code='#{country.code}']", visible: false, match: :first).click
-        country_code = IsoCountryCodes.find(country.code).calling
-        sleep 2
-        expect(page).to have_field('Phone', with: "#{country_code}#{person.phone.gsub(country_code, '')}")
-      end
-
       it "updates person" do
         new_user_person_birthdate = Faker::Date.birthday(min_age: 18, max_age: 65)
         find("input.flatpickr-mobile").set(new_user_person_birthdate)

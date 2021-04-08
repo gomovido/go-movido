@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Desktop - Payment via Stripe", type: :feature do
+RSpec.describe "Payment via Stripe", type: :feature do
   describe "User want to proceed payment", :headless_chrome do
     let!(:user) { create(:user) }
     let!(:category) { create(:category, :mobile) }

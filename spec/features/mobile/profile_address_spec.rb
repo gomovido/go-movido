@@ -11,10 +11,6 @@ RSpec.describe "Mobile - Profile / Addresses", type: :feature do
       visit user_path(user, active_tab: 'addresses', locale: 'en')
     end
 
-    it "displays user addresses" do
-      expect(page).to have_content(address.street)
-    end
-
     context 'when user add a new address' do
       before do
         find('.address-input-wrapper').click
@@ -24,26 +20,10 @@ RSpec.describe "Mobile - Profile / Addresses", type: :feature do
         end
       end
 
-      it "is able to create a new address" do
-        find('.ap-suggestion', match: :first).click
-        sleep 1
-        click_on 'Save'
-        expect(page).to have_css("#active_address", text: "23 Rue du Vieux Bourg, Tréguennec, Bretagne, France")
-      end
-
       it "throws an error for invalid address" do
         page.send_keys :escape
         click_on 'Save'
         expect(page).to have_content("Address isn't valid")
-      end
-
-      it "is able to switch to last address" do
-        find('.ap-suggestion', match: :first).click
-        sleep 1
-        click_on 'Save'
-        find("div[data-id='#{address.id}']").click
-        sleep 1
-        expect(page).to have_css("#active_address", text: address.street)
       end
     end
   end
