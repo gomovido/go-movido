@@ -1,29 +1,18 @@
 <section id="how-it-works">
-  <%= image_tag(asset_path('pages/home/blue-bubble-stylish.png'), class:"stylish", loading: 'lazy') %>
+  <%= image_tag(asset_path('pages/home/red-hair-student.png'), width: 336, class: 'student') %>
+  <div class="purple-background"></div>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class='main-title text-left'>
-          <h2><%= t('pages.home.how-it-works.title') %></h2>
-        </div>
+    <h2 class="mb-0"><%= t('pages.how-it-works.title') %></h2>
+    <div data-controller="carousel" class="swiper-container pb-5" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+      <div  class="swiper-wrapper">
+        <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-1.png', number: t('pages.how_it_works.first_step.number'), title: t('pages.how_it_works.first_step.title'), desc: t('pages.how_it_works.first_step.description') %>
+        <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-2.png', number: t('pages.how_it_works.second_step.number'), title: t('pages.how_it_works.second_step.title'), desc: t('pages.how_it_works.second_step.description') %>
+        <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-3.png', number: t('pages.how_it_works.third_step.number'), title: t('pages.how_it_works.third_step.title'), desc: t('pages.how_it_works.third_step.description') %>
+        <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-4.png', number: t('pages.how_it_works.fourth_step.number'), title: t('pages.how_it_works.fourth_step.title'), desc: t('pages.how_it_works.fourth_step.description') %>
+        <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-5.png', number: t('pages.how_it_works.fifth_step.number'), title: t('pages.how_it_works.fifth_step.title'), desc: t('pages.how_it_works.fifth_step.description') %>
       </div>
-    </div>
-    <div class="row position-relative mb-4">
-      <%= image_tag(asset_path('pages/home/steps-way.png'), class:"steps-way", loading: 'lazy') %>
-      <div class="col-6 d-flex flex-column justify-content-between">
-        <%= render 'pages/desktop/home/explanation-card', img: 'pages/home/step-1.png', title: t('pages.home.how-it-works.card1.title'), centered: false, desc: t('pages.home.how-it-works.card1.description') %>
-        <%= render 'pages/desktop/home/explanation-card', img: 'pages/home/step-2.png', title: t('pages.home.how-it-works.card2.title'), centered: false, desc: t('pages.home.how-it-works.card2.description') %>
-        <%= render 'pages/desktop/home/explanation-card', img: 'pages/home/step-3.png', title: t('pages.home.how-it-works.card3.title'), centered: true, desc: t('pages.home.how-it-works.card3.description') %>
-      </div>
-      <div class="col-6 d-flex flex-column justify-content-between">
-        <%= image_tag(asset_path('pages/home/steps-picture.png'), class:"w-100 mb-4", loading: 'lazy') %>
-        <%= render 'pages/desktop/home/explanation-card', img: 'pages/home/step-4.png', title: t('pages.home.how-it-works.card4.title'), centered: false, desc: t('pages.home.how-it-works.card4.description') %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 d-lg-flex d-none justify-content-center mt-5">
-        <%= link_to t('pages.home.how-it-works.start'), new_user_registration_path, class:'btn btn-main' %>
-      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
+
 </section>

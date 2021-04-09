@@ -8,18 +8,11 @@
     </div>
   </div>
   <div class="row explanation-cards-mobile-wrapper">
-    <div class="col-12">
-      <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-1.png', title: t('pages.home.how-it-works.card1.title'), centered: false, desc: t('pages.home.how-it-works.card1.description') %>
-    </div>
-    <div class="col-12">
-      <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-2.png', title: t('pages.home.how-it-works.card2.title'), centered: false, desc: t('pages.home.how-it-works.card2.description') %>
-    </div>
-    <div class="col-12">
-      <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-3.png', title: t('pages.home.how-it-works.card3.title'), centered: true, desc: t('pages.home.how-it-works.card3.description') %>
-    </div>
-    <div class="col-12">
-      <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-4.png', title: t('pages.home.how-it-works.card4.title'), centered: false, desc: t('pages.home.how-it-works.card4.description') %>
-    </div>
+    <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-1.png', title: t('pages.how_it_works.first_step.title'), centered: false, desc: t('pages.how_it_works.first_step.description') %>
+    <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-2.png', title: t('pages.how_it_works.second_step.title'), centered: false, desc: t('pages.how_it_works.second_step.description') %>
+    <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-3.png', title: t('pages.how_it_works.third_step.title'), centered: true, desc: t('pages.how_it_works.third_step.description') %>
+    <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-4.png', title: t('pages.how_it_works.fourth_step.title'), centered: false, desc: t('pages.how_it_works.fourth_step.description') %>
+    <%= render 'pages/mobile/home/explanation-card', img: 'pages/home/step-5.png', title: t('pages.how_it_works.fifth_step.title'), centered: false, desc: t('pages.how_it_works.fifth_step.description') %>
     <div class="col-md-12 text-center mt-4">
       <%= link_to t('pages.home.how-it-works.start'), new_user_registration_path, class:'btn btn-main' %>
     </div>
