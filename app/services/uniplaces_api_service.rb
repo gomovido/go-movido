@@ -31,7 +31,7 @@ class UniplacesApiService
     headers = { API_KEY: ENV['UNIPLACES_API_KEY'] }
     uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
     response = HTTParty.get(uri, :headers => {"X-Api-Key" => "#{ENV['UNIPLACES_API_KEY']}", "Content-Type" => "application/json"})
-    payload = response['accommodation_offer']
+    payload = response
     if payload
       {
         error: nil,
