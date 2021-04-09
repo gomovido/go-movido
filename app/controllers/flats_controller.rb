@@ -42,8 +42,8 @@ class FlatsController < ApplicationController
       @flat = UniplacesApiService.new(property_code: @code).list_flat
       @flat = @flat[:flat] if @flat[:status] == 200
     end
+    @flat = format_flat(@flat, @type)
   end
-
 
   def uniacco_flats(preferences)
     @pagy, properties = pagy_array(preferences.codes)
@@ -62,6 +62,50 @@ class FlatsController < ApplicationController
 
   def update_preferences(payload, preferences)
     preferences.update(start_min_price: payload[:min_price], start_max_price: payload[:max_price])
+  end
+
+
+  def format_flat(flat, type)
+    if type == 'student_housing'
+      hash = {
+        code: flat[:code],
+        title: flat[:details]['name'],
+        description: flat[:details]['intro'],
+        city: flat[:details]['city_name'],
+        country: flat[:details]['country_name'],
+        images: [],
+        facilities: [],
+        apartment_facilities: [],
+        rooms: [],
+        price: flat[:details]['disp_price'],
+        billing: flat[:details]['billing'].downcase,
+        currency_code: flat[:details]['currency_code']
+      }
+      hash[:images] = flat[:images].map {|i| {url: i['url']}}
+      hash[:facilities] = flat[:facilities].map {|f| {name: f}}
+      hash[:apartment_facilities] = flat[:apartment_facilities].map{|af| {name: af['kind']}}
+      hash[:rooms] = flat[:details]['configs'].map{|c| {name: c['name']}}
+      hash
+    elsif type == 'entire_flat'
+      hash = {
+        code: flat['id'],
+        title: flat['accommodation_offer']['title'].select{|k,v| k['locale_code'] == 'en_GB'}[0]['text'],
+        description: flat['property_aggregate']['property']['metadata'].select{|k,v| k['locale_code'] == 'en_GB'}[0]['text'],
+        city: flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[1],
+        country: flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[0],
+        images: [],
+        facilities: [],
+        apartment_facilities: [],
+        rooms: [],
+        price: flat['accommodation_offer']['contract']['standard']['rents']['1']['amount'] / 100,
+        billing: flat['accommodation_offer']['contract']['type'],
+        currency_code: flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
+      }
+      hash[:images] = flat['property_aggregate']['property']['photos'].map{|k, v| {url: "https://cdn-static.uniplaces.com/property-photos/#{k['id']}/small.jpg"}}
+      hash[:facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']}}
+      hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map{|f| {name: f}}
+      hash
+    end
   end
 
 end
