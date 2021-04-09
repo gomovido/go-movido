@@ -13,7 +13,7 @@ class FlatsController < ApplicationController
       uniplaces_payload = uniplaces_flats(@flat_preference)
       @flats = uniplaces_payload[:flats] if update_preferences(uniplaces_payload, @flat_preference)
     elsif @type == 'student_housing'
-      @uniacco_payload = uniacco_flats(@flat_preference)
+      uniacco_payload = uniacco_flats(@flat_preference)
       @flats = uniacco_payload[:flats] if update_preferences(uniacco_payload, @flat_preference)
     end
     respond_to do |format|
@@ -33,9 +33,15 @@ class FlatsController < ApplicationController
     @location = params[:location]
     @type = params[:type]
     @code = params[:code]
-    @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country).flat
-    @flat = @flat[:payload] if @flat[:status] == 200
-    @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
+    @flat_id = params[:flat_id]
+    if @type == 'student_housing'
+      @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country).flat
+      @flat = @flat[:payload] if @flat[:status] == 200
+      @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
+    elsif @type == 'entire_flat'
+      @flat = UniplacesApiService.new(property_code: @code).list_flat
+      @flat = @flat[:flat] if @flat[:status] == 200
+    end
   end
 
 

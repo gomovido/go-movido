@@ -3,6 +3,7 @@ class UniplacesApiService
     @location = params[:city_code]
     @country = params[:country]
     @page = params[:page]
+    @code = params[:property_code]
   end
 
   def list_flats
@@ -25,6 +26,25 @@ class UniplacesApiService
     end
   end
 
+
+  def list_flat
+    headers = { API_KEY: ENV['UNIPLACES_API_KEY'] }
+    uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
+    response = HTTParty.get(uri, :headers => {"X-Api-Key" => "#{ENV['UNIPLACES_API_KEY']}", "Content-Type" => "application/json"})
+    payload = response['accommodation_offer']
+    if payload
+      {
+        error: nil,
+        status: 200,
+        flat: payload,
+        min_price: 50,
+        max_price: 2500,
+        recommandations:  [],
+        codes: [],
+        total_pages: 1
+      }
+    end
+  end
 
   def get_pricing(payload)
     pricing_rules = { monthly:  4, fortnight: 2, nightly: 0.7, weekly: 1}

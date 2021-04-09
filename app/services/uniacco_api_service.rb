@@ -102,7 +102,7 @@ class UniaccoApiService
   end
 
   def flat
-    uri = URI("https://uniacco.com/api/v1/#{@country}/#{@location}/#{@property}")
+    uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
     response = JSON.parse(Net::HTTP.get(uri))
     return unless response && response['title'] != 'NOT_FOUND'
 
