@@ -20,6 +20,8 @@
     text-align: center;
     .swiper-pagination-bullet {
       background: #888888 !important;
+      width: 12px;
+      height: 12px;
     }
     .swiper-pagination-bullet-active {
       background: $purple !important;
@@ -55,15 +57,15 @@
           margin: 1.4rem 0;
         }
         .btn-main-white {
-          font-size: 28px;
+          font-size: 23px;
           font-weight: 800;
           border: 3px solid $purple;
-          padding: 7px 0;
+          padding: 9px 0;
         }
       }
     }
   }
   .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: 0;
+    bottom: 20px;
   }
 }
