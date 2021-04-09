@@ -67,7 +67,7 @@
 
 .service-card {
   position: relative;
-  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+  box-shadow: 0px 16px 40px rgba(166, 163, 173, 0.2);
   border: 1px solid $border-card;
   border-radius: 27.5px;
   margin-bottom: 2.5rem;
@@ -149,6 +149,7 @@
     padding: 0% 5% !important;
     margin-bottom: 1rem;
     width: 100%;
+    box-shadow: none;
     height: 92px;
     img {
       transform: translateX(0%) scale(0.90);

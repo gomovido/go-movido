@@ -40,9 +40,9 @@
 
 .explanation-card-mobile {
   font-family: "Montserrat", sans-serif;
-  align-items: flex-start;
   .illustration {
     padding-top: 0 !important;
+    width: 50px;
   }
   .title {
     height: 35px;
@@ -52,6 +52,7 @@
     span {
       font-weight: 700;
       font-size: 14px;
+      width: 65%;
       line-height: 17.1px;
     }
     i {
@@ -61,5 +62,6 @@
   .desc {
     font-size: 12px;
     font-weight: 400;
+    display: block;
   }
 }
