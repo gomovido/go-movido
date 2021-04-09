@@ -2,7 +2,7 @@
   <%= image_tag(asset_path('pages/home/red-hair-student.png'), width: 336, class: 'student') %>
   <div class="purple-background"></div>
   <div class="container">
-    <h2 class="mb-0"><%= t('pages.home.how-it-works.title') %></h2>
+    <h2 class="mb-0"><%= t('pages.how-it-works.title') %></h2>
     <div data-controller="carousel" class="swiper-container pb-5" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
       <div  class="swiper-wrapper">
         <%= render 'pages/desktop/home/how-it-works-slide', image: 'iphone-step-1.png', number: t('pages.how_it_works.first_step.number'), title: t('pages.how_it_works.first_step.title'), desc: t('pages.how_it_works.first_step.description') %>
