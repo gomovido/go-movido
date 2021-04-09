@@ -67,12 +67,11 @@
 
 .service-card {
   position: relative;
-  box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
+  box-shadow: 0px 16px 40px rgba(166, 163, 173, 0.2);
   border: 1px solid $border-card;
   border-radius: 27.5px;
   margin-bottom: 2.5rem;
-  padding: 5% 9% !important;
-  height: 259px;
+  height: 280px;
   .top-line {
     height: 70px;
   }
@@ -88,7 +87,7 @@
   .desc {
     font-size: 16px;
     color: $dark-taupe;
-    min-height: 70px;
+    min-height: 90px;
   }
   img {
     transform: translateX(-37%) scale(0.25);
@@ -100,16 +99,19 @@
     font-size: 12px;
     font-weight: bold;
     font-family: Montserrat;
-    padding: 2%;
     width: 100%;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    height: 39px;
-    position: absolute;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: -6px;
+  }
+  .actions {
+    .btn-main, .btn-main-white {
+      padding: 5px 28px !important;
+      font-size: 14px !important;
+    }
   }
 }
 
@@ -147,6 +149,7 @@
     padding: 0% 5% !important;
     margin-bottom: 1rem;
     width: 100%;
+    box-shadow: none;
     height: 92px;
     img {
       transform: translateX(0%) scale(0.90);
@@ -154,13 +157,16 @@
     }
     .top-line {
       height: 92px;
-      border-bottom: 1px solid $grey-snow;
+    }
+    .top-line.open {
+     border-bottom: 1px solid $grey-snow;
     }
     .title {
       font-size: 14px;
       font-weight: 700;
     }
     .desc {
+      min-height: auto;
       font-size: 12px;
       font-weight: 400;
     }

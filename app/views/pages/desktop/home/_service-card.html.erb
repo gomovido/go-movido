@@ -1,24 +1,27 @@
-<div class="service-card d-flex text-left flex-column px-3 align-items-center justify-content-center">
-  <%= link_to path, class:"d-flex align-items-center w-100 justify-content-between flex-column" do %>
-  <div class="d-flex align-items-center w-100 justify-content-between top-line">
-    <%= image_tag(asset_path(picto), loading: 'lazy') %>
-    <% if timer != 'no_timer' %>
-      <div class="timer">
-        <span><%= timer %> minutes</span>
+<div class="service-card d-flex text-left flex-column align-items-center justify-content-between">
+    <div class="d-flex align-items-center w-100 justify-content-between top-line px-3 pt-3">
+      <%= image_tag(asset_path(picto), loading: 'lazy') %>
+      <% if timer != 'no_timer' %>
+        <div class="timer">
+          <span><%= timer %> minutes</span>
+        </div>
+      <% end %>
+    </div>
+    <div class="title mb-2 w-100 px-3">
+      <%= title %>
+    </div>
+    <div class="desc px-3">
+      <span><%= description %></span>
+    </div>
+    <% if comming_soon %>
+      <div class="comming-soon-bar">
+        <span><%= t('pages.home.service-card.coming_soon') %></span>
+      </div>
+    <% else %>
+      <div class="actions d-flex align-items-center justify-content-between px-3 pb-3 w-100">
+        <%= link_to t('pages.home.services-cards.details'), path, class: 'btn-main-white' %>
+        <%= link_to t('pages.home.services-cards.cta'), new_user_registration_path, class: 'btn-main' %>
       </div>
     <% end %>
-  </div>
-  <div class="title mb-2 w-100">
-    <%= title %>
-  </div>
-  <div class="desc">
-    <span><%= description %></span>
-  </div>
-  <% if comming_soon %>
-    <div class="comming-soon-bar">
-      <span><%= t('pages.home.service-card.coming_soon') %></span>
-    </div>
-  <% end %>
-  <% end %>
 </div>
 
