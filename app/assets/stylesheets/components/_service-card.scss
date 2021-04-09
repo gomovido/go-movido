@@ -157,7 +157,9 @@
     }
     .top-line {
       height: 92px;
-      border-bottom: 1px solid $grey-snow;
+    }
+    .top-line.open {
+     border-bottom: 1px solid $grey-snow;
     }
     .title {
       font-size: 14px;
