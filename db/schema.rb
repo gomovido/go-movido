@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_105614) do
+ActiveRecord::Schema.define(version: 2021_04_12_130031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_105614) do
   end
 
   create_table "flat_preferences", force: :cascade do |t|
-    t.date "move_in", default: -> { "CURRENT_TIMESTAMP" }
+    t.date "move_in"
     t.bigint "user_id", null: false
     t.integer "range_min_price"
     t.integer "range_max_price"
