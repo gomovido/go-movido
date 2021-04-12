@@ -24,7 +24,7 @@
     color: $black;
   }
   .img-box {
-    width: 120px;
+    min-width: 120px;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 14px;

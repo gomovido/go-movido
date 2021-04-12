@@ -1,7 +1,9 @@
 class FlatsController < ApplicationController
   def index
     @flat_preference = current_user.flat_preference
-    @flat_preference.update(flat_type: params[:type]) if params[:type] != @flat_preference.flat_type
+    p "THIS IS INDEX"
+    p params[:type]
+    @flat_preference.update(flat_type: params[:type])
     @move_in = @flat_preference.move_in.strftime
     @move_out = @flat_preference.move_out.strftime
     @location = @flat_preference.location
@@ -55,8 +57,8 @@ class FlatsController < ApplicationController
   end
 
   def uniplaces_flats(preferences)
-    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page], flat_preference_id: preferences.id).list_flats
-    @pagy = Pagy.new(count: payload[:total_pages], page: params[:page])
+    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page] || 1, flat_preference_id: preferences.id).list_flats
+    @pagy = Pagy.new(count: payload[:total_pages], page: params[:page] || 1)
     return unless payload[:status] == 200
     payload
   end
