@@ -33,6 +33,7 @@ class FlatsController < ApplicationController
     @location = params[:location]
     @type = params[:type]
     @code = params[:code]
+    current_user.flat_preference.update(flat_type: @type)
     @flat_id = params[:flat_id]
     if @type == 'student_housing'
       @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country).flat
@@ -54,8 +55,10 @@ class FlatsController < ApplicationController
   end
 
   def uniplaces_flats(preferences)
-    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page] || 1, flat_preference_id: preferences.id).list_flats
-    @pagy = Pagy.new(count: payload[:total_pages], page: params[:page] || 1)
+    page = params[:page]
+    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
+    page = 1 if payload[:total_pages].to_i.zero?
+    @pagy = Pagy.new(count: payload[:total_pages], page: page)
     return unless payload[:status] == 200
     payload
   end

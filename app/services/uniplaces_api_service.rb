@@ -12,7 +12,6 @@ class UniplacesApiService
     move_in = flat_preference.move_in.strftime('%Y-%m-%d')
     move_out = flat_preference.move_out.strftime('%Y-%m-%d')
     headers = { API_KEY: ENV['UNIPLACES_API_KEY'] }
-    p @page
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?move-in=#{move_in}&move-out=#{move_out}&page=#{@page}")
     response = HTTParty.get(uri, :headers => {"X-Api-Key" => "#{ENV['UNIPLACES_API_KEY']}", "Content-Type" => "application/json"})
     payload = response['data']
