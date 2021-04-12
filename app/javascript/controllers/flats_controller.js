@@ -46,8 +46,11 @@ export default class extends Controller {
 
 
   afterReflex(e) {
-    let old_url = document.querySelector("a[rel='next']").getAttribute("href");
-    document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2");
+    const paginationLink = document.querySelector("a[rel='next']")
+    if (paginationLink) {
+      let old_url = paginationLink.getAttribute("href");
+      document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2");
+    }
     this.hideLoading(this.spinnerTarget, this.entriesTarget)
   }
 
@@ -105,6 +108,10 @@ export default class extends Controller {
           this.paginationTarget.innerHTML = data.pagination
           this.loadMore()
         }
+      },
+      error: (data) => {
+        console.log(data)
+        this.spinnerTarget.classList.add('d-none')
       }
     })
   }
