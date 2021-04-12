@@ -2,19 +2,20 @@ class FlatsController < ApplicationController
   def index
     @flat_preference = current_user.flat_preference
     @flat_preference.update(flat_type: params[:type]) if params[:type] != @flat_preference.flat_type
-    @start_date = @flat_preference.start_date.strftime
+    @start_date = @flat_preference.move_in.strftime
+    @end_date = @flat_preference.move_out.strftime
     @location = @flat_preference.location
     @type = @flat_preference.flat_type
-    @start_min_price = @flat_preference.start_min_price
-    @start_max_price = @flat_preference.start_max_price
+    @start_min_price = 50
+    @start_max_price = 2000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
     if @type == 'entire_flat'
       uniplaces_payload = uniplaces_flats(@flat_preference)
-      @flats = uniplaces_payload[:flats] if update_preferences(uniplaces_payload, @flat_preference)
+      @flats = uniplaces_payload[:flats]
     elsif @type == 'student_housing'
       uniacco_payload = uniacco_flats(@flat_preference)
-      @flats = uniacco_payload[:flats] if update_preferences(uniacco_payload, @flat_preference)
+      @flats = uniacco_payload[:flats]
     end
     respond_to do |format|
       format.html
@@ -54,16 +55,10 @@ class FlatsController < ApplicationController
   end
 
   def uniplaces_flats(preferences)
-    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page]).list_flats
+    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page], flat_preference_id: preferences.id).list_flats
     @pagy = Pagy.new(count: payload[:total_pages], page: params[:page])
-    return unless payload[:status] == 200
-    payload
+    return payload unless payload[:status] == 200
   end
-
-  def update_preferences(payload, preferences)
-    preferences.update(start_min_price: payload[:min_price], start_max_price: payload[:max_price])
-  end
-
 
   def format_flat(flat, type)
     if type == 'student_housing'

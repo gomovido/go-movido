@@ -12,7 +12,7 @@ class ProvidersController < ApplicationController
   end
 
   def uniplaces_flats(location, country)
-    payload = UniplacesApiService.new(city_code: location, country: country).list_flats
+    payload = UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id).list_flats
     return unless payload[:status] == 200
     payload
   end
