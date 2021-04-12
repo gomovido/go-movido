@@ -1,9 +1,6 @@
 class FlatsController < ApplicationController
   def index
     @flat_preference = current_user.flat_preference
-    p "THIS IS INDEX"
-    p params[:type]
-    @flat_preference.update(flat_type: params[:type])
     @move_in = @flat_preference.move_in.strftime
     @move_out = @flat_preference.move_out.strftime
     @location = @flat_preference.location
@@ -12,10 +9,10 @@ class FlatsController < ApplicationController
     @start_max_price = 2000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
-    if @flat_preference.flat_type == 'entire_flat'
+    if @type == 'entire_flat'
       uniplaces_payload = uniplaces_flats(@flat_preference)
       @flats = uniplaces_payload[:flats]
-    elsif @flat_preference.flat_type == 'student_housing'
+    elsif @type == 'student_housing'
       uniacco_payload = uniacco_flats(@flat_preference)
       @flats = uniacco_payload[:flats]
     end

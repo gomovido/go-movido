@@ -9,7 +9,7 @@
       <div class="providers-wrapper">
         <div class="title d-flex align-items-center justify-content-between">
           <h3><%= t('providers.index.student_housing') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-          <%= link_to t('providers.index.show_all'), flats_path(@flat_preference.location, type: 'student_housing'),class: 'link'%>
+          <%= link_to t('providers.index.show_all'), flat_preference_path(@flat_preference.id, type: 'student_housing'), method: :put, class: 'link'%>
         </div>
         <div class="flats-card-scroller pt-0">
           <ul class="hs" data-animate-target="container">
@@ -22,7 +22,7 @@
         </div>
         <div class="title d-flex align-items-center justify-content-between">
           <h3><%= t('providers.index.entire_flat') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-          <%= link_to t('providers.index.show_all'), flats_path(@flat_preference.location, type: 'entire_flat'),class: 'link'%>
+          <%= link_to t('providers.index.show_all'), flat_preference_path(@flat_preference.id, type: 'entire_flat'), method: :put, class: 'link'%>
         </div>
         <div class="flats-card-scroller pt-0">
           <ul class="hs" data-animate-target="container">

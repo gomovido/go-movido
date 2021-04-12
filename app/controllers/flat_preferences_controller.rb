@@ -27,6 +27,11 @@ class FlatPreferencesController < ApplicationController
     end
   end
 
+  def update
+    current_user.flat_preference.update(flat_type: params[:type])
+    redirect_to flats_path(current_user.flat_preference.location, current_user.flat_preference.flat_type)
+  end
+
   def format_params(location)
     location.split(',').map { |string| string.strip.downcase.tr(' ', '-') }
   end

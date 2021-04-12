@@ -5,16 +5,11 @@ class FlatReflex < ApplicationReflex
   include Pagy::Backend
 
   def filter(date)
-    p "THIS IS FlatPreference"
     @flat_preference = current_user.flat_preference
-    p @flat_preference
     @flat_preference.move_in = date.split[0].to_date
     @flat_preference.move_out = date.split[-1].to_date
     @flat_preference.assign_attributes(flat_preference_params)
     @flat_preference.save
-    p 'THIS IS FLAT TYPE IN REFLEX'
-    p flat_preference_params
-    p @flat_preference.flat_type
     if @flat_preference.flat_type == 'entire_flat'
       uniplaces_payload = uniplaces_flats(@flat_preference)
       @flats = uniplaces_payload[:flats]
