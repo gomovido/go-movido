@@ -105,7 +105,7 @@ en:
       count: "%{count}+ places to stay"
       show_all: 'Show all'
       student_housing: 'Student housing'
-      student_housing: 'Student Housing'
+      entire_flat: 'Entire flat'
   pages:
     contact:
       title: 'Contact us'

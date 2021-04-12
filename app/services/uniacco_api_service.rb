@@ -19,8 +19,6 @@ class UniaccoApiService
       response['properties'] << JSON.parse(Net::HTTP.get(uri))['properties']
     end
     payload = response['properties'].flatten
-    min_price = payload.min_by { |k| k['min_price'] }['min_price']
-    max_price = payload.max_by { |k| k['max_price'] }['max_price']
     if response && (response['title'] == 'NOT_FOUND')
       {
         error: 'NOT_FOUND',
@@ -41,8 +39,6 @@ class UniaccoApiService
         error: nil,
         status: 200,
         flats: payload,
-        min_price: min_price,
-        max_price: max_price,
         recommandations: recommandations,
         codes: codes(payload)
       }
