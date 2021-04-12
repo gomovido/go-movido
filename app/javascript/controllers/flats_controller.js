@@ -62,7 +62,7 @@ export default class extends Controller {
   }
 
   triggerLoading(spinner, wrapper, form, date) {
-    document.querySelector('.flat_preference_start_date').classList.add('disabled');
+    document.querySelector('.flat_preference_move_in').classList.add('disabled');
     spinner.classList.remove('d-none');
     spinner.classList.add('middle');
     wrapper.classList.add('opacity');
@@ -73,7 +73,7 @@ export default class extends Controller {
     spinner.classList.add('d-none')
     spinner.classList.remove('middle');
     wrapper.classList.remove('opacity');
-    document.querySelector('.flat_preference_start_date').classList.remove('disabled');
+    document.querySelector('.flat_preference_move_in').classList.remove('disabled');
   }
 
   processIntersectionEntries(entries) {
