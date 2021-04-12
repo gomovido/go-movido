@@ -2,6 +2,7 @@ class FlatPreference < ApplicationRecord
   belongs_to :user
   after_initialize if: :new_record? do
     self.move_out = Time.now + 30.days
+    self.move_in = Time.now
   end
 
   def active?

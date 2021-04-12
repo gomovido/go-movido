@@ -1,7 +1,8 @@
+
 <div class="subnavbar col-12">
   <span class="location"><%= location.capitalize %></span>
   <div class="filters d-flex align-items-center">
-    <%= simple_form_for flat_preference, html: {method: :put} do |f| %>
+    <%= simple_form_for flat_preference, html: {method: :put, id: 'edit_move_dates'} do |f| %>
       <%= f.input :move_in, as: :string, label: false,
          required: true,
          input_html: { class: 'background-white datepicker', id: 'date-input', data: { controller: 'flatpickr',
