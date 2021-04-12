@@ -46,6 +46,7 @@ export default class extends Controller {
 
 
   afterReflex(e) {
+    console.log(document.querySelector("a[rel='next']"))
     const paginationLink = document.querySelector("a[rel='next']")
     if (paginationLink) {
       let old_url = paginationLink.getAttribute("href");
