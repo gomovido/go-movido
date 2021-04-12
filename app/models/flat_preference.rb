@@ -1,5 +1,8 @@
 class FlatPreference < ApplicationRecord
   belongs_to :user
+  after_initialize if: :new_record? do
+    self.move_out = Time.now + 30.days
+  end
 
   def active?
     range_min_price || range_max_price || dishwasher || microwave
@@ -17,7 +20,4 @@ class FlatPreference < ApplicationRecord
     attributes.filter_map { |k, v| k if v == true }
   end
 
-  def move_out
-    end_date || start_date + 14.days
-  end
 end

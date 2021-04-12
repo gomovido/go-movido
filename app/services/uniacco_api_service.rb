@@ -62,7 +62,7 @@ class UniaccoApiService
     end
     return if array.blank?
 
-    flats = filters(array, flat_preference.start_date, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
+    flats = filters(array, flat_preference.move_in, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
     {
       error: nil,
       status: 200,

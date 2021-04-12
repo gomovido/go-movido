@@ -2,31 +2,31 @@ class FlatsController < ApplicationController
   def index
     @flat_preference = current_user.flat_preference
     @flat_preference.update(flat_type: params[:type]) if params[:type] != @flat_preference.flat_type
-    @start_date = @flat_preference.move_in.strftime
-    @end_date = @flat_preference.move_out.strftime
+    @move_in = @flat_preference.move_in.strftime
+    @move_out = @flat_preference.move_out.strftime
     @location = @flat_preference.location
     @type = @flat_preference.flat_type
     @start_min_price = 50
     @start_max_price = 2000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
-    if @type == 'entire_flat'
+    if @flat_preference.flat_type == 'entire_flat'
       uniplaces_payload = uniplaces_flats(@flat_preference)
       @flats = uniplaces_payload[:flats]
-    elsif @type == 'student_housing'
+    elsif @flat_preference.flat_type == 'student_housing'
       uniacco_payload = uniacco_flats(@flat_preference)
       @flats = uniacco_payload[:flats]
     end
     respond_to do |format|
       format.html
       format.json do
-        render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @type }), pagination: view_context.pagy_nav(@pagy) }
+        render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
       end
     end
   end
 
   def clear_filters
-    current_user.flat_preference.update(range_min_price: nil, range_max_price: nil, microwave: false, dishwasher: false, start_date: Time.zone.today)
+    current_user.flat_preference.update(range_min_price: nil, range_max_price: nil, microwave: false, dishwasher: false, move_in: Time.zone.today, move_out: Time.zone.today + 30.days)
     redirect_to flats_path(current_user.flat_preference.location, current_user.flat_preference.flat_type)
   end
 
@@ -57,7 +57,8 @@ class FlatsController < ApplicationController
   def uniplaces_flats(preferences)
     payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: params[:page], flat_preference_id: preferences.id).list_flats
     @pagy = Pagy.new(count: payload[:total_pages], page: params[:page])
-    return payload unless payload[:status] == 200
+    return unless payload[:status] == 200
+    payload
   end
 
   def format_flat(flat, type)
