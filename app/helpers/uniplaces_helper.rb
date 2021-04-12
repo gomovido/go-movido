@@ -1,6 +1,6 @@
 module UniplacesHelper
   def flat_image(image)
-    "https://cdn-static.uniplaces.com/property-photos/#{image}/small.jpg"
+    "https://cdn-static.staging-uniplaces.com/property-photos/#{image}/small.jpg"
   end
 
   def flat_price(flat)

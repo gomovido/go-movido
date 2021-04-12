@@ -101,7 +101,7 @@ class FlatsController < ApplicationController
         billing: flat['accommodation_offer']['contract']['type'],
         currency_code: flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
       }
-      hash[:images] = flat['property_aggregate']['property']['photos'].map{|k, v| {url: "https://cdn-static.uniplaces.com/property-photos/#{k['id']}/small.jpg"}}
+      hash[:images] = flat['property_aggregate']['photos'].map{|k, v| {url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg"}}
       hash[:facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']}}
       hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map{|f| {name: f}}
       hash
