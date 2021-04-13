@@ -75,6 +75,7 @@ class FlatsController < ApplicationController
         images: [],
         facilities: [],
         apartment_facilities: [],
+        community_facilities: [],
         rooms: [],
         price: flat[:details]['disp_price'],
         billing: flat[:details]['billing'].downcase,
@@ -82,8 +83,9 @@ class FlatsController < ApplicationController
       }
       hash[:images] = flat[:images].map {|i| {url: i['url']}}
       hash[:facilities] = flat[:facilities].map {|f| {name: f}}
-      hash[:apartment_facilities] = flat[:apartment_facilities].map{|af| {name: af['kind']}}
-      hash[:rooms] = flat[:details]['configs'].map{|c| {name: c['name']}}
+      hash[:apartment_facilities] = flat[:apartment_facilities].map{|af| {name: af['name']}}
+      hash[:community_facilities] = flat[:community_facilities].map{|af| {name: af['name']}}
+      hash[:rooms] = flat[:details]['configs'].map{|c| {name: c['name'], description: c['description'], price: c['disp_price'], deposit: c['deposit'], subconfigs: c['subconfigs'], facilities: c['facilities']}}
       hash
     elsif type == 'entire_flat'
       hash = {
@@ -95,6 +97,7 @@ class FlatsController < ApplicationController
         images: [],
         facilities: [],
         apartment_facilities: [],
+        community_facilities: [],
         rooms: [],
         price: flat['accommodation_offer']['contract']['standard']['rents']['1']['amount'] / 100,
         billing: flat['accommodation_offer']['contract']['type'],
