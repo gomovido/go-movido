@@ -41,72 +41,11 @@
       </span>
       <hr class="w-100">
     </div>
-    <div class="col-12" data-controller="room">
-      <div class="room-details">
-        <span class='title mb-2'>Rooms</span>
-        <div class="flats-card-scroller pt-0">
-          <ul class="hs">
-            <% @flat[:rooms].each_with_index do |room, index| %>
-              <li class="item" >
-                <div class="<%= 'room-selected' if index == 0 %> room-card d-flex" data-room-target="card"  data-action=" click->room#onClick" data-id="<%= index %>">
-                  <div class="details d-flex flex-column justify-content-around ml-3">
-                    <span class="name mb-2">
-                      <%= room[:name] %>
-                    </span>
-                    <span class="pricing">
-                      <%= room[:price] %>
-                    </span>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        <% @flat[:rooms].each_with_index do |room, index| %>
-          <div class="<%= 'd-none' if index != 0 %> room-description container"  data-id="<%= index %>" data-room-target="body">
-            <p class="purple font-weight" >
-              <%= room[:name] %>
-            </p>
-            <span>
-              <%= room[:description].html_safe %>
-            </span>
-            <div class="facilities d-flex flex-wrap justify-content-around">
-              <% room[:facilities].each do |facility| %>
-                <div class="facility d-flex align-items-center px-2 my-2"><%= facility['name'] %></div>
-              <% end %>
-            </div>
-            <div class="leases">
-              <ul>
-                <% room[:subconfigs].each do |subconfig| %>
-                  <li><span class='purple'><%= subconfig['lease'] %></span> week lease <span class='purple'>(<%= subconfig['price'].to_i %>£/week)</span> starts form <span class='purple'> <%= subconfig['available_from'] %>,</span> book now by paying <span class='purple'><%= subconfig['deposit'].to_i %>£</span></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-        <div class="book">
-          <%= link_to 'Booking request', '#', class:'btn-booking' %>
-        </div>
-      </div>
-    </div>
-    <hr class="w-100">
-    <div class="col-12">
-      <span class="title">Facilities</span>
-      <div class="facilities d-flex flex-wrap justify-content-around">
-        <% @flat[:apartment_facilities].each do |facility|  %>
-          <div class="facility d-flex align-items-center px-2 my-2"><%= facility[:name] %></div>
-        <% end %>
-      </div>
-    </div>
-    <hr class="w-100">
-    <div class="col-12">
-      <span class="title">Services/Community Facilities</span>
-      <div class="facilities d-flex flex-wrap justify-content-around">
-        <% @flat[:community_facilities].each do |facility|  %>
-          <div class="facility d-flex align-items-center px-2 my-2"><%= facility[:name] %></div>
-        <% end %>
-      </div>
-    </div>
+    <%= render 'flats/mobile/index/flats', rooms: @flat[:rooms] %>
+    <%= render 'flats/mobile/index/bedrooms', facilities: @flat[:bedrooms_facilities] %>
+    <%= render 'flats/mobile/index/appartment_facilities', facilities: @flat[:apartment_facilities] %>
+    <%= render 'flats/mobile/index/community_facilities', facilities: @flat[:community_facilities] %>
+
     <% if @recommandations.present? %>
       <hr class="w-100">
       <div class="col-12 d-flex flex-column my-2 pr-0">
