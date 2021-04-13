@@ -64,8 +64,4 @@ class FlatsController < ApplicationController
     end
     @flat = AggregatorApiService.new(flat: @flat, type: @type).format_flat
   end
-
-
-
-
 end

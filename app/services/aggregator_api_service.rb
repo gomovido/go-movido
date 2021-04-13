@@ -28,8 +28,7 @@ class AggregatorApiService
       hash[:apartment_facilities] = @flat[:apartment_facilities].map{|af| {name: af['name']}}
       hash[:community_facilities] = @flat[:community_facilities].map{|af| {name: af['name']}}
       hash[:rooms] = @flat[:details]['configs'].map{|c| {name: c['name'], description: c['description'], price: c['disp_price'], deposit: c['deposit'], subconfigs: c['subconfigs'], facilities: c['facilities']}}
-      hash
-    elsif @type == 'entire_@flat'
+    elsif @type == 'entire_flat'
       hash = {
         code: @flat['id'],
         title: @flat['accommodation_offer']['title'].select{|k,v| k['locale_code'] == 'en_GB'}[0]['text'],
@@ -51,7 +50,7 @@ class AggregatorApiService
       hash[:facilities] = @flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']}}
       hash[:apartment_facilities] = @flat['property_aggregate']['property_type']['configuration']['allowed_features'].map{|f| {name: f}}
       hash[:bedrooms_facilities] = @flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']} if k['Exists'] == true}.compact
-      hash
     end
+    hash
   end
 end
