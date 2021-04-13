@@ -88,18 +88,20 @@ export default class extends Controller {
   }
 
   loadMore() {
-    let next_page = this.paginationTarget.querySelector("a[rel='next']");
-    if (next_page == null) {
+    let nextPage = this.paginationTarget.querySelector("a[rel='next']");
+
+    if (nextPage == null) {
       this.spinnerTarget.classList.add('d-none');
       return
     }
     this.spinnerTarget.classList.remove('d-none');
-    let url = next_page.href
+    let url = nextPage.href
     Rails.ajax({
       type: 'GET',
       url: url,
       dataType: 'json',
       success: (data) => {
+        console.log(data)
         if (data.entries) {
           this.spinnerTarget.classList.add('d-none')
           this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
