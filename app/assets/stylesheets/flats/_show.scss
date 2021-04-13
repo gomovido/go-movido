@@ -77,4 +77,27 @@
     padding-left: 0 !important;
     margin-left: 0 !important;
   }
+  .facilities .facility {
+    border: 1px solid #8C30F5;
+    box-sizing: border-box;
+    border-radius: 40px;
+    height: 40px;
+    font-family: 'Manrope';
+    font-weight: 500;
+    font-size: 12px;
+    min-width: 55px;
+    justify-content: center;
+  }
+  .room-description .leases {
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #D9DBE1;
+        margin-bottom: 0.75rem;
+        margin-left: 0;
+      }
+    }
+  }
 }
