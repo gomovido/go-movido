@@ -111,11 +111,6 @@ class FlatsController < ApplicationController
       hash[:facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']}}
       hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map{|f| {name: f}}
       hash[:bedrooms_facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']} if k['Exists'] == true}.compact
-      flat['property_aggregate']['property']['floors'].each_with_index do |floor, index|
-        hash[:floors] = floor['units'].map do |k, v|
-          {features: k['features'].map{|k, v| {name: k['Code']} if k['Exists'] == true}.compact, photos: k['photos']}
-        end
-      end
       hash
     end
   end
