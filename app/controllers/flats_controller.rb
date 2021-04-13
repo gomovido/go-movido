@@ -11,17 +11,38 @@ class FlatsController < ApplicationController
     @range_max_price = @flat_preference.max_price
     if @type == 'entire_flat'
       uniplaces_payload = uniplaces_flats(@flat_preference)
-      @flats = uniplaces_payload[:flats]
+      @flats = uniplaces_payload[:payload][:flats]
+      @pagy = uniplaces_payload[:pagy]
     elsif @type == 'student_housing'
       uniacco_payload = uniacco_flats(@flat_preference)
-      @flats = uniacco_payload[:flats]
+      @flats = uniacco_payload[:payload][:flats]
+      @pagy = uniacco_payload[:pagy]
     end
+    p 'THIS IS PAGY'
+    p @pagy
     respond_to do |format|
       format.html
       format.json do
-        render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
+        render json: { count: @flats.count, entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
       end
     end
+  end
+
+  def uniacco_flats(preferences)
+    pagy, properties = pagy_array(preferences.codes)
+    response = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
+    return unless response[:status] == 200
+    preferences.update(recommandations: response[:recommandations])
+    return { payload: response, pagy: pagy }
+  end
+
+  def uniplaces_flats(preferences)
+    page = params[:page]
+    response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
+    page = 1 if response[:total_pages].to_i.zero?
+    pagy = Pagy.new(count: response[:total_pages], page: page)
+    return unless response[:status] == 200
+    return { payload: response, pagy: pagy }
   end
 
   def clear_filters
@@ -46,22 +67,6 @@ class FlatsController < ApplicationController
     @flat = format_flat(@flat, @type)
   end
 
-  def uniacco_flats(preferences)
-    @pagy, properties = pagy_array(preferences.codes)
-    payload = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
-    return unless payload[:status] == 200
-    preferences.update(recommandations: payload[:recommandations])
-    payload
-  end
-
-  def uniplaces_flats(preferences)
-    page = params[:page]
-    payload = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
-    page = 1 if payload[:total_pages].to_i.zero?
-    @pagy = Pagy.new(count: payload[:total_pages], page: page)
-    return unless payload[:status] == 200
-    payload
-  end
 
   def format_flat(flat, type)
     if type == 'student_housing'
