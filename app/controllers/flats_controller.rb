@@ -37,6 +37,7 @@ class FlatsController < ApplicationController
     response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
     page = 1 if response[:total_pages].to_i.zero?
     @pagy = Pagy.new(count: response[:total_pages], page: page)
+    preferences.update(recommandations: response[:recommandations])
     return unless response[:status] == 200
     response
   end
@@ -59,6 +60,7 @@ class FlatsController < ApplicationController
     elsif @type == 'entire_flat'
       @flat = UniplacesApiService.new(property_code: @code).list_flat
       @flat = @flat[:flat] if @flat[:status] == 200
+      @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat['id'] }
     end
     @flat = format_flat(@flat, @type)
   end
