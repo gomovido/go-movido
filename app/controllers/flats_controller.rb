@@ -9,12 +9,11 @@ class FlatsController < ApplicationController
     @start_max_price = 2000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
-    if @type == 'entire_flat'
-      uniplaces_payload = uniplaces_flats(@flat_preference)
-      @flats = uniplaces_payload[:flats]
-    elsif @type == 'student_housing'
-      uniacco_payload = uniacco_flats(@flat_preference)
-      @flats = uniacco_payload[:flats]
+    case @type
+    when 'entire_flat'
+      @flats = uniplaces_flats(@flat_preference)[:flats]
+    when 'student_housing'
+      @flats = uniacco_flats(@flat_preference)[:flats]
     end
     respond_to do |format|
       format.html
@@ -28,8 +27,9 @@ class FlatsController < ApplicationController
     @pagy, properties = pagy_array(preferences.codes)
     response = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
     return unless response[:status] == 200
+
     preferences.update(recommandations: response[:recommandations])
-    response
+    return response
   end
 
   def uniplaces_flats(preferences)
@@ -38,7 +38,8 @@ class FlatsController < ApplicationController
     page = 1 if response[:total_pages].to_i.zero?
     @pagy = Pagy.new(count: response[:total_pages], page: page)
     return unless response[:status] == 200
-    response
+
+    return response
   end
 
   def clear_filters
@@ -52,59 +53,52 @@ class FlatsController < ApplicationController
     @code = params[:code]
     current_user.flat_preference.update(flat_type: @type)
     @flat_id = params[:flat_id]
-    if @type == 'student_housing'
-      @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country).flat
+    case @type
+    when 'student_housing'
+      @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
       @flat = @flat[:payload] if @flat[:status] == 200
       @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
-    elsif @type == 'entire_flat'
+    when 'entire_flat'
       @flat = UniplacesApiService.new(property_code: @code).list_flat
       @flat = @flat[:flat] if @flat[:status] == 200
     end
     @flat = format_flat(@flat, @type)
   end
 
-
   def format_flat(flat, type)
-    if type == 'student_housing'
-      hash = {
-        code: flat[:code],
-        title: flat[:details]['name'],
-        description: flat[:details]['intro'],
-        city: flat[:details]['city_name'],
-        country: flat[:details]['country_name'],
-        images: [],
-        facilities: [],
-        apartment_facilities: [],
-        rooms: [],
-        price: flat[:details]['disp_price'],
-        billing: flat[:details]['billing'].downcase,
-        currency_code: flat[:details]['currency_code']
-      }
-      hash[:images] = flat[:images].map {|i| {url: i['url']}}
-      hash[:facilities] = flat[:facilities].map {|f| {name: f}}
-      hash[:apartment_facilities] = flat[:apartment_facilities].map{|af| {name: af['kind']}}
-      hash[:rooms] = flat[:details]['configs'].map{|c| {name: c['name']}}
-      hash
-    elsif type == 'entire_flat'
-      hash = {
-        code: flat['id'],
-        title: flat['accommodation_offer']['title'].select{|k,v| k['locale_code'] == 'en_GB'}[0]['text'],
-        description: flat['property_aggregate']['property']['metadata'].select{|k,v| k['locale_code'] == 'en_GB'}[0]['text'],
-        city: flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[1],
-        country: flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[0],
-        images: [],
-        facilities: [],
-        apartment_facilities: [],
-        rooms: [],
-        price: flat['accommodation_offer']['contract']['standard']['rents']['1']['amount'] / 100,
-        billing: flat['accommodation_offer']['contract']['type'],
-        currency_code: flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
-      }
-      hash[:images] = flat['property_aggregate']['photos'].map{|k, v| {url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg"}}
-      hash[:facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']}}
-      hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map{|f| {name: f}}
-      hash
+    hash = {
+      images: [],
+      facilities: [],
+      apartment_facilities: [],
+      rooms: []
+    }
+    case type
+    when 'student_housing'
+      hash[:code] = flat[:code]
+      hash[:title] = flat[:details]['name']
+      hash[:description] = flat[:details]['intro']
+      hash[:city] = flat[:details]['city_name']
+      hash[:country] = flat[:details]['country_name']
+      hash[:price] = flat[:details]['disp_price']
+      hash[:billing] = flat[:details]['billing'].downcase
+      hash[:currency_code] = flat[:details]['currency_code']
+      hash[:images] = flat[:images].map { |i| { url: i['url'] } }
+      hash[:facilities] = flat[:facilities].map { |f| { name: f } }
+      hash[:apartment_facilities] = flat[:apartment_facilities].map { |af| { name: af['kind'] } }
+      hash[:rooms] = flat[:details]['configs'].map { |c| { name: c['name'] } }
+    when 'entire_flat'
+      hash[:code] = flat['id']
+      hash[:title] = flat['accommodation_offer']['title'].find { |k, _v| k['locale_code'] == 'en_GB' }['text']
+      hash[:description] = flat['property_aggregate']['property']['metadata'].find { |k, _v| k['locale_code'] == 'en_GB' }['text']
+      hash[:city] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[1]
+      hash[:country] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[0]
+      hash[:price] = flat['accommodation_offer']['contract']['standard']['rents']['1']['amount'] / 100
+      hash[:billing] = flat['accommodation_offer']['contract']['type']
+      hash[:currency_code] = flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
+      hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg" } }
+      hash[:facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } }
+      hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map { |f| { name: f } }
     end
+    return hash
   end
-
 end

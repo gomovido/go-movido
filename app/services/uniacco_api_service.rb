@@ -48,7 +48,7 @@ class UniaccoApiService
   def avanced_list_flats
     flat_preference = FlatPreference.find(@flat_preference_id)
     array = @properties.map do |property|
-      uri = URI("https://uniacco.com/api/v1/uk/#{flat_preference.location}/#{property}")
+      uri = URI("https://uniacco.com/api/v1/#{flat_preference.country == 'fr' ? 'france' : 'uk'}/#{flat_preference.location}/#{property}")
       response = JSON.parse(Net::HTTP.get(uri))
       next unless response && (response['title'] != 'NOT_FOUND')
 
@@ -98,7 +98,8 @@ class UniaccoApiService
   end
 
   def flat
-    uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
+    flat_preference = FlatPreference.find(@flat_preference_id)
+    uri = URI("https://uniacco.com/api/v1/#{flat_preference.country == 'fr' ? 'france' : 'uk'}/#{@location}/#{@property}")
     response = JSON.parse(Net::HTTP.get(uri))
     return unless response && response['title'] != 'NOT_FOUND'
 
@@ -116,7 +117,7 @@ class UniaccoApiService
   end
 
   def check_and_return_city_code
-    uri = URI("https://uniacco.com/api/v1/countries/uk/cities")
+    uri = URI("https://uniacco.com/api/v1/countries/#{@country == 'fr' ? 'france' : 'uk'}/cities")
     response = JSON.parse(Net::HTTP.get(uri))
     city = response['cities'].find { |city_uniacco| city_uniacco if @location.include?(city_uniacco['code']) }
     city['code'] unless city.nil?
