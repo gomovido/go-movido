@@ -19,6 +19,8 @@ class FlatReflex < ApplicationReflex
       @flats = uniacco_payload[:payload][:flats]
       @pagy = uniacco_payload[:pagy]
     end
+    p 'THIS IS PAGY'
+    p @pagy
     morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
     morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.active?, location: @flat_preference.location, type: @flat_preference.flat_type })
   end

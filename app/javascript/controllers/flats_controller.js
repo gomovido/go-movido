@@ -46,7 +46,6 @@ export default class extends Controller {
 
 
   afterReflex(e) {
-    console.log(document.querySelector("a[rel='next']"))
     const paginationLink = document.querySelector("a[rel='next']")
     if (paginationLink) {
       let old_url = paginationLink.getAttribute("href");
@@ -101,7 +100,7 @@ export default class extends Controller {
       url: url,
       dataType: 'json',
       success: (data) => {
-        if (data.entries) {
+        if (data.entries && data.count > 0) {
           this.spinnerTarget.classList.add('d-none')
           this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
           this.paginationTarget.innerHTML = data.pagination
@@ -111,7 +110,7 @@ export default class extends Controller {
         }
       },
       error: (data) => {
-        console.log(data)
+
         this.spinnerTarget.classList.add('d-none')
       }
     })
