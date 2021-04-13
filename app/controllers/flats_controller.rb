@@ -18,12 +18,10 @@ class FlatsController < ApplicationController
       @flats = uniacco_payload[:payload][:flats]
       @pagy = uniacco_payload[:pagy]
     end
-    p 'THIS IS PAGY'
-    p @pagy
     respond_to do |format|
       format.html
       format.json do
-        render json: { count: @flats.count, entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
+        render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
       end
     end
   end

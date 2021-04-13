@@ -100,7 +100,7 @@ export default class extends Controller {
       url: url,
       dataType: 'json',
       success: (data) => {
-        if (data.entries && data.count > 0) {
+        if (data.entries) {
           this.spinnerTarget.classList.add('d-none')
           this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
           this.paginationTarget.innerHTML = data.pagination
