@@ -77,6 +77,8 @@ class FlatsController < ApplicationController
         apartment_facilities: [],
         community_facilities: [],
         rooms: [],
+        bedrooms_facilities: [],
+        floors: [],
         price: flat[:details]['disp_price'],
         billing: flat[:details]['billing'].downcase,
         currency_code: flat[:details]['currency_code']
@@ -99,6 +101,8 @@ class FlatsController < ApplicationController
         apartment_facilities: [],
         community_facilities: [],
         rooms: [],
+        bedrooms_facilities: [],
+        floors: [],
         price: flat['accommodation_offer']['contract']['standard']['rents']['1']['amount'] / 100,
         billing: flat['accommodation_offer']['contract']['type'],
         currency_code: flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
@@ -106,6 +110,12 @@ class FlatsController < ApplicationController
       hash[:images] = flat['property_aggregate']['photos'].map{|k, v| {url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg"}}
       hash[:facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']}}
       hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map{|f| {name: f}}
+      hash[:bedrooms_facilities] = flat['property_aggregate']['property']['features'].map{|k, v| {name: k['Code']} if k['Exists'] == true}.compact
+      flat['property_aggregate']['property']['floors'].each_with_index do |floor, index|
+        hash[:floors] = floor['units'].map do |k, v|
+          {features: k['features'].map{|k, v| {name: k['Code']} if k['Exists'] == true}.compact, photos: k['photos']}
+        end
+      end
       hash
     end
   end
