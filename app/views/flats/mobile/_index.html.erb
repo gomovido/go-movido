@@ -9,6 +9,9 @@
       <div class="flats-card-wrapper w-100" data-flats-target="entries">
         <%= render 'flats/mobile/flats', flats: @flats, type: @type, location: @location  %>
       </div>
+      <div class="col-12 no-results">
+        <%= render 'flats/mobile/no_results', flats: @flats, type: @type, location: @location  %>
+      </div>
     </div>
     <div data-flats-target="pagination">
       <%== pagy_nav(@pagy) %>

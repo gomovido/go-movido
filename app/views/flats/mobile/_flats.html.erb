@@ -1,14 +1,8 @@
-<% if type == 'entire_flat' && flats.blank? %>
-  <div class="col-12 text-center mb-">
-    <p>No results matching your request</p>
-    <%= link_to 'Show more', clear_filters_path(location, type), method: :post, class: 'btn-flat-card mb-3 m-auto' %>
-  </div>
-<% else %>
-  <% flats.map do |flat| %>
-    <% if type == 'student_housing' %>
-      <%= render 'flats/mobile/uniacco_card', flat: flat, type: type, location: location %>
-    <% elsif type == 'entire_flat' %>
-      <%= render 'flats/mobile/uniplaces_card', flat: flat, type: type, location: location %>
-    <% end %>
+<% flats.map do |flat| %>
+  <% if type == 'student_housing' %>
+    <%= render 'flats/mobile/uniacco_card', flat: flat, type: type, location: location %>
+  <% elsif type == 'entire_flat' %>
+    <%= render 'flats/mobile/uniplaces_card', flat: flat, type: type, location: location %>
   <% end %>
 <% end %>
+
