@@ -1,7 +1,6 @@
 class ProvidersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
   def index
-    ##RESET FlatPrefrences dates
     @flat_preference = current_user.flat_preference
     clear_filters
     @uniplaces_payload = uniplaces_flats(@flat_preference.location, @flat_preference.country)
@@ -24,7 +23,7 @@ class ProvidersController < ApplicationController
 
   def uniacco_flats(location)
     payload = UniaccoApiService.new(city_code: location).list_flats
-    if payload[:status] == 200 && current_user.flat_preference.update(codes: payload[:codes])
+    if payload[:status] == 200 && current_user.flat_preference.update(codes: payload[:codes], recommandations: payload[:recommandations])
       payload[:flats]
     else
       []
