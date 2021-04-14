@@ -12,7 +12,8 @@ export function mapBoxAutocomplete(element, localevalue) {
     language: 'en',
     placeholder: setPlaceholder(localevalue)
   });
-  return geocoder.addTo(element);
+  geocoder.addTo(element);
+  return geocoder
 }
 
 function setPlaceholder(localevalue) {

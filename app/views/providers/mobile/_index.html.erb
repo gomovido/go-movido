@@ -7,22 +7,37 @@
     </div>
     <div class="col-12">
       <div class="providers-wrapper">
-        <div class="title d-flex align-items-center justify-content-between">
-          <h3><%= t('providers.index.student_housing') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-          <%= link_to t('providers.index.show_all'), flats_path(@flat_preference.location, type: 'student_housing'),class: 'link'%>
-        </div>
-        <div class="flats-card-scroller pt-0">
-          <ul class="hs" data-animate-target="container">
-            <% @flats.first(5).map do |flat| %>
-              <li class="item">
-                <%= render 'providers/mobile/card', flat: flat, type: 'student_housing', location: @flat_preference.location %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="title">
-          <h3>Entire place<i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-        </div>
+        <% if @uniacco_payload.present? %>
+          <div class="title d-flex align-items-center justify-content-between">
+            <h3><%= t('providers.index.student_housing') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
+            <%= link_to t('providers.index.show_all'), flat_preference_path(@flat_preference.id, type: 'student_housing'), method: :put, class: 'link'%>
+          </div>
+          <div class="flats-card-scroller pt-0">
+            <ul class="hs" data-animate-target="container">
+              <% @uniacco_payload.first(5).map do |flat| %>
+                <li class="item">
+                  <%= render 'providers/mobile/card', flat: flat, type: 'student_housing', location: @flat_preference.location, code: flat['code'], image_url: flat['images'][0]['url'], name: flat['name'], price: "#{flat['disp_price']} / #{flat['billing'].downcase}" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if @uniplaces_payload.present? %>
+          <div class="title d-flex align-items-center justify-content-between">
+            <h3><%= t('providers.index.entire_flat') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
+            <%= link_to t('providers.index.show_all'), flat_preference_path(@flat_preference.id, type: 'entire_flat'), method: :put, class: 'link'%>
+          </div>
+          <div class="flats-card-scroller pt-0">
+            <ul class="hs" data-animate-target="container">
+              <% @uniplaces_payload.first(5).map do |flat| %>
+                <li class="item">
+                  <%= render 'providers/mobile/card', flat: flat, type: 'entire_flat', location: @flat_preference.location, code: flat['id'], image_url: flat_image(flat['attributes']['photos'][0]['hash']), name: flat['attributes']['accommodation_offer']['title'], price: flat_price(flat) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <div class="title">
           <h3>Flatshare<i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
         </div>

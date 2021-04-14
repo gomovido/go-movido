@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_133856) do
+ActiveRecord::Schema.define(version: 2021_04_12_130031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,9 +104,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_133856) do
   end
 
   create_table "flat_preferences", force: :cascade do |t|
-    t.date "start_date", default: -> { "CURRENT_TIMESTAMP" }
-    t.integer "start_min_price"
-    t.integer "start_max_price"
+    t.date "move_in"
     t.bigint "user_id", null: false
     t.integer "range_min_price"
     t.integer "range_max_price"
@@ -118,6 +116,8 @@ ActiveRecord::Schema.define(version: 2021_04_01_133856) do
     t.text "recommandations", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "country"
+    t.date "move_out"
     t.index ["user_id"], name: "index_flat_preferences_on_user_id"
   end
 

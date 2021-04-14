@@ -1,36 +1,33 @@
-.flat-card {
+.room-card {
   background: $white;
   border: 1px solid $snow;
   box-sizing: border-box;
   border-radius: 14px;
   box-shadow: 0px 4px 30px rgba(0, 33, 67, 0.07);
-  height: 100%;
-  min-height: 108px;
+  flex-direction: column;
+  justify-content: center;
+  height: 85px;
   width: 100%;
+  span {
+    color: $black;
+  }
   .name {
     font-family: 'Manrope';
-    font-style: normal;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 19px;
-    color: $black;
   }
   .pricing {
     font-family: 'Montserrat';
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
-    color: $black;
   }
-  .img-box {
-    min-width: 120px;
-    background-size: cover;
-    background-position: center;
-    border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px;
-  }
-  .details {
-    padding: 0 1%;
+}
+
+.room-selected {
+  background: $purple;
+  span {
+    color: $white !important;
   }
 }

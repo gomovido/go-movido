@@ -20,6 +20,10 @@ button {
   border: none !important;
 }
 
+.m-auto {
+  margin: 0 auto;
+}
+
 .iti__flag {background-image: asset-url("flags/flags.png") !important;}
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .iti__flag {background-image: asset-url("flags/flags@2x.png") !important;
