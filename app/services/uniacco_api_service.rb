@@ -43,14 +43,18 @@ class UniaccoApiService
 
       }
     elsif response && (response['title'] != 'NOT_FOUND')
-      codes = response['properties'].map{|property| property['code']}.join(',')
+      codes = response['properties'].map{ |property| property['code'] }.join(',')
       uri = URI("https://uniacco.com/api/v1/configs?properties=#{codes}")
       response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
-      raise
-
+      response["configs"].each do |code, configs|
+        flat = hash[:flats].find { |flat, _v| flat['code'] == code }
+        flat["configs"] = configs
+        flat["facilities"] = configs.map{ |config| config }.map { |k, v| k if v == true }
+        raise
+      end
+      return hash
     end
   end
-
 
   def format_response(response)
     if response && (response['title'] == 'NOT_FOUND')
