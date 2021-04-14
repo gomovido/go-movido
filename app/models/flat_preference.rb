@@ -1,5 +1,9 @@
 class FlatPreference < ApplicationRecord
+  attr_accessor :coordinates
+
   belongs_to :user
+  validates :location, :country, presence: true
+
   after_initialize if: :new_record? do
     self.move_out = Time.zone.now + 30.days
     self.move_in = Time.zone.now
