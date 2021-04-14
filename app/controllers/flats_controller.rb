@@ -9,12 +9,11 @@ class FlatsController < ApplicationController
     @start_max_price = 2000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
-    if @type == 'entire_flat'
-      uniplaces_payload = uniplaces_flats(@flat_preference)
-      @flats = uniplaces_payload[:flats]
-    elsif @type == 'student_housing'
-      uniacco_payload = uniacco_flats(@flat_preference)
-      @flats = uniacco_payload[:flats]
+    case @type
+    when 'entire_flat'
+      @flats = uniplaces_flats(@flat_preference)[:flats]
+    when 'student_housing'
+      @flats = uniacco_flats(@flat_preference)[:flats]
     end
     respond_to do |format|
       format.html
@@ -28,8 +27,9 @@ class FlatsController < ApplicationController
     @pagy, properties = pagy_array(preferences.codes)
     response = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
     return unless response[:status] == 200
+
     preferences.update(recommandations: response[:recommandations])
-    response
+    return response
   end
 
   def uniplaces_flats(preferences)
@@ -39,7 +39,8 @@ class FlatsController < ApplicationController
     @pagy = Pagy.new(count: response[:total_pages], page: page)
     preferences.update(recommandations: response[:recommandations])
     return unless response[:status] == 200
-    response
+
+    return response
   end
 
   def clear_filters
@@ -53,11 +54,12 @@ class FlatsController < ApplicationController
     @code = params[:code]
     current_user.flat_preference.update(flat_type: @type)
     @flat_id = params[:flat_id]
-    if @type == 'student_housing'
-      @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country).flat
+    case @type
+    when 'student_housing'
+      @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
       @flat = @flat[:payload] if @flat[:status] == 200
       @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
-    elsif @type == 'entire_flat'
+    when 'entire_flat'
       @flat = UniplacesApiService.new(property_code: @code).list_flat
       @flat = @flat[:flat] if @flat[:status] == 200
       @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat['id'] }

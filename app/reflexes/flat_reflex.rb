@@ -10,10 +10,11 @@ class FlatReflex < ApplicationReflex
     @flat_preference.move_out = date.split[-1].to_date
     @flat_preference.assign_attributes(flat_preference_params)
     @flat_preference.save
-    if @flat_preference.flat_type == 'entire_flat'
+    case @flat_preference.flat_type
+    when 'entire_flat'
       uniplaces_payload = uniplaces_flats(@flat_preference)
       @flats = uniplaces_payload[:flats]
-    elsif @flat_preference.flat_type == 'student_housing'
+    when 'student_housing'
       uniacco_payload = uniacco_flats(@flat_preference)
       @flats = uniacco_payload[:flats]
     end
@@ -26,15 +27,17 @@ class FlatReflex < ApplicationReflex
     @pagy, properties = pagy_array(preferences.codes)
     response = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
     return unless response[:status] == 200
+
     preferences.update(recommandations: response[:recommandations])
-    response
+    return response
   end
 
   def uniplaces_flats(preferences)
     response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id).list_flats
     @pagy = Pagy.new(count: response[:total_pages], page: 1)
     return unless response[:status] == 200
-    response
+
+    return response
   end
 
   private
@@ -48,6 +51,6 @@ class FlatReflex < ApplicationReflex
   end
 
   def flat_preference_params
-    params.require(:flat_preference).permit(:microwave, :dishwasher, :range_min_price, :range_max_price, :flat_type )
+    params.require(:flat_preference).permit(:microwave, :dishwasher, :range_min_price, :range_max_price, :flat_type)
   end
 end

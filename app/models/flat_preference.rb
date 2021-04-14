@@ -1,8 +1,8 @@
 class FlatPreference < ApplicationRecord
   belongs_to :user
   after_initialize if: :new_record? do
-    self.move_out = Time.now + 30.days
-    self.move_in = Time.now
+    self.move_out = Time.zone.now + 30.days
+    self.move_in = Time.zone.now
   end
 
   def active?
@@ -20,5 +20,4 @@ class FlatPreference < ApplicationRecord
   def facilities
     attributes.filter_map { |k, v| k if v == true }
   end
-
 end
