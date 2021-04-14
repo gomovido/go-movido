@@ -10,7 +10,7 @@ class UniaccoApiService
   end
 
   def list_flats
-    uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=1&sortBy=relevance")
+    uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=1&move_in=01-2021&sortBy=relevance")
     response = JSON.parse(Net::HTTP.get(uri))
     i = 1
     while i < response['pages'].to_i
@@ -57,7 +57,8 @@ class UniaccoApiService
         details: response,
         images: response['images'],
         facilities: response['facilities'],
-        apartment_facilities: response['apartment_facilities']
+        apartment_facilities: response['apartment_facilities'],
+        community_facilities: response['community_facilities']
       }
     end
     return if array.blank?
@@ -111,7 +112,8 @@ class UniaccoApiService
         details: response,
         images: response['images'],
         facilities: response['facilities'],
-        apartment_facilities: response['apartment_facilities']
+        apartment_facilities: response['apartment_facilities'],
+        community_facilities: response['community_facilities']
       }
     }
   end

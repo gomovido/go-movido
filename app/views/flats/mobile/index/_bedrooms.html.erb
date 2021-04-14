@@ -1,0 +1,12 @@
+<div class="col-12 <%= 'd-none' if facilities.blank? %>">
+  <div class="room-details">
+    <span class='title mb-2'>Bedrooms details</span>
+    <div class="facilities d-flex flex-wrap justify-content-around">
+      <% facilities.each do |facility| %>
+        <div class="facility d-flex align-items-center px-2 my-2"><%= facility[:name] %></div>
+      <% end %>
+    </div>
+  </div>
+  <hr class="w-100">
+</div>
+

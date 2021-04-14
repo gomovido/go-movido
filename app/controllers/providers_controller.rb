@@ -14,7 +14,7 @@ class ProvidersController < ApplicationController
 
   def uniplaces_flats(location, country)
     payload = UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id, page: 1).list_flats
-    if payload && payload[:status] == 200
+    if payload && payload[:status] == 200  && current_user.flat_preference.update(recommandations: payload[:recommandations])
       payload[:flats]
     else
       []
@@ -23,7 +23,7 @@ class ProvidersController < ApplicationController
 
   def uniacco_flats(location)
     payload = UniaccoApiService.new(city_code: location).list_flats
-    if payload[:status] == 200 && current_user.flat_preference.update(codes: payload[:codes])
+    if payload[:status] == 200 && current_user.flat_preference.update(codes: payload[:codes], recommandations: payload[:recommandations])
       payload[:flats]
     else
       []
