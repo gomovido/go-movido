@@ -8,12 +8,12 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window,document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-     fbq('init', '<%= ENV['PIXEL_FACEBOOK'] %>');
+     fbq('init', '<%= Rails.application.credentials.production[:facebook][:pixel] %>');
     fbq('track', 'PageView');
   </script>
   <noscript>
      <img height="1" width="1"
-    src="https://www.facebook.com/tr?id=<%= ENV['PIXEL_FACEBOOK'] %>&ev=PageView
+    src="https://www.facebook.com/tr?id=<%= Rails.application.credentials.production[:facebook][:pixel] %>&ev=PageView
     &noscript=1"/>
   </noscript>
 <% end %>

@@ -12,9 +12,10 @@ class UniplacesApiService
     move_in = flat_preference.move_in.strftime('%Y-%m-%d')
     move_out = flat_preference.move_out.strftime('%Y-%m-%d')
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?move-in=#{move_in}&move-out=#{move_out}&page=#{@page}")
-    response = HTTParty.get(uri, headers: { "X-Api-Key" => (ENV['UNIPLACES_API_KEY']).to_s, "Content-Type" => "application/json" })
+    response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
     payload = response['data']
     return unless payload
+
     recommandations = payload.first(12).map do |flat|
       {
         code: flat['id'],
@@ -38,7 +39,7 @@ class UniplacesApiService
 
   def list_flat
     uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
-    response = HTTParty.get(uri, headers: { "X-Api-Key" => (ENV['UNIPLACES_API_KEY']).to_s, "Content-Type" => "application/json" })
+    response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
     payload = response
     return unless payload
 
@@ -49,5 +50,9 @@ class UniplacesApiService
       codes: [],
       total_pages: 1
     }
+  end
+
+  def set_api_key
+    Rails.env.produdction ? Rails.application.credentials.production[:uniplaces][:api_key] : Rails.application.credentials.staging[:uniplaces][:api_key]
   end
 end
