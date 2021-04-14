@@ -13,29 +13,25 @@ class UniplacesApiService
     move_out = flat_preference.move_out.strftime('%Y-%m-%d')
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?move-in=#{move_in}&move-out=#{move_out}&page=#{@page}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
-    payload = response['data']
-
-    return unless payload
-
-    recommandations = payload.first(12).map do |flat|
+    if response['data'].present?
       {
-        code: flat['id'],
-        image: "https://cdn-static.staging-uniplaces.com/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
-        price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
-        billing: flat['attributes']['accommodation_offer']['contract_type'],
-        currency: flat['attributes']['accommodation_offer']['price']['currency_code'],
-        name: flat['attributes']['accommodation_offer']['title']
-      }.to_json
+        error: nil,
+        status: 200,
+        flats: response['data'],
+        recommandations: recommandations(response['data']),
+        total_pages: response['meta']['total_page_number'],
+        count: response['meta']['total_found']
+      }
+    else
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: [],
+        recommandations: [],
+        total_pages: 0,
+        count: 0
+      }
     end
-
-    {
-      error: nil,
-      status: 200,
-      flats: payload,
-      recommandations: recommandations,
-      codes: [],
-      total_pages: response['meta']['total_page_number']
-    }
   end
 
   def list_flat
@@ -48,9 +44,22 @@ class UniplacesApiService
       error: nil,
       status: 200,
       flat: payload,
-      codes: [],
       total_pages: 1
     }
+  end
+
+
+  def recommandations(payload)
+    payload.first(12).map do |flat|
+      {
+        code: flat['id'],
+        image: "https://cdn-static.staging-uniplaces.com/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
+        price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
+        billing: flat['attributes']['accommodation_offer']['contract_type'],
+        currency: flat['attributes']['accommodation_offer']['price']['currency_code'],
+        name: flat['attributes']['accommodation_offer']['title']
+      }.to_json
+    end
   end
 
   def set_api_key
