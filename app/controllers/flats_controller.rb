@@ -11,9 +11,9 @@ class FlatsController < ApplicationController
     @range_max_price = @flat_preference.max_price
     case @type
     when 'entire_flat'
-      uniplaces_flats(@flat_preference)
+      @flats = uniplaces_flats(@flat_preference)[:flats]
     when 'student_housing'
-      uniacco_flats(@flat_preference)
+      @flats = uniacco_flats(@flat_preference)[:flats]
     end
     respond_to do |format|
       format.html
@@ -30,8 +30,8 @@ class FlatsController < ApplicationController
     return unless response[:status] == 200
 
     preferences.update(recommandations: response[:recommandations])
-    @pagy, @flats = pagy_array(response[:flats], count: response[:count], page: page)
-
+    @pagy = Pagy.new(count: response[:count], page: page)
+    return response
   end
 
   def uniplaces_flats(preferences)
@@ -40,8 +40,8 @@ class FlatsController < ApplicationController
     page = 1 if response[:total_pages].to_i.zero?
     return unless response[:status] == 200
 
-    @pagy, @flats = pagy_array(response[:flats], count: response[:total_pages], page: page)
     preferences.update(recommandations: response[:recommandations])
+    @pagy = Pagy.new(count: response[:total_pages], page: page)
     return response
   end
 
