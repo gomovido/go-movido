@@ -49,7 +49,7 @@ class AggregatorApiService
     hash[:billing] = @flat['accommodation_offer']['contract']['type']
     hash[:currency_code] = @flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
     hash[:images] = @flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg" } }
-    hash[:facilities] = @flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } }
+    hash[:facilities] = @flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } } if @flat['property_aggregate']['property']['features'].present?
     hash[:apartment_facilities] = @flat['property_aggregate']['property_type']['configuration']['allowed_features'].map { |f| { name: f } }
     hash[:bedrooms_facilities] = @flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } if k['Exists'] == true }.compact
   end

@@ -101,7 +101,6 @@ export default class extends Controller {
       url: url,
       dataType: 'json',
       success: (data) => {
-        console.log(data)
         if (data.entries) {
           this.spinnerTarget.classList.add('d-none')
           this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
