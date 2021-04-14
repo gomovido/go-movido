@@ -6,6 +6,7 @@ class UniaccoApiService
     @property = params[:property_code]
     @active_filters = params[:active_filters]
     @flat_preference_id = params[:flat_preference_id]
+    @country = params[:country]
   end
 
   def list_flats
@@ -18,8 +19,6 @@ class UniaccoApiService
       response['properties'] << JSON.parse(Net::HTTP.get(uri))['properties']
     end
     payload = response['properties'].flatten
-    min_price = payload.min_by { |k| k['min_price'] }['min_price']
-    max_price = payload.max_by { |k| k['max_price'] }['max_price']
     if response && (response['title'] == 'NOT_FOUND')
       {
         error: 'NOT_FOUND',
@@ -40,8 +39,6 @@ class UniaccoApiService
         error: nil,
         status: 200,
         flats: payload,
-        min_price: min_price,
-        max_price: max_price,
         recommandations: recommandations,
         codes: codes(payload)
       }
@@ -51,7 +48,7 @@ class UniaccoApiService
   def avanced_list_flats
     flat_preference = FlatPreference.find(@flat_preference_id)
     array = @properties.map do |property|
-      uri = URI("https://uniacco.com/api/v1/uk/#{flat_preference.location}/#{property}")
+      uri = URI("https://uniacco.com/api/v1/#{flat_preference.country == 'fr' ? 'france' : 'uk'}/#{flat_preference.location}/#{property}")
       response = JSON.parse(Net::HTTP.get(uri))
       next unless response && (response['title'] != 'NOT_FOUND')
 
@@ -60,12 +57,13 @@ class UniaccoApiService
         details: response,
         images: response['images'],
         facilities: response['facilities'],
-        apartment_facilities: response['apartment_facilities']
+        apartment_facilities: response['apartment_facilities'],
+        community_facilities: response['community_facilities']
       }
     end
     return if array.blank?
 
-    flats = filters(array, flat_preference.start_date, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
+    flats = filters(array, flat_preference.move_in, flat_preference.min_price, flat_preference.max_price, flat_preference.facilities)
     {
       error: nil,
       status: 200,
@@ -101,7 +99,8 @@ class UniaccoApiService
   end
 
   def flat
-    uri = URI("https://uniacco.com/api/v1/uk/#{@location}/#{@property}")
+    flat_preference = FlatPreference.find(@flat_preference_id)
+    uri = URI("https://uniacco.com/api/v1/#{flat_preference.country == 'fr' ? 'france' : 'uk'}/#{@location}/#{@property}")
     response = JSON.parse(Net::HTTP.get(uri))
     return unless response && response['title'] != 'NOT_FOUND'
 
@@ -113,13 +112,14 @@ class UniaccoApiService
         details: response,
         images: response['images'],
         facilities: response['facilities'],
-        apartment_facilities: response['apartment_facilities']
+        apartment_facilities: response['apartment_facilities'],
+        community_facilities: response['community_facilities']
       }
     }
   end
 
   def check_and_return_city_code
-    uri = URI("https://uniacco.com/api/v1/countries/uk/cities")
+    uri = URI("https://uniacco.com/api/v1/countries/#{@country == 'fr' ? 'france' : 'uk'}/cities")
     response = JSON.parse(Net::HTTP.get(uri))
     city = response['cities'].find { |city_uniacco| city_uniacco if @location.include?(city_uniacco['code']) }
     city['code'] unless city.nil?

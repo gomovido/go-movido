@@ -4,31 +4,21 @@
       <div data-controller="carousel" class="swiper-container position-relative"data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}}'>
         <div class="swiper-wrapper position-relative">
           <% @flat[:images].first(8).each do |image| %>
-            <div class="swiper-slide img-box" style="background-image:url(<%= image['url'] %>);"></div>
+            <div class="swiper-slide img-box" style="background-image:url(<%= image[:url] %>);"></div>
           <% end %>
         </div>
         <div class="swiper-pagination"></div>
       </div>
     </div>
     <div class="col-12">
-      <div class="d-flex flex-column mb-4">
+      <div class="d-flex flex-column">
         <p class="location">
-          <%= @flat[:details]['city_name'] %>, <%= @flat[:details]['country_name'] %>
+          <%= @flat[:city] %>, <%= @flat[:country] %>
         </p>
-        <p class='name mb-4'>
-          <%= @flat[:details]['name'] %>
-        </p>
-        <div class="d-flex align-items-center justify-content-around">
-          <% @flat[:facilities].each do |facility| %>
-            <span class="facility"> <%= get_icon(facility) %></span>
-          <% end %>
-        </div>
+        <span class='name'>
+          <%= @flat[:title] %>
+        </span>
       </div>
-      <hr class="w-100">
-    </div>
-    <div class="col-12 d-flex align-items-center justify-content-between my-2">
-      <span class="title">Free Cancellation</span>
-      <span class="link purple font-weight">Details</span>
     </div>
     <div class="col-12 d-flex flex-column">
       <hr class="w-100">
@@ -36,74 +26,25 @@
         <div
           data-controller="read-more"
           data-read-more-more-text-value="Show more"
-          data-read-more-less-text-value="Show less"
-        >
-          <p data-read-more-target="content"><%= split_description(@flat[:details]['intro']) %></p>
+          data-read-more-less-text-value="Show less">
+          <p data-read-more-target="content"><%= split_description(@flat[:description]) %></p>
 
           <button data-action="read-more#toggle" class="link purple font-weight px-0">
             Show more
           </button>
 
           <template data-read-more-target="full">
-            <%= full_description(@flat[:details]['intro']).html_safe %>
+            <%= full_description(@flat[:description]).html_safe %>
           </template>
         </div>
       </span>
       <hr class="w-100">
     </div>
-    <div class="col-12">
-      <div class="room-details">
-        <span class='title mb-2'>Room Details</span>
-        <ul>
-          <% @flat[:details]['configs'].each do |config| %>
-            <li><%= config['name'] %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <hr class="w-100">
-    <div class="col-12">
-      <div class="amenities">
-        <span class="title">Facilities</span>
-        <ul class="pl-3" style="list-style: none;">
-          <% @flat[:apartment_facilities].each do |facility|  %>
-            <li><%= facility['name'] %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <hr class="w-100">
-    <div class="col-12">
-      <div class="amenities">
-        <span class="title">Services/Community Facilities</span>
-        <ul>
-          <% @flat[:facilities].each do |facility|  %>
-            <li><%= facility %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <hr class="w-100">
-    <div class="col-12 d-flex align-items-center justify-content-between my-2 policies">
-      <span class="title">Cancellation Policy</span>
-      <%= link_to 'Details', "https://uniacco.com/terms", target: '_blank', class: 'link purple font-weight' %>
-    </div>
-    <div class="col-12 d-flex align-items-center justify-content-between my-2 policies">
-      <span class="title">Total Payment Information</span>
-      <span class="link purple font-weight">Details</span>
-    </div>
-    <hr class="w-100">
-    <div class="col-12">
-      <div class="amenities">
-        <span class="title">House Rules</span>
-        <ul>
-          <li>No smoking</li>
-          <li>No pets</li>
-        </ul>
-      </div>
-    </div>
+    <%= render 'flats/mobile/index/flats', rooms: @flat[:rooms] %>
+    <%= render 'flats/mobile/index/bedrooms', facilities: @flat[:bedrooms_facilities] %>
+    <%= render 'flats/mobile/index/appartment_facilities', facilities: @flat[:apartment_facilities] %>
+    <%= render 'flats/mobile/index/community_facilities', facilities: @flat[:community_facilities] %>
     <% if @recommandations.present? %>
-      <hr class="w-100">
       <div class="col-12 d-flex flex-column my-2 pr-0">
         <span class="title">More Accomodations</span>
         <div class="flats-card-scroller pt-0">

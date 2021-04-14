@@ -1,7 +1,7 @@
 module FacilitiesHelper
   PROVIDERS = {
     'flatshare' => 'homelike',
-    'entire_places' => 'uniplaces',
+    'entire_flat' => 'uniplaces',
     'student_housing' => 'uniacco'
   }
 
@@ -68,7 +68,7 @@ module FacilitiesHelper
   end
 
   def split_description(description)
-    "#{ActionView::Base.full_sanitizer.sanitize(description).first(100)}..."
+    "#{ActionView::Base.full_sanitizer.sanitize(description).first(200)}..."
   end
 
   def full_description(description)

@@ -117,7 +117,7 @@ fr:
       count: "%{count}+ lieux d'hébergement"
       show_all: 'Voir tout'
       student_housing: 'Logements étudiants'
-      student_housing: 'Logement étudiants'
+      entire_flat: 'Logements entiers'
   pages:
     contact:
       title: 'Contacte nous'

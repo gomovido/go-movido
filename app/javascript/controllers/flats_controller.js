@@ -46,8 +46,11 @@ export default class extends Controller {
 
 
   afterReflex(e) {
-    let old_url = document.querySelector("a[rel='next']").getAttribute("href");
-    document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2");
+    const paginationLink = document.querySelector("a[rel='next']")
+    if (paginationLink) {
+      let old_url = paginationLink.getAttribute("href");
+      document.querySelector("a[rel='next']").href = old_url.replace(/.$/,"2");
+    }
     this.hideLoading(this.spinnerTarget, this.entriesTarget)
   }
 
@@ -62,7 +65,7 @@ export default class extends Controller {
   }
 
   triggerLoading(spinner, wrapper, form, date) {
-    document.querySelector('.flat_preference_start_date').classList.add('disabled');
+    document.querySelector('.flat_preference_move_in').classList.add('disabled');
     spinner.classList.remove('d-none');
     spinner.classList.add('middle');
     wrapper.classList.add('opacity');
@@ -73,7 +76,7 @@ export default class extends Controller {
     spinner.classList.add('d-none')
     spinner.classList.remove('middle');
     wrapper.classList.remove('opacity');
-    document.querySelector('.flat_preference_start_date').classList.remove('disabled');
+    document.querySelector('.flat_preference_move_in').classList.remove('disabled');
   }
 
   processIntersectionEntries(entries) {
@@ -85,18 +88,20 @@ export default class extends Controller {
   }
 
   loadMore() {
-    let next_page = this.paginationTarget.querySelector("a[rel='next']");
-    if (next_page == null) {
+    let nextPage = this.paginationTarget.querySelector("a[rel='next']");
+
+    if (nextPage == null) {
       this.spinnerTarget.classList.add('d-none');
       return
     }
     this.spinnerTarget.classList.remove('d-none');
-    let url = next_page.href
+    let url = nextPage.href
     Rails.ajax({
       type: 'GET',
       url: url,
       dataType: 'json',
       success: (data) => {
+        console.log(data)
         if (data.entries) {
           this.spinnerTarget.classList.add('d-none')
           this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
