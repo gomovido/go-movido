@@ -4,7 +4,8 @@ class ProvidersController < ApplicationController
     @flat_preference = current_user.flat_preference
     clear_filters
     @uniplaces_payload = uniplaces_flats(@flat_preference.location, @flat_preference.country)
-    @flats = @uniplaces_payload
+    @uniacco_payload = uniacco_flats(@flat_preference.location)
+    @flats = @uniacco_payload + @uniplaces_payload
     return if @flats.present?
 
     flash[:alert] = 'Please type another location'
