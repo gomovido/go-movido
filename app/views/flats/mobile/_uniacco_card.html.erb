@@ -28,7 +28,7 @@
           <%= flat[:details]['disp_price'] %> /<%= flat[:details]['billing'].downcase %>
         </span>
       </div>
-      <%= link_to 'Book', booking_link(flat[:details]['city_name'], flat[:code]), class:'btn-flat-card', target:'blank' %>
+      <%= link_to 'Book', booking_link(flat[:details]['city_name'], flat[:code], current_user.flat_preference.country), class:'btn-flat-card', target:'blank' %>
     </div>
   </div>
 <% end %>
