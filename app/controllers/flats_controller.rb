@@ -36,10 +36,10 @@ class FlatsController < ApplicationController
     page = params[:page]
     response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
     page = 1 if response[:total_pages].to_i.zero?
-    @pagy = Pagy.new(count: response[:total_pages], page: page)
-    preferences.update(recommandations: response[:recommandations])
     return unless response[:status] == 200
 
+    @pagy = Pagy.new(count: response[:total_pages], page: page)
+    preferences.update(recommandations: response[:recommandations])
     return response
   end
 
