@@ -37,6 +37,7 @@ class FlatsController < ApplicationController
     response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
     page = 1 if response[:total_pages].to_i.zero?
     @pagy = Pagy.new(count: response[:total_pages], page: page)
+    preferences.update(recommandations: response[:recommandations])
     return unless response[:status] == 200
 
     return response
@@ -61,44 +62,8 @@ class FlatsController < ApplicationController
     when 'entire_flat'
       @flat = UniplacesApiService.new(property_code: @code).list_flat
       @flat = @flat[:flat] if @flat[:status] == 200
+      @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat['id'] }
     end
-    @flat = format_flat(@flat, @type)
-  end
-
-  def format_flat(flat, type)
-    hash = {
-      images: [],
-      facilities: [],
-      apartment_facilities: [],
-      rooms: []
-    }
-    case type
-    when 'student_housing'
-      hash[:code] = flat[:code]
-      hash[:title] = flat[:details]['name']
-      hash[:description] = flat[:details]['intro']
-      hash[:city] = flat[:details]['city_name']
-      hash[:country] = flat[:details]['country_name']
-      hash[:price] = flat[:details]['disp_price']
-      hash[:billing] = flat[:details]['billing'].downcase
-      hash[:currency_code] = flat[:details]['currency_code']
-      hash[:images] = flat[:images].map { |i| { url: i['url'] } }
-      hash[:facilities] = flat[:facilities].map { |f| { name: f } }
-      hash[:apartment_facilities] = flat[:apartment_facilities].map { |af| { name: af['kind'] } }
-      hash[:rooms] = flat[:details]['configs'].map { |c| { name: c['name'] } }
-    when 'entire_flat'
-      hash[:code] = flat['id']
-      hash[:title] = flat['accommodation_offer']['title'].find { |k, _v| k['locale_code'] == 'en_GB' }['text']
-      hash[:description] = flat['property_aggregate']['property']['metadata'].find { |k, _v| k['locale_code'] == 'en_GB' }['text']
-      hash[:city] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[1]
-      hash[:country] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[0]
-      hash[:price] = flat['accommodation_offer']['contract']['standard']['rents']['1']['amount'] / 100
-      hash[:billing] = flat['accommodation_offer']['contract']['type']
-      hash[:currency_code] = flat['accommodation_offer']['contract']['standard']['rents']['1']['currency_code']
-      hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg" } }
-      hash[:facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } }
-      hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map { |f| { name: f } }
-    end
-    return hash
+    @flat = AggregatorApiService.new(flat: @flat, type: @type).format_flat
   end
 end
