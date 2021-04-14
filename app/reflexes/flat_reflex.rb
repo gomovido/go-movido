@@ -12,11 +12,9 @@ class FlatReflex < ApplicationReflex
     @flat_preference.save
     case @flat_preference.flat_type
     when 'entire_flat'
-      uniplaces_payload = uniplaces_flats(@flat_preference)
-      @flats = uniplaces_payload[:flats]
+      @flats = uniplaces_flats(@flat_preference)[:flats]
     when 'student_housing'
-      uniacco_payload = uniacco_flats(@flat_preference)
-      @flats = uniacco_payload[:flats]
+      @flats = uniacco_flats(@flat_preference)[:flats]
     end
     morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
     morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.active?, location: @flat_preference.location, type: @flat_preference.flat_type })
@@ -24,10 +22,10 @@ class FlatReflex < ApplicationReflex
   end
 
   def uniacco_flats(preferences)
-    @pagy, properties = pagy_array(preferences.codes)
-    response = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
+    response = UniaccoApiService.new(flat_preference_id: preferences.id, page: 1).filtered_flats
     return unless response[:status] == 200
 
+    @pagy = Pagy.new(count: response[:total_pages], page: 1)
     preferences.update(recommandations: response[:recommandations])
     return response
   end

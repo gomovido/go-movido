@@ -25,7 +25,7 @@ class UniaccoApiService
 
   def filtered_flats
     flat_preference = FlatPreference.find(@flat_preference_id)
-    query = { 'facilities' => ['wifi', 'gym'].join(','), 'move_in' => '03-2021' }
+    query = {'move_in' => flat_preference.move_in.strftime('%m-%Y') }
     uri = URI("https://uniacco.com/api/v1/cities/#{flat_preference.location}/properties?sortBy=relevance&page=#{@page}")
     response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" }, query: query)
     advanced_list_flats(response, format_response(response))
@@ -52,6 +52,7 @@ class UniaccoApiService
         flat["facilities"] = configs.map { |c| c.map { |k, v| k if v == true }.compact }.reject { |c| c.empty? }.sort
       end
       return hash
+
     end
   end
 
