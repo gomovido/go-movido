@@ -24,10 +24,12 @@ class FlatsController < ApplicationController
   end
 
   def uniacco_flats(preferences)
-    #@pagy, properties = pagy_array(preferences.codes)
-    response = UniaccoApiService.new(flat_preference_id: preferences.id).filtered_flats
+    page = params[:page] || 1
+    response = UniaccoApiService.new(flat_preference_id: preferences.id, page: page).filtered_flats
+    page = 1 if response[:total_pages].to_i.zero?
     return unless response[:status] == 200
 
+    @pagy = Pagy.new(count: response[:total_pages], page: page)
     preferences.update(recommandations: response[:recommandations])
     return response
   end

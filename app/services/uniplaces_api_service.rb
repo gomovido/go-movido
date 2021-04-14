@@ -48,7 +48,6 @@ class UniplacesApiService
     }
   end
 
-
   def recommandations(payload)
     payload.first(12).map do |flat|
       {

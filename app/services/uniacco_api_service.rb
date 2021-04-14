@@ -2,6 +2,7 @@ class UniaccoApiService
   def initialize(params)
     @city_code = params[:city_code]
     @flat_preference_id = params[:flat_preference_id]
+    @page = params[:page]
   end
 
   def flats
@@ -9,7 +10,6 @@ class UniaccoApiService
     response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
     format_response(response)
   end
-
 
   def recommandations(properties)
     properties.first(5).map do |flat|
@@ -25,8 +25,8 @@ class UniaccoApiService
 
   def filtered_flats
     flat_preference = FlatPreference.find(@flat_preference_id)
-    query = {'facilities' => ['wifi', 'gym'].join(','), 'move_in' => '03-2021'}
-    uri = URI("https://uniacco.com/api/v1/cities/#{flat_preference.location}/properties?sortBy=relevance")
+    query = { 'facilities' => ['wifi', 'gym'].join(','), 'move_in' => '03-2021' }
+    uri = URI("https://uniacco.com/api/v1/cities/#{flat_preference.location}/properties?sortBy=relevance&page=#{@page}")
     response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" }, query: query)
     advanced_list_flats(response, format_response(response))
   end
@@ -43,14 +43,13 @@ class UniaccoApiService
 
       }
     elsif response && (response['title'] != 'NOT_FOUND')
-      codes = response['properties'].map{ |property| property['code'] }.join(',')
+      codes = response['properties'].map { |property| property['code'] }.join(',')
       uri = URI("https://uniacco.com/api/v1/configs?properties=#{codes}")
       response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
       response["configs"].each do |code, configs|
         flat = hash[:flats].find { |flat, _v| flat['code'] == code }
         flat["configs"] = configs
-        flat["facilities"] = configs.map{ |config| config }.map { |k, v| k if v == true }
-        raise
+        flat["facilities"] = configs.map { |c| c.map { |k, v| k if v == true }.compact }.reject { |c| c.empty? }.sort
       end
       return hash
     end
@@ -78,8 +77,6 @@ class UniaccoApiService
       }
     end
   end
-
-
 
   # def avanced_list_flats
   #   flat_preference = FlatPreference.find(@flat_preference_id)
@@ -153,6 +150,4 @@ class UniaccoApiService
   #     }
   #   }
   # end
-
-
 end
