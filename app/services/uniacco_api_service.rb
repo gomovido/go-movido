@@ -10,7 +10,7 @@ class UniaccoApiService
   end
 
   def list_flats
-    uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=1&move_in=01-2021&sortBy=relevance")
+    uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=1&sortBy=relevance")
     response = JSON.parse(Net::HTTP.get(uri))
     i = 1
     while i < response['pages'].to_i

@@ -15,7 +15,6 @@ class UniplacesApiService
     response = HTTParty.get(uri, headers: { "X-Api-Key" => (ENV['UNIPLACES_API_KEY']).to_s, "Content-Type" => "application/json" })
     payload = response['data']
     return unless payload
-
     recommandations = payload.first(12).map do |flat|
       {
         code: flat['id'],
