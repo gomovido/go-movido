@@ -33,7 +33,7 @@ class FlatReflex < ApplicationReflex
   end
 
   def uniplaces_flats(preferences)
-    response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id).list_flats
+    response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id).flats
     @pagy = Pagy.new(count: response[:total_pages], page: 1)
     return unless response[:status] == 200
 

@@ -1,17 +1,58 @@
 class UniaccoApiService
   def initialize(params)
-    @location = params[:location]
     @city_code = params[:city_code]
-    @properties = params[:properties]
-    @property = params[:property_code]
-    @active_filters = params[:active_filters]
     @flat_preference_id = params[:flat_preference_id]
-    @country = params[:country]
   end
 
-  def list_flats
+  def flats
     uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?sortBy=relevance")
-    response = JSON.parse(Net::HTTP.get(uri))
+    response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
+    format_response(response)
+  end
+
+
+  def recommandations(properties)
+    properties.first(5).map do |flat|
+      {
+        code: flat['code'],
+        image: flat['images'][0]['url'],
+        price: flat['disp_price'],
+        billing: flat['billing'],
+        name: flat['name']
+      }.to_json
+    end
+  end
+
+  def filtered_flats
+    flat_preference = FlatPreference.find(@flat_preference_id)
+    query = {'facilities' => ['wifi', 'gym'].join(','), 'move_in' => '03-2021'}
+    uri = URI("https://uniacco.com/api/v1/cities/#{flat_preference.location}/properties?sortBy=relevance")
+    response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" }, query: query)
+    advanced_list_flats(response, format_response(response))
+  end
+
+  def advanced_list_flats(response, hash)
+    if response && (response['title'] == 'NOT_FOUND')
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: [],
+        recommandations: [],
+        total_pages: 0,
+        count: 0
+
+      }
+    elsif response && (response['title'] != 'NOT_FOUND')
+      codes = response['properties'].map{|property| property['code']}.join(',')
+      uri = URI("https://uniacco.com/api/v1/configs?properties=#{codes}")
+      response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
+      raise
+
+    end
+  end
+
+
+  def format_response(response)
     if response && (response['title'] == 'NOT_FOUND')
       {
         error: 'NOT_FOUND',
@@ -35,53 +76,6 @@ class UniaccoApiService
   end
 
 
-  def recommandations(properties)
-    properties.first(5).map do |flat|
-      {
-        code: flat['code'],
-        image: flat['images'][0]['url'],
-        price: flat['disp_price'],
-        billing: flat['billing'],
-        name: flat['name']
-      }.to_json
-    end
-  end
-
-  # def list_flats
-  #   uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=1&sortBy=relevance")
-  #   response = JSON.parse(Net::HTTP.get(uri))
-  #   i = 1
-  #   while i < response['pages'].to_i
-  #     i += 1
-  #     uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?page=#{i}&sortBy=relevance")
-  #     response['properties'] << JSON.parse(Net::HTTP.get(uri))['properties']
-  #   end
-  #   payload = response['properties'].flatten
-  #   if response && (response['title'] == 'NOT_FOUND')
-  #     {
-  #       error: 'NOT_FOUND',
-  #       status: 404,
-  #       flats: nil
-  #     }
-  #   else
-  #     recommandations = payload.first(12).map do |flat|
-  #       {
-  #         code: flat['code'],
-  #         image: flat['images'][0]['url'],
-  #         price: flat['disp_price'],
-  #         billing: flat['billing'],
-  #         name: flat['name']
-  #       }.to_json
-  #     end
-  #     {
-  #       error: nil,
-  #       status: 200,
-  #       flats: payload,
-  #       recommandations: recommandations,
-  #       codes: codes(payload)
-  #     }
-  #   end
-  # end
 
   # def avanced_list_flats
   #   flat_preference = FlatPreference.find(@flat_preference_id)

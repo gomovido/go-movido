@@ -24,8 +24,8 @@ class FlatsController < ApplicationController
   end
 
   def uniacco_flats(preferences)
-    @pagy, properties = pagy_array(preferences.codes)
-    response = UniaccoApiService.new(properties: properties, flat_preference_id: preferences.id).avanced_list_flats
+    #@pagy, properties = pagy_array(preferences.codes)
+    response = UniaccoApiService.new(flat_preference_id: preferences.id).filtered_flats
     return unless response[:status] == 200
 
     preferences.update(recommandations: response[:recommandations])
@@ -34,7 +34,7 @@ class FlatsController < ApplicationController
 
   def uniplaces_flats(preferences)
     page = params[:page]
-    response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).list_flats
+    response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).flats
     page = 1 if response[:total_pages].to_i.zero?
     return unless response[:status] == 200
 
@@ -60,7 +60,7 @@ class FlatsController < ApplicationController
       @flat = @flat[:payload] if @flat[:status] == 200
       @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
     when 'entire_flat'
-      @flat = UniplacesApiService.new(property_code: @code).list_flat
+      @flat = UniplacesApiService.new(property_code: @code).flat
       @flat = @flat[:flat] if @flat[:status] == 200
       @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat['id'] }
     end
