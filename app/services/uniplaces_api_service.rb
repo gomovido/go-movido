@@ -11,11 +11,12 @@ class UniplacesApiService
     flat_preference = FlatPreference.find(@flat_preference_id)
     move_in = flat_preference.move_in.strftime('%Y-%m-%d')
     move_out = flat_preference.move_out.strftime('%Y-%m-%d')
-    headers = { API_KEY: ENV['UNIPLACES_API_KEY'] }
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?move-in=#{move_in}&move-out=#{move_out}&page=#{@page}")
-    response = HTTParty.get(uri, :headers => {"X-Api-Key" => "#{ENV['UNIPLACES_API_KEY']}", "Content-Type" => "application/json"})
+    response = HTTParty.get(uri, headers: { "X-Api-Key" => (ENV['UNIPLACES_API_KEY']).to_s, "Content-Type" => "application/json" })
     payload = response['data']
-    recommandations = payload.first(12).map do |flat|
+    return unless payload
+    
+     recommandations = payload.first(12).map do |flat|
       {
         code: flat['id'],
         image: "https://cdn-static.staging-uniplaces.com/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
@@ -24,9 +25,9 @@ class UniplacesApiService
         currency: flat['attributes']['accommodation_offer']['price']['currency_code'],
         name: flat['attributes']['accommodation_offer']['title']
       }.to_json
-    end
-    if payload
-      {
+     end
+
+     {
         error: nil,
         status: 200,
         flats: payload,
@@ -34,22 +35,20 @@ class UniplacesApiService
         codes: [],
         total_pages: response['meta']['total_page_number']
       }
-    end
   end
 
   def list_flat
-    headers = { API_KEY: ENV['UNIPLACES_API_KEY'] }
     uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
-    response = HTTParty.get(uri, :headers => {"X-Api-Key" => "#{ENV['UNIPLACES_API_KEY']}", "Content-Type" => "application/json"})
+    response = HTTParty.get(uri, headers: { "X-Api-Key" => (ENV['UNIPLACES_API_KEY']).to_s, "Content-Type" => "application/json" })
     payload = response
-    if payload
-      {
-        error: nil,
-        status: 200,
-        flat: payload,
-        codes: [],
-        total_pages: 1
-      }
-    end
+    return unless payload
+
+    {
+      error: nil,
+      status: 200,
+      flat: payload,
+      codes: [],
+      total_pages: 1
+    }
   end
 end

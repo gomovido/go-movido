@@ -110,10 +110,6 @@ export default class extends Controller {
           this.paginationTarget.innerHTML = data.pagination
           this.loadMore()
         }
-      },
-      error: (data) => {
-
-        this.spinnerTarget.classList.add('d-none')
       }
     })
   }
