@@ -7,7 +7,7 @@ class UniplacesApiService
     @flat_preference_id = params[:flat_preference_id]
   end
 
-  def list_flats
+  def flats
     flat_preference = FlatPreference.find(@flat_preference_id)
     move_in = flat_preference.move_in.strftime('%Y-%m-%d')
     move_out = flat_preference.move_out.strftime('%Y-%m-%d')
@@ -34,7 +34,7 @@ class UniplacesApiService
     end
   end
 
-  def list_flat
+  def flat
     uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
     payload = response

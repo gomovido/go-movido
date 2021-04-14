@@ -15,11 +15,11 @@ class ProvidersController < ApplicationController
   end
 
   def uniplaces_flats(location, country)
-    UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id, page: 1).list_flats
+    UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id, page: 1).flats
   end
 
   def uniacco_flats(location)
-    UniaccoApiService.new(city_code: location).list_flats
+    UniaccoApiService.new(city_code: location).flats
   end
 
   def clear_filters
