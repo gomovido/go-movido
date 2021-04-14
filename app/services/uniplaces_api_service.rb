@@ -53,6 +53,6 @@ class UniplacesApiService
   end
 
   def set_api_key
-    Rails.env.production ? Rails.application.credentials.production[:uniplaces][:api_key] : Rails.application.credentials.staging[:uniplaces][:api_key]
+    Rails.env.production? ? Rails.application.credentials.production[:uniplaces][:api_key] : Rails.application.credentials.staging[:uniplaces][:api_key]
   end
 end
