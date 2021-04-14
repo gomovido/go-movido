@@ -4,15 +4,14 @@ class FlatPreferencesController < ApplicationController
   end
 
   def create
-    @flat_preference = FlatPreference.where(user: current_user).first_or_create
-    location = format_params(flat_preference_params[:location])
-    city_code = UniaccoApiService.new(location: location, country: flat_preference_params[:country]).check_and_return_city_code
-    if city_code && @flat_preference.update(location: city_code, country: flat_preference_params[:country])
+    @flat_preference = FlatPreference.find_by(user: current_user) || FlatPreference.new(user: current_user)
+    @flat_preference.location = format_location_params(flat_preference_params[:coordinates])
+    @flat_preference.country = format_country_params(flat_preference_params[:coordinates])
+    if @flat_preference.save
       redirect_to providers_path(@flat_preference.location)
     else
       flash[:alert] = 'Please type another location'
-      @flat_preference = FlatPreference.new
-      render :new
+      redirect_to real_estate_path
     end
   end
 
@@ -21,13 +20,24 @@ class FlatPreferencesController < ApplicationController
     redirect_to flats_path(current_user.flat_preference.location, current_user.flat_preference.flat_type)
   end
 
-  def format_params(location)
-    location.split(',').map { |string| string.strip.downcase.tr(' ', '-') }
+  def format_location_params(coordinates)
+    geocoder = Geocoder.search(coordinates)
+    return if geocoder.blank?
+
+    return "london" if geocoder.first.data['address']['state_district']&.downcase&.split&.include?('london')
+
+    city = geocoder.first.data['address']['city'] || geocoder.first.data['address']['town']
+    city.downcase.gsub('greater', '').strip.tr(' ', '-') if city
+  end
+
+  def format_country_params(coordinates)
+    geocoder = Geocoder.search(coordinates)
+    geocoder.first.data['address']['country_code'] if geocoder.present?
   end
 
   private
 
   def flat_preference_params
-    params.require(:flat_preference).permit(:location, :country)
+    params.require(:flat_preference).permit(:coordinates)
   end
 end
