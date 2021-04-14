@@ -15,8 +15,8 @@ class UniplacesApiService
     response = HTTParty.get(uri, headers: { "X-Api-Key" => (ENV['UNIPLACES_API_KEY']).to_s, "Content-Type" => "application/json" })
     payload = response['data']
     return unless payload
-    
-     recommandations = payload.first(12).map do |flat|
+
+    recommandations = payload.first(12).map do |flat|
       {
         code: flat['id'],
         image: "https://cdn-static.staging-uniplaces.com/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
@@ -25,16 +25,16 @@ class UniplacesApiService
         currency: flat['attributes']['accommodation_offer']['price']['currency_code'],
         name: flat['attributes']['accommodation_offer']['title']
       }.to_json
-     end
+    end
 
-     {
-        error: nil,
-        status: 200,
-        flats: payload,
-        recommandations:  recommandations,
-        codes: [],
-        total_pages: response['meta']['total_page_number']
-      }
+    {
+      error: nil,
+      status: 200,
+      flats: payload,
+      recommandations: recommandations,
+      codes: [],
+      total_pages: response['meta']['total_page_number']
+    }
   end
 
   def list_flat
