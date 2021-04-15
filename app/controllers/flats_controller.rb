@@ -9,12 +9,7 @@ class FlatsController < ApplicationController
     @start_max_price = 2000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
-    case @type
-    when 'entire_flat'
-      @flats = uniplaces_flats(@flat_preference)[:flats]
-    when 'student_housing'
-      @flats = uniacco_flats(@flat_preference)[:flats]
-    end
+    fetch_flats(@flat_preference, @type)
     respond_to do |format|
       format.html
       format.json do
@@ -23,26 +18,22 @@ class FlatsController < ApplicationController
     end
   end
 
-  def uniacco_flats(preferences)
+  def fetch_flats(preferences, type)
     page = params[:page] || 1
-    response = UniaccoApiService.new(flat_preference_id: preferences.id, page: page).filtered_flats
-    page = 1 if response[:total_pages].to_i.zero?
+    case @type
+    when 'entire_flat'
+      response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).flats
+      page = 1 if response[:count].to_i.zero?
+      @pagy = Pagy.new(count: response[:count], page: page)
+    when 'student_housing'
+      response = UniaccoApiService.new(flat_preference_id: preferences.id, page: page).filtered_flats
+      page = 1 if response[:count].to_i.zero?
+      @pagy = Pagy.new(count: response[:count], page: page)
+    end
+
     return unless response[:status] == 200
-
     preferences.update(recommandations: response[:recommandations])
-    @pagy = Pagy.new(count: response[:count], page: page)
-    return response
-  end
-
-  def uniplaces_flats(preferences)
-    page = params[:page]
-    response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).flats
-    page = 1 if response[:total_pages].to_i.zero?
-    return unless response[:status] == 200
-
-    preferences.update(recommandations: response[:recommandations])
-    @pagy = Pagy.new(count: response[:total_pages], page: page)
-    return response
+    @flats = response[:flats]
   end
 
   def clear_filters
@@ -58,14 +49,18 @@ class FlatsController < ApplicationController
     @flat_id = params[:flat_id]
     case @type
     when 'student_housing'
-      @flat = UniaccoApiService.new(property_code: @code, location: @location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
-      @flat = @flat[:payload] if @flat[:status] == 200
-      @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
+      response = UniaccoApiService.new(code: @code, location: @location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
+      @flat = response[:payload] if response[:status] == 200
     when 'entire_flat'
-      @flat = UniplacesApiService.new(property_code: @code).flat
-      @flat = @flat[:flat] if @flat[:status] == 200
-      @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat['id'] }
+      response = UniplacesApiService.new(property_code: @code).flat
+      @flat = response[:flat] if response[:status] == 200
     end
-    @flat = AggregatorApiService.new(flat: @flat, type: @type).format_flat
+    if @flat
+      @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
+      @flat = AggregatorApiService.new(flat: @flat, type: @type).format_flat
+    else
+      flash[:alert] = 'An error has occured'
+      redirect_to flats_path(@location, @type)
+    end
   end
 end
