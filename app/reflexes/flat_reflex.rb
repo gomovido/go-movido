@@ -6,13 +6,13 @@ class FlatReflex < ApplicationReflex
 
   def filter(date)
     @flat_preference = current_user.flat_preference
+    @flat_preference.facilities = params["flat_preference"].to_unsafe_h.map { |facility, value| facility.tr('_','-') if value == "1" }.compact
     @flat_preference.move_in = date.split[0].to_date
     @flat_preference.move_out = date.split[-1].to_date
-    @flat_preference.assign_attributes(flat_preference_params)
     @flat_preference.save
     fetch_flats(@flat_preference, @flat_preference.flat_type)
     morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
-    morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.active?, location: @flat_preference.location, type: @flat_preference.flat_type })
+    morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.facilities.present?, location: @flat_preference.location, type: @flat_preference.flat_type })
     morph ".no-results", render(partial: "flats/#{device}/no_results", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type })
     morph ".pagy", render(partial: "flats/#{device}/pagy", locals: { pagy: @pagy })
   end
@@ -42,6 +42,6 @@ class FlatReflex < ApplicationReflex
   end
 
   def flat_preference_params
-    params.require(:flat_preference).permit(:microwave, :dishwasher, :range_min_price, :range_max_price, :flat_type)
+    params.require(:flat_preference).permit(:range_min_price, :range_max_price, :flat_type)
   end
 end

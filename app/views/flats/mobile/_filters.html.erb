@@ -23,14 +23,12 @@
                     <div id="slider-range" data-flats-target="slider"></div>
                   </div>
                   <span class="title mb-3">Amenities</span>
-                  <div class="round my-3">
-                    <%= f.check_box :dishwasher, checked: flat_preference.dishwasher, data: { action: "change->flats#filterByFacility"} %>
-                    <span>Dishwasher</span>
-                  </div>
-                  <div class="round my-3">
-                    <%= f.check_box :microwave, checked: flat_preference.microwave, data: { action: "change->flats#filterByFacility"} %>
-                    <span>Microwave</span>
-                  </div>
+                  <% FlatPreference::FACILITIES[flat_preference.flat_type.to_sym].each do |facility| %>
+                    <div class="round my-3">
+                      <%= f.check_box facility.to_sym, checked: flat_preference.facilities.include?(facility), data: { action: "change->flats#filterByFacility"} %>
+                      <span><%= facility %></span>
+                    </div>
+                  <% end %>
               <% end %>
             </div>
           </div>

@@ -52,6 +52,6 @@ class AggregatorApiService
     hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg" } }
     hash[:facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } } if flat['property_aggregate']['property']['features'].present?
     hash[:apartment_facilities] = flat['property_aggregate']['property_type']['configuration']['allowed_features'].map { |f| { name: f } }
-    hash[:bedrooms_facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } if k['Exists'] == true }.compact
+    hash[:bedrooms_facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } if k['Exists'] == true }.compact if flat['property_aggregate']['property']['features'].present?
   end
 end
