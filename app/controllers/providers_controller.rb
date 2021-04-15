@@ -23,6 +23,6 @@ class ProvidersController < ApplicationController
   end
 
   def clear_filters
-    current_user.flat_preference.update(range_min_price: nil, range_max_price: nil, facilities: [], move_in: Time.zone.today, move_out: Time.zone.today + 30.days, flat_type: nil, recommandations: [])
+    current_user.flat_preference.update(range_min_price: nil, range_max_price: nil, facilities: [], flat_type: nil, recommandations: [])
   end
 end
