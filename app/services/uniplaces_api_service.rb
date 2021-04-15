@@ -37,15 +37,24 @@ class UniplacesApiService
   def flat
     uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
-    payload = response
-    return unless payload
+    return unless response
+    if response && ( response["error"]&.upcase&.gsub(' ', '_') == 'OFFER_NOT_FOUND')
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: [],
+        recommandations: [],
+        total_pages: 0,
+        count: 0
 
-    {
-      error: nil,
-      status: 200,
-      flat: payload,
-      total_pages: 1
-    }
+      }
+    elsif response && ( response["error"]&.upcase&.gsub(' ', '_') != 'OFFER_NOT_FOUND')
+      {
+        error: nil,
+        status: 200,
+        flat: response
+      }
+    end
   end
 
   def recommandations(payload)

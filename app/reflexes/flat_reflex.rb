@@ -12,9 +12,9 @@ class FlatReflex < ApplicationReflex
     @flat_preference.save
     case @flat_preference.flat_type
     when 'entire_flat'
-      @flats = uniplaces_flats(@flat_preference)[:flats]
+      uniplaces_flats(@flat_preference)
     when 'student_housing'
-      @flats = uniacco_flats(@flat_preference)[:flats]
+      uniacco_flats(@flat_preference)
     end
     morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
     morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.active?, location: @flat_preference.location, type: @flat_preference.flat_type })
@@ -25,15 +25,21 @@ class FlatReflex < ApplicationReflex
     response = UniaccoApiService.new(flat_preference_id: preferences.id, page: 1).filtered_flats
     return unless response[:status] == 200
 
-    @pagy = Pagy.new(count: response[:total_pages], page: 1)
     preferences.update(recommandations: response[:recommandations])
+    @flats = response[:flats]
+    @pagy = Pagy.new(count: response[:count], page: 1)
+
     return response
   end
 
   def uniplaces_flats(preferences)
+
     response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id).flats
-    @pagy = Pagy.new(count: response[:total_pages], page: 1)
     return unless response[:status] == 200
+
+    preferences.update(recommandations: response[:recommandations])
+    @flats = response[:flats]
+    @pagy = Pagy.new(count: response[:count], page: 1)
 
     return response
   end
