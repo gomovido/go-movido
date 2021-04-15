@@ -30,7 +30,7 @@ class FlatsController < ApplicationController
     return unless response[:status] == 200
 
     preferences.update(recommandations: response[:recommandations])
-    @pagy = Pagy.new(count: response[:count], page: page)
+    @pagy = Pagy.new(count: response[:count], page: page, items: 15, location: preferences.location, type: preferences.flat_type)
     return response
   end
 
@@ -41,7 +41,7 @@ class FlatsController < ApplicationController
     return unless response[:status] == 200
 
     preferences.update(recommandations: response[:recommandations])
-    @pagy = Pagy.new(count: response[:total_pages], page: page)
+    @pagy = Pagy.new(count: response[:count], page: page, location: preferences.location, type: preferences.flat_type)
     return response
   end
 

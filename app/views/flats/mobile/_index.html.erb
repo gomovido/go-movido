@@ -13,8 +13,8 @@
         <%= render 'flats/mobile/no_results', flats: @flats, type: @type, location: @location  %>
       </div>
     </div>
-    <div data-flats-target="pagination">
-      <%== pagy_nav(@pagy) %>
+    <div data-flats-target="pagination" class="pagy">
+      <%= render 'flats/mobile/pagy', pagy: @pagy %>
     </div>
     <div class="w-100 text-center spinner-container d-none" data-flats-target="spinner" >
       <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
