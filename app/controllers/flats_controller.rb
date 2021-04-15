@@ -36,7 +36,7 @@ class FlatsController < ApplicationController
   end
 
   def clear_filters
-    current_user.flat_preference.update(range_min_price: nil, range_max_price: nil, microwave: false, dishwasher: false, move_in: Time.zone.today, move_out: Time.zone.today + 30.days)
+    current_user.flat_preference.update(range_min_price: nil, range_max_price: nil, facilities: [], move_in: Time.zone.today, move_out: Time.zone.today + 30.days)
     redirect_to flats_path(current_user.flat_preference.location, current_user.flat_preference.flat_type)
   end
 

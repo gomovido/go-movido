@@ -54,9 +54,9 @@ class UniaccoApiService
       uri = URI("https://uniacco.com/api/v1/configs?properties=#{codes}")
       response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
       response["configs"].each do |code, configs|
-        flat = hash[:flats].find { |flat, _v| flat['code'] == code }
+        flat = hash[:flats].find { |k, _v| k['code'] == code }
         flat["configs"] = configs
-        flat["facilities"] = configs.map { |c| c.map { |k, v| k if v == true }.compact }.reject { |c| c.empty? }.sort
+        flat["facilities"] = configs.map { |c| c.map { |k, v| k if v == true }.compact }.reject(&:empty?).sort
       end
       return hash
 
