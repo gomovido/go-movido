@@ -5,8 +5,8 @@ class FlatsController < ApplicationController
     @move_out = @flat_preference.move_out.strftime
     @location = @flat_preference.location
     @type = @flat_preference.flat_type
-    @start_min_price = 50
-    @start_max_price = 2000
+    @start_min_price = 5000
+    @start_max_price = 200_000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
     fetch_flats(@flat_preference, @type)

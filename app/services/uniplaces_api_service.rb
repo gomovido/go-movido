@@ -10,13 +10,14 @@ class UniplacesApiService
   def flats
     flat_preference = FlatPreference.find(@flat_preference_id)
     query = {
-      'move_in' => flat_preference.move_in.strftime('%Y-%m-%d'),
-      'move_out' => flat_preference.move_out.strftime('%Y-%m-%d')
+      'move-in' => flat_preference.move_in.strftime('%Y-%m-%d'),
+      'move-out' => flat_preference.move_out.strftime('%Y-%m-%d'),
+      'budget-min' => flat_preference.min_price,
+      'budget-max' => flat_preference.max_price
     }
     query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" }, query: query)
-    p response.request.last_uri
     if response['data'].present?
       {
         error: nil,
