@@ -1376,36 +1376,6 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "microwave",
-      "type": "Boolean",
-      "default_value": "false",
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": []
-    }, {
-      "field": "dishwasher",
-      "type": "Boolean",
-      "default_value": "false",
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": []
-    }, {
       "field": "location",
       "type": "String",
       "default_value": null,
@@ -1427,21 +1397,6 @@
       "field": "flat_type",
       "type": "String",
       "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": []
-    }, {
-      "field": "codes",
-      "type": ["String"],
-      "default_value": "{}",
       "enums": null,
       "integration": null,
       "is_filterable": true,
@@ -1534,6 +1489,21 @@
         "message": null,
         "type": "is present"
       }]
+    }, {
+      "field": "facilities",
+      "type": ["String"],
+      "default_value": "{}",
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
     }],
     "segments": [],
     "actions": []
