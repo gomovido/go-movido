@@ -7,16 +7,64 @@ class UniplacesApiService
     @flat_preference_id = params[:flat_preference_id]
   end
 
-  def list_flats
+  def flats
     flat_preference = FlatPreference.find(@flat_preference_id)
-    move_in = flat_preference.move_in.strftime('%Y-%m-%d')
-    move_out = flat_preference.move_out.strftime('%Y-%m-%d')
-    uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?move-in=#{move_in}&move-out=#{move_out}&page=#{@page}")
-    response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
-    payload = response['data']
-    return unless payload
+    query = {
+      'move-in' => flat_preference.move_in.strftime('%Y-%m-%d'),
+      'move-out' => flat_preference.move_out.strftime('%Y-%m-%d'),
+      'budget-min' => flat_preference.min_price,
+      'budget-max' => flat_preference.max_price
+    }
+    query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
+    uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
+    response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" }, query: query)
+    if response['data'].present?
+      {
+        error: nil,
+        status: 200,
+        flats: response['data'],
+        recommandations: recommandations(response['data']),
+        total_pages: response['meta']['total_page_number'],
+        count: response['meta']['total_found']
+      }
+    else
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: [],
+        recommandations: [],
+        total_pages: 0,
+        count: 0
+      }
+    end
+  end
 
-    recommandations = payload.first(12).map do |flat|
+  def flat
+    uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
+    response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
+    return unless response
+
+    if response && (response["error"]&.upcase&.gsub(' ', '_') == 'OFFER_NOT_FOUND')
+      {
+        error: 'NOT_FOUND',
+        status: 404,
+        flats: [],
+        recommandations: [],
+        total_pages: 0,
+        count: 0
+
+      }
+    elsif response && (response["error"]&.upcase&.gsub(' ', '_') != 'OFFER_NOT_FOUND')
+      {
+        error: nil,
+        status: 200,
+        flat: response
+      }
+    end
+  end
+
+  def recommandations(payload)
+    payload.first(7).map do |flat|
       {
         code: flat['id'],
         image: "https://cdn-static.staging-uniplaces.com/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
@@ -26,30 +74,6 @@ class UniplacesApiService
         name: flat['attributes']['accommodation_offer']['title']
       }.to_json
     end
-
-    {
-      error: nil,
-      status: 200,
-      flats: payload,
-      recommandations: recommandations,
-      codes: [],
-      total_pages: response['meta']['total_page_number']
-    }
-  end
-
-  def list_flat
-    uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
-    response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
-    payload = response
-    return unless payload
-
-    {
-      error: nil,
-      status: 200,
-      flat: payload,
-      codes: [],
-      total_pages: 1
-    }
   end
 
   def set_api_key

@@ -107,3 +107,5 @@ gem "rubocop-rails", "~> 2.9"
 gem "rubocop-rspec", "~> 2.2"
 
 gem "pagy", "~> 3.12"
+
+gem "geocoder", "~> 1.6"

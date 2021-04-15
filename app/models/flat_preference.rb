@@ -1,23 +1,19 @@
 class FlatPreference < ApplicationRecord
-  belongs_to :user
-  after_initialize if: :new_record? do
-    self.move_out = Time.zone.now + 30.days
-    self.move_in = Time.zone.now
-  end
+  attr_accessor :coordinates, :date_range
 
-  def active?
-    range_min_price || range_max_price || dishwasher || microwave
-  end
+  FACILITIES = {
+    student_housing: ["kitchen", "wifi", "gym", "room_cleaning", "laundry"],
+    entire_flat: ["wi_fi", "unfurnished", "accessibility", "elevator", "outdoor_area", "washing_machine"]
+  }
+
+  belongs_to :user
+  validates :location, :country, :move_in, :move_out, presence: true
 
   def min_price
-    range_min_price || 50
+    range_min_price || 5000
   end
 
   def max_price
-    range_max_price || 2000
-  end
-
-  def facilities
-    attributes.filter_map { |k, v| k if v == true }
+    range_max_price || 200_000
   end
 end

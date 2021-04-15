@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_130031) do
+ActiveRecord::Schema.define(version: 2021_04_15_150344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,16 +108,14 @@ ActiveRecord::Schema.define(version: 2021_04_12_130031) do
     t.bigint "user_id", null: false
     t.integer "range_min_price"
     t.integer "range_max_price"
-    t.boolean "microwave", default: false
-    t.boolean "dishwasher", default: false
     t.string "location"
     t.string "flat_type"
-    t.text "codes", default: [], array: true
     t.text "recommandations", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "country"
     t.date "move_out"
+    t.text "facilities", default: [], array: true
     t.index ["user_id"], name: "index_flat_preferences_on_user_id"
   end
 

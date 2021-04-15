@@ -6,7 +6,6 @@
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
 
 require 'pagy/extras/array'
-Pagy::VARS[:items] = 5
 # Extras
 # See https://ddnexus.github.io/pagy/extras
 

@@ -159,6 +159,7 @@ GEM
       useragent
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    geocoder (1.6.6)
     gh (0.15.1)
       addressable (~> 2.4.0)
       backports
@@ -513,6 +514,7 @@ DEPENDENCIES
   font-awesome-sass
   forest_liana (~> 6.0, >= 6.0.2)
   friendly_id (~> 5.4)
+  geocoder (~> 1.6)
   globalize
   hiredis
   httparty (~> 0.18.1)
