@@ -6,7 +6,7 @@ class FlatReflex < ApplicationReflex
 
   def filter(date)
     @flat_preference = current_user.flat_preference
-    @flat_preference.facilities = params["flat_preference"].to_unsafe_h.map { |facility, value| facility.tr('_','-') if value == "1" }.compact
+    @flat_preference.facilities = params["flat_preference"].to_unsafe_h.map { |facility, value| facility.tr('_', '-') if value == "1" }.compact
     @flat_preference.move_in = date.split[0].to_date
     @flat_preference.move_out = date.split[-1].to_date
     @flat_preference.range_min_price = params["flat_preference"]["range_min_price"].to_i * 100
