@@ -5,6 +5,10 @@ class FlatPreferencesController < ApplicationController
 
   def create
     @flat_preference = FlatPreference.find_by(user: current_user) || FlatPreference.new(user: current_user)
+    if flat_preference_params[:date_range].present?
+      @flat_preference.move_in = flat_preference_params[:date_range].split[0].to_date
+      @flat_preference.move_out = flat_preference_params[:date_range].split[-1].to_date
+    end
     @flat_preference.location = format_location_params(flat_preference_params[:coordinates])
     @flat_preference.country = format_country_params(flat_preference_params[:coordinates])
     if @flat_preference.save
@@ -38,6 +42,6 @@ class FlatPreferencesController < ApplicationController
   private
 
   def flat_preference_params
-    params.require(:flat_preference).permit(:coordinates)
+    params.require(:flat_preference).permit(:coordinates, :date_range)
   end
 end
