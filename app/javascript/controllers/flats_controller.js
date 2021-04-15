@@ -89,7 +89,6 @@ export default class extends Controller {
 
   loadMore() {
     let nextPage = this.paginationTarget.querySelector("a[rel='next']");
-
     if (nextPage == null) {
       this.spinnerTarget.classList.add('d-none');
       return

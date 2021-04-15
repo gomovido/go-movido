@@ -7,7 +7,7 @@ export function mapBoxAutocomplete(element, localevalue) {
   const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     autocomplete: true,
-    types: 'region,postcode,district,place,locality,neighborhood,address,poi',
+    types: 'postcode,district,place,locality,neighborhood,address,poi',
     countries: 'FR,GB',
     language: 'en',
     placeholder: setPlaceholder(localevalue)
@@ -16,7 +16,7 @@ export function mapBoxAutocomplete(element, localevalue) {
   return geocoder
 }
 
-function setPlaceholder(localevalue) {
+const setPlaceholder = (localevalue) => {
   if (localevalue === 'en') {
     return 'Where are you going?'
   } else if (localevalue === 'fr') {

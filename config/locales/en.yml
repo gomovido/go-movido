@@ -94,12 +94,17 @@ en:
         phone: 'Phone'
         birthdate: 'Date of birth'
         birth_city: 'City of birth'
-  housing:
-    flats:
-      landing:
-        disclaimer: 'This service is only available for UK'
-        location: "Please enter your location or university"
-        submit: 'Search'
+  flat_preferences:
+    new:
+      disclaimer: 'This service is only available for UK'
+      location: "Please enter your location or university"
+      submit: 'Search'
+  flats:
+    index:
+      priv_room: "<i class='far fa-bed'></i> Priv. Room"
+      priv_bath: "<i class='fad fa-shower'></i> Priv. Bathroom"
+      priv_kitchen: "<i class='fas fa-utensils'></i> Priv. Kitchen"
+      dual_occupancy: "<i class='far fa-people-arrows'></i> Dual Occupancy"
   providers:
     index:
       count: "%{count}+ places to stay"

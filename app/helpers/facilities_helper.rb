@@ -5,73 +5,11 @@ module FacilitiesHelper
     'student_housing' => 'uniacco'
   }
 
-  def get_icon(facility)
-    case facility
-    when 'wifi'
-      '<i class="fad fa-wifi"></i>'.html_safe
-    when 'priv_kitchen'
-      '<i class="fas fa-utensils"></i>'.html_safe
-    when 'gym'
-      '<i class="far fa-dumbbell"></i>'.html_safe
-    when 'bed'
-      '<i class="far fa-bed"></i>'.html_safe
-    when 'shower'
-      '<i class="fad fa-shower"></i>'.html_safe
-    when 'kitchen'
-      '<i class="far fa-refrigerator"></i>'.html_safe
-    when 'room-type'
-      '<i class="fad fa-key"></i>'.html_safe
-    when 'wardrobe'
-      '<i class="fad fa-tshirt"></i>'.html_safe
-    when 'endstudy-desk'
-      '<i class="fal fa-lamp-desk"></i>'.html_safe
-    when 'window'
-      '<i class="far fa-blinds-open"></i>'.html_safe
-    when 'room-cleaning'
-      '<i class="far fa-vacuum"></i>'.html_safe
-    when 'uf-heating'
-      '<i class="fad fa-heat"></i>'.html_safe
-    when 'room-size'
-      '<i class="fal fa-cube"></i>'.html_safe
-    when 'study-desk'
-      '<i class="fal fa-chair-office"></i>'.html_safe
-    when 'double-bed'
-      '<i class="far fa-people-arrows"></i>'.html_safe
-    when 'underbed-storage'
-      '<i class="fad fa-box-open"></i>'.html_safe
-    end
-  end
-
-  def get_name(facility)
-    case facility
-    when 'Small Double Bed'
-      'Double bed'
-    when 'Private Bathroom'
-      'Bathroom'
-    when 'Private Kitchen'
-      'Kitchen'
-    when 'Study desk and chair'
-      'Study Desk'
-    when 'Dual Occupancy Available'
-      'Dual Occupancy'
-    when 'Queen Size Bed'
-      'Double Bed'
-    when 'Room Cleaning Services'
-      'Cleaning'
-    when 'Underfloor Heating'
-      'Heater'
-    when 'Windows / Curtains'
-      'Windows'
-    else
-      facility
-    end
-  end
-
   def split_description(description)
-    "#{ActionView::Base.full_sanitizer.sanitize(description).first(200)}..."
+    description ? "#{ActionView::Base.full_sanitizer.sanitize(description).first(200)}..." : 'Lorem ipsum dolor sit amet,  consectetur adipiscing elit consectetur adipiscing elit consectetur adipiscing elit...'
   end
 
   def full_description(description)
-    ActionView::Base.full_sanitizer.sanitize(description).gsub(/\. /, '.<br><br>')
+    description ? ActionView::Base.full_sanitizer.sanitize(description).gsub(/\. /, '.<br><br>') : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consectetur facilisis lorem. Proin sit amet viverra velit. Proin semper auctor convallis. Integer turpis leo, rutrum elementum scelerisque non, molestie non massa. Morbi commodo fermentum lectus, ut blandit nunc pretium sollicitudin. Aliquam nunc metus, rhoncus in purus sit amet, fermentum volutpat arcu. Mauris imperdiet nulla quis luctus molestie'
   end
 end
