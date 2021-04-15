@@ -15,10 +15,10 @@ class FlatPreference < ApplicationRecord
   end
 
   def min_price
-    range_min_price || 50
+    range_min_price || 5000
   end
 
   def max_price
-    range_max_price || 2000
+    range_max_price || 200_000
   end
 end
