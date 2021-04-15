@@ -19,20 +19,21 @@ class FlatReflex < ApplicationReflex
     morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
     morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.active?, location: @flat_preference.location, type: @flat_preference.flat_type })
     morph ".no-results", render(partial: "flats/#{device}/no_results", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type })
+    morph ".pagy", render(partial: "flats/#{device}/pagy", locals: { pagy: @pagy })
   end
 
   def uniacco_flats(preferences)
     response = UniaccoApiService.new(flat_preference_id: preferences.id, page: 1).filtered_flats
     return unless response[:status] == 200
 
-    @pagy = Pagy.new(count: response[:total_pages], page: 1)
+    @pagy = Pagy.new(count: response[:count], page: 1, items: 15, location: preferences.location, type: preferences.flat_type)
     preferences.update(recommandations: response[:recommandations])
     return response
   end
 
   def uniplaces_flats(preferences)
     response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id).flats
-    @pagy = Pagy.new(count: response[:total_pages], page: 1)
+    @pagy = Pagy.new(count: response[:count], page: 1, location: preferences.location, type: preferences.flat_type)
     return unless response[:status] == 200
 
     return response
