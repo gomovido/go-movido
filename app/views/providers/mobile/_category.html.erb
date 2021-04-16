@@ -1,0 +1,29 @@
+  <div class="row">
+    <div class="col-12 px-0">
+      <div class="title d-flex align-items-center justify-content-between">
+        <h3><%= t("providers.index.#{type}") %></h3>
+        <% if !coming_soon && flats.present? %>
+          <%= link_to t('providers.index.show_all').html_safe, flat_preference_path(flat_preference_id, type: type), method: :put, class: 'text-right btn-cut'%>
+        <% end %>
+      </div>
+        <div class="flats-card-scroller mb-2 mt-3">
+          <ul class="hs" data-animate-target="container">
+            <% if coming_soon || flats.blank?%>
+            <li class="item">
+              <%= render 'providers/mobile/disabled-card', type: type, message: (coming_soon ? "coming_soon" : "no_results") %>
+            </li>
+            <% else %>
+            <% flats.first(5).each do |flat| %>
+            <li class="item">
+              <% if type == "student_housing" %>
+                <%= render 'providers/mobile/card', flat: flat, type: type, location: location, code: flat['code'], image_url: flat['images'][0]['url'], name: flat['name'], price: "#{flat['disp_price']} / #{flat['billing'].downcase}" %>
+              <% elsif type == "entire_flat" %>
+                <%= render 'providers/mobile/card', flat: flat, type: type, location: location,  code: flat['id'], image_url: flat_image(flat['attributes']['photos'][0]['hash']), name: flat['attributes']['accommodation_offer']['title'], price: flat_price(flat) %>
+              <% end %>
+            </li>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
+    </div>
+  </div>

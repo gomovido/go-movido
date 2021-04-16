@@ -7,8 +7,10 @@ class ProvidersController < ApplicationController
     @uniacco_payload = uniacco_flats(@flat_preference.location)
     @uniacco_flats = @uniacco_payload[:flats]
     @uniplaces_flats = @uniplaces_payload[:flats]
+    @flatshare_flats = []
+    @upscale_flats = []
     @count = @uniacco_payload[:count] + @uniplaces_payload[:count]
-    return if (@uniacco_flats + @uniplaces_flats).present?
+    return if (@uniacco_flats + @uniplaces_flats + @upscale_flats + @flatshare_flats).present?
 
     flash[:alert] = 'Please type another location'
     redirect_to real_estate_path

@@ -192,4 +192,20 @@
       color: $white;
     }
   }
+
+  .btn-cut {
+    font-family: 'Manrope';
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 32px;
+    color: $white;
+    border-radius: 50px 0px 0px 50px;
+    border: 2px solid $white;
+    padding-left: 19px;
+    padding-right: 5px;
+    border-right: 0;
+    &:hover {
+      color: $white;
+    }
+  }
 }
