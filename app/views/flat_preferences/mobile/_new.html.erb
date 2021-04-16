@@ -2,26 +2,24 @@
   <div class="disclaimer">
     <span><%= t('flat_preferences.new.disclaimer') %></span>
   </div>
-  <div class="banner-landing" style="background-image:url(<%= asset_path 'flats/landing/banner-background.png' %>);">
+  <div class="banner-landing" style="background-image: linear-gradient(180deg, rgba(140, 48, 245, 0.76) 8.33%, rgba(140, 48, 245, 0) 63.02%), url(<%= asset_path 'flats/landing/banner-background.png' %>);">
     <div class="container h-100">
-      <div class="content h-100">
-        <h1><%= t('flat_preferences.new.location') %></h1>
-        <div data-controller='flats-landing' class="search-form" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
-          <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>
-            <%= f.hidden_field :coordinates, data: {flats_landing_target: 'coordinates'} %>
-            <div data-flats-landing-target="geocoder" class="geocoder position-relative">
-              <i class="far fa-map-marker-alt position-absolute"></i>
-            </div>
-            <div class="date-range-input position-relative">
-              <%= f.input :date_range, as: :string, label: false,
-               required: true,
-               input_html: { class: 'background-white datepicker datepicker-landing', id: 'date-input', data: { controller: 'flatpickr',
-               flatpickr_default_date: [Time.zone.now, Time.zone.now + 30.days], flatpickr_alt_input: true, flatpickr_position: "below center", flatpickr_alt_format: '%e %b %Y', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range'} } %>
-              <i class="far fa-calendar-day position-absolute"></i>
-            </div>
-              <%= f.button :submit, value: t('flat_preferences.new.submit'), class: "btn btn-flat-card w-100" %>
-          <% end %>
-        </div>
+      <h1><%= t('flat_preferences.new.location') %></h1>
+      <div data-controller='flats-landing' class="search-form" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
+        <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>
+          <%= f.hidden_field :coordinates, data: {flats_landing_target: 'coordinates'} %>
+          <div data-flats-landing-target="geocoder" class="geocoder position-relative">
+            <i class="fas fa-map-marker-smile position-absolute"></i>
+          </div>
+          <div class="date-range-input position-relative">
+            <%= f.input :date_range, as: :string, label: false,
+             required: true,
+             input_html: { class: 'background-white datepicker datepicker-landing', id: 'date-input', data: { controller: 'flatpickr',
+             flatpickr_default_date: [Time.zone.now, Time.zone.now + 30.days], flatpickr_alt_input: true, flatpickr_position: "above center", flatpickr_alt_format: '%e %b %Y', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range'} } %>
+            <i class="fad fa-calendar position-absolute"></i>
+          </div>
+            <%= f.button :submit, value: t('flat_preferences.new.submit'), class: "btn btn-flat-card w-100" %>
+        <% end %>
       </div>
     </div>
   </div>
