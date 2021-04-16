@@ -99,12 +99,34 @@ en:
       disclaimer: 'This service is only available for UK & France'
       location: "Find your perfect place to stay"
       submit: "Search"
+      submitting: "Searching ..."
   flats:
     index:
-      priv_room: "<i class='far fa-bed'></i> Priv. Room"
-      priv_bath: "<i class='fad fa-shower'></i> Priv. Bathroom"
-      priv_kitchen: "<i class='fas fa-utensils'></i> Priv. Kitchen"
-      dual_occupancy: "<i class='far fa-people-arrows'></i> Dual Occupancy"
+      priv_room: "Priv. Room"
+      priv_bath: "Priv. Bathroom"
+      priv_kitchen: "Priv. Kitchen"
+      dual_occupancy: "Dual Occupancy"
+      no_results: "No results matching your request"
+      show_more: "Show more"
+      cta: "Book now"
+      clear_filters: "Reset filters"
+      filters:
+        title: "Filters"
+        price_range: "Price range"
+        frequency: "/week"
+        amenities: "Amenities"
+        clear: "<u>Clear</u>"
+        kitchen: "Kitchen"
+        wifi: "Wifi"
+        gym: "Gym center"
+        room_cleaning: "Room cleaning"
+        laundry: "Laundry"
+        wi_fi: "Wifi"
+        unfurnished: "Unfurnished"
+        accessibility: "Accessibility"
+        elevator: "Elevator"
+        outdoor_area: "Outdoor Area"
+        washing_machine: "Washing machine"
   providers:
     index:
       count: "%{count}+ places to stay"
