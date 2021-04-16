@@ -21,7 +21,7 @@ class ProvidersController < ApplicationController
   end
 
   def uniacco_flats(location)
-    UniaccoApiService.new(city_code: location).flats
+    UniaccoApiService.new(city_code: location, flat_preference_id: current_user.flat_preference.id).flats
   end
 
   def clear_filters
