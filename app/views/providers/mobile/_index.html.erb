@@ -19,7 +19,7 @@
       <% elsif type == "entire_flat" %>
       <%= render "providers/mobile/category", flats: @uniplaces_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: false %>
       <% elsif type == "upscale_housing" %>
-      <%= render "providers/mobile/category", flats: @upscale_flatsa, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
+      <%= render "providers/mobile/category", flats: @upscale_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
       <% else %>
       <%= render "providers/mobile/category", flats: @flatshare_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
       <% end %>
