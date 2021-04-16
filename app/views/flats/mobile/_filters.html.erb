@@ -3,15 +3,15 @@
     <div class="modal-content">
       <div class="top-nav d-flex justify-content-between align-items-center mb-4">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fad fa-times"></i></button>
-          <span class="main-title">Filters</span>
-          <span class="link purple font-weight">Clear</span>
+          <span class="main-title"><%= t('flats.index.filters.title') %></span>
+          <%= link_to t('flats.index.filters.clear').html_safe, clear_filters_path(flat_preference.location, flat_preference.flat_type), method: :post, class: 'link purple font-weight' %>
       </div>
       <div class="modal-body">
         <div class="filters-container w-100">
           <div class="filter-wrapper mb-3">
             <div class="d-flex justify-content-between align-items-center mb-3">
-              <span class="title">Price range</span>
-              <span class='grey frequency'>/week</span>
+              <span class="title"><%= t('flats.index.filters.price_range') %></span>
+              <span class='grey frequency'><%= t('flats.index.filters.frequency') %></span>
             </div>
             <div class="form">
               <%= simple_form_for flat_preference, data: {flats_target: 'form'}, html: {method: :put} do |f| %>
@@ -22,11 +22,11 @@
                     </div>
                     <div id="slider-range" data-flats-target="slider"></div>
                   </div>
-                  <span class="title mb-3">Amenities</span>
+                  <span class="title mb-3"><%= t('flats.index.filters.amenities') %></span>
                   <% FlatPreference::FACILITIES[flat_preference.flat_type.to_sym].each do |facility| %>
                     <div class="round my-3">
                       <%= f.check_box facility.to_sym, checked: flat_preference.facilities.include?(facility), data: { action: "change->flats#filterByFacility"} %>
-                      <span><%= facility %></span>
+                      <span><%= t("flats.index.filters.#{facility}") %></span>
                     </div>
                   <% end %>
               <% end %>
