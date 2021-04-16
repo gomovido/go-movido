@@ -8,8 +8,15 @@ class UniaccoApiService
   end
 
   def flats
+    flat_preference = FlatPreference.find(@flat_preference_id)
+    query = {
+      'move_in' => flat_preference.move_in.strftime('%m-%Y'),
+      'price_min' => flat_preference.min_price / 100,
+      'price_max' => flat_preference.max_price / 100
+    }
+    query['facilities'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?sortBy=relevance")
-    response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" })
+    response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" }, query: query)
     format_response(response)
   end
 
