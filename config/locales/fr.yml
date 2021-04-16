@@ -114,9 +114,13 @@ fr:
   providers:
     index:
       count: "%{count}+ lieux d'hébergement"
-      show_all: 'Voir tout'
+      show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
+      coming_soon: "Bientôt disponible"
+      no_results: "Pas de logements disponibles"
       student_housing: 'Logements étudiants'
       entire_flat: 'Logements entiers'
+      flatshare: 'Colocations'
+      upscale_housing: 'Haut de gamme'
   pages:
     contact:
       title: 'Contacte nous'
