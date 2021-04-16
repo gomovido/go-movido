@@ -16,6 +16,9 @@
     }
   }
   .details-wrapper {
+    a:first-child {
+      width: 65%;
+    }
     .details {
       .name {
         font-family: 'Manrope';
