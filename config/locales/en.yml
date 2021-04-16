@@ -96,9 +96,9 @@ en:
         birth_city: 'City of birth'
   flat_preferences:
     new:
-      disclaimer: 'This service is only available for UK'
-      location: "Please enter your location or university"
-      submit: 'Search'
+      disclaimer: 'This service is only available for UK & France'
+      location: "Find your perfect place to stay"
+      submit: "Search"
   flats:
     index:
       priv_room: "<i class='far fa-bed'></i> Priv. Room"

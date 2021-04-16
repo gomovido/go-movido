@@ -106,12 +106,11 @@ fr:
         phone: 'Téléphone'
         birthdate: 'Date de naissance'
         birth_city: 'Ville de naissance'
-  housing:
-    flats:
-      landing:
-        disclaimer: "Service disponible au Royaume-Uni"
-        location: 'Saisissez votre lieu de résidence ou votre université'
-        submit: 'Chercher'
+  flat_preferences:
+    new:
+      disclaimer: 'This service is only available for UK & France'
+      location: "Trouvez l'endroit idéal pour séjourner"
+      submit: 'Chercher'
   providers:
     index:
       count: "%{count}+ lieux d'hébergement"
