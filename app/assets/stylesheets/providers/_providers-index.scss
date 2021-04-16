@@ -1,39 +1,27 @@
 .providers-container {
+  background: linear-gradient(180deg, rgba(122, 8, 251, 0.6) 41.67%, rgba(186, 125, 255, 0.6) 100%);
+  .location {
+    color: $white;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 14px;
+  }
   .count-results {
-    height: 7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    span {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 30px;
-      text-align: center;
-      color: #18191F;
-    }
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 30px;
+    color: $white;
   }
   .providers-wrapper {
     .title {
+      width: 100%;
+      padding-left: 15px;
       h3 {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 30px;
-        color: #18191F;
-      }
-      .link {
-        font-family: 'Manrope';
-        font-style: normal;
         font-weight: 800;
-        font-size: 15px;
-        line-height: 24px;
-        text-align: right;
-        letter-spacing: 0.2px;
-        text-decoration-line: underline;
-        color: #8C30F5;
+        font-size: 16px;
+        line-height: 22px;
+        color: $white;
       }
     }
   }

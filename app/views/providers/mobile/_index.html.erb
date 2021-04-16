@@ -1,51 +1,28 @@
-<div class="container providers-container">
+<div class="container providers-container py-4">
   <div class="row">
     <div class="col-12">
-      <div class="count-results text-center">
-        <span><%= t('providers.index.count', count: @count) %></span>
-      </div>
-    </div>
-    <div class="col-12">
-      <div class="providers-wrapper">
-        <% if @uniacco_flats.present? %>
-          <div class="title d-flex align-items-center justify-content-between">
-            <h3><%= t('providers.index.student_housing') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-            <%= link_to t('providers.index.show_all'), flat_preference_path(@flat_preference.id, type: 'student_housing'), method: :put, class: 'link'%>
-          </div>
-          <div class="flats-card-scroller pt-0">
-            <ul class="hs" data-animate-target="container">
-              <% @uniacco_flats.first(5).map do |flat| %>
-                <li class="item">
-                  <%= render 'providers/mobile/card', flat: flat, type: 'student_housing', location: @flat_preference.location, code: flat['code'], image_url: flat['images'][0]['url'], name: flat['name'], price: "#{flat['disp_price']} / #{flat['billing'].downcase}" %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <% if @uniplaces_flats.present? %>
-          <div class="title d-flex align-items-center justify-content-between">
-            <h3><%= t('providers.index.entire_flat') %><i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-            <%= link_to t('providers.index.show_all'), flat_preference_path(@flat_preference.id, type: 'entire_flat'), method: :put, class: 'link'%>
-          </div>
-          <div class="flats-card-scroller pt-0">
-            <ul class="hs" data-animate-target="container">
-              <% @uniplaces_flats.first(5).map do |flat| %>
-                <li class="item">
-                  <%= render 'providers/mobile/card', flat: flat, type: 'entire_flat', location: @flat_preference.location, code: flat['id'], image_url: flat_image(flat['attributes']['photos'][0]['hash']), name: flat['attributes']['accommodation_offer']['title'], price: flat_price(flat) %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class="title">
-          <h3>Flatshare<i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-        </div>
-        <div class="title">
-          <h3>Upscale Housing<i class="far fa-info-circle grey ml-1"  data-toggle="tooltip" data-placement="top" title="This is an explanation tooltip"></i></h3>
-        </div>
-      </div>
+      <%= link_to real_estate_path, class: 'location' do %>
+      <i class="far fa-chevron-left mr-4"></i>
+      <span><%= @flat_preference.location.capitalize %></span>
+      <% end %>
     </div>
   </div>
+  <div class="row my-3">
+    <div class="col-12">
+      <span class="count-results"><%= t('providers.index.count', count: @count) %></span>
+    </div>
+  </div>
+  <div class="providers-wrapper">
+    <% FlatPreference::TYPES.each do |type| %>
+      <% if type == "student_housing" %>
+      <%= render "providers/mobile/category", flats: @uniacco_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: false %>
+      <% elsif type == "entire_flat" %>
+      <%= render "providers/mobile/category", flats: @uniplaces_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: false %>
+      <% elsif type == "upscale_housing" %>
+      <%= render "providers/mobile/category", flats: @upscale_flatsa, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
+      <% else %>
+      <%= render "providers/mobile/category", flats: @flatshare_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
