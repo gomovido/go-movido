@@ -23,13 +23,10 @@
   .facilities {
     .facility {
       font-family: 'Montserrat';
+      font-size: 11px;
       i {
         color: $dark-cloud;
         font-size: 13px;
-      }
-      span {
-        font-size: 11px;
-        color: $black;
       }
     }
   }
