@@ -18,8 +18,8 @@ export function mapBoxAutocomplete(element, localevalue) {
 
 const setPlaceholder = (localevalue) => {
   if (localevalue === 'en') {
-    return 'Where are you going?'
+    return 'Enter your location or university'
   } else if (localevalue === 'fr') {
-    return 'Où allez-vous?'
+    return 'Saisissez votre lieu de résidence ou votre université'
   }
 }

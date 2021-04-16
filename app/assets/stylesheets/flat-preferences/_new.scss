@@ -1,54 +1,101 @@
 @include media-breakpoint-down(md) {
   .landing-container {
     .banner-landing {
-      height: 80vh;
+      height: 70vh;
       background-size: cover;
       background-position: right;
-      .content {
+      background-position: 100% 100%;
+      .container {
         padding-top: 4rem;
         .search-form {
           height: 65%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 0 0.45em;
         }
         .btn-flat-card {
           height: auto;
           line-height: auto;
           width: auto;
           font-size: 17px;
+          border-radius: 32px;
         }
         h1 {
           font-family: 'Montserrat';
           font-style: normal;
           font-weight: 700;
           color: $white;
-          font-size: 26px;
+          font-size: 30px;
           line-height: 37px;
-          font-feature-settings: 'liga' off;
           margin-bottom: 1.5rem;
         }
         form {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          height: 60%;
+
           .geocoder {
-            border-radius: 15px;
+            border-radius: 32px;
+            input {
+              font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 17px;
+              color: $grey;
+            }
+            i {
+              top: 30%;
+              font-size: 18px;
+              left: 18px;
+              z-index: 2;
+              color: $dark-cloud;
+            }
           }
           .mapboxgl-ctrl {
-            height: 60px;
-            border-radius: 15px;
+            height: 50px;
+            border-radius: 32px;
           }
           .mapboxgl-ctrl-geocoder--icon-search {
-            top: 18px;
+            display: none;
           }
           .mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--pin-right > * {
             top: 13px;
           }
           .mapboxgl-ctrl-geocoder--input {
-            height: 60px;
+            height: 50px;
             border-radius: 15px;
             &:focus {
               outline: none;
             }
+          }
+          .date-range-input {
+            margin: 1rem 0;
+            .form-group {
+              margin-bottom: 0;
+            }
+            i {
+              top: 30%;
+              font-size: 18px;
+              left: 18px;
+              color: $dark-cloud;
+            }
+          }
+          .datepicker {
+            border-radius: 32px;
+            height: 50px;
+            padding: 6px 45px;
+            background-color: transparent;
+            font: inherit;
+            width: 100%;
+            border: 0;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            color: $grey;
           }
           ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             font-family: 'Montserrat';
@@ -74,9 +121,6 @@
             font-size: 14px;
             line-height: 17px;
             color: $grey;
-          }
-          .btn-main {
-            padding: 10px 51.5px !important;
           }
         }
       }
