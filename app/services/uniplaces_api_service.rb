@@ -18,16 +18,7 @@ class UniplacesApiService
     query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" }, query: query)
-    if response['data'].present?
-      {
-        error: nil,
-        status: 200,
-        flats: response['data'],
-        recommandations: recommandations(response['data']),
-        total_pages: response['meta']['total_page_number'],
-        count: response['meta']['total_found']
-      }
-    else
+    if response.body.include?("503") || response['data'].blank?
       {
         error: 'NOT_FOUND',
         status: 404,
@@ -35,6 +26,15 @@ class UniplacesApiService
         recommandations: [],
         total_pages: 0,
         count: 0
+      }
+    else
+      {
+        error: nil,
+        status: 200,
+        flats: response['data'],
+        recommandations: recommandations(response['data']),
+        total_pages: response['meta']['total_page_number'],
+        count: response['meta']['total_found']
       }
     end
   end
