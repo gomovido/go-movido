@@ -18,7 +18,7 @@
              flatpickr_default_date: [Time.zone.now, Time.zone.now + 30.days], flatpickr_alt_input: true, flatpickr_position: "above center", flatpickr_alt_format: '%e %b %Y', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range'} } %>
             <i class="fad fa-calendar position-absolute"></i>
           </div>
-            <%= f.button :submit, value: t('flat_preferences.new.submit'), class: "btn btn-flat-card w-100" %>
+            <%= f.button :submit, value: t('flat_preferences.new.submit'), data: {disable_with: t('flat_preferences.new.submitting')}, class: "btn btn-flat-card w-100" %>
         <% end %>
       </div>
     </div>

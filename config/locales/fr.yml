@@ -111,6 +111,7 @@ fr:
       disclaimer: 'This service is only available for UK & France'
       location: "Trouvez l'endroit idéal pour séjourner"
       submit: 'Chercher'
+      submitting: "Recherche en cours ..."
   providers:
     index:
       count: "%{count}+ lieux d'hébergement"
@@ -121,6 +122,33 @@ fr:
       entire_flat: 'Logements entiers'
       flatshare: 'Colocations'
       upscale_housing: 'Haut de gamme'
+  flats:
+    index:
+      priv_room: "<i class='far fa-bed'></i> Chambre"
+      priv_bath: "<i class='fad fa-shower'></i> Salle de bain"
+      priv_kitchen: "<i class='fas fa-utensils'></i> Cuisine"
+      dual_occupancy: "<i class='far fa-people-arrows'></i> Colocation"
+      clear_filters: "Réinitialiser les filtres"
+      no_results: "Pas de résultats pour votre requête"
+      show_more: "Voir plus"
+      cta: "Réserver"
+      filters:
+        title: "Filtres"
+        price_range: "Prix"
+        frequency: "/semaine"
+        amenities: "Équipements"
+        clear: "<u>Réinitialiser</u>"
+        kitchen: "Cuisine"
+        wifi: "Wifi"
+        gym: "Salle de sport"
+        room_cleaning: "Ménage"
+        laundry: "Lessive"
+        wi_fi: "Wifi"
+        unfurnished: "Non meublé"
+        accessibility: "Accessibilité"
+        elevator: "Ascenseur"
+        outdoor_area: "Espace extérieur"
+        washing_machine: "Machine à laver"
   pages:
     contact:
       title: 'Contacte nous'
