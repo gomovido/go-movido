@@ -108,9 +108,13 @@ en:
   providers:
     index:
       count: "%{count}+ places to stay"
-      show_all: 'Show all'
+      show_all: "Show all <i class='far fa-chevron-right ml-2'></i>"
+      coming_soon: "Coming soon"
+      no_results: "No properties available"
       student_housing: 'Student housing'
       entire_flat: 'Entire flat'
+      flatshare: 'Flat Share'
+      upscale_housing: 'Upscale housing'
   pages:
     contact:
       title: 'Contact us'
