@@ -5,7 +5,7 @@ import noUiSlider from 'nouislider';
 import 'nouislider/distribute/nouislider.css';
 
 export default class extends Controller {
-  static targets = ["entries", "pagination", "spinner", "form", "spinner", "slider"]
+  static targets = ["entries", "pagination", "spinner", "form", "slider"]
 
   initialize() {
     this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries))
