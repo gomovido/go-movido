@@ -16,6 +16,7 @@
     <link rel="alternate" hreflang="x-default" href=<%= url_for(locale: nil, only_path: false) %>>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= render 'shared/google_tag_manager' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -25,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2eebd99045.js" crossorigin="anonymous"></script>
     <%= favicon_link_tag asset_path('layout/favicon.ico') %>
-    <%= render 'shared/google_tag_manager' %>
+
     <%= render 'shared/hotjar' %>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel="stylesheet">
   </head>
