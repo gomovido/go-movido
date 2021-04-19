@@ -1,5 +1,5 @@
 <div class="col-12 <%= 'd-none' if facilities.blank?%>" >
-  <span class="title">Services/Community Facilities</span>
+  <span class="title"><%= t('flats.show.community_facilities') %></span>
   <div class="facilities d-flex flex-wrap justify-content-around">
     <% facilities.each do |facility|  %>
       <div class="facility d-flex align-items-center px-2 my-2"><%= facility[:name] %></div>
