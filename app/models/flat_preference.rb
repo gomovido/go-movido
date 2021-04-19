@@ -1,5 +1,5 @@
 class FlatPreference < ApplicationRecord
-  attr_accessor :coordinates, :date_range
+  attr_accessor :date_range
 
   TYPES = ["student_housing", "entire_flat", "upscale_housing", "flatshare"]
   FACILITIES = {
@@ -8,7 +8,7 @@ class FlatPreference < ApplicationRecord
   }
 
   belongs_to :user
-  validates :location, :country, :move_in, :move_out, presence: true
+  validates :location, :country, :move_in, :move_out, :coordinates, presence: true
 
   def min_price
     range_min_price || 5000
