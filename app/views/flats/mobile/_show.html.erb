@@ -40,10 +40,10 @@
       </span>
       <hr class="w-100">
     </div>
-    <%= render 'flats/mobile/index/flats', rooms: @flat[:rooms] %>
-    <%= render 'flats/mobile/index/bedrooms', facilities: @flat[:bedrooms_facilities] %>
-    <%= render 'flats/mobile/index/appartment_facilities', facilities: @flat[:apartment_facilities] %>
-    <%= render 'flats/mobile/index/community_facilities', facilities: @flat[:community_facilities] %>
+    <%= render 'flats/mobile/show/flats', rooms: @flat[:rooms] %>
+    <%= render 'flats/mobile/show/bedrooms', facilities: @flat[:bedrooms_facilities] %>
+    <%= render 'flats/mobile/show/appartment_facilities', facilities: @flat[:apartment_facilities] %>
+    <%= render 'flats/mobile/show/community_facilities', facilities: @flat[:community_facilities] %>
     <% if @recommandations.present? %>
       <div class="col-12 d-flex flex-column my-2 pr-0">
         <span class="title">More Accomodations</span>
