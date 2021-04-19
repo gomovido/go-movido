@@ -125,6 +125,22 @@ fr:
   flats:
     show:
       cta: "Réserver"
+      more: "Voir plus"
+      less: "Voir moins"
+      accomodations: "Plus d'offres"
+      more_rooms: "Ce logement a d'autres chambres disponibles"
+      facilities: "Équipements"
+      facilities: "Chambres"
+      rental_conditions: "Conditions de location"
+      contract: "Contract"
+      included_bills: "Charges incluses"
+      cancellation_policy: "Politique d'annulation"
+      security_deposit: "Caution"
+      min_stay: "Séjour minimums"
+      nights: "nights"
+      community_facilities: "Équipements communs & Services"
+      rooms: "Pièces"
+      rules: "Règlement"
     index:
       priv_room: "<i class='far fa-bed'></i> Chambre"
       priv_bath: "<i class='fad fa-shower'></i> Salle de bain"

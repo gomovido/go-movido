@@ -91,6 +91,17 @@
     min-width: 55px;
     justify-content: center;
   }
+  .billing-details {
+    .subtitle {
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .value {
+      font-weight: 500;
+      font-size: 14px;
+      color: $purple;
+    }
+  }
   .room-description .leases {
     ul {
       list-style: none;
