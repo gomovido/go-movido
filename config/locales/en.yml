@@ -108,7 +108,6 @@ en:
       accomodations: "More accomodations"
       more_rooms: "This house has more rooms available"
       facilities: "Facilities"
-      facilities: "Bedrooms"
       rental_conditions: "Rental Conditions"
       contract: "Contract"
       included_bills: "Included Bills"
@@ -117,7 +116,7 @@ en:
       min_stay: "Minimum stay"
       nights: "nights"
       community_facilities: "Community Facilities & Services"
-      rooms: "Rooms"
+      flats: "Rooms"
       rules: "Rules"
     index:
       priv_room: "Priv. Room"
