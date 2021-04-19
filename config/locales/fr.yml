@@ -123,6 +123,8 @@ fr:
       flatshare: 'Colocations'
       upscale_housing: 'Haut de gamme'
   flats:
+    show:
+      cta: "Réserver"
     index:
       priv_room: "<i class='far fa-bed'></i> Chambre"
       priv_bath: "<i class='fad fa-shower'></i> Salle de bain"
