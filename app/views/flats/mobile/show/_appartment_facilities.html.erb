@@ -1,10 +1,11 @@
-<div class="col-12">
-  <span class="title">Facilities</span>
-  <div class="facilities d-flex flex-wrap justify-content-around">
-    <% facilities.each do |facility|  %>
-      <div class="facility d-flex align-items-center px-2 my-2"><%= facility[:name] %></div>
-    <% end %>
+<% if facilities.present? %>
+  <div class="col-12">
+    <span class="title"><%= t('flats.show.facilities') %></span>
+    <div class="facilities d-flex flex-wrap justify-content-around">
+      <% facilities.each do |facility|  %>
+        <div class="facility d-flex align-items-center px-2 my-2"><%= facility[:name] %></div>
+      <% end %>
+    </div>
+    <hr class="w-100">
   </div>
-  <hr class="w-100">
-</div>
-
+<% end %>

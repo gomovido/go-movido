@@ -103,6 +103,22 @@ en:
   flats:
     show:
       cta: "Book now"
+      more: "Show more"
+      less: "Show less"
+      accomodations: "More accomodations"
+      more_rooms: "This house has more rooms available"
+      facilities: "Facilities"
+      facilities: "Bedrooms"
+      rental_conditions: "Rental Conditions"
+      contract: "Contract"
+      included_bills: "Included Bills"
+      cancellation_policy: "Cancellation Policy"
+      security_deposit: "Security Deposit"
+      min_stay: "Minimum stay"
+      nights: "nights"
+      community_facilities: "Community Facilities & Services"
+      rooms: "Rooms"
+      rules: "Rules"
     index:
       priv_room: "Priv. Room"
       priv_bath: "Priv. Bathroom"
