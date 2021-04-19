@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_150344) do
+ActiveRecord::Schema.define(version: 2021_04_19_132653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_150344) do
     t.string "country"
     t.date "move_out"
     t.text "facilities", default: [], array: true
+    t.text "coordinates", default: [], array: true
     t.index ["user_id"], name: "index_flat_preferences_on_user_id"
   end
 
