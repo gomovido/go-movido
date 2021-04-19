@@ -1,6 +1,6 @@
 <div class="col-12 <%= 'd-none' if rooms.blank? %>" data-controller="room">
   <div class="room-details">
-    <span class='title mb-2'>This house has more rooms available</span>
+    <span class='title mb-2'><%= t('flats.show.more_rooms') %></span>
     <div class="flats-card-scroller pt-0">
       <ul class="hs">
         <% rooms.each do |room| %>
