@@ -146,6 +146,23 @@
     color: $purple;
   }
 }
+
+.btn-flat-card {
+  color: $white;
+  background: $purple;
+  display: block;
+  width: 104px;
+  height: 64px;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  &:hover {
+    background: $purple;
+    color: $white;
+  }
+}
+
 @include media-breakpoint-down(md) {
   .btn-main-reverse {
     width: 240px;
