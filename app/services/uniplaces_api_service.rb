@@ -18,7 +18,7 @@ class UniplacesApiService
     query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" }, query: query)
-    if response['data'].blank?
+    if response.body.include?("503 Service Temporarily Unavailable") || response['data'].blank?
       {
         error: 'NOT_FOUND',
         status: 404,
