@@ -33,8 +33,13 @@ export const mapboxMap = (element, lng, lat, coordinates) => {
     zoom: 15
   });
   coordinates.forEach((marker) => {
-    new mapboxgl.Marker()
+    let popup = new mapboxgl.Popup({ offset: 25 }).setText(marker.name);
+    var el = document.createElement('div');
+    el.classList.add('marker')
+    el.id = marker.id;
+    new mapboxgl.Marker(el)
     .setLngLat([marker.coordinates.lng, marker.coordinates.lat])
+    .setPopup(popup)
     .addTo(map);
   });
 }
