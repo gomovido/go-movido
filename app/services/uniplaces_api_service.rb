@@ -27,6 +27,7 @@ class UniplacesApiService
         flats: [],
         recommandations: [],
         total_pages: 0,
+        markers: [],
         count: 0
       }
     else
@@ -35,7 +36,7 @@ class UniplacesApiService
         status: 200,
         flats: response['data'],
         recommandations: recommandations(response['data']),
-        coordinates: coordinates(response['data']),
+        markers: set_markers(response['data'], @flat_preference_id),
         total_pages: response['meta']['total_page_number'],
         count: response['meta']['total_found']
       }
@@ -66,13 +67,18 @@ class UniplacesApiService
     end
   end
 
-  def coordinates(payload)
+  def set_markers(payload, flat_preference_id)
+    flat_preference = FlatPreference.find(flat_preference_id)
     payload.map do |flat|
       {
         id: flat['id'].to_i,
         name: flat['attributes']['accommodation_offer']['title'],
         price:  flat['attributes']['accommodation_offer']['price']['amount'] / 100,
+        frequency: flat['attributes']['accommodation_offer']['contract_type'],
+        address: format_address(flat['attributes']['property']['coordinates']),
+        img: flat_image(flat['attributes']['photos'][0]['hash']),
         currency: manage_currency(flat['attributes']['accommodation_offer']['price']['currency_code'].downcase),
+        url: (Rails.application.routes.url_helpers.flat_path(@location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
         coordinates:
         {
           lng: flat['attributes']['property']['coordinates'][1],
