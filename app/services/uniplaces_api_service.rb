@@ -66,7 +66,7 @@ class UniplacesApiService
 
   def coordinates(payload)
     payload.map do |flat|
-      {id: flat['id'].to_i, coordinates: {lng: flat['attributes']['property']['coordinates'][1], lat: flat['attributes']['property']['coordinates'][0]}}
+      {id: flat['id'].to_i, name: flat['attributes']['accommodation_offer']['title'],coordinates: {lng: flat['attributes']['property']['coordinates'][1], lat: flat['attributes']['property']['coordinates'][0]}}
     end
   end
 
