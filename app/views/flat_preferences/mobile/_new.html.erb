@@ -9,7 +9,7 @@
         <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>
           <%= f.hidden_field :coordinates, data: {flats_landing_target: 'coordinates'} %>
           <div data-flats-landing-target="geocoder" class="geocoder position-relative">
-            <i class="fas fa-map-marker-smile position-absolute"></i>
+            <i class="fad fa-map-marker position-absolute"></i>
           </div>
           <div class="date-range-input position-relative">
             <%= f.input :date_range, as: :string, label: false,
