@@ -33,6 +33,7 @@ class UniplacesApiService
         status: 200,
         flats: response['data'],
         recommandations: recommandations(response['data']),
+        coordinates: coordinates(response['data']),
         total_pages: response['meta']['total_page_number'],
         count: response['meta']['total_found']
       }
@@ -60,6 +61,12 @@ class UniplacesApiService
         status: 200,
         flat: response
       }
+    end
+  end
+
+  def coordinates(payload)
+    payload.map do |flat|
+      {id: flat['id'].to_i, coordinates: {lng: flat['attributes']['property']['coordinates'][1], lat: flat['attributes']['property']['coordinates'][0]}}
     end
   end
 

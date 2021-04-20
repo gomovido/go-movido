@@ -1,21 +1,27 @@
 .flats-container {
-  .subnavbar input {
-    border: none !important;
-    margin-right: 0.5rem;
-    color: $black;
-    &::placeholder {
-      color: $black;
-     }
-    &:focus {
-      outline: none !important;
+  padding-top: 80px;
+}
+@include media-breakpoint-down(md) {
+  .flats-container {
+    padding-top: 0;
+    .subnavbar input {
       border: none !important;
-      box-shadow: none !important;
+      margin-right: 0.5rem;
+      color: $black;
+      &::placeholder {
+        color: $black;
+       }
+      &:focus {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
     }
-  }
-  .pagy-nav {
-    height: 0;
-    span.page {
-      visibility: hidden;
+    .pagy-nav {
+      height: 0;
+      span.page {
+        visibility: hidden;
+      }
     }
   }
 }

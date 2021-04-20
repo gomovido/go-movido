@@ -13,10 +13,10 @@ class FlatReflex < ApplicationReflex
     @flat_preference.range_max_price = params["flat_preference"]["range_max_price"].to_i * 100
     @flat_preference.save
     fetch_flats(@flat_preference, @flat_preference.flat_type)
-    morph ".flats-card-wrapper", render(partial: "flats/#{device}/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
-    morph ".clear-filters", render(partial: "flats/#{device}/clear_filters", locals: { active_filters: @flat_preference.facilities.present?, location: @flat_preference.location, type: @flat_preference.flat_type })
-    morph ".no-results", render(partial: "flats/#{device}/no_results", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type })
-    morph ".pagy", render(partial: "flats/#{device}/pagy", locals: { pagy: @pagy })
+    morph ".flats-card-wrapper", render(partial: "flats/#{device}/index/flats", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type }, pagination: view_context.pagy_nav(@pagy))
+    morph ".clear-filters", render(partial: "flats/#{device}/index/clear_filters", locals: { active_filters: @flat_preference.facilities.present?, location: @flat_preference.location, type: @flat_preference.flat_type })
+    morph ".no-results", render(partial: "flats/#{device}/index/no_results", locals: { flats: @flats, location: @flat_preference.location, type: @flat_preference.flat_type })
+    morph ".pagy", render(partial: "flats/#{device}/index/pagy", locals: { pagy: @pagy })
   end
 
   def fetch_flats(preferences, type)
