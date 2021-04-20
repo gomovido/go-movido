@@ -1,4 +1,6 @@
 class UniplacesApiService
+  include UniplacesHelper
+
   def initialize(params)
     @location = params[:city_code]
     @country = params[:country]
@@ -66,7 +68,17 @@ class UniplacesApiService
 
   def coordinates(payload)
     payload.map do |flat|
-      {id: flat['id'].to_i, name: flat['attributes']['accommodation_offer']['title'],coordinates: {lng: flat['attributes']['property']['coordinates'][1], lat: flat['attributes']['property']['coordinates'][0]}}
+      {
+        id: flat['id'].to_i,
+        name: flat['attributes']['accommodation_offer']['title'],
+        price:  flat['attributes']['accommodation_offer']['price']['amount'] / 100,
+        currency: manage_currency(flat['attributes']['accommodation_offer']['price']['currency_code'].downcase),
+        coordinates:
+        {
+          lng: flat['attributes']['property']['coordinates'][1],
+          lat: flat['attributes']['property']['coordinates'][0]
+        }
+      }
     end
   end
 

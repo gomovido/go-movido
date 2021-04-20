@@ -35,6 +35,7 @@ export const mapboxMap = (element, lng, lat, coordinates) => {
   coordinates.forEach((marker) => {
     let popup = new mapboxgl.Popup({ offset: 25 }).setText(marker.name);
     var el = document.createElement('div');
+    el.innerHTML = `<span class="price">${marker.currency}${marker.price}</span>`
     el.classList.add('marker')
     el.id = marker.id;
     new mapboxgl.Marker(el)
