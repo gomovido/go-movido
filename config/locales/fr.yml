@@ -108,12 +108,13 @@ fr:
         birth_city: 'Ville de naissance'
   flat_preferences:
     new:
-      disclaimer: 'This service is only available for UK & France'
+      disclaimer: 'Service disponible en France et en Grande Bretagne'
       location: "Trouvez l'endroit idéal pour séjourner"
       submit: 'Chercher'
+      submitting: "Recherche en cours ..."
   providers:
     index:
-      count: "%{count}+ lieux d'hébergement"
+      count: "%{count}+ logements"
       show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Bientôt disponible"
       no_results: "Pas de logements disponibles"
@@ -121,6 +122,50 @@ fr:
       entire_flat: 'Logements entiers'
       flatshare: 'Colocations'
       upscale_housing: 'Haut de gamme'
+  flats:
+    show:
+      cta: "Réserver"
+      more: "Voir plus"
+      less: "Voir moins"
+      accommodations: "Plus d'offres"
+      more_rooms: "Ce logement a d'autres chambres disponibles"
+      facilities: "Équipements"
+      rental_conditions: "Conditions de location"
+      contract: "Contract"
+      included_bills: "Charges incluses"
+      cancellation_policy: "Politique d'annulation"
+      security_deposit: "Caution"
+      min_stay: "Séjour minimums"
+      nights: "nights"
+      community_facilities: "Équipements communs & Services"
+      flats: "Appartements"
+      rules: "Règlement"
+    index:
+      priv_room: "Chambre"
+      priv_bath: "Salle de bain"
+      priv_kitchen: "Cuisine"
+      dual_occupancy: "Colocation"
+      clear_filters: "Réinitialiser les filtres"
+      no_results: "Pas de résultats pour votre requête"
+      show_more: "Voir plus"
+      cta: "Réserver"
+      filters:
+        title: "Filtres"
+        price_range: "Prix"
+        frequency: "/semaine"
+        amenities: "Équipements"
+        clear: "<u>Réinitialiser</u>"
+        kitchen: "Cuisine"
+        wifi: "Wifi"
+        gym: "Salle de sport"
+        room_cleaning: "Ménage"
+        laundry: "Lessive"
+        wi_fi: "Wifi"
+        unfurnished: "Non meublé"
+        accessibility: "Accessibilité"
+        elevator: "Ascenseur"
+        outdoor_area: "Espace extérieur"
+        washing_machine: "Machine à laver"
   pages:
     contact:
       title: 'Contacte nous'

@@ -13,7 +13,7 @@
     <div class="col-12">
       <div class="d-flex flex-column">
         <p class="location">
-          <%= @flat[:city] %>, <%= @flat[:country] %>
+          <%= @flat[:city].capitalize %>, <%= @flat[:country] %>
         </p>
         <span class='name'>
           <%= @flat[:title] %>
@@ -25,12 +25,12 @@
       <span class="description mb-2">
         <div
           data-controller="read-more"
-          data-read-more-more-text-value="Show more"
-          data-read-more-less-text-value="Show less">
+          data-read-more-more-text-value="<%= t('flats.show.more') %>"
+          data-read-more-less-text-value="<%= t('flats.show.less') %>">
           <p data-read-more-target="content"><%= split_description(@flat[:description]) %></p>
 
           <button data-action="read-more#toggle" class="link purple font-weight px-0">
-            Show more
+            <%= t('flats.show.more') %>
           </button>
 
           <template data-read-more-target="full">
@@ -40,13 +40,15 @@
       </span>
       <hr class="w-100">
     </div>
-    <%= render 'flats/mobile/index/flats', rooms: @flat[:rooms] %>
-    <%= render 'flats/mobile/index/bedrooms', facilities: @flat[:bedrooms_facilities] %>
-    <%= render 'flats/mobile/index/appartment_facilities', facilities: @flat[:apartment_facilities] %>
-    <%= render 'flats/mobile/index/community_facilities', facilities: @flat[:community_facilities] %>
+    <%= render 'flats/mobile/show/flats', rooms: @flat[:rooms] %>
+    <%= render 'flats/mobile/show/bedrooms', facilities: @flat[:bedrooms_facilities] %>
+    <%= render 'flats/mobile/show/appartment_facilities', facilities: @flat[:apartment_facilities] %>
+    <%= render 'flats/mobile/show/community_facilities', facilities: @flat[:community_facilities] %>
+    <%= render 'flats/mobile/show/billing_details', billing_details: @flat[:billing_details] %>
+    <%= render 'flats/mobile/show/rules', rules: @flat[:rules] %>
     <% if @recommandations.present? %>
       <div class="col-12 d-flex flex-column my-2 pr-0">
-        <span class="title">More Accomodations</span>
+        <span class="title"><%= t('flats.show.accommodations') %></span>
         <div class="flats-card-scroller pt-0">
           <ul class="hs" data-animate-target="container">
             <% @recommandations.each do |flat| %>

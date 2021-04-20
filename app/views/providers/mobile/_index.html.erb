@@ -1,28 +1,25 @@
-<div class="container providers-container py-4">
-  <div class="row">
-    <div class="col-12">
-      <%= link_to real_estate_path, class: 'location' do %>
-      <i class="far fa-chevron-left mr-4"></i>
-      <span><%= @flat_preference.location.capitalize %></span>
-      <% end %>
+<div class="container providers-container py-1" data-controller="providers">
+  <div data-providers-target="wrapper">
+    <div class="row">
+      <div class="col-12 d-flex align-items-center justify-content-between">
+        <%= link_to real_estate_path, class: 'location d-flex align-items-center' do %>
+        <i class="far fa-chevron-left mr-4"></i>
+        <span><%= current_user.flat_preference.location.capitalize %></span>
+        <% end %>
+        <%= render 'providers/mobile/subnavbar', flat_preference: current_user.flat_preference,
+          move_in: current_user.flat_preference.move_in, move_out: current_user.flat_preference.move_out %>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-12">
+        <%= render 'providers/mobile/count', count: @count %>
+      </div>
+    </div>
+    <div class="providers-wrapper">
+      <%= render 'providers/mobile/categories', uniacco_flats: @uniacco_flats, uniplaces_flats: @uniplaces_flats, flatshare_flats: @flatshare_flats, upscale_flats: @upscale_flats %>
     </div>
   </div>
-  <div class="row my-3">
-    <div class="col-12">
-      <span class="count-results"><%= t('providers.index.count', count: @count) %></span>
-    </div>
-  </div>
-  <div class="providers-wrapper">
-    <% FlatPreference::TYPES.each do |type| %>
-      <% if type == "student_housing" %>
-      <%= render "providers/mobile/category", flats: @uniacco_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: false %>
-      <% elsif type == "entire_flat" %>
-      <%= render "providers/mobile/category", flats: @uniplaces_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: false %>
-      <% elsif type == "upscale_housing" %>
-      <%= render "providers/mobile/category", flats: @upscale_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
-      <% else %>
-      <%= render "providers/mobile/category", flats: @flatshare_flats, flat_preference_id: @flat_preference.id, type: type, location: @flat_preference.location, coming_soon: true %>
-      <% end %>
-    <% end %>
+  <div class="text-center spinner-container d-none" data-providers-target="spinner" >
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
   </div>
 </div>
