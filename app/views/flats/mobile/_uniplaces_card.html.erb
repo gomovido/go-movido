@@ -8,13 +8,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <div class="facilities my-2 d-flex align-items-center justify-content-between px-2">
-      <div class="facility"> <%= flat['attributes']['property']['number_of_rooms'] %> <span>rooms</span> </div>
-      <div class="facility"> <%= flat['attributes']['property']['number_of_bathrooms'] %> <span>bathroom</span> </div>
-      <div class="facility"> <%= flat['attributes']['property']['has_resident_landlord'] %> <span>landlord</span> </div>
-      <div class="facility"> <%= flat['attributes']['property']['verifed'] %> <span>verified</span> </div>
-    </div>
-    <div class="details-wrapper d-flex justify-content-between px-2">
+    <div class="details-wrapper d-flex justify-content-between px-2 mt-3">
       <div class="details d-flex flex-column justify-content-around">
         <span class="name mb-2 text-left">
           <%= flat['attributes']['accommodation_offer']['title'] %>
@@ -23,7 +17,7 @@
           <%= flat_price(flat) %>
         </span>
       </div>
-      <%= link_to 'Book', '', class:'btn-flat-card', target:'blank' %>
+      <%= link_to t("flats.index.cta"), "https://www.uniplaces.com/accommodation/london/#{flat['id']}", class:'btn-flat-card', target: 'blank' %>
     </div>
   </div>
 <% end %>

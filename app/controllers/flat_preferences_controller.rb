@@ -9,6 +9,7 @@ class FlatPreferencesController < ApplicationController
       @flat_preference.move_in = flat_preference_params[:date_range].split[0].to_date
       @flat_preference.move_out = flat_preference_params[:date_range].split[-1].to_date
     end
+    @flat_preference.coordinates = flat_preference_params[:coordinates].split(',')
     @flat_preference.location = format_location_params(flat_preference_params[:coordinates])
     @flat_preference.country = format_country_params(flat_preference_params[:coordinates])
     if @flat_preference.save

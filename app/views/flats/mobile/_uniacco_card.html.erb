@@ -8,9 +8,10 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <div class="facilities my-2 d-flex align-items-center justify-content-between px-2">
-      <% flat['facilities'].first.reject{|v| v == 'sold_out'}.each do |facility| %>
-        <div class="facility"><%= t("flats.index.#{facility}").html_safe  %> </div>
+    <% facilities = flat['facilities'].first.reject{|v| v == 'sold_out'} %>
+    <div class="facilities my-2 d-flex align-items-center <%= facilities.length == 2 ? '' : 'justify-content-between' %>">
+      <% facilities.each do |facility| %>
+        <div class="facility <%= facilities.length == 2 ? 'mr-4' : '' %>"><%= t("flats.index.#{facility}")  %> </div>
       <% end %>
     </div>
     <div class="details-wrapper d-flex justify-content-between px-2">
@@ -22,7 +23,7 @@
           <%= flat['disp_price'] %> /<%= flat['billing'].downcase %>
         </span>
       </div>
-      <%= link_to 'Book', booking_link(flat['city'], flat["code"], current_user.flat_preference.country), class: 'btn-flat-card', target:'blank' %>
+      <%= link_to t('flats.index.cta'), booking_link(flat['city'], flat["code"], current_user.flat_preference.country), class: 'btn-flat-card', target:'blank' %>
     </div>
   </div>
 <% end %>
