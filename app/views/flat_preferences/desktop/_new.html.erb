@@ -9,13 +9,13 @@
         <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>
           <%= f.hidden_field :coordinates, data: {flats_landing_target: 'coordinates'} %>
           <div data-flats-landing-target="geocoder" class="geocoder position-relative">
-            <i class="fas fa-map-marker-smile position-absolute"></i>
+            <i class="fad fa-map-marker position-absolute"></i>
           </div>
           <div class="d-flex align-items-center justify-content-center">
             <div class="date-range-input position-relative">
               <%= f.input :date_range, as: :string, label: false,
                required: true,
-               input_html: { class: 'background-white datepicker datepicker-landing', id: 'date-input', data: { controller: 'flatpickr',
+               input_html: { class: 'background-white datepicker datepicker-landing', id: 'date-input', placeholder: 'hello', data: { controller: 'flatpickr',
                flatpickr_default_date: [Time.zone.now, Time.zone.now + 30.days], flatpickr_alt_input: true, flatpickr_position: "above center", flatpickr_alt_format: '%e %b %Y', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range'} } %>
               <i class="fad fa-calendar position-absolute"></i>
             </div>
