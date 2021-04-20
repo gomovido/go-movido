@@ -1,0 +1,12 @@
+<div class="subnavbar col-12">
+  <span class="location"><%= location.capitalize %></span>
+  <div class="filters d-flex align-items-center">
+    <%= simple_form_for flat_preference, html: {method: :put, id: 'edit_move_dates'} do |f| %>
+      <%= f.input :move_in, as: :string, label: false,
+         required: true,
+         input_html: { class: 'background-white datepicker', id: 'date-input', data: { controller: 'flatpickr',
+          action: 'change->flats#filterByDates', flatpickr_default_date: [move_in.to_date, move_out.to_date], flatpickr_alt_input: true, flatpickr_alt_format: '%e %b', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range'} } %>
+    <% end %>
+    <i class="fas fa-sliders-h purple"  data-toggle="modal"  data-target="#filtersModal"></i>
+  </div>
+</div>

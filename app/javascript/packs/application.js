@@ -29,6 +29,7 @@ import "flatpickr/dist/flatpickr.min.css"
 import 'intl-tel-input/build/css/intlTelInput.css';
 import 'swiper/swiper-bundle.min.css'
 import "controllers"
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 // Internal imports, e.g:
