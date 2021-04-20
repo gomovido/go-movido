@@ -24,23 +24,41 @@ const setPlaceholder = (localevalue) => {
   }
 }
 
-export const mapboxMap = (element, lng, lat, coordinates) => {
-  mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
+export const mapboxMap = (element, markers, centerCoordinates) => {
+  mapboxgl.accessToken = process.env.MAPBOX_MAP_STYLE_KEY;
+
   const map = new mapboxgl.Map({
     container: element,
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [lng, lat],
-    zoom: 15
+    style: 'mapbox://styles/yonitou/cknq3xu9u0prp17qf31l80t8r',
+    center: markers[0] ? [markers[0].coordinates.lng, markers[0].coordinates.lat] : centerCoordinates,
+    zoom: 12
   });
-  coordinates.forEach((marker) => {
-    let popup = new mapboxgl.Popup({ offset: 25 }).setText(marker.name);
-    var el = document.createElement('div');
+  markers.forEach((marker) => {
+    let popup = new mapboxgl.Popup({ offset: 25, closeButton: false }).setHTML(
+      `
+        <div class="img-box" style="background-image: url('${marker.img}')"></div>
+        <div class="details">
+          <a class="title" href="${marker.url}">${marker.name}</a>
+          <span class="location">${marker.address}</span>
+          <span class="price">${marker.currency}${marker.price} / ${marker.frequency}</span>
+        </div>
+      `
+      );
+    let el = document.createElement('div');
     el.innerHTML = `<span class="price">${marker.currency}${marker.price}</span>`
     el.classList.add('marker')
-    el.id = marker.id;
-    new mapboxgl.Marker(el)
-    .setLngLat([marker.coordinates.lng, marker.coordinates.lat])
-    .setPopup(popup)
-    .addTo(map);
+    el.id = `marker-${marker.id}`;
+    el.dataset.lng = marker.coordinates.lng;
+    el.dataset.lat = marker.coordinates.lat;
+    popup.on('close', () => el.classList.remove('active'));
+    popup.on('open', () => el.classList.add('active'));
+    let mapMarker = new mapboxgl.Marker(el)
+      .setLngLat([marker.coordinates.lng, marker.coordinates.lat])
+      .setPopup(popup)
+      .addTo(map);
+    if (markers[0] === marker) {
+      mapMarker.togglePopup()
+    }
   });
+  return map
 }

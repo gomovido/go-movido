@@ -1,7 +1,7 @@
-<div class="flats-container container" data-controller="flats" data-turbolinks="false">
+<div class="flats-container container-fluid" data-controller="flats" data-turbolinks="false">
   <%= render 'flats/desktop/index/filters', flat_preference: @flat_preference, start_min_price: @start_min_price, start_max_price: @start_max_price, range_min_price: @range_min_price, range_max_price: @range_max_price %>
   <div class="row">
-    <div class="col-6">
+    <div class="col-5">
       <%= render 'flats/desktop/index/subnavbar', location: @location, flat_preference: @flat_preference, move_in: @move_in, move_out: @move_out %>
       <div class="clear-filters">
         <%= render 'flats/desktop/index/clear_filters', active_filters: @flat_preference.facilities.present?, location: @location, type: @type %>
@@ -21,6 +21,8 @@
         <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
       </div>
     </div>
-    <div class="col-6 map-container" data-controller="map" data-map-coordinates-value = "<%= @coordinates.to_json %>" data-map-center-value = "<%= @flat_preference.coordinates %>" data-map-target="mapContainer" id="map"></div>
+    <div class="map col-7">
+      <%= render 'flats/desktop/index/map', markers: @markers, center: @center %>
+    </div>
   </div>
 </div>
