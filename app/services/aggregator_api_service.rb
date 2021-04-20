@@ -43,7 +43,7 @@ class AggregatorApiService
     hash[:code] = flat['id']
     hash[:title] = flat['accommodation_offer']['title'].find { |k, _v| k['locale_code'] == 'en_GB' }['text']
     data = flat['property_aggregate']['property']['metadata']
-    hash[:description] = data.find { |k, _v| k['locale_code'] == 'en_GB' }['text'] if data
+    hash[:description] = data.find { |k, _v| k['locale_code'] == 'en_GB' || 'fr_FR' }['text'] if data
     hash[:city] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[1]
     hash[:country] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[0]
     hash[:billing] = flat['accommodation_offer']['contract']['type']

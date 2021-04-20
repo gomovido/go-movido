@@ -1,7 +1,7 @@
 <% if rules.present? %>
   <div class="col-12">
     <span class="title"><%= t('flats.show.rules') %></span>
-    <div class="facilities d-flex flex-wrap justify-content-around">
+    <div class="facilities d-flex flex-wrap">
       <% rules.each do |facility|  %>
         <div class="facility d-flex align-items-center px-2 my-2"><%= facility %></div>
       <% end %>
