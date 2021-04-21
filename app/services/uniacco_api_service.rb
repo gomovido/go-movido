@@ -17,7 +17,7 @@ class UniaccoApiService
     query['facilities'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://uniacco.com/api/v1/cities/#{@city_code}/properties?sortBy=relevance")
     response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" }, query: query)
-    format_response(response)
+    format_response(response, @flat_preference_id)
   end
 
   def recommandations(properties)
@@ -42,7 +42,7 @@ class UniaccoApiService
     query['facilities'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://uniacco.com/api/v1/cities/#{flat_preference.location}/properties?sortBy=relevance&page=#{@page}")
     response = HTTParty.get(uri, headers: { "Content-Type" => "application/json" }, query: query)
-    advanced_list_flats(response, format_response(response))
+    advanced_list_flats(response, format_response(response, @flat_preference_id))
   end
 
   def advanced_list_flats(response, hash)
@@ -70,13 +70,14 @@ class UniaccoApiService
     end
   end
 
-  def format_response(response)
+  def format_response(response, flat_preference_id)
     if response && (response['title'] == 'NOT_FOUND')
       {
         error: 'NOT_FOUND',
         status: 404,
         flats: [],
         recommandations: [],
+        markers: [],
         total_pages: 0,
         count: 0
 
@@ -87,8 +88,29 @@ class UniaccoApiService
         status: 200,
         flats: response['properties'],
         recommandations: recommandations(response['properties']),
+        markers: set_markers(response['properties'], flat_preference_id),
         total_pages: response['pages'],
         count: response['count']
+      }
+    end
+  end
+
+  def set_markers(payload, flat_preference_id)
+    flat_preference = FlatPreference.find(flat_preference_id)
+    payload.map do |flat|
+      {
+        id: flat['code'],
+        name: flat['name'],
+        price:  flat['min_price'],
+        frequency: flat['billing'].downcase,
+        img: flat['images'][0]['url'],
+        currency: flat['currency'],
+        url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['code']) if flat_preference.flat_type),
+        coordinates:
+        {
+          lng: flat['location']['lng'],
+          lat: flat['location']['lat']
+        }
       }
     end
   end

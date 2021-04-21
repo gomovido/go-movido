@@ -30,6 +30,7 @@ class FlatReflex < ApplicationReflex
     when 'student_housing'
       response = UniaccoApiService.new(flat_preference_id: preferences.id, page: 1).filtered_flats
       @pagy = Pagy.new(count: response[:count], page: 1, items: 15, location: preferences.location, type: preferences.flat_type)
+      @markers = response[:markers]
     end
 
     preferences.update(recommandations: response[:recommandations])
