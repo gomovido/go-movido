@@ -17,16 +17,16 @@ class ProviderReflex < ApplicationReflex
     @upscale_flats = []
     @count = @uniacco_payload[:count] + @uniplaces_payload[:count]
     morph ".providers-wrapper",
-      render(partial: "providers/#{device}/categories",
-              locals: {
-                uniacco_flats: @uniacco_flats,
-                uniplaces_flats: @uniplaces_flats,
-                upscale_flats: @upscale_flats,
-                flatshare_flats: @flatshare_flats
-              })
+          render(partial: "providers/#{device}/categories",
+                 locals: {
+                   uniacco_flats: @uniacco_flats,
+                   uniplaces_flats: @uniplaces_flats,
+                   upscale_flats: @upscale_flats,
+                   flatshare_flats: @flatshare_flats
+                 })
     morph ".count-results",
-      render(partial: "providers/#{device}/count",
-              locals: { count: @count })
+          render(partial: "providers/#{device}/count",
+                 locals: { count: @count })
   end
 
   def uniplaces_flats(location, country)
@@ -36,6 +36,7 @@ class ProviderReflex < ApplicationReflex
   def uniacco_flats(location)
     UniaccoApiService.new(city_code: location, flat_preference_id: current_user.flat_preference.id).flats
   end
+
   private
 
   def set_browser
@@ -45,5 +46,4 @@ class ProviderReflex < ApplicationReflex
   def device
     @browser.device.mobile? ? 'mobile' : 'desktop'
   end
-
 end

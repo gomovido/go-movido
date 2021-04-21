@@ -73,7 +73,7 @@ class UniplacesApiService
       {
         id: flat['id'].to_i,
         name: flat['attributes']['accommodation_offer']['title'],
-        price:  flat['attributes']['accommodation_offer']['price']['amount'] / 100,
+        price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
         frequency: flat['attributes']['accommodation_offer']['contract_type'],
         img: flat_image(flat['attributes']['photos'][0]['hash']),
         currency: manage_currency(flat['attributes']['accommodation_offer']['price']['currency_code'].downcase),

@@ -101,7 +101,7 @@ class UniaccoApiService
       {
         id: flat['code'],
         name: flat['name'],
-        price:  flat['min_price'],
+        price: flat['min_price'],
         frequency: flat['billing'].downcase,
         img: flat['images'][0]['url'],
         currency: flat['currency'],
