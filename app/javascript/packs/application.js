@@ -36,10 +36,6 @@ import "controllers"
 import cookie from './cookie_banner';
 
 document.addEventListener('turbolinks:load', () => {
-  if (process.env.RAILS_ENV === 'production') {
-    console.log('GoogleTag working')
-    gtag('config', process.env.GOOGLE_TAG_ID, {'page_location': event.data.url});
-  }
   cookie();
 });
 
