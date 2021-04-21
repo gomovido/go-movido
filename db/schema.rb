@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_132653) do
+ActiveRecord::Schema.define(version: 2021_04_21_110835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,20 @@ ActiveRecord::Schema.define(version: 2021_04_19_132653) do
     t.string "sort_code"
     t.index ["subscription_id"], name: "index_billings_on_subscription_id"
     t.index ["user_id"], name: "index_billings_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "full_name"
+    t.string "email"
+    t.string "university"
+    t.string "phone"
+    t.string "room_type"
+    t.string "lease_duration"
+    t.text "requirements"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -262,6 +276,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_132653) do
   add_foreign_key "banks", "companies"
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
+  add_foreign_key "bookings", "users"
   add_foreign_key "charges", "subscriptions"
   add_foreign_key "flat_preferences", "users"
   add_foreign_key "mobiles", "categories"

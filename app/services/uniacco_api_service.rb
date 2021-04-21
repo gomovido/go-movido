@@ -112,7 +112,7 @@ class UniaccoApiService
         error: nil,
         status: 200,
         payload: {
-          code: @property,
+          code: response['code'],
           details: response,
           images: response['images'],
           facilities: response['facilities'],

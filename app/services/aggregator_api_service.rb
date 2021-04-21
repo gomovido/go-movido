@@ -24,7 +24,7 @@ class AggregatorApiService
   end
 
   def format_uniacco(hash, flat)
-    hash[:code] = flat['code']
+    hash[:code] = flat[:code]
     hash[:title] = flat[:details]['name']
     hash[:description] = flat[:details]['intro']
     hash[:city] = flat[:details]['city_name']
