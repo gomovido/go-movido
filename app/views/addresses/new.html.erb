@@ -1,3 +1,12 @@
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'userID': '<%= current_user.id %>',
+    'userCategory': 'User',
+    'event': 'AddressesNew'
+  });
+</script>
+
 <% if browser.device.mobile? %>
   <%= render 'addresses/mobile/new' %>
 <% else %>
