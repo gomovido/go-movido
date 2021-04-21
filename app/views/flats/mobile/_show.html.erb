@@ -1,4 +1,5 @@
 <div class="container-fluid flat-container">
+  <%= render 'flats/mobile/booking', flat: @flat, type: @type %>
   <div class="row">
     <div class="col-12 p-0 mb-4">
       <div data-controller="carousel" class="swiper-container position-relative"data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}}'>
@@ -29,7 +30,7 @@
           data-read-more-less-text-value="<%= t('flats.show.less') %>">
           <p data-read-more-target="content"><%= split_description(@flat[:description]) %></p>
 
-          <button data-action="read-more#toggle" class="link purple font-weight px-0">
+          <button data-action="read-more#toggle" class="link purple font-weight px-0 show-more">
             <%= t('flats.show.more') %>
           </button>
 

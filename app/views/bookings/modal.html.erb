@@ -1,0 +1,18 @@
+<div class="content" data-controller="booking-modal">
+  <div class="booking-form">
+    <%= simple_form_for @booking, data: {booking_modal_target: 'form'} do |f| %>
+      <%= f.input :full_name, required: true %>
+      <%= f.input :email, required: true %>
+      <%= f.input :university, required: true %>
+      <%= f.input :phone, required: true %>
+      <%= f.input :room_type, required: true %>
+      <%= f.input :lease_duration, required: true %>
+      <%= f.input :requirements %>
+      <div class="text-center w-100 mt-5">
+        <button class="btn-main w-100" data-action="click->booking-modal#submit">
+          Create booking
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>

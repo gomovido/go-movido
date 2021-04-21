@@ -1,4 +1,28 @@
-.modal-flat {
+.modal-booking {
+  .flat-summary {
+    .img {
+      width: 160px;
+      height: 100px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 14px;
+      margin-right: 1rem;
+    }
+    .details {
+      font-size: 14px;
+      justify-content: space-evenly;
+      .title {
+        font-weight: 500;
+      }
+      .price {
+        font-weight: bold;
+        font-family: 'Montserrat';
+      }
+      hr {
+        width: 100%;
+      }
+    }
+  }
   .picto {
     width: 25px;
     margin-bottom: 12px;
