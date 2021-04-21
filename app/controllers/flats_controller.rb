@@ -15,7 +15,7 @@ class FlatsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: { entries: render_to_string(partial: "flats/#{device}/index/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
+        render json: { entries: render_to_string(partial: "flats/#{device}/index/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy), markers: @markers }
       end
     end
   end
@@ -32,6 +32,7 @@ class FlatsController < ApplicationController
       response = UniaccoApiService.new(flat_preference_id: preferences.id, page: page).filtered_flats
       page = 1 if response[:count].to_i.zero?
       @pagy = Pagy.new(count: response[:count], page: page, items: 15, location: preferences.location, type: preferences.flat_type)
+      @markers = response[:markers]
     end
 
     preferences.update(recommandations: response[:recommandations])

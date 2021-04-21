@@ -1,6 +1,6 @@
 <div class="flats-container container-fluid" data-controller="flats" data-turbolinks="false">
   <%= render 'flats/desktop/index/filters', flat_preference: @flat_preference, start_min_price: @start_min_price, start_max_price: @start_max_price, range_min_price: @range_min_price, range_max_price: @range_max_price %>
-  <div class="row">
+  <div class="row" data-controller="map">
     <div class="col-5">
       <%= render 'flats/desktop/index/subnavbar', location: @location, flat_preference: @flat_preference, move_in: @move_in, move_out: @move_out %>
       <div class="clear-filters">

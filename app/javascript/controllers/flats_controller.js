@@ -46,6 +46,8 @@ export default class extends Controller {
 
 
   afterReflex(e) {
+    const event = new CustomEvent("reload-map")
+    window.dispatchEvent(event)
     const paginationLink = document.querySelector("a[rel='next']")
     if (paginationLink) {
       let old_url = paginationLink.getAttribute("href");
@@ -88,7 +90,6 @@ export default class extends Controller {
   }
 
   loadMore() {
-    console.log('hey')
     let nextPage = this.paginationTarget.querySelector("a[rel='next']");
     if (nextPage == null) {
       this.spinnerTarget.classList.add('d-none');
@@ -105,6 +106,9 @@ export default class extends Controller {
           this.spinnerTarget.classList.add('d-none')
           this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
           this.paginationTarget.innerHTML = data.pagination
+          document.getElementById('map').setAttribute('data-markers', JSON.stringify(data.markers));
+          const event = new CustomEvent("update-map")
+          window.dispatchEvent(event)
         } else {
           this.paginationTarget.innerHTML = data.pagination
           this.loadMore()

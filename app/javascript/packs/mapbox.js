@@ -33,14 +33,24 @@ export const mapboxMap = (element, markers, centerCoordinates) => {
     center: markers[0] ? [markers[0].coordinates.lng, markers[0].coordinates.lat] : centerCoordinates,
     zoom: 12
   });
+  let marker = setMarkers(markers, map);
+  if (marker) {
+    marker.togglePopup()
+  }
+  return map
+}
+
+
+export const setMarkers = (markers, map) => {
+  let mapMarkers = []
   markers.forEach((marker) => {
     let popup = new mapboxgl.Popup({ offset: 25, closeButton: false }).setHTML(
       `
         <div class="img-box" style="background-image: url('${marker.img}')"></div>
         <div class="details">
           <a class="title" href="${marker.url}">${marker.name}</a>
-          <span class="location">${marker.address}</span>
-          <span class="price">${marker.currency}${marker.price} / ${marker.frequency}</span>
+          <span class="location">Lorem Ipsum Jigonomatique</span>
+          <span class="price">From ${marker.currency}${marker.price} / ${marker.frequency}</span>
         </div>
       `
       );
@@ -56,9 +66,7 @@ export const mapboxMap = (element, markers, centerCoordinates) => {
       .setLngLat([marker.coordinates.lng, marker.coordinates.lat])
       .setPopup(popup)
       .addTo(map);
-    if (markers[0] === marker) {
-      mapMarker.togglePopup()
-    }
+    mapMarkers.push(mapMarker)
   });
-  return map
-}
+  return mapMarkers[0]
+};

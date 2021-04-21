@@ -1,19 +1,27 @@
 import { Controller } from "stimulus";
-import { mapboxMap } from '../packs/mapbox';
+import { mapboxMap, setMarkers } from '../packs/mapbox';
 
 export default class extends Controller {
-  static targets = ["mapContainer"]
-  static values = { markers: Array, center: Array }
 
   connect() {
-    this.map = mapboxMap(this.mapContainerTarget.id, this.markersValue, this.centerValue)
-    console.log(this.map)
-    Array.from(document.querySelectorAll('.flat-card-large')).forEach(card => {
-      card.addEventListener('click', e => {
-        let marker = document.getElementById(`marker-${card.id}`)
-        marker.click();
-        this.map.flyTo({center: [marker.dataset.lng, marker.dataset.lat], speed: 0.6})
-      });
-    })
+    let markers = JSON.parse(document.getElementById('map').dataset.markers)
+    let center = JSON.parse(document.getElementById('map').dataset.center)
+    this.map = mapboxMap('map', markers, center)
+  }
+
+  reloadMap() {
+    this.map.remove()
+    this.connect()
+  }
+
+  updateMarkers() {
+    setMarkers(JSON.parse(document.getElementById('map').dataset.markers), this.map)
+  }
+
+  moveMap(event) {
+    const marker = document.getElementById(`marker-${event.currentTarget.id}`)
+    this.map.flyTo({center: [marker.dataset.lng, marker.dataset.lat], speed: 0.6})
+    marker.click();
   }
 }
+

@@ -75,7 +75,6 @@ class UniplacesApiService
         name: flat['attributes']['accommodation_offer']['title'],
         price:  flat['attributes']['accommodation_offer']['price']['amount'] / 100,
         frequency: flat['attributes']['accommodation_offer']['contract_type'],
-        address: format_address(flat['attributes']['property']['coordinates']),
         img: flat_image(flat['attributes']['photos'][0]['hash']),
         currency: manage_currency(flat['attributes']['accommodation_offer']['price']['currency_code'].downcase),
         url: (Rails.application.routes.url_helpers.flat_path(@location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
