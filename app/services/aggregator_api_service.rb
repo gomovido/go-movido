@@ -30,7 +30,7 @@ class AggregatorApiService
     hash[:city] = flat[:details]['city_name']
     hash[:country] = flat[:details]['country_name']
     hash[:price] = flat[:details]['disp_price']
-    hash[:billing] = flat[:details]['billing'].downcase
+    hash[:billing] = flat[:details]['billing']
     hash[:currency_code] = flat[:details]['currency_code']
     hash[:images] = flat[:images].map { |i| { url: i['url'] } }
     hash[:facilities] = flat[:facilities].map { |f| { name: f } }
