@@ -1,0 +1,6 @@
+<% if flats.blank? %>
+  <div class="col-12 text-center mb-">
+    <p><%= t("flats.index.no_results") %></p>
+    <%= link_to t("flats.index.show_more"), clear_filters_path(location, type), method: :post, class: 'btn-flat-card mb-3 m-auto' %>
+  </div>
+<% end %>
