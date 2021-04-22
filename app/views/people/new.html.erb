@@ -1,3 +1,6 @@
+<%= render 'shared/google_tag_script',
+      user_id: current_user.id, email: current_user.email, event: 'subscriptionStarted', product_type: @subscription.product_type.downcase, subscription_id: @subscription.id %>
+
 <% if browser.device.mobile? %>
   <%= render 'people/mobile/new' %>
 <% else %>

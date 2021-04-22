@@ -54,7 +54,7 @@
           <ul class="hs" data-animate-target="container">
             <% @recommandations.each do |flat| %>
               <li class="item">
-                <%= render 'flats/mobile/card-lite', type: @type, name: flat['name'], code: flat['code'], image: flat['image'], price: flat['price'], billing: flat['billing'], location: @location %>
+                <%= render 'flats/mobile/show/card-lite', type: @type, name: flat['name'], code: flat['code'], image: flat['image'], price: flat['price'], billing: flat['billing'], location: @location %>
               </li>
             <% end %>
           </ul>
@@ -63,4 +63,4 @@
     <% end %>
   </div>
 </div>
-<%= render 'flats/mobile/booking_input', flat: @flat %>
+<%= render 'flats/mobile/show/booking_input', flat: @flat %>
