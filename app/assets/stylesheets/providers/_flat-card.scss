@@ -1,31 +1,82 @@
-.flat-card {
-  background: $white;
-  border-radius: 14px;
-  box-shadow: 0px 2px 4px rgba(143, 143, 143, 0.25);
-  height: 70px;
-  width: 248px;
+.flat-card-desktop {
+  max-width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  color: $white;
   .name {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-  }
-  .pricing {
-    font-family: 'Montserrat';
-    font-style: normal;
+    width: 80%;
     font-weight: bold;
-    font-size: 12px;
-    line-height: 17px;
+    font-size: 14px;
   }
-  .img-box {
-    min-width: 70px;
-    background-size: cover;
+  .price {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 14px;
+    border-left: 1px solid $white;
+    .from {
+      font-family: 'Montserrat';
+      font-weight: 300;
+      font-size: 9px;
+    }
+  }
+}
+.flat-card-disabled {
+  grid-area: 1 / 1 / 2 / 5;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  .image {
     background-position: center;
-    border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px;
+    background-size: cover;
+    border-radius: 0 20px 20px 0;
   }
-  .details {
-    padding: 0 1%;
+  .content {
+    margin: auto 0;
+    padding-left: 50px;
+    h3 {
+      font-size: 17px;
+      font-weight: 200;
+    }
+    h2 {
+      font-size: 44px;
+    }
+    span {
+      font-weight: 600;
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .flat-card {
+    background: $white;
+    border-radius: 14px;
+    box-shadow: 0px 2px 4px rgba(143, 143, 143, 0.25);
+    height: 70px;
+    width: 248px;
+    .name {
+      font-family: 'Manrope';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 19px;
+    }
+    .pricing {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 17px;
+    }
+    .img-box {
+      min-width: 70px;
+      background-size: cover;
+      background-position: center;
+      border-top-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+    }
+    .details {
+      padding: 0 1%;
+    }
   }
 }

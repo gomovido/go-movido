@@ -24,9 +24,7 @@ class ProviderReflex < ApplicationReflex
                    upscale_flats: @upscale_flats,
                    flatshare_flats: @flatshare_flats
                  })
-    morph ".count-results",
-          render(partial: "providers/#{device}/count",
-                 locals: { count: @count })
+    morph ".count-results", render(partial: "providers/#{device}/count", locals: { count: @count }) if @browser.device.mobile?
   end
 
   def uniplaces_flats(location, country)
