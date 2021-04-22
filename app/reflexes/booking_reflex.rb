@@ -5,15 +5,18 @@ class BookingReflex < ApplicationReflex
 
 
   def create
+
     @user = current_user
     @booking = Booking.new(booking_params)
     @booking.user = @user
     @user.reload
-    fetch_flat(current_user.flat_preference.flat_type, booking_params['flat_id'], current_user.flat_preference.location)
+    @type = current_user.flat_preference.flat_type
+    fetch_flat(@type, booking_params['flat_id'], current_user.flat_preference.location)
     if @booking.save
-      morph ".booking-form", render(partial: "bookings/#{device}/congratulations")
+      morph ".booking-modal-wrapper", with_locale { render(partial: "bookings/#{device}/congratulations", locals: {flat: @flat, type: @type, booking: @booking })}
     else
-      morph ".booking-form", render(partial: "bookings/#{device}/form", locals: { booking: @booking, flat: @flat, user: @user })
+      morph ".booking-form", with_locale { render(partial: "bookings/#{device}/form", locals: { booking: @booking, flat: @flat, user: @user })}
+      morph ".summary", with_locale { render(partial: "bookings/#{device}/flat_summary", locals: {flat: @flat, type: @type })}
     end
   end
 

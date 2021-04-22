@@ -1,4 +1,8 @@
-<div class="content" data-controller="booking-modal">
+<div class="content booking-modal-wrapper" data-controller="booking-modal">
+  <div class="summary">
+    <%= render 'bookings/mobile/flat_summary', flat: @flat, type: @type %>
+  </div>
+  <hr class="w-100">
   <div class="booking-form">
     <%= render 'bookings/mobile/form', booking: @booking, flat: @flat, user: @user %>
   </div>

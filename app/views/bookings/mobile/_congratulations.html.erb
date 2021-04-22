@@ -1,5 +1,48 @@
-<div class="col-12 text-center">
-  <i class="far fa-glass-cheers" style="font-size: 50px"></i>
-  <p>Congratulations for your booking</p>
-  <%= link_to 'See your dashboard', root_path, class:'btn-flat-card w-100' %>
+<div class="col-12 congratulations-wrapper">
+  <div class="d-flex flex-column align-items-start">
+  <span class="top-title"> <%= t('bookings.new.modal.congratulations.booking_placed') %></span>
+  <span class="title"> <%= t('bookings.new.modal.congratulations.identity_verification') %></span>
+  <span class="subtitle"> <%= t('bookings.new.modal.congratulations.booking_details') %></span>
+  <span class='disclaimer'> <%= t('bookings.new.modal.congratulations.disclaimer').html_safe %></span>
+  <div class="details-wrapper">
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.full_name') %></span>
+      <span> <%= booking.full_name %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.email') %></span>
+      <span> <%= booking.email %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.university') %></span>
+      <span> <%= booking.university %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.phone') %></span>
+      <span> <%= booking.phone %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.property') %></span>
+      <span> <%= flat[:title] %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.room_type') %></span>
+      <span> <%= booking.room_type %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="lease"> <%= booking.lease_duration %> </span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <span><%= t('bookings.new.modal.congratulations.price') %></span>
+      <span class="price"><%= manage_currency(flat[:currency_code].downcase) if type != 'student_housing' %><%= flat[:price] %> / <%= flat[:billing] %></span>
+    </div>
+    <% if !booking.requirements.blank? %>
+      <div class="d-flex justify-content-between align-items-center">
+        <span><%= t('bookings.new.modal.congratulations.requirements') %></span>
+        <span> <%= booking.requirements %> </span>
+      </div>
+    <% end %>
+  </div>
+  </div>
+  <%= link_to 'Continue', root_path, class:'btn-flat-card w-100' %>
 </div>
