@@ -49,12 +49,12 @@ class AggregatorApiService
     hash[:billing] = flat['accommodation_offer']['contract']['type']
     hash[:billing_details] = {
       type: flat['accommodation_offer']['contract']['type'].capitalize,
-      included_bills: flat['accommodation_offer']['costs']['bills'].map{|type, conditions| type.capitalize if conditions["included"] == true}.compact,
+      included_bills: flat['accommodation_offer']['costs']['bills'].map { |type, conditions| type.capitalize if conditions["included"] == true }.compact,
       cancellation_policy: flat['accommodation_offer']['requisites']['conditions']['cancellation_policy'].titlecase,
-      deposit: (flat['accommodation_offer']['contract']['deposit']['value']['amount'] / 100).to_s + ' ' + flat['accommodation_offer']['reference_price']['currency_code'],
+      deposit: "#{flat['accommodation_offer']['contract']['deposit']['value']['amount'] / 100} #{flat['accommodation_offer']['reference_price']['currency_code']}",
       min_nights: flat['accommodation_offer']['requisites']['conditions']['minimum_nights']
     }
-    hash[:rules] = flat['property_aggregate']['property']['rules'].map{|rule| rule['code'].remove("-allowed").insert(0 ,"no-").titlecase if rule['exists'] == false}.compact if flat['property_aggregate']['property']['rules'].present?
+    hash[:rules] = flat['property_aggregate']['property']['rules'].map { |rule| rule['code'].remove("-allowed").insert(0, "no-").titlecase if rule['exists'] == false }.compact if flat['property_aggregate']['property']['rules'].present?
     hash[:price] = flat['accommodation_offer']['reference_price']['amount'] / 100
     hash[:currency_code] = flat['accommodation_offer']['reference_price']['currency_code']
     hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/medium.jpg" } }
