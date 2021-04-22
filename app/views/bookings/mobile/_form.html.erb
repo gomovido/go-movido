@@ -6,13 +6,13 @@
   <%= f.input :university, required: true, input_html: {placeholder: 'university / college'} %>
   <%= f.input :phone, required: true, input_html: {data: { booking_modal_target: 'phone' }, placeholder: 'phone number', value: user.person&.phone || ''} %>
   <% if user.flat_preference.flat_type == 'student_housing' %>
-    <%= f.input :room_type, collection: flat[:rooms].map {|room| [room[:name], room[:name]]}, prompt: 'Choose your room type'  %>
-    <%= f.input :lease_duration, collection: subconfigs.map {|subconfig| subconfig.map{|a| "#{a['lease']} week lease #{a['price']} £/week starts form #{a['available_from']}, book now by paying #{a['deposit']} £" }}, prompt: 'Choose your lease duration'  %>
+    <%= f.input :room_type, required: true, collection: flat[:rooms].map {|room| [room[:name], room[:name]]}, prompt: t('bookings.new.modal.placeholder.type') %>
+    <%= f.input :lease_duration, required: true, collection: subconfigs.map {|subconfig| subconfig.map{|a| "#{a['lease']} week lease #{a['price']} £/week starts form #{a['available_from']}, book now by paying #{a['deposit']} £" }}, prompt: t('bookings.new.modal.placeholder.duration') %>
   <% end %>
-  <%= f.input :requirements, input_html: {placeholder: 'requirements'}, label: "Any Specific Requirements? (optional)" %>
+  <%= f.input :requirements, input_html: {placeholder: 'Requirements'} %>
   <div class="text-center w-100 mt-5">
     <button class="btn-main w-100" data-action="click->booking-modal#submit">
-      Create booking
+      <%= t('bookings.new.modal.submit') %>
     </button>
   </div>
 <% end %>

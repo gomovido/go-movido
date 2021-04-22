@@ -58,7 +58,29 @@ en:
               blank: "can't be blank"
             birth_city:
               blank: "can't be blank"
+        booking:
+          attributes:
+            phone:
+              blank: "can't be blank"
+            full_name:
+              blank: "can't be blank"
+            email:
+              blank: "can't be blank"
+            university:
+              blank: "can't be blank"
+            room_type:
+              blank: "can't be blank"
+            lease_duration:
+              blank: "can't be blank"
     attributes:
+      booking:
+        phone: 'Number phone'
+        full_name: 'Full name'
+        email: 'Email'
+        university: 'University / College'
+        room_type: 'Room type'
+        lease_duration: 'Lease duration'
+        requirements: 'Specific requirements:'
       billing:
         iban: 'IBAN'
         bic: 'BIC'
@@ -94,6 +116,27 @@ en:
         phone: 'Phone'
         birthdate: 'Date of birth'
         birth_city: 'City of birth'
+  bookings:
+    new:
+      modal:
+        continue: 'Continue'
+        submit: 'Book now'
+        placeholder:
+          duration: 'Choose your lease duration'
+          type: 'Choose your room type'
+        congratulations:
+          booking_placed: 'Booking placed'
+          identity_verification: 'Identity verification'
+          booking_details: 'Booking details'
+          disclaimer: 'Your booking request has been sent!<br> You will receive further details by email.'
+          full_name: 'Full name'
+          email: 'Email'
+          university: 'University / College'
+          phone: 'Phone number'
+          property: 'Property name'
+          room_type: 'Room type'
+          price: 'Price'
+          requirements: 'Specific requirements'
   flat_preferences:
     new:
       disclaimer: 'This service is only available for UK & France'
