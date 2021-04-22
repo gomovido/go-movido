@@ -55,6 +55,10 @@ class User < ApplicationRecord
     end
   end
 
+  def full_name
+    first_name + ' ' + last_name
+  end
+
   protected
 
   def generate_username

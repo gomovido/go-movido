@@ -77,6 +77,6 @@ Rails.application.routes.draw do
   get 'providers-index/:location', to: 'providers#index', as: 'providers'
   post 'flats/:location/:type', to: 'flats#clear_filters', as: 'clear_filters'
 
-  get 'booking/modal', to: 'bookings#modal', as: 'modal_booking'
+  get 'booking/modal/:flat_id', to: 'bookings#modal', as: 'modal_booking'
   resources :bookings, only: [:create]
 end
