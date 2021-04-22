@@ -1,4 +1,5 @@
 class FlatsController < ApplicationController
+  before_action :set_browser
   def index
     @flat_preference = current_user.flat_preference
     @move_in = @flat_preference.move_in.strftime
@@ -9,11 +10,12 @@ class FlatsController < ApplicationController
     @start_max_price = 200_000
     @range_min_price = @flat_preference.min_price
     @range_max_price = @flat_preference.max_price
+    @center = [@flat_preference.coordinates[1], @flat_preference.coordinates[0]]
     fetch_flats(@flat_preference, @type)
     respond_to do |format|
       format.html
       format.json do
-        render json: { entries: render_to_string(partial: "flats/mobile/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy) }
+        render json: { entries: render_to_string(partial: "flats/#{device}/index/flats", formats: [:html], locals: { flats: @flats, location: @location, type: @flat_preference.flat_type }), pagination: view_context.pagy_nav(@pagy), markers: @markers }
       end
     end
   end
@@ -25,10 +27,12 @@ class FlatsController < ApplicationController
       response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).flats
       page = 1 if response[:count].to_i.zero?
       @pagy = Pagy.new(count: response[:count], page: page, location: preferences.location, type: preferences.flat_type)
+      @markers = response[:markers]
     when 'student_housing'
       response = UniaccoApiService.new(flat_preference_id: preferences.id, page: page).filtered_flats
       page = 1 if response[:count].to_i.zero?
       @pagy = Pagy.new(count: response[:count], page: page, items: 15, location: preferences.location, type: preferences.flat_type)
+      @markers = response[:markers]
     end
 
     preferences.update(recommandations: response[:recommandations])
@@ -61,5 +65,15 @@ class FlatsController < ApplicationController
       flash[:alert] = 'An error has occured'
       redirect_to flats_path(@location, @type)
     end
+  end
+
+  private
+
+  def set_browser
+    @browser = Browser.new(request.env["HTTP_USER_AGENT"])
+  end
+
+  def device
+    @browser.device.mobile? ? 'mobile' : 'desktop'
   end
 end
