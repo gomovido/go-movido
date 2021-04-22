@@ -2,15 +2,15 @@
   padding-top: 80px;
   height: 100vh;
   .banner-landing {
-    height: 101%;
+    height: 100%;
     background-size: cover;
-    background-position: center;
+    transform: scale(1.01);
     .container {
-      padding-top: 4rem;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
+      height: 90%;
       h1 {
         font-family: 'Montserrat';
         color: $white;
@@ -20,7 +20,11 @@
         margin-bottom: 4rem;
       }
       .search-form {
-        width: 65%;
+        width: 100%;
+      }
+      .btn-flat-card {
+        width: 25%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
       form {
         display: flex;
@@ -28,6 +32,8 @@
         justify-content: space-between;
         .geocoder {
           border-radius: 32px;
+          width: 50%;
+          margin-right: 1px;
           input {
             font-family: 'Montserrat';
             font-style: normal;
@@ -46,7 +52,7 @@
         }
         .mapboxgl-ctrl {
           height: 65px;
-          border-radius: 32px;
+          border-radius: 32px 0 0 32px;
         }
         .mapboxgl-ctrl-geocoder--icon-search {
           display: none;
@@ -54,13 +60,13 @@
         .mapboxgl-ctrl-geocoder {
           max-width: 100%;
           width: 100%;
+          box-shadow: none;
         }
         .mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--pin-right > * {
           top: 13px;
         }
         .mapboxgl-ctrl-geocoder--input {
           height: 65px;
-          border-radius: 15px;
           padding-left: 4.5rem;
           &:focus {
             outline: none;
@@ -70,8 +76,7 @@
           margin-top: 12px;
         }
         .date-range-input {
-          margin: 1rem 0;
-          width: 100%;
+          width: 30%;
           margin-right: 2rem;
           .form-group {
             margin-bottom: 0;
@@ -84,7 +89,7 @@
           }
         }
         .datepicker {
-          border-radius: 32px;
+          border-radius: 0 32px 32px 0;
           height: 65px;
           padding: 6px 45px;
           background-color: transparent;
@@ -156,8 +161,8 @@
     .banner-landing {
       height: 70vh;
       background-size: cover;
-      background-position: right;
       background-position: 100% 100%;
+      transform: scale(1);
       .container {
         padding-top: 4rem;
         .search-form {
@@ -187,6 +192,7 @@
         form {
           .geocoder {
             border-radius: 32px;
+            width: auto;
             input {
               font-family: 'Montserrat';
               font-style: normal;
@@ -221,6 +227,11 @@
               outline: none;
             }
           }
+          .date-range-input {
+            width: auto;
+            margin-right: 0;
+            margin: 1rem 0;
+          }
           .date-range-input i {
             top: 30%;
             font-size: 18px;
@@ -230,6 +241,7 @@
           .datepicker {
             height: 50px;
             padding: 6px 45px;
+            border-radius: 32px;
           }
           ::placeholder {
             font-size: 14px;
