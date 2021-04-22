@@ -119,9 +119,13 @@ fr:
       coming_soon: "Bientôt disponible"
       no_results: "Pas de logements disponibles"
       student_housing: 'Logements étudiants'
+      student_housing_desc: "Partage ton logement avec d'autres étudiants. "
       entire_flat: 'Logements entiers'
+      entire_flat_desc: "Tu cherches un appart' juste pour toi ? Viens par ici."
       flatshare: 'Colocations'
+      flatshare_desc: "Un bel appartement à bas prix ? C'est possible."
       upscale_housing: 'Haut de gamme'
+      upscale_housing_desc: "Choisis parmi de superbes lieux."
   flats:
     show:
       cta: "Réserver"

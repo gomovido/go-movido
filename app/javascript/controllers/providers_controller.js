@@ -37,5 +37,14 @@ export default class extends Controller {
 
   }
 
+  addGradient(e) {
+    let imageUrl = e.currentTarget.dataset.image
+    e.currentTarget.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${imageUrl})`
+  }
+
+  removeGradient(e) {
+    let imageUrl = e.currentTarget.dataset.image
+    e.currentTarget.style.backgroundImage = `url(${imageUrl})`
+  }
 
 }
