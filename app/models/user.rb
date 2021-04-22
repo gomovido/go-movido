@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
+  has_many :bookings, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_many :subscriptions, through: :addresses
   has_many :billings, dependent: :destroy
@@ -52,6 +53,10 @@ class User < ApplicationRecord
       data = session["devise.facebook_data"]
       user.email = data["email"] if data && session["devise.facebook_data"]["extra"]["raw_info"]
     end
+  end
+
+  def full_name
+    first_name + ' ' + last_name
   end
 
   protected

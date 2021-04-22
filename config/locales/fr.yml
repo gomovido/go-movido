@@ -69,7 +69,29 @@ fr:
               blank: 'doit être remplie'
             birthdate:
               blank: 'doit être remplie'
+        booking:
+          attributes:
+            phone:
+              blank: 'doit être rempli'
+            full_name:
+              blank: 'doit être rempli'
+            email:
+              blank: 'doit être rempli'
+            university:
+              blank: 'doit être rempli'
+            room_type:
+              blank: 'doit être rempli'
+            lease_duration:
+              blank: 'doit être rempli'
     attributes:
+      booking:
+        phone: 'Numéro de télphone'
+        full_name: 'Nom complet'
+        email: 'Email'
+        university: 'Université / Ecole'
+        room_type: 'Type de chambre'
+        lease_duration: 'Durée du bail'
+        requirements: 'Exigences particulières :'
       billing:
         iban: 'IBAN'
         bic: 'BIC'
@@ -106,6 +128,27 @@ fr:
         phone: 'Téléphone'
         birthdate: 'Date de naissance'
         birth_city: 'Ville de naissance'
+  bookings:
+    new:
+      modal:
+        continue: 'Continuer'
+        submit: 'Réserver maintenant'
+        placeholder:
+          duration: 'Choisissez la durée de votre bail'
+          type: 'Choisissez votre type de chambre'
+        congratulations:
+          booking_placed: 'Demande envoyée'
+          identity_verification: 'Vérification en cours'
+          booking_details: 'Détails de la réservation'
+          disclaimer: "Votre demande de réservation a été envoyée!<br> Vous recevrez des détails supplémentaires par e-mail."
+          full_name: 'Nom complet'
+          email: 'Email'
+          university: 'Université / Collège'
+          phone: 'Numéro de téléphone'
+          property: 'Nom de la propriété'
+          room_type: 'Type de logement'
+          price: 'Prix'
+          requirements: 'Exigences particulières'
   flat_preferences:
     new:
       disclaimer: 'Service disponible en France et en Grande Bretagne'
