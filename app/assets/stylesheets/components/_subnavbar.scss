@@ -1,27 +1,64 @@
-.subnavbar {
-  height: 64px;
-  filter: drop-shadow(0px 16px 40px rgba(166, 163, 173, 0.2));
-  display: flex;
-  align-items: center;
-  border-radius: 0px 0px 14px 14px;
-  justify-content: space-between;
+.subnavbar-desktop {
+  .location {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .partner .subline {
+    font-family: 'Montserrat';
+    font-weight: normal;
+    font-size: 14px;
+    color: $grey;
+  }
   .form-group {
-    margin-bottom: 0 !important;
-  }
-  input {
-    background: transparent !important;
-    width: auto !important;
-    padding: 0 !important;
-    -webkit-appearance: none !important;
-    font-family: 'Montserrat';
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-  }
-  span {
-    font-weight: bold;
-    font-size: 14px;
-    font-family: 'Montserrat';
+      margin-bottom: 0 !important;
+    }
+    input {
+      background: transparent !important;
+      width: 70% !important;
+      padding: 0 !important;
+      -webkit-appearance: none !important;
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+      border: none !important;
+      text-align: center;
+      color: $black;
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+}
+
+
+@include media-breakpoint-down(xs) {
+  .subnavbar {
+    height: 64px;
+    filter: drop-shadow(0px 16px 40px rgba(166, 163, 173, 0.2));
+    display: flex;
+    align-items: center;
+    border-radius: 0px 0px 14px 14px;
+    justify-content: space-between;
+    .form-group {
+      margin-bottom: 0 !important;
+    }
+    input {
+      background: transparent !important;
+      width: auto !important;
+      padding: 0 !important;
+      -webkit-appearance: none !important;
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+    }
+    span {
+      font-weight: bold;
+      font-size: 14px;
+      font-family: 'Montserrat';
+    }
   }
 }

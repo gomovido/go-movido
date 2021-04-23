@@ -1,39 +1,80 @@
 .flat-card-large {
   .img-box {
-    height: 146px;
+    height: 170px;
     width: 100%;
     background-size: cover;
     background-position: center;
     border-radius: 14px;
   }
+  .name {
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 1px solid #C7C7C7;;
+    width: 90%;
+    padding-bottom: 3px;
+  }
   .facilities {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     .facility {
-      font-size: 10px;
+      font-size: 11px;
       border: 1px solid $purple;
-      width: 24%;
       border-radius: 40px;
+      padding: 2px 5px;
       text-align: center;
     }
   }
-  .details-wrapper {
-    a:first-child {
-      width: 65%;
+  .pricing {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .btn-flat-card {
+    width: 70%;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+  }
+}
+@include media-breakpoint-down(xs) {
+  .flat-card-large {
+    .btn-flat-card {
+      width: 104px;;
     }
-    .details {
-      .name {
-        font-family: 'Manrope';
-        font-weight: 200;
-        font-size: 14px;
-        line-height: 19px;
-        color: #18191F;
+    .img-box {
+      height: 146px;
+    }
+    .facilities {
+      .facility {
+        padding: 0;
+        font-size: 10px;
+        width: 24%;
       }
-      .pricing {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 17px;
-        color: #18191F;
+    }
+    .details-wrapper {
+      a:first-child {
+        width: 65%;
+      }
+      .details {
+        .name {
+          font-family: 'Manrope';
+          font-weight: 200;
+          font-size: 14px;
+          line-height: 19px;
+          color: #18191F;
+          border-bottom: 0;
+          padding-bottom: 0;
+        }
+        .pricing {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 17px;
+          color: #18191F;
+        }
       }
     }
   }
