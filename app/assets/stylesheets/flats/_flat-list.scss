@@ -6,13 +6,25 @@
       visibility: hidden;
     }
   }
+  .filters-button {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    i {
+      font-size: 20px;
+    }
+  }
+  .no-results-button {
+    width: 160px;
+    line-height: 64px;
+  }
 }
 @include media-breakpoint-down(md) {
   .flats-container {
     padding-top: 0;
     .subnavbar input {
       border: none !important;
-      margin-right: 0.5rem;
+      margin-right: 1rem;
       color: $black;
       &::placeholder {
         color: $black;

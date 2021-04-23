@@ -169,6 +169,7 @@ en:
       no_results: "No results matching your request"
       show_more: "Show more"
       cta: "Book now"
+      details: "See details"
       clear_filters: "Reset filters"
       filters:
         title: "Filters"

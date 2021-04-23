@@ -195,6 +195,7 @@ fr:
       clear_filters: "Réinitialiser les filtres"
       no_results: "Pas de résultats pour votre requête"
       show_more: "Voir plus"
+      details: "Détails"
       cta: "Réserver"
       filters:
         title: "Filtres"

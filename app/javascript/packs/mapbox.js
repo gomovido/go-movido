@@ -46,11 +46,9 @@ export const setMarkers = (markers, map) => {
   markers.forEach((marker) => {
     let popup = new mapboxgl.Popup({ offset: 25, closeButton: false }).setHTML(
       `
-        <div class="img-box" style="background-image: url('${marker.img}')"></div>
-        <div class="details">
-          <a class="title" href="${marker.url}">${marker.name}</a>
-          <span class="location">Lorem Ipsum Jigonomatique</span>
-          <span class="price">From ${marker.currency}${marker.price} / ${marker.frequency}</span>
+        <div class="content p-1" style="background-image: url('${marker.img}')">
+        <a class="title" href="${marker.url}">${marker.name.length > 20 ? marker.name.substring(0,20) + '...' : marker.name}</a>
+        <span class="price pl-1">${marker.currency}${marker.price} / ${marker.frequency}</span>
         </div>
       `
       );
