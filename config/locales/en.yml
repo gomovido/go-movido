@@ -194,9 +194,13 @@ en:
       coming_soon: "Coming soon"
       no_results: "No properties available"
       student_housing: 'Student housing'
+      student_housing_desc: "Share your accomodation with other students. It'll be fun."
       entire_flat: 'Entire flat'
+      entire_flat_desc: "Looking for a place just for you ? Come here."
       flatshare: 'Flat Share'
+      flatshare_desc: "Great flats with low budget ? Yes it's possible."
       upscale_housing: 'Upscale housing'
+      upscale_housing_desc: "Find the best premium apartment you can find. Now."
   pages:
     contact:
       title: 'Contact us'

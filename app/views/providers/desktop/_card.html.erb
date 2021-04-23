@@ -1,0 +1,6 @@
+<%= link_to flat_path(location, type, code) do %>
+  <div class="flat-card-desktop d-flex p-3 align-items-end" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(<%= image_url %>);" data-action="mouseover->providers#removeGradient mouseout->providers#addGradient" data-image="<%= image_url %>">
+    <span class="name"><%= name.size > 25 ? "#{name.first(25)} ..." : name %></span>
+    <span class="price pl-1"><span class="from">from</span> <br> <%= price %></span>
+  </div>
+<% end %>
