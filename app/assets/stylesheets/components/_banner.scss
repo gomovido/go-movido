@@ -1,83 +1,87 @@
-.banner {
-  height: 95vh;
-  background-size: cover;
-  background-position: center;
-  h1 {
-    color: $black;
-    font-size: 65px;
-    font-weight: 800;
-    line-height: 5rem;
-  }
-  p {
-    font-size: 28px;
-    color: $black;
-    font-weight: bold;
-  }
-  .headline {
-    strong {
+.home-container {
+  .banner {
+    height: 95vh;
+    background-size: cover;
+    background-position: center;
+    h1 {
+      color: $black;
+      font-size: 65px;
+      font-weight: 800;
+      line-height: 5rem;
+    }
+    p {
+      font-size: 28px;
+      color: $black;
       font-weight: bold;
     }
-  }
-  .offers {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding-left: 0;
-    i {
-      color: $purple;
-      font-size: 25px;
+    .headline {
+      strong {
+        font-weight: bold;
+      }
     }
-    li {
-      font-family: 'Manrope';
-      font-size: 16px;
-      font-weight: 600;
+    .offers {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      padding-left: 0;
+      i {
+        color: $purple;
+        font-size: 25px;
+      }
+      li {
+        font-family: 'Manrope';
+        font-size: 16px;
+        font-weight: 600;
+      }
     }
   }
 }
 
 @include media-breakpoint-down(md) {
-  .banner {
-    font-family: "Montserrat", sans-serif;
-    height: auto;
-    margin-top: 1rem;
-    h1 {
-      font-size: 26px;
-      line-height: inherit;
-      margin-bottom: 0;
-      font-weight: bold;
+  .home-container {
+    .banner {
       font-family: "Montserrat", sans-serif;
-    }
-    p {
-      font-size: 16px;
-      margin-bottom: 0;
-    }
-    .cta {
-      left: 22%;
-      bottom: 15%;
-      .btn-main {
-        padding: 15px 40px !important;
+      height: auto;
+      margin-top: 1rem;
+      h1 {
+        font-size: 26px;
+        line-height: inherit;
+        margin-bottom: 0;
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
       }
-    }
-    .banner-img {
-      position: relative;
-    }
-    .girl-image {
-      width: 90%;
-    }
-    .bubble-position-right {
-      position: absolute;
-      left: 80%;
-      width: 20%;
-      top: 20%;
-    }
-    .bubble-position-left {
-      position: absolute;
-      width: 20%;
-      top: 45%;
-      left: 0%;
-    }
-    .container, .content {
-      height: 100%;
+      p {
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+      .cta {
+        left: 22%;
+        bottom: 15%;
+        .btn-main {
+          padding: 15px 40px !important;
+        }
+      }
+      .banner-img {
+        position: relative;
+      }
+      .girl-image {
+        width: 90%;
+      }
+      .bubble-position-right {
+        position: absolute;
+        left: 80%;
+        width: 20%;
+        top: 20%;
+      }
+      .bubble-position-left {
+        position: absolute;
+        width: 20%;
+        top: 45%;
+        left: 0%;
+      }
+      .container, .content {
+        height: 100%;
+      }
     }
   }
 }

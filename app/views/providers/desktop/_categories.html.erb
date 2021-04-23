@@ -1,0 +1,11 @@
+<% FlatPreference::TYPES.each do |type| %>
+  <% if type == "student_housing" %>
+  <%= render "providers/desktop/category", flats: uniacco_flats, flat_preference_id: current_user.flat_preference.id, type: type, location: current_user.flat_preference.location, coming_soon: false %>
+  <% elsif type == "entire_flat" %>
+  <%= render "providers/desktop/category", flats: uniplaces_flats, flat_preference_id: current_user.flat_preference.id, type: type, location: current_user.flat_preference.location, coming_soon: false %>
+  <% elsif type == "upscale_housing" %>
+  <%= render "providers/desktop/category", flats: upscale_flats, flat_preference_id: current_user.flat_preference.id, type: type, location: current_user.flat_preference.location, coming_soon: true %>
+  <% else %>
+  <%= render "providers/desktop/category", flats: flatshare_flats, flat_preference_id: current_user.flat_preference.id, type: type, location: current_user.flat_preference.location, coming_soon: true %>
+  <% end %>
+<% end %>

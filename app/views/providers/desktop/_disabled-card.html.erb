@@ -1,0 +1,9 @@
+<div class="flat-card-disabled my-5 row" >
+  <div class="content col-7">
+    <h2><%= t("providers.index.#{type}") %></h2>
+    <h3 class="desc"><%= t("providers.index.#{type}_desc") %></h3>
+    <span class="message"><%= t("providers.index.#{message}") %></span>
+  </div>
+  <div class="col-5 image" style="background-image:url(<%= asset_path "flats/providers/#{type}_placeholder.png" %>);">
+  </div>
+</div>

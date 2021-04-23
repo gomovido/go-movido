@@ -1,45 +1,47 @@
-:root {
-  --gutter: 20px;
-}
+@include media-breakpoint-down(xs) {
+  :root {
+    --gutter: 20px;
+  }
 
-.flats-card-scroller {
-  display: grid;
-  grid-gap: var(--gutter) 0;
-  grid-template-columns: var(--gutter) 1fr var(--gutter);
-  align-content: start;
-  width: 100%;
-  overflow: hidden;
-  .hs {
+  .flats-card-scroller {
     display: grid;
-    grid-gap: calc(var(--gutter) / 2);
-    grid-template-columns: repeat(6, calc(79% - var(--gutter)));
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    scroll-snap-type: x proximity;
-    padding-bottom: calc(.75 * var(--gutter));
-    margin-bottom: calc(-.25 * var(--gutter));
-    scroll-behavior: smooth;
-    padding-left: 15px;
-    overflow-x: scroll;
+    grid-gap: var(--gutter) 0;
+    grid-template-columns: var(--gutter) 1fr var(--gutter);
+    align-content: start;
+    width: 100%;
+    overflow: hidden;
+    .hs {
+      display: grid;
+      grid-gap: calc(var(--gutter) / 2);
+      grid-template-columns: repeat(6, calc(79% - var(--gutter)));
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+      scroll-snap-type: x proximity;
+      padding-bottom: calc(.75 * var(--gutter));
+      margin-bottom: calc(-.25 * var(--gutter));
+      scroll-behavior: smooth;
+      padding-left: 15px;
+      overflow-x: scroll;
+
+    }
+    .hs > li,
+    .item {
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border-radius: 8px;
+    }
 
   }
-  .hs > li,
-  .item {
-    scroll-snap-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border-radius: 8px;
+  .flats-card-scroller > * {
+    grid-column: 1 / -1;
+  }
+
+  .hs::-webkit-scrollbar {
+    display: none;
   }
 
 }
-.flats-card-scroller > * {
-  grid-column: 1 / -1;
-}
-
-.hs::-webkit-scrollbar {
-  display: none;
-}
-
