@@ -2,10 +2,7 @@
   <%= render 'flats/desktop/index/filters', flat_preference: @flat_preference, start_min_price: @start_min_price, start_max_price: @start_max_price, range_min_price: @range_min_price, range_max_price: @range_max_price %>
   <div class="row" data-controller="map">
     <div class="col-5">
-      <%= render 'flats/desktop/index/subnavbar', location: @location, flat_preference: @flat_preference, move_in: @move_in, move_out: @move_out %>
-      <div class="clear-filters">
-        <%= render 'flats/desktop/index/clear_filters', active_filters: @flat_preference.facilities.present?, location: @location, type: @type %>
-      </div>
+      <%= render 'flats/desktop/index/subnavbar', location: @location, type: @type, flat_preference: @flat_preference, move_in: @move_in, move_out: @move_out %>
       <div class="flats-wrapper w-100">
         <div class="flats-card-wrapper w-100" data-flats-target="entries">
           <%= render 'flats/desktop/index/flats', flats: @flats, type: @type, location: @location  %>

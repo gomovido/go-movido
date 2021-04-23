@@ -4,8 +4,6 @@
     margin-bottom: 12px;
   }
   .modal-dialog {
-    max-width: 1110px;
-    margin: 0;
     .btn-m {
       width: 150px;
       i {
@@ -40,6 +38,7 @@
     }
     .filter-wrapper {
       padding: 2% 5% !important;
+      border: none;
     }
     .frequency {
       font-weight: bold;
@@ -54,5 +53,12 @@
         color: #18191F;
       }
     }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .modal-dialog {
+    max-width: 1110px;
+    margin: 0;
   }
 }
