@@ -1,4 +1,6 @@
 .flat-card-large {
+  padding: 3% 0;
+  border-bottom: 1px solid #80808021;
   .img-box {
     height: 170px;
     width: 100%;
@@ -7,11 +9,10 @@
     border-radius: 14px;
   }
   .name {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
-    border-bottom: 1px solid #C7C7C7;;
     width: 90%;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
   }
   .facilities {
     display: flex;
