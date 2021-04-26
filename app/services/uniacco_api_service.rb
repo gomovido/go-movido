@@ -104,7 +104,7 @@ class UniaccoApiService
         price: flat['min_price'],
         frequency: flat['billing'].downcase,
         img: flat['images'][0]['url'],
-        currency: flat['rate_unit'],
+        currency: flat['currency'],
         url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['code']) if flat_preference.flat_type),
         coordinates:
         {
@@ -113,24 +113,6 @@ class UniaccoApiService
         }
       }
     end
-  end
-
-  def set_marker(flat, flat_preference_id)
-    flat_preference = FlatPreference.find(flat_preference_id)
-      [{
-        id: flat['code'],
-        name: flat['name'],
-        price: flat['min_price'],
-        frequency: flat['billing'].downcase,
-        img: flat['images'][0]['url'],
-        currency: flat['rate_unit'],
-        url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['code']) if flat_preference.flat_type),
-        coordinates:
-        {
-          lng: flat['location']['lng'],
-          lat: flat['location']['lat']
-        }
-      }]
   end
 
   def flat
@@ -159,7 +141,7 @@ class UniaccoApiService
           apartment_facilities: response['apartment_facilities'],
           community_facilities: response['community_facilities']
         },
-        markers: set_marker(response, flat_preference.id)
+        markers: set_markers([response], flat_preference.id)
       }
     end
   end
