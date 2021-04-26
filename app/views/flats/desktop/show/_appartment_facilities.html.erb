@@ -1,0 +1,11 @@
+<% if facilities.present? %>
+  <div>
+    <span class="title"><%= t('flats.show.facilities') %></span>
+    <div class="facilities">
+      <% facilities.each do |facility|  %>
+        <div class="facility"><%= facility[:name] %></div>
+      <% end %>
+    </div>
+    <hr class="w-100">
+  </div>
+<% end %>
