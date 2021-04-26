@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    return if browser.device.mobile?
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save

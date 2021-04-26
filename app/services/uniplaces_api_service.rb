@@ -100,8 +100,8 @@ class UniplacesApiService
       url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
       coordinates:
       {
-        lng: flat.parsed_response['property_aggregate']['property']['location']['geo']['longitude'].to_i,
-        lat: flat.parsed_response['property_aggregate']['property']['location']['geo']['latitude'].to_i
+        lng: flat.parsed_response['property_aggregate']['property']['location']['geo']['longitude'],
+        lat: flat.parsed_response['property_aggregate']['property']['location']['geo']['latitude']
       }
     }]
   end
