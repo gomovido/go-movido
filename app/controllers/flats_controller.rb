@@ -55,7 +55,7 @@ class FlatsController < ApplicationController
       response = UniaccoApiService.new(code: @code, location: @location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:payload] if response[:status] == 200
     when 'entire_flat'
-      response = UniplacesApiService.new(property_code: @code).flat
+      response = UniplacesApiService.new(property_code: @code, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:flat] if response[:status] == 200
     end
     if @flat

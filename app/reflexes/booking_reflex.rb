@@ -5,7 +5,6 @@ class BookingReflex < ApplicationReflex
 
 
   def create
-
     @user = current_user
     @booking = Booking.new(booking_params)
     @booking.user = @user

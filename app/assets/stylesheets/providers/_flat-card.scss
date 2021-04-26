@@ -3,7 +3,7 @@
   height: 250px;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
+  border-radius: 4px;
   color: $white;
   .name {
     width: 80%;
@@ -25,7 +25,7 @@
 .flat-card-disabled {
   grid-area: 1 / 1 / 2 / 5;
   height: 400px;
-  border-radius: 20px;
+  border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   .image {
     background-position: center;
