@@ -161,6 +161,7 @@ en:
       community_facilities: "Community Facilities & Services"
       flats: "Rooms"
       rules: "Rules"
+      features:
     index:
       priv_room: "Priv. Room"
       priv_bath: "Priv. Bathroom"

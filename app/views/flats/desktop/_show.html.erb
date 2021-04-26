@@ -1,0 +1,70 @@
+<div class="container flat-container">
+  <%= render 'flats/desktop/show/modal_carousel', images: @flat[:images] %>
+    <div class="d-flex align-items-center justify-content-between">
+      <%= link_to flats_path(@location, @type), class: 'location d-flex align-items-center' do %>
+      <i class="far fa-chevron-left mr-4"></i>
+      <span><%= t("providers.index.#{@type}") %></span>
+      <% end %>
+      <div class="partner">
+        <span class="subline">Partnered by</span>
+        <%= image_tag(asset_path("flats/partners/#{FacilitiesHelper::PROVIDERS[@type]}.png"), width: '70px') %>
+      </div>
+    </div>
+    <div class="images mb-3">
+      <div class="first image" style="background-image:url(<%= @flat[:images][0][:url] %>);"></div>
+      <% @flat[:images][1..-1].first(4).each_with_index do |image, index| %>
+      <% if index == 3 %>
+        <div data-toggle="modal" data-target="#carouselModal" class="image image-<%= index %>" style="background-image: linear-gradient(180deg, #8C30F5 0%, rgba(140, 48, 245, 0.22) 54.17%), url(<%= image[:url] %>);">
+          <span>See More</span>
+        </div>
+        <% else %>
+          <div class="image image-<%= index %>" style="background-image:url(<%= image[:url] %>);"></div>
+        <% end %>
+      <% end %>
+    </div>
+    <p class="location">
+      <%= @flat[:city].capitalize %>, <%= @flat[:country] %>
+    </p>
+    <span class='name'>
+      <%= @flat[:title] %>
+    </span>
+    <div class="d-flex flex-column">
+      <hr class="w-100">
+      <span class="description mb-2">
+        <div
+          data-controller="read-more"
+          data-read-more-more-text-value="<%= t('flats.show.more') %>"
+          data-read-more-less-text-value="<%= t('flats.show.less') %>">
+          <p data-read-more-target="content"><%= split_description(@flat[:description]) %></p>
+          <button data-action="read-more#toggle" class="link purple font-weight px-0 show-more">
+          <%= t('flats.show.more') %>
+          </button>
+          <template data-read-more-target="full">
+          <%= full_description(@flat[:description]).html_safe %>
+          </template>
+        </div>
+      </span>
+      <hr class="w-100">
+    </div>
+    <%= render 'flats/desktop/show/flats', rooms: @flat[:rooms] %>
+    <%= render 'flats/desktop/show/bedrooms', facilities: @flat[:bedrooms_facilities] %>
+    <%= render 'flats/desktop/show/appartment_facilities', facilities: @flat[:apartment_facilities] %>
+    <%= render 'flats/desktop/show/community_facilities', facilities: @flat[:community_facilities] %>
+    <%= render 'flats/desktop/show/billing_details', billing_details: @flat[:billing_details] %>
+    <%= render 'flats/desktop/show/rules', rules: @flat[:rules] %>
+    <% if @recommandations.present? %>
+    <div class="my-2 pr-0">
+      <span class="title"><%= t('flats.show.accommodations') %></span>
+      <div class="flats-card-scroller pt-0">
+        <ul class="hs" data-animate-target="container">
+          <% @recommandations.each do |flat| %>
+          <li class="item">
+            <%= render 'flats/desktop/show/card-lite', type: @type, name: flat['name'], code: flat['code'], image: flat['image'], price: flat['price'], billing: flat['billing'], location: @location %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+</div>
+<%= render 'flats/desktop/show/booking_input', flat: @flat %>
