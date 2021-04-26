@@ -20,7 +20,7 @@
       </ul>
     </div>
     <% rooms.each_with_index do |room, index| %>
-      <div class="<%= 'd-none' if index != 0 %> room-description container"  data-id="<%= index %>" data-room-target="body">
+      <div class="<%= 'd-none' if index != 0 %> room-description"  data-id="<%= index %>" data-room-target="body">
         <p class="purple font-weight" >
           <%= room[:name] %>
         </p>
@@ -41,9 +41,5 @@
         </div>
       </div>
     <% end %>
-    <div class="book">
-      <%= link_to t("flats.show.cta"), '#', class:'btn-main mb-3 d-block text-center' %>
-    </div>
   </div>
-  <hr class="w-100">
 </div>
