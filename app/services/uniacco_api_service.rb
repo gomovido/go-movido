@@ -98,13 +98,15 @@ class UniaccoApiService
   def set_markers(payload, flat_preference_id)
     flat_preference = FlatPreference.find(flat_preference_id)
     payload.map do |flat|
+      currency = flat['currency']
+      currency = flat['rate_unit'].downcase if currency.nil?
       {
         id: flat['code'],
         name: flat['name'],
         price: flat['min_price'],
         frequency: flat['billing'].downcase,
         img: flat['images'][0]['url'],
-        currency: flat['currency'],
+        currency: currency,
         url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['code']) if flat_preference.flat_type),
         coordinates:
         {

@@ -15,6 +15,7 @@ export default class extends Controller {
   }
 
   submit(e) {
+    e.preventDefault()
     this.stimulate('BookingReflex#create', this.formTarget)
   }
 }
