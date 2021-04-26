@@ -1,7 +1,7 @@
-<div class="container providers-container py-1" data-controller="providers">
+<div class="providers-container" data-controller="providers">
   <div data-providers-target="wrapper">
-    <div class="row">
-      <div class="col-12 d-flex align-items-center justify-content-between">
+    <div class="banner px-3 mb-4" style="background-image: url(<%= asset_path 'flats/providers/banner-background.jpg' %>);">
+      <div class="subnavbar-wrapper">
         <%= link_to real_estate_path, class: 'location d-flex align-items-center' do %>
         <i class="far fa-chevron-left mr-4"></i>
         <span><%= current_user.flat_preference.location.capitalize %></span>
@@ -9,7 +9,12 @@
         <%= render 'providers/mobile/subnavbar', flat_preference: current_user.flat_preference,
           move_in: current_user.flat_preference.move_in, move_out: current_user.flat_preference.move_out %>
       </div>
+      <div class="mb-3">
+        <h1 class="white"><%= t('providers.index.title') %></h1>
+        <span class="white"><%= t('providers.index.subtitle') %></span>
+      </div>
     </div>
+  <div class="container">
     <div class="row my-3">
       <div class="col-12">
         <%= render 'providers/mobile/count', count: @count %>

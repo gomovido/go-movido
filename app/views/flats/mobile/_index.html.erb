@@ -5,7 +5,7 @@
     <div class="col-12 clear-filters">
       <%= render 'flats/mobile/index/clear_filters', active_filters: @flat_preference.facilities.present?, location: @location, type: @type %>
     </div>
-    <div class="flats-wrapper w-100">
+    <div class="flats-wrapper col-12">
       <div class="flats-card-wrapper w-100" data-flats-target="entries">
         <%= render 'flats/mobile/index/flats', flats: @flats, type: @type, location: @location  %>
       </div>

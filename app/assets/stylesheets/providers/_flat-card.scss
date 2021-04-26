@@ -50,9 +50,10 @@
 @include media-breakpoint-down(xs) {
   .flat-card {
     background: $white;
-    border-radius: 14px;
+    border-bottom-left-radius: 14px !important;
+    border-radius: 4px;
     box-shadow: 0px 2px 4px rgba(143, 143, 143, 0.25);
-    height: 70px;
+    height: 80px;
     width: 248px;
     .name {
       font-family: 'Manrope';
@@ -72,7 +73,7 @@
       min-width: 70px;
       background-size: cover;
       background-position: center;
-      border-top-left-radius: 14px;
+      border-top-left-radius: 4px;
       border-bottom-left-radius: 14px;
     }
     .details {
