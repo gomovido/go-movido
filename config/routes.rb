@@ -78,5 +78,5 @@ Rails.application.routes.draw do
   post 'flats/:location/:type', to: 'flats#clear_filters', as: 'clear_filters'
 
   get 'booking/modal/:flat_id', to: 'bookings#modal', as: 'modal_booking'
-  resources :bookings, only: [:create]
+  resources :bookings, only: [:create, :new, :show]
 end

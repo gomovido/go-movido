@@ -1,15 +1,16 @@
 .btn-main {
-  color: $white;
+  color: $white !important;
   font-family: "Manrope", sans-serif;
   cursor: pointer;
   background: $purple;
+  height: auto !important;
   padding: 15px 51.5px !important;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 20px !important;
   border-radius: 14px !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
   transition: all 0.3s ease;
-  border: 1px solid $purple;
+  border: 1px solid $purple !important;
   &:hover {
     border: 1px solid $hover-button;
     background: $hover-button;
@@ -153,7 +154,7 @@
   display: block;
   width: 104px;
   height: 64px;
-  border-radius: 50px;
+  border-radius: 14px;
   text-align: center;
   font-weight: 800;
   font-size: 20px;
@@ -180,7 +181,7 @@
     width: 104px;
     height: 34px;
     line-height: 34px;
-    border-radius: 14px;
+    border-radius: 11px;
     text-align: center;
     font-weight: 700;
     font-size: 14px;

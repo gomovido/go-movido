@@ -1,6 +1,5 @@
 <%= render 'shared/google_tag_script',
       user_id: current_user.id, email: current_user.email, event: 'signUp' %>
-
 <% if browser.device.mobile? %>
   <%= render 'addresses/mobile/new' %>
 <% else %>
