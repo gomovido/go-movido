@@ -25,7 +25,6 @@ const setPlaceholder = (localevalue) => {
 }
 
 export const mapboxMap = (element, markers, centerCoordinates) => {
-
   mapboxgl.accessToken = process.env.MAPBOX_MAP_STYLE_KEY;
 
   const map = new mapboxgl.Map({

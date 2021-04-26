@@ -1,0 +1,29 @@
+<div class="container booking-container" data-controller="bookings">
+  <div class="row">
+    <div class="col-7">
+      <div class="product-wrapper">
+        <div class="d-flex align-items-center font-weight w-100 justify-content-between mb-1">
+          <%= link_to flat_path(current_user.flat_preference.location, current_user.flat_preference.flat_type, @flat[:code]), class: 'location d-flex align-items-center' do %>
+            <i class="far fa-chevron-left mr-4"></i>
+            <span><%= @flat[:title] %></span>
+          <% end %>
+            <%= image_tag(asset_path("flats/partners/#{FacilitiesHelper::PROVIDERS[current_user.flat_preference.flat_type]}.png"), width: '70px') %>
+        </div>
+        <div class="product">
+          <hr class="w-100">
+          <span class="price"><%= manage_currency(@flat[:currency_code].downcase) if current_user.flat_preference.flat_type != 'student_housing' %><%= @flat[:price] %> / <%= @flat[:billing].downcase %></span>
+          <div class="location"><%= split_description(@flat[:description]) %></div>
+          <div data-controller="map" class="w-100" style="height: 500px;">
+            <%= render 'bookings/desktop/map', markers: @markers, center: @center %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="booking-form">
+          <h3>Book your accommodation</h3>
+          <%= render 'bookings/desktop/form', booking: @booking, flat: @flat %>
+      </div>
+    </div>
+  </div>
+</div>
