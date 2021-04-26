@@ -148,7 +148,7 @@ en:
       cta: "Book now"
       more: "Show more"
       less: "Show less"
-      accomodations: "More accomodations"
+      accomodations: "More accommodations"
       more_rooms: "This house has more rooms available"
       facilities: "Facilities"
       rental_conditions: "Rental Conditions"
@@ -161,6 +161,7 @@ en:
       community_facilities: "Community Facilities & Services"
       flats: "Rooms"
       rules: "Rules"
+      features:
     index:
       priv_room: "Priv. Room"
       priv_bath: "Priv. Bathroom"
@@ -190,12 +191,14 @@ en:
         washing_machine: "Washing machine"
   providers:
     index:
+      title: 'Select the accommodation you need'
+      subtitle: 'Favorites selected by movido'
       count: "%{count}+ places to stay"
       show_all: "Show all <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Coming soon"
       no_results: "No properties available"
       student_housing: 'Student housing'
-      student_housing_desc: "Share your accomodation with other students. It'll be fun."
+      student_housing_desc: "Share your accommodation with other students. It'll be fun."
       entire_flat: 'Entire flat'
       entire_flat_desc: "Looking for a place just for you ? Come here."
       flatshare: 'Flat Share'
