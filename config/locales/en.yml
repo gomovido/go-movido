@@ -137,6 +137,9 @@ en:
           room_type: 'Room type'
           price: 'Price'
           requirements: 'Specific requirements'
+      book: 'Book your accommodation'
+    show:
+      continue: 'Continue'
   flat_preferences:
     new:
       disclaimer: 'This service is only available for UK & France'
