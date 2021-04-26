@@ -196,14 +196,14 @@
     font-weight: 800;
     font-size: 14px;
     line-height: 32px;
-    color: $white;
+    color: $black;
     border-radius: 50px 0px 0px 50px;
-    border: 2px solid $white;
+    border: 2px solid $black;
     padding-left: 19px;
     padding-right: 5px;
     border-right: 0;
     &:hover {
-      color: $white;
+      color: $black;
     }
   }
 }

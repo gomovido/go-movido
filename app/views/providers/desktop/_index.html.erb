@@ -2,8 +2,8 @@
   <div data-providers-target="wrapper">
     <div class="banner px-3 mb-4" style="background-image: url(<%= asset_path 'flats/providers/banner-background.jpg' %>);">
       <div class="mb-3 left">
-        <h1>Select the accomodation you need</h1>
-        <span>Favorites selected by movido</span>
+        <h1><%= t('providers.index.title') %></h1>
+        <span><%= t('providers.index.subtitle') %></span>
       </div>
       <%= simple_form_for @flat_preference, html: {method: :put, class: 'datepicker-box', data: { providers_target:'form'}} do |f| %>
       <div class="date-range-input position-relative">
