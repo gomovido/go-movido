@@ -1,0 +1,49 @@
+<div class="<%= 'd-none' if rooms.blank? %>" data-controller="room">
+  <div class="room-details">
+    <span class='title mb-2'><%= t('flats.show.flats') %></span>
+    <div class="flats-card-scroller pt-0">
+      <ul class="hs">
+        <% rooms.each_with_index do |room, index| %>
+          <li class="item" >
+            <div class="<%= 'room-selected' if index == 0 %> room-card d-flex" data-room-target="card"  data-action=" click->room#onClick" data-id="<%= index %>">
+              <div class="details d-flex flex-column justify-content-around ml-3">
+                <span class="name mb-2">
+                  <%= room[:name] %>
+                </span>
+                <span class="pricing">
+                  <%= room[:price] %>
+                </span>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <% rooms.each_with_index do |room, index| %>
+      <div class="<%= 'd-none' if index != 0 %> room-description container"  data-id="<%= index %>" data-room-target="body">
+        <p class="purple font-weight" >
+          <%= room[:name] %>
+        </p>
+        <span>
+          <%= room[:description].html_safe %>
+        </span>
+        <div class="facilities">
+          <% room[:facilities].each do |facility| %>
+            <div class="facility"><%= facility['name'] %></div>
+          <% end %>
+        </div>
+        <div class="leases">
+          <ul>
+            <% room[:subconfigs].each do |subconfig| %>
+              <li><span class='purple'><%= subconfig['lease'] %></span> week lease <span class='purple'>(<%= subconfig['price'].to_i %>£/week)</span> starts form <span class='purple'> <%= subconfig['available_from'] %>,</span> book now by paying <span class='purple'><%= subconfig['deposit'].to_i %>£</span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <div class="book">
+      <%= link_to t("flats.show.cta"), '#', class:'btn-main mb-3 d-block text-center' %>
+    </div>
+  </div>
+  <hr class="w-100">
+</div>
