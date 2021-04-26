@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
+      @booking.update(status: 'placed')
       flash[:notice] = 'Booking created!'
       redirect_to booking_path(@booking.id, flat_id: params[:booking][:flat_id])
     else
