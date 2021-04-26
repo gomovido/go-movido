@@ -12,6 +12,7 @@ class BookingReflex < ApplicationReflex
     @type = current_user.flat_preference.flat_type
     fetch_flat(@type, booking_params['flat_id'], current_user.flat_preference.location)
     if @booking.save
+      @booking.update(status: 'placed')
       morph ".booking-modal-wrapper", with_locale { render(partial: "bookings/#{device}/congratulations", locals: {flat: @flat, type: @type, booking: @booking })}
     else
       morph ".booking-form", with_locale { render(partial: "bookings/#{device}/form", locals: { booking: @booking, flat: @flat, user: @user })}
