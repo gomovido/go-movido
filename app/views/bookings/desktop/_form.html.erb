@@ -14,5 +14,5 @@
     <%= f.input :lease_duration, required: true, collection: subconfigs.map {|subconfig| subconfig.map{|a| "#{a['lease']} week lease #{a['price']} £/week starts form #{a['available_from']}, book now by paying #{a['deposit']} £" }}, prompt: t('bookings.new.modal.placeholder.duration') %>
   <% end %>
   <%= f.input :requirements, input_html: {placeholder: 'Requirements'} %>
-  <%= f.submit value: t('bookings.new.modal.submit'), class:'btn-main w-100'  %>
+  <%= f.button :submit, t('bookings.new.modal.submit'), class:'btn-main w-100'  %>
 <% end %>

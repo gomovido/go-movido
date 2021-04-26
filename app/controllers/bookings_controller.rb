@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking created!'
       redirect_to booking_path(@booking.id, flat_id: params[:booking][:flat_id])
     else
+
       fetch_flat(current_user.flat_preference.flat_type, params[:booking][:flat_id], current_user.flat_preference.location)
       flash[:alert] = 'An error has occured please try again or contact us.'
       render :new
@@ -22,7 +23,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find_by(id: params['id'], user: current_user)
-    redirect_to new_booking_path(flat_id: params['flat_id']) if @booking.nil?
+    redirect_to new_booking_path(params['flat_id']) if @booking.nil?
     fetch_flat(current_user.flat_preference.flat_type, params['flat_id'], current_user.flat_preference.location)
   end
 

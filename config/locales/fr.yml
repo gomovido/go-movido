@@ -149,6 +149,9 @@ fr:
           room_type: 'Type de logement'
           price: 'Prix'
           requirements: 'Exigences particulières'
+      book: 'Réserver votre logement'
+    show:
+      continue: 'Continuer'
   flat_preferences:
     new:
       disclaimer: 'Service disponible en France et en Grande Bretagne'
