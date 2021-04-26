@@ -62,7 +62,8 @@ class UniplacesApiService
       {
         error: nil,
         status: 200,
-        flat: response
+        flat: response,
+        markers: set_marker(response, @flat_preference_id)
       }
     end
   end
@@ -85,6 +86,24 @@ class UniplacesApiService
         }
       }
     end
+  end
+
+  def set_marker(flat, flat_preference_id)
+    flat_preference = FlatPreference.find(flat_preference_id)
+    [{
+      id: flat['id'].to_i,
+      name: flat['accommodation_offer']['title'].map{|k,v| k['text'] if k['locale_code'] == 'en_GB'}.compact[0],
+      price: flat['accommodation_offer']['reference_price']['amount'] / 100,
+      frequency: flat['accommodation_offer']['reference_price']['currency_code'],
+      img: flat_image(flat['photos'][0]['hash']),
+      currency: manage_currency(flat['accommodation_offer']['reference_price']['currency_code'].downcase),
+      url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
+      coordinates:
+      {
+        lng: flat.parsed_response['property_aggregate']['property']['location']['geo']['longitude'].to_i,
+        lat: flat.parsed_response['property_aggregate']['property']['location']['geo']['latitude'].to_i
+      }
+    }]
   end
 
   def recommandations(payload)
