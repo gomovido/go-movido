@@ -157,6 +157,8 @@ fr:
       submitting: "Recherche en cours ..."
   providers:
     index:
+      title: 'Sélectionnez le logement dont vous avez besoin'
+      subtitle: 'Favoris sélectionnés par movido'
       count: "%{count}+ logements"
       show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Bientôt disponible"

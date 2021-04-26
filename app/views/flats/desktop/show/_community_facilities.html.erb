@@ -1,0 +1,10 @@
+<div class="<%= 'd-none' if facilities.blank?%>" >
+  <span class="title"><%= t('flats.show.community_facilities') %></span>
+  <div class="facilities">
+    <% facilities.each do |facility|  %>
+      <div class="facility"><%= facility[:name] %></div>
+    <% end %>
+  </div>
+  <hr class="w-100">
+</div>
+
