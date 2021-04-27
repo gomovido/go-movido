@@ -2,9 +2,6 @@
   <%= render 'flats/mobile/index/filters', flat_preference: @flat_preference, start_min_price: @start_min_price, start_max_price: @start_max_price, range_min_price: @range_min_price, range_max_price: @range_max_price %>
   <div class="row">
     <%= render 'flats/mobile/index/subnavbar', location: @location, flat_preference: @flat_preference, move_in: @move_in, move_out: @move_out %>
-    <div class="col-12 clear-filters">
-      <%= render 'flats/mobile/index/clear_filters', active_filters: @flat_preference.facilities.present?, location: @location, type: @type %>
-    </div>
     <div class="flats-wrapper col-12">
       <div class="flats-card-wrapper w-100" data-flats-target="entries">
         <%= render 'flats/mobile/index/flats', flats: @flats, type: @type, location: @location  %>
