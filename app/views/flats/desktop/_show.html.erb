@@ -1,6 +1,6 @@
 <div class="container flat-container">
   <%= render 'flats/desktop/show/modal_carousel', images: @flat[:images] %>
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between mb-3">
       <%= link_to flats_path(@location, @type), class: 'location d-flex align-items-center' do %>
       <i class="far fa-chevron-left mr-4"></i>
       <span><%= t("providers.index.#{@type}") %></span>
