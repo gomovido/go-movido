@@ -23,7 +23,7 @@
           <%= flat['disp_price'] %> /<%= flat['billing'].downcase %>
         </span>
       </div>
-      <%= link_to t('flats.index.cta'), booking_link(flat['city'], flat["code"], current_user.flat_preference.country), class: 'btn-flat-card', target:'blank' %>
+      <%= link_to t('flats.index.cta'), booking_link(flat['city'], flat["code"], current_user.flat_preference.country), class: 'btn-main', target:'blank' %>
     </div>
   </div>
 <% end %>
