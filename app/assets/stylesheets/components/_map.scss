@@ -5,6 +5,9 @@
   .mapboxgl-popup-tip {
     border-top-color: $purple !important;
   }
+  .mapboxgl-marker-anchor-center.active {
+    z-index: 1;
+  }
   .mapboxgl-popup-content {
     width: 200px;
     height: 150px;
