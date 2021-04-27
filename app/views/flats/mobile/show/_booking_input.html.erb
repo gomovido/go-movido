@@ -1,5 +1,5 @@
 <div class="booking-input d-flex align-items-center justify-content-around">
   <span class="price"><%= manage_currency(flat[:currency_code].downcase) if @type != 'student_housing' %><%= flat[:price] %> / <%= flat[:billing].downcase %></span>
   <%= link_to t('flats.show.cta'), modal_booking_path(flat[:code]), data: { controller: 'modal', target: '#bookingModal',
-          action: 'click->modal#loadBookingModal', href: modal_booking_path(flat[:code]), toggle: 'modal'}, id: 'modal-link', class:"btn-flat-card" %>
+          action: 'click->modal#loadBookingModal', href: modal_booking_path(flat[:code]), toggle: 'modal'}, id: 'modal-link', class:"btn-main" %>
 </div>

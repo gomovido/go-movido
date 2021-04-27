@@ -11,11 +11,11 @@
   </div>
 
   <div class="col-5 d-flex flex-column justify-content-between">
-    <span class="name mb-2"><%= flat['attributes']['accommodation_offer']['title'] %></span>
-    <span class="pricing">
+    <span class="name mb-2"><%= flat['attributes']['accommodation_offer']['title'].size > 50 ? flat['attributes']['accommodation_offer']['title'].first(50) + '...' : flat['attributes']['accommodation_offer']['title'] %></span>
+    <span class="pricing mb-1">
       <%= flat_price(flat) %>
     </span>
-    <%= link_to t('flats.index.details'), flat_path(location, type, flat['id']), class: 'btn-flat-card' %>
+    <%= link_to t('flats.index.details'), flat_path(location, type, flat['id']), class: 'btn-main' %>
   </div>
 </div>
 

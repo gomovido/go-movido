@@ -11,10 +11,14 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
   transition: all 0.3s ease;
   border: 1px solid $purple !important;
+  text-align: center;
   &:hover {
-    border: 1px solid $hover-button;
+    border: 1px solid $hover-button !important;
     background: $hover-button;
     color: $white;
+  }
+  &:focus {
+    outline: none !important;
   }
 }
 
@@ -148,21 +152,6 @@
   }
 }
 
-.btn-flat-card {
-  color: $white;
-  background: $purple;
-  display: block;
-  width: 104px;
-  height: 64px;
-  border-radius: 14px;
-  text-align: center;
-  font-weight: 800;
-  font-size: 20px;
-  &:hover {
-    background: $purple;
-    color: $white;
-  }
-}
 
 @include media-breakpoint-down(md) {
   .btn-main-reverse {
@@ -172,23 +161,6 @@
     align-items: center;
     justify-content: center;
     font-size: 20px;
-  }
-
-  .btn-flat-card {
-    color: $white;
-    background: $purple;
-    display: block;
-    width: 104px;
-    height: 34px;
-    line-height: 34px;
-    border-radius: 11px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 14px;
-    &:hover {
-      background: $purple;
-      color: $white;
-    }
   }
 
 
