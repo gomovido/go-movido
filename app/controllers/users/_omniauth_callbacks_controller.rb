@@ -13,6 +13,7 @@ module Users
       end
     end
 
+    # rubocop:enable Naming/VariableNumber
     def failure
       flash[:alert] = I18n.t 'flashes.global_failure'
       redirect_to root_path

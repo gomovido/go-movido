@@ -32,7 +32,7 @@ class User < ApplicationRecord
         last_name: data['last_name']
       )
       user.skip_confirmation!
-      user.save!
+      user.save
       UserMailer.with(user: user, locale: locale).welcome_email_without_confirmation.deliver_now
     end
     return user
@@ -58,7 +58,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    first_name + ' ' + last_name
+    "#{first_name} #{last_name}"
   end
 
   protected

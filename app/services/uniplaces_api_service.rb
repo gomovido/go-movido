@@ -92,7 +92,7 @@ class UniplacesApiService
     flat_preference = FlatPreference.find(flat_preference_id)
     [{
       id: flat['id'].to_i,
-      name: flat['accommodation_offer']['title'].map{|k,v| k['text'] if k['locale_code'] == 'en_GB'}.compact[0],
+      name: flat['accommodation_offer']['title'].map { |k, _v| k['text'] if k['locale_code'] == 'en_GB' }.compact[0],
       price: flat['accommodation_offer']['reference_price']['amount'] / 100,
       frequency: flat['accommodation_offer']['reference_price']['currency_code'],
       img: flat_image(flat['photos'][0]['hash']),
