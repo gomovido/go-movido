@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Registration", type: :feature do
-  describe "User registration", :headless_chrome do
+  describe "User registration", :selenium_chrome do
     let(:user_email) { 'johndoe@gmail.com' }
     let(:user_first_name) { 'john' }
     let(:user_last_name) { 'doe' }
@@ -20,8 +20,8 @@ RSpec.describe "Registration", type: :feature do
       click_button 'Sign up'
     end
 
-    it "shows welcome message" do
-      expect(page).to have_content('Welcome! You have signed up successfully.')
+    it "sends confirmation instructions email" do
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
 
     it "confirms user" do

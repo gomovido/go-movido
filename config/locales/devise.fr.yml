@@ -12,7 +12,7 @@ fr:
       unconfirmed: "Vous devez valider votre compte pour continuer."
     mailer:
       confirmation_instructions:
-        subject: "Instructions de confirmation"
+        subject: "Bienvenue chez movido"
       reset_password_instructions:
         subject: "Instructions pour changer le mot de passe"
       unlock_instructions:
@@ -24,6 +24,11 @@ fr:
     omniauth_callbacks:
       failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."
       success: "Authentifié avec succès via %{kind}."
+    confirmations:
+      new:
+        confirm: 'Envoyer'
+        title: "E-mail d'activation non reçu ?"
+        placeholder: 'Entrer votre e-mail ?'
     passwords:
       new:
         confirm: 'Confirmer'
@@ -96,7 +101,7 @@ fr:
         sign_up: "Inscription"
         sign_in: 'Se connecter'
         forgot_password: 'Mot de passe oublié?'
-        confirmation_instruction: "Tu n'as pas reçu d'instructions de confirmation ?"
+        confirmation_instruction: "Tu n'as pas reçu d'email d'activation ?"
         unlock_instruction: "Vous n'avez pas reçu d'instructions de déverrouillage ?"
   errors:
     messages:
