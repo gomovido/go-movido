@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @booking = Booking.new
     @center = [current_user.flat_preference.coordinates[1], current_user.flat_preference.coordinates[0]]
@@ -14,7 +13,6 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking created!'
       redirect_to booking_path(@booking.id, flat_id: params[:booking][:flat_id])
     else
-
       fetch_flat(current_user.flat_preference.flat_type, params[:booking][:flat_id], current_user.flat_preference.location)
       flash[:alert] = 'An error has occured please try again or contact us.'
       render :new
@@ -52,5 +50,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:full_name, :email, :university, :phone, :room_type, :lease_duration, :requirements, :flat_id)
   end
-
 end
