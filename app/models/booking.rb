@@ -5,9 +5,7 @@ class Booking < ApplicationRecord
   validates :full_name, :email, :university, :flat_id, presence: true
   validates :room_type, :lease_duration, presence: { if: :uniacco_flat? }
 
-
   def uniacco_flat?
-    self.user.flat_preference.flat_type == 'student_housing'
+    user.flat_preference.flat_type == 'student_housing'
   end
-
 end

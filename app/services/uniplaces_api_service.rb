@@ -11,11 +11,13 @@ class UniplacesApiService
 
   def flats
     flat_preference = FlatPreference.find(@flat_preference_id)
+    locale = I18n.locale.to_s == 'fr' ? 'fr_FR' : 'en_GB'
     query = {
       'move-in' => flat_preference.move_in.strftime('%Y-%m-%d'),
       'move-out' => flat_preference.move_out.strftime('%Y-%m-%d'),
       'budget-min' => flat_preference.min_price,
-      'budget-max' => flat_preference.max_price
+      'budget-max' => flat_preference.max_price,
+      'locale' => locale
     }
     query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
     uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
@@ -75,7 +77,7 @@ class UniplacesApiService
         id: flat['id'].to_i,
         name: flat['attributes']['accommodation_offer']['title'],
         price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
-        frequency: flat['attributes']['accommodation_offer']['contract_type'],
+        frequency: I18n.t("flats.index.frequency.#{flat['attributes']['accommodation_offer']['contract_type']}"),
         img: flat_image(flat['attributes']['photos'][0]['hash']),
         currency: manage_currency(flat['attributes']['accommodation_offer']['price']['currency_code'].downcase),
         url: (Rails.application.routes.url_helpers.flat_path(@location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
@@ -92,7 +94,7 @@ class UniplacesApiService
     flat_preference = FlatPreference.find(flat_preference_id)
     [{
       id: flat['id'].to_i,
-      name: flat['accommodation_offer']['title'].map{|k,v| k['text'] if k['locale_code'] == 'en_GB'}.compact[0],
+      name: flat['accommodation_offer']['title'].map { |k, _v| k['text'] if k['locale_code'] == 'en_GB' }.compact[0],
       price: flat['accommodation_offer']['reference_price']['amount'] / 100,
       frequency: flat['accommodation_offer']['reference_price']['currency_code'],
       img: flat_image(flat['photos'][0]['hash']),

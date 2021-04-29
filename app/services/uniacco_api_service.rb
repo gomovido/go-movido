@@ -104,7 +104,7 @@ class UniaccoApiService
         id: flat['code'],
         name: flat['name'],
         price: flat['min_price'],
-        frequency: flat['billing'].downcase,
+        frequency: I18n.t("flats.index.frequency.#{flat['billing'].downcase}"),
         img: flat['images'][0]['url'],
         currency: currency,
         url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['code']) if flat_preference.flat_type),

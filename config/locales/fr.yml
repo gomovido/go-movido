@@ -188,6 +188,7 @@ fr:
       cancellation_policy: "Politique d'annulation"
       security_deposit: "Caution"
       min_stay: "Séjour minimums"
+      bills: "Charges incluses"
       nights: "nights"
       community_facilities: "Équipements communs & Services"
       flats: "Appartements"
@@ -202,6 +203,11 @@ fr:
       show_more: "Voir plus"
       details: "Détails"
       cta: "Réserver"
+      frequency:
+        week: "semaine"
+        fortnight: "quinzaine"
+        month: "mois"
+        nightly: "nuit"
       filters:
         title: "Filtres"
         price_range: "Prix"
