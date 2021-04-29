@@ -16,6 +16,14 @@ class Subscription < ApplicationRecord
     product_type == 'Wifi'
   end
 
+  def random_password
+    special_chars = ('!'..'?').to_a
+    special_chars.delete('"')
+    random_char = (special_chars - (0..9).to_a.map(&:to_s)).sample
+    chars = ((0..9).to_a + ('a'..'z').to_a + ('A'..'Z').to_a)
+    chars.sort_by { rand }.first(12).push(random_char).shuffle.join
+  end
+
   def product_is_mobile?
     product_type == 'Mobile'
   end
