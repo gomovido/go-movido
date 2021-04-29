@@ -35,7 +35,7 @@ class SubscriptionsController < ApplicationController
       @subscription.update_columns(state: 'pending_processed', locale: I18n.locale)
       redirect_to subscription_payment_path(@subscription)
     else
-      @subscription.update_columns(state: 'succeeded', locale: I18n.locale)
+      @subscription.update_columns(state: 'succeeded', locale: I18n.locale, password: @subscription.random_password)
       UserMailer.with(user: @subscription.address.user, subscription: @subscription,
                       locale: @subscription.locale).subscription_under_review_email.deliver_now
       @subscription.slack_notification
