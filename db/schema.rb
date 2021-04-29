@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_064116) do
+ActiveRecord::Schema.define(version: 2021_04_29_075300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_064116) do
     t.string "locale"
     t.string "product_type"
     t.bigint "product_id"
+    t.string "password"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
     t.index ["product_type", "product_id"], name: "index_subscriptions_on_product_type_and_product_id"
   end

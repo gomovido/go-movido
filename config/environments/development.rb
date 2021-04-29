@@ -20,6 +20,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
   config.action_mailer.asset_host = 'http://localhost:3000'
   config.action_controller.asset_host = "http://localhost:3000"
+  config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

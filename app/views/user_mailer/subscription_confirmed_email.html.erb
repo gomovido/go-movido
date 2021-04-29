@@ -652,6 +652,10 @@
                           <h1>Hi, <span class="purple"><%= @user.first_name %></span></h1>
                           <p>Congratulations! Your order is now fully confirmed and <%= @subscription.product.company.name %> <%= @subscription.product.name %> activated.</p>
                           <p>To see the summary of your order information, please go to my profile page.</p>
+                          <br>
+                          <p>You can now login on <strong><%= @subscription.product.company.name %></strong> website with the credentials below: </p>
+                          <p><strong>Identifier: <%= @user.email %></strong></p>
+                          <p><strong>Password: <%= @subscription.password %></strong></p>
                         </div>
                       </td>
                     </tr>
@@ -843,6 +847,9 @@
                           <h1>Salut, <span class="purple"><%= @user.first_name %></span></h1>
                           <p>Félicitations! Ta commande est à présent confirmée et le produit <%= @subscription.product.company.name %> <%= @subscription.product.name %> activé.</p>
                           <p>Tu peux trouver le résumé de tes commandes sur ton profil,</p>
+                          <p>Tu peux maintenant te connecter sur le site de <strong><%= @subscription.product.company.name %></strong> avec les identifiants ci-dessous </p>
+                          <p><strong>Identifiant: <%= @user.email %></strong></p>
+                          <p><strong>Mot de passe: <%= @subscription.password %></strong></p>
                         </div>
                       </td>
                     </tr>
