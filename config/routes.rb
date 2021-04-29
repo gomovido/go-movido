@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post '/actions/to-the-top' => 'product_features#to_the_top'
   end
   mount ForestLiana::Engine => '/forest'
-  devise_for :users, controllers: { sessions: "sessions", registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users, controllers: { sessions: "sessions", confirmations: 'confirmations', omniauth_callbacks: "users/omniauth_callbacks"}
   devise_scope :user do
     get '/users', to: 'registrations#new'
     get '/users', to: 'registrations#edit'

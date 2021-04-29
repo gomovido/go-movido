@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # rubocop:disable Naming/VariableNumber
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
   has_many :bookings, dependent: :destroy
   has_many :addresses, dependent: :destroy
@@ -25,13 +25,15 @@ class User < ApplicationRecord
     locale = access_token['omniauth.params']['locale']
     user = User.find_by(email: data['email'])
     unless user
-      user = User.create(
+      user = User.new(
         email: data['email'],
         password: Devise.friendly_token[0, 20],
         first_name: data['first_name'],
         last_name: data['last_name']
       )
-      UserMailer.with(user: user, locale: locale).welcome_email.deliver_now
+      user.skip_confirmation!
+      user.save
+      UserMailer.with(user: user, locale: locale).welcome_email_without_confirmation.deliver_now
     end
     return user
   end
@@ -56,7 +58,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    first_name + ' ' + last_name
+    "#{first_name} #{last_name}"
   end
 
   protected

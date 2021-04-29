@@ -12,5 +12,6 @@
 @include media-breakpoint-down(md) {
   .password-container {
     padding-top: 2rem;
+    min-height: 80vh;
   }
 }
