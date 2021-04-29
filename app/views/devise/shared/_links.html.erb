@@ -19,7 +19,9 @@
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to t('.confirmation_instruction'), new_confirmation_path(resource_name) %><br />
+  <div class="form-b-links d-md-flex align-items-center d-none">
+    <%= link_to t('.confirmation_instruction'), new_confirmation_path(resource_name) %><br />
+  </div>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>

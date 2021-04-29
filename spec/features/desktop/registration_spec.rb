@@ -20,8 +20,8 @@ RSpec.describe "Registration", type: :feature do
       click_button 'Sign up'
     end
 
-    it "shows welcome message" do
-      expect(page).to have_content('Welcome! You have signed up successfully.')
+    it "sends confirmation instructions email" do
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
 
     it "confirms user" do
