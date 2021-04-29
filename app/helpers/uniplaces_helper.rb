@@ -11,13 +11,7 @@ module UniplacesHelper
   end
 
   def manage_currency(currency_code)
-    case currency_code
-    when 'eur'
-      '€'
-    when 'gbp'
-      '£'
-    when 'usd'
-      '$'
-    end
+    currencies = { eur: '€', gbp: '£', usd: '$' }
+    currencies[currency_code.to_sym]
   end
 end

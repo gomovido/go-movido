@@ -3,7 +3,6 @@ class BookingReflex < ApplicationReflex
   delegate :current_user, to: :connection
   before_reflex :set_browser
 
-
   def create
     @user = current_user
     @booking = Booking.new(booking_params)
@@ -13,10 +12,10 @@ class BookingReflex < ApplicationReflex
     fetch_flat(@type, booking_params['flat_id'], current_user.flat_preference.location)
     if @booking.save
       @booking.update(status: 'placed')
-      morph ".booking-modal-wrapper", with_locale { render(partial: "bookings/#{device}/congratulations", locals: {flat: @flat, type: @type, booking: @booking })}
+      morph ".booking-modal-wrapper", (with_locale { render(partial: "bookings/#{device}/congratulations", locals: { flat: @flat, type: @type, booking: @booking }) })
     else
-      morph ".booking-form", with_locale { render(partial: "bookings/#{device}/form", locals: { booking: @booking, flat: @flat, user: @user })}
-      morph ".summary", with_locale { render(partial: "bookings/#{device}/flat_summary", locals: {flat: @flat, type: @type })}
+      morph ".booking-form", (with_locale { render(partial: "bookings/#{device}/form", locals: { booking: @booking, flat: @flat, user: @user }) })
+      morph ".summary", (with_locale { render(partial: "bookings/#{device}/flat_summary", locals: { flat: @flat, type: @type }) })
     end
   end
 

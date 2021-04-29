@@ -8,7 +8,7 @@
           <span class="value"><%= billing_details[:type] %></span>
         </div>
         <div class="col-6">
-          <span class="subtitle">Bills included</span>
+          <span class="subtitle"><%= t('flats.show.bills') %></span>
            <div class="facilities">
             <% billing_details[:included_bills].each do |bill|  %>
               <div class="facility"><%= bill %></div>
@@ -23,7 +23,7 @@
           <span class="value"><%= billing_details[:cancellation_policy] %></span>
         </div>
         <div class=" col-6 d-flex align-items-center justify-content-between">
-          <span class="subtitle"><%= t('flats.show.deposit') %></span>
+          <span class="subtitle"><%= t('flats.show.security_deposit') %></span>
           <span class="value"><%= billing_details[:deposit] %></span>
         </div>
       </div>

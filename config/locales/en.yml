@@ -159,6 +159,7 @@ en:
       included_bills: "Included Bills"
       cancellation_policy: "Cancellation Policy"
       security_deposit: "Security Deposit"
+      bills: "Bills included"
       min_stay: "Minimum stay"
       nights: "nights"
       community_facilities: "Community Facilities & Services"
@@ -175,6 +176,11 @@ en:
       cta: "Book now"
       details: "See details"
       clear_filters: "Reset filters"
+      frequency:
+        week: "week"
+        fortnight: "fornight"
+        month: "month"
+        nightly: "nightly"
       filters:
         title: "Filters"
         price_range: "Price range"

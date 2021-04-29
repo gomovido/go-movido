@@ -6,6 +6,8 @@ export default class extends Controller {
   static targets = [ 'phone']
 
   connect() {
-    phoneInput(this.phoneTarget);
+    if (document.getElementById('booking_phone')) {
+      phoneInput(this.phoneTarget);
+    }
   }
 }

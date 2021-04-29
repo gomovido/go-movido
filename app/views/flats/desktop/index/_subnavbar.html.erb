@@ -18,6 +18,6 @@
          input_html: { class: 'background-white datepicker', id: 'date-input', data: { controller: 'flatpickr',
           action: 'change->flats#filterByDates', flatpickr_default_date: [move_in.to_date, move_out.to_date], flatpickr_alt_input: true, flatpickr_alt_format: '%e %b', flatpickr_date_format: 'Y-m-d', flatpickr_mode: 'range'} } %>
     <% end %>
-    <span class="filters-button"><i class="fas fa-sliders-h purple mr-2"  data-toggle="modal"  data-target="#filtersModal"></i>Filters</span>
+    <span class="filters-button"><i class="fas fa-sliders-h purple mr-2"  data-toggle="modal"  data-target="#filtersModal"></i><%= t('flats.index.filters.title') %></span>
   </div>
 </div>

@@ -28,7 +28,7 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.credentials.production[:facebook][:app_id], Rails.application.credentials.production[:facebook][:app_secret], callback_url: Rails.application.credentials.production[:facebook][:callback_url], :image_size => 'large'
   config.omniauth :google_oauth2, Rails.application.credentials.production[:google][:client_id], Rails.application.credentials.production[:google][:secret]
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'RegistrationMailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -158,7 +158,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
