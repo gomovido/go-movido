@@ -1,5 +1,4 @@
 .flat-card-desktop {
-  max-width: 250px;
   height: 250px;
   background-size: cover;
   background-position: center;
@@ -24,21 +23,17 @@
 }
 .flat-card-disabled {
   grid-area: 1 / 1 / 2 / 5;
-  height: 400px;
+  height: 250px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   .image {
     background-position: center;
     background-size: cover;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 4px 4px 0;
   }
   .content {
     margin: auto 0;
     padding-left: 50px;
-    h3 {
-      font-size: 17px;
-      font-weight: 200;
-    }
     h2 {
       font-size: 44px;
     }

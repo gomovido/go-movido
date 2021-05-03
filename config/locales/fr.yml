@@ -160,8 +160,8 @@ fr:
       submitting: "Recherche en cours ..."
   providers:
     index:
-      title: 'Sélectionnez le logement dont vous avez besoin'
-      subtitle: 'Favoris sélectionnés par movido'
+      title: 'Les logements dont vous avez besoin'
+      subtitle: "Nos favoris sélectionnés par l'équipe movido"
       count: "%{count}+ logements"
       show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Bientôt disponible"
@@ -173,7 +173,7 @@ fr:
       flatshare: 'Colocations'
       flatshare_desc: "Un bel appartement à bas prix ? C'est possible."
       upscale_housing: 'Haut de gamme'
-      upscale_housing_desc: "Choisis parmi de superbes lieux."
+      upscale_housing_desc: "Nos appartements premium triés sur le volet. Pour vous."
   flats:
     show:
       cta: "Réserver"
@@ -193,6 +193,11 @@ fr:
       community_facilities: "Équipements communs & Services"
       flats: "Appartements"
       rules: "Règlement"
+      frequency:
+        nightly: "Nuit"
+        monthtly: "Mois"
+        fortnight: "Quinzaine"
+        weekly: "Semaine"
     index:
       priv_room: "Chambre"
       priv_bath: "Salle de bain"
