@@ -1,9 +1,10 @@
 <div class="category my-4">
   <% if !coming_soon && flats.present? %>
-  <div class="title d-flex align-items-center justify-content-between mb-3">
+  <div class="title d-flex align-items-center justify-content-between">
       <h2><%= t("providers.index.#{type}") %></h2>
       <%= link_to t('providers.index.show_all').html_safe, flat_preference_path(flat_preference_id, type: type), method: :put, class: 'purple link'%>
   </div>
+  <h3 class="desc mb-3"><%= t("providers.index.#{type}_desc") %></h3>
   <% end %>
   <div class="flats">
     <% if coming_soon || flats.blank? %>

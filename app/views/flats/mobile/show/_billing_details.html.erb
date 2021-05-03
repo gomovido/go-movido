@@ -4,7 +4,7 @@
     <div class="billing-details mt-3">
       <div class="d-flex align-items-center justify-content-between">
         <span class="subtitle"><%= t('flats.show.contract') %></span>
-        <span class="value"><%= billing_details[:type] %></span>
+        <span class="value"><%= t("flats.show.frequency.#{billing_details[:type].downcase}") %></span>
       </div>
       <hr class="w-100">
       <span class="subtitle">Bills included</span>
