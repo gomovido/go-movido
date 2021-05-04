@@ -1,5 +1,5 @@
 <% if notice %>
-  <div class="alert alert-success alert-dismissible fade show m-1" data-flashes-target="flash" data-controller="flashes" role="alert">
+  <div class="alert alert-success alert-dismissible fade show m-1 <%= controller.controller_name == 'sessions' && controller.action_name == 'new' ? 'confirmation-flash' : '' %>" data-flashes-target="flash" data-controller="flashes" role="alert">
     <%= notice.html_safe %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>

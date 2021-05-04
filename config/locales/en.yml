@@ -411,6 +411,7 @@ en:
         description: 'Join our community of like-minded people in your new hometown!'
   people:
     form:
+      phone_input: 'How can we reach you?'
       failure:
         min_age: 'You should be over 18 years old'
   addresses:

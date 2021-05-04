@@ -434,6 +434,7 @@ fr:
       content: "Tu es un développeur, un designer, un expert en marketing ou un expert produit ? <br>Ou bien tu as toi-même souffert des longues démarches administratives lors de tes déménagements et tu veux nous aider à changer les choses? <br>Chez movido, nous sommes toujours à la recherche de nouveaux talents pour rejoindre notre équipe. Écris nous simplement à <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> - nous serons ravis de te rencontrer!"
   people:
     form:
+      phone_input: "Comment pouvons nous vous joindre ?"
       failure:
         min_age: 'Tu dois être majeur(e)'
   addresses:
