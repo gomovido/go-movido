@@ -291,7 +291,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_114621) do
   add_foreign_key "mobiles", "categories"
   add_foreign_key "mobiles", "companies"
   add_foreign_key "mobiles", "countries"
-  add_foreign_key "orders", "subscriptions"
   add_foreign_key "people", "users"
   add_foreign_key "product_features", "mobiles"
   add_foreign_key "product_features", "wifis"
