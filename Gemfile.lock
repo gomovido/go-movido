@@ -97,7 +97,7 @@ GEM
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
-    bindata (2.4.8)
+    bindata (2.4.9)
     bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
@@ -143,7 +143,7 @@ GEM
     ffi (1.14.2)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
-    forest_liana (6.0.3)
+    forest_liana (6.3.2)
       arel-helpers
       bcrypt
       groupdate (= 2.5.2)
