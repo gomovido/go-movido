@@ -170,15 +170,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_131029) do
     t.index ["country_id"], name: "index_mobiles_on_country_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "stripe_order_id"
-    t.string "status"
-    t.bigint "subscription_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["subscription_id"], name: "index_orders_on_subscription_id"
-  end
-
   create_table "people", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "birthdate"
@@ -299,7 +290,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_131029) do
   add_foreign_key "mobiles", "categories"
   add_foreign_key "mobiles", "companies"
   add_foreign_key "mobiles", "countries"
-  add_foreign_key "orders", "subscriptions"
   add_foreign_key "people", "users"
   add_foreign_key "product_features", "mobiles"
   add_foreign_key "product_features", "wifis"
