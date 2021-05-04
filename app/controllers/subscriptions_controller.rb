@@ -33,7 +33,6 @@ class SubscriptionsController < ApplicationController
   def validate_subscription
     if @subscription.product_is_mobile? && @subscription.product.payment?
       @subscription.update_columns(state: 'pending_processed', locale: I18n.locale)
-      StripeApiOrderService.new(user_id: current_user.id).create_order
       redirect_to subscription_payment_path(@subscription)
     else
       @subscription.update_columns(state: 'succeeded', locale: I18n.locale, password: @subscription.random_password)

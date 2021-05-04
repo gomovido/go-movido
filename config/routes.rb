@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   get 'careers', to: 'pages#careers'
   get 'faq', to: 'pages#faq'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
-  get 'payment/:subscription_id', to: 'charges#new', as: 'subscription_payment'
+  get 'payment/:subscription_id', to: 'orders#new', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
   get 'congratulations/:subscription_id', to: 'subscriptions#congratulations', as: 'subscription_congratulations'
   post 'abort-subscription/:subscription_id', to: 'subscriptions#abort_subscription', as: 'abort_subscription'
@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
   resources :addresses, only: [:create]
 
-  post 'charge', to: 'charges#create'
+  post 'charge', to: 'orders#create'
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
   get 'real-estate', to: 'flat_preferences#new', as: 'real_estate'

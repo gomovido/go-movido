@@ -27,7 +27,7 @@ RSpec.describe "Payment via Stripe", type: :feature do
     end
 
     context 'when user proceed payment' do
-      it "updates the state of the subscription & create a charge" do
+      it "updates the state of the subscription & order status to paid" do
         [
           {
             selector: "#card-number-element > div > iframe",
@@ -52,7 +52,7 @@ RSpec.describe "Payment via Stripe", type: :feature do
           sleep 4
           subscription.reload
         end.to change(subscription, :state).to('succeeded')
-                                           .and change { subscription.charge.nil? }.to(false)
+                                           .and change { subscription.order.status }.to('paid')
       end
     end
   end
