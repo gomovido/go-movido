@@ -15,6 +15,14 @@ class Mobile < ApplicationRecord
   validates :data, presence: { if: :internet_only? }
   validates :call, presence: { if: :call_only? }
   validates :call, :data, presence: { if: :internet_and_call? }
+  after_create :create_stripe_product
+
+
+  def create_stripe_product
+    response = StripeApiService.new(product_id: self.id).create_product
+    p response
+    self.update(stripe_id: response[:product_id]) if response[:product_id]
+  end
 
   def uk?
     country.code == 'gb'
