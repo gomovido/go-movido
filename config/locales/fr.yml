@@ -160,8 +160,8 @@ fr:
       submitting: "Recherche en cours ..."
   providers:
     index:
-      title: 'Sélectionnez le logement dont vous avez besoin'
-      subtitle: 'Favoris sélectionnés par movido'
+      title: 'Les logements dont vous avez besoin'
+      subtitle: "Nos favoris sélectionnés par l'équipe movido"
       count: "%{count}+ logements"
       show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Bientôt disponible"
@@ -173,7 +173,7 @@ fr:
       flatshare: 'Colocations'
       flatshare_desc: "Un bel appartement à bas prix ? C'est possible."
       upscale_housing: 'Haut de gamme'
-      upscale_housing_desc: "Choisis parmi de superbes lieux."
+      upscale_housing_desc: "Nos appartements premium triés sur le volet. Pour vous."
   flats:
     show:
       cta: "Réserver"
@@ -185,6 +185,7 @@ fr:
       rental_conditions: "Conditions de location"
       contract: "Contract"
       included_bills: "Charges incluses"
+      location: "Emplacement"
       cancellation_policy: "Politique d'annulation"
       security_deposit: "Caution"
       min_stay: "Séjour minimums"
@@ -193,6 +194,11 @@ fr:
       community_facilities: "Équipements communs & Services"
       flats: "Appartements"
       rules: "Règlement"
+      frequency:
+        nightly: "Nuit"
+        monthtly: "Mois"
+        fortnight: "Quinzaine"
+        weekly: "Semaine"
     index:
       priv_room: "Chambre"
       priv_bath: "Salle de bain"
@@ -218,7 +224,7 @@ fr:
         wifi: "Wifi"
         gym: "Salle de sport"
         room_cleaning: "Ménage"
-        laundry: "Lessive"
+        laundry: "Buanderie"
         wi_fi: "Wifi"
         unfurnished: "Non meublé"
         accessibility: "Accessibilité"
@@ -428,6 +434,7 @@ fr:
       content: "Tu es un développeur, un designer, un expert en marketing ou un expert produit ? <br>Ou bien tu as toi-même souffert des longues démarches administratives lors de tes déménagements et tu veux nous aider à changer les choses? <br>Chez movido, nous sommes toujours à la recherche de nouveaux talents pour rejoindre notre équipe. Écris nous simplement à <a href='mailto:contact@go-movido.com'>contact@go-movido.com</a> - nous serons ravis de te rencontrer!"
   people:
     form:
+      phone_input: "Comment pouvons nous vous joindre ?"
       failure:
         min_age: 'Tu dois être majeur(e)'
   addresses:

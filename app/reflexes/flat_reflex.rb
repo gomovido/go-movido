@@ -9,8 +9,8 @@ class FlatReflex < ApplicationReflex
     @flat_preference.facilities = params["flat_preference"].to_unsafe_h.map { |facility, value| facility.tr('_', '-') if value == "1" }.compact
     @flat_preference.move_in = date.split[0].to_date
     @flat_preference.move_out = date.split[-1].to_date
-    @flat_preference.range_min_price = params["flat_preference"]["range_min_price"].to_i * 100
-    @flat_preference.range_max_price = params["flat_preference"]["range_max_price"].to_i * 100
+    @flat_preference.range_min_price = params["flat_preference"]["range_min_price"].delete(',').to_i * 100
+    @flat_preference.range_max_price = params["flat_preference"]["range_max_price"].delete(',').to_i * 100
     @flat_preference.save
     @center = [@flat_preference.coordinates[1], @flat_preference.coordinates[0]]
     fetch_flats(@flat_preference, @flat_preference.flat_type)

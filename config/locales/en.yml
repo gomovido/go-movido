@@ -79,7 +79,7 @@ en:
         email: 'Email'
         university: 'University / College'
         room_type: 'Room type'
-        lease_duration: 'Lease duration'
+        lease_duration: 'Lease duration and price'
         requirements: 'Specific requirements:'
       billing:
         iban: 'IBAN'
@@ -151,7 +151,7 @@ en:
       cta: "Book now"
       more: "Show more"
       less: "Show less"
-      accomodations: "More accommodations"
+      accommodations: "More accommodations"
       more_rooms: "This house has more rooms available"
       facilities: "Facilities"
       rental_conditions: "Rental Conditions"
@@ -160,12 +160,17 @@ en:
       cancellation_policy: "Cancellation Policy"
       security_deposit: "Security Deposit"
       bills: "Bills included"
+      location: "Location"
       min_stay: "Minimum stay"
       nights: "nights"
       community_facilities: "Community Facilities & Services"
       flats: "Rooms"
       rules: "Rules"
-      features:
+      frequency:
+        nightly: "Night"
+        monthtly: "Month"
+        fortnight: "2 weeks"
+        weekly: "Week"
     index:
       priv_room: "Priv. Room"
       priv_bath: "Priv. Bathroom"
@@ -178,7 +183,7 @@ en:
       clear_filters: "Reset filters"
       frequency:
         week: "week"
-        fortnight: "fornight"
+        fortnight: "2 weeks"
         month: "month"
         nightly: "nightly"
       filters:
@@ -191,7 +196,7 @@ en:
         wifi: "Wifi"
         gym: "Gym center"
         room_cleaning: "Room cleaning"
-        laundry: "Laundry"
+        laundry: "Laundry room available"
         wi_fi: "Wifi"
         unfurnished: "Unfurnished"
         accessibility: "Accessibility"
@@ -200,8 +205,8 @@ en:
         washing_machine: "Washing machine"
   providers:
     index:
-      title: 'Select the accommodation you need'
-      subtitle: 'Favorites selected by movido'
+      title: 'The accomodations you need'
+      subtitle: 'Our favorites selected by the movido team'
       count: "%{count}+ places to stay"
       show_all: "Show all <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Coming soon"
@@ -213,7 +218,7 @@ en:
       flatshare: 'Flat Share'
       flatshare_desc: "Great flats with low budget ? Yes it's possible."
       upscale_housing: 'Upscale housing'
-      upscale_housing_desc: "Find the best premium apartment you can find. Now."
+      upscale_housing_desc: "Our hand-picked premium apartments just for you"
   pages:
     contact:
       title: 'Contact us'
@@ -406,6 +411,7 @@ en:
         description: 'Join our community of like-minded people in your new hometown!'
   people:
     form:
+      phone_input: 'How can we reach you?'
       failure:
         min_age: 'You should be over 18 years old'
   addresses:

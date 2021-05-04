@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <span class="pricing">
-      <%= flat['disp_price'] %> /<%= flat['billing'].downcase %>
+      <%= "#{flat['currency']}#{flat['min_price'].to_i} - #{flat['currency']}#{flat['max_price'].to_i}" %> /<%= flat['billing'].downcase %>
     </span>
     <%= link_to t('flats.index.details'), flat_path(location, type, flat['code']), class: 'btn-main'%>
   </div>

@@ -36,7 +36,7 @@ class AggregatorApiService
     hash[:facilities] = flat[:facilities].map { |f| { name: f } }
     hash[:apartment_facilities] = flat[:apartment_facilities].map { |af| { name: af['name'] } }
     hash[:community_facilities] = flat[:community_facilities].map { |af| { name: af['name'] } }
-    hash[:rooms] = flat[:details]['configs'].map { |c| { name: c['name'], description: c['description'], price: c['disp_price'], deposit: c['deposit'], subconfigs: c['subconfigs'], facilities: c['facilities'] } }
+    hash[:rooms] = flat[:details]['configs'].map { |c| { name: c['name'], description: c['description'], price: "#{flat[:details]['rate_unit']}#{c['price'].to_i}", deposit: c['deposit'], subconfigs: c['subconfigs'], facilities: c['facilities'] } }
   end
 
   def format_uniplaces(hash, flat)
@@ -57,7 +57,7 @@ class AggregatorApiService
     hash[:rules] = flat['property_aggregate']['property']['rules'].map { |rule| rule['code'].remove("-allowed").insert(0, "no-").titlecase if rule['exists'] == false }.compact if flat['property_aggregate']['property']['rules'].present?
     hash[:price] = flat['accommodation_offer']['reference_price']['amount'] / 100
     hash[:currency_code] = flat['accommodation_offer']['reference_price']['currency_code']
-    hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.staging-uniplaces.com/property-photos/#{k['hash']}/x-large.jpg" } }
+    hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.#{Rails.env.production? ? 'uniplaces.com' : 'staging-uniplaces.com'}/property-photos/#{k['hash']}/x-large.jpg" } }
     hash[:facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } } if flat['property_aggregate']['property']['features'].present?
     hash[:bedrooms_facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'].titlecase } if k['Exists'] == true }.compact if flat['property_aggregate']['property']['features'].present?
   end

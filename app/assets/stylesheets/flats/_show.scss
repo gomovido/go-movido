@@ -154,6 +154,17 @@
     font-size: 14px;
     color: $dark-taupe;
   }
+  .map-container {
+    position: relative !important;
+    height: 400px;
+    top: 0;
+    .mapboxgl-popup {
+      display: none;
+    }
+    .marker {
+      opacity: 1;
+    }
+  }
 }
 @include media-breakpoint-down(xs) {
   .flat-container {

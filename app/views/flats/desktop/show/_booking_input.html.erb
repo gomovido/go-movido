@@ -1,4 +1,4 @@
 <div class="booking-input d-flex align-items-center justify-content-around">
-  <span class="price"><%= manage_currency(flat[:currency_code].downcase) if @type != 'student_housing' %><%= flat[:price] %> / <%= flat[:billing] %></span>
+  <span class="price"><%= manage_currency(flat[:currency_code].downcase) if @type != 'student_housing' %><%= flat[:price] %> /<%= flat[:billing].downcase %></span>
   <%= link_to t('flats.show.cta'), new_booking_path(@flat[:code]), class:'btn-main' %>
 </div>

@@ -653,8 +653,11 @@
                         <div class="f-fallback body-cell">
                           <h1>Welcome, <span class="purple"><%= @resource.first_name %></span></h1>
                           <p>Thanks for signing up to movido. Let’s get you set up in your new home <strong>in only 10 mins.</strong></p>
-                          <p>With movido, simply select the services you need - from your  local bank account to your WiFi subscription – and let us deal with the admin work.</p>
                           <p><strong>Before starting exploring our products, please click on the "Start now" button below to activate your account</strong></p>
+                          <br>
+                          <div class="text-center"><a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" class="button button--" target="_blank">Start now</a></div>
+                          <br>
+                          <p>With movido, simply select the services you need - from your  local bank account to your WiFi subscription – and let us deal with the admin work.</p>
                           <p>Thanks, <br>Your movido team</p>
                         </div>
                       </td>
@@ -696,21 +699,6 @@
                       </td>
                     </tr>
                   </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <tr>
-                    <td class="text-center mt-1" align="center">
-                      <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                          <td>
-                            <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" class="button button--" target="_blank">Start now</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
                 </td>
               </tr>
               <tr>
@@ -836,10 +824,13 @@
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
                           <h1>Bonjour, <span class="purple"><%= @resource.first_name %></span></h1>
-                          <p>Merci de t’être inscrit(e) à movido. Maintenant nous allons t’installer dans ta nouvelle maison <strong>en 10 minutes!</strong></p>
-                          <p>Avec movido sélectionne simplement les services dont tu as besoin, du compte bancaire local àun nouvel abonnement WIFI. Laisse nous gérer pour toi les démarches administratives.</p>
+                          <p>Merci de t’être inscrit(e) à movido. Maintenant nous allons t'aider à t’installer dans ta nouvelle maison <strong>en 10 minutes!</strong></p>
                           <p><strong>Avant de commencer à explorer nos services, merci de cliquer sur le boutton "Démarrer" ci-dessous afin d'activer ton compte</strong></p>
-                          <p>Merci, <br>Ton équipe movido</p>
+                          <br>
+                          <div class="text-center"><a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" class="button button--" target="_blank">Démarrer</a></div>
+                          <br>
+                          <p>Avec movido sélectionne simplement les services dont tu as besoin, du compte bancaire à un nouvel abonnement WIFI. Laisse nous gérer pour toi ces démarches administratives.</p>
+                          <p>Merci, <br>L'équipe movido</p>
                         </div>
                       </td>
                     </tr>
@@ -880,21 +871,6 @@
                       </td>
                     </tr>
                   </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <tr>
-                    <td class="text-center mt-1" align="center">
-                      <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                          <td>
-                            <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" class="button button--" target="_blank">Démarrer</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
                 </td>
               </tr>
               <tr>
