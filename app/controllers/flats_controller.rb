@@ -60,6 +60,8 @@ class FlatsController < ApplicationController
     end
     if @flat
       @recommandations = current_user.flat_preference.recommandations.filter_map { |flat| JSON.parse(flat) if JSON.parse(flat)['code'] != @flat[:code] }
+      @markers = response[:markers]
+      @center = [current_user.flat_preference.coordinates[1], current_user.flat_preference.coordinates[0]]
       @flat = AggregatorApiService.new(flat: @flat, type: @type).format_flat
     else
       flash[:alert] = 'An error has occured'
