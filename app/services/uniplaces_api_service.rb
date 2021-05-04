@@ -7,6 +7,7 @@ class UniplacesApiService
     @page = params[:page]
     @code = params[:property_code]
     @flat_preference_id = params[:flat_preference_id]
+    @endpoint = Rails.env.production? ? "uniplaces.com" : "staging-uniplaces.com"
   end
 
   def flats
@@ -20,7 +21,7 @@ class UniplacesApiService
       'locale' => locale
     }
     query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?
-    uri = URI("https://api.staging-uniplaces.com/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
+    uri = URI("https://api.#{@endpoint}/v1/offers/#{@country.upcase}-#{@location}?page=#{@page}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" }, query: query)
     if response.body.include?("503 Service Temporarily Unavailable") || response['data'].blank?
       {
@@ -46,7 +47,7 @@ class UniplacesApiService
   end
 
   def flat
-    uri = URI("https://api.staging-uniplaces.com/v1/offer/#{@code}")
+    uri = URI("https://api.#{@endpoint}/v1/offer/#{@code}")
     response = HTTParty.get(uri, headers: { "X-Api-Key" => set_api_key, "Content-Type" => "application/json" })
     return unless response
 
@@ -112,7 +113,7 @@ class UniplacesApiService
     payload.first(7).map do |flat|
       {
         code: flat['id'],
-        image: "https://cdn-static.staging-uniplaces.com/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
+        image: "https://cdn-static.#{@endpoint}/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
         price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
         billing: flat['attributes']['accommodation_offer']['contract_type'],
         currency: flat['attributes']['accommodation_offer']['price']['currency_code'],

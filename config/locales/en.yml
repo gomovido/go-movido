@@ -160,6 +160,7 @@ en:
       cancellation_policy: "Cancellation Policy"
       security_deposit: "Security Deposit"
       bills: "Bills included"
+      location: "Location"
       min_stay: "Minimum stay"
       nights: "nights"
       community_facilities: "Community Facilities & Services"
@@ -168,7 +169,7 @@ en:
       frequency:
         nightly: "Night"
         monthtly: "Month"
-        fortnight: "Fortnight"
+        fortnight: "2 weeks"
         weekly: "Week"
     index:
       priv_room: "Priv. Room"
@@ -182,7 +183,7 @@ en:
       clear_filters: "Reset filters"
       frequency:
         week: "week"
-        fortnight: "fornight"
+        fortnight: "2 weeks"
         month: "month"
         nightly: "nightly"
       filters:
@@ -195,7 +196,7 @@ en:
         wifi: "Wifi"
         gym: "Gym center"
         room_cleaning: "Room cleaning"
-        laundry: "Laundry"
+        laundry: "Laundry room available"
         wi_fi: "Wifi"
         unfurnished: "Unfurnished"
         accessibility: "Accessibility"

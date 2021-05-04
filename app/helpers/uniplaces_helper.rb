@@ -1,6 +1,6 @@
 module UniplacesHelper
   def flat_image(image)
-    "https://cdn-static.staging-uniplaces.com/property-photos/#{image}/small.jpg"
+    "https://cdn-static.#{Rails.env.production? ? 'uniplaces.com' : 'staging-uniplaces.com'}/property-photos/#{image}/small.jpg"
   end
 
   def flat_price(flat)

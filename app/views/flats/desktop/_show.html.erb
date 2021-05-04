@@ -52,6 +52,10 @@
     <%= render 'flats/desktop/show/community_facilities', facilities: @flat[:community_facilities] %>
     <%= render 'flats/desktop/show/billing_details', billing_details: @flat[:billing_details] %>
     <%= render 'flats/desktop/show/rules', rules: @flat[:rules] %>
+    <div data-controller="map" class="w-100">
+       <span class='title mb-2 d-block'><%= t('flats.show.location') %></span>
+      <%= render 'flats/desktop/show/map', markers: @markers, center: @center %>
+    </div>
     <% if @recommandations.present? %>
     <div class="my-2 pr-0">
       <span class="title"><%= t('flats.show.accommodations') %></span>
