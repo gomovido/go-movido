@@ -5,6 +5,7 @@ class Subscription < ApplicationRecord
   belongs_to :product, polymorphic: true
   has_one :billing, dependent: :destroy
   has_one :charge, dependent: :destroy
+  has_one :order, dependent: :destroy
   accepts_nested_attributes_for :address
 
   validates :delivery_address, presence: true, on: :update

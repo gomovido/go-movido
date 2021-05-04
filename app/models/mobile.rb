@@ -18,8 +18,10 @@ class Mobile < ApplicationRecord
   after_create :create_stripe_product
 
   def create_stripe_product
-    response = StripeApiProductService.new(product_id: self.id).proceed
-    self.update(stripe_id: response[:product_id]) if response[:product_id]
+    if self.stripe_id.nil?
+      response = StripeApiProductService.new(product_id: self.id).proceed
+      self.update(stripe_id: response[:product_id]) if response[:product_id]
+    end
   end
 
   def uk?
