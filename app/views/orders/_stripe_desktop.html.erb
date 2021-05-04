@@ -4,25 +4,25 @@
      <i class="fas fa-lock mr-4 p-2"></i>
      <div class="texts">
       <%= image_tag(asset_path('subscriptions/stripe.png')) %>
-      <h4 class="text-left"><strong><%= t('charges.stripe.connection') %></strong></h4>
+      <h4 class="text-left"><strong><%= t('orders.stripe.connection') %></strong></h4>
       <span class="bit-info">HTTPS - 256-bit encryption - Stripe certified</span>
      </div>
   </div>
   <hr>
   <div class="form-base">
-    <%= simple_form_for @subscription, url: "/charge", method: :post, data: {controller: "charge", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
+    <%= simple_form_for @subscription, url: "/order", method: :post, data: {controller: "order", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
       <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
       <%= f.hidden_field :locale, value: params[:locale].to_s.strip.to_sym %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
       <div class="form-divs-wrapper mb-5">
         <div class="form-group">
-          <label for="card-number-element" class="my-3"><%= t('charges.stripe.number') %></label>
+          <label for="card-number-element" class="my-3"><%= t('orders.stripe.number') %></label>
           <div id="card-number-element" class="form-control d-flex align-items-center stripe-input"></div>
           <div id="card-errors" class="mt-2" role="alert"></div>
         </div>
         <div class="name-fields d-flex justify-content-between">
           <div class="form-group">
-            <label for="card-expiry-element" class="my-3"><%= t('charges.stripe.date') %></label>
+            <label for="card-expiry-element" class="my-3"><%= t('orders.stripe.date') %></label>
             <div id="card-expiry-element" class="form-control stripe-input d-flex align-items-center"></div>
           </div>
           <div class="form-group">
@@ -33,10 +33,10 @@
         <hr>
         <div class="form-group">
           <span class="legals text-justify">
-            <%= t('charges.stripe.policy_link', href: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
+            <%= t('orders.stripe.policy_link', href: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
           </span>
         </div>
-        <%= f.button :submit, t('charges.stripe.pay'), class: 'btn-main w-100', data: {disable_with: false}%>
+        <%= f.button :submit, t('orders.stripe.pay'), class: 'btn-main w-100', data: {disable_with: false}%>
       </div>
     <% end %>
   </div>

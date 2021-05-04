@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_134432) do
+ActiveRecord::Schema.define(version: 2021_05_04_150909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,15 +92,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_134432) do
     t.boolean "open"
     t.integer "sort_id"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
-  end
-
-  create_table "charges", force: :cascade do |t|
-    t.string "stripe_charge_id"
-    t.string "status"
-    t.bigint "subscription_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["subscription_id"], name: "index_charges_on_subscription_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -294,7 +285,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_134432) do
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
   add_foreign_key "bookings", "users"
-  add_foreign_key "charges", "subscriptions"
   add_foreign_key "flat_preferences", "users"
   add_foreign_key "mobiles", "categories"
   add_foreign_key "mobiles", "companies"

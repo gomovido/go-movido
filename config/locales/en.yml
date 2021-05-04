@@ -457,7 +457,7 @@ en:
         hint:
           bank: 'You cannot change this field'
           delivery_address: "SIM card delivery address is the same as billing address"
-  charges:
+  orders:
     new:
       title: 'Pay for your SIM card'
       subtitle: "Your SIM card costs <strong>%{price}</strong>. <br> We accept Visa & Master Card"
