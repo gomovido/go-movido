@@ -3,41 +3,6 @@ class StripeApiService
     @stripe_token = params[:stripe_token]
     @subscription_id = params[:subscription_id]
     @user_id = params[:user_id]
-    @product_id = params[:product_id]
-  end
-
-
-  def create_product
-    product = get_product(@product_id)
-    begin
-      stripe_product = Stripe::Product.create({
-        type: 'good',
-        name: "#{product.company.name} #{product.name}",
-        images: [product.company.logo_url]
-      })
-      create_sku(product, stripe_product.id)
-    rescue Stripe::StripeError => e
-      return { product: stripe_product, error: e }
-    end
-  end
-
-  def create_sku(product, stripe_product_id)
-    begin
-      sku = Stripe::SKU.create({
-        price: product.sim_card_price_cents,
-        currency: product.country.currency,
-        inventory: {type: 'infinite'},
-        product: stripe_product_id,
-        image: product.company.logo_url
-      })
-      return { product_id: sku.id, error: nil }
-    rescue Stripe::StripeError => e
-      return { product: sku, error: e }
-    end
-  end
-
-  def get_product(product_id)
-    Mobile.find(product_id) || Wifi.find(product_id)
   end
 
   def proceed_stripe
