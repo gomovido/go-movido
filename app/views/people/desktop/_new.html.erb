@@ -9,7 +9,7 @@
           <input name="subscription_id" type="hidden" value="<%= params[:subscription_id] %>">
           <%= f.input :phone,
                 required: true,
-                input_html: { data: { registration_target: 'phone' } } %>
+                input_html: { data: { registration_target: 'phone' } }, label: t('people.form.phone_input') %>
           <%= f.input :birthdate, as: :string,
                    required: true,
                    input_html: { class:'background-white datepicker', data: {

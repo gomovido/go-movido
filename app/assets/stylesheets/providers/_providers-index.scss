@@ -49,8 +49,12 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 10px;
+    grid-column-gap: 25px;
     grid-row-gap: 0px;
+  }
+  h3.desc {
+    font-size: 17px;
+    font-weight: 200;
   }
 }
 @include media-breakpoint-down(xs) {

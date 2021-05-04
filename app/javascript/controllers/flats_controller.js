@@ -15,8 +15,8 @@ export default class extends Controller {
     this.intersectionObserver.observe(this.paginationTarget)
     StimulusReflex.register(this)
     this.slider = this.sliderTarget;
-    const startMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').value);
-    const startMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').value);
+    const startMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').value.replace(/,/g, ''));
+    const startMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').value.replace(/\,/g,''));
     const rangeMinPrice = parseInt(document.getElementById('flat_preference_range_min_price').dataset.minValue);
     const rangeMaxPrice = parseInt(document.getElementById('flat_preference_range_max_price').dataset.maxValue)
     this.rangeSlider(startMinPrice, startMaxPrice, rangeMinPrice, rangeMaxPrice);
@@ -34,8 +34,9 @@ export default class extends Controller {
       }
     });
     this.slider.noUiSlider.on('change.one', () => {
-      document.getElementById('flat_preference_range_min_price').value = parseInt(this.slider.noUiSlider.get()[0], 10);
-      document.getElementById('flat_preference_range_max_price').value = parseInt(this.slider.noUiSlider.get()[1], 10);
+      document.getElementById('flat_preference_range_min_price').value = parseInt(this.slider.noUiSlider.get()[0]).toLocaleString('en-US');
+      document.getElementById('flat_preference_range_max_price').value = parseInt(this.slider.noUiSlider.get()[1]).toLocaleString('en-US');
+      console.log(document.getElementById('flat_preference_range_max_price'))
       this.triggerLoading(this.spinnerTarget, this.entriesTarget, this.formTarget, document.getElementById('date-input').value)
     });
   }
