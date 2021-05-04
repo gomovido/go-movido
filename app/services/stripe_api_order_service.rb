@@ -8,10 +8,10 @@ class StripeApiOrderService
 
   def init_order
     response = StripeApiCustomerService.new(user_id: @user_id).retrieve_or_create
-    response.id ? create_or_retrieve(response.id, @subscription_id) : response
+    response.id ? retrieve_or_create(response.id, @subscription_id) : response
   end
 
-  def create_or_retrieve(customer_id, subscription_id)
+  def retrieve_or_create(customer_id, subscription_id)
     order = Order.find_by(subscription_id: subscription_id)
     order ? retrieve(order.stripe_id) : create(customer_id, subscription_id)
   end
