@@ -20,7 +20,6 @@ class Mobile < ApplicationRecord
 
   def create_stripe_product
     response = StripeApiService.new(product_id: self.id).create_product
-    p response
     self.update(stripe_id: response[:product_id]) if response[:product_id]
   end
 
