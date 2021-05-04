@@ -6,7 +6,7 @@ class StripeApiProductService
   def proceed
     product = Mobile.find(@product_id)
     response = create_product(product)
-    create_sku(product, response.id) if response.id
+    response.id ? create_sku(product, response.id) : response
   end
 
   def create_product(product)
