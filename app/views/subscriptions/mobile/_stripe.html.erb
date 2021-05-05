@@ -8,7 +8,7 @@
      </div>
   </div>
   <div class="form-base mt-2">
-    <%= simple_form_for @subscription, url: "/order", method: :post, data: {controller: "order", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
+    <%= simple_form_for @subscription, url: "/payment", method: :post, data: {controller: "order", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
       <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
       <%= f.hidden_field :locale, value: params[:locale].to_s.strip.to_sym %>
       <%= f.hidden_field :subscription_id, value: @subscription.id %>
