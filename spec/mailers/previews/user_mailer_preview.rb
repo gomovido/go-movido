@@ -12,7 +12,7 @@ class UserMailerPreview < ActionMailer::Preview
   end
 
   def booking_under_review_email
-    UserMailer.with(user: User.first, booking: Booking.first, locale: 'en').booking_under_review_email
+    UserMailer.with(user: User.first, booking: Booking.first, locale: 'fr').booking_under_review_email
   end
 
   def booking_confirmed_email
