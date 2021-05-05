@@ -650,7 +650,7 @@
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
                           <h1>Hi, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Thank you for placing a booking request with movido. The booking information is now on its way to our [product category] partner [provider name].</p>
+                          <p>Thanks for making your booking request with movido. You will receive further instructions from our partner shortly.</p>
                         </div>
                       </td>
                     </tr>
@@ -660,24 +660,30 @@
               <tr>
                 <td>
                   <tr>
-                    <td class="text-center mt-1" align="center">
-                      <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                          <td>
-                            <a href="<%= user_url(@user) %>" class="button button--" target="_blank">See my booking status</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
                     <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td class="content-cell">
                           <div class="f-fallback body-cell">
-                            <p><strong>What’s next?</strong></p>
-                            <p>To complete your booking, our partner will contact you via e-mail or phone to complete the deposit payment. Once the payment is completed, you will receive a booking confirmation e-mail.</p>
-                            <p>Thanks, <br>Your movido team</p>
+                            <p><strong><u>Booking details</u></strong></p>
+                            <span>Full name : <strong><%= @booking.full_name %></strong></span>
+                            <br>
+                            <span>Email : <strong><%= @booking.email %></strong></span>
+                            <br>
+                            <span>University / College : <strong><%= @booking.university %></strong></span>
+                            <br>
+                            <span>Phone number : <strong><%= @booking.phone %></strong></span>
+                            <br>
+                            <% unless @booking.room_type.blank? %>
+                              <span>Room type : <strong><%= @booking.room_type %></strong></span>
+                              <br>
+                            <% end %>
+                            <% unless @booking.lease_duration.blank? %>
+                              <span>Lease duration & price: <strong><%= @booking.lease_duration %></strong></span>
+                              <br>
+                            <% end %>
+                            <span>Specific requirements : <strong><%= @booking.requirements.blank? ? "-" : @booking.requirements %></strong></span>
+                            <br>
+                            <p>Thanks, <br><i>Your movido team</i></p>
                           </div>
                         </td>
                       </tr>
@@ -805,7 +811,7 @@
                         <td class="content-cell">
                           <div class="f-fallback body-cell">
                             <h1>Salut, <span class="purple"><%= @user.first_name %></span></h1>
-                            <p>Merci d’avoir réservé avec movido. L’information sur la réservation est en coursd’acheminement vers (fournisseur) pour le produit (catégorie de produit)</p>
+                            <p>Ta demande de réservation a bien été enregistrée. Tu vas être contacté prochainement par notre partenaire. </p>
                           </div>
                         </td>
                       </tr>
@@ -815,24 +821,30 @@
                 <tr>
                   <td>
                     <tr>
-                      <td class="text-center mt-1" align="center">
-                        <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                          <tr>
-                            <td>
-                              <a href="<%= user_url(@user) %>" class="button button--" target="_blank">Voir le statut de ma réservation</a>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr>
                       <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td class="content-cell">
                             <div class="f-fallback body-cell">
-                              <p><strong>Et après?</strong></p>
-                              <p>Pour compléter ta réservation, notre partenaire te contactera via e-mail ou téléphone pour lepaiement du déposit.</p>
-                              <p>Merci, <br>Ton équipe movido</p>
+                              <p><strong><u>Informations de réservation :</u></strong></p>
+                              <span>Nom complet : <strong><%= @booking.full_name %></strong></span>
+                              <br>
+                              <span>Email : <strong><%= @booking.email %></strong></span>
+                              <br>
+                              <span>Université / Faculté : <strong><%= @booking.university %></strong></span>
+                              <br>
+                              <span>Téléphone : <strong><%= @booking.phone %></strong></span>
+                              <br>
+                              <% unless @booking.room_type.blank? %>
+                                <span>Chambre : <strong><%= @booking.room_type %></strong></span>
+                                <br>
+                              <% end %>
+                              <% unless @booking.lease_duration.blank? %>
+                                <span>Durée de réservation & prix: <strong><%= @booking.lease_duration %></strong></span>
+                                <br>
+                              <% end %>
+                              <span>Commentaires : <strong><%= @booking.requirements.blank? ? "-" : @booking.requirements %></strong></span>
+                              <br>
+                              <p>Merci, <br><i>L'équipe movido</i></p>
                             </div>
                           </td>
                         </tr>
@@ -847,7 +859,7 @@
                         <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                           <tr>
                             <td>
-                              <span><strong>Des questions ? Voici comment vous pouvez nous joindre</strong></span>
+                              <span><strong>Des questions ? Voici comment tu peux nous joindre</strong></span>
                             </td>
                           </tr>
                           <tr class="marketing-row">
@@ -878,7 +890,7 @@
                         <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                           <tr>
                             <td>
-                              <span><strong>Vous voulez rester en contact ? Trouvez-nous ici</strong></span>
+                              <span><strong>Tu veux rester en contact ? Trouve-nous ici</strong></span>
                             </td>
                           </tr>
                           <tr class="marketing-row">
