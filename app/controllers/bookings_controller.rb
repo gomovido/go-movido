@@ -9,8 +9,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      @booking.update(status: 'placed')
+      @booking.update(status: 'placed', locale: I18n.locale)
       flash[:notice] = 'Booking created!'
+      UserMailer.with(user: @booking.user, booking: @booking,
+                      locale: @booking.locale).booking_under_review_email.deliver_now
       redirect_to booking_path(@booking.id, flat_id: params[:booking][:flat_id])
     else
       fetch_flat(current_user.flat_preference.flat_type, params[:booking][:flat_id], current_user.flat_preference.location)
