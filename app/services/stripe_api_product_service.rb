@@ -5,6 +5,7 @@ class StripeApiProductService
 
   def proceed
     product = Mobile.find(@product_id)
+    product = Wifi.find(@product_id) if product.nil?
     response = create_product(product)
     response.id ? create_sku(product, response.id) : response
   end
@@ -22,9 +23,14 @@ class StripeApiProductService
   end
 
   def create_sku(product, stripe_product_id)
+    if product.category.name == 'wifi'
+      price = 0
+    else
+      price = product.sim_card_price_cents
+    end
     begin
       sku = Stripe::SKU.create({
-        price: product.sim_card_price_cents,
+        price: price,
         currency: product.country.currency,
         inventory: {type: 'infinite'},
         product: stripe_product_id,
