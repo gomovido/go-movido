@@ -486,7 +486,7 @@ fr:
         hint:
           bank: 'Tu ne poeux pas modifier ce champ'
           delivery_address: "L'adresse de livraison de ta carte SIM est la même que ton adresse de facturation"
-  charges:
+  orders:
     new:
       title: 'Paiement de ta carte SIM'
       subtitle: "Ta carte SIM coûte <strong>%{price}</strong>. <br> Nous acceptons Visa & Master Card"
