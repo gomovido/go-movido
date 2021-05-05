@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_131029) do
+ActiveRecord::Schema.define(version: 2021_05_04_150909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,15 +94,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_131029) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "charges", force: :cascade do |t|
-    t.string "stripe_charge_id"
-    t.string "status"
-    t.bigint "subscription_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["subscription_id"], name: "index_charges_on_subscription_id"
-  end
-
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "logo_url"
@@ -168,6 +159,15 @@ ActiveRecord::Schema.define(version: 2021_05_04_131029) do
     t.index ["category_id"], name: "index_mobiles_on_category_id"
     t.index ["company_id"], name: "index_mobiles_on_company_id"
     t.index ["country_id"], name: "index_mobiles_on_country_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "stripe_id"
+    t.string "status"
+    t.bigint "subscription_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subscription_id"], name: "index_orders_on_subscription_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -285,11 +285,11 @@ ActiveRecord::Schema.define(version: 2021_05_04_131029) do
   add_foreign_key "billings", "subscriptions"
   add_foreign_key "billings", "users"
   add_foreign_key "bookings", "users"
-  add_foreign_key "charges", "subscriptions"
   add_foreign_key "flat_preferences", "users"
   add_foreign_key "mobiles", "categories"
   add_foreign_key "mobiles", "companies"
   add_foreign_key "mobiles", "countries"
+  add_foreign_key "orders", "subscriptions"
   add_foreign_key "people", "users"
   add_foreign_key "product_features", "mobiles"
   add_foreign_key "product_features", "wifis"

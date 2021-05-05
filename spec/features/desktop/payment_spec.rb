@@ -10,6 +10,8 @@ RSpec.describe "Payment via Stripe", type: :feature do
     let!(:mobile) { create(:mobile, :internet_and_call, category: category, company: company, country: country) }
     let!(:product_feature) { create(:product_feature, mobile: mobile) }
     let!(:subscription) { create(:subscription, country.code.to_sym, address: address, product: mobile) }
+    let!(:billing) { create(:billing, country.code.to_sym, user: user, subscription: subscription) }
+
 
     before do
       login_as(user, scope: :user)
@@ -27,7 +29,7 @@ RSpec.describe "Payment via Stripe", type: :feature do
     end
 
     context 'when user proceed payment' do
-      it "updates the state of the subscription & create a charge" do
+      it "updates the state of the subscription & order status to paid" do
         [
           {
             selector: "#card-number-element > div > iframe",
@@ -52,7 +54,7 @@ RSpec.describe "Payment via Stripe", type: :feature do
           sleep 4
           subscription.reload
         end.to change(subscription, :state).to('succeeded')
-                                           .and change { subscription.charge.nil? }.to(false)
+                                           .and change { subscription.order.nil? }.to(false)
       end
     end
   end
