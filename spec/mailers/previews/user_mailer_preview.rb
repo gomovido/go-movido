@@ -3,6 +3,10 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.with(user: User.first).welcome_email
   end
 
+  def welcome_email_without_confirmation
+    UserMailer.with(user: User.first).welcome_email_without_confirmation
+  end
+
   def subscription_under_review_email
     UserMailer.with(user: User.first, subscription: Subscription.last, locale: 'en').subscription_under_review_email
   end
