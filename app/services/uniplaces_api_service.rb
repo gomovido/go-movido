@@ -113,7 +113,7 @@ class UniplacesApiService
     payload.first(7).map do |flat|
       {
         code: flat['id'],
-        image: "https://cdn-static.#{@endpoint}/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
+        image: "https://#{Rails.env.production? ? 'cdn-static-new.uniplaces.com' : 'cdn-static.staging-uniplaces.com'}/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
         price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
         billing: flat['attributes']['accommodation_offer']['contract_type'],
         currency: flat['attributes']['accommodation_offer']['price']['currency_code'],

@@ -17,7 +17,7 @@
           <%= flat_price(flat) %>
         </span>
       </div>
-      <%= link_to t("flats.index.cta"), "https://www.uniplaces.com/accommodation/london/#{flat['id']}", class:'btn-main', target: 'blank' %>
+      <%= link_to t("flats.index.details"), flat_path(location, type, flat['id']), class:'btn-main' %>
     </div>
   </div>
 <% end %>

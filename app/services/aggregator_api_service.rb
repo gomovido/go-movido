@@ -57,7 +57,7 @@ class AggregatorApiService
     hash[:rules] = flat['property_aggregate']['property']['rules'].map { |rule| rule['code'].remove("-allowed").insert(0, "no-").titlecase if rule['exists'] == false }.compact if flat['property_aggregate']['property']['rules'].present?
     hash[:price] = flat['accommodation_offer']['reference_price']['amount'] / 100
     hash[:currency_code] = flat['accommodation_offer']['reference_price']['currency_code']
-    hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://cdn-static.#{Rails.env.production? ? 'uniplaces.com' : 'staging-uniplaces.com'}/property-photos/#{k['hash']}/x-large.jpg" } }
+    hash[:images] = flat['property_aggregate']['photos'].map { |k, _v| { url: "https://#{Rails.env.production? ? 'cdn-static-new.uniplaces.com' : 'cdn-static.staging-uniplaces.com'}/property-photos/#{k['hash']}/x-large.jpg" } }
     hash[:facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'] } } if flat['property_aggregate']['property']['features'].present?
     hash[:bedrooms_facilities] = flat['property_aggregate']['property']['features'].map { |k, _v| { name: k['Code'].titlecase } if k['Exists'] == true }.compact if flat['property_aggregate']['property']['features'].present?
   end
