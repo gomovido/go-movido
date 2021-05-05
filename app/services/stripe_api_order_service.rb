@@ -32,7 +32,7 @@ class StripeApiOrderService
         shipping: {
           name: subscription.address.user.full_name,
           address: {
-            line1: subscription&.address&.street || '',
+            line1: subscription&.address&.street || subscription&.billing&.address || '',
             country: subscription.address.country.code.upcase,
             postal_code: subscription.address.zipcode
           },
