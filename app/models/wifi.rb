@@ -9,6 +9,15 @@ class Wifi < ApplicationRecord
   has_many :special_offer_translations, through: :special_offers, source: :translations
   validates :name, :area, :price, :time_contract, :setup_price, :data_speed, presence: true
   validates :active, inclusion: { in: [true, false] }
+  after_create :create_stripe_product
+
+  def create_stripe_product
+    if self.stripe_id.nil?
+      response = StripeApiProductService.new(product_id: self.id).proceed
+      self.update(stripe_id: response[:product_id]) if response[:product_id]
+    end
+  end
+
 
   def total_steps
     4
