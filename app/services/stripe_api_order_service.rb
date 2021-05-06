@@ -12,8 +12,8 @@ class StripeApiOrderService
   end
 
   def retrieve_or_create(customer_id, subscription_id)
-    order = Order.find_by(subscription_id: subscription_id)
-    order ? retrieve(order.stripe_id) : create(customer_id, subscription_id)
+    subscription = Subscription.find(subscription_id)
+    subscription.stripe_id.nil? ?  create(customer_id, subscription_id) : retrieve(subscription.stripe_id)
   end
 
   def create(customer_id, subscription_id)
@@ -32,7 +32,7 @@ class StripeApiOrderService
         shipping: {
           name: subscription.address.user.full_name,
           address: {
-            line1: subscription.billing.address,
+            line1: subscription&.address&.street || subscription&.billing&.address || '',
             country: subscription.address.country.code.upcase,
             postal_code: subscription.address.zipcode
           },

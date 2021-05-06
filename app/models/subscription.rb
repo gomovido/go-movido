@@ -4,13 +4,17 @@ class Subscription < ApplicationRecord
   belongs_to :address
   belongs_to :product, polymorphic: true
   has_one :billing, dependent: :destroy
-  has_one :order, dependent: :destroy
   accepts_nested_attributes_for :address
-
   validates :delivery_address, presence: true, on: :update
   validate :delivery_address_country, on: :update, if: :delivery_address?
   validates_plausible_phone :contact_phone, presence: true, on: :update, if: :product_is_wifi?
   validate :contact_phone_country, on: :update, if: :product_is_wifi?
+  after_create :create_on_stripe
+
+  def create_on_stripe
+    response = StripeApiOrderService.new(user_id: self.address.user.id, subscription_id: self.id).init_order
+    self.update_columns(stripe_id: response[:stripe_order].id) if response[:stripe_order]
+  end
 
   def product_is_wifi?
     product_type == 'Wifi'
