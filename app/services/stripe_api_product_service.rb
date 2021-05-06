@@ -4,8 +4,8 @@ class StripeApiProductService
   end
 
   def proceed
-    product = Mobile.find(@product_id)
-    product = Wifi.find(@product_id) if product.nil?
+    product = Mobile.find_by(id: @product_id)
+    product = Wifi.find_by(id: @product_id) if product.nil?
     response = create_product(product)
     response.id ? create_sku(product, response.id) : response
   end
