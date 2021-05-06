@@ -7,6 +7,7 @@ class Mobile < ApplicationRecord
   has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
   has_many :special_offer_translations, through: :special_offers, source: :translations
+  has_and_belongs_to_many :coupons
   validates :data_unit, inclusion: { in: ["GB", "MB"] }, unless: :not_needed?
   validates :offer_type, inclusion: { in: ["call_only", "internet_only", "internet_and_call"] }
   validates :name, :area, :price, :offer_type, :time_contract, :sim_card_price, presence: true
@@ -16,6 +17,7 @@ class Mobile < ApplicationRecord
   validates :call, presence: { if: :call_only? }
   validates :call, :data, presence: { if: :internet_and_call? }
   after_create :create_stripe_product
+
 
   def create_stripe_product
     if self.stripe_id.nil?
