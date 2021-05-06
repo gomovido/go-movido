@@ -1,4 +1,14 @@
 Rails.application.configure do
+  config.after_initialize do
+    Bullet.enable        = true
+    Bullet.bullet_logger = true
+    Bullet.console       = true
+    Bullet.alert         = true
+  # Bullet.growl         = true
+    Bullet.rails_logger  = true
+    Bullet.add_footer    = true
+  end
+
   config.action_cable.url = "ws://localhost:3000/cable"
 
   config.action_cable.allowed_request_origins = [/http:\/\/*/,
