@@ -12,8 +12,8 @@ class Subscription < ApplicationRecord
   after_create :create_on_stripe
 
   def create_on_stripe
-    response = StripeApiOrderService.new(user_id: self.address.user.id, subscription_id: self.id).init_order
-    self.update_columns(stripe_id: response[:stripe_order].id) if response[:stripe_order]
+    response = StripeApiOrderService.new(user_id: address.user.id, subscription_id: id).init_order
+    update_columns(stripe_id: response[:stripe_order].id) if response[:stripe_order]
   end
 
   def product_is_wifi?

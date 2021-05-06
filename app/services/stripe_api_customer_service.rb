@@ -1,5 +1,4 @@
 class StripeApiCustomerService
-
   def initialize(params)
     @user_id = params[:user_id]
   end
@@ -10,20 +9,16 @@ class StripeApiCustomerService
   end
 
   def create(user)
-    begin
-      customer = Stripe::Customer.create(email: user.email, description: "Customer ##{user.id} - #{user.email}")
-      user.update(stripe_id: customer.id)
-      customer
-    rescue Stripe::StripeError, Stripe::InvalidRequestError => error
-      error
-    end
+    customer = Stripe::Customer.create(email: user.email, description: "Customer ##{user.id} - #{user.email}")
+    user.update(stripe_id: customer.id)
+    customer
+  rescue Stripe::StripeError, Stripe::InvalidRequestError => e
+    e
   end
 
   def update(user)
-    begin
-      Stripe::Customer.update(user.stripe_id.to_s)
-    rescue Stripe::StripeError, Stripe::InvalidRequestError => error
-      error
-    end
+    Stripe::Customer.update(user.stripe_id.to_s)
+  rescue Stripe::StripeError, Stripe::InvalidRequestError => e
+    e
   end
 end

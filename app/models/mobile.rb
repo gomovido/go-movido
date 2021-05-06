@@ -16,12 +16,18 @@ class Mobile < ApplicationRecord
   validates :call, presence: { if: :call_only? }
   validates :call, :data, presence: { if: :internet_and_call? }
   after_create :create_stripe_product
+  after_update :update_stripe_product
+  after_touch :update_stripe_product
 
   def create_stripe_product
-    if self.stripe_id.nil?
-      response = StripeApiProductService.new(product_id: self.id, type: self.category.name.capitalize).proceed
-      self.update(stripe_id: response[:product_id]) if response[:product_id]
-    end
+    return unless stripe_id.nil?
+
+    response = StripeApiProductService.new(product_id: id, type: category.name.capitalize).proceed
+    update(stripe_id: response[:product_id]) if response[:product_id]
+  end
+
+  def update_stripe_product
+    StripeApiProductService.new(product_id: id, type: category.name.capitalize, sku: stripe_id).proceed_update
   end
 
   def uk?

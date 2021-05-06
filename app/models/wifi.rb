@@ -10,12 +10,18 @@ class Wifi < ApplicationRecord
   validates :name, :area, :price, :time_contract, :setup_price, :data_speed, presence: true
   validates :active, inclusion: { in: [true, false] }
   after_create :create_stripe_product
+  after_update :update_stripe_product
+  after_touch :update_stripe_product
 
   def create_stripe_product
-    if self.stripe_id.nil?
-      response = StripeApiProductService.new(product_id: self.id, type: self.category.name.capitalize).proceed
-      self.update(stripe_id: response[:product_id]) if response[:product_id]
-    end
+    return unless stripe_id.nil?
+
+    response = StripeApiProductService.new(product_id: id, type: category.name.capitalize).proceed
+    update(stripe_id: response[:product_id]) if response[:product_id]
+  end
+
+  def update_stripe_product
+    StripeApiProductService.new(product_id: id, type: category.name.capitalize, sku: stripe_id).proceed_update
   end
 
   def total_steps
