@@ -1,11 +1,11 @@
 class StripeApiProductService
   def initialize(params)
     @product_id = params[:product_id]
+    @type = params[:type]
   end
 
   def proceed
-    product = Mobile.find_by(id: @product_id)
-    product = Wifi.find_by(id: @product_id) if product.nil?
+    product = @type.constantize.find(@product_id)
     response = create_product(product)
     response.id ? create_sku(product, response.id) : response
   end
