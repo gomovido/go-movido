@@ -28,10 +28,10 @@ class StripeApiProductService
   end
 
   def update_product(product)
-    response = Stripe::Product.retrieve(Stripe::SKU.retrieve(@sku).product)
+    response = Stripe::SKU.retrieve(@sku).product
     begin
       Stripe::Product.update(
-        response.id,
+        response,
         name: "#{product.company.name} #{product.name}",
         images: [product.company.logo_url]
       )
