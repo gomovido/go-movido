@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_product, only: [:create]
-  before_action :set_subscription, only: %i[summary validate_subscription congratulations abort_subscription]
+  before_action :set_subscription, only: %i[summary validate_subscription congratulations abort_subscription payment]
 
   def create
     return if subscription_active?(@product)
@@ -24,6 +24,30 @@ class SubscriptionsController < ApplicationController
         redirect_back(fallback_location: root_path, locale: I18n.locale)
       end
     end
+  end
+
+  def payment
+  end
+
+  def process_payment
+    subscription = Subscription.find(params[:subscription][:subscription_id])
+    stripe_token = params[:stripeToken]
+    response = StripeApiOrderService.new(stripe_token: stripe_token, stripe_order_id: subscription.stripe_id).proceed_payment
+    I18n.locale = params[:subscription][:locale].to_sym
+    if payment_is_succeeded?(response)
+      subscription.update_columns(state: 'succeeded', locale: I18n.locale, password: subscription.random_password)
+      UserMailer.with(user: subscription.address.user, subscription: subscription, locale: I18n.locale).subscription_under_review_email.deliver_now
+      subscription.slack_notification
+      redirect_to subscription_congratulations_path(subscription, locale: I18n.locale)
+    else
+      subscription.update_columns(state: 'payment_failed', locale: I18n.locale)
+      flash[:alert] = I18n.t("stripe.errors.#{response[:error].code}")
+      redirect_back(fallback_location: root_path, locale: I18n.locale)
+    end
+  end
+
+  def payment_is_succeeded?(response)
+    response[:stripe_order].status == 'paid' if response[:stripe_order]
   end
 
   def summary

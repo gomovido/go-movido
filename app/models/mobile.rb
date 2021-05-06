@@ -19,7 +19,7 @@ class Mobile < ApplicationRecord
 
   def create_stripe_product
     if self.stripe_id.nil?
-      response = StripeApiProductService.new(product_id: self.id).proceed
+      response = StripeApiProductService.new(product_id: self.id, type: self.category.name.capitalize).proceed
       self.update(stripe_id: response[:product_id]) if response[:product_id]
     end
   end
