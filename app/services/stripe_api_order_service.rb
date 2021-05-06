@@ -19,6 +19,7 @@ class StripeApiOrderService
   def create(customer_id, subscription_id)
     subscription = Subscription.find(subscription_id)
     begin
+      # rubocop:disable Naming/VariableNumber
       stripe_order = Stripe::Order.create({
                                             customer: customer_id,
                                             currency: subscription.product.country.currency,
@@ -39,6 +40,7 @@ class StripeApiOrderService
                                             }
                                           })
       return { stripe_order: stripe_order, error: nil }
+      # rubocop:enable Naming/VariableNumber
     rescue Stripe::StripeError => e
       return { stripe_order: nil, error: e }
     end
