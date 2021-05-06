@@ -54,7 +54,6 @@ RSpec.describe "Payment via Stripe", type: :feature do
           sleep 4
           subscription.reload
         end.to change(subscription, :state).to('succeeded')
-                                           .and change { subscription.order.nil? }.to(false)
       end
     end
   end

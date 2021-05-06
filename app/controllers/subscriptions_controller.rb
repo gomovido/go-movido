@@ -26,6 +26,7 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+
   def payment
   end
 
