@@ -15,7 +15,6 @@ class ProviderReflex < ApplicationReflex
     @uniplaces_flats = @uniplaces_payload[:flats]
     @flatshare_flats = []
     @upscale_flats = []
-    @count = @uniacco_payload[:count] + @uniplaces_payload[:count]
     morph ".providers-wrapper",
           render(partial: "providers/#{device}/categories",
                  locals: {
@@ -24,7 +23,6 @@ class ProviderReflex < ApplicationReflex
                    upscale_flats: @upscale_flats,
                    flatshare_flats: @flatshare_flats
                  })
-    morph ".count-results", render(partial: "providers/#{device}/count", locals: { count: @count }) if @browser.device.mobile?
   end
 
   def uniplaces_flats(location, country)

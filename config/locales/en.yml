@@ -19,6 +19,9 @@ en:
       missing: "There is no card on a customer that is being charged."
       processing_error: "An error occurred while processing the card."
       rate_limit: "An error occurred due to requests hitting the API too quickly. Please let us know if you're consistently running into this error."
+      invalid_code: 'This coupon is invalid'
+      invalid_request_error: 'An error has occured with your coupon'
+      not_available_product: 'This product is not eligible to this coupon'
   iban:
     errors:
       error_201: "check digit not correct"
@@ -171,6 +174,7 @@ en:
         monthtly: "Month"
         fortnight: "2 weeks"
         weekly: "Week"
+        fixed: "Fixed"
     index:
       priv_room: "Priv. Room"
       priv_bath: "Priv. Bathroom"
@@ -184,8 +188,9 @@ en:
       frequency:
         week: "week"
         fortnight: "2 weeks"
-        month: "month"
-        nightly: "nightly"
+        monthly: "month"
+        fixed: "fixed"
+        nightly: "night"
       filters:
         title: "Filters"
         price_range: "Price range"
@@ -206,7 +211,7 @@ en:
   providers:
     index:
       title: 'The accomodations you need'
-      subtitle: 'Our favorites selected by the movido team'
+      subtitle: 'Favorites selected by the movido team'
       count: "%{count}+ places to stay"
       show_all: "Show all <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Coming soon"

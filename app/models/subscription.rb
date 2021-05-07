@@ -3,6 +3,7 @@ class Subscription < ApplicationRecord
 
   belongs_to :address
   belongs_to :product, polymorphic: true
+  belongs_to :coupon, optional: true
   has_one :billing, dependent: :destroy
   accepts_nested_attributes_for :address
   validates :delivery_address, presence: true, on: :update
@@ -79,6 +80,12 @@ class Subscription < ApplicationRecord
     else
       "fab fa-cc-visa"
     end
+  end
+
+  def format_amount
+    price = amount.to_f / 100
+    format_price = (price % 1).zero? ? price.to_i.to_s : '%.2f' % price
+    product.country.currency == 'GBP' ? "#{product.country.currency_sign}#{format_price}" : "#{format_price}#{product.country.currency_sign}"
   end
 
   def contact_phone_country

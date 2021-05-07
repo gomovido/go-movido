@@ -11,7 +11,7 @@
                   <%= room[:name] %>
                 </span>
                 <span class="pricing">
-                  <%= room[:price] %>
+                  <%= room[:price] %> /<%= t('flats.show.frequency.weekly').downcase %>
                 </span>
               </div>
             </div>
@@ -27,7 +27,7 @@
         <span>
           <%= room[:description].html_safe %>
         </span>
-        <div class="facilities d-flex flex-wrap justify-content-around">
+        <div class="facilities d-flex flex-wrap">
           <% room[:facilities].each do |facility| %>
             <div class="facility d-flex align-items-center px-2 my-2"><%= facility['name'] %></div>
           <% end %>
@@ -35,7 +35,7 @@
         <div class="leases">
           <ul>
             <% room[:subconfigs].each do |subconfig| %>
-              <li><span class='purple'><%= subconfig['lease'] %></span> week lease <span class='purple'>(<%= subconfig['price'].to_i %>£/week)</span> starts form <span class='purple'> <%= subconfig['available_from'] %>,</span> book now by paying <span class='purple'><%= subconfig['deposit'].to_i %>£</span></li>
+              <li><span><strong><%= subconfig['lease'] %></strong></span> week lease <span><strong>(£<%= subconfig['price'].to_i %>/week)</strong></span> starts form <span><strong> <%= subconfig['available_from'] %>,</strong></span> book now by paying <span><strong>£<%= subconfig['deposit'].to_i %></strong></span></li>
             <% end %>
           </ul>
         </div>

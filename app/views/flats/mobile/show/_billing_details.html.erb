@@ -21,7 +21,9 @@
       <hr class="w-100">
       <div class="d-flex align-items-center justify-content-between">
         <span class="subtitle"><%= t('flats.show.deposit') %></span>
-        <span class="value"><%= billing_details[:deposit] %></span>
+        <% price = billing_details[:deposit].split[0] %>
+        <% currency = billing_details[:deposit].split[1].downcase %>
+        <span class="value"><%= manage_currency(currency) + price %></span>
       </div>
       <hr class="w-100">
       <div class="d-flex align-items-center justify-content-between">
