@@ -526,6 +526,7 @@ en:
       profile_link: '<strong>your profile</strong>'
       next: 'Purchase now'
       back: 'Back'
+      coupon_cta: 'Apply'
       policy_link: 'By clicking on Purchase now you accept the %{href_1} and the %{href_2}'
     result:
       months: 'month'

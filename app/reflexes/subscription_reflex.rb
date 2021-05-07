@@ -18,28 +18,21 @@ class SubscriptionReflex < ApplicationReflex
   end
 
   def manage_voucher_coupon(subscription, coupon)
-    if subscription.coupon.nil? && coupon&.products&.include?(subscription.product) && coupon.livemode
-      if subscription.update(coupon: coupon)
-        return { error: nil, valid: true }
-      else
-        return { error: 'invalid_request_error' }
-      end
-    end
+    return unless subscription.coupon.nil? && coupon&.products&.include?(subscription.product) && coupon.livemode
+    return { error: nil, valid: true } if subscription.update(coupon: coupon)
+
+    return { error: 'invalid_request_error' }
   end
 
   def manage_discount_coupon(subscription, coupon)
-    if subscription.coupon.nil? && coupon&.products&.include?(subscription.product) && coupon.livemode
-      response = StripeApiOrderService.new(stripe_order_id: subscription.stripe_id, coupon_id: coupon.stripe_id).apply_coupon
-      if response[:stripe_order]
-        order = response[:stripe_order]
-        subscription.update(coupon: coupon, amount: order.amount)
-        return { error: nil, valid: true }
-      else
-        return { error: 'invalid_request_error' }
-      end
-    else
-      return { error: 'not_available_product' }
-    end
+    return { error: 'not_available_product' } unless subscription.coupon.nil? && coupon&.products&.include?(subscription.product) && coupon.livemode
+
+    response = StripeApiOrderService.new(stripe_order_id: subscription.stripe_id, coupon_id: coupon.stripe_id).apply_coupon
+    return { error: 'invalid_request_error' } unless response[:stripe_order]
+
+    order = response[:stripe_order]
+    subscription.update(coupon: coupon, amount: order.amount)
+    return { error: nil, valid: true }
   end
 
   private
@@ -51,7 +44,6 @@ class SubscriptionReflex < ApplicationReflex
   def device
     @browser.device.mobile? ? 'mobile' : 'desktop'
   end
-
 
   def subscription_params
     params.require(:subscription).permit(:coupon)
