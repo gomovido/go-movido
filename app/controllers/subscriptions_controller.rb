@@ -133,6 +133,6 @@ class SubscriptionsController < ApplicationController
 
   def subscription_params
     params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: %i[address bic iban bank user_id],
-                                                                           address_attributes: %i[id floor street building stairs door gate_code])
+                                                                  address_attributes: %i[id floor street building stairs door gate_code])
   end
 end
