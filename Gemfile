@@ -50,6 +50,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'bullet'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 4.0.2'

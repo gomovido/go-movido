@@ -1,6 +1,6 @@
 class BanksController < ApplicationController
   def index
-    @banks = Bank.all
+    @banks = Bank.all.includes([:company])
   end
 
   def modal

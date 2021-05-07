@@ -14,12 +14,13 @@ class StripeApiOrderService
 
   def retrieve_or_create(customer_id, subscription_id)
     subscription = Subscription.find(subscription_id)
-    subscription.stripe_id.nil? ?  create(customer_id, subscription_id) : retrieve(subscription.stripe_id)
+    subscription.stripe_id.nil? ? create(customer_id, subscription_id) : retrieve(subscription.stripe_id)
   end
 
   def create(customer_id, subscription_id)
     subscription = Subscription.find(subscription_id)
     begin
+      # rubocop:disable Naming/VariableNumber
       stripe_order = Stripe::Order.create({
         customer: customer_id,
         currency: subscription.product.country.currency,
@@ -41,20 +42,19 @@ class StripeApiOrderService
       })
       subscription.update_columns(amount: stripe_order.amount)
       return { stripe_order: stripe_order, error: nil }
-    rescue Stripe::StripeError => error
-      return { stripe_order: nil, error: error }
+      # rubocop:enable Naming/VariableNumber
+    rescue Stripe::StripeError => e
+      return { stripe_order: nil, error: e }
     end
   end
 
   def retrieve(order_id)
-    begin
-      stripe_order = Stripe::Order.retrieve(
-        order_id,
-      )
-      return { stripe_order: stripe_order, error: nil }
-    rescue Stripe::StripeError => error
-      return { stripe_order: nil, error: error }
-    end
+    stripe_order = Stripe::Order.retrieve(
+      order_id
+    )
+    return { stripe_order: stripe_order, error: nil }
+  rescue Stripe::StripeError => e
+    return { stripe_order: nil, error: e }
   end
 
   def proceed_payment
@@ -75,5 +75,4 @@ class StripeApiOrderService
       return { stripe_order: nil, error: error }
     end
   end
-
 end
