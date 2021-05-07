@@ -10,6 +10,11 @@ class Wifi < ApplicationRecord
   validates :name, :area, :price, :time_contract, :setup_price, :data_speed, presence: true
   validates :active, inclusion: { in: [true, false] }
   after_create :create_stripe_product
+  after_create :set_full_name
+
+  def set_full_name
+    self.update(full_name: "#{self.company.name} - #{self.name}")
+  end
 
   def create_stripe_product
     if self.stripe_id.nil?
