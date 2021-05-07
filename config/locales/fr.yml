@@ -161,7 +161,7 @@ fr:
   providers:
     index:
       title: 'Les logements dont vous avez besoin'
-      subtitle: "Nos favoris sélectionnés par l'équipe movido"
+      subtitle: "Favoris sélectionnés par l'équipe movido"
       count: "%{count}+ logements"
       show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Bientôt disponible"
@@ -199,6 +199,7 @@ fr:
         monthtly: "Mois"
         fortnight: "Quinzaine"
         weekly: "Semaine"
+        fixed: "Fixe"
     index:
       priv_room: "Chambre"
       priv_bath: "Salle de bain"
@@ -211,8 +212,9 @@ fr:
       cta: "Réserver"
       frequency:
         week: "semaine"
-        fortnight: "quinzaine"
-        month: "mois"
+        fixed: "fixe"
+        fortnight: "2 semaines"
+        monthly: "mois"
         nightly: "nuit"
       filters:
         title: "Filtres"

@@ -9,7 +9,6 @@ class ProvidersController < ApplicationController
     @uniplaces_flats = @uniplaces_payload[:flats]
     @flatshare_flats = []
     @upscale_flats = []
-    @count = @uniacco_payload[:count] + @uniplaces_payload[:count]
     return if (@uniacco_flats + @uniplaces_flats + @upscale_flats + @flatshare_flats).present?
 
     flash[:alert] = 'Please type another location'
