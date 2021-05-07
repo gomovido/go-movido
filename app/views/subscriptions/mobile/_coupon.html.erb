@@ -1,14 +1,20 @@
-<div class="form-group">
-  <label><%= t('activerecord.attributes.product.coupon') %></label>
-  <%= simple_form_for subscription, data: {reflex: "submit->SubscriptionReflex#submit", signed_id: subscription.to_sgid.to_s } do |f| %>
-    <%= f.input :coupon, label: false, disabled: !subscription.coupon.nil?, input_html: {value: (subscription.coupon.name if subscription.coupon), class:"#{response && response[:error].present? ? 'is-invalid' : ''}"} %>
-    <% if response && response[:error].present? %>
+<label><%= t('activerecord.attributes.product.coupon') %></label>
+<%= simple_form_for subscription, data: {reflex: "submit->SubscriptionReflex#submit", signed_id: subscription.to_sgid.to_s }, html: {class: 'd-flex'} do |f| %>
+  <% if response && response[:error].present? %>
+    <div class="coupon-input-wrapper mr-3">
+    <%= f.input :coupon, label: false, input_html: {class: "is-invalid"} %>
       <div class="invalid-feedback"><%= t("stripe.errors.#{response[:error]}" ) %></div>
-      <%= f.submit %>
-    <% elsif subscription.coupon %>
+    </div>
+  <% elsif subscription.coupon %>
+    <div class="coupon-input-wrapper mr-3">
+      <%= f.input :coupon, label: false, disabled: true, input_html: {value: subscription.coupon.name} %>
       <div class="valid-feedback d-block"> <i><strong><%= subscription.coupon.name %></strong></i> coupon applied !</div>
-    <% elsif subscription.coupon.nil? %>
-      <%= f.submit %>
-    <% end %>
+    </div>
+  <% else %>
+    <div class="coupon-input-wrapper mr-3">
+      <%= f.input :coupon, label: false %>
+    </div>
   <% end %>
-</div>
+  <%= f.submit t("subscriptions.summary.coupon_cta"), class: "no-button purple #{subscription.coupon ? 'disabled' : ''}" %>
+<% end %>
+

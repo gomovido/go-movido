@@ -125,14 +125,14 @@ class SubscriptionsController < ApplicationController
 
   def check_path
     @subscription = Subscription.find(params[:subscription_id])
-    if @subscription.state == 'succeeded' || @subscription.state == 'activated' || @subscription.state == 'aborted'
-      flash[:alert] = "Wrong way :("
-      redirect_to dashboard_index_path
-    end
+    return unless @subscription.state == 'succeeded' || @subscription.state == 'activated' || @subscription.state == 'aborted'
+
+    flash[:alert] = "Wrong way :("
+    redirect_to dashboard_index_path
   end
 
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :coupon, :sim, billing_attributes: %i[address bic iban bank user_id],
-                                                                  address_attributes: %i[id floor street building stairs door gate_code])
+    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: %i[address bic iban bank user_id],
+                                                                           address_attributes: %i[id floor street building stairs door gate_code])
   end
 end

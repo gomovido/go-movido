@@ -1,5 +1,4 @@
 class StripeApiCouponService
-
   def initialize(params)
     @coupon_id = params[:coupon_id]
   end
@@ -14,18 +13,18 @@ class StripeApiCouponService
         applies_to: { products: get_products_ids(coupon) }
       )
       return { coupon_id: discount.id, error: nil }
-    rescue Stripe::StripeError, Stripe::InvalidRequestError => error
-      return { coupon_id: nil, error: error }
+    rescue Stripe::StripeError, Stripe::InvalidRequestError => e
+      return { coupon_id: nil, error: e }
     end
   end
 
   def update
     coupon = Coupon.find(@coupon_id)
     begin
-      discount = Stripe::Coupon.update( coupon.stripe_id, {name: coupon.name})
+      discount = Stripe::Coupon.update(coupon.stripe_id, { name: coupon.name })
       return { coupon_id: discount.id, error: nil }
-    rescue Stripe::StripeError, Stripe::InvalidRequestError => error
-      return { coupon_id: nil, error: error }
+    rescue Stripe::StripeError, Stripe::InvalidRequestError => e
+      return { coupon_id: nil, error: e }
     end
   end
 
@@ -34,6 +33,4 @@ class StripeApiCouponService
       Stripe::SKU.retrieve(mobile.stripe_id).product
     end
   end
-
-
 end
