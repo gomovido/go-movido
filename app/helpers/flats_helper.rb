@@ -1,4 +1,4 @@
-module UniplacesHelper
+module FlatsHelper
   def flat_image(image)
     "https://#{Rails.env.production? ? 'cdn-static-new.uniplaces.com' : 'cdn-static.staging-uniplaces.com'}/property-photos/#{image}/small.jpg"
   end
@@ -7,7 +7,7 @@ module UniplacesHelper
     price = flat['attributes']['accommodation_offer']['price']['amount'] / 100
     currency = flat['attributes']['accommodation_offer']['price']['currency_code']
     billing = flat['attributes']['accommodation_offer']['contract_type']
-    "#{manage_currency(currency.downcase)}#{price} / #{billing}"
+    "#{manage_currency(currency.downcase)}#{price} / #{I18n.t("flats.index.frequency.#{billing}")}"
   end
 
   def manage_currency(currency_code)

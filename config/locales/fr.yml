@@ -19,6 +19,9 @@ fr:
       missing: "Aucun client associé à cette carte"
       processing_error: "Une erreur est survenue lors du contrôle de la carte."
       rate_limit: "Une erreur est survenue en raison d'un trop grand nombre de requêtes vers le serveur. Veuillez nous contacter si vous rencontrez cette erreur systématiquement."
+      invalid_code: 'Ce code invalide'
+      invalid_request_error: 'Une erreur est survenue'
+      not_available_product: "Ce produit n'est pas éligible pour ce code"
   iban:
     errors:
       error_201: ": vérification numérique incorrecte"
@@ -161,7 +164,7 @@ fr:
   providers:
     index:
       title: 'Les logements dont vous avez besoin'
-      subtitle: "Nos favoris sélectionnés par l'équipe movido"
+      subtitle: "Favoris sélectionnés par l'équipe movido"
       count: "%{count}+ logements"
       show_all: "Voir tout <i class='far fa-chevron-right ml-2'></i>"
       coming_soon: "Bientôt disponible"
@@ -199,6 +202,7 @@ fr:
         monthtly: "Mois"
         fortnight: "Quinzaine"
         weekly: "Semaine"
+        fixed: "Fixe"
     index:
       priv_room: "Chambre"
       priv_bath: "Salle de bain"
@@ -211,8 +215,9 @@ fr:
       cta: "Réserver"
       frequency:
         week: "semaine"
-        fortnight: "quinzaine"
-        month: "mois"
+        fixed: "fixe"
+        fortnight: "2 semaines"
+        monthly: "mois"
         nightly: "nuit"
       filters:
         title: "Filtres"

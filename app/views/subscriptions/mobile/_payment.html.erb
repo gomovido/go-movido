@@ -2,7 +2,7 @@
 <div class="container subscription-container d-flex flex-column align-items-center">
   <div class="row">
     <div class="col-md-12">
-      <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('orders.new.title'), subtitle: t('orders.new.subtitle', price: @subscription.product.format_sim_card_price).html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>
+      <%= render 'subscriptions/steps', product: @subscription.product, current_step: @subscription.current_step(controller.controller_name), title: t('orders.new.title'), subtitle: t('orders.new.subtitle', price: @subscription.format_amount).html_safe, total_steps: @subscription.product.total_steps, congratulations: false %>
     </div>
     <%= render 'subscriptions/mobile/stripe' %>
   </div>

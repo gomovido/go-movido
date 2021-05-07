@@ -7,6 +7,7 @@ class Mobile < ApplicationRecord
   has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
   has_many :special_offer_translations, through: :special_offers, source: :translations
+  has_and_belongs_to_many :coupons
   validates :data_unit, inclusion: { in: ["GB", "MB"] }, unless: :not_needed?
   validates :offer_type, inclusion: { in: ["call_only", "internet_only", "internet_and_call"] }
   validates :name, :area, :price, :offer_type, :time_contract, :sim_card_price, presence: true
@@ -15,7 +16,7 @@ class Mobile < ApplicationRecord
   validates :data, presence: { if: :internet_only? }
   validates :call, presence: { if: :call_only? }
   validates :call, :data, presence: { if: :internet_and_call? }
-  after_create :create_stripe_product
+  after_create :create_stripe_product, :set_full_name
   after_update :update_stripe_product
   after_touch :update_stripe_product
 
@@ -28,6 +29,10 @@ class Mobile < ApplicationRecord
 
   def update_stripe_product
     StripeApiProductService.new(product_id: id, type: category.name.capitalize, sku: stripe_id).proceed_update
+  end
+
+  def set_full_name
+    update(full_name: "#{company.name} - #{name}")
   end
 
   def uk?
