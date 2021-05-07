@@ -12,7 +12,6 @@ RSpec.describe "Payment via Stripe", type: :feature do
     let!(:subscription) { create(:subscription, country.code.to_sym, address: address, product: mobile) }
     let!(:billing) { create(:billing, country.code.to_sym, user: user, subscription: subscription) }
 
-
     before do
       login_as(user, scope: :user)
       visit subscription_payment_path(subscription, locale: :en)
