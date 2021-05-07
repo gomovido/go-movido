@@ -3,6 +3,6 @@
   <div class="details d-flex flex-column justify-content-evenly">
     <span class="title"><%= flat[:title] %></span>
     <hr>
-    <span class="price"><%= flat[:price] %> / <%= flat[:billing] %></span>
+    <span class="price"><%= flat[:price] %> / <%= flat[:billing].downcase %></span>
   </div>
 </div>
