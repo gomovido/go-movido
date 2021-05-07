@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_112046) do
+ActiveRecord::Schema.define(version: 2021_05_07_114450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,11 +122,17 @@ ActiveRecord::Schema.define(version: 2021_05_07_112046) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "mobiles_products_list", default: [], array: true
     t.string "campaign_type"
+    t.text "wifis_products_list", default: [], array: true
   end
 
   create_table "coupons_mobiles", id: false, force: :cascade do |t|
     t.bigint "coupon_id", null: false
     t.bigint "mobile_id", null: false
+  end
+
+  create_table "coupons_wifis", id: false, force: :cascade do |t|
+    t.bigint "coupon_id", null: false
+    t.bigint "wifi_id", null: false
   end
 
   create_table "flat_preferences", force: :cascade do |t|

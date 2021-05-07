@@ -20,13 +20,13 @@ class Mobile < ApplicationRecord
   after_create :set_full_name
 
   def set_full_name
-    self.update(full_name: "#{self.company.name} - #{self.name}")
+    update(full_name: "#{company.name} - #{name}")
   end
 
   def create_stripe_product
-    if self.stripe_id.nil?
-      response = StripeApiProductService.new(product_id: self.id, type: self.category.name.capitalize).proceed
-      self.update(stripe_id: response[:product_id]) if response[:product_id]
+    if stripe_id.nil?
+      response = StripeApiProductService.new(product_id: id, type: category.name.capitalize).proceed
+      update(stripe_id: response[:product_id]) if response[:product_id]
     end
   end
 
