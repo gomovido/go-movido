@@ -1,5 +1,5 @@
 class UniplacesApiService
-  include UniplacesHelper
+  include FlatsHelper
 
   def initialize(params)
     @location = params[:city_code]

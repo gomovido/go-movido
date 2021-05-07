@@ -10,16 +10,11 @@
           move_in: current_user.flat_preference.move_in, move_out: current_user.flat_preference.move_out %>
       </div>
       <div class="mb-3">
-        <h1 class="white"><%= t('providers.index.title') %></h1>
+        <h1 class="white mb-4"><%= t('providers.index.title') %></h1>
         <span class="white"><%= t('providers.index.subtitle') %></span>
       </div>
     </div>
   <div class="container">
-    <div class="row my-3">
-      <div class="col-12">
-        <%= render 'providers/mobile/count', count: @count %>
-      </div>
-    </div>
     <div class="providers-wrapper">
       <%= render 'providers/mobile/categories', uniacco_flats: @uniacco_flats, uniplaces_flats: @uniplaces_flats, flatshare_flats: @flatshare_flats, upscale_flats: @upscale_flats %>
     </div>
