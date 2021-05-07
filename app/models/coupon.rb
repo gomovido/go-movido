@@ -9,6 +9,12 @@ class Coupon < ApplicationRecord
   validates :livemode, inclusion: { in: [true, false] }
   validates :campaign_type, inclusion: { in: ['voucher', 'discount'] }
   validate :associations
+  after_update :update_stripe_coupon
+
+
+  def update_stripe_coupon
+    StripeApiCouponService.new(coupon_id: id).update if campaign_is_discount?
+  end
 
   def associations
     if campaign_is_voucher? && (wifis_products_list.blank? && mobiles_products_list.blank?)
