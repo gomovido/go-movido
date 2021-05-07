@@ -2,7 +2,7 @@
   <div class="flat-card-lite">
     <div class="img-box mb-2" style="background-image:url(<%= image %>);"></div>
     <div>
-      <div class="name mb-2"><%= name %></div>
+      <div class="name mb-2"><%= name.size > 50 ? name.first(50) + '...' : name %></div>
       <div class="pricing"><%= price %> /<%= billing.downcase %></div>
     </div>
   </div>

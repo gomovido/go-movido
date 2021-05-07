@@ -2,8 +2,8 @@
   <div class="disclaimer">
     <span><%= t('flat_preferences.new.disclaimer') %></span>
   </div>
-  <div class="banner-landing" style="background-image: linear-gradient(180deg, rgba(140, 48, 245, 0.76) 8.33%, rgba(140, 48, 245, 0) 63.02%), url(<%= asset_path 'flats/landing/mobile/banner-background.png' %>);">
-    <div class="container h-100">
+  <div class="banner-landing" style="background-image: url(<%= asset_path 'flats/landing/mobile/banner-background.png' %>);">
+    <div class="container">
       <h1><%= t('flat_preferences.new.location') %></h1>
       <div data-controller='flats-landing' class="search-form" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
         <%= simple_form_for @flat_preference, html: {method: :post} do |f| %>

@@ -6,6 +6,7 @@
           <%= link_to t('providers.index.show_all').html_safe, flat_preference_path(flat_preference_id, type: type), method: :put, class: 'text-right btn-cut'%>
         <% end %>
       </div>
+      <h3 class="desc mb-3"><%= t("providers.index.#{type}_desc") %></h3>
         <div class="flats-card-scroller mb-2 mt-3">
           <ul class="hs" data-animate-target="container">
             <% if coming_soon || flats.blank?%>

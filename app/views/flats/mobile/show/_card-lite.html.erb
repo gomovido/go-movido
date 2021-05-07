@@ -2,8 +2,8 @@
   <div class="flat-card-lite w-100">
     <div class="img-box mb-2" style="background-image:url(<%= image %>);"></div>
     <div>
-      <div class="name mb-2"><%= name %></div>
-      <div class="pricing"><%= price %> /<%= billing.downcase %></div>
+      <div class="name mb-2"><%= name.size > 35 ? name.first(35) + '...' : name %></div>
+      <div class="pricing"><%= price %> /<%= t("flats.index.frequency.#{billing.downcase}") %></div>
     </div>
   </div>
 <% end %>
