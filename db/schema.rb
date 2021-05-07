@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_114450) do
+ActiveRecord::Schema.define(version: 2021_05_07_141704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,8 +113,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_114450) do
 
   create_table "coupons", force: :cascade do |t|
     t.string "stripe_id"
-    t.string "duration"
-    t.integer "duration_in_months"
     t.boolean "livemode"
     t.string "name"
     t.float "percent_off"
@@ -250,7 +248,10 @@ ActiveRecord::Schema.define(version: 2021_05_07_114450) do
     t.bigint "product_id"
     t.string "password"
     t.string "stripe_id"
+    t.bigint "coupon_id"
+    t.integer "amount"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
+    t.index ["coupon_id"], name: "index_subscriptions_on_coupon_id"
     t.index ["product_type", "product_id"], name: "index_subscriptions_on_product_type_and_product_id"
   end
 
@@ -315,6 +316,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_114450) do
   add_foreign_key "special_offers", "mobiles"
   add_foreign_key "special_offers", "wifis"
   add_foreign_key "subscriptions", "addresses"
+  add_foreign_key "subscriptions", "coupons"
   add_foreign_key "wifis", "categories"
   add_foreign_key "wifis", "companies"
   add_foreign_key "wifis", "countries"

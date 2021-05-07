@@ -3,9 +3,8 @@ class Coupon < ApplicationRecord
   has_and_belongs_to_many :wifis, -> { distinct }
   before_create :create_mobiles_associations, :create_wifis_associations
   after_create :create_stripe_coupon
+  has_many :subscriptions
   validates :name, presence: true
-  validates :duration, inclusion: { in: ['forever', 'repeating'] }
-  validates :duration_in_months, presence: { unless: :duration_is_forever? }
   validates :percent_off, presence: { if: :campaign_is_discount? }
   validates :livemode, inclusion: { in: [true, false] }
   validates :campaign_type, inclusion: { in: ['voucher', 'discount'] }
@@ -33,10 +32,6 @@ class Coupon < ApplicationRecord
     end
   end
 
-  def duration_is_forever?
-    duration == 'forever'
-  end
-
   def campaign_is_discount?
     campaign_type == 'discount'
   end
@@ -50,6 +45,10 @@ class Coupon < ApplicationRecord
       response = StripeApiCouponService.new(coupon_id: id).create
       update(stripe_id: response[:coupon_id]) if response[:coupon_id]
     end
+  end
+
+  def products
+    mobiles + wifis
   end
 
 end

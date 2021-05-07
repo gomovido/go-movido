@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
   before_action :set_product, only: [:create]
   before_action :set_subscription, only: %i[summary validate_subscription congratulations abort_subscription payment]
+  before_action :check_path, only: %i[summary payment validate_subscription process_payment]
 
   def create
     return if subscription_active?(@product)
@@ -51,6 +52,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def summary
+    @response = false
     redirect_to subscription_congratulations_path(@subscription) if @subscription.state == 'succeeded'
   end
 
@@ -121,8 +123,16 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def check_path
+    @subscription = Subscription.find(params[:subscription_id])
+    if @subscription.state == 'succeeded' || @subscription.state == 'activated' || @subscription.state == 'aborted'
+      flash[:alert] = "Wrong way :("
+      redirect_to dashboard_index_path
+    end
+  end
+
   def subscription_params
-    params.require(:subscription).permit(:delivery_address, :sim, billing_attributes: %i[address bic iban bank user_id],
+    params.require(:subscription).permit(:delivery_address, :coupon, :sim, billing_attributes: %i[address bic iban bank user_id],
                                                                   address_attributes: %i[id floor street building stairs door gate_code])
   end
 end
