@@ -9,11 +9,22 @@ class SubscriptionReflex < ApplicationReflex
     coupon = Coupon.find_by(name: subscription_params[:coupon])
     if coupon&.campaign_is_discount?
       response = manage_discount_coupon(@subscription, coupon)
+    elsif coupon&.campaign_is_voucher?
+      response = manage_voucher_coupon(@subscription, coupon)
     else
       response = { error: 'invalid_code' }
     end
-    p @subscription.coupon
     morph ".coupon-input", (with_locale { render(partial: "subscriptions/#{device}/coupon", locals: { subscription: @subscription, response: response }) })
+  end
+
+  def manage_voucher_coupon(subscription, coupon)
+    if subscription.coupon.nil? && coupon&.products&.include?(subscription.product) && coupon.livemode
+      if subscription.update(coupon: coupon)
+        return { error: nil, valid: true }
+      else
+        return { error: 'invalid_request_error' }
+      end
+    end
   end
 
   def manage_discount_coupon(subscription, coupon)
@@ -22,12 +33,12 @@ class SubscriptionReflex < ApplicationReflex
       if response[:stripe_order]
         order = response[:stripe_order]
         subscription.update(coupon: coupon, amount: order.amount)
-        { error: nil, valid: true }
+        return { error: nil, valid: true }
       else
-        { error: 'invalid_request_error' }
+        return { error: 'invalid_request_error' }
       end
     else
-      { error: 'not_available_product' }
+      return { error: 'not_available_product' }
     end
   end
 

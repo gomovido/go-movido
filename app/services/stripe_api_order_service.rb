@@ -39,6 +39,7 @@ class StripeApiOrderService
           },
         },
       })
+      subscription.update_columns(amount: stripe_order.amount)
       return { stripe_order: stripe_order, error: nil }
     rescue Stripe::StripeError => error
       return { stripe_order: nil, error: error }
