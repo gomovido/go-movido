@@ -4,6 +4,7 @@ class StripeApiOrderService
     @subscription_id = params[:subscription_id]
     @order_id = params[:stripe_order_id]
     @stripe_token = params[:stripe_token]
+    @coupon_id = params[:coupon_id]
   end
 
   def init_order
@@ -57,10 +58,17 @@ class StripeApiOrderService
 
   def proceed_payment
     begin
-      order = Stripe::Order.pay(
-        @order_id,
-        { source: @stripe_token },
-      )
+      order = Stripe::Order.pay(@order_id, { source: @stripe_token })
+      return { stripe_order: order, error: nil }
+    rescue  Stripe::StripeError => error
+      return { stripe_order: nil, error: error }
+    end
+  end
+
+
+  def apply_coupon
+    begin
+    order = Stripe::Order.update( @order_id, {coupon: @coupon_id})
       return { stripe_order: order, error: nil }
     rescue  Stripe::StripeError => error
       return { stripe_order: nil, error: error }

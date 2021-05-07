@@ -8,8 +8,7 @@ class StripeApiCouponService
     coupon = Coupon.find(@coupon_id)
     begin
       discount = Stripe::Coupon.create(
-        duration: coupon.duration,
-        duration_in_months: coupon.duration_in_months,
+        duration: 'once',
         name: coupon.name,
         percent_off: coupon.percent_off,
         applies_to: { products: get_products_ids(coupon) }
