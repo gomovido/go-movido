@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_130352) do
+ActiveRecord::Schema.define(version: 2021_05_07_112046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 2021_05_06_130352) do
 
   create_table "coupons", force: :cascade do |t|
     t.string "stripe_id"
-    t.string "currency"
     t.string "duration"
     t.integer "duration_in_months"
     t.boolean "livemode"
@@ -121,6 +120,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_130352) do
     t.float "percent_off"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "mobiles_products_list", default: [], array: true
+    t.string "campaign_type"
   end
 
   create_table "coupons_mobiles", id: false, force: :cascade do |t|
@@ -174,6 +175,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_130352) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
+    t.string "full_name"
     t.index ["category_id"], name: "index_mobiles_on_category_id"
     t.index ["company_id"], name: "index_mobiles_on_company_id"
     t.index ["country_id"], name: "index_mobiles_on_country_id"
@@ -284,6 +286,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_130352) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
+    t.string "full_name"
     t.index ["category_id"], name: "index_wifis_on_category_id"
     t.index ["company_id"], name: "index_wifis_on_company_id"
     t.index ["country_id"], name: "index_wifis_on_country_id"

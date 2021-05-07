@@ -1447,21 +1447,6 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "currency",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": false,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": []
-    }, {
       "field": "duration",
       "type": "String",
       "default_value": null,
@@ -1514,13 +1499,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
     }, {
       "field": "percent_off",
       "type": "Number",
@@ -1554,6 +1542,39 @@
     }, {
       "field": "updated_at",
       "type": "Date",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "mobiles_products_list",
+      "type": ["String"],
+      "default_value": "{}",
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "campaign_type",
+      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -2110,6 +2131,21 @@
       "validations": []
     }, {
       "field": "stripe_id",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "full_name",
       "type": "String",
       "default_value": null,
       "enums": null,
@@ -3802,6 +3838,21 @@
       "validations": []
     }, {
       "field": "stripe_id",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "full_name",
       "type": "String",
       "default_value": null,
       "enums": null,
