@@ -7,7 +7,9 @@ class Wifi < ApplicationRecord
   has_many :product_feature_translations, through: :product_features, source: :translations
   has_many :special_offers, dependent: :destroy
   has_many :special_offer_translations, through: :special_offers, source: :translations
+  # rubocop:disable Rails/HasAndBelongsToMany
   has_and_belongs_to_many :coupons
+  # rubocop:enable Rails/HasAndBelongsToMany
   validates :name, :area, :price, :time_contract, :setup_price, :data_speed, presence: true
   validates :active, inclusion: { in: [true, false] }
   after_create :create_stripe_product, :set_full_name
@@ -15,7 +17,7 @@ class Wifi < ApplicationRecord
   after_touch :update_stripe_product
 
   def set_full_name
-    self.update(full_name: "#{self.company.name} - #{self.name}")
+    update(full_name: "#{company.name} - #{name}")
   end
 
   def create_stripe_product

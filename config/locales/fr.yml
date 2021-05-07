@@ -19,7 +19,7 @@ fr:
       missing: "Aucun client associé à cette carte"
       processing_error: "Une erreur est survenue lors du contrôle de la carte."
       rate_limit: "Une erreur est survenue en raison d'un trop grand nombre de requêtes vers le serveur. Veuillez nous contacter si vous rencontrez cette erreur systématiquement."
-      invalid_code: 'Ce code invalide'
+      invalid_code: "Ce code n'est pas valide"
       invalid_request_error: 'Une erreur est survenue'
       not_available_product: "Ce produit n'est pas éligible pour ce code"
   iban:
@@ -549,6 +549,7 @@ fr:
       profile_link: "<strong>ton profil</strong>"
       next: 'Acheter maintenant'
       back: 'Retour'
+      coupon_cta: 'Valider'
       policy_link: 'En cliquant sur Acheter maintenant, vous acceptez les %{href_1} et les %{href_2}'
     result:
       months: 'mois'

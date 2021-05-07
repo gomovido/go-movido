@@ -1,16 +1,17 @@
 class Coupon < ApplicationRecord
+  # rubocop:disable Rails/HasAndBelongsToMany
   has_and_belongs_to_many :mobiles, -> { distinct }
   has_and_belongs_to_many :wifis, -> { distinct }
+  # rubocop:enable Rails/HasAndBelongsToMany
   before_create :create_mobiles_associations, :create_wifis_associations
   after_create :create_stripe_coupon
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :nullify
   validates :name, presence: true
   validates :percent_off, presence: { if: :campaign_is_discount? }
   validates :livemode, inclusion: { in: [true, false] }
   validates :campaign_type, inclusion: { in: ['voucher', 'discount'] }
   validate :associations
   after_update :update_stripe_coupon
-
 
   def update_stripe_coupon
     StripeApiCouponService.new(coupon_id: id).update if campaign_is_discount?
@@ -47,14 +48,13 @@ class Coupon < ApplicationRecord
   end
 
   def create_stripe_coupon
-    if stripe_id.nil? && campaign_is_discount?
-      response = StripeApiCouponService.new(coupon_id: id).create
-      update(stripe_id: response[:coupon_id]) if response[:coupon_id]
-    end
+    return unless stripe_id.nil? && campaign_is_discount?
+
+    response = StripeApiCouponService.new(coupon_id: id).create
+    update(stripe_id: response[:coupon_id]) if response[:coupon_id]
   end
 
   def products
     mobiles + wifis
   end
-
 end
