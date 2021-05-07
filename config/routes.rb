@@ -66,7 +66,8 @@ Rails.application.routes.draw do
 
   resources :addresses, only: [:create]
 
-  post 'payment', to: 'subscriptions#process_payment'
+  post 'payment/:subscription_id', to: 'subscriptions#process_payment', as: 'payment'
+
   get 'subscriptions/modal/:id', to: 'subscriptions#modal', as: 'modal_subscription'
 
   get 'real-estate', to: 'flat_preferences#new', as: 'real_estate'

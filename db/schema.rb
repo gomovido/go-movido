@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_144308) do
+ActiveRecord::Schema.define(version: 2021_05_07_141704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,28 @@ ActiveRecord::Schema.define(version: 2021_05_05_144308) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "coupons", force: :cascade do |t|
+    t.string "stripe_id"
+    t.boolean "livemode"
+    t.string "name"
+    t.float "percent_off"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "mobiles_products_list", default: [], array: true
+    t.string "campaign_type"
+    t.text "wifis_products_list", default: [], array: true
+  end
+
+  create_table "coupons_mobiles", id: false, force: :cascade do |t|
+    t.bigint "coupon_id", null: false
+    t.bigint "mobile_id", null: false
+  end
+
+  create_table "coupons_wifis", id: false, force: :cascade do |t|
+    t.bigint "coupon_id", null: false
+    t.bigint "wifi_id", null: false
+  end
+
   create_table "flat_preferences", force: :cascade do |t|
     t.date "move_in"
     t.bigint "user_id", null: false
@@ -157,6 +179,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_144308) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
+    t.string "full_name"
     t.index ["category_id"], name: "index_mobiles_on_category_id"
     t.index ["company_id"], name: "index_mobiles_on_company_id"
     t.index ["country_id"], name: "index_mobiles_on_country_id"
@@ -225,7 +248,10 @@ ActiveRecord::Schema.define(version: 2021_05_05_144308) do
     t.bigint "product_id"
     t.string "password"
     t.string "stripe_id"
+    t.bigint "coupon_id"
+    t.integer "amount"
     t.index ["address_id"], name: "index_subscriptions_on_address_id"
+    t.index ["coupon_id"], name: "index_subscriptions_on_coupon_id"
     t.index ["product_type", "product_id"], name: "index_subscriptions_on_product_type_and_product_id"
   end
 
@@ -267,6 +293,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_144308) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
+    t.string "full_name"
     t.index ["category_id"], name: "index_wifis_on_category_id"
     t.index ["company_id"], name: "index_wifis_on_company_id"
     t.index ["country_id"], name: "index_wifis_on_country_id"
@@ -289,6 +316,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_144308) do
   add_foreign_key "special_offers", "mobiles"
   add_foreign_key "special_offers", "wifis"
   add_foreign_key "subscriptions", "addresses"
+  add_foreign_key "subscriptions", "coupons"
   add_foreign_key "wifis", "categories"
   add_foreign_key "wifis", "companies"
   add_foreign_key "wifis", "countries"
