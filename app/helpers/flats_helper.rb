@@ -11,7 +11,7 @@ module FlatsHelper
   end
 
   def manage_currency(currency_code)
-    currencies = { eur: '€', gbp: '£', usd: '$' }
-    currencies[currency_code.to_sym]
+    currencies = { 'eur' => '€', 'gbp' => '£', 'usd' => '$', '£' => '£', '€' => '€' }
+    currencies[currency_code]
   end
 end
