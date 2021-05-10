@@ -25,7 +25,8 @@ class UniaccoApiService
       {
         code: flat['code'],
         image: flat['images'][0]['url'],
-        price: "#{flat['currency']}#{flat['min_price'].to_i} - #{flat['currency']}#{flat['max_price'].to_i}",
+        price: "#{flat['min_price'].to_i} - #{flat['max_price'].to_i}",
+        currency: flat['currency'],
         billing: flat['billing'],
         name: flat['name']
       }.to_json
