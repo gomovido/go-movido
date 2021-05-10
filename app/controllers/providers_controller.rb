@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index]
+
   def index
     @flat_preference = current_user.flat_preference
     clear_filters
