@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
   def new
+    unless current_user.flat_preference
+      redirect_to real_estate_path
+      return
+    end
     @booking = Booking.new
     @center = [current_user.flat_preference.coordinates[1], current_user.flat_preference.coordinates[0]]
     fetch_flat(current_user.flat_preference.flat_type, params['flat_id'], current_user.flat_preference.location)
@@ -28,6 +32,10 @@ class BookingsController < ApplicationController
   end
 
   def modal
+    unless current_user.flat_preference
+      redirect_to real_estate_path
+      return
+    end
     @booking = Booking.new
     @user = current_user
     fetch_flat(current_user.flat_preference.flat_type, params[:flat_id], current_user.flat_preference.location)
