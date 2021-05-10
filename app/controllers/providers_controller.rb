@@ -1,7 +1,10 @@
 class ProvidersController < ApplicationController
-
   def index
     @flat_preference = current_user.flat_preference
+    unless @flat_preference
+      redirect_to real_estate_path
+      return
+    end
     clear_filters
     @uniplaces_payload = uniplaces_flats(@flat_preference.location, @flat_preference.country)
     @uniacco_payload = uniacco_flats(@flat_preference.location)

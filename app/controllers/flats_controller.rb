@@ -2,6 +2,10 @@ class FlatsController < ApplicationController
   before_action :set_browser
   def index
     @flat_preference = current_user.flat_preference
+    unless @flat_preference
+      redirect_to real_estate_path
+      return
+    end
     @move_in = @flat_preference.move_in.strftime
     @move_out = @flat_preference.move_out.strftime
     @location = @flat_preference.location
@@ -45,6 +49,10 @@ class FlatsController < ApplicationController
   end
 
   def show
+    unless current_user.flat_preference
+      redirect_to real_estate_path
+      return
+    end
     @location = params[:location]
     @type = params[:type]
     @code = params[:code]
