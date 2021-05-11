@@ -17,7 +17,7 @@ class AggregatorApiService
     case @type
     when 'student_housing'
       format_uniacco(hash, @flat)
-    when 'entire_flat'
+    when 'entire_flat', 'flatshare'
       format_uniplaces(hash, @flat)
     end
     return hash

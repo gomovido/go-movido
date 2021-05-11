@@ -22,8 +22,9 @@ class FlatReflex < ApplicationReflex
 
   def fetch_flats(preferences, type)
     case type
-    when 'entire_flat'
-      response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id).flats
+    when 'entire_flat', 'flatshare'
+      flat_types = type == 'entire_flat' ? 'entire-place' : 'shared-bedroom,private-bedroom'
+      response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: 1, flat_preference_id: preferences.id, flat_types: flat_types).flats
       @pagy = Pagy.new(count: response[:count], page: 1, location: preferences.location, type: preferences.flat_type)
       @markers = response[:markers]
     when 'student_housing'

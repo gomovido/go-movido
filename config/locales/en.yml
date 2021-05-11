@@ -218,8 +218,8 @@ en:
       no_results: "No properties available"
       student_housing: 'Student housing'
       student_housing_desc: "Share your accommodation with other students. It'll be fun."
-      entire_flat: 'Entire flat & flatshare'
-      entire_flat_desc: "Looking for a place just for you or with roommates? Come here."
+      entire_flat: 'Entire flat'
+      entire_flat_desc: "Looking for a place just for you? Come here."
       flatshare: 'Flat Share'
       flatshare_desc: "Great flats with low budget ? Yes it's possible."
       upscale_housing: 'Upscale housing'
