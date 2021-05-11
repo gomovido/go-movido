@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking created!'
       UserMailer.with(user: @booking.user, booking: @booking,
                       locale: @booking.locale).booking_under_review_email.deliver_now
+      @booking.slack_notification
       redirect_to booking_path(@booking.id, flat_id: params[:booking][:flat_id])
     else
       fetch_flat(current_user.flat_preference.flat_type, params[:booking][:flat_id], current_user.flat_preference.location)
@@ -49,7 +50,7 @@ class BookingsController < ApplicationController
     when 'student_housing'
       response = UniaccoApiService.new(code: code, location: location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:payload] if response[:status] == 200
-    when 'entire_flat'
+    when 'entire_flat', 'flatshare'
       response = UniplacesApiService.new(property_code: code, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:flat] if response[:status] == 200
     end
