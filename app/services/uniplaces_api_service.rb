@@ -8,6 +8,7 @@ class UniplacesApiService
     @code = params[:property_code]
     @flat_preference_id = params[:flat_preference_id]
     @endpoint = Rails.env.production? ? "uniplaces.com" : "staging-uniplaces.com"
+    @flat_types = params[:flat_types]
   end
 
   def flats
@@ -18,6 +19,7 @@ class UniplacesApiService
       'move-out' => flat_preference.move_out.strftime('%Y-%m-%d'),
       'budget-min' => flat_preference.min_price,
       'budget-max' => flat_preference.max_price,
+      'rent-type' => @flat_types,
       'locale' => locale
     }
     query['property-features'] = flat_preference.facilities.join(',') if flat_preference.facilities.present?

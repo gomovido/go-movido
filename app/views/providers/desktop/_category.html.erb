@@ -13,7 +13,7 @@
       <% flats.first(4).each do |flat| %>
         <% if type == "student_housing" %>
           <%= render 'providers/desktop/card', flat: flat, type: type, location: location, code: flat['code'], image_url: flat['images'][0]['url'], name: flat['name'], price: "#{flat['disp_price']} / #{flat['billing'].downcase}" %>
-        <% elsif type == "entire_flat" %>
+        <% elsif type == "entire_flat" || type == "flatshare" %>
           <%= render 'providers/desktop/card', flat: flat, type: type, location: location,  code: flat['id'], image_url: flat_image(flat['attributes']['photos'][0]['hash']), name: flat['attributes']['accommodation_offer']['title'], price: flat_price(flat) %>
         <% end %>
       <% end %>

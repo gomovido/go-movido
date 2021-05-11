@@ -1,5 +1,4 @@
 class BookingReflex < ApplicationReflex
-  delegate :view_context, to: :controller
   delegate :current_user, to: :connection
   before_reflex :set_browser
 
@@ -11,7 +10,10 @@ class BookingReflex < ApplicationReflex
     @type = current_user.flat_preference.flat_type
     fetch_flat(@type, booking_params['flat_id'], current_user.flat_preference.location)
     if @booking.save
-      @booking.update(status: 'placed')
+      @booking.update(status: 'placed', locale: session[:locale])
+      UserMailer.with(user: @booking.user, booking: @booking,
+                      locale: @booking.locale).booking_under_review_email.deliver_now
+      @booking.slack_notification
       morph ".booking-modal-wrapper", (with_locale { render(partial: "bookings/#{device}/congratulations", locals: { flat: @flat, type: @type, booking: @booking }) })
     else
       morph ".booking-form", (with_locale { render(partial: "bookings/#{device}/form", locals: { booking: @booking, flat: @flat, user: @user }) })
@@ -24,8 +26,8 @@ class BookingReflex < ApplicationReflex
     when 'student_housing'
       response = UniaccoApiService.new(code: code, location: location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:payload] if response[:status] == 200
-    when 'entire_flat'
-      response = UniplacesApiService.new(property_code: code).flat
+    when 'entire_flat', 'flatshare'
+      response = UniplacesApiService.new(property_code: code, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:flat] if response[:status] == 200
     end
     @flat = AggregatorApiService.new(flat: @flat, type: type).format_flat

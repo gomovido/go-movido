@@ -8,9 +8,10 @@ class ProvidersController < ApplicationController
     clear_filters
     @uniplaces_payload = uniplaces_flats(@flat_preference.location, @flat_preference.country)
     @uniacco_payload = uniacco_flats(@flat_preference.location)
+    @flatshare_payload = flatshare_flats(@flat_preference.location, @flat_preference.country)
     @uniacco_flats = @uniacco_payload[:flats]
     @uniplaces_flats = @uniplaces_payload[:flats]
-    @flatshare_flats = []
+    @flatshare_flats = @flatshare_payload[:flats]
     @upscale_flats = []
     return if (@uniacco_flats + @uniplaces_flats + @upscale_flats + @flatshare_flats).present?
 
@@ -19,7 +20,11 @@ class ProvidersController < ApplicationController
   end
 
   def uniplaces_flats(location, country)
-    UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id, page: 1).flats
+    UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id, page: 1, flat_types: 'entire-place').flats
+  end
+
+  def flatshare_flats(location, country)
+    UniplacesApiService.new(city_code: location, country: country, flat_preference_id: current_user.flat_preference.id, page: 1, flat_types: 'private-bedroom,shared-bedroom').flats
   end
 
   def uniacco_flats(location)

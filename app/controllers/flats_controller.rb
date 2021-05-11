@@ -27,8 +27,9 @@ class FlatsController < ApplicationController
   def fetch_flats(preferences, type)
     page = params[:page] || 1
     case type
-    when 'entire_flat'
-      response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id).flats
+    when 'entire_flat', 'flatshare'
+      flat_types = type == 'entire_flat' ? 'entire-place' : 'shared-bedroom,private-bedroom'
+      response = UniplacesApiService.new(city_code: preferences.location, country: preferences.country, page: page, flat_preference_id: preferences.id, flat_types: flat_types).flats
       page = 1 if response[:count].to_i.zero?
       @pagy = Pagy.new(count: response[:count], page: page, location: preferences.location, type: preferences.flat_type)
       @markers = response[:markers]
@@ -62,7 +63,7 @@ class FlatsController < ApplicationController
     when 'student_housing'
       response = UniaccoApiService.new(code: @code, location: @location, country: current_user.flat_preference.country, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:payload] if response[:status] == 200
-    when 'entire_flat'
+    when 'entire_flat', 'flatshare'
       response = UniplacesApiService.new(property_code: @code, flat_preference_id: current_user.flat_preference.id).flat
       @flat = response[:flat] if response[:status] == 200
     end
