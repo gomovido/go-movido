@@ -32,7 +32,7 @@ class FlatPreferencesController < ApplicationController
     return "london" if geocoder.first.data['address']['state_district']&.downcase&.split&.include?('london')
 
     city = geocoder.first.data['address']['city'] || geocoder.first.data['address']['town']
-    city.downcase.gsub('greater', '').strip.tr(' ', '-') if city
+    ActiveSupport::Inflector.transliterate(city.downcase.gsub('greater', '').strip.tr(' ', '-')) if city
   end
 
   def format_country_params(coordinates)
