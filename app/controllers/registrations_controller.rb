@@ -18,7 +18,6 @@ class RegistrationsController < Devise::RegistrationsController
         sign_up(resource_name, resource)
       else
         if params[:user][:request_type] == 'real_estate'
-          resource.skip_confirmation!
           sign_in(resource_name, resource)
           real_estate_manage_user(@user, params[:user], resource)
         else
