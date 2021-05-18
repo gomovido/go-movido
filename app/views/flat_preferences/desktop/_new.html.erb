@@ -7,7 +7,7 @@
       <h1><%= t('flat_preferences.new.location') %></h1>
       <div data-controller='flats-landing' class="search-form" data-flats-landing-locale-value=<%= I18n.locale.to_s %>>
         <%= simple_form_for @flat_preference, html: {method: :post, class: 'd-flex align-items-center flex-row justify-content-center'} do |f| %>
-          <%= f.hidden_field :coordinates, data: {flats_landing_target: 'coordinates'} %>
+          <%= f.hidden_field :coordinates, required: true, data: {flats_landing_target: 'coordinates'} %>
           <div data-flats-landing-target="geocoder" class="geocoder position-relative">
             <i class="fad fa-map-marker position-absolute"></i>
           </div>

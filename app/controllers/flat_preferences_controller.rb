@@ -5,7 +5,7 @@ class FlatPreferencesController < ApplicationController
   end
 
   def create
-    if current_user.nil?
+    if current_user.nil? && flat_preference_params[:coordinates].present?
       redirect_to new_user_registration_path(
         request_type: 'real_estate',
         move_in: flat_preference_params[:date_range].split[0].to_date,
