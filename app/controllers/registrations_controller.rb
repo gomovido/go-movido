@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
         if params[:user][:request_type] == 'real_estate'
           resource.skip_confirmation!
           sign_in(resource_name, resource)
-          real_estate_manage_user(@user, params[:user])
+          real_estate_manage_user(@user, params[:user], resource)
         else
           set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
           expire_data_after_sign_in!
@@ -34,8 +34,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def real_estate_manage_user(user, user_params)
-
+  def real_estate_manage_user(user, user_params, resource)
     flat_preference = FlatPreference.find_by(user: user) || FlatPreference.new(user: user)
     if user_params[:move_in].present?
       flat_preference.move_in = user_params[:move_in]
@@ -44,9 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
     flat_preference.coordinates = user_params[:coordinates].split(',')
     flat_preference.location = format_location_params(user_params[:coordinates])
     flat_preference.country = format_country_params(user_params[:coordinates])
-    if flat_preference.save
-      user.skip_confirmation!
-      user.save
+    if flat_preference.save && user.skip_confirmation! && user.save
       redirect_to providers_path(flat_preference.location)
     else
       clean_up_passwords resource
