@@ -1,5 +1,5 @@
 class FlatPreferencesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: %i[new create]
   def new
     @flat_preference = FlatPreference.new
   end
@@ -11,7 +11,7 @@ class FlatPreferencesController < ApplicationController
         move_in: flat_preference_params[:date_range].split[0].to_date,
         move_out: flat_preference_params[:date_range].split[-1].to_date,
         coordinates: flat_preference_params[:coordinates].split(',')
-        )
+      )
     else
       @flat_preference = FlatPreference.find_by(user: current_user) || FlatPreference.new(user: current_user)
       if flat_preference_params[:date_range].present?
