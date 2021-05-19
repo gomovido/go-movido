@@ -194,7 +194,6 @@ en:
       filters:
         title: "Filters"
         price_range: "Price range"
-        frequency: "/week"
         amenities: "Amenities"
         clear: "<u>Clear</u>"
         kitchen: "Kitchen"

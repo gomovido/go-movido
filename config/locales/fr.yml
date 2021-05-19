@@ -222,7 +222,6 @@ fr:
       filters:
         title: "Filtres"
         price_range: "Prix"
-        frequency: "/semaine"
         amenities: "Équipements"
         clear: "<u>Réinitialiser</u>"
         kitchen: "Cuisine"
