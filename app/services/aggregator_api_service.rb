@@ -46,7 +46,7 @@ class AggregatorApiService
     hash[:description] = data.find { |k, _v| k['locale_code'] == 'en_GB' || 'fr_FR' }['text'] if data
     hash[:city] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[1]
     hash[:country] = flat['property_aggregate']['property']['location']['address']['city_code'].split('-')[0]
-    hash[:billing] = flat['accommodation_offer']['contract']['type']
+    hash[:billing] = 'monthly'
     hash[:billing_details] = {
       type: flat['accommodation_offer']['contract']['type'].capitalize,
       included_bills: flat['accommodation_offer']['costs']['bills'].map { |type, conditions| type.capitalize if conditions["included"] == true }.compact,
