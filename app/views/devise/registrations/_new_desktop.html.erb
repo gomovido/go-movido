@@ -20,6 +20,12 @@
       <div class="form-base">
         <h4 class="mb-4"><%= t('devise.registrations.new.title_right') %></h4>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <% if @params && @params[:request_type].present? %>
+          <%= f.hidden_field :request_type, value: @params[:request_type] %>
+          <%= f.hidden_field :move_in, value: @params[:move_in] %>
+          <%= f.hidden_field :move_out, value: @params[:move_out] %>
+          <%= f.hidden_field :coordinates, value: @params[:coordinates] %>
+        <% end %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
