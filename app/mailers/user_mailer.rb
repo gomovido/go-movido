@@ -21,9 +21,8 @@ class UserMailer < ApplicationMailer
 
   def booking_under_review_email
     @user = params[:user]
-    @booking = params[:booking]
     @locale = params[:locale]
-    mail(to: @user.email, subject: I18n.t('mail.subscription_under_review'))
+    mail(to: @user.email, subject: I18n.t('mail.booking_under_review'))
   end
 
   def booking_confirmed_email

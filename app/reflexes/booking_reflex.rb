@@ -11,7 +11,7 @@ class BookingReflex < ApplicationReflex
     fetch_flat(@type, booking_params['flat_id'], current_user.flat_preference.location)
     if @booking.save
       @booking.update(status: 'placed', locale: session[:locale])
-      UserMailer.with(user: @booking.user, booking: @booking,
+      UserMailer.with(user: @booking.user,
                       locale: @booking.locale).booking_under_review_email.deliver_now
       @booking.slack_notification
       morph ".booking-modal-wrapper", (with_locale { render(partial: "bookings/#{device}/congratulations", locals: { flat: @flat, type: @type, booking: @booking }) })
