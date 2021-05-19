@@ -6,7 +6,7 @@ module FlatsHelper
   def flat_price(flat)
     price = flat['attributes']['accommodation_offer']['price']['amount'] / 100
     currency = flat['attributes']['accommodation_offer']['price']['currency_code']
-    billing = flat['attributes']['accommodation_offer']['contract_type']
+    billing = 'monthly'
     "#{manage_currency(currency.downcase)}#{price} / #{I18n.t("flats.index.frequency.#{billing}")}"
   end
 

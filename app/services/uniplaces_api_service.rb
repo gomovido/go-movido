@@ -80,7 +80,7 @@ class UniplacesApiService
         id: flat['id'].to_i,
         name: flat['attributes']['accommodation_offer']['title'],
         price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
-        frequency: I18n.t("flats.index.frequency.#{flat['attributes']['accommodation_offer']['contract_type']}"),
+        frequency: I18n.t("flats.index.frequency.monthly"),
         img: flat_image(flat['attributes']['photos'][0]['hash']),
         currency: manage_currency(flat['attributes']['accommodation_offer']['price']['currency_code'].downcase),
         url: (Rails.application.routes.url_helpers.flat_path(@location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
@@ -99,7 +99,7 @@ class UniplacesApiService
       id: flat['id'].to_i,
       name: flat['accommodation_offer']['title'].map { |k, _v| k['text'] if k['locale_code'] == 'en_GB' }.compact[0],
       price: flat['accommodation_offer']['reference_price']['amount'] / 100,
-      frequency: flat['accommodation_offer']['reference_price']['currency_code'],
+      frequency: I18n.t("flats.index.frequency.monthly"),
       img: flat_image(flat['photos'][0]['hash']),
       currency: manage_currency(flat['accommodation_offer']['reference_price']['currency_code'].downcase),
       url: (Rails.application.routes.url_helpers.flat_path(flat_preference.location, flat_preference.flat_type, flat['id']) if flat_preference.flat_type),
@@ -117,7 +117,7 @@ class UniplacesApiService
         code: flat['id'],
         image: "https://#{Rails.env.production? ? 'cdn-static-new.uniplaces.com' : 'cdn-static.staging-uniplaces.com'}/property-photos/#{flat['attributes']['photos'][0]['hash']}/medium.jpg",
         price: flat['attributes']['accommodation_offer']['price']['amount'] / 100,
-        billing: flat['attributes']['accommodation_offer']['contract_type'],
+        billing: I18n.t("flats.index.frequency.monthly"),
         currency: flat['attributes']['accommodation_offer']['price']['currency_code'],
         name: flat['attributes']['accommodation_offer']['title']
       }.to_json
