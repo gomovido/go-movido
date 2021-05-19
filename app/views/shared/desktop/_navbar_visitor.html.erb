@@ -20,6 +20,9 @@
         </div>
       </li>
       <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.real_estate'), real_estate_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
         <%= link_to t('shared.navbar_visitor.how_it_works'), how_it_works_path, class: "nav-link" %>
       </li>
       <% if I18n.locale == :fr %>

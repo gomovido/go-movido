@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   def new
     @params = params
     build_resource
@@ -16,14 +15,12 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
+      elsif params[:user][:request_type] == 'real_estate'
+        real_estate_manage_user(@user, params[:user], resource, resource_name)
       else
-        if params[:user][:request_type] == 'real_estate'
-          real_estate_manage_user(@user, params[:user], resource, resource_name)
-        else
-          set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-          expire_data_after_sign_in!
-          respond_with resource, location: after_inactive_sign_up_path_for(resource)
-        end
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
       clean_up_passwords resource
