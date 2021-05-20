@@ -1,5 +1,5 @@
-<div class="simplicity-container py-3">
-  <div class="container">
+<div class="simplicity-container pt-3">
+  <div class="container header">
     <h2 class="logo text-center">movido</h2>
     <h1 class="title">Simplicity</h1>
     <p class='"subline'>
@@ -7,9 +7,72 @@
       SIM card, transportation card and much more
     </p>
     <%= simple_form_for @lead, url: simplicity_path, data: {reflex: "submit->LeadReflex#submit" } do |f| %>
-      <%= f.input :email, required: false, label: false %>
+      <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com' %>
       <%= f.button :submit, 'Get started', class: 'btn-simplicity-main w-100 p-0' %>
     <% end %>
   </div>
   <%= image_tag(asset_path('pages/simplicity/landing-plane.png'), class: "header-image") %>
+  <div class="container why">
+    <h2 class="title">Why choose movido</h2>
+    <hr>
+    <div class="list">
+      <div class="reason">
+        <%= image_tag(asset_path('pages/simplicity/reason-time.png'), width: '40px') %>
+        <div class="content">
+          <h3 class="headline">5 min setup</h3>
+          <p class="desc">Quickly get everything you need to start your life in your new city, and receive it before you leave</p>
+        </div>
+      </div>
+      <div class="reason">
+        <%= image_tag(asset_path('pages/simplicity/reason-money.png'), width: '40px') %>
+        <div class="content">
+          <h3 class="headline">Save money</h3>
+          <p class="desc">A dedicated 24/7 support to help you find the best offers and manage them</p>
+        </div>
+      </div>
+      <div class="reason">
+        <%= image_tag(asset_path('pages/simplicity/reason-stress.png'), width: '40px') %>
+        <div class="content">
+          <h3 class="headline">Stress</h3>
+          <p class="desc">Our service is customisable and without obligation, so you can relax and enjoy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mid-banner">
+    <div class="container">
+      <h2 class="title">Customisable and without obligation</h2>
+      <p class="desc">There is no minimum engagement period. You can edit anytime: add a beneficiary, remove a guarantee. All that in just 2 clicks.</p>
+      <%= link_to 'Pre-order your pack now', '#', class: 'btn-simplicity-main w-100' %>
+    </div>
+  </div>
+  <div class="offers container">
+    <h2 class="title">Get everything you need to start your new life in your new country</h2>
+    <div class="list">
+      <div class="offer">
+        <h3 class="headline">Mobile phone</h3>
+        <p class="desc">Get your local phone number with movido - our partners offer you pay as you go or contract based services</p>
+      </div>
+      <div class="offer">
+        <h3 class="headline">Transportation</h3>
+        <p class="desc">Immediately start exploring your new city with your transportation card in hand</p>
+      </div>
+      <div class="offer">
+        <h3 class="headline">Accomodation</h3>
+        <p class="desc">Entire Place, Flatshare, Student Housing or Upscale Offers - we have all housing options available</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-rounded pb-5">
+    <div class="container">
+      <h2 class="title mb-0">In collaboration with:</h2>
+      <div class="companies">
+        <% @companies_logo_urls.each do |url| %>
+          <%= image_tag(asset_path(url), width: '110px') %>
+        <% end %>
+      </div>
+      <hr>
+      <%= link_to 'Pre-order your pack now', '#', class: 'btn-simplicity-main w-100' %>
+    </div>
+  </div>
 </div>
