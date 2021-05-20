@@ -1,0 +1,26 @@
+.simplicity-container {
+  background: $simplicity-landing-background;
+  min-height: 100vh;
+  width: 100vw;
+  color: $white;
+  font-family: 'Roboto';
+  .logo {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 23px;
+  }
+  h1.title {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 23px;
+  }
+  p.subline {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 23px;
+  }
+  .header-image {
+    width: 100%;
+  }
+}

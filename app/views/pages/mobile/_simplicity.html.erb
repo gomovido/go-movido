@@ -1,0 +1,15 @@
+<div class="simplicity-container py-3">
+  <div class="container">
+    <h2 class="logo text-center">movido</h2>
+    <h1 class="title">Simplicity</h1>
+    <p class='"subline'>
+      <strong>Your personal companion for everything you need to get settled in your new city!</strong><br>
+      SIM card, transportation card and much more
+    </p>
+    <%= simple_form_for @lead, url: simplicity_path, data: {reflex: "submit->LeadReflex#submit" } do |f| %>
+      <%= f.input :email, required: false, label: false %>
+      <%= f.button :submit, 'Get started', class: 'btn-simplicity-main w-100 p-0' %>
+    <% end %>
+  </div>
+  <%= image_tag(asset_path('pages/simplicity/landing-plane.png'), class: "header-image") %>
+</div>
