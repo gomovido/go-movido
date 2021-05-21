@@ -7,8 +7,8 @@
       SIM card, transportation card and much more
     </p>
     <%= simple_form_for @lead, url: simplicity_path, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead' } do |f| %>
-      <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com' %>
-      <%= f.button :submit, 'Get started', class: 'btn-simplicity-main w-100 p-0', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
+    <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com' %>
+    <%= f.button :submit, 'Get started', class: 'btn-simplicity-main w-100 p-0', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
     <% end %>
   </div>
   <%= image_tag(asset_path('pages/simplicity/landing-plane.png'), class: "header-image") %>
@@ -68,10 +68,9 @@
       <h2 class="title mb-0">In collaboration with:</h2>
       <div class="companies">
         <% @companies_logo_urls.each do |url| %>
-          <%= image_tag(asset_path(url), width: '110px') %>
+        <%= image_tag(asset_path(url), width: '110px') %>
         <% end %>
       </div>
-      <hr>
       <%= link_to 'Pre-order your pack now', '#', class: 'btn-simplicity-main w-100' %>
     </div>
   </div>
