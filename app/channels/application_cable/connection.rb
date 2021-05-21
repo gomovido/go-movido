@@ -1,19 +1,12 @@
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user
+    identified_by :uuid
 
     def connect
-      self.current_user = find_verified_user
-    end
-
-    protected
-
-    def find_verified_user
-      if (current_user = env["warden"].user(:user))
-        current_user
-      else
-        reject_unauthorized_connection
-      end
+      self.current_user = env["warden"].user(:user)
+      self.uuid = SecureRandom.urlsafe_base64
+      reject_unauthorized_connection unless current_user || uuid
     end
   end
 end

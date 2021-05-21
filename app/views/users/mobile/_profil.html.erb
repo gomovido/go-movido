@@ -13,10 +13,10 @@
   <%= simple_form_for user, html: {id:"profile", class: 'form-base'}, data: {reflex: "submit->UserReflex#submit" } do |f| %>
   <div class="d-flex justify-content-between first-row">
     <div class="mr-1">
-      <%= f.input :first_name, required: false, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
+      <%= f.input :first_name, required: false %>
     </div>
     <div class="ml-1">
-      <%= f.input :last_name, required: false, input_html: {data: {action: 'change->profile#updateNavbar'}} %>
+      <%= f.input :last_name, required: false %>
     </div>
   </div>
     <%= f.input :email, required: false, label: 'E-mail' %>
