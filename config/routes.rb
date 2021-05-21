@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'careers', to: 'pages#careers'
   get 'faq', to: 'pages#faq'
+  get 'simplicity', to: 'pages#simplicity'
   get 'summary/:subscription_id', to: 'subscriptions#summary', as: 'subscription_summary'
   get 'payment/:subscription_id', to: 'subscriptions#payment', as: 'subscription_payment'
   patch 'validate_subscription/:subscription_id', to: 'subscriptions#validate_subscription', as: 'validate_subscription'
@@ -47,6 +48,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update] do
     resources :addresses, only: [:create, :new]
   end
+
+  resources :leads, only: [:create]
 
   resources :wifis, only: [:index]
   resources :mobiles, only: [:index]

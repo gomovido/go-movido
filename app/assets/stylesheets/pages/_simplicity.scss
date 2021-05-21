@@ -1,0 +1,141 @@
+.simplicity-container {
+  background: $simplicity-landing-background;
+  min-height: 100vh;
+  width: 100vw;
+  color: $white;
+  * {
+    font-family: 'Roboto';
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .header-image {
+    width: 100%;
+  }
+  .header {
+    h1.title {
+      font-weight: bold;
+      font-size: 35px;
+      margin-bottom: 9px;
+    }
+    p.subline {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    form {
+      .form-group {
+        margin-bottom: 12px;
+      }
+      input.form-control {
+        height: 50px;
+        box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
+        border-radius: 7px;
+        border: 1px solid $grey-snow;
+
+        font-weight: 500;
+        color: $black;
+        &::placeholder {
+          color: $taupe;
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+  .why {
+    margin-bottom: 40px;
+    h2.title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    hr {
+      border-top: 0.2px solid $white;
+      width: 80%;
+      margin-left: 0;
+    }
+    .reason {
+      display: flex;
+      align-items: center;
+      margin-bottom: 19px;
+      img {
+        margin-right: 32px;
+      }
+      h3.headline {
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+      p.desc {
+        font-family: 'Poppins';
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 200;
+      }
+    }
+  }
+  .mid-banner {
+    margin-bottom: 40px;
+    height: 300px;
+    background: $white;
+    clip-path: ellipse(70% 50% at 50% 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2.title {
+      font-weight: bold;
+      font-size: 16px;
+      color: $black;
+      margin-bottom: 16px;
+    }
+    p.desc {
+      font-family: 'Poppins';
+      font-size: 14px;
+      color: $black;
+      margin-bottom: 20px;
+    }
+  }
+  .offers {
+    margin-bottom: 40px;
+    h2.title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+    .offer {
+      margin-bottom: 13px;
+      h3.headline {
+        margin-bottom: 2px;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      p.desc {
+        font-family: 'Poppins';
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 200;
+      }
+    }
+  }
+  .footer-rounded {
+    background: $white;
+    clip-path: ellipse(150% 100% at 50% 100%);
+    .container {
+      padding-top: 50px;
+      h2.title {
+        color: $black;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .companies {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        align-items: center;
+      }
+    }
+  }
+}

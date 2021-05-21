@@ -23,6 +23,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2eebd99045.js" crossorigin="anonymous"></script>
     <%= favicon_link_tag asset_path('layout/favicon.ico') %>
@@ -33,17 +35,21 @@
 
   <body data-locale="<%= I18n.locale.to_s %>" data-env="<%= Rails.env %>">
     <noscript><iframe src='https://www.googletagmanager.com/ns.html?id="<%= Rails.application.credentials.production[:google][:tag_manager_id] %>"' height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <%= render 'shared/navbars' %>
+    <% if controller.action_name != 'simplicity' %>
+      <%= render 'shared/navbars' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/pixel_facebook' %>
     <div class="wrapper d-flex flex-column justify-content-center">
     <%= yield %>
     </div>
-    <% if browser.device.mobile? %>
-      <%= render 'shared/mobile/bottom_bar' %>
-      <%= render 'shared/footer_mobile' %>
-    <% else %>
-      <%= render 'shared/footer_desktop' %>
+    <% if controller.action_name != 'simplicity' %>
+      <% if browser.device.mobile? %>
+        <%= render 'shared/mobile/bottom_bar' %>
+        <%= render 'shared/footer_mobile' %>
+      <% else %>
+        <%= render 'shared/footer_desktop' %>
+      <% end %>
     <% end %>
   </body>
 </html>
