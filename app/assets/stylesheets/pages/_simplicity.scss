@@ -1,31 +1,29 @@
 .simplicity-container {
-  background: $simplicity-landing-background;
-  min-height: 100vh;
-  width: 100vw;
-  color: $white;
   * {
     font-family: 'Roboto';
   }
   .logo {
-    font-weight: bold;
-    font-size: 16px;
+    margin: 0 auto;
+    display: block;
     margin-bottom: 20px;
   }
-  .header-image {
-    width: 100%;
-  }
   .header {
-    h1.title {
-      font-weight: bold;
-      font-size: 35px;
-      margin-bottom: 9px;
-    }
     p.subline {
-      font-weight: bold;
-      font-size: 16px;
+      font-size: 14px;
+      color: $grey;
+    }
+    strong {
+      font-size: 20px;
+      color: $black;
       margin-bottom: 20px;
     }
+    .header-image {
+      height: 385px;
+      display: block;
+      margin: 0 auto;
+    }
     form {
+      margin-bottom: 50px;
       .form-group {
         margin-bottom: 12px;
       }
@@ -77,12 +75,6 @@
   }
   .mid-banner {
     margin-bottom: 40px;
-    height: 300px;
-    background: $white;
-    clip-path: ellipse(70% 50% at 50% 50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     h2.title {
       font-weight: bold;
       font-size: 16px;
@@ -96,45 +88,78 @@
       margin-bottom: 20px;
     }
   }
-  .offers {
-    margin-bottom: 40px;
+  .partners {
+    h2.title {
+      color: $light-grey;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .companies {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 10px;
+      align-items: center;
+    }
+  }
+  .contact-banner {
+    background: $purple;
+    color: $white;
+    margin-bottom: 30px;
+    span.subline {
+      font-size: 16px;
+    }
+    .cta-call {
+      margin-top: 9px;
+      border-radius: 7px;
+      border: 1px solid $white;
+      font-size: 16px;
+      font-weight: bold;
+      color: $white;
+      width: 33%;
+      margin: 9px auto 0 auto;
+    }
+  }
+  .testimonials {
     h2.title {
       font-weight: bold;
       font-size: 16px;
-      margin-bottom: 22px;
+      color: $light-grey;
+      text-align: center;
+      margin-bottom: 30px;
     }
-    .offer {
-      margin-bottom: 13px;
-      h3.headline {
-        margin-bottom: 2px;
-        font-weight: 500;
-        font-size: 14px;
+    .swiper-container {
+      border-radius: 0;
+      z-index: unset !important;
+      .swiper-pagination-bullet {
+        background: $grey !important;
       }
-      p.desc {
-        font-family: 'Poppins';
-        margin-bottom: 0;
-        font-size: 12px;
-        font-weight: 200;
+      .swiper-pagination-bullet-active {
+        background: $purple !important;
       }
-    }
-  }
-  .footer-rounded {
-    background: $white;
-    clip-path: ellipse(150% 100% at 50% 100%);
-    .container {
-      padding-top: 50px;
-      h2.title {
-        color: $black;
-        font-weight: bold;
-        font-size: 16px;
-      }
-      .companies {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-        align-items: center;
+      .swiper-slide {
+        img {
+          margin-bottom: 20px;
+        }
+        .name {
+          color: $purple;
+          font-weight: bold;
+          font-size: 18px;
+        }
+        .destination {
+          font-weight: bold;
+          font-size: 12px;
+          font-family: 'Poppins';
+          color: $light-grey;
+        }
+        .content {
+          padding: 0 2rem;
+          font-family: 'Poppins';
+          margin-top: 10px;
+          font-size: 14px;
+          color: $black;
+          font-weight: 200;
+        }
       }
     }
   }

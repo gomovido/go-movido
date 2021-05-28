@@ -31,4 +31,13 @@ export default class extends Controller {
     e.preventDefault();
     this.stimulate('LeadReflex#submit', this.formTarget)
   }
+
+  scrollTop(e) {
+    window.scroll({
+      top: '50',
+      left: 0,
+      behavior: 'smooth'
+    });
+
+  }
 }
