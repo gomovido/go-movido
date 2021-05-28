@@ -43,13 +43,13 @@
     <div class="wrapper d-flex flex-column justify-content-center">
     <%= yield %>
     </div>
-    <% if controller.action_name != 'simplicity' %>
       <% if browser.device.mobile? %>
-        <%= render 'shared/mobile/bottom_bar' %>
+        <% if controller.action_name != 'simplicity' %>
+          <%= render 'shared/mobile/bottom_bar' %>
+        <% end %>
         <%= render 'shared/footer_mobile' %>
       <% else %>
         <%= render 'shared/footer_desktop' %>
       <% end %>
-    <% end %>
   </body>
 </html>
