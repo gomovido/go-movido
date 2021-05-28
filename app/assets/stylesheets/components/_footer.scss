@@ -1,5 +1,4 @@
 .footer {
-  background: $footer-gradient;
   .logo {
     width: 90px;
   }
@@ -17,9 +16,9 @@
   a {
     color: $white;
     font-weight: 800;
-    font-size: 18px;
+    font-size: 14px;
     &:hover {
-      color: $cyan;
+      color: $purple;
     }
   }
   span {
