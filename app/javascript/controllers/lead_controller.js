@@ -33,11 +33,6 @@ export default class extends Controller {
   }
 
   scrollTop(e) {
-    window.scroll({
-      top: '50',
-      left: 0,
-      behavior: 'smooth'
-    });
-
+    window.scroll({ top: 0, behavior: 'smooth' });
   }
 }
