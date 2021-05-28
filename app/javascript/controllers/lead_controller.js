@@ -15,7 +15,7 @@ export default class extends Controller {
   reflexSuccess() {
     setTimeout(e => {
       this.buttonTarget.style.background = '#2FAB73';
-      this.buttonTarget.value = "Congrats ! We'll contact you very soon";
+      this.buttonTarget.value = "Congrats! We'll contact you very soon";
     }, 2000)
   }
 

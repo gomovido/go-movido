@@ -8,12 +8,12 @@
             <div class="col-md-6 text-center text-md-left d-flex align-items-center">
               <div class="content d-flex flex-column justify-content-around">
                 <div class="headline mb-2">
-                  <h1 class="mb-3">Your companion for everything you need to get settled<br> in your new city!</h1>
-                  <p class="subheadline">Get your SIM card, local transport, WiFi, utilites and more - all in 5 mins, online and without fees</p>
+                  <h1 class="mb-3">Your companion for everything you need to get settled in your new city!</h1>
+                  <p class="subheadline">Get your SIM card, local transport, WiFi, utilities and more - all in 5 mins, online and without fees</p>
                 </div>
-                <%= simple_form_for @lead, url: simplicity_path, html: {class:'w-100 d-flex'}, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead' } do |f| %>
+                <%= simple_form_for @lead, url: simplicity_path, html: {class:'w-100'}, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead' } do |f| %>
                   <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com', input_html: {class:'w-100 mr-4'} %>
-                  <%= f.button :submit, 'Register now', class: 'btn-simplicity-main p-0', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
+                  <%= f.button :submit, 'Register now', class: 'btn-simplicity-main p-0 submit w-100', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
                 <% end %>
               </div>
             </div>
@@ -95,9 +95,46 @@
       <div class="banner d-flex align-items-center mt-0 mb-0"style="height: 75vh;background-image:url(<%= asset_path 'pages/simplicity/testimonials.png' %>);">
         <div class="container">
           <div class="row">
-            <div class="col-6 offset-3">
-              <div class="box-testimonial">
-                <p>"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi subscription on top”</p>
+            <div class="col-6 offset-3 container-testimonial">
+              <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi subscription on top”</p>
+                        <span class="font-weight">Ellen</span>
+                        <span class="font-italic">From Stockholm to Paris</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"From the airport pick-up until today - I’m happy movido is there for me"</p>
+                        <span class="font-weight">Etienne</span>
+                        <span class="font-italic">From Berlin to London</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"I am still using my Oyster card and giffgaff SIM every day"</p>
+                        <span class="font-weight">Mariana</span>
+                        <span class="font-italic">From Buenos Aires to London</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"I didn’t even know I needed a guarantor - movido helped me find one."</p>
+                        <span class="font-weight">Mateo</span>
+                        <span class="font-italic">From Barcelona to Paris</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
