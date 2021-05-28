@@ -1,0 +1,35 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-movido" data-controller="navbar" data-navbar-target="navbar" data-action="scroll@window->navbar#onScroll" data-navbar-fixed-class="fixed-nav">
+  <%= link_to root_path, class: "navbar-brand mr-0" do %>
+    <%= image_tag(asset_path("navbar/logo.svg")) %>
+  <% end %>
+
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown services" id="servicesDropdown">
+        <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="services">Services <i class="fas fa-sort-down ml-2"></i></span>
+        <div class="dropdown-menu pb-0" aria-labelledby="servicesDropdown">
+          <div class= "d-flex align-items-center dropdown-item py-1"><%= image_tag(asset_path('navbar/housing.png')) %><%= link_to t('shared.navbar_visitor.services.housing'), services_real_estate_path %></div>
+          <div class= "d-flex align-items-center dropdown-item py-1"><%= image_tag(asset_path('navbar/bank.png')) %><%= link_to t('shared.navbar_visitor.services.bank'), services_bank_path %></div>
+          <div class= "d-flex align-items-center dropdown-item py-1"><%= image_tag(asset_path('navbar/mobile.png')) %><%= link_to t('shared.navbar_visitor.services.mobile'), services_mobile_path %></div>
+          <div class= "d-flex align-items-center dropdown-item py-1 last"><%= image_tag(asset_path('navbar/wifi.png')) %><%= link_to t('shared.navbar_visitor.services.wifi'), services_wifi_path %></div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.real_estate'), real_estate_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.how_it_works'), how_it_works_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-simplicity-main" do %>
+          <span>Book a call now</i>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
