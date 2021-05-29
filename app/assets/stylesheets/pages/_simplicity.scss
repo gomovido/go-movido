@@ -226,34 +226,37 @@
 }
 
 @include media-breakpoint-down(md) {
-  .why {
-    margin-bottom: 40px;
-    h2.title {
-      font-weight: bold;
-      font-size: 16px;
-    }
-    hr {
-      border-top: 0.2px solid $white;
-      width: 80%;
-      margin-left: 0;
-    }
-    .reason {
-      display: flex;
-      align-items: center;
-      margin-bottom: 19px;
-      img {
-        margin-right: 32px;
+  .simplicity-container {
+    .why {
+      margin-bottom: 40px;
+      h2.title {
+        font-weight: bold;
+        font-size: 16px;
       }
-      h3.headline {
-        font-weight: 500;
-        font-size: 14px;
-        margin-bottom: 4px;
+      hr {
+        border-top: 0.2px solid $white;
+        width: 80%;
+        margin-left: 0;
       }
-      p.desc {
-        font-family: 'Poppins';
-        margin-bottom: 0;
-        font-size: 12px;
-        font-weight: 200;
+      .reason {
+        display: flex;
+        align-items: center;
+        margin-bottom: 19px;
+        img {
+          margin-right: 32px;
+        }
+        h3.headline {
+          font-weight: 500;
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+        p.desc {
+          font-family: 'Poppins';
+          margin-bottom: 0;
+          font-size: 12px;
+          font-weight: 400;
+          color: $black;
+        }
       }
     }
   }
