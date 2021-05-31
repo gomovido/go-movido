@@ -35,18 +35,13 @@
 
   <body data-locale="<%= I18n.locale.to_s %>" data-env="<%= Rails.env %>">
     <noscript><iframe src='https://www.googletagmanager.com/ns.html?id="<%= Rails.application.credentials.production[:google][:tag_manager_id] %>"' height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <% if controller.action_name != 'simplicity' %>
-      <%= render 'shared/navbars' %>
-    <% end %>
+    <%= render 'shared/navbars' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/pixel_facebook' %>
     <div class="wrapper d-flex flex-column justify-content-center">
     <%= yield %>
     </div>
       <% if browser.device.mobile? %>
-        <% if controller.action_name != 'simplicity' %>
-          <%= render 'shared/mobile/bottom_bar' %>
-        <% end %>
         <%= render 'shared/footer_mobile' %>
       <% else %>
         <%= render 'shared/footer_desktop' %>

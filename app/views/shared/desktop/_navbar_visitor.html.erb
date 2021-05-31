@@ -10,43 +10,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown services" id="servicesDropdown">
-        <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="services">Services <i class="fas fa-sort-down ml-2"></i></span>
-        <div class="dropdown-menu pb-0" aria-labelledby="servicesDropdown">
-          <div class= "d-flex align-items-center dropdown-item py-1"><%= image_tag(asset_path('navbar/housing.png')) %><%= link_to t('shared.navbar_visitor.services.housing'), services_real_estate_path %></div>
-          <div class= "d-flex align-items-center dropdown-item py-1"><%= image_tag(asset_path('navbar/bank.png')) %><%= link_to t('shared.navbar_visitor.services.bank'), services_bank_path %></div>
-          <div class= "d-flex align-items-center dropdown-item py-1"><%= image_tag(asset_path('navbar/mobile.png')) %><%= link_to t('shared.navbar_visitor.services.mobile'), services_mobile_path %></div>
-          <div class= "d-flex align-items-center dropdown-item py-1 last"><%= image_tag(asset_path('navbar/wifi.png')) %><%= link_to t('shared.navbar_visitor.services.wifi'), services_wifi_path %></div>
-        </div>
+      <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.about_us'), about_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to t('shared.navbar_visitor.real_estate'), real_estate_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to t('shared.navbar_visitor.how_it_works'), how_it_works_path, class: "nav-link" %>
-      </li>
-      <% if I18n.locale == :fr %>
-        <li class="nav-item dropdown language" id="languageDropdown">
-          <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">FR <i class="fas fa-sort-down ml-2"></i></span>
-          <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
-            <%= link_to "EN", locale: :en %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item dropdown language" id="languageDropdown">
-          <span class="nav-link d-flex" data-toggle="dropdown" data-navbar-target="language">EN <i class="fas fa-sort-down ml-2"></i></span>
-          <div class="dropdown-menu pb-0" aria-labelledby="languageDropdown">
-            <%= link_to "FR", locale: :fr %>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="nav-item">
-        <%= link_to t('shared.navbar_visitor.login'), new_user_session_path, class: "nav-link", id: 'login' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_user_registration_path, class:"btn-navbar d-flex align-items-center" do %>
-          <span><%= t('shared.navbar_visitor.get_started') %></span><i class="fas fa-arrow-right ml-2"></i>
+        <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-simplicity-main" do %>
+          <span>Book a call now</i>
         <% end %>
       </li>
     </ul>
