@@ -1,50 +1,30 @@
-<footer class="bg-black footer">
-  <div class="top-part d-flex flex-column justify-content-around py-3">
-    <%= link_to root_path, class: 'text-center' do %>
-      <%= image_tag(asset_path('footer/logo.png'), class: 'logo py-4') %>
+<footer class="bg-black footer p-4">
+  <div class="top-part">
+    <%= link_to root_path, class: 'd-block' do %>
+      <%= image_tag(asset_path('footer/logo.png'), class: 'logo') %>
     <% end %>
-    <hr class="w-100">
-    <div class="links mb-4 px-4 mt-3">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <%= link_to t('shared.footer.about'), about_path %>
-          <i class="far fa-chevron-right"></i>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <%= link_to t('shared.footer.contact'), contact_path %>
-          <i class="far fa-chevron-right"></i>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <%= link_to t('shared.footer.careers'), careers_path %>
-          <i class="far fa-chevron-right"></i>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <%= link_to t('shared.footer.faq'), faq_path %>
-          <i class="far fa-chevron-right"></i>
-        </div>
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <%= link_to t('shared.footer.terms'), terms_path %>
-          <i class="far fa-chevron-right"></i>
-        </div>
-        <div class="d-flex align-items-center justify-content-between">
-          <%= link_to t('shared.footer.cookie'), cookies_path %>
-          <i class="far fa-chevron-right"></i>
-        </div>
-
+    <span class="sas d-block">movido France SAS</span>
+    <h6 class="address">608 Boulevard des Horizons, 06220 Vallauris  Company registered in France</h6>
+    <div class="links d-flex justify-content-between">
+      <div class="left">
+        <%= link_to t('shared.footer.about'), about_path, class: 'link' %>
+        <%= link_to 'Blog', '#', class: 'link' %>
+        <%= link_to t('shared.footer.faq'), faq_path, class: 'link' %>
+        <%= link_to t('shared.footer.careers'), careers_path, class: 'link' %>
+      </div>
+      <div class="right">
+        <%= link_to t('shared.footer.terms'), terms_path, class: 'link' %>
+        <%= link_to t('shared.footer.cookie'), cookies_path, class: 'link' %>
+        <%= link_to t('shared.footer.contact'), contact_path, class: 'link' %>
+      </div>
     </div>
-    <div class="social-links px-4">
-      <%= link_to "https://www.facebook.com/GoMovido/", class: "mr-2", target: "_blank" do %>
-        <%= image_tag(asset_path('footer/facebook.png'), class: 'icons') %>
-      <% end %>
-      <%= link_to "https://www.instagram.com/go_movido/", class: "mr-2", target: "_blank"  do %>
-        <%= image_tag(asset_path('footer/instagram.png'), class: 'icons') %>
-      <% end %>
-      <%= link_to "https://www.linkedin.com/company/go-movido", target: "_blank" do %>
-        <%= image_tag(asset_path('footer/linkedin.png'), class: 'icons') %>
-      <% end %>
+    <span class="follow">Follow us on</span>
+    <div class="social-links">
+      <%= link_to "<i class='fa fa-facebook'></i>".html_safe,"https://www.facebook.com/GoMovido/", class: "mr-4", target: "_blank" %>
+      <%= link_to "<i class='fa fa-instagram'></i>".html_safe, "https://www.instagram.com/go_movido/", class: "mr-4", target: "_blank" %>
+      <%= link_to "<i class='fa fa-linkedin'></i>".html_safe, "https://www.linkedin.com/company/go-movido", target: "_blank" %>
     </div>
   </div>
   <hr class="w-100">
-  <div class="bot mt-3 mb-4 text-center ml-0">
-    <span><%= t('shared.footer.legal') %></span>
-  </div>
+  <span class="legal">© 2020-2021, movido France SAS</span>
 </footer>

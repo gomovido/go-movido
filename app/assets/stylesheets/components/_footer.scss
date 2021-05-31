@@ -35,21 +35,54 @@
 @include media-breakpoint-down(md) {
   .footer {
     border-radius: 0;
-    .logo {
-      margin: 0 auto;
-    }
-    span {
-      font-size: 14px;
-      opacity: 0.4;
-      line-height: 26px;
-    }
-    a {
-      font-size: 14px;
-      font-family: 'Montserrat';
-    }
-    .fa-chevron-right {
+    .sas {
+      font-weight: bold;
       font-size: 14px;
       color: $white;
+      margin: 17px 0;
+    }
+    h6.address {
+      margin-bottom: 35px;
+    }
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+    }
+    .follow {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .link {
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .social-links {
+      margin-top: 15px;
+    }
+    .address {
+      font-size: 14px;
+      color: $white;
+      font-weight: 200;
+    }
+    .legal {
+      font-size: 14px;
+    }
+    hr {
+      border: 1px solid $white;
+    }
+    .social-links {
+      i {
+        font-size: 17px;
+        background: $white;
+        border-radius: 50%;
+        color: $black;
+        width: 27px;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+      }
     }
   }
 }
