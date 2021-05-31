@@ -12,12 +12,12 @@
                 </div>
                 <%= simple_form_for @lead, url: root_path, html: {class:'w-100'}, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead' } do |f| %>
                   <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com', input_html: {class:'w-100 mr-4'} %>
-                  <%= f.button :submit, 'Register now', class: 'btn-simplicity-main p-0 submit w-100', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
+                  <%= f.button :submit, 'Register now', class: 'btn-main p-0 submit w-100', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
                 <% end %>
               </div>
             </div>
             <div class="col-4 offset-2">
-              <%= image_tag(asset_path('pages/home/landing-iphone.png'), class:'w-100') %>
+              <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class:'w-100') %>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
       </div>
       <div class="row">
         <div class="col-4 d-flex flex-column align-items-center">
-          <%= image_tag(asset_path('pages/home/why-1.png'), class:'why-img') %>
+          <%= image_tag(asset_path('components/homepage/card-user-flow-1.png'), class:'why-img') %>
           <div class="px-3">
             <h3 class="title">All You Need to Start</h2>
             <p class="desc">Don’t spend hours on Google trying to find the right SIM card or figuring out a way to get housing without a guarantor…<br><br>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="col-4 d-flex flex-column align-items-center mt-3">
-          <%= image_tag(asset_path('pages/home/why-2.png'), class:'why-img') %>
+          <%= image_tag(asset_path('components/homepage/card-user-flow-2.png'), class:'why-img') %>
           <div class="px-3">
             <h3 class="title">Fully Customizable</h2>
             <p class="desc">45% of people moving abroad end up overpaying their utility contracts…<br><br>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="col-4 d-flex flex-column align-items-center mt-5">
-          <%= image_tag(asset_path('pages/home/why-3.png'), class:'why-img') %>
+          <%= image_tag(asset_path('components/homepage/card-user-flow-3.png'), class:'why-img') %>
           <div class="px-3">
             <h3 class="title">Assistance 24/7</h2>
             <p class="desc">Visa, housing, banking… It’s easy to get overwhelmed by everything you need to do before you move abroad.<br><br>
@@ -62,11 +62,11 @@
   </section>
   <section class="mb-5">
     <div class="container-fluid p-0 m-0 h-100">
-      <div class="banner d-flex align-items-center"style="background-image:url(<%= asset_path 'pages/home/banner-background.png' %>);">
+      <div class="banner d-flex align-items-center"style="background-image:url(<%= asset_path 'components/homepage/banner-purple.png' %>);">
         <div class="container">
           <div class="row">
             <div class="col-8 offset-2 text-center text-md-left d-flex align-items-center step-top">
-              <%= image_tag(asset_path('pages/home/cancel.png'), class:'w-50 mr-5') %>
+              <%= image_tag(asset_path('components/homepage/floating-card-girls.png'), class:'w-50 mr-5') %>
               <div class="d-flex flex-column banner-mid">
                 <h3 class="title">No commitment & cancel anytime</h3>
                 <p class="desc">Our offers have no commitment period. You can cancel anytime at no extra cost. All of that in just 2 clicks.</p>
@@ -77,7 +77,7 @@
                 <h3 class="title">Join our Global Community</h3>
                 <p class="desc">Looking for tips & tricks? Either ask the community or find what you are looking for in our resource center. </p>
               </div>
-              <%= image_tag(asset_path('pages/home/community.png'), class:'w-50') %>
+              <%= image_tag(asset_path('components/homepage/floating-card-boys.png'), class:'w-50') %>
             </div>
           </div>
         </div>
@@ -88,10 +88,10 @@
   <section class="mt-5">
     <div class="container p-0 why mb-0">
       <div class="text-center">
-        <%= image_tag(asset_path('pages/home/logo.png'), class:'w-10 mb-5') %>
+        <%= image_tag(asset_path('logos/movido-black.svg'), class:'w-10 mb-5') %>
         <h2 class="title">Don't just take our word for it</h2>
       </div>
-      <div class="banner d-flex align-items-center mt-0 mb-0"style="height: 75vh;background-image:url(<%= asset_path 'pages/home/testimonials.png' %>);">
+      <div class="banner d-flex align-items-center mt-0 mb-0"style="height: 75vh;background-image:url(<%= asset_path 'components/homepage/testimonial-bubbles.png' %>);">
         <div class="container">
           <div class="row">
             <div class="col-6 offset-3 container-testimonial">
@@ -145,7 +145,7 @@
     <div class="container-fluid p-0">
       <div class="book-a-call-banner d-flex align-items-center">
         <p><strong>Any questions?</strong> Book a call now and speak to us.</p>
-        <%= link_to 'Book a call now', 'https://calendly.com/alice_movido/movido-introcall', class:'btn-simplicity-white' %>
+        <%= link_to 'Book a call now', 'https://calendly.com/alice_movido/movido-introcall', class:'btn-main-white' %>
       </div>
     </div>
   </section>

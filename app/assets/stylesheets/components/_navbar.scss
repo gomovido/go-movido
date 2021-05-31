@@ -24,86 +24,7 @@
   margin-right: 1em;
   cursor: pointer;
   .nav-link {
-    font-weight: 800;
-  }
-  .fa-sort-down {
-    color: $purple;
-  }
-}
-
-#login {
-  color: $purple !important;
-}
-
-.navbar {
-  .dropdown-menu {
-    box-shadow: 0px 40px 40px rgba(163, 143, 248, 0.2);
-    border-radius: 0 0 20px 20px;
-    border: none;
-    min-width: 0;
-    animation-duration: 0.1s;
-    animation-fill-mode: both;
-    animation-name: slideIn;
-    .dropdown-item {
-      &:hover {
-        background-color: $dropdown-hover;
-      }
-    }
-    @keyframes slideIn {
-      0% {
-        transform: translateY(1rem);
-        opacity: 0;
-      }
-      100% {
-        transform:translateY(0rem);
-        opacity: 1;
-      }
-      0% {
-        transform: translateY(1rem);
-        opacity: 0;
-      }
-    }
-    .last {
-      border-radius: 0 0 20px 20px;
-    }
-    i {
-      color: $purple;
-      width: 20px;
-    }
-    a {
-      letter-spacing: 1px;
-      font-family: Montserrat;
-      font-weight: 600;
-      font-size: 14px;
-      display: block;
-      width: 100%;
-      padding: 0.7rem 0.8rem;
-      &:hover {
-        background-color: $dropdown-hover;
-      }
-    }
-  }
-}
-
-.language .dropdown-menu {
-  width: 5rem;
-  a {
-    border-radius: 0 0 20px 20px;
-
-  }
-}
-.services .dropdown-menu {
-  width: 220px;
-  img {
-    width: 24px;
-  }
-}
-
-.profile .dropdown-menu {
-  width: 100%;
-  top: 88%;
-  img {
-    width: 24px;
+    font-weight: 600;
   }
 }
 
@@ -112,16 +33,6 @@
   font-weight: 600;
   &:hover {
     color: $purple !important;
-  }
-}
-
-.btn-navbar.active {
-  color: $white;
-  background: $purple;
-  border-radius: 30px 30px 0 0;
-  .fa-sort-down {
-    transition: all 0.1s ease-in-out;
-    color: $white;
   }
 }
 
@@ -137,59 +48,5 @@
     filter: drop-shadow(0px 2px 10px rgba(180, 173, 173, 0.2));
     border-radius: 0 0 20px 20px;
     position: unset;
-    .nav-item {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .nav-link {
-      padding: 0 !important;
-      font-weight: bold;
-    }
-    .logout {
-      color: $purple;
-      font-weight: bold;
-    }
-    .navbar-brand {
-      img {
-        vertical-align: text-top;
-      }
-    }
-    li {
-      list-style-type: none;
-    }
-  }
-  .navbar-flats {
-    font-family: 'Montserrat';
-    .partner {
-      .subline {
-        font-size: 12px;
-        color: $grey;
-      }
-    }
-    .location {
-      span {
-        font-weight: bold;
-        font-size: 13px;
-      }
-      i {
-        font-size: 17px;
-      }
-    }
-  }
-  .navbar-providers {
-    font-family: 'Montserrat';
-    .title {
-      font-size: 14px;
-      color: $grey;
-    }
-    .location {
-      span {
-        font-weight: bold;
-        font-size: 16px;
-      }
-      i {
-        font-size: 17px;
-      }
-    }
   }
 }
