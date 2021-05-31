@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-movido" data-controller="navbar" data-navbar-target="navbar" data-action="scroll@window->navbar#onScroll" data-navbar-fixed-class="fixed-nav">
   <%= link_to root_path, class: "navbar-brand mr-0" do %>
-    <%= image_tag(asset_path("navbar/logo.svg")) %>
+    <%= image_tag(asset_path("logos/movido-black.svg")) %>
   <% end %>
 
   <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
         <%= link_to t('shared.navbar_visitor.about_us'), about_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-simplicity-main" do %>
+        <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-main" do %>
           <span>Book a call now</i>
         <% end %>
       </li>

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Pagy::Backend
+
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
@@ -26,10 +26,6 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
-  end
-
-  def user_has_address?
-    redirect_to(new_user_address_path(current_user.id)) if current_user.active_address.nil?
   end
 
   protected
