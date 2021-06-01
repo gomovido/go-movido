@@ -1,27 +1,3 @@
-.btn-main {
-  color: $white !important;
-  font-family: "Manrope", sans-serif;
-  cursor: pointer;
-  background: $purple;
-  height: auto !important;
-  padding: 15px 51.5px !important;
-  font-weight: 700 !important;
-  font-size: 20px !important;
-  border-radius: 14px !important;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
-  transition: all 0.3s ease;
-  border: 1px solid $purple !important;
-  text-align: center;
-  &:hover {
-    border: 1px solid $hover-button !important;
-    background: $hover-button;
-    color: $white;
-  }
-  &:focus {
-    outline: none !important;
-  }
-}
-
 .btn-google {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
@@ -65,94 +41,7 @@
 }
 
 
-.btn-exit {
-  color: $dark-cloud;
-  background: $background-category;
-  border-radius: 20px;
-  border: 1px solid $grey-snow;
-  padding: 15px 51.5px;
-  font-weight: 700;
-  font-size: 20px;
-  transition: all 0.3s ease;
-  text-align: center;
-  &:hover {
-    color: $dark-cloud;
-    background: $hover-exit-button;
-  }
-}
-
-.btn-navbar {
-  color: $purple;
-  background: $background-light-purple;
-  border: 1px solid $purple;
-  padding: 10px 56px;
-  font-weight: 800;
-  font-size: 16px;
-  border-radius: 40px;
-  transition: all 0.1s ease-in-out;
-  &:hover {
-    color: $white;
-    background: $purple;
-    .fa-sort-down {
-      transition: all 0.1s ease-in-out;
-      color: $white;
-    }
-  }
-}
-
-.btn-main-reverse {
-  color: $purple;
-  background: $white;
-  padding: 10px 10px;
-  font-weight: 700;
-  font-size: 20px;
-  border-radius: 8px;
-  width: 20%;
-  text-align: center;
-  &:hover {
-    font-weight: 800;
-    color: $purple;
-    background: $snow;
-  }
-}
-
-
-.btn-card {
-  cursor: pointer;
-  color: $purple;
-  background: rgb(244,234,254);
-  padding: 9px 10.5px !important;
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 16px;
-  font-family: 'Montserrat';
-  transition: all 0.3s ease;
-  text-align: center;
-  &:hover {
-    background: $purple;
-    color: $white;
-  }
-}
-
-.btn-main-white {
-  color: $purple;
-  font-family: "Manrope", sans-serif;
-  cursor: pointer;
-  background: $white;
-  padding: 15px 51.5px;
-  font-weight: 200;
-  font-size: 20px;
-  border-radius: 100px;
-  transition: all 0.3s ease;
-  border: 1px solid $purple;
-  text-align: center;
-  &:hover {
-    text-decoration: underline;
-    color: $purple;
-  }
-}
-
-.btn-simplicity-main {
+.btn-main {
   display: block;
   background: $purple;
   box-shadow: 0px 10px 30px rgba(103, 48, 245, 0.3);
@@ -172,7 +61,7 @@
   }
 }
 
-.btn-simplicity-white {
+.btn-main-white {
   display: block;
   background: $white;
   box-shadow: 0px 10px 30px rgba(103, 48, 245, 0.3);
@@ -193,33 +82,7 @@
 }
 
 @include media-breakpoint-down(md) {
-  .btn-main-reverse {
-    width: 240px;
-    height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-  }
-
-
-  .btn-cut {
-    font-family: 'Manrope';
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 32px;
-    color: $black;
-    border-radius: 50px 0px 0px 50px;
-    border: 2px solid $black;
-    padding-left: 19px;
-    padding-right: 5px;
-    border-right: 0;
-    &:hover {
-      color: $black;
-    }
-  }
-
-  .btn-simplicity-main {
+  .btn-main {
     width: 100% !important;
   }
 }

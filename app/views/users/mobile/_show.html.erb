@@ -1,7 +1,0 @@
-<div class="container profile-container" data-controller="profile" data-profile-locale-value="<%= I18n.locale.to_s %>" data-profile-countries-value="<%= Country.all.map{ |country| country.code.upcase} %>"  data-profile-readonly-class="readonly" data-profile-hide-class="d-none" data-profile-flex-class="d-flex">
-  <div class="tab-content row" id="pills-tabContent">
-    <%= render 'users/mobile/profil', user: @user %>
-    <%= render 'users/mobile/subscriptions', subscriptions: @subscriptions %>
-    <%= render 'users/mobile/addresses', address: @address, active_address: current_user.active_address, addresses: current_user.addresses.where(active: false) %>
-  </div>
-</div>

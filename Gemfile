@@ -87,7 +87,6 @@ gem "intercom-rails", "~> 0.4.2"
 
 gem 'rails-i18n'
 
-gem "friendly_id", "~> 5.4"
 
 gem "iban-tools", "~> 1.1"
 
@@ -107,6 +106,7 @@ gem "rubocop-rails", "~> 2.9"
 
 gem "rubocop-rspec", "~> 2.2"
 
-gem "pagy", "~> 3.12"
 
 gem "geocoder", "~> 1.6"
+
+gem "friendly_id", "~> 5.4"
