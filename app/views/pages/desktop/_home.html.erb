@@ -11,7 +11,7 @@
                   <p class="subheadline">Get your SIM card, local transport, WiFi, utilities and more - <br>all in 5 mins, online and without fees</p>
                 </div>
                 <%= simple_form_for @lead, url: root_path, html: {class:'w-100'}, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead' } do |f| %>
-                  <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com', input_html: {class:'w-100 mr-4'} %>
+                  <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com', input_html: {class:'w-100 me-4'} %>
                   <%= f.button :submit, 'Register now', class: 'btn-main p-0 submit w-100', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
                 <% end %>
               </div>
@@ -66,7 +66,7 @@
         <div class="container">
           <div class="row">
             <div class="col-8 offset-2 text-md-left d-flex align-items-center step-top">
-              <%= image_tag(asset_path('components/homepage/floating-card-girls.png'), class:'w-50 mr-5') %>
+              <%= image_tag(asset_path('components/homepage/floating-card-girls.png'), class:'w-50 me-5') %>
               <div class="d-flex flex-column banner-mid">
                 <h3 class="title">No commitment & cancel anytime</h3>
                 <p class="desc">Our offers have no commitment period. You can cancel anytime at no extra cost. All of that in just 2 clicks.</p>
