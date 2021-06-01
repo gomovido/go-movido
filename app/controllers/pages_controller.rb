@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies careers faq how_it_works about contact simplicity]
+  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies careers how_it_works about contact]
 
   def home
     @lead = Lead.new
@@ -17,8 +17,6 @@ class PagesController < ApplicationController
   def how_it_works; end
 
   def careers; end
-
-  def faq; end
 
   def about; end
 end
