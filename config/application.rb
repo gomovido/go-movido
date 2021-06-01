@@ -24,19 +24,6 @@ module GoMovido
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    null_regex = Regexp.new(/\Anull\z/)
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        hostnames = [null_regex, 'app.forestadmin.com']
-        hostnames += ENV['CORS_ORIGINS'].split(',') if ENV['CORS_ORIGINS']
 
-        origins hostnames
-        resource '*',
-          headers: :any,
-          methods: :any,
-          expose: ['Content-Disposition'],
-          credentials: true
-      end
-    end
   end
 end
