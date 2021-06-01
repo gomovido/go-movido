@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    resource.active_address.nil? ? new_user_address_path(resource.id) : dashboard_index_path
+    root_path
   end
 
   def after_sign_out_path_for(_resource)
