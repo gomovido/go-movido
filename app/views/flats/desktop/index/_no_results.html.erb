@@ -1,6 +1,0 @@
-<% if flats.blank? %>
-  <div class="col-12 text-center ">
-    <p><%= t("flats.index.no_results") %></p>
-    <%= link_to t("flats.index.show_more"), clear_filters_path(location, type), method: :post, class: 'btn-main no-results-button mb-3 m-auto' %>
-  </div>
-<% end %>

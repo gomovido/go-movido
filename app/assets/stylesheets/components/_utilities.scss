@@ -34,14 +34,6 @@ button {
   background: $black;
 }
 
-.policy-link {
-  color: #2266CD;
-  text-decoration: underline;
-  &:hover {
-    color: #1052b5;
-    text-decoration: underline;
-  }
-}
 
 .w-25 {
   width: 25% !important;
@@ -53,10 +45,6 @@ button {
 
 .padded {
   padding: 25px;
-}
-
-.opacity {
-  opacity: 0.2;
 }
 
 .ap-input-icon {
@@ -83,10 +71,6 @@ button {
   color: $white;
 }
 
-.font-weight {
-  font-weight: 800;
-}
-
 .green {
   color: $green;
 }
@@ -108,15 +92,8 @@ button {
   pointer-events: none;
 }
 
-.cookies-container, .terms-container {
-  padding-top: 80px;
-}
-
 @include media-breakpoint-down(md) {
   .intercom-launcher, .intercom-launcher-frame {
     bottom: 80px !important;
-  }
-  .cookies-container, .terms-container {
-    padding-top: 2rem;
   }
 }

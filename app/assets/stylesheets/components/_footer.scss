@@ -1,3 +1,9 @@
+.footer-mobile {
+  display: none;
+}
+.footer-desktop {
+  display: block;
+}
 .footer {
   .logo {
     width: 90px;
@@ -33,8 +39,18 @@
 
 
 @include media-breakpoint-down(md) {
+  .footer-mobile {
+    display: block;
+  }
+  .footer-desktop {
+    display: none;
+  }
+
   .footer {
     border-radius: 0;
+    .logo-container {
+      display: block;
+    }
     .sas {
       font-weight: bold;
       font-size: 14px;
