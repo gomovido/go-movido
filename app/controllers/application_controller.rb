@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
@@ -10,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     root_path
   end
 
