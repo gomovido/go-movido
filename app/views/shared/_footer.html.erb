@@ -1,75 +1,43 @@
-<footer class="bg-black footer footer-desktop">
-  <div class="container py-5">
-    <div class="row py-4">
-      <div class="col-4 white">
-        <%= image_tag(asset_path('logos/movido-white.png'), class:'w-50 mb-2') %><br>
-        <strong>movido France SAS</strong>
-        <p class="font-italic text-muted">608 Boulevard des Horizons, 06220 Vallauris  Company registered in France</p>
-      </div>
-      <div class="col-2">
-        <ul class="list-unstyled mb-0">
-          <li class="mb-2">
-            <%= link_to 'ABOUT US', about_path, class:"white" %>
-          </li>
-          <li class="mb-2">
-            <%= link_to 'BLOG', "", class:"white" %>
-          </li>
-          <li class="mb-2">
-            <%= link_to 'CAREERS', careers_path, class:"white" %>
-          </li>
-        </ul>
-      </div>
-      <div class="col-2">
-        <ul class="list-unstyled mb-0">
-          <li class="mb-2">
-            <%= link_to 'TERMS OF SERVICES', terms_path, class:"white" %>
-          </li>
-          <li class="mb-2">
-            <%= link_to 'COOKIES POLICY', terms_path, class:"white" %>
-          </li>
-          <li class="mb-2">
-            <%= link_to 'CONTACT US', contact_path, class:"white" %>
-          </li>
-        </ul>
-      </div>
-      <div class="col-4">
-        <h6 class="text-uppercase font-weight-bold mb-4 white font-weight">Follow us on</h6>
-        <ul class="list-inline mt-4">
-          <li class="list-inline-item me-3 ms-3"><a href="https://www.facebook.com/GoMovido/" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-          <li class="list-inline-item me-3"><a href="https://www.instagram.com/go_movido/" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.linkedin.com/company/go-movido" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
-      </div>
-    </div>
+<footer class="bg-black p-4 row position-relative">
+  <div class="col-12 col-md-4">
+    <%= image_tag(asset_path('logos/movido-white.png'), class:'mb-3') %><br>
+    <strong>movido France SAS</strong>
+    <p class="font-italic text-muted mt-3">608 Boulevard des Horizons, 06220 Vallauris  Company registered in France</p>
   </div>
-</footer>
-
-<footer class="bg-black p-4 footer footer-mobile">
-  <div class="top-part">
-    <%= link_to root_path, class: 'logo-container' do %>
-      <%= image_tag(asset_path('logos/movido-white.png'), class: 'logo') %>
-    <% end %>
-    <span class="sas d-block">movido France SAS</span>
-    <h6 class="address">608 Boulevard des Horizons, 06220 Vallauris  Company registered in France</h6>
-    <div class="links d-flex justify-content-between">
-      <div class="left">
-        <%= link_to t('shared.footer.about'), about_path, class: 'link' %>
-        <%= link_to 'Blog', '#', class: 'link' %>
-        <%= link_to t('shared.footer.careers'), careers_path, class: 'link' %>
-      </div>
-      <div class="right">
-        <%= link_to t('shared.footer.terms'), terms_path, class: 'link' %>
-        <%= link_to t('shared.footer.cookie'), cookies_path, class: 'link' %>
-        <%= link_to t('shared.footer.contact'), contact_path, class: 'link' %>
-      </div>
-    </div>
-    <span class="follow">Follow us on</span>
-    <div class="social-links">
+  <div class="col-6 col-md-3">
+    <ul class="list-unstyled mb-0">
+      <li>
+        <%= link_to 'ABOUT US', about_path%>
+      </li>
+      <li>
+        <%= link_to 'BLOG', "#"%>
+      </li>
+      <li>
+        <%= link_to 'CAREERS', careers_path%>
+      </li>
+    </ul>
+  </div>
+  <div class="col-6 col-md-3">
+    <ul class="list-unstyled mb-0">
+      <li>
+        <%= link_to 'TERMS OF SERVICES', terms_path %>
+      </li>
+      <li>
+        <%= link_to 'COOKIES POLICY', terms_path %>
+      </li>
+      <li>
+        <%= link_to 'CONTACT US', contact_path %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-12 col-md-2">
+    <h6 class="mb-4">Follow us on</h6>
+    <div class="d-flex align-items-center">
       <%= link_to "<i class='fa fa-facebook'></i>".html_safe,"https://www.facebook.com/GoMovido/", class: "me-4", target: "_blank" %>
       <%= link_to "<i class='fa fa-instagram'></i>".html_safe, "https://www.instagram.com/go_movido/", class: "me-4", target: "_blank" %>
       <%= link_to "<i class='fa fa-linkedin'></i>".html_safe, "https://www.linkedin.com/company/go-movido", target: "_blank" %>
     </div>
+    <hr class="d-block d-md-none">
+    <span class="legals">© 2020-2021, movido Ltd</span>
   </div>
-  <hr class="w-100">
-  <span class="legal">© 2020-2021, movido France SAS</span>
 </footer>

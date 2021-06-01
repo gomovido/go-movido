@@ -1,104 +1,62 @@
-.footer-mobile {
-  display: none;
-}
-.footer-desktop {
-  display: block;
-}
-.footer {
-  .logo {
-    width: 90px;
-  }
-  .bot {
-    margin-left: 20px;
-  }
-  .icons {
-    width: 32px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    &:hover {
-      background: $purple;
-    }
-  }
+footer {
+  color: $white;
   a {
     color: $white;
-    font-weight: 800;
-    font-size: 14px;
     &:hover {
       color: $purple;
     }
   }
-  span {
-    color: $white;
-    font-weight: 300;
-    font-size: 12px;
+  img {
+    width: 90px;
   }
-  hr {
-    border-top: 1px solid $footer-breaker !important;
+  p {
+    font-size: 14px;
+    width: 60%;
+    text-align: justify;
+  }
+  ul {
+    li {
+      margin-bottom: 20px;
+      a {
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+  i {
+    font-size: 17px;
+    background: $white;
+    border-radius: 50%;
+    color: $black;
+    width: 27px;
+    height: 27px;
+    line-height: 27px !important;
+    text-align: center;
+    transition: all 0.3s;
+    &:hover {
+      color: $white;
+      background: $purple;
+    }
+  }
+  .legals {
+    position: absolute;
+    bottom: 0;
+    right: 4%;
+    font-size: 14px;
+    font-weight: 300;
   }
 }
 
-
 @include media-breakpoint-down(md) {
-  .footer-mobile {
-    display: block;
-  }
-  .footer-desktop {
-    display: none;
-  }
-
-  .footer {
-    border-radius: 0;
-    .logo-container {
-      display: block;
+  footer {
+    p {
+      width: 100%;
     }
-    .sas {
-      font-weight: bold;
-      font-size: 14px;
-      color: $white;
-      margin: 17px 0;
-    }
-    h6.address {
-      margin-bottom: 35px;
-    }
-    .left, .right {
-      display: flex;
-      flex-direction: column;
-    }
-    .follow {
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .link {
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .social-links {
-      margin-top: 15px;
-    }
-    .address {
-      font-size: 14px;
-      color: $white;
-      font-weight: 200;
-    }
-    .legal {
-      font-size: 14px;
+    .legals {
+      position: unset;
     }
     hr {
-      border: 1px solid $white;
-    }
-    .social-links {
-      i {
-        font-size: 17px;
-        background: $white;
-        border-radius: 50%;
-        color: $black;
-        width: 27px;
-        height: 27px;
-        line-height: 27px;
-        text-align: center;
-      }
+      border-top: 0.8px solid $white;
     }
   }
 }
