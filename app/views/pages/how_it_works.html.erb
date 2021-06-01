@@ -1,0 +1,41 @@
+<div class="static-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class='text-center'>How it works</h2>
+      </div>
+      <div class="col-md-6 text-center">
+        <%= image_tag(asset_path('pages/how-it-works/iphone_1.png'), class:'iphone-illustration') %>
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <p class='title'>Tell us what you need and get your customized bundle</p>
+        <p class='description'>We start by asking you a few questions to better understand your current situation. Based on your answers, we then suggest you a customized bundle of services.</p>
+        <p class="description">We partner with the most reputable providers for each service to guarantee you get the best bundle at the best price.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-center order-md-2">
+        <%= image_tag(asset_path('pages/how-it-works/iphone_2.png'), class:'iphone-illustration') %>
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center order-md-1">
+        <p class='title'>What’s included in the subscription bundle?</p>
+        <p class='description'>Our customized bundles cover all the subscriptions you might need in your new hometown - from WiFi, phone, utilities to insurance, public transportation card or even a guarantor for your flat. Just tell us what you need and we will get you the right bundle.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <%= image_tag(asset_path('pages/how-it-works/iphone_3.png'), class:'iphone-illustration') %>
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <p class='title'>All in 1 bill each month and cancel anytime</p>
+        <p class='description'>Instead of taing out several subscriptions on different websites and paying various providers, get al you need in one simple bill each month. And when you move out? Just let us know and we cancel your subscription.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid p-0">
+    <div class="book-a-call-banner d-flex align-items-center">
+      <p><strong>Any questions?</strong> Book a call now and speak to us.</p>
+      <%= link_to 'Book a call now', 'https://calendly.com/alice_movido/movido-introcall', class:'btn-main-white' %>
+    </div>
+  </div>
+</div>

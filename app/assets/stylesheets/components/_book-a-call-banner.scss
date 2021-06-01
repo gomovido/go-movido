@@ -1,0 +1,23 @@
+.book-a-call-banner {
+  background: #8C31F5;
+  height: 160px;
+  justify-content: space-evenly !important;
+  p {
+    font-size: 22px;
+    color: white;
+    margin: 0;
+  }
+}
+
+
+
+@include media-breakpoint-down(md) {
+.book-a-call-banner {
+  flex-direction: column;
+  p {
+    font-size: 16px;
+    color: white;
+    margin: 0;
+  }
+}
+}
