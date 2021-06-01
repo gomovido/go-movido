@@ -53,9 +53,10 @@ footer {
       width: 100%;
     }
     .legals {
-      position: relative;
+      position: unset;
     }
     hr {
       border-top: 0.8px solid $white;
     }
   }
+}
