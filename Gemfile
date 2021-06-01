@@ -34,7 +34,6 @@ gem 'slack-notifier'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise', github: 'heartcombo/devise'
-gem 'ransack'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -87,14 +86,11 @@ gem "intercom-rails", "~> 0.4.2"
 
 gem 'rails-i18n'
 
-
 gem "iban-tools", "~> 1.1"
 
 gem "stripe", "~> 5.28"
 
 gem "browser"
-
-gem "money-rails", "~> 1.13"
 
 gem 'rubocop-performance', require: false
 
@@ -105,8 +101,5 @@ gem "appsignal", "~> 2.11"
 gem "rubocop-rails", "~> 2.9"
 
 gem "rubocop-rspec", "~> 2.2"
-
-
-gem "geocoder", "~> 1.6"
 
 gem "friendly_id", "~> 5.4"
