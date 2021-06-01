@@ -1,0 +1,64 @@
+.team-container {
+  background: $purple;
+  h3 {
+    color: $white;
+  }
+  .team-wrapper {
+    display: flex;
+    justify-content: center;
+    .team-card {
+      background: $white;
+      width: 350px;
+      border-radius: 58px;
+      padding: 1% 1%;
+      margin: 2%;
+      align-items: center;
+      .name {
+        color: $purple;
+      }
+      .role {
+        font-weight: 300;
+        font-size: 16px;
+      }
+      .location {
+        color: $purple;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      img.team-img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  .team-container {
+    background: $white;
+    h3 {
+      color: $black;
+    }
+    .team-wrapper {
+      display: grid;
+      .team-card {
+        background: $purple;
+        padding: 2%;
+        margin: 3% 0%;
+        .name {
+          color: $white;
+          font-weight: 600;
+        }
+        .role {
+          font-weight: 300;
+          font-size: 14px;
+          color: $white;
+        }
+        .location {
+          color: $white;
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
