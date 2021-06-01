@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # mount ForestLiana::Engine => '/forest'
+  mount ForestLiana::Engine => '/forest'
   devise_for :users, controllers: { sessions: "sessions", confirmations: 'confirmations', registrations: 'registrations', omniauth_callbacks: "users/omniauth_callbacks"}
   devise_scope :user do
     get '/users', to: 'registrations#new'
