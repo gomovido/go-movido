@@ -32,7 +32,7 @@ gem 'slack-notifier'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'forest_liana', '~> 6.0', '>= 6.0.2'
+
 gem 'devise', github: 'heartcombo/devise'
 gem 'ransack'
 gem 'autoprefixer-rails'
