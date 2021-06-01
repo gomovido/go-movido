@@ -2,12 +2,13 @@
   <%= link_to root_path, class: "navbar-brand me-0" do %>
     <%= image_tag(asset_path("logos/movido-black.svg")) %>
   <% end %>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <%= link_to t('shared.navbar_visitor.about_us'), about_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('shared.navbar_visitor.how_it_works'), how_it_works_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-main" do %>
