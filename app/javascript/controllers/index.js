@@ -15,5 +15,6 @@ application.register("carousel", Carousel)
 application.register("read-more", ReadMore)
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
-StimulusReflex.initialize(application)
+application.consumer = consumer
+StimulusReflex.initialize(application, { controller, isolate: true })
 StimulusReflex.debug = process.env.RAILS_ENV === 'development'

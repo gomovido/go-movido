@@ -5,7 +5,7 @@
       Get your SIM card, local transportation, WiFi, utilities and more - all in 5 mins, online, and without fees.
     </p>
     <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class: "header-image") %>
-    <%= simple_form_for @lead, url: root_path, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead' } do |f| %>
+    <%= simple_form_for @lead, url: root_path, data: {action: "submit->lead#submit", lead_target: 'form', reflex_root: '#new_lead', reflex_serialize_form: true } do |f| %>
     <%= f.input :email, required: false, label: false, placeholder: 'johndoe@gmail.com' %>
     <%= f.button :submit, 'Register now', class: 'btn-main w-100 p-0', data: {lead_target: 'button', disable_with: false, reflex_permanent: true} %>
     <% end %>

@@ -79,7 +79,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "stimulus_reflex", "~> 3.4"
+gem "stimulus_reflex", github: "hopsoft/stimulus_reflex", branch: "master"
 
 gem "phony_rails", "~> 0.14.13"
 
