@@ -1,11 +1,22 @@
-img.iphone-illustration {
-  width: 55%;
-  margin-bottom: -5rem;
+.how-it-works-container {
+  img.iphone-illustration {
+    width: 55%;
+  }
+  p.title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  p.description {
+    color: #94A2B3;
+  }
 }
-p.title {
-  font-size: 24px;
-  font-weight: bold;
-}
-p.description {
-  color: #94A2B3;
+@include media-breakpoint-down(md) {
+  .how-it-works-container {
+    img.iphone-illustration {
+      margin-bottom: 1rem;
+    }
+    p.title {
+      text-align: center;
+    }
+  }
 }
