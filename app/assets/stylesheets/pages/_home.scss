@@ -1,34 +1,6 @@
 .home-container {
-  * {
-    font-family: 'Roboto';
-  }
-  .container-testimonial {
-    border-radius: 20px;
-    box-shadow: 0px 18px 297.8537px rgb(215, 228, 255);
-  }
-  .box-testimonial {
-    width: 100%;
-    height: 250px;
-    background: #FFFFFF;
-    display: flex;
-    align-items: center;
-    padding: 2%;
-    p {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: normal;
-      font-size: 20px;
-      text-align: center;
-      color: #94A2B3;
-      padding: 0% 25%;
-    }
-  }
-  .banner {
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    background-size: cover;
-    min-height: 60vh;
-    .banner-mid {
+  padding-top: 5rem;
+  .mid-banner {
       h3.title {
         color: white;
         font-size: 32px;
@@ -37,7 +9,6 @@
       p.desc {
         color: white;
       }
-    }
     .step-top {
       margin-top: -2rem;
       margin-bottom: -2rem;
@@ -45,46 +16,12 @@
     .step-bottom {
       margin-bottom: -5rem;
     }
-    h1 {
-      font-size: 45px;
-      font-weight: bold;
-    }
-    .subheadline {
-      color: #94A2B3;
-      font-family: 'Poppins';
-    }
-    .form-group {
-      width: 100%;
-      margin-right: 2rem;
-    }
   }
-  .logo {
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 20px;
-  }
-  .header {
-    p.subline {
-      font-size: 14px;
-      color: $grey;
-    }
-    strong {
-      font-size: 20px;
-      color: $black;
-      margin-bottom: 20px;
-    }
-    .header-image {
-      height: 345px;
-      display: block;
-      margin: 0 auto;
-    }
-  }
+
   form {
     margin-bottom: 50px;
-    .submit {
-      padding-left: 3% !important;
-      padding-right: 3% !important;
-      min-width: 100%;
+    .btn-main {
+      width: 100% !important;
     }
     .form-group {
       margin-bottom: 12px;
@@ -105,8 +42,8 @@
   .why {
     margin-bottom: 40px;
     .why-img {
-      width: 110% !important;
-      margin-bottom: -1rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
     }
     h2.title {
       font-weight: bold;
@@ -120,107 +57,16 @@
       font-family: 'Poppins';
       margin-bottom: 0;
       font-size: 16px;
-      color: #94A2B3;
-    }
-  }
-  .mid-banner {
-    margin-bottom: 40px;
-    h2.title {
-      font-weight: bold;
-      font-size: 16px;
-      color: $black;
-      margin-bottom: 16px;
-    }
-    p.desc {
-      font-family: 'Poppins';
-      font-size: 14px;
-      color: $black;
-      margin-bottom: 20px;
-    }
-  }
-  .partners {
-    h2.title {
-      color: $light-grey;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .companies {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      grid-column-gap: 10px;
-      align-items: center;
-    }
-  }
-  .contact-banner {
-    background: $purple;
-    color: $white;
-    margin-bottom: 30px;
-    span.subline {
-      font-size: 16px;
-    }
-    .cta-call {
-      margin-top: 9px;
-      border-radius: 7px;
-      border: 1px solid $white;
-      font-size: 16px;
-      font-weight: bold;
-      color: $white;
-      width: 33%;
-      margin: 9px auto 0 auto;
-    }
-  }
-  .testimonials {
-    h2.title {
-      font-weight: bold;
-      font-size: 16px;
-      color: $light-grey;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .swiper-container {
-      border-radius: 0;
-      z-index: unset !important;
-      .swiper-pagination-bullet {
-        background: $grey !important;
-      }
-      .swiper-pagination-bullet-active {
-        background: $purple !important;
-      }
-      .swiper-slide {
-        img {
-          margin-bottom: 20px;
-        }
-        .name {
-          color: $purple;
-          font-weight: bold;
-          font-size: 18px;
-        }
-        .destination {
-          font-weight: bold;
-          font-size: 12px;
-          font-family: 'Poppins';
-          color: $light-grey;
-        }
-        .content {
-          padding: 0 2rem;
-          font-family: 'Poppins';
-          margin-top: 10px;
-          font-size: 14px;
-          color: $black;
-          font-weight: 200;
-        }
-      }
+      color: $grey;
     }
   }
 }
 
 @include media-breakpoint-down(md) {
   .home-container {
+    padding-top: 1rem;
     .why {
-      margin-bottom: 40px;
       h2.title {
-        font-weight: bold;
         font-size: 16px;
       }
       hr {
@@ -241,12 +87,39 @@
           margin-bottom: 4px;
         }
         p.desc {
-          font-family: 'Poppins';
-          margin-bottom: 0;
           font-size: 12px;
           font-weight: 400;
           color: $black;
         }
+      }
+    }
+    .partners {
+      h2.title {
+        color: $light-grey;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .companies {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 10px;
+        align-items: center;
+      }
+    }
+    .mid-banner {
+      margin-bottom: 40px;
+      h2.title {
+        font-weight: bold;
+        font-size: 16px;
+        color: $black;
+        margin-bottom: 16px;
+      }
+      p.desc {
+        font-family: 'Poppins';
+        font-size: 14px;
+        color: $black;
+        margin-bottom: 20px;
       }
     }
   }
