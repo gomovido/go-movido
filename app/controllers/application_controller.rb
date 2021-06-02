@@ -2,12 +2,16 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  if Rails.env.staging?
-    http_basic_authenticate_with name: Rails.application.credentials.staging[:http][:username],
-                                 password: Rails.application.credentials.staging[:http][:password]
-  end
+  before_action :http_auth, unless: -> { @stimulus_reflex }
 
   private
+
+  def http_auth
+    return unless Rails.env.staging?
+
+    http_basic_authenticate_or_request_with name: Rails.application.credentials.staging[:http][:username],
+                                            password: Rails.application.credentials.staging[:http][:password]
+  end
 
   def after_sign_in_path_for(_resource)
     root_path
