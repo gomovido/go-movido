@@ -1,5 +1,6 @@
 .book-a-call-banner {
   background: #8C31F5;
+  justify-content: space-evenly;
   height: 160px;
   color: $white;
   p {
@@ -13,7 +14,9 @@
 
 @include media-breakpoint-down(md) {
   .book-a-call-banner {
-    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
     p {
       font-size: 16px;
       text-align: center;
@@ -24,12 +27,11 @@
     .cta-call {
       margin-top: 9px;
       border-radius: 7px;
-      border: 1px solid $white;
+      border: 1px solid #FFFFFF;
       font-size: 16px;
       font-weight: bold;
-      color: $white;
-      width: 33%;
-      margin: 9px auto 0 auto;
+      color: #FFFFFF;
+      padding: 1rem 1.5rem;
     }
   }
 }
