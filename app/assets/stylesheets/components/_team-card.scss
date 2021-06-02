@@ -8,9 +8,12 @@
     justify-content: center;
     .team-card {
       background: $white;
-      width: 350px;
+      width: 290px;
       border-radius: 58px;
-      padding: 1% 1%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 5px;
+      padding-bottom: 5px;
       margin: 2%;
       align-items: center;
       .name {
@@ -42,7 +45,6 @@
       display: grid;
       .team-card {
         background: $purple;
-        padding: 2%;
         margin: 3% 0%;
         .name {
           color: $white;

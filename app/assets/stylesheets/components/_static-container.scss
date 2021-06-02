@@ -15,7 +15,7 @@
 
 @include media-breakpoint-down(md) {
   .static-container {
-    padding-top: 0;
+    padding-top: 1rem;
     h2 {
       font-size: 36px;
       margin-bottom: 1rem;
