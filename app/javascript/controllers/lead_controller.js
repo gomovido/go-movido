@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
 
-  reflexError() {
+  reflexHalted() {
     setTimeout(e => {
       this.buttonTarget.style.background = '#FF6C6C';
       this.buttonTarget.value = 'Invalid email, try again !';
@@ -29,6 +29,7 @@ export default class extends Controller {
 
   submit(e) {
     e.preventDefault();
+    this.buttonTarget.style.background = '#8C30F5';
     this.stimulate('LeadReflex#submit', this.formTarget)
   }
 
