@@ -1,0 +1,56 @@
+  <section class="mt-5 d-none d-md-block testimonials">
+    <div class="container">
+      <div class="text-center">
+        <%= image_tag(asset_path('logos/movido-black.svg'), class:'w-10 mb-5') %>
+        <h2 class="title">Don't just take our word for it</h2>
+      </div>
+      <div class="d-flex align-items-center background-size-cover"style="height: 75vh;background-image:url(<%= asset_path 'components/homepage/testimonial-bubbles.png' %>);">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 offset-3 container-testimonial">
+              <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"It took me 10 minutes and I was set – and I got a good deal for my new mobile and WiFi subscription on top”</p>
+                        <span class="font-weight">Ellen</span>
+                        <span class="font-italic">From Stockholm to Paris</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"From the airport pick-up until today - I’m happy movido is there for me"</p>
+                        <span class="font-weight">Etienne</span>
+                        <span class="font-italic">From Berlin to London</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"I am still using my Oyster card and giffgaff SIM every day"</p>
+                        <span class="font-weight">Mariana</span>
+                        <span class="font-italic">From Buenos Aires to London</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide text-center">
+                    <div class="box-testimonial">
+                      <div class="d-flex flex-column">
+                        <p>"I didn’t even know I needed a guarantor - movido helped me find one."</p>
+                        <span class="font-weight">Mateo</span>
+                        <span class="font-italic">From Barcelona to Paris</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,8 @@
+<section class="container partners d-block d-md-none">
+    <h2 class="title mb-0">In collaboration with:</h2>
+    <div class="companies">
+      <% @companies_logo_urls.each do |url| %>
+      <%= image_tag(asset_path(url), width: '110px') %>
+      <% end %>
+    </div>
+  </section>
