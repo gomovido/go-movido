@@ -1,7 +1,11 @@
 FactoryBot.define do
   factory :category do
-    name { "Phone" }
-    sku { "phone" }
+    trait :mobile do
+      name { "Mobile phone" }
+    end
+    trait :transportation do
+      name { "Transportation" }
+    end
     description { "This is a description" }
   end
 end
