@@ -172,8 +172,6 @@ GEM
       rack-cors
       rails (>= 4.0)
       useragent
-    friendly_id (5.4.2)
-      activerecord (>= 4.0.0)
     gh (0.15.1)
       addressable (~> 2.4.0)
       backports
@@ -505,7 +503,6 @@ DEPENDENCIES
   faker!
   font-awesome-sass
   forest_liana
-  friendly_id (~> 5.4)
   globalize
   hiredis
   httparty (~> 0.18.1)
