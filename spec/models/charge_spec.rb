@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Charge, type: :model do
   describe 'associations' do
-    it { is_expected.to have_many(:orders) }
+    it { is_expected.to have_one(:order) }
     it { is_expected.to have_many(:items) }
   end
 

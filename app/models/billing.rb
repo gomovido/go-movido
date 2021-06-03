@@ -1,4 +1,4 @@
 class Billing < ApplicationRecord
-  has_many :orders, dependent: :nullify
+  has_one :order, dependent: :nullify
   validates :address, presence: true
 end

@@ -4,6 +4,6 @@ FactoryBot.define do
     charge
     billing
     shipping
-    state { "state" }
+    state { "succedeed" }
   end
 end
