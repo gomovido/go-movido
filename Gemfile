@@ -102,3 +102,5 @@ gem "appsignal", "~> 2.11"
 gem "rubocop-rails", "~> 2.9"
 
 gem "rubocop-rspec", "~> 2.2"
+
+gem "stimulus_reflex_testing", "~> 0.3.0"
