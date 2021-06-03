@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Billing, type: :model do
   describe 'associations' do
-    it { is_expected.to have_many(:orders) }
+    it { is_expected.to have_one(:order) }
   end
 
   describe 'validations' do
