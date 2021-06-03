@@ -102,5 +102,3 @@ gem "appsignal", "~> 2.11"
 gem "rubocop-rails", "~> 2.9"
 
 gem "rubocop-rspec", "~> 2.2"
-
-gem "friendly_id", "~> 5.4"

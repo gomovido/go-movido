@@ -6,6 +6,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
+  has_one :user_preference, dependent: :destroy
+
+  validates :first_name, :last_name, presence: true
+  validates :email, uniqueness: true
+
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)
   #   data = access_token['omniauth.auth']['info']
