@@ -6,7 +6,15 @@ RSpec.describe Pickup, type: :model do
   end
 
   describe 'validations' do
-    let(:pickup) { build(:pickup) }
+    let(:user) { create(:user) }
+    let(:country) { create(:country, :fr) }
+    let(:shipping) { create(:shipping) }
+    let(:billing) { create(:billing) }
+    let(:charge) { create(:charge) }
+    let(:user_preference) { create(:user_preference, user: user, country: country) }
+    let(:cart) { create(:cart, user_preference: user_preference) }
+    let(:order) { create(:order, user: user, charge: charge, billing: billing, shipping: shipping) }
+    let(:pickup) { build(:pickup, order: order) }
 
     %i[arrival airport state].each do |field|
       it { is_expected.to validate_presence_of(field) }

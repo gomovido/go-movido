@@ -8,4 +8,12 @@ class Order < ApplicationRecord
 
   validates :state, presence: true
   validates :state, inclusion: { in: ["canceled", "pending_payment", "payment_failed", "succedeed"] }
+
+  def total_amount
+    items.sum { |item| item.product.activation_price_cents }
+  end
+
+  def currency
+    items.first.product.country.currency
+  end
 end

@@ -6,16 +6,19 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'validations' do
-    let(:category) { build(:category) }
+    let(:category) { build(:category, :mobile) }
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
-    it { is_expected.to validate_presence_of(:sku) }
-    it { is_expected.to validate_uniqueness_of(:sku).case_insensitive }
     it { is_expected.to validate_presence_of(:description) }
 
     it 'saves successfully' do
       expect(category.save).to eq(true)
+    end
+
+    it 'sets the right sku' do
+      category.save
+      expect(category.sku).to eq("mobile_phone")
     end
   end
 end

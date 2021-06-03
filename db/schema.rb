@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_120339) do
+ActiveRecord::Schema.define(version: 2021_06_03_154249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,12 +121,13 @@ ActiveRecord::Schema.define(version: 2021_06_03_120339) do
     t.string "sku"
     t.float "activation_price"
     t.float "subscription_price"
-    t.string "currency"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "country_id", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["country_id"], name: "index_products_on_country_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -193,6 +194,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_120339) do
   add_foreign_key "product_details", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "companies"
+  add_foreign_key "products", "countries"
   add_foreign_key "user_preferences", "countries"
   add_foreign_key "user_preferences", "users"
   add_foreign_key "user_services", "services"
