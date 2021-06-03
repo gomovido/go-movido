@@ -15,21 +15,17 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "billings", force: :cascade do |t|
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "carts", force: :cascade do |t|
     t.bigint "user_preference_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_preference_id"], name: "index_carts_on_user_preference_id"
-  end
-
-  create_table "countries", force: :cascade do |t|
-    t.string "code"
-  end
-  
-  create_table "billings", force: :cascade do |t|
-    t.string "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -55,6 +51,12 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "leads", force: :cascade do |t|
     t.string "email"
     t.string "campaign_type"
@@ -62,34 +64,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_leads_on_email", unique: true
   end
-  
-  create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_services_on_name", unique: true
-  end
 
-  create_table "user_preferences", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "country_id", null: false
-    t.date "arrival"
-    t.integer "stay_duration"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_user_preferences_on_country_id"
-    t.index ["user_id"], name: "index_user_preferences_on_user_id"
-  end
-
-  create_table "user_services", force: :cascade do |t|
-    t.bigint "service_id", null: false
-    t.bigint "user_preference_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["service_id"], name: "index_user_services_on_service_id"
-    t.index ["user_preference_id"], name: "index_user_services_on_user_preference_id"
-  end
-  
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "charge_id", null: false
@@ -138,6 +113,13 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_services_on_name", unique: true
+  end
+
   create_table "shippings", force: :cascade do |t|
     t.string "address"
     t.text "instructions"
@@ -146,6 +128,26 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
     t.date "delivery_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_preferences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "country_id", null: false
+    t.date "arrival"
+    t.integer "stay_duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_user_preferences_on_country_id"
+    t.index ["user_id"], name: "index_user_preferences_on_user_id"
+  end
+
+  create_table "user_services", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.bigint "user_preference_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_user_services_on_service_id"
+    t.index ["user_preference_id"], name: "index_user_services_on_user_preference_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -163,10 +165,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
   end
 
   add_foreign_key "carts", "user_preferences"
-  add_foreign_key "user_preferences", "countries"
-  add_foreign_key "user_preferences", "users"
-  add_foreign_key "user_services", "services"
-  add_foreign_key "user_services", "user_preferences"
   add_foreign_key "orders", "billings"
   add_foreign_key "orders", "charges"
   add_foreign_key "orders", "shippings"
@@ -175,4 +173,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
   add_foreign_key "product_details", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "companies"
+  add_foreign_key "user_preferences", "countries"
+  add_foreign_key "user_preferences", "users"
+  add_foreign_key "user_services", "services"
+  add_foreign_key "user_services", "user_preferences"
 end
