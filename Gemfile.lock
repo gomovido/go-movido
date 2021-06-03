@@ -424,6 +424,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stimulus_reflex_testing (0.3.0)
+      stimulus_reflex (>= 3.3.0)
     stripe (5.33.0)
     swd (1.2.0)
       activesupport (>= 3)
@@ -537,6 +539,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   stimulus_reflex!
+  stimulus_reflex_testing (~> 0.3.0)
   stripe (~> 5.28)
   travis
   turbolinks (~> 5)
