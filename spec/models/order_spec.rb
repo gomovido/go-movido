@@ -7,14 +7,13 @@ RSpec.describe Order, type: :model do
     end
 
     it { is_expected.to have_one(:pickup) }
-
+    it { is_expected.to have_many(:items) }
   end
 
   describe 'validations' do
     let(:order) { build(:order) }
 
     it { is_expected.to validate_presence_of(:state) }
-
 
     it 'saves successfully' do
       expect(order.save).to eq(true)
