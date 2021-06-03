@@ -1,7 +1,7 @@
 {
   "collections": [{
-    "name": "Category",
-    "name_old": "categories",
+    "name": "Billing",
+    "name_old": "billings",
     "icon": null,
     "is_read_only": false,
     "is_searchable": true,
@@ -24,43 +24,7 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "name",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
-    }, {
-      "field": "sku",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
-    }, {
-      "field": "description",
+      "field": "address",
       "type": "String",
       "default_value": null,
       "enums": null,
@@ -108,7 +72,7 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "products",
+      "field": "orders",
       "type": ["Number"],
       "default_value": null,
       "enums": null,
@@ -118,8 +82,8 @@
       "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": "Product.id",
-      "inverse_of": "category",
+      "reference": "Order.id",
+      "inverse_of": "billing",
       "relationship": "HasMany",
       "widget": null,
       "validations": []
@@ -127,8 +91,8 @@
     "segments": [],
     "actions": []
   }, {
-    "name": "Company",
-    "name_old": "companies",
+    "name": "Charge",
+    "name_old": "charges",
     "icon": null,
     "is_read_only": false,
     "is_searchable": true,
@@ -151,29 +115,7 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "logo_url",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }, {
-        "message": null,
-        "type": "is like",
-        "value": "/\\.(png|jpg|svg)$/i"
-      }]
-    }, {
-      "field": "name",
+      "field": "state",
       "type": "String",
       "default_value": null,
       "enums": null,
@@ -191,7 +133,7 @@
         "type": "is present"
       }]
     }, {
-      "field": "description",
+      "field": "stripe_charge_id",
       "type": "String",
       "default_value": null,
       "enums": null,
@@ -239,7 +181,7 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "products",
+      "field": "orders",
       "type": ["Number"],
       "default_value": null,
       "enums": null,
@@ -249,8 +191,8 @@
       "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": "Product.id",
-      "inverse_of": "company",
+      "reference": "Order.id",
+      "inverse_of": "charge",
       "relationship": "HasMany",
       "widget": null,
       "validations": []
@@ -352,8 +294,8 @@
     "segments": [],
     "actions": []
   }, {
-    "name": "Product",
-    "name_old": "products",
+    "name": "Order",
+    "name_old": "orders",
     "icon": null,
     "is_read_only": false,
     "is_searchable": true,
@@ -376,7 +318,7 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "company",
+      "field": "user",
       "type": "Number",
       "default_value": null,
       "enums": null,
@@ -386,13 +328,13 @@
       "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": "Company.id",
-      "inverse_of": "products",
+      "reference": "User.id",
+      "inverse_of": null,
       "relationship": "BelongsTo",
       "widget": null,
       "validations": []
     }, {
-      "field": "category",
+      "field": "charge",
       "type": "Number",
       "default_value": null,
       "enums": null,
@@ -402,103 +344,45 @@
       "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": "Category.id",
-      "inverse_of": "products",
+      "reference": "Charge.id",
+      "inverse_of": "orders",
       "relationship": "BelongsTo",
       "widget": null,
       "validations": []
     }, {
-      "field": "name",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
-    }, {
-      "field": "sku",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
-    }, {
-      "field": "activation_price",
+      "field": "billing",
       "type": "Number",
       "default_value": null,
       "enums": null,
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": true,
+      "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
+      "reference": "Billing.id",
+      "inverse_of": "orders",
+      "relationship": "BelongsTo",
       "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
+      "validations": []
     }, {
-      "field": "subscription_price",
+      "field": "shipping",
       "type": "Number",
       "default_value": null,
       "enums": null,
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": true,
+      "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
+      "reference": "Shipping.id",
+      "inverse_of": "orders",
+      "relationship": "BelongsTo",
       "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
+      "validations": []
     }, {
-      "field": "currency",
-      "type": "String",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
-    }, {
-      "field": "description",
+      "field": "state",
       "type": "String",
       "default_value": null,
       "enums": null,
@@ -543,6 +427,324 @@
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "pickup",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Pickup.id",
+      "inverse_of": "order",
+      "relationship": "HasOne",
+      "widget": null,
+      "validations": []
+    }],
+    "segments": [],
+    "actions": []
+  }, {
+    "name": "Pickup",
+    "name_old": "pickups",
+    "icon": null,
+    "is_read_only": false,
+    "is_searchable": true,
+    "is_virtual": false,
+    "only_for_relationships": false,
+    "pagination_type": "page",
+    "fields": [{
+      "field": "id",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "order",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Order.id",
+      "inverse_of": "pickup",
+      "relationship": "BelongsTo",
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "arrival",
+      "type": "Dateonly",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "flight_number",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "airport",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "state",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "created_at",
+      "type": "Date",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "updated_at",
+      "type": "Date",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }],
+    "segments": [],
+    "actions": []
+  }, {
+    "name": "Shipping",
+    "name_old": "shippings",
+    "icon": null,
+    "is_read_only": false,
+    "is_searchable": true,
+    "is_virtual": false,
+    "only_for_relationships": false,
+    "pagination_type": "page",
+    "fields": [{
+      "field": "id",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "address",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "instructions",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "state",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "tracking_id",
+      "type": "String",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "delivery_date",
+      "type": "Dateonly",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": true,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": [{
+        "message": null,
+        "type": "is present"
+      }]
+    }, {
+      "field": "created_at",
+      "type": "Date",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "updated_at",
+      "type": "Date",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "orders",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Order.id",
+      "inverse_of": "shipping",
+      "relationship": "HasMany",
       "widget": null,
       "validations": []
     }],
