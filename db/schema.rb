@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_111842) do
+ActiveRecord::Schema.define(version: 2021_06_03_120339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["sku"], name: "index_categories_on_sku", unique: true
   end
 
   create_table "charges", force: :cascade do |t|
@@ -49,12 +51,26 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_companies_on_name", unique: true
   end
 
   create_table "countries", force: :cascade do |t|
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "product_id", null: false
+    t.bigint "charge_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_items_on_cart_id"
+    t.index ["charge_id"], name: "index_items_on_charge_id"
+    t.index ["order_id"], name: "index_items_on_order_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
   end
 
   create_table "leads", force: :cascade do |t|
@@ -165,6 +181,10 @@ ActiveRecord::Schema.define(version: 2021_06_03_111842) do
   end
 
   add_foreign_key "carts", "user_preferences"
+  add_foreign_key "items", "carts"
+  add_foreign_key "items", "charges"
+  add_foreign_key "items", "orders"
+  add_foreign_key "items", "products"
   add_foreign_key "orders", "billings"
   add_foreign_key "orders", "charges"
   add_foreign_key "orders", "shippings"
