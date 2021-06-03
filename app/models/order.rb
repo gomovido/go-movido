@@ -7,4 +7,5 @@ class Order < ApplicationRecord
   has_many :items, dependent: :destroy
 
   validates :state, presence: true
+  validates :state, inclusion: { in: ["canceled", "pending_payment", "payment_failed", "succedeed"] }
 end
