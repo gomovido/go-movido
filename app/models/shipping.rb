@@ -1,4 +1,5 @@
 class Shipping < ApplicationRecord
-  has_many :orders, dependent: :nullify
+  has_one :order, dependent: :nullify
   validates :address, :state, :tracking_id, :delivery_date, presence: true
+  validates :state, inclusion: { in: ["delivering", "delivered"] }
 end

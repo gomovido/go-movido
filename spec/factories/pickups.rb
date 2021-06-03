@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :pickup do
     order
-    arrival { "2021-06-03" }
+    arrival { Faker::Date.forward(days: 30) }
     flight_number { "123ABC" }
-    airport { "MyString" }
-    state { "pending" }
+    airport { "Paris CDG" }
+    state { "confirmed" }
   end
 end
