@@ -229,16 +229,13 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": true,
+      "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
+      "validations": []
     }, {
       "field": "description",
       "type": "String",
@@ -646,6 +643,22 @@
       "is_sortable": true,
       "is_virtual": false,
       "reference": "UserPreference.id",
+      "inverse_of": "country",
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "products",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Product.id",
       "inverse_of": "country",
       "relationship": "HasMany",
       "widget": null,
@@ -1263,16 +1276,13 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": true,
+      "is_required": false,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
+      "validations": []
     }, {
       "field": "activation_price",
       "type": "Number",
@@ -1294,24 +1304,6 @@
     }, {
       "field": "subscription_price",
       "type": "Number",
-      "default_value": null,
-      "enums": null,
-      "integration": null,
-      "is_filterable": true,
-      "is_read_only": false,
-      "is_required": true,
-      "is_sortable": true,
-      "is_virtual": false,
-      "reference": null,
-      "inverse_of": null,
-      "widget": null,
-      "validations": [{
-        "message": null,
-        "type": "is present"
-      }]
-    }, {
-      "field": "currency",
-      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -1373,6 +1365,22 @@
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "country",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Country.id",
+      "inverse_of": "products",
+      "relationship": "BelongsTo",
       "widget": null,
       "validations": []
     }, {
