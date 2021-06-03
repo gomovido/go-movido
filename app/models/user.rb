@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :user_preference, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }
 
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)

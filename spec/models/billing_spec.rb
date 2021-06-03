@@ -10,7 +10,6 @@ RSpec.describe Billing, type: :model do
 
     it { is_expected.to validate_presence_of(:address) }
 
-
     it 'saves successfully' do
       expect(billing.save).to eq(true)
     end
