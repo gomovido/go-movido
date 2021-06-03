@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_104016) do
+ActiveRecord::Schema.define(version: 2021_06_03_111842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,33 @@ ActiveRecord::Schema.define(version: 2021_06_03_104016) do
 
   create_table "countries", force: :cascade do |t|
     t.string "code"
+  end
+  
+  create_table "billings", force: :cascade do |t|
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "sku"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.string "state"
+    t.string "stripe_charge_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "logo_url"
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_104016) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_leads_on_email", unique: true
   end
-
+  
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -62,6 +89,64 @@ ActiveRecord::Schema.define(version: 2021_06_03_104016) do
     t.index ["service_id"], name: "index_user_services_on_service_id"
     t.index ["user_preference_id"], name: "index_user_services_on_user_preference_id"
   end
+  
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "charge_id", null: false
+    t.bigint "billing_id", null: false
+    t.bigint "shipping_id", null: false
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["billing_id"], name: "index_orders_on_billing_id"
+    t.index ["charge_id"], name: "index_orders_on_charge_id"
+    t.index ["shipping_id"], name: "index_orders_on_shipping_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "pickups", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.date "arrival"
+    t.string "flight_number"
+    t.string "airport"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_pickups_on_order_id"
+  end
+
+  create_table "product_details", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_details_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "category_id", null: false
+    t.string "name"
+    t.string "sku"
+    t.float "activation_price"
+    t.float "subscription_price"
+    t.string "currency"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["company_id"], name: "index_products_on_company_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.string "address"
+    t.text "instructions"
+    t.string "state"
+    t.string "tracking_id"
+    t.date "delivery_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -82,4 +167,12 @@ ActiveRecord::Schema.define(version: 2021_06_03_104016) do
   add_foreign_key "user_preferences", "users"
   add_foreign_key "user_services", "services"
   add_foreign_key "user_services", "user_preferences"
+  add_foreign_key "orders", "billings"
+  add_foreign_key "orders", "charges"
+  add_foreign_key "orders", "shippings"
+  add_foreign_key "orders", "users"
+  add_foreign_key "pickups", "orders"
+  add_foreign_key "product_details", "products"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "companies"
 end
