@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   mount ForestLiana::Engine => '/forest'
-  devise_for :users, controllers: { sessions: "sessions", confirmations: 'confirmations', registrations: 'registrations', omniauth_callbacks: "users/omniauth_callbacks"}
-  unauthenticated :user do
-    root 'pages#home'
-  end
-  # authenticated :user do
-  #   root 'pages#home'
-  # end
+  devise_for :users, controllers: { sessions: "sessions", registrations: 'registrations'}
+
+  root 'pages#home'
+  get 'steps#simplicity', to: 'steps#simplicity', as: 'simplicity'
 
   #Errors pages
   get '/404', to: 'errors#not_found'
