@@ -51,6 +51,7 @@ en:
               blank: "can't be blank"
             email:
               taken: "already in use"
+              blank: "can't be blank"
     attributes:
       billing:
         iban: 'IBAN'

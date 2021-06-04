@@ -30,6 +30,7 @@ import 'intl-tel-input/build/css/intlTelInput.css';
 import 'swiper/swiper-bundle.min.css'
 import "controllers"
 import 'mapbox-gl/dist/mapbox-gl.css';
+import AnimateCSS from 'animate.css';
 
 
 // Internal imports, e.g:

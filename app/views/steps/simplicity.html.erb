@@ -1,1 +1,11 @@
-registered
+<div class="flow-container">
+  <%= render 'shared/progress_bar', step: 2 %>
+  <div class="container">
+      <%= render 'shared/chat', bubbles: [{message: "First of all, where are you moving to?", delay: 0}] %>
+      <div class="form-base">
+        <%= render 'steps/forms/user_preference', user_preference: @user_preference %>
+      </div>
+  </div>
+
+</div>
+
