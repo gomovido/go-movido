@@ -3,7 +3,6 @@ class UserPreferenceReflex < ApplicationReflex
 
   def associate_country
     @user_pref = UserPreference.new(user_preference_params)
-    @user_pref.country = Country.find(id: params[:country_id])
     @user_pref.user = current_user
     @user_pref.save
   end
@@ -11,6 +10,6 @@ class UserPreferenceReflex < ApplicationReflex
   private
 
   def user_preference_params
-    params.require(:user_preference).permit(:arrival, :stay_duration)
+    params.require(:user_preference).permit(:arrival, :stay_duration, :country_id)
   end
 end
