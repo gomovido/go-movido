@@ -25,7 +25,6 @@ gem 'globalize'
 gem "activerecord-nulldb-adapter"
 gem 'rubocop', require: false
 gem 'slack-notifier'
-gem 'rails-controller-testing'
 gem 'forest_liana'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
