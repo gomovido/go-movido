@@ -6,10 +6,6 @@ class CartReflex < ApplicationReflex
     cart.save
   end
 
-
   def init_items
-
   end
-
-
 end
