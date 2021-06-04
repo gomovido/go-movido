@@ -33,10 +33,6 @@ en:
   activerecord:
     errors:
       models:
-        subscription:
-          attributes:
-            delivery_address:
-              blank: "can't be blank"
         billing:
           attributes:
             account_number:
@@ -55,35 +51,7 @@ en:
               blank: "can't be blank"
             email:
               taken: "already in use"
-        person:
-          attributes:
-            phone:
-              blank: "can't be blank"
-            birth_city:
-              blank: "can't be blank"
-        booking:
-          attributes:
-            phone:
-              blank: "can't be blank"
-            full_name:
-              blank: "can't be blank"
-            email:
-              blank: "can't be blank"
-            university:
-              blank: "can't be blank"
-            room_type:
-              blank: "can't be blank"
-            lease_duration:
-              blank: "can't be blank"
     attributes:
-      booking:
-        phone: 'Number phone'
-        full_name: 'Full name'
-        email: 'Email'
-        university: 'University / College'
-        room_type: 'Room type'
-        lease_duration: 'Lease duration and price'
-        requirements: 'Specific requirements:'
       billing:
         iban: 'IBAN'
         bic: 'BIC'
@@ -92,33 +60,12 @@ en:
         account_number: 'Account number'
         bank: 'Banking Institution'
         sort_code: 'Sort code'
-      subscription:
-        delivery_address: 'Delivery address'
-        sim: 'SIM card'
-        contact_phone: 'Contact phone number for technician'
-      address:
-        street: 'Address'
-        floor: 'Floor'
-        building: 'Building'
-        stairs: 'Stairs'
-        door: 'Door'
-        gate_code: 'Gate code'
-      product:
-        name: 'Plan'
-        price: 'Price'
-        sim: 'SIM Card'
       company:
         name: 'Provider'
       user:
         first_name: 'First name'
-        last_name: 'Surname'
+        last_name: 'Last name'
         email: 'E-mail'
-        password: 'Password'
-        password_confirmation: 'Password confirmation'
-      person:
-        phone: 'Phone'
-        birthdate: 'Date of birth'
-        birth_city: 'City of birth'
   bookings:
     new:
       modal:
