@@ -1,3 +1,5 @@
 class StepsController < ApplicationController
-  def simplicity; end
+  def simplicity
+    @user_preference = UserPreference.new
+  end
 end

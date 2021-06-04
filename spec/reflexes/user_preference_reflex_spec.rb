@@ -8,14 +8,14 @@ RSpec.describe UserPreferenceReflex, type: :reflex do
   describe '#create' do
     context 'when record is valid' do
       it 'creates the record' do
-        expect(reflex.run(:associate_country)).to eq(true)
+        expect(reflex.run(:create)).to eq(true)
       end
     end
 
     context 'when record is invalid' do
       it 'trhows errors' do
         reflex.params['user_preference']['country_id'] = nil
-        reflex.run(:associate_country)
+        reflex.run(:create)
         expect(reflex.get(:user_pref).errors).to be_present
       end
     end

@@ -1,10 +1,11 @@
 class UserPreferenceReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
-  def associate_country
+  def create
     @user_pref = UserPreference.new(user_preference_params)
     @user_pref.user = current_user
-    @user_pref.save
+    morph '.form-base', render(partial: "steps/forms/user_preference", locals: { user_preference: @user_pref }) unless @user_pref.save
+
   end
 
   private

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "sessions", registrations: 'registrations'}
 
   root 'pages#home'
-  get 'steps#simplicity', to: 'steps#simplicity', as: 'simplicity'
+  get 'simplicity', to: 'steps#simplicity', as: 'simplicity'
 
   #Errors pages
   get '/404', to: 'errors#not_found'
