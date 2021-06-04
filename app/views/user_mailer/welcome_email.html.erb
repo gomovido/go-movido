@@ -607,6 +607,7 @@
   </head>
 
   <% if @locale.to_s == 'en' %>
+
     <body>
       <table class="email-wrapper" width="570" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
@@ -634,7 +635,7 @@
                               <tr>
                                 <td>
                                   <div class="image">
-                                    <%= image_tag(asset_path('emails/subscription_under_review.png'), class:"banner") %>
+                                    <%= image_tag(asset_path('emails/welcome.png'), class:"banner") %>
                                   </div>
                                 </td>
                               </tr>
@@ -650,11 +651,49 @@
                     <tr>
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
-                          <h1>Hi, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Our team is reviewing your purchase and will get back to you with a confirmation e-mail once your contract is activated. This can take up to 24 hours.</p>
-                          <p>You can follow the status of your subscription under your personal profile.</p>
+                          <h1>Welcome, <span class="purple"><%= @user.first_name %></span></h1>
+                          <p>Thanks for signing up to movido. Let’s get you set up in your new home <strong>in only 10 mins.</strong></p>
+                          <p>Here are your credentials :</p>
+                          <p><strong>Email: </strong> <%= @user.email %></p>
+                          <p><strong>Password: </strong> <%= @password %></p>
                           <p>Thanks, <br>Your movido team</p>
                         </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td align="center">
+                        <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                            <td class="content-cell card-link no-r-padding align-right" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/housing.png')) %>
+                              </a>
+                            </td>
+                            <td class="content-cell card-link no-l-padding align-left" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/bank.png')) %>
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="content-cell card-link no-r-padding align-right" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/mobile.png')) %>
+                              </a>
+                            </td>
+                            <td class="content-cell card-link no-l-padding align-left" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/wifi.png')) %>
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
                       </td>
                     </tr>
                   </table>
@@ -667,7 +706,7 @@
                       <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td>
-                            <a href="<%= user_url(@user) %>" class="button button--" target="_blank">My Profile</a>
+                            <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
                           </td>
                         </tr>
                       </table>
@@ -750,7 +789,10 @@
         </tr>
       </table>
     </body>
+
   <% else %>
+
+
     <body>
       <table class="email-wrapper" width="570" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
@@ -778,7 +820,7 @@
                               <tr>
                                 <td>
                                   <div class="image">
-                                    <%= image_tag(asset_path('emails/subscription_under_review-fr.png'), class:"banner") %>
+                                    <%= image_tag(asset_path('emails/welcome.png'), class:"banner") %>
                                   </div>
                                 </td>
                               </tr>
@@ -794,11 +836,47 @@
                     <tr>
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
-                          <h1>Salut, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Notre équipe vérifie ta commande et reviendra vers toi avec un email de confirmation quand ton contrat sera activé. Cela peut prendre jusqu’à 24h.</p>
-                          <p>Tu peux suivre tes commandes sur ton profil.</p>
+                          <h1>Bonjour, <span class="purple"><%= @user.first_name %></span></h1>
+                          <p>Merci de t’être inscrit(e) à movido. Maintenant nous allons t’installer dans ta nouvelle maison <strong>en 10 minutes!</strong></p>
+                          <p>Avec movido sélectionne simplement les services dont tu as besoin, du compte bancaire local àun nouvel abonnement WIFI. Laisse nous gérer pour toi les démarches administratives.</p>
                           <p>Merci, <br>Ton équipe movido</p>
                         </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td align="center">
+                        <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                            <td class="content-cell card-link no-r-padding align-right" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/housing-fr.png')) %>
+                              </a>
+                            </td>
+                            <td class="content-cell card-link no-l-padding align-left" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/bank-fr.png')) %>
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="content-cell card-link no-r-padding align-right" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/mobile-fr.png')) %>
+                              </a>
+                            </td>
+                            <td class="content-cell card-link no-l-padding align-left" align="center">
+                              <a href="<%= new_user_session_url %>" target="_blank">
+                                <%= image_tag(asset_path('emails/wifi-fr.png')) %>
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
                       </td>
                     </tr>
                   </table>
@@ -811,7 +889,7 @@
                       <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td>
-                            <a href="<%= user_url(@user) %>" class="button button--" target="_blank">Ton Profil</a>
+                            <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Démarrer</a>
                           </td>
                         </tr>
                       </table>
@@ -831,11 +909,11 @@
                         </tr>
                         <tr class="marketing-row">
                           <td class="marketing-inputs w-100 centered-lite-padding" align="center">
-                            <a href="" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
+                            <a href="tel: +447841598269" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
                               <%= image_tag(asset_path('emails/whatsapp-logo.png')) %>
                               <span class="black">+44(0)78415988269</span>
                             </a>
-                            <a href="" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
+                            <a href="tel: +447841598269" class="content-cell no-padding support-links align-items-center justify-content-center sup-div" target="_blank">
                               <%= image_tag(asset_path('emails/phone-logo.png')) %>
                               <span class="black">+44(0)78415988269</span>
                             </a>
