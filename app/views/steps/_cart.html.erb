@@ -1,8 +1,8 @@
-<div class="flow-container">
+<div class="flow-container" data-controller="animate">
   <%= render 'shared/progress_bar', step: 3 %>
   <div class="container">
-      <%= render 'shared/chat', bubbles: [{message: "Almost done! Please select the services you need - you can pick and choose across packs if you like", delay: 0}] %>
-      <div class="form-base animate__animated animate__fadeInLeft animate__delay-2s">
+      <%= render 'shared/chat', messages: messages %>
+      <div class="form-base" data-delay="1" data-animate-target="form">
         Congrats
       </div>
   </div>

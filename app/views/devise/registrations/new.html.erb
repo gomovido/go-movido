@@ -1,7 +1,7 @@
 <div class="flow-container">
   <%= render 'shared/progress_bar', step: 1 %>
   <div class="container">
-      <%= render 'shared/chat', bubbles: [{message: "Hello! I’m Alice and I will help you get settled in your new city.", delay: 0}, {message: "Let's get to know each other a little better", delay: 1}] %>
+      <%= render 'shared/chat', @messages: messages: [{content: "Hello! I’m Alice and I will help you get settled in your new city.", delay: 0}, {content: "Let's get to know each other a little better", delay: 1}] %>
       <div class="form-base animate__animated animate__fadeInLeft animate__delay-2s">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.input :first_name,
