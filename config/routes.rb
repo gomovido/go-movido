@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   resources :leads, only: [:create]
+
+  resources :orders do
+    resources :payments, only: [:create, :new]
+  end
+
 end
