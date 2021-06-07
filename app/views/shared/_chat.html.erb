@@ -1,9 +1,9 @@
 <div class="chat-container">
-  <% bubbles.each do |bubble| %>
-    <div class="chat-message animate__animated animate__fadeInLeft <%= "animate__delay-#{bubble[:delay]}s" %>">
+  <% messages.each do |message| %>
+    <div class="chat-message" data-delay="<%= message[:delay] %>" data-animate-target="message">
       <%= image_tag(asset_path('components/simplicity/chat-profile-picture.png')) %>
       <span class="name">Alice</span>
-      <p class="content"><%= bubble[:message] %></p>
+      <p class="content"><%= message[:content] %></p>
     </div>
   <% end %>
 </div>
