@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     resources :payments, only: [:create, :new]
   end
 
+  get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
+
 end

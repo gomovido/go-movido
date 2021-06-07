@@ -1,24 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "Payment via Stripe", type: :feature do
-  describe "User want to proceed payment", :headless_chrome do
+  describe "User want to proceed payment", :selenium_chrome do
+  let(:user) { create(:user) }
+  let!(:country) { create(:country, :fr) }
+  let(:company) { create(:company, :mobile) }
+  let(:category) { create(:category, :mobile) }
+  let(:user_preference) { create(:user_preference, user: user, country: country) }
+  let(:cart) { create(:cart, user_preference: user_preference) }
+  let(:order) {create(:order, user: user, state: 'pending_payment')}
+  let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
+  let!(:item) { create(:item, product: product, cart: cart, order: order) }
+
     before do
       login_as(user, scope: :user)
-      visit subscription_payment_path(subscription, locale: :en)
+      visit new_order_payment_path(order, locale: :en)
     end
 
-    context "when user land on the payment page" do
-      it "displays sim card price" do
-        expect(page).to have_content(subscription.product.format_sim_card_price)
-      end
-
-      it "displays stripe form" do
-        expect(page).to have_selector("#payment-form")
-      end
-    end
-
-    context 'when user proceed payment' do
-      it "updates the state of the subscription & order status to paid" do
+    context 'when user proceed payment with valid card' do
+      it "update the state of the order to succeeded" do
         [
           {
             selector: "#card-number-element > div > iframe",
@@ -41,8 +41,37 @@ RSpec.describe "Payment via Stripe", type: :feature do
         expect do
           click_button 'Complete payment'
           sleep 4
-          subscription.reload
-        end.to change(subscription, :state).to('succeeded')
+          order.reload
+        end.to change(order, :state).to('succeeded')
+      end
+    end
+
+    context 'when user proceed payment with invalid card' do
+      it "update the state of the order to payment failed" do
+        [
+          {
+            selector: "#card-number-element > div > iframe",
+            values: '4000 0000 0000 9979',
+            input: 'cardnumber'
+          },
+          {
+            selector: "#card-expiry-element > div > iframe",
+            values: '1234',
+            input: 'exp-date'
+          },
+          {
+            selector: "#card-cvc-element > div > iframe",
+            values: '123',
+            input: 'cvc'
+          }
+        ].each do |hash|
+          find_in_frame(hash[:selector], hash[:input], hash[:values])
+        end
+        expect do
+          click_button 'Complete payment'
+          sleep 4
+          order.reload
+        end.to change(order, :state).to('payment_failed')
       end
     end
   end
