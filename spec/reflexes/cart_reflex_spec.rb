@@ -5,21 +5,29 @@ RSpec.describe CartReflex, type: :reflex do
   let(:country) { create(:country, :fr) }
   let(:company) { create(:company, :mobile) }
   let(:category) { create(:category, :mobile) }
-  let(:product) { create(:product, :mobile, country: country, company: company, category: category) }
+  let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
+  let!(:service) { create(:service, :mobile, category: category) }
   let!(:user_preference) { create(:user_preference, user: user, country: country) }
-  let!(:service) { create(:service, :mobile) }
-  let!(:user_service) { create(:user_service, user_preference: user_preference, service: service) }
-  let(:reflex) { build_reflex(url: simplicity_url(host: 'localhost', port: 3000), connection: { current_user: user }) }
 
-  describe '#create' do
-    it 'create a cart with items' do
-      expect(reflex.run(:create)).to eq(true)
+  describe 'initializing cart' do
+    let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }) }
+
+    it 'creates a cart' do
+      reflex.run(:initialize_cart)
+      expect(user.user_preference.cart).to be_present
     end
   end
 
   describe '#init items' do
-    it 'create a items and add it to the cart' do
-      reflex.run(:init_items)
+    let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }, params: { user_service: { service_ids: [service.id] } }) }
+
+    it 'create user services' do
+      reflex.run(:init_user_services)
+      expect(user.user_preference.user_services.count).to eq(1)
+    end
+
+    it 'create items' do
+      reflex.run(:create)
       expect(user.user_preference.cart.items.count).to eq(1)
     end
   end
