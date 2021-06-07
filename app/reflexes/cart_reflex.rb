@@ -2,9 +2,14 @@ class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
   def create
-    initialize_cart
-    init_user_services
-    generate_items
+    if params[:user_preference]
+      initialize_cart
+      init_user_services
+      generate_items
+      morph '.flow-container', render(partial: "steps/packs", locals: { messages: [{ content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 }, { content: 'Thanks for waiting, please find your customized pack below.', delay: '3'}] })
+    else
+      morph '.form-base', render(partial: "steps/forms/user_services", locals: { user_preference: current_user.user_preference })
+    end
   end
 
   def initialize_cart
@@ -13,7 +18,7 @@ class CartReflex < ApplicationReflex
 
   def init_user_services
     UserService.where(user_preference: current_user.user_preference).destroy_all
-    user_service_params[:service_ids].each do |service_id|
+    user_preference_params[:service_ids].each do |service_id|
       UserService.create(service_id: service_id, user_preference: current_user.user_preference)
     end
   end
@@ -26,7 +31,7 @@ class CartReflex < ApplicationReflex
     end
   end
 
-  def user_service_params
-    params.require(:user_service).permit(service_ids: [])
+  def user_preference_params
+    params.require(:user_preference).permit(service_ids: [])
   end
 end

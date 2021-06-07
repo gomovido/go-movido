@@ -927,7 +927,7 @@
       "is_sortable": true,
       "is_virtual": false,
       "reference": "User.id",
-      "inverse_of": null,
+      "inverse_of": "orders",
       "relationship": "BelongsTo",
       "widget": null,
       "validations": []
@@ -1972,6 +1972,22 @@
       "reference": "UserPreference.id",
       "inverse_of": "user",
       "relationship": "HasOne",
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "orders",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Order.id",
+      "inverse_of": "user",
+      "relationship": "HasMany",
       "widget": null,
       "validations": []
     }],
