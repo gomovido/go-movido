@@ -83,12 +83,12 @@ ActiveRecord::Schema.define(version: 2021_06_07_125246) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "charge_id", null: false
-    t.bigint "billing_id", null: false
-    t.bigint "shipping_id", null: false
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "charge_id"
+    t.bigint "billing_id"
+    t.bigint "shipping_id"
     t.index ["billing_id"], name: "index_orders_on_billing_id"
     t.index ["charge_id"], name: "index_orders_on_charge_id"
     t.index ["shipping_id"], name: "index_orders_on_shipping_id"
