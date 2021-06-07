@@ -7,6 +7,11 @@ class UserPreference < ApplicationRecord
 
   validates :arrival, :stay_duration, presence: true
   validate :arrival_cannot_be_in_the_past
+  validate :country_id_present
+
+  def country_id_present
+    errors.add(:country_id, "can't be blank") if country_id.blank?
+  end
 
   def arrival_cannot_be_in_the_past
     errors.add(:arrival, "can't be in the past") if arrival.present? && arrival < Time.zone.now

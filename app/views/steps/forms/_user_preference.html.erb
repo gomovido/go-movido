@@ -1,0 +1,9 @@
+<%= simple_form_for user_preference, url: simplicity_path, data: {reflex: "submit->UserPreferenceReflex#create", reflex_serialize_form: true  } do |f| %>
+  <%= f.input :country_id, collection: Country.all.map {|country| [t("country.#{country.code}"), country.id]}, prompt: 'Select a country',label: 'Country of destination', input_html: {class: 'custom-select'}%>
+  <%= f.input :arrival, as: :string,
+             required: true,
+             input_html: { class:'datepicker', data: {
+              controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
+  <%= f.input :stay_duration, required: true %>
+  <%= f.button :submit, 'Continue' , class: 'btn-main' %>
+<% end %>
