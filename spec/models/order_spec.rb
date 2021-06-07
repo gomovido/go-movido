@@ -10,9 +10,10 @@ RSpec.describe Order, type: :model do
   let(:cart) { create(:cart, user_preference: user_preference) }
 
   describe 'associations' do
-    %i[user charge billing shipping].each do |field|
-      it { is_expected.to belong_to(field) }
+    %i[charge billing shipping].each do |field|
+      it { is_expected.to belong_to(field).optional }
     end
+    it { is_expected.to belong_to(:user) }
 
     it { is_expected.to have_one(:pickup) }
     it { is_expected.to have_many(:items) }
