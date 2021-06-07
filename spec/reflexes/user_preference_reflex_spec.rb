@@ -8,15 +8,21 @@ RSpec.describe UserPreferenceReflex, type: :reflex do
   describe '#create' do
     context 'when record is valid' do
       it 'creates the record' do
-        expect(reflex.run(:create)).to eq(true)
+        expect(reflex.run(:create)).to morph(".flow-container")
       end
     end
 
     context 'when record is invalid' do
-      it 'trhows errors' do
+      it 'throws errors' do
         reflex.params['user_preference']['country_id'] = nil
         reflex.run(:create)
         expect(reflex.get(:user_pref).errors).to be_present
+      end
+
+      it 'morphs the form with errors' do
+        reflex.params['user_preference']['country_id'] = nil
+        subject = reflex.run(:create)
+        expect(subject).to morph(".form-base")
       end
     end
   end

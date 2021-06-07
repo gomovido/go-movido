@@ -38,6 +38,8 @@ import AnimateCSS from 'animate.css';
 import cookie from './cookie_banner';
 
 document.addEventListener('turbolinks:load', () => {
+  console.log('loaded')
+
   if (process.env.RAILS_ENV === 'production') {
     gtag('config', process.env.GOOGLE_TAG_ID, {'page_location': event.data.url});
   }
