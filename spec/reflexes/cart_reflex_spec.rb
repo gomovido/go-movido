@@ -19,16 +19,26 @@ RSpec.describe CartReflex, type: :reflex do
   end
 
   describe '#init items' do
-    let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }, params: { user_service: { service_ids: [service.id] } }) }
+    context 'with items' do
+      let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }, params: { user_preference: { service_ids: [service.id] } }) }
 
-    it 'create user services' do
-      reflex.run(:init_user_services)
-      expect(user.user_preference.user_services.count).to eq(1)
+      it 'create user services' do
+        reflex.run(:init_user_services)
+        expect(user.user_preference.user_services.count).to eq(1)
+      end
+
+      it 'create items' do
+        reflex.run(:create)
+        expect(user.user_preference.cart.items.count).to eq(1)
+      end
     end
 
-    it 'create items' do
-      reflex.run(:create)
-      expect(user.user_preference.cart.items.count).to eq(1)
+    context 'without items' do
+      let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }) }
+
+      it 'sticks on the same page if no service is checked' do
+        expect(reflex.run(:create)).to morph(".form-base")
+      end
     end
   end
 end
