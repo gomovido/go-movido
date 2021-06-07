@@ -2,9 +2,11 @@
   <%= render 'shared/progress_bar', step: 2 %>
   <div class="container">
       <%= render 'shared/chat', messages: @messages %>
-      <div class="form-base" data-delay="1" data-animate-target="form">
-        <%= render 'steps/forms/user_preference', user_preference: @user_preference %>
-      </div>
+      <div class="content-container" data-delay="1" data-animate-target="contentContainer">
+        <div class="form-base">
+          <%= render 'steps/forms/user_preference', user_preference: @user_preference %>
+        </div>
+    </div>
   </div>
 
 </div>
