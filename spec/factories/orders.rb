@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :order do
-    state { "succedeed" }
+    state { "succeeded" }
   end
 end

@@ -17,7 +17,7 @@ class Order < ApplicationRecord
     items.first.product.country.currency
   end
 
-  def is_pay
+  def paid?
     state == 'succeeded'
   end
 end
