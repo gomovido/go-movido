@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   has_many :items, dependent: :destroy
 
   validates :state, presence: true
-  validates :state, inclusion: { in: ["canceled", "pending_payment", "payment_failed", "succedeed"] }
+  validates :state, inclusion: { in: ["canceled", "pending_payment", "payment_failed", "succeeded"] }
 
   def total_amount
     items.sum { |item| item.product.activation_price_cents }
@@ -15,5 +15,9 @@ class Order < ApplicationRecord
 
   def currency
     items.first.product.country.currency
+  end
+
+  def is_pay
+    state == 'succeeded'
   end
 end

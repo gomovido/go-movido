@@ -38,12 +38,9 @@ export default class extends Controller {
     });
     const form = document.getElementById('payment-form');
     form.addEventListener('submit',(event) => {
-      document.getElementById('loader').style.height = `${document.body.scrollHeight}px`
-      document.getElementById('loader').classList.remove('d-none');
       event.preventDefault();
       stripe.createToken(cardNumberElement).then((result) => {
         if (result.error) {
-          document.getElementById('loader').classList.add('d-none');
           const errorElement = document.getElementById('card-errors');
           errorElement.textContent = result.error.message;
         } else {
@@ -53,6 +50,7 @@ export default class extends Controller {
     });
   }
   stripeTokenHandler(token) {
+    console.log(token)
     const form = document.getElementById('payment-form');
     const hiddenInput = document.createElement('input');
     hiddenInput.setAttribute('type', 'hidden');
