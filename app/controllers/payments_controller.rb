@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   def new
     @order = Order.find_by(id: params[:order_id], user: current_user)
-    redirect_to congratulations_path(@order) if @order.is_pay
+    redirect_to congratulations_path(@order) if @order.paid?
   end
 
   def create

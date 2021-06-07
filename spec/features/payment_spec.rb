@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Payment via Stripe", type: :feature do
-  describe "User want to proceed payment", :selenium_chrome do
+  describe "User want to proceed payment", :headless_chrome do
   let(:user) { create(:user) }
   let!(:country) { create(:country, :fr) }
   let(:company) { create(:company, :mobile) }
