@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'simplicity', to: 'steps#simplicity', as: 'simplicity'
-
+  get 'simplicity/starter-pack/:order_id', to: 'steps#conversion', as: 'conversion'
   #Errors pages
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'

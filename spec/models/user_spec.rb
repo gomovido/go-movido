@@ -9,6 +9,7 @@ RSpec.describe User do
 
   describe 'associations' do
     it { is_expected.to have_one(:user_preference) }
+    it { is_expected.to have_many(:orders) }
   end
 
   context "with validations" do
