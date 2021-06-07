@@ -1,5 +1,4 @@
 class UserPreference < ApplicationRecord
-  attr_accessor :country_id
 
   belongs_to :user
   belongs_to :country

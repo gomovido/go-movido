@@ -4,8 +4,11 @@ class UserPreferenceReflex < ApplicationReflex
   def create
     @user_pref = UserPreference.new(user_preference_params)
     @user_pref.user = current_user
-    morph '.form-base', render(partial: "steps/forms/user_preference", locals: { user_preference: @user_pref }) unless @user_pref.save
-
+    if @user_pref.save
+      morph '.flow-container', render(partial: "steps/cart")
+    else
+      morph '.form-base', render(partial: "steps/forms/user_preference", locals: { user_preference: @user_pref })
+    end
   end
 
   private
