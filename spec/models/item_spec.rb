@@ -2,8 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   describe 'associations' do
-    %i[cart product charge order].each do |field|
+    %i[cart product].each do |field|
       it { is_expected.to belong_to(field) }
+    end
+    %i[order charge].each do |field|
+      it { is_expected.to belong_to(field).optional }
     end
   end
 
