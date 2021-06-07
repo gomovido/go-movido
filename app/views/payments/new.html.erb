@@ -25,7 +25,7 @@
             <%= t('orders.stripe.policy_link', href: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
           </span>
         </div>
-        <%= f.button :submit, 'Complete payment', class: 'btn-main w-100'%>
+        <%= f.button :submit, 'Complete payment', class: 'btn-main w-100', data: {disable_with: false}%>
       </div>
   <% end %>
 </div>
