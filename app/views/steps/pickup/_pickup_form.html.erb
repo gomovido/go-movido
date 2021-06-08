@@ -1,0 +1,10 @@
+<%= simple_form_for pickup, url: conversion_path(order), data: {reflex: "submit->PickupReflex#create", reflex_serialize_form: true } do |f| %>
+  <%= f.check_box :uncomplete, required: true, checked: false %>
+  <%= f.input :arrival, as: :string,
+             required: true,
+             input_html: { class:'datepicker', data: {
+              controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
+  <%= f.input :flight_number, required: true %>`
+  <%= f.input :airport, collection: (order.fr? ? Pickup::AIRPORTS_FR : Pickup::AIRPORTS_GB), prompt: 'Select your aiport', input_html: {class: 'custom-select'} %>
+  <%= f.button :submit, 'Continue' , class: 'btn-main' %>
+<% end %>

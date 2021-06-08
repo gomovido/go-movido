@@ -20,4 +20,12 @@ class Order < ApplicationRecord
   def paid?
     state == 'succeeded'
   end
+
+  def fr?
+    items.first.product.country.code == 'fr'
+  end
+
+  def gb?
+    items.first.product.country.code == 'gb'
+  end
 end

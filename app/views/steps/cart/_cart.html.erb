@@ -1,0 +1,13 @@
+<div class="flow-container" data-controller="animate">
+  <%= render 'shared/progress_bar', step: 3 %>
+  <div class="container">
+      <%= render 'shared/chat', messages: messages %>
+      <div class="content-container" data-delay="1" data-animate-target="contentContainer">
+        <div class="form-base">
+          <%= render 'steps/cart/cart_form', user_preference: user_preference %>
+        </div>
+        <div class="btn-main-white" data-reflex="click->CartReflex#back">Back</div>
+    </div>
+  </div>
+</div>
+
