@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
         render :new
       end
     else
-      @order.errors.add(:address, "Billing address is required")
+      @order.errors.add(:address, "is required")
       @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
       render :new
     end
