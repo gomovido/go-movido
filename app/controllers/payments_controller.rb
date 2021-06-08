@@ -14,8 +14,6 @@ class PaymentsController < ApplicationController
       if response[:error].nil? && response[:stripe_charge]
         charge = Charge.create(state: response[:stripe_charge].status, stripe_charge_id: response[:stripe_charge].id)
         @order.update(state: 'succeeded', charge: charge, billing: billing)
-        p 'THIS IS BILLING'
-        p @order.billing
         flash[:notice] = 'Payment success!'
         redirect_to congratulations_path(@order.id)
       else
