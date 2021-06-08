@@ -8,17 +8,18 @@ class PaymentsController < ApplicationController
   def create
     @order = Order.find(params[:order_id])
     if billing_params['address'].present?
-      billing = create_billing(order.id)
+      billing = create_billing(@order.id)
       stripe_token = params[:stripeToken]
       response = StripeApiChargeService.new(stripe_token: stripe_token, order_id: @order.id).proceed_payment
       if response[:error].nil? && response[:stripe_charge]
         charge = Charge.create(state: response[:stripe_charge].status, stripe_charge_id: response[:stripe_charge].id)
         @order.update(state: 'succeeded', charge: charge, billing: billing)
+        p 'THIS IS BILLING'
+        p @order.billing
         flash[:notice] = 'Payment success!'
         redirect_to congratulations_path(@order.id)
       else
         @order.update(state: 'payment_failed')
-        flash[:alert] = response[:error]
         @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
         render :new
       end
@@ -35,6 +36,7 @@ class PaymentsController < ApplicationController
     billing.assign_attributes(billing_params)
     billing.order = order
     billing.save
+    billing
   end
 
   def billing_params
