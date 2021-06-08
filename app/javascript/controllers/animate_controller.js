@@ -19,4 +19,8 @@ export default class extends Controller {
   afterReflex() {
     this.connect();
   }
+
+  toggleInputs() {
+    document.querySelector('.inputs').classList.toggle('d-none')
+  }
 }
