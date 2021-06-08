@@ -1,7 +1,4 @@
-<script src="https://js.stripe.com/v3/"></script>
 <%= simple_form_for order, url: order_payments_path(order), method: :post, data: { controller: "payment", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
-
-<%= f.hidden_field :order_id, value: order.id %>
 <div class="form-divs-wrapper mb-5">
   <div class="form-group">
     <label for="card-number-element" class="my-3"><%= t('orders.stripe.number') %></label>
