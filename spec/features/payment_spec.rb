@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Payment via Stripe", type: :feature do
-  describe "User want to proceed payment", :headless_chrome do
+  describe "User want to proceed payment", :selenium_chrome do
     let(:user) { create(:user) }
     let!(:country) { create(:country, :fr) }
     let(:company) { create(:company, :mobile) }
@@ -19,6 +19,11 @@ RSpec.describe "Payment via Stripe", type: :feature do
 
     context 'when user proceed payment with valid card' do
       it "update the state of the order to succeeded" do
+        within("#payment-form") do
+          fill_in 'billing_address_mapbox', with: '57 rue sedaine paris'
+          sleep 1
+          find('li.active', match: :first).click
+        end
         [
           {
             selector: "#card-number-element > div > iframe",
@@ -42,12 +47,19 @@ RSpec.describe "Payment via Stripe", type: :feature do
           click_button 'Complete payment'
           sleep 4
           order.reload
-        end.to change(order, :state).to('succeeded')
+        end.to change { order.state}.to('succeeded')
+        .and change {order.billing.address}.to('57 Rue Sedaine, 75011 Paris, France')
       end
     end
 
     context 'when user proceed payment with invalid card' do
       it "update the state of the order to payment failed" do
+        within("#payment-form") do
+          fill_in 'billing_address_mapbox', with: '57 rue sedaine paris'
+          sleep 1
+          find('li.active', match: :first).click
+          sleep 50
+        end
         [
           {
             selector: "#card-number-element > div > iframe",

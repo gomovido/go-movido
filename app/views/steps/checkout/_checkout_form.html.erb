@@ -1,9 +1,7 @@
 <%= simple_form_for order, url: order_payments_path(order), method: :post, data: { controller: "payment", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
   <%= simple_fields_for :billing do |p| %>
     <div data-controller='address' >
-      <div data-address-target="geocoder" class="form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' required="true" >
-        <i class="fad fa-map-marker position-absolute"></i>
-      </div>
+      <div data-address-target="geocoder" class="form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' required="true" ></div>
       <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
       <%= p.hidden_field :address, required: true, data: { address_target: 'addressInput' } %>
     </div>
