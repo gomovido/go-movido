@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
   def create
     @order = Order.find(params[:order_id])
     if billing_params['address'].present?
-      billing = create_billing
+      billing = create_billing(order.id)
       stripe_token = params[:stripeToken]
       response = StripeApiChargeService.new(stripe_token: stripe_token, order_id: @order.id).proceed_payment
       if response[:error].nil? && response[:stripe_charge]
@@ -29,8 +29,12 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def create_billing
-    billing = Billing.create(billing_params)
+  def create_billing(order_id)
+    order = Order.find(order_id)
+    billing = order.billing || Billing.new
+    billing.assign_attributes(billing_params)
+    billing.order = order
+    billing.save
   end
 
   def billing_params
