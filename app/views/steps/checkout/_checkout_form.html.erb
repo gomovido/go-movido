@@ -1,0 +1,29 @@
+<script src="https://js.stripe.com/v3/"></script>
+<%= simple_form_for order, url: order_payments_path(order), method: :post, data: { controller: "payment", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
+
+<%= f.hidden_field :order_id, value: order.id %>
+<div class="form-divs-wrapper mb-5">
+  <div class="form-group">
+    <label for="card-number-element" class="my-3"><%= t('orders.stripe.number') %></label>
+    <div id="card-number-element"></div>
+    <div id="card-errors" class="mt-2" role="alert"></div>
+  </div>
+  <div class="name-fields d-flex justify-content-between">
+    <div class="form-group">
+      <label for="card-expiry-element" class="my-3"><%= t('orders.stripe.date') %></label>
+      <div id="card-expiry-element"></div>
+    </div>
+    <div class="form-group">
+      <label for="card-cvc-element" class="my-3">CVC</label>
+      <div id="card-cvc-element"></div>
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <span class="legals">
+      <%= t('orders.stripe.policy_link', href: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
+    </span>
+  </div>
+  <%= f.button :submit, 'Complete payment', class: 'btn-main', data: {disable_with: false}%>
+</div>
+<% end %>

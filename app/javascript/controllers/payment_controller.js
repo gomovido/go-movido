@@ -50,7 +50,6 @@ export default class extends Controller {
     });
   }
   stripeTokenHandler(token) {
-    console.log(token)
     const form = document.getElementById('payment-form');
     const hiddenInput = document.createElement('input');
     hiddenInput.setAttribute('type', 'hidden');

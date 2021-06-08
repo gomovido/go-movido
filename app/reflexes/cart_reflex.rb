@@ -8,12 +8,12 @@ class CartReflex < ApplicationReflex
       generate_items
       morph '.flow-container', render(partial: "steps/packs", locals: { messages: [{ content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 }, { content: 'Thanks for waiting, please find your customized pack below.', delay: '3' }] })
     else
-      morph '.form-base', render(partial: "steps/forms/user_services", locals: { user_preference: current_user.user_preference })
+      morph '.form-base', render(partial: "steps/cart/cart_form", locals: { user_preference: current_user.user_preference })
     end
   end
 
   def back
-    morph '.flow-container', render(partial: "steps/simplicity", locals: { user_preference: current_user.user_preference, messages: [{ content: "Great, #{current_user.first_name}! First of all, tell me more about your move ", delay: 0 }] })
+    morph '.flow-container', render(partial: "steps/user_preference/user_preference", locals: { user_preference: current_user.user_preference, messages: [{ content: "Great, #{current_user.first_name}! First of all, tell me more about your move ", delay: 0 }] })
   end
 
   def initialize_cart
