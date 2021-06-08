@@ -40,7 +40,7 @@ RSpec.describe ShippingReflex, type: :reflex do
       end
     end
 
-    context 'shipping is invalid' do
+    context 'when shipping is invalid' do
       it 'morphs the same page' do
         reflex.params['shipping']['address'] = nil
         expect(reflex.run(:create)).to morph(".form-base")
