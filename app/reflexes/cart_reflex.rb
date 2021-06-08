@@ -12,6 +12,10 @@ class CartReflex < ApplicationReflex
     end
   end
 
+  def back
+    morph '.flow-container', render(partial: "steps/simplicity", locals: { user_preference: current_user.user_preference, messages: [{ content: "Great, #{current_user.first_name}! First of all, tell me more about your move ", delay: 0 }] })
+  end
+
   def initialize_cart
     current_user.user_preference.cart || Cart.create(user_preference: current_user.user_preference)
   end
