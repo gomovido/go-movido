@@ -1,4 +1,4 @@
-<%= simple_form_for shipping, url: conversion_path(order), data: {reflex: "submit->ShippingReflex#create", reflex_serialize_form: true, controller: "address"  } do |f| %>
+<%= simple_form_for shipping, url: new_shipping_path(order), data: {reflex: "submit->ShippingReflex#create", reflex_serialize_form: true, controller: "address"  } do |f| %>
   <div data-address-target="geocoder" class="form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
     <i class="fad fa-map-marker position-absolute"></i>
   </div>

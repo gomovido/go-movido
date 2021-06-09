@@ -13,12 +13,9 @@ class ApplicationController < ActionController::Base
                                             password: Rails.application.credentials.staging[:http][:password]
   end
 
-  def after_sign_in_path_for(_resource)
-    simplicity_path
-  end
 
-  def after_sign_out_path_for(_resource)
-    root_path
+  def after_sign_in_path_for(_resource)
+    dashboard_path
   end
 
   def set_locale
