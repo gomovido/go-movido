@@ -9,7 +9,7 @@ export default class extends Controller {
     const style = {
       base: {
         color: '#0D4D90',
-        fontFamily: '"Lato", sans-serif',
+        fontFamily: '"Rubocop", sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
@@ -32,17 +32,18 @@ export default class extends Controller {
       if (event.error) {
         displayError.textContent = event.error.message;
       } else {
-
         displayError.textContent = '';
       }
     });
     const form = document.getElementById('payment-form');
     form.addEventListener('submit',(event) => {
+      document.getElementById("stripe-submit").disabled=true;
       event.preventDefault();
       stripe.createToken(cardNumberElement).then((result) => {
         if (result.error) {
           const errorElement = document.getElementById('card-errors');
           errorElement.textContent = result.error.message;
+          document.getElementById("stripe-submit").disabled=false;
         } else {
           this.stripeTokenHandler(result.token);
         }

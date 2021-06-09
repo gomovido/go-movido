@@ -1,14 +1,15 @@
 class PaymentsController < ApplicationController
   def new
     @order = Order.find_by(id: params[:order_id], user: current_user)
+    @billing = @order.billing || Billing.new
     @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
     redirect_to congratulations_path(@order) if @order.paid?
   end
 
   def create
     @order = Order.find(params[:order_id])
+    billing = create_billing(@order.id)
     if billing_params['address'].present?
-      billing = create_billing(@order.id)
       stripe_token = params[:stripeToken]
       response = StripeApiChargeService.new(stripe_token: stripe_token, order_id: @order.id).proceed_payment
       if response[:error].nil? && response[:stripe_charge]
@@ -22,7 +23,7 @@ class PaymentsController < ApplicationController
         render :new
       end
     else
-      @order.errors.add(:address, "is required")
+      @billing = billing
       @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
       render :new
     end
