@@ -1,11 +1,13 @@
 class ShippingReflex < ApplicationReflex
   delegate :current_user, to: :connection
   before_reflex do
-    throw :abort if morph_if_order_is_paid(params[:order_id])
+    @order = Order.find(params[:order_id])
+    morph_if_paid(@order.id)
   end
 
   def create
-    @order = Order.find(params[:order_id])
+    return if @order.paid?
+
     @shipping = @order.shipping || Shipping.new
     @shipping.assign_attributes(shipping_params)
     @shipping.state = 'initiated'
@@ -18,15 +20,6 @@ class ShippingReflex < ApplicationReflex
       end
     else
       morph '.form-base', render(partial: "steps/shipping/shipping_form", locals: { shipping: @shipping, order: @order })
-    end
-  end
-
-  def morph_if_order_is_paid(order_id)
-    order = Order.find(order_id.to_i)
-    if order.paid?
-      sleep 3
-      morph '.flow-container', render(partial: "steps/order/congratulations", locals: { order: order, messages: [{ content: "Congratulations #{current_user.first_name} Your movido Starter Pack is already on its way to you", delay: 0 }] })
-      return order.paid?
     end
   end
 

@@ -1,16 +1,21 @@
 class PickupReflex < ApplicationReflex
   delegate :current_user, to: :connection
+  before_reflex do
+    @order = Order.find(params[:order_id])
+    morph_if_paid(@order.id)
+  end
 
   def create
-    order = Order.find(params[:order_id])
-    @pickup = order.pickup || Pickup.new
+    return if @order.paid?
+
+    @pickup = @order.pickup || Pickup.new
     @pickup.uncomplete = pickup_params[:uncomplete]
     @pickup.assign_attributes(pickup_params) if @pickup.complete?
-    @pickup.order = order
+    @pickup.order = @order
     if @pickup.save
-      morph '.flow-container', render(partial: "steps/checkout/checkout", locals: { order: order, billing: (order.billing || Billing.new), messages: [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }] })
+      morph '.flow-container', render(partial: "steps/checkout/checkout", locals: { order: @order, billing: (@order.billing || Billing.new), messages: [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }] })
     else
-      morph '.form-base', render(partial: "steps/pickup/pickup_form", locals: { pickup: @pickup, order: order })
+      morph '.form-base', render(partial: "steps/pickup/pickup_form", locals: { pickup: @pickup, order: @order })
     end
   end
 
