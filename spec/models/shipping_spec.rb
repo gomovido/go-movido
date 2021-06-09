@@ -8,7 +8,7 @@ RSpec.describe Shipping, type: :model do
   describe 'validations' do
     let(:shipping) { build(:shipping) }
 
-    %i[address state tracking_id delivery_date].each do |field|
+    %i[address state].each do |field|
       it { is_expected.to validate_presence_of(field) }
     end
 

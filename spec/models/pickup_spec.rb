@@ -16,16 +16,28 @@ RSpec.describe Pickup, type: :model do
     let(:order) { create(:order, user: user, charge: charge, billing: billing, shipping: shipping) }
     let(:pickup) { build(:pickup, order: order) }
 
-    %i[arrival airport state].each do |field|
-      it { is_expected.to validate_presence_of(field) }
+    it { is_expected.not_to allow_value(nil).for(:uncomplete) }
+
+    context 'when infos are complete' do
+      subject(:pickup) { described_class.new(uncomplete: false) }
+
+      it { is_expected.not_to allow_value(nil).for(:airport) }
+      it { is_expected.to validate_presence_of(:arrival) }
+      it { is_expected.to validate_presence_of(:flight_number) }
+    end
+
+    context 'when infos are uncomplete' do
+      subject(:pickup) { described_class.new(uncomplete: true) }
+
+      it { is_expected.not_to validate_presence_of(:airport) }
+      it { is_expected.not_to validate_presence_of(:flight_number) }
+      it { is_expected.not_to validate_presence_of(:arrival) }
     end
 
     it { is_expected.to allow_value(pickup.arrival).for(:arrival) }
     it { is_expected.not_to allow_value(Faker::Date.backward(days: 30)).for(:arrival) }
     it { is_expected.not_to allow_value("fakedate").for(:arrival) }
 
-    it { is_expected.not_to allow_value("wrong_state").for(:state) }
-    it { is_expected.to allow_value("waiting_for_details").for(:state) }
     it { is_expected.to allow_value("Paris CDG").for(:airport) }
     it { is_expected.not_to allow_value("fake_airport").for(:airport) }
 

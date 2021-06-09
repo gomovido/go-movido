@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   has_one :user_preference, dependent: :destroy
-  has_many :orders, dependent: :nullify
+  has_many :orders, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :email, uniqueness: { case_sensitive: false }
