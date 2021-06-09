@@ -21,15 +21,16 @@ class ShippingReflex < ApplicationReflex
     end
   end
 
-  private
-
   def morph_if_order_is_paid(order_id)
     order = Order.find(order_id.to_i)
     if order.paid?
+      sleep 3
       morph '.flow-container', render(partial: "steps/order/congratulations", locals: { order: order, messages: [{ content: "Congratulations #{current_user.first_name} Your movido Starter Pack is already on its way to you", delay: 0 }] })
       return order.paid?
     end
   end
+
+  private
 
   def shipping_params
     params.require(:shipping).permit(:address, :instructions)
