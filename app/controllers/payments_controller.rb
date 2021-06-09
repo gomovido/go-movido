@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
   def create
     @order = Order.find(params[:order_id])
     redirect_to dashboard_path and return if @order.paid?
+
     billing = create_billing(@order.id)
     if billing_params['address'].present?
       stripe_token = params[:stripeToken]
