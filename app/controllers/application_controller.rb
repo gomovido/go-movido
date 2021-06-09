@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  def redirect_if_order_is_paid
+    redirect_to dashboard_path if Order.find(params[:order_id]).paid?
+  end
+
   protected
 
   def configure_permitted_parameters
