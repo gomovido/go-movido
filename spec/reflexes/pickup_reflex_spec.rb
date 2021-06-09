@@ -10,7 +10,7 @@ RSpec.describe PickupReflex, type: :reflex do
   let!(:order) { create(:order, user: user, state: 'pending_payment') }
   let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
   let!(:item) { create(:item, product: product, cart: cart, order: order) }
-  let(:reflex) { build_reflex(url: conversion_url(order), connection: { current_user: user }, params: { pickup: { uncomplete: false, arrival: Faker::Date.forward(days: 30), flight_number: 'XXX1234', airport: "Paris CDG" } }) }
+  let(:reflex) { build_reflex(url: new_pickup_url(order), connection: { current_user: user }, params: { pickup: { uncomplete: false, arrival: Faker::Date.forward(days: 30), flight_number: 'XXX1234', airport: "Paris CDG" } }) }
 
   describe '#create' do
     context 'when infos are complete and record is valid' do

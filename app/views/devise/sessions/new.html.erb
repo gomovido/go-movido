@@ -1,0 +1,34 @@
+<div class="flow-container" data-controller="animate">
+  <%= render 'shared/progress_bar', step: 1 %>
+  <div class="container">
+      <%= render 'shared/chat', messages: [{content: "Hello! I’m Alice and I will help you get settled in your new city. Let's get to know each other a little better", delay: 0}] %>
+      <div class="content-container" data-delay="1" data-animate-target="contentContainer">
+        <div class="form-base">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+
+            <div class="actions">
+              <%= f.submit "Log in" %>
+            </div>
+          <% end %>
+        <p><%= link_to 'I dont have an account', new_user_registration_path %> </p>
+        </div>
+      </div>
+  </div>
+</div>
+

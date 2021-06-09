@@ -3,7 +3,6 @@ class PaymentsController < ApplicationController
     @order = Order.find_by(id: params[:order_id], user: current_user)
     @billing = @order.billing || Billing.new
     @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
-    redirect_to congratulations_path(@order) if @order.paid?
   end
 
   def create

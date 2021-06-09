@@ -10,7 +10,7 @@ RSpec.describe CartReflex, type: :reflex do
   let!(:user_preference) { create(:user_preference, user: user, country: country) }
 
   describe 'initializing cart' do
-    let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }) }
+    let(:reflex) { build_reflex(url: new_cart_url, connection: { current_user: user }) }
 
     it 'creates a cart' do
       reflex.run(:initialize_cart)
@@ -20,7 +20,7 @@ RSpec.describe CartReflex, type: :reflex do
 
   describe '#init items' do
     context 'with items' do
-      let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }, params: { user_preference: { service_ids: [service.id] } }) }
+      let(:reflex) { build_reflex(url: new_cart_url, connection: { current_user: user }, params: { user_preference: { service_ids: [service.id] } }) }
 
       it 'create user services' do
         reflex.run(:init_user_services)
@@ -34,7 +34,7 @@ RSpec.describe CartReflex, type: :reflex do
     end
 
     context 'without items' do
-      let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }) }
+      let(:reflex) { build_reflex(url: new_cart_url, connection: { current_user: user }) }
 
       it 'sticks on the same page if no service is checked' do
         expect(reflex.run(:create)).to morph(".form-base")
