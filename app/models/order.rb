@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   validates :state, inclusion: { in: ["canceled", "pending_payment", "payment_failed", "succeeded"] }
 
   def total_amount
-    items.sum { |item| item.product.activation_price_cents }
+    items.includes([:product]).sum { |item| item.product.activation_price_cents }
   end
 
   def currency
@@ -19,5 +19,13 @@ class Order < ApplicationRecord
 
   def paid?
     state == 'succeeded'
+  end
+
+  def fr?
+    items.first.product.country.code == 'fr'
+  end
+
+  def gb?
+    items.first.product.country.code == 'gb'
   end
 end

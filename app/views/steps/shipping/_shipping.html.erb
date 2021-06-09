@@ -1,0 +1,10 @@
+<div class="flow-container" data-controller="animate">
+  <div class="container">
+      <%= render 'shared/chat', messages: messages %>
+      <div class="content-container" data-delay="1" data-animate-target="contentContainer">
+        <div class="form-base">
+          <%= render 'steps/shipping/shipping_form', shipping: shipping, order: order %>
+        </div>
+    </div>
+  </div>
+</div>
