@@ -1,4 +1,6 @@
 class PickupsController < ApplicationController
+  before_action :redirect_if_order_is_paid, only: [:new]
+
   def new
     @order = Order.find(params[:order_id])
     @pickup = @order.pickup || Pickup.new
