@@ -39,8 +39,8 @@ RSpec.describe Order, type: :model do
     let(:transportation_category) { create(:category, :transportation) }
     let(:transportation_product) { create(:product, :transportation, country: country, company: transportation_company, category: transportation_category) }
     let(:order) { create(:order, user: user, charge: charge, billing: billing, shipping: shipping) }
-    let!(:mobile_item) { create(:item, product: mobile_product, cart: cart, order: order, charge: charge) }
-    let!(:transportation_item) { create(:item, product: transportation_product, cart: cart, order: order, charge: charge) }
+    let!(:mobile_item) { create(:item, product: mobile_product, cart: cart, order: order) }
+    let!(:transportation_item) { create(:item, product: transportation_product, cart: cart, order: order) }
 
     it 'displays the right amount' do
       expect(order.total_amount).to eq(mobile_item.product.activation_price_cents + transportation_item.product.activation_price_cents)

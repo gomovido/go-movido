@@ -21,7 +21,7 @@ RSpec.describe Item, type: :model do
     let(:cart) { create(:cart, user_preference: user_preference) }
     let(:order) { create(:order, user: user, charge: charge, billing: billing, shipping: shipping) }
     let(:pikcup) { create(:pickup, order: order) }
-    let(:item) { build(:item, product: product, cart: cart, order: order, charge: charge) }
+    let(:item) { build(:item, product: product, cart: cart, order: order) }
 
     it 'saves successfully' do
       expect(item.save).to eq(true)
