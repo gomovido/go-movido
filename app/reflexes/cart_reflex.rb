@@ -3,21 +3,22 @@ class CartReflex < ApplicationReflex
 
   def create
     if params[:user_preference]
+      initialize_order
       initialize_cart
       init_user_services
       generate_items
-      morph '.flow-container', render(partial: "steps/packs", locals: { messages: [{ content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 }, { content: 'Thanks for waiting, please find your customized pack below.', delay: '3' }] })
+      morph '.flow-container', render(partial: "steps/spinner", locals: { message: { content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 } })
     else
       morph '.form-base', render(partial: "steps/cart/cart_form", locals: { user_preference: current_user.user_preference })
     end
   end
 
-  def back
-    morph '.flow-container', render(partial: "steps/user_preference/user_preference", locals: { user_preference: current_user.user_preference, messages: [{ content: "Great, #{current_user.first_name}! First of all, tell me more about your move ", delay: 0 }] })
+  def initialize_order
+    @order = Order.where(user: current_user, state: 'pending_payment').first_or_create
   end
 
   def initialize_cart
-    current_user.user_preference.cart || Cart.create(user_preference: current_user.user_preference)
+    @cart = @order.cart || Cart.create(user_preference: current_user.user_preference)
   end
 
   def init_user_services
@@ -28,11 +29,15 @@ class CartReflex < ApplicationReflex
   end
 
   def generate_items
-    Item.where(cart: current_user.user_preference.cart).destroy_all
+    @cart.items.destroy_all
     current_user.user_preference.user_services.each do |user_service|
       product = Product.find_by(category: user_service.service.category, country: current_user.user_preference.country)
-      Item.create(cart: current_user.user_preference.cart, product: product)
+      Item.create(cart: @cart, product: product)
     end
+  end
+
+  def generate_packs
+    morph '.flow-container', render(partial: "steps/packs", locals: { message: { content: "Thanks for waiting, please find your customized pack below.", delay: 0 } })
   end
 
   def user_preference_params

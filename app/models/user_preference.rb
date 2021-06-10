@@ -1,7 +1,7 @@
 class UserPreference < ApplicationRecord
   belongs_to :user
   belongs_to :country
-  has_one :cart, dependent: :destroy
+  has_many :carts, dependent: :destroy
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
 
