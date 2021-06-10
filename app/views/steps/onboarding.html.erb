@@ -1,6 +1,4 @@
 <div class="flow-container" data-controller="animate">
-  <%= controller.controller_name %>
-  <%= controller.action_name %>
   <%= render 'shared/progress_bar', step: 1 %>
   <div class="container">
       <%= render 'shared/chat', messages: [{content: "Hello! I’m Alice and I will help you get settled in your new city. Let's get to know each other a little better", delay: 0}] %>
@@ -14,10 +12,10 @@
           <%= f.input :email,
             required: true,
             input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com' %>
+          <%= f.hidden_field :provider, value: 'onboarding' %>
           <%= f.button :submit, 'Continue' , class: 'btn-main' %>
         <% end %>
         </div>
-        <%= link_to 'I already have an account', new_user_session_path %>
       </div>
   </div>
 </div>

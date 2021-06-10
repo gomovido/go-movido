@@ -10,7 +10,7 @@ RSpec.describe ShippingReflex, type: :reflex do
   let!(:order) { create(:order, user: user, state: 'pending_payment') }
   let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
   let!(:item) { create(:item, product: product, cart: cart, order: order) }
-  let(:reflex) { build_reflex(url: conversion_url(order), connection: { current_user: user }, params: { shipping: { address: "38 Rue Cler, 75007 Paris, France", instructions: "Call me before" } }) }
+  let(:reflex) { build_reflex(url: new_shipping_url(order), connection: { current_user: user }, params: { shipping: { address: "38 Rue Cler, 75007 Paris, France", instructions: "Call me before" } }) }
 
   describe '#create' do
     context 'when no shipping already associated' do

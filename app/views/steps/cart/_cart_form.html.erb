@@ -1,4 +1,4 @@
-<%= simple_form_for user_preference, url: simplicity_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
+<%= simple_form_for user_preference, url: new_cart_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
   <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
     <%= service.label { service.check_box(checked: true, class: "custom-checkbox") + service.text } %>
   <% end  %>

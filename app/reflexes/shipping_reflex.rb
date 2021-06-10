@@ -1,8 +1,13 @@
 class ShippingReflex < ApplicationReflex
   delegate :current_user, to: :connection
+  before_reflex do
+    @order = Order.find(params[:order_id])
+    morph_if_paid(@order.id)
+  end
 
   def create
-    @order = Order.find(params[:order_id])
+    return if @order.paid?
+
     @shipping = @order.shipping || Shipping.new
     @shipping.assign_attributes(shipping_params)
     @shipping.state = 'initiated'

@@ -1,4 +1,4 @@
-<%= simple_form_for pickup, url: conversion_path(order), data: {reflex: "submit->PickupReflex#create", reflex_serialize_form: true } do |f| %>
+<%= simple_form_for pickup, url: new_pickup_path(order), data: {reflex: "submit->PickupReflex#create", reflex_serialize_form: true } do |f| %>
   <%= f.check_box :uncomplete, required: true, checked: false, data: {action: 'change->animate#toggleInputs'} %>
   <div class="inputs">
     <%= f.input :arrival, as: :string,
