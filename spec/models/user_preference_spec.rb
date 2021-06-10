@@ -4,7 +4,7 @@ RSpec.describe UserPreference, type: :model do
   subject(:user_preference) { build(:user_preference) }
 
   describe 'associations' do
-    it { is_expected.to have_one(:cart) }
+    it { is_expected.to have_many(:carts) }
     it { is_expected.to have_many(:services) }
     it { is_expected.to belong_to(:country) }
     it { is_expected.to belong_to(:user) }

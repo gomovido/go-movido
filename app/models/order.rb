@@ -17,6 +17,10 @@ class Order < ApplicationRecord
     items.first.product.country.currency
   end
 
+  def cart
+    items&.first&.cart
+  end
+
   def paid?
     state == 'succeeded'
   end

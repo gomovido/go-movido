@@ -14,7 +14,7 @@ RSpec.describe CartReflex, type: :reflex do
 
     it 'creates a cart' do
       reflex.run(:initialize_cart)
-      expect(user.user_preference.cart).to be_present
+      expect(user.user_preference.carts.last).to be_present
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe CartReflex, type: :reflex do
 
       it 'create items' do
         reflex.run(:create)
-        expect(user.user_preference.cart.items.count).to eq(1)
+        expect(user.user_preference.carts.last.items.count).to eq(1)
       end
     end
 
