@@ -1,9 +1,7 @@
 <div class="chat-container">
-  <% messages.each do |message| %>
-    <div class="chat-message" data-delay="<%= message[:delay] %>" data-animate-target="message">
-      <%= image_tag(asset_path('components/simplicity/chat-profile-picture.png')) %>
-      <span class="name">Alice</span>
-      <p class="content"><%= message[:content] %></p>
-    </div>
-  <% end %>
+  <div class="chat-message" data-delay="<%= message[:delay] %>" data-animate-target="message">
+    <%= image_tag(asset_path('components/simplicity/chat-profile-picture.png')) %>
+    <span class="name">Alice</span>
+    <p class="content"><%= message[:content] %></p>
+  </div>
 </div>

@@ -15,7 +15,6 @@
     align-items: center;
     padding: 2%;
     p {
-      font-family: 'Poppins';
       font-style: normal;
       font-weight: normal;
       font-size: 20px;
@@ -56,12 +55,10 @@
         .destination {
           font-weight: bold;
           font-size: 12px;
-          font-family: 'Poppins';
           color: $light-grey;
         }
         .content {
           padding: 0 2rem;
-          font-family: 'Poppins';
           margin-top: 10px;
           font-size: 14px;
           color: $black;

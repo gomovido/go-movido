@@ -1,0 +1,10 @@
+@include media-breakpoint-down(md) {
+  .spinner-container {
+    .spinner-border {
+      border: 0.65em solid $purple;
+      border-right-color: transparent;
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
