@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
                                             password: Rails.application.credentials.staging[:http][:password]
   end
 
-  def after_sign_in_path_for(_resource)
-    dashboard_path
+  def after_sign_in_path_for(resource)
+    resource.paid_orders ? dashboard_path : new_user_preference_path
   end
 
   def set_locale

@@ -12,6 +12,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :email, uniqueness: { case_sensitive: false }
 
+  def paid_orders
+    orders.where(state: 'succeeded').present?
+  end
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)
   #   data = access_token['omniauth.auth']['info']
