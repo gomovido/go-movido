@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UserPreferenceReflex, type: :reflex do
   let(:user) { create(:user) }
   let(:country) { create(:country, :fr) }
-  let(:reflex) { build_reflex(url: simplicity_url, connection: { current_user: user }, params: { user_preference: { arrival: Faker::Date.forward(days: 30), stay_duration: 12, country_id: country.id } }) }
+  let(:reflex) { build_reflex(url: new_user_preference_url, connection: { current_user: user }, params: { user_preference: { arrival: Faker::Date.forward(days: 30), stay_duration: 12, country_id: country.id } }) }
 
   describe '#create' do
     context 'when record is valid' do

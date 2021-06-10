@@ -14,11 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    simplicity_path
-  end
-
-  def after_sign_out_path_for(_resource)
-    root_path
+    dashboard_path
   end
 
   def set_locale
@@ -29,6 +25,10 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
+  end
+
+  def redirect_if_order_is_paid
+    redirect_to dashboard_path if Order.find(params[:order_id]).paid?
   end
 
   protected

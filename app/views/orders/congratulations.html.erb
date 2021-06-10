@@ -1,6 +1,1 @@
-<p>Thanks for your purchase</p>
-<p>Here is your order</p>
-<ul>
-  <li>order id: <%= @order.id %></li>
-  <li>order status: <%= @order.state %></li>
-</ul>
+<%= render 'steps/order/congratulations', order: @order %>
