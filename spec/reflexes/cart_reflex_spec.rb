@@ -13,6 +13,7 @@ RSpec.describe CartReflex, type: :reflex do
     let(:reflex) { build_reflex(url: new_cart_url, connection: { current_user: user }) }
 
     it 'creates a cart' do
+      reflex.run(:initialize_order)
       reflex.run(:initialize_cart)
       expect(user.user_preference.carts.last).to be_present
     end
