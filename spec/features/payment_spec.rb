@@ -14,7 +14,7 @@ RSpec.describe "Payment via Stripe", type: :feature do
 
     before do
       login_as(user, scope: :user)
-      visit new_order_payment_path(order.id, locale: :en)
+      visit checkout_path(order.id)
     end
 
     context 'when user proceed payment with valid card' do
