@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   # Onboarding
+  resources :orders, only: [:create]
   get 'onboarding/simplicity/new-journey', to: 'user_preferences#new', as: 'new_user_preference'
   get 'onboarding/simplicity/my-services', to: 'carts#new', as: 'new_cart'
   get 'onboarding/simplicity/my-services/packs', to: 'packs#index', as: 'packs'
