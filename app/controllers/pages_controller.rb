@@ -15,7 +15,5 @@ class PagesController < ApplicationController
 
   def about; end
 
-  def flow; end
-
   def dashboard; end
 end

@@ -15,6 +15,10 @@ class User < ApplicationRecord
   def paid_orders
     orders.where(state: 'succeeded').present?
   end
+
+  def draft_order?
+    orders.where(state: 'pending_payment')
+  end
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)
   #   data = access_token['omniauth.auth']['info']

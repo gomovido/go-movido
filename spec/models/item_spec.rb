@@ -5,9 +5,7 @@ RSpec.describe Item, type: :model do
     %i[cart product].each do |field|
       it { is_expected.to belong_to(field) }
     end
-    %i[order charge].each do |field|
-      it { is_expected.to belong_to(field).optional }
-    end
+    it { is_expected.to belong_to(:order).optional }
   end
 
   describe 'validations' do

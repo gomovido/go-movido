@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   # Onboarding
   resources :orders, only: [:create]
-  get 'onboarding/simplicity/new-journey', to: 'user_preferences#new', as: 'new_user_preference'
-  get 'onboarding/simplicity/my-services', to: 'carts#new', as: 'new_cart'
-  get 'onboarding/simplicity/my-services/packs', to: 'packs#index', as: 'packs'
+  get 'onboarding/new-journey', to: 'user_preferences#new', as: 'new_user_preference'
+  get 'onboarding/my-services', to: 'carts#new', as: 'new_cart'
+  get 'onboarding/my-services/packs', to: 'packs#index', as: 'packs'
   get 'onboarding/starter-pack/:order_id/shipping', to: 'shippings#new', as: 'new_shipping'
   get 'onboarding/starter-pack/:order_id/pickup', to: 'pickups#new', as: 'new_pickup'
   get 'onboarding/starter-pack/:order_id/checkout', to: 'payments#new', as: 'checkout'

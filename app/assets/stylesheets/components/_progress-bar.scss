@@ -1,6 +1,6 @@
 @include media-breakpoint-down(md) {
   .progress {
-    width: 100vw;
+    border-radius: 0;
     height: 6px;
     .progress-bar {
       background: $purple;

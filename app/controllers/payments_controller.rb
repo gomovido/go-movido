@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   def new
     @order = Order.find_by(id: params[:order_id], user: current_user)
     @billing = @order.billing || Billing.new
-    @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
+    @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
   end
 
   def create
@@ -22,12 +22,12 @@ class PaymentsController < ApplicationController
         redirect_to congratulations_path(@order.id)
       else
         @order.update(state: 'payment_failed')
-        @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
+        @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
         render :new
       end
     else
       @billing = billing
-      @messages = [{ content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }]
+      @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
       render :new
     end
   end
