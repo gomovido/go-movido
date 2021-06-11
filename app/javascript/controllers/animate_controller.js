@@ -9,7 +9,9 @@ export default class extends Controller {
     StimulusReflex.register(this);
     window.scroll({ top: 0, behavior: 'smooth' });
     this.toggleSpinner(document.querySelector('.spinner-container'), 2000)
-    this.messageTarget.classList.add('animate__animated', 'animate__fadeInLeft', `animate__delay-${this.messageTarget.dataset.delay}s`)
+    if (document.querySelector('.chat-container')) {
+      this.messageTarget.classList.add('animate__animated', 'animate__fadeInLeft', `animate__delay-${this.messageTarget.dataset.delay}s`)
+    }
     this.contentContainerTarget.classList.add('animate__animated', 'animate__fadeInLeft', `animate__delay-${this.contentContainerTarget.dataset.delay}s`);
   }
 

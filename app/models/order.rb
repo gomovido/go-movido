@@ -7,10 +7,14 @@ class Order < ApplicationRecord
   has_many :items, dependent: :destroy
 
   validates :state, presence: true
-  validates :state, inclusion: { in: ["canceled", "pending_payment", "payment_failed", "succeeded"] }
+  validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
 
   def total_amount
     items.includes([:product]).sum { |item| item.product.activation_price_cents }
+  end
+
+  def ready_to_checkout?
+    user.user_preference.pickup? ? shipping && pickup : shipping
   end
 
   def currency

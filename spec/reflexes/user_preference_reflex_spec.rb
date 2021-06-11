@@ -16,7 +16,7 @@ RSpec.describe UserPreferenceReflex, type: :reflex do
       it 'throws errors' do
         reflex.params['user_preference']['country_id'] = nil
         reflex.run(:create)
-        expect(reflex.get(:user_pref).errors).to be_present
+        expect(reflex.get(:user_preference).errors).to be_present
       end
 
       it 'morphs the form with errors' do
