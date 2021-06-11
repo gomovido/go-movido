@@ -8,7 +8,7 @@ RSpec.describe Charge, type: :model do
   describe 'validations' do
     let(:charge) { build(:charge) }
 
-    %i[stripe_charge_id state].each do |field|
+    %i[state].each do |field|
       it { is_expected.to validate_presence_of(field) }
     end
 
