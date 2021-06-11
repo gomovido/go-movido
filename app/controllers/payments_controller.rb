@@ -1,8 +1,8 @@
 class PaymentsController < ApplicationController
   before_action :redirect_if_order_is_paid, only: [:new]
+  before_action :set_order, only: %i[new create create_billing]
 
   def new
-    @order = Order.find_by(id: params[:order_id], user: current_user)
     redirect_to new_shipping_path(@order.id) and return unless @order.ready_to_checkout?
 
     @billing = @order.billing || Billing.new
@@ -10,10 +10,9 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    @order = Order.find(params[:order_id])
     redirect_to dashboard_path and return if @order.paid?
 
-    @billing = create_billing(@order.id)
+    @billing = create_billing
     if @billing.address
       proceed_payment(params[:stripeToken], @order)
     else
@@ -22,11 +21,10 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def create_billing(order_id)
-    order = Order.find(order_id)
-    billing = order.billing || Billing.new
+  def create_billing
+    billing = @order.billing || Billing.new
     billing.assign_attributes(billing_params)
-    billing.order = order
+    billing.order = @order
     billing.save
     billing
   end
@@ -50,5 +48,9 @@ class PaymentsController < ApplicationController
 
   def billing_params
     params.require(:billing).permit(:address)
+  end
+
+  def set_order
+    @order = Order.find_by(id: params[:order_id], user: current_user)
   end
 end

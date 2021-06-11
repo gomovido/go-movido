@@ -37,11 +37,11 @@ class CartReflex < ApplicationReflex
   end
 
   def generate_packs
-    morph '.flow-container', render(partial: "steps/packs", locals: { order: Order.find_by(user: current_user, state: 'pending_payment'), message: { content: "Thanks for waiting, please find your customized pack below.", delay: 0 } })
+    morph '.flow-container', render(partial: "steps/packs", locals: { order: current_user.current_draft_order, message: { content: "Thanks for waiting, please find your customized pack below.", delay: 0 } })
   end
 
   def more_details
-    morph '.flow-container', render(partial: "steps/cart/show", locals: { cart: @cart })
+    morph '.flow-container', render(partial: "steps/cart/show", locals: { cart: current_user.current_draft_order.cart })
   end
 
   def user_preference_params

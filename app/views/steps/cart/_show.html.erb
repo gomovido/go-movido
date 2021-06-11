@@ -1,7 +1,9 @@
 <div class="flow-container" data-controller="animate">
   <div class="container">
     <div class="content-container" data-delay="0" data-animate-target="contentContainer">
-      More details
+      <% cart.items.includes([product: :product_details]).each do |item| %>
+        <%= render 'steps/cart/product', item: item %>
+      <% end %>
     </div>
   </div>
 </div>
