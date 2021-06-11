@@ -1,0 +1,50 @@
+@include media-breakpoint-down(md) {
+  .product-card {
+    padding: 100px 30px 30px 30px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), rgba(224, 213, 239, 0.5);
+    border: 1px solid rgba(217, 219, 225, 0.8);
+    box-shadow: -8px 8px 16px rgba(117, 115, 115, 0.25);
+    border-radius: 16px;
+    position: relative;
+    margin-top: 80px;
+    img {
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      border-radius: 8px;
+      right: 0;
+      height: 160px;
+      top: -80px;
+    }
+    .content {
+      .name {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: $purple;
+      }
+      .product-details {
+        .detail {
+          font-family: 'Poppins';
+          letter-spacing: 0.05em;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          margin-bottom: 20px;
+          i {
+            color: $purple;
+            margin-right: 1rem;
+          }
+        }
+      }
+      .description {
+        font-family: 'Poppins';
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: $grey;
+      }
+    }
+  }
+}
