@@ -1,12 +1,10 @@
 <div class="flow-container" data-controller="animate">
-  <%= render 'shared/progress_bar', step: 2 %>
   <div class="container">
       <%= render 'shared/chat', message: message %>
       <div class="content-container" data-delay="2" data-animate-target="contentContainer">
         <div class="form-base">
-          <%= render 'steps/user_preference/user_preference_form', user_preference: user_preference %>
+          <%= render 'steps/checkout/form', order: order, billing: billing %>
         </div>
     </div>
   </div>
 </div>
-

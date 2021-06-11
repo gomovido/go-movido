@@ -4,7 +4,8 @@
       <%= render 'shared/chat', message: message %>
       <div class="content-container" data-delay="0" data-animate-target="contentContainer">
         <div class="form-base">
-          <%= link_to 'Buy now', orders_path, method: :post, class: 'btn-main' %>
+          <%= link_to 'Buy now', new_shipping_path(order.id), class: 'btn-main' %>
+          <span class="btn-main" data-reflex="click->CartReflex#more_details">More details</span>
         </div>
     </div>
   </div>
