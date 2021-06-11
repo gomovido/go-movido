@@ -13,9 +13,9 @@ class PickupReflex < ApplicationReflex
     @pickup.assign_attributes(pickup_params) if @pickup.complete?
     @pickup.order = @order
     if @pickup.save
-      morph '.flow-container', render(partial: "steps/checkout/checkout", locals: { order: @order, billing: (@order.billing || Billing.new), message: { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 } })
+      morph '.flow-container', render(partial: "steps/checkout/new", locals: { order: @order, billing: (@order.billing || Billing.new), message: { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 } })
     else
-      morph '.form-base', render(partial: "steps/pickup/pickup_form", locals: { pickup: @pickup, order: @order })
+      morph '.form-base', render(partial: "steps/pickup/form", locals: { pickup: @pickup, order: @order })
     end
   end
 
