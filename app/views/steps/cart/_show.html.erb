@@ -1,9 +1,26 @@
 <div class="flow-container" data-controller="animate">
   <div class="container">
     <div class="content-container" data-delay="0" data-animate-target="contentContainer">
+      <h3 class="mt-3 purple">Your movido Starter Pack contains:</h3>
+      <p class="mb-5">Your Starter Pack will be shipped for free to your current home address (anywhere in the world!)</p>
+      <div class="mb-5">
       <% cart.items.includes([product: :product_details]).each do |item| %>
         <%= render 'steps/cart/product', item: item %>
       <% end %>
+      </div>
+      <h3>Understand the pricing</h3>
+      <p><span class="purple">movido is 100% free!</span> We do not charge you any fees for the offers you choose or for our service. The costs that you see are 100% transparent and reflect the actual retail prices of our partners.</p>
     </div>
+  </div>
+  <div class="partners">
+    <h3>What providers are included in the Starter Pack?</h3>
+    <p>We know that it’s difficult to choose the right providers in a new country.  Therefore, movido experts and users from all over the world have selected the best providers for you.</p>
+  </div>
+  <div class="partners-logos">
+    <%= image_tag(asset_path('logos/al.png')) %>
+    <%= image_tag(asset_path('logos/bouygues.png')) %>
+    <%= image_tag(asset_path('logos/g7.png')) %>
+    <%= image_tag(asset_path('logos/giffgaff.png')) %>
+    <%= image_tag(asset_path('logos/navigo.png')) %>
   </div>
 </div>

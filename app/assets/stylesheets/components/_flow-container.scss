@@ -1,10 +1,21 @@
 @include media-breakpoint-down(md) {
   .flow-container {
     min-height: calc(100vh - 75px);
-    margin-bottom: 1rem;
     .btn-main-white {
       width: 100% !important;
       margin-top: 1rem;
+    }
+    h2 {
+      font-family: 'Poppins';
+      font-weight: 600;
+    }
+    p {
+      color: #979797;
+      margin-bottom: 2rem;
+      font-size: 16px;
+    }
+    ul {
+      margin-bottom: 2rem;
     }
   }
 }

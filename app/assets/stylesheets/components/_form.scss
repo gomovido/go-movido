@@ -4,17 +4,45 @@
     font-size: 14px;
     color: $taupe;
     font-weight: 400;
+    margin-bottom: 0.5rem;
   }
   input.form-control, select {
     height: 50px;
     box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
     border-radius: 7px;
     border: 1px solid $grey-snow;
-    font-weight: 500;
-    color: $black;
+    font-weight: 300;
+    color: $taupe;
+    font-size: 14px;
     &::placeholder {
       color: $taupe;
       opacity: 0.4;
+    }
+  }
+  textarea.form-control {
+    height: 50px;
+    box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
+    border-radius: 7px;
+    border: 1px solid $grey-snow;
+    font-weight: 300;
+    color: $taupe;
+    font-size: 14px;
+    &::placeholder {
+      color: $taupe;
+      opacity: 0.4;
+    }
+  }
+  input[type='checkbox'] {
+    width: 1.3em;
+    height: 1.3em;
+    -webkit-appearance: none;
+    cursor: pointer;
+    border: 2px solid #ABB4BD;
+    border-radius: 4px;
+    &:checked {
+      background: url(asset_path('components/checkboxes/checkbox_active.png'));
+      background-size: cover;
+      border: none;
     }
   }
   input.form-control.is-invalid, select.form-control.is-invalid {
@@ -40,6 +68,18 @@
       right: 5%;
       top: 60%;
       font-size: 18px;
+    }
+  }
+  .signin {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .lines-input {
+    .form-group {
+      width: 45%;
+    }
+    .form-group:first-child {
+      margin-right: 5%;
     }
   }
 }
