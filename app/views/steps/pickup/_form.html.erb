@@ -1,12 +1,20 @@
 <%= simple_form_for pickup, url: new_pickup_path(order), data: {reflex: "submit->PickupReflex#create", reflex_serialize_form: true } do |f| %>
-  <%= f.check_box :uncomplete, required: true, checked: false, data: {action: 'change->animate#toggleInputs'} %>
+  <div class="d-flex">
+    <%= f.check_box :uncomplete, required: true, checked: false, data: {action: 'change->animate#toggleInputs'}, input_html: {class: "custom-checkbox"} %>
+    <label class='w-100 ms-2'>I don’t have my flight details yet. Please contact me again at a later point in time to arrange the airport pick-up</label>
+  </div>
+  <hr>
   <div class="inputs">
-    <%= f.input :arrival, as: :string,
+    <div class="d-flex lines-input">
+    <%= f.input :arrival, as: :string, label: 'Date of arrival',
                required: true,
                input_html: { class:'datepicker', data: {
                 controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
-    <%= f.input :flight_number, required: true %>
+    <%= f.input :flight_number, required: true, placeholder: "LH20038" %>
+    </div>
     <%= f.input :airport, collection: (order.fr? ? Pickup::AIRPORTS_FR : Pickup::AIRPORTS_GB), prompt: 'Select your aiport', input_html: {class: 'custom-select'} %>
+    <label class="mb-4">Please note that our drivers will only be able to drop you off in central London locations.<br><br>
+    Your driver will be waiting for you at arrivals. Should you need assistance, please contact us.</label>
   </div>
   <%= f.button :submit, 'Continue' , class: 'btn-main' %>
 <% end %>
