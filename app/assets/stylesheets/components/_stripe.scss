@@ -1,0 +1,25 @@
+#payment-form {
+  .StripeElement {
+    height: 50px;
+    box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
+    border-radius: 7px;
+    border: 1px solid $grey-snow;
+    font-weight: 300;
+    color: $taupe !important;
+    font-size: 14px;
+    display: flex;
+    padding-left: 1em;
+    align-items: center;
+    &::placeholder {
+      color: $taupe;
+      opacity: 0.4;
+    }
+    .__PrivateStripeElement {
+      width: 100%;
+    }
+  }
+  #card-errors {
+    font-size: 14px;
+    color: red;
+  }
+}

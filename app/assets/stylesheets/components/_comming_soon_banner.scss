@@ -1,0 +1,19 @@
+.comming-soon-banner {
+  background: $purple;
+  padding: 4%;
+  .title {
+    color: $white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    color: $white;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+  }
+  img {
+    width: 100%;
+  }
+}

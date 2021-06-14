@@ -21,6 +21,10 @@ class Order < ApplicationRecord
     items.first.product.country.currency
   end
 
+  def currency_symbol
+    fr? ? '€' : '£'
+  end
+
   def cart
     items&.first&.cart
   end

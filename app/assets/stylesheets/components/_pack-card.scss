@@ -1,0 +1,45 @@
+.packs-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  .pack-card {
+    img {
+      position: absolute;
+      top: -10%;
+      right: 0;
+    }
+    i {
+      color: $purple;
+    }
+    .price {
+      font-size: 22px;
+      color: $purple;
+      font-weight: 500;
+    }
+    padding: 5% 7%;
+    padding-bottom: 0;
+    border: 1px solid rgba(166, 163, 173, 0.2);
+    box-sizing: border-box;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    li {
+      font-weight: 300;
+      padding: 2% 0%;
+      font-size: 14px;
+    }
+  }
+  .cta-wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    background: $purple;
+    color: white;
+    padding: 3%;
+    margin-top: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    a {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+}
