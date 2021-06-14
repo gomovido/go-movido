@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_many :items, dependent: :destroy
   after_create :set_sku
 
-  validates :name, :activation_price, :subscription_price, :image_url, presence: true
+  validates :name, :activation_price, :subscription_price, :image_url, :description, presence: true
 
   def activation_price_cents
     (activation_price * 100).to_i

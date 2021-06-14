@@ -15,7 +15,7 @@ RSpec.describe Product, type: :model do
     let(:category) { create(:category, :mobile) }
     let(:product) { build(:product, :mobile, country: country, company: company, category: category) }
 
-    %i[name activation_price subscription_price image_url].each do |field|
+    %i[description name activation_price subscription_price image_url].each do |field|
       it { is_expected.to validate_presence_of(field) }
     end
 

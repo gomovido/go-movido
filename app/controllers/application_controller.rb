@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    resource.paid_orders ? dashboard_path : new_user_preference_path
+    resource.paid_orders? ? dashboard_path : new_user_preference_path
   end
 
   def set_locale
