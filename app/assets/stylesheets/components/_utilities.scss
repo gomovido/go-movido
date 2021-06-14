@@ -31,8 +31,17 @@ button {
   margin: 0 auto;
 }
 
+.radius-bot-0 {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
 .btn {
   padding: 0;
+}
+
+.black {
+  color: #18191F !important;
 }
 
 .padded {
@@ -47,6 +56,10 @@ button {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .iti__flag {background-image: asset-url("flags/flags@2x.png") !important;
   }
+}
+
+.black {
+  color: $black !important;
 }
 
 .bg-black {
