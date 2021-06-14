@@ -14,8 +14,8 @@
             input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com' %>
           <%= f.button :submit, 'Continue' , class: 'btn-main' %>
         <% end %>
+        <%= link_to 'I already have an account', new_user_session_path, class:'signin' %>
         </div>
-        <%= link_to 'I already have an account', new_user_session_path %>
       </div>
   </div>
 </div>

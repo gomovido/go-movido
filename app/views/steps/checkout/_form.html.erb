@@ -1,33 +1,36 @@
 <%= simple_form_for order, url: payments_path(order), method: :post, data: { controller: "payment", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
   <%= simple_fields_for billing do |p| %>
     <div data-controller='address' >
+      <label>Billing address</label>
       <div data-address-target="geocoder" class="form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' required="true" ></div>
       <div class="invalid-feedback d-block"><%= billing.errors.full_messages[0]  %></div>
       <%= p.hidden_field :address, required: true, data: { address_target: 'addressInput' } %>
     </div>
   <% end %>
-  <div class="form-divs-wrapper mb-5">
+  <div class="form-divs-wrapper mb-3">
     <div class="form-group">
-      <label for="card-number-element" class="my-3"><%= t('orders.stripe.number') %></label>
-      <div id="card-number-element"></div>
+      <label for="card-number-element" class="my-1"><%= t('orders.stripe.number') %></label>
+      <div id="card-number-element" class="w-100"></div>
       <div id="card-errors" class="mt-2" role="alert"></div>
     </div>
-    <div class="name-fields d-flex justify-content-between">
+    <div class="lines-input d-flex justify-content-between">
       <div class="form-group">
-        <label for="card-expiry-element" class="my-3"><%= t('orders.stripe.date') %></label>
+        <label for="card-expiry-element" class="my-1"><%= t('orders.stripe.date') %></label>
         <div id="card-expiry-element"></div>
       </div>
       <div class="form-group">
-        <label for="card-cvc-element" class="my-3">CVC</label>
+        <label for="card-cvc-element" class="my-1">CVC</label>
         <div id="card-cvc-element"></div>
       </div>
     </div>
-    <hr>
-    <div class="form-group">
+    <div class="form-group my-3">
       <span class="legals">
         <%= t('orders.stripe.policy_link', href: link_to("Terms & Conditions | Stripe", "https://stripe.com/en-gb/privacy", target:"blank", class:'policy-link').html_safe).html_safe %>
       </span>
     </div>
     <%= f.button :submit, 'Complete payment', class: 'btn-main', id: 'stripe-submit', data: {disable_with: false} %>
+  </div>
+  <div class="powered text-center">
+    <p>Powered by Stripe</p>
   </div>
 <% end %>

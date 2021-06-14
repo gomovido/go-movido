@@ -1,0 +1,19 @@
+.next-step-banner {
+  background: $purple;
+  margin-top: 50%;
+  padding: 2% 4%;
+  text-align: center;
+  p {
+    color: $white;
+  }
+  img {
+    width: 90%;
+    position: relative;
+    top: -185px;
+  }
+  .title {
+    padding-top: 40%;
+    font-weight: bold;
+    font-size: 24px;
+  }
+}

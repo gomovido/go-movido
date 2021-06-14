@@ -1,0 +1,19 @@
+.partners {
+  background: $purple;
+  padding: 5%;
+  h3 {
+    color: $white;
+    margin-bottom: 5%;
+  }
+  p {
+    color: $white;
+  }
+}
+.partners-logos {
+  padding: 5%;
+  display: block;
+  text-align: center;
+  img {
+    margin: 4%;
+  }
+}

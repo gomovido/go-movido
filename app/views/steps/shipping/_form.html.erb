@@ -1,9 +1,12 @@
 <%= simple_form_for shipping, url: new_shipping_path(order), data: {reflex: "submit->ShippingReflex#create", reflex_serialize_form: true, controller: "address"  } do |f| %>
-  <div data-address-target="geocoder" class="form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
+  <label>Your current address</label>
+  <div data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
     <i class="fad fa-map-marker position-absolute"></i>
   </div>
   <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
   <%= f.hidden_field :address, required: true, data: { address_target: 'addressInput' } %>
-  <%= f.input :instructions, required: true %>
+  <label class="mb-2">Please make sure you will be at this address for at least 1 more week to ensure you receive your Starter Pack</label>
+  <label>Any other delivery instructions? (optional)</label>
+  <%= f.input :instructions, required: true, label: false, placeholder: 'Type a message for us' %>
   <%= f.button :submit, 'Continue' , class: 'btn-main' %>
 <% end %>

@@ -1,6 +1,19 @@
-<%= simple_form_for user_preference, url: new_cart_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
-  <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
-    <%= service.label { service.check_box(checked: true, class: "custom-checkbox") + service.text } %>
-  <% end  %>
-  <%= f.button :submit, 'Continue' , class: 'btn-main' %>
-<% end %>
+<div class="padded"></div>
+<div class="checkboxes-wrapper">
+  <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
+  <div class="checkboxes">
+    <h2>Starter Pack</h2>
+    <p>Delivered to your current home before you move</p>
+    <%= simple_form_for user_preference, url: new_cart_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
+    <ul>
+      <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
+        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + service.text } %></li>
+      <% end %>
+      <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true">+ free surprise 🍪</label></li>
+      <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true">+ free shipping 📦</label></li>
+      </ul>
+      <%= f.button :submit, 'Continue' , class: 'btn-main' %>
+    <% end %>
+  </div>
+  <p class="p-3">By click Continue, you agree with the <span class="purple">Terms and Conditions</span>. Movido will process your personal data according to our <span class='purple'>Privacy Policy</span>.</p>
+</div>
