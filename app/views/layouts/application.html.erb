@@ -32,7 +32,9 @@
 
   <body data-locale="<%= I18n.locale.to_s %>" data-env="<%= Rails.env %>">
     <noscript><iframe src='https://www.googletagmanager.com/ns.html?id="<%= Rails.application.credentials.production[:google][:tag_manager_id] %>"' height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <%= render 'shared/navbar' %>
+    <% unless controller_name == 'sessions' && action_name == 'new' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/pixel_facebook' %>
     <div class="wrapper d-flex flex-column justify-content-center">
