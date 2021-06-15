@@ -1,1 +1,48 @@
-dashboard
+<div class="flow-container" data-controller="animate">
+  <div class="banner-purple">
+    <h2 class="title">Your orders</h2>
+    <div class="checkboxes-wrapper">
+      <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
+      <div class="checkboxes">
+        <h2>Starter Pack</h2>
+        <p>The best offers to get you started</p>
+        <ul>
+          <% @orders[-1].cart.items.includes([:product]).each do |item| %>
+            <li><label><%= item.product.name %><i class="fas fa-check purple"></i></label></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="tracking text-center mb-3">
+      <p class='title'>Your tracking link <i class="fas fa-truck"></i></p>
+      <p class='tracking-id'><%= @orders[-1].shipping.tracking_id || 'XMWZV7ES-WF' %></p>
+      <p class="tracking-link m-0">You can track your order <span class='purple'>here</span></p>
+    </div>
+    <p class="white">Need another Starter Pack or continue where you left? </p>
+    <%= link_to 'Click Here', new_user_preference_path, class:'btn-main-white' %>
+  </div>
+  <div class="container">
+    <div class="product-card mb-5">
+      <%= image_tag(asset_path('components/comming-soon-banner/card.png'), class:'top-img') %>
+      <div class="content">
+        <h3 class="name black">Settle in Pack</h3>
+        <p>Customized offers to get you settled after arrival</p>
+        <div class="product-details">
+          <p class="detail d-flex align-items-center justify-content-between">WiFi at home
+           <i class="fas fa-check purple"></i></p>
+          <p class="detail d-flex align-items-center justify-content-between">Gas, water, electricity at home
+           <i class="fas fa-check purple"></i></p>
+          <p class="detail d-flex align-items-center justify-content-between">Mobile phone contract <i class="fas fa-check purple"></i></p>
+          <p class="detail d-flex align-items-center justify-content-between">Housing insurance
+           <i class="fas fa-check purple"></i></p>
+          <p class="detail d-flex align-items-center justify-content-between">Guarantor
+           <i class="fas fa-check purple"></i></p>
+        </div>
+      </div>
+    </div>
+    <h3 class="purple">Coming soon</h3>
+    <p>Looking for WiFi, utilities, insurance, and more? Customize your subscription bundle in one simple Settle in Pack - all in 1 monthly bill with the option to cancel anytime. </p>
+    <p class="purple">Pre-register now and benefit from exclusive discounts!</p>
+    <%= link_to 'Pre-register for the Settle in Pack', '#', class:'btn-main mb-5' %>
+  </div>
+</div>

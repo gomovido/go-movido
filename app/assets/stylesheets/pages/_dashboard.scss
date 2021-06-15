@@ -1,0 +1,36 @@
+.banner-purple {
+  background: $purple;
+  padding: 5%;
+  h2.title {
+    color: $white;
+  }
+}
+.checkboxes-wrapper {
+  border-radius: 6px;
+  background: $white;
+  img {
+    top: -30%;
+  }
+  .checkboxes {
+    margin-top: 8rem;
+    label {
+      align-items: center;
+      justify-content: flex-end;
+      i {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+.tracking {
+  background: $white;
+  border-radius: 6px;
+  padding: 5%;
+  .title {
+    color: $purple;
+    font-weight: bold;
+  }
+  .tracking-id {
+    font-size: 22px;
+  }
+}
