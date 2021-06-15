@@ -8,6 +8,8 @@ class UserPreference < ApplicationRecord
   validates :arrival, :stay_duration, presence: true
   validate :arrival_cannot_be_in_the_past
   validate :country_id_present
+  attr_accessor :terms
+
 
   def country_id_present
     errors.add(:country_id, "can't be blank") if country_id.blank?
