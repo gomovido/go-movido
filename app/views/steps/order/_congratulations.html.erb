@@ -11,22 +11,53 @@
     <p>You will receive your Starter Pack within 1 week! Login to movido to track your delivery (the tracking link will be available as soon as your Starter Pack is being shipped) </p>
   </div>
   <div class="container">
-    <h3>And once you have arrived?</h3>
-    <p>Get your customized subscriptions in 1 bill with the Settle in Pack. Stay tuned and check your dashboard!</p>
-    <div class="product-card">
-      <%= image_tag(asset_path('components/comming-soon-banner/card.png'), class:'top-img') %>
-      <div class="content">
-        <h3 class="name black">Settle in Pack</h3>
-        <p>Customized offers to get you settled after arrival</p>
-        <div class="product-details">
-          <p class="detail d-flex align-items-center justify-content-between"></i>WiFi at home <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %></p>
-          <p class="detail d-flex align-items-center justify-content-between">Gas, water, electricity at home <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %></p>
-          <p class="detail d-flex align-items-center justify-content-between">Mobile phone contract <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %></p>
-          <p class="detail d-flex align-items-center justify-content-between">Housing insurance <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %></p>
-          <p class="detail d-flex align-items-center justify-content-between">Guarantor <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %></p>
+    <div class="row">
+      <div class="col-12 mb-5">
+        <h3>And once you have arrived?</h3>
+        <p class="black">Get your customized subscriptions in 1 bill with the Settle in Pack. Stay tuned and check your dashboard!</p>
+        <div class="product-card radius-bot-0">
+          <%= image_tag(asset_path('components/comming-soon-banner/card.png'), class:'top-img') %>
+          <div class="content">
+            <h3 class="name black">Settle in Pack</h3>
+            <p>Customized offers to get you settled after arrival</p>
+            <div class="product-details">
+              <p class="detail d-flex align-items-center justify-content-between"></i>WiFi at home <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %>
+              </p>
+              <p class="detail d-flex align-items-center justify-content-between">Gas, water, electricity at home <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %>
+              </p>
+              <p class="detail d-flex align-items-center justify-content-between">Mobile phone contract <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %></p>
+              <p class="detail d-flex align-items-center justify-content-between">Housing insurance <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %>
+              </p>
+              <p class="detail d-flex align-items-center justify-content-between">Guarantor <%= image_tag(asset_path('components/checkboxes/checkbox_active.png'), class:'checkboxes') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="comming-soon text-center p-3 mb-4">
+          <span>COMING SOON</span>
         </div>
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-6 position-relative">
+        <%= image_tag(asset_path('pages/orders/congratulations/girl.png'), class:"w-100 position-absolute bot-0") %>
+      </div>
+      <div class="col-6 pb-5">
+        <h3>Any questions?</h3>
+        <p>Our team is here to support you, either through the chat, phone or WhatsApp.</p>
+        <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-main" do %>
+          <span>Book a call now</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="partners">
+    <h3>Want to meet other people in your new city?</h3>
+    <p>Join our community on Instagram and Facebook to stay tuned on our latest events</p>
+    <div class="d-flex">
+      <%= image_tag(asset_path('pages/orders/congratulations/facebook.png'), class:'social-media') %>
+      <%= image_tag(asset_path('pages/orders/congratulations/instagram.png'), class:'social-media') %>
+    </div>
+    <%= link_to 'Continue to Dashboard', dashboard_path, class:'btn-main-white' %>
   </div>
 </div>
