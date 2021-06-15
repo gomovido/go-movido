@@ -16,6 +16,6 @@ class PagesController < ApplicationController
   def about; end
 
   def dashboard
-    @orders = Order.where(state: "succeeded", user: current_user)
+    @orders = Order.where(state: "succeeded", user: current_user).includes([:shipping])
   end
 end

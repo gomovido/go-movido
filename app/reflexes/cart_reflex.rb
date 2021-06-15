@@ -2,19 +2,38 @@ class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
   def create
-    if params[:user_preference]
-      initialize_order
-      initialize_cart
-      init_user_services
-      generate_items
-      morph '.flow-container', render(partial: "steps/spinner", locals: { message: { content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 } })
+    if terms_not_checked?(user_preference_params[:terms])
+      current_user.user_preference.errors.add(:terms, 'required')
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: current_user.current_draft_order || Order.new, user_preference: current_user.user_preference })
+    elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
+      order = current_user.current_draft_order || Order.new
+      order.errors.add(:affiliate_link, 'Code entered is invalid')
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
     else
-      morph '.form-base', render(partial: "steps/cart/form", locals: { user_preference: current_user.user_preference })
+      if user_preference_params[:service_ids]
+        initialize_order
+        initialize_cart
+        init_user_services
+        generate_items
+        morph '.flow-container', render(partial: "steps/spinner", locals: { message: { content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 } })
+      else
+        order = current_user.current_draft_order || Order.new
+        morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
+      end
     end
+  end
+
+  def terms_not_checked?(terms)
+    terms == '0'
   end
 
   def initialize_order
     @order = Order.where(user: current_user, state: 'pending_payment').first_or_create
+    @order.update(affiliate_link: params[:order][:affiliate_link]) if params[:order][:affiliate_link].present? && promocode_is_valid?(params[:order][:affiliate_link])
+  end
+
+  def promocode_is_valid?(promocode)
+    ['MANDY', 'CLOUDS', 'VIANCQA', 'KARINA1', 'KARINA2'].include?(promocode)
   end
 
   def initialize_cart
@@ -45,6 +64,6 @@ class CartReflex < ApplicationReflex
   end
 
   def user_preference_params
-    params.require(:user_preference).permit(service_ids: [])
+    params.require(:user_preference).permit(:terms, service_ids: [])
   end
 end

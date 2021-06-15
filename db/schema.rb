@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_085006) do
+ActiveRecord::Schema.define(version: 2021_06_15_112719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_085006) do
     t.bigint "charge_id"
     t.bigint "billing_id"
     t.bigint "shipping_id"
+    t.string "affiliate_link"
     t.index ["billing_id"], name: "index_orders_on_billing_id"
     t.index ["charge_id"], name: "index_orders_on_charge_id"
     t.index ["shipping_id"], name: "index_orders_on_shipping_id"
