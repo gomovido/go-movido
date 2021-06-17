@@ -7,11 +7,12 @@
     <p>Delivered to your current home before you move</p>
     <ul>
       <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
-        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + service.text } %></li>
+        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + t("cart.form.#{service.text}") } %></li>
       <% end %>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true"  disabled="disabled" >+ free surprise 🍪</label></li>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true" disabled="disabled" >+ free shipping 📦</label></li>
     </ul>
+    <p>*Estimated delivery time: 1 week</p>
   </div>
   <%= simple_fields_for order do |p| %>
     <label>Do you have a PROMOCODE?</label>
@@ -24,6 +25,6 @@
     <div class="custom-errors"><%= user_preference.errors[:terms].present? ? user_preference.errors[:terms][0] : '' %></div>
     <p>movido will process your personal data according to our <span class="purple">Privacy Policy</span>.</p>
   </div>
-  <%= f.button :submit, 'Continue' , class: 'btn-main mb-5' %>
+  <%= f.button :submit, 'Continue' , class: 'btn-main w-100 mb-5' %>
   <% end %>
 </div>

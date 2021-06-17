@@ -1,20 +1,35 @@
-<div class="flow-container" data-controller="animate">
+<div class="flow-container pb-0" data-controller="animate">
   <div class="container">
-    <%= render 'shared/chat', message: @message %>
-    <div class="content-container" data-delay="2" data-animate-target="contentContainer"></div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+        <%= render 'shared/chat', message: @message %>
+      </div>
+    </div>
   </div>
   <div class="next-step-banner">
-    <div class="text-center position-absolute">
-      <%= image_tag(asset_path('components/next-step-banner/cards.png')) %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-lg-6">
+          <div class="text-center img-row">
+            <%= image_tag(asset_path('components/next-step-banner/cards.png')) %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+          <p class="title">What happens next?</p>
+          <p>You will receive your Starter Pack within 1 week! Login to movido to track your delivery (the tracking link will be available as soon as your Starter Pack is being shipped) </p>
+        </div>
+      </div>
     </div>
-    <p class="title">What happens next?</p>
-    <p>You will receive your Starter Pack within 1 week! Login to movido to track your delivery (the tracking link will be available as soon as your Starter Pack is being shipped) </p>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-12 mb-5">
-        <h3>And once you have arrived?</h3>
-        <p class="black">Get your customized subscriptions in 1 bill with the Settle in Pack. Stay tuned and check your dashboard!</p>
+      <div class="col-xs-12 col-lg-4 offset-lg-1 mb-5 order-lg-2">
+        <div class="arrival">
+          <h3>And once you have arrived?</h3>
+          <p class="black">Get your customized subscriptions in 1 bill with the Settle in Pack. Stay tuned and check your dashboard!</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-lg-4 offset-lg-1 mb-5  order-lg-1">
         <div class="product-card radius-bot-0">
           <%= image_tag(asset_path('components/comming-soon-banner/card.png'), class:'top-img') %>
           <div class="content">
@@ -39,25 +54,29 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6 position-relative">
-        <%= image_tag(asset_path('pages/orders/congratulations/girl.png'), class:"w-100 position-absolute bot-0") %>
+      <div class="col-6 col-lg-4 offset-lg-1 position-relative">
+        <%= image_tag(asset_path('pages/orders/congratulations/girl.png'), class:"girl-pic") %>
       </div>
-      <div class="col-6 pb-5">
-        <h3>Any questions?</h3>
-        <p>Our team is here to support you, either through the chat, phone or WhatsApp.</p>
-        <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-main" do %>
+      <div class="col-6 col-lg-4 offset-lg-1 pb-5">
+        <div class="arrival">
+          <h3>Any questions?</h3>
+          <p>Our team is here to support you, either through the chat, phone or WhatsApp.</p>
+          <%= link_to "https://calendly.com/alice_movido/movido-introcall", class:"btn-main w-100" do %>
           <span>Book a call now</span>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
   <div class="partners">
     <h3>Want to meet other people in your new city?</h3>
     <p>Join our community on Instagram and Facebook to stay tuned on our latest events</p>
-    <div class="d-flex">
+    <div class="d-flex justify-content-around images-wrapper">
       <%= image_tag(asset_path('pages/orders/congratulations/facebook.png'), class:'social-media') %>
       <%= image_tag(asset_path('pages/orders/congratulations/instagram.png'), class:'social-media') %>
     </div>
-    <%= link_to 'Continue to Dashboard', dashboard_path, class:'btn-main-white' %>
+    <div class="d-flex justify-content-center">
+      <%= link_to 'Continue to Dashboard', dashboard_path, class:'btn-main-white w-100' %>
+    </div>
   </div>
 </div>

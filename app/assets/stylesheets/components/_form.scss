@@ -1,5 +1,12 @@
 .form-base {
   width: 100%;
+  .mapboxgl-ctrl {
+    width: 100% !important;
+    max-width: 100%;
+    .mapboxgl-ctrl-geocoder--icon {
+      top: 15px !important;
+    }
+  }
   label {
     font-size: 16px;
     color: $taupe;
@@ -92,6 +99,10 @@
 
 @include media-breakpoint-down(md) {
   .form-base {
+    .mapboxgl-ctrl {
+      width: 100% !important;
+      max-width: 100%;
+    }
     input, select {
       box-shadow: 0px 2px 10px rgba(180, 173, 173, 0.2);
       &::placeholder {
