@@ -33,7 +33,7 @@ class CartReflex < ApplicationReflex
   end
 
   def promocode_is_valid?(promocode)
-    ['MANDY', 'CLOUDS', 'VIANCQA', 'KARINA1', 'KARINA2'].include?(promocode)
+    ['MANDY', 'CLOUDS', 'VIANCQA', 'KARINA1', 'KARINA2', 'SHUFFLE21', 'ESCP21', 'OPENUP21', 'PARISMUS21', 'IESEG21', 'KES21', 'UCL21', 'EARLYBIRD21'].include?(promocode)
   end
 
   def initialize_cart
