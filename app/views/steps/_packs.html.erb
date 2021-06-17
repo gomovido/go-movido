@@ -1,8 +1,12 @@
 <div class="flow-container" data-controller="animate">
   <%= render 'shared/progress_bar', step: 5 %>
   <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
       <%= render 'shared/chat', message: message %>
-      <div class="content-container" data-delay="0" data-animate-target="contentContainer">
+      </div>
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+        <div class="content-container" data-delay="2" data-animate-target="contentContainer">
         <div class="packs-wrapper">
           <div class="pack-card">
             <%= image_tag(asset_path('components/packs-card/followers.png')) %>
@@ -23,7 +27,10 @@
             <%= link_to 'Buy now', new_shipping_path(order.id) %>
           </div>
         </div>
+        </div>
+      </div>
     </div>
   </div>
   <%= render 'shared/components/comming_soon_banner' %>
 </div>
+

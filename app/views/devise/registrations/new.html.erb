@@ -1,22 +1,28 @@
 <div class="flow-container" data-controller="animate">
   <%= render 'shared/progress_bar', step: 1 %>
   <div class="container">
-      <%= render 'shared/chat', message: {content: "Hello! I’m Alice and I will help you get settled in your new city. Let's get to know each other a little better", delay: 0} %>
-      <div class="content-container" data-delay="2" data-animate-target="contentContainer">
-        <div class="form-base">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.input :first_name,
-                    required: true, autofocus: true, placeholder: 'John' %>
-          <%= f.input :last_name,
-                    required: true, placeholder: 'Doe', label: 'Surname' %>
-          <%= f.input :email,
-            required: true,
-            input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com' %>
-          <%= f.button :submit, 'Continue' , class: 'btn-main' %>
-        <% end %>
-        <%= link_to 'I already have an account', new_user_session_path, class:'signin' %>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+        <%= render 'shared/chat', message: {content: "Hello! I’m Alice and I will help you get settled in your new city. Let's get to know each other a little better", delay: 0} %>
+      </div>
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+        <div class="content-container" data-delay="2" data-animate-target="contentContainer">
+          <div class="form-base">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.input :first_name,
+                      required: true, autofocus: true, placeholder: 'John' %>
+            <%= f.input :last_name,
+                      required: true, placeholder: 'Doe', label: 'Surname' %>
+            <%= f.input :email,
+              required: true,
+              input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com' %>
+            <%= f.button :submit, 'Continue' , class: 'btn-main w-100' %>
+          <% end %>
+          <%= link_to 'I already have an account', new_user_session_path, class:'signin' %>
+          </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
