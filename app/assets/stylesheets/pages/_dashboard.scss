@@ -27,6 +27,7 @@
 .tracking {
   background: $white;
   border-radius: 6px;
+  margin-top: 8rem;
   padding: 5%;
   .title {
     color: $purple;
@@ -34,5 +35,12 @@
   }
   .tracking-id {
     font-size: 22px;
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  .tracking {
+    margin-top: auto;
   }
 }

@@ -1,21 +1,20 @@
 .next-step-banner {
   background: $purple;
-  margin-top: 50%;
   padding: 2% 4%;
-  text-align: center;
   margin-bottom: 2rem;
   p {
     color: $white;
+    font-size: 16px;
   }
   img {
-    width: 90%;
+    width: 50%;
     position: relative;
-    top: -185px;
+    top: 0;
   }
   .title {
-    padding-top: 40%;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 32px;
+    margin-top: 1.5rem;
   }
 }
 .comming-soon {
@@ -30,5 +29,44 @@
 }
 
 .social-media {
-  width: 50%;
+  width: 40%;
+}
+
+.arrival {
+  margin-top: 10rem;
+}
+
+
+@include media-breakpoint-down(md) {
+  .next-step-banner {
+    margin-top: 50%;
+    text-align: center;
+    .img-row {
+      position: absolute;
+    }
+    img {
+      width: 90%;
+      position: relative;
+      top: -185px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .title {
+      padding-top: 40%;
+      font-size: 24px;
+    }
+  }
+  .girl-pic {
+     position: absolute;
+     width: 100%;
+     bottom: 0;
+  }
+  .arrival {
+    margin-top: 0;
+  }
+  .social-media {
+    width: 50%;
+    height: 50%;
+  }
 }

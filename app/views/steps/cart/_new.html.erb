@@ -1,11 +1,18 @@
 <div class="flow-container" data-controller="animate">
   <%= render 'shared/progress_bar', step: 3 %>
   <div class="container">
-    <%= render 'shared/chat', message: message %>
-    <div class="content-container" data-delay="2" data-animate-target="contentContainer">
-      <div class="form-base d-flex align-items-center justify-content-center flex-column">
-        <%= render 'steps/cart/form', user_preference: user_preference, order: order %>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+      <%= render 'shared/chat', message: message %>
+      </div>
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+        <div class="content-container" data-delay="2" data-animate-target="contentContainer">
+          <div class="form-base">
+            <%= render 'steps/cart/form', user_preference: user_preference, order: order %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

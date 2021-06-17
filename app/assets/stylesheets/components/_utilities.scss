@@ -35,6 +35,10 @@ button {
   margin: 0 auto;
 }
 
+.mh-100 {
+  min-height: 100vh  !important;
+}
+
 .bot-0 {
   bottom: 0;
 }
@@ -57,7 +61,7 @@ button {
 }
 
 .padded {
-  padding: 15%;
+  padding: 12.5%;
 }
 
 .background-size-cover {
@@ -135,5 +139,8 @@ button {
 @include media-breakpoint-down(md) {
   .intercom-launcher, .intercom-launcher-frame {
     bottom: 80px !important;
+  }
+  .padded {
+    padding: 15%;
   }
 }

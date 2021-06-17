@@ -1,10 +1,16 @@
 <div class="flow-container" data-controller="animate">
   <%= render 'shared/progress_bar', step: 4 %>
   <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
       <%= render 'shared/chat', message: message %>
-      <div class=" text-center mb-3" data-delay="1"></div>
-      <div class="content-container spinner-container text-center mb-3" data-delay="1" data-animate-target="contentContainer">
-        <div class="spinner-border" role="status"></div>
+      </div>
+      <div class="col-xs-12 col-lg-6 offset-lg-3">
+        <div class=" text-center mb-3" data-delay="1"></div>
+          <div class="content-container spinner-container text-center mb-3" data-delay="1" data-animate-target="contentContainer">
+          <div class="spinner-border" role="status"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -5,5 +5,5 @@
              input_html: { class:'datepicker', data: {
               controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
   <%= f.input :stay_duration, collection: [["< 12 months", 11],["> 12 months", 13]], prompt: 'Select a duration of stay', input_html: {class: 'custom-select'} %>
-  <%= f.button :submit, 'Continue' , class: 'btn-main mb-5' %>
+  <%= f.button :submit, 'Continue' , class: 'btn-main mb-5 w-100' %>
 <% end %>
