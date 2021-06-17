@@ -1,12 +1,17 @@
 .partners {
   background: $purple;
   padding: 5%;
+  text-align: center;
   h3 {
     color: $white;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
   }
   p {
     color: $white;
+  }
+  .images-wrapper {
+    padding: 0% 20%;
+    margin-bottom: 2rem;
   }
 }
 .partners-logos {
@@ -15,5 +20,19 @@
   text-align: center;
   img {
     margin: 4%;
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  .partners {
+    text-align: left;
+    h3 {
+      margin-bottom: 5%;
+    }
+    .images-wrapper {
+      padding: auto;
+      margin-bottom: 0;
+    }
   }
 }

@@ -1,4 +1,9 @@
 en:
+  cart:
+    form:
+      mobile_phone: 'Local phone number'
+      trasportaion: 'Public transportation card'
+      pickup: "Airport pick-up to central city"
   mail:
     welcome_email: 'Welcome to movido!'
     subscription_under_review: 'Congratulations on your purchase'

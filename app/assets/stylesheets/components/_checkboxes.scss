@@ -2,9 +2,9 @@
   position: relative;
   img {
     position: absolute;
-    top: -15%;
-    left: 15%;
-    width: 60%;
+    top: -25%;
+    left: 20%;
+    width: 50%;
   }
   p {
     color: #979797;
@@ -34,3 +34,29 @@
   }
 }
 
+@include media-breakpoint-down(lg) {
+  .checkboxes-wrapper {
+    img {
+      top: -17%;
+    }
+  }
+}
+
+@include media-breakpoint-up(xs) {
+  .checkboxes-wrapper {
+    img {
+      top: -17%;
+    }
+  }
+}
+
+
+@include media-breakpoint-only(xs) {
+  .checkboxes-wrapper {
+    img {
+      top: -15%;
+      left: 15%;
+      width: 60%;
+    }
+  }
+}
