@@ -8,6 +8,7 @@
   <label class="mb-2">Please make sure you will be at this address for at least 1 more week to ensure you receive your Starter Pack</label>
   <label>Any other delivery instructions? (optional)</label>
   <%= f.input :instructions, required: true, label: false, placeholder: 'Type a message for us' %>
+  <hr>
   <%= f.button :submit, 'Continue' , class: 'btn-main mb-2 w-100' %>
   <%= link_to 'Back', packs_path(order.id), class:'btn-main-white w-100 mb-5' %>
 <% end %>
