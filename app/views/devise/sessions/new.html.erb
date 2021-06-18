@@ -16,7 +16,7 @@
                   <%= link_to 'Forgot your password?', new_password_path(resource_name), class:'link purple' %>
                 </div>
                 <%= f.input :password, autocomplete: "current-password", label: false %>
-                <%= f.button :submit, "Log in", class:'btn-main mb-2' %>
+                <%= f.button :submit, "Log in", class:'btn-main mb-2 w-100' %>
             <% end %>
             <p><%= link_to 'I dont have an account', new_user_registration_path, class:'link purple' %> </p>
           </div>
