@@ -28,6 +28,13 @@
   box-shadow: none;
 }
 
+.link-social {
+  height: 10%;
+  .social-media {
+    width: 50%;
+  }
+}
+
 .arrival {
   margin-top: 10rem;
 }
@@ -60,5 +67,11 @@
   }
   .arrival {
     margin-top: 0;
+  }
+  .link-social {
+    height: 100%;
+    .social-media {
+      width: 100%;
+    }
   }
 }

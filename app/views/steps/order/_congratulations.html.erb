@@ -72,15 +72,15 @@
     <h3>Want to meet other people in your new city?</h3>
     <p>Join our community on Instagram and Facebook to stay tuned on our latest events</p>
     <div class="d-flex justify-content-around images-wrapper">
-      <%= link_to 'https://www.facebook.com/Movido-107959797828212', target: 'blank' do %>
-        <%= image_tag(asset_path('pages/orders/congratulations/facebook.png'), class:'social-media w-100') %>
+      <%= link_to 'https://www.facebook.com/Movido-107959797828212', target: 'blank', class:'link-social' do %>
+        <%= image_tag(asset_path('pages/orders/congratulations/facebook.png'), class:'social-media') %>
       <% end %>
-      <%= link_to 'https://www.facebook.com/Movido-107959797828212', target: 'blank' do %>
-        <%= image_tag(asset_path('pages/orders/congratulations/instagram.png'), class:'social-media w-100') %>
+      <%= link_to 'https://www.facebook.com/Movido-107959797828212', target: 'blank', class:'link-social' do %>
+        <%= image_tag(asset_path('pages/orders/congratulations/instagram.png'), class:'social-media') %>
       <% end %>
     </div>
     <div class="d-flex justify-content-center">
-      <%= link_to 'Continue to Dashboard', dashboard_path, class:'btn-main-white w-100' %>
+      <%= link_to 'Continue to Dashboard', dashboard_path, class:'btn-main-white w-20' %>
     </div>
   </div>
 </div>
