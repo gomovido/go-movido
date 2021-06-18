@@ -616,7 +616,7 @@
               <tr>
                 <td class="email-masthead">
                   <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
-                    <%= image_tag(asset_path('emails/logo-main.png')) %>
+                    <%= image_tag(asset_path('logos/movido-black.svg')) %>
                   </a>
                   <a href="" class="purple">View in browser</a>
                 </td>
@@ -624,76 +624,18 @@
               <!-- Email Body -->
               <tr>
                 <td class="email-body" width="570" cellpadding="0" cellspacing="0">
-                <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center">
-                      <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-                      <table width="570" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td align="center">
-                            <table border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td>
-                                  <div class="image">
-                                    <%= image_tag(asset_path('emails/welcome.png'), class:"banner") %>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
                   <table class="email-body_inner align-left" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                     <!-- Body content -->
                     <tr>
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
-                          <h1>Welcome, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Thanks for signing up to movido. Let’s get you set up in your new home <strong>in only 10 mins.</strong></p>
-                          <p>Here are your credentials :</p>
-                          <p><strong>Email: </strong> <%= @user.email %></p>
-                          <p><strong>Password: </strong> <%= @password %></p>
-                          <p>Thanks, <br>Your movido team</p>
+                          <h1>Hello <span class="purple"><%= @user.first_name %></span></h1>
+                          <p>I’m Alice, Movido’s co-founder, and I just wanted to welcome you to Movido!</p>
+                          <p>Here are your login details : </p>
+                          <p>Email: <%= @user.email %></p>
+                          <p>Password: <%= @user.password %></p>
+                          <p>You can use them to access your Movido dashboard, or finish your Starter Pack purchase if you didn't have the time to complete it.</p>
                         </div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                  <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                      <td align="center">
-                        <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                          <tr>
-                            <td class="content-cell card-link no-r-padding align-right" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/housing.png')) %>
-                              </a>
-                            </td>
-                            <td class="content-cell card-link no-l-padding align-left" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/bank.png')) %>
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="content-cell card-link no-r-padding align-right" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/mobile.png')) %>
-                              </a>
-                            </td>
-                            <td class="content-cell card-link no-l-padding align-left" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/wifi.png')) %>
-                              </a>
-                            </td>
-                          </tr>
-                        </table>
                       </td>
                     </tr>
                   </table>
@@ -706,7 +648,7 @@
                       <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td>
-                            <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Start now</a>
+                            <a href="<%= edit_user_url %>" class="button button--" target="_blank">Change my password</a>
                           </td>
                         </tr>
                       </table>
@@ -763,7 +705,7 @@
                             <a href="https://www.instagram.com/go_movido/" class="content-cell no-padding support-links" target="_blank">
                               <%= image_tag(asset_path('emails/instagram-logo.png')) %>
                             </a>
-                            <a href="" class="content-cell no-l-padding support-links" target="_blank">
+                            <a href="https://www.linkedin.com/company/go-movido/" class="content-cell no-l-padding support-links" target="_blank">
                               <%= image_tag(asset_path('emails/linkedin-logo.png')) %>
                             </a>
                           </td>
@@ -778,7 +720,7 @@
                   <table class="email-footer align-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                     <tr align="center">
                       <td class="content-cell" align="center">
-                        <p class="f-fallback sub align-center">movido Ltd is a company registered in England and Wales (Company No. 12899481) at 52 Upper Berkeley Street, W1H7QW London, United-Kingdom</p>
+                        <p class="f-fallback sub align-center">movido France SAS 608 Boulevard des Horizons, 06220 Vallauris Company registered in France</p>
                       </td>
                     </tr>
                   </table>
@@ -809,74 +751,15 @@
               <!-- Email Body -->
               <tr>
                 <td class="email-body" width="570" cellpadding="0" cellspacing="0">
-                <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center">
-                      <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-                      <table width="570" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td align="center">
-                            <table border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td>
-                                  <div class="image">
-                                    <%= image_tag(asset_path('emails/welcome.png'), class:"banner") %>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
                   <table class="email-body_inner align-left" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                     <!-- Body content -->
                     <tr>
                       <td class="content-cell">
                         <div class="f-fallback body-cell">
-                          <h1>Bonjour, <span class="purple"><%= @user.first_name %></span></h1>
-                          <p>Merci de t’être inscrit(e) à movido. Maintenant nous allons t’installer dans ta nouvelle maison <strong>en 10 minutes!</strong></p>
-                          <p>Avec movido sélectionne simplement les services dont tu as besoin, du compte bancaire local àun nouvel abonnement WIFI. Laisse nous gérer pour toi les démarches administratives.</p>
-                          <p>Merci, <br>Ton équipe movido</p>
+                          <h1>Bonjour, <span class="purple"><%= @resource.first_name %></span></h1>
+                          <p>Une demande de nouveau mot de passe vient d'être réalisée sur ton compte.</p>
+                          <p>Si tu es à l'origine de cette demande, clique sur le bouton ci-dessous afin de le réinitialiser.</p>
                         </div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                  <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                      <td align="center">
-                        <table class="email-body_inner mb-1" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                          <tr>
-                            <td class="content-cell card-link no-r-padding align-right" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/housing-fr.png')) %>
-                              </a>
-                            </td>
-                            <td class="content-cell card-link no-l-padding align-left" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/bank-fr.png')) %>
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="content-cell card-link no-r-padding align-right" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/mobile-fr.png')) %>
-                              </a>
-                            </td>
-                            <td class="content-cell card-link no-l-padding align-left" align="center">
-                              <a href="<%= new_user_session_url %>" target="_blank">
-                                <%= image_tag(asset_path('emails/wifi-fr.png')) %>
-                              </a>
-                            </td>
-                          </tr>
-                        </table>
                       </td>
                     </tr>
                   </table>
@@ -889,7 +772,7 @@
                       <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td>
-                            <a href="<%= new_user_session_url %>" class="button button--" target="_blank">Démarrer</a>
+                            <a href="<%= edit_password_url(@resource, reset_password_token: @token) %>" class="button button--" target="_blank">Nouveau mot de passe</a>
                           </td>
                         </tr>
                       </table>
@@ -904,7 +787,7 @@
                       <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td>
-                            <span><strong>Des questions ? Voici comment tu peux nous joindre</strong></span>
+                            <span><strong>Des questions ? Voici comment vous pouvez nous joindre</strong></span>
                           </td>
                         </tr>
                         <tr class="marketing-row">
@@ -935,7 +818,7 @@
                       <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td>
-                            <span><strong>Tu souhaites rester en contact ? Trouve-nous ici</strong></span>
+                            <span><strong>Vous voulez rester en contact ? Trouvez-nous ici</strong></span>
                           </td>
                         </tr>
                         <tr class="marketing-row">
@@ -972,5 +855,8 @@
         </tr>
       </table>
     </body>
+
+
+
   <% end %>
 </html>

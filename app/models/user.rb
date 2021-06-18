@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
-  after_create :send_reset_password_email
+  after_create :send_welcome_email
 
   has_one :user_preference, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -23,8 +23,8 @@ class User < ApplicationRecord
   end
 
 
-  def send_reset_password_email
-    send_reset_password_instructions
+  def send_welcome_email
+    UserMailer.with(user: self, locale: 'en').welcome_email.deliver_now
   end
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)
