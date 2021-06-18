@@ -7,26 +7,27 @@
       </div>
       <div class="col-xs-12 col-lg-6 offset-lg-3">
         <div class="content-container" data-delay="2" data-animate-target="contentContainer">
-        <div class="packs-wrapper">
-          <div class="pack-card">
-            <%= image_tag(asset_path('components/packs-card/followers.png')) %>
-            <div class="d-flex align-items-center justify-content-between">
-              <h2>Starter Pack</h2>
-              <span class="price"><%= order.currency_symbol %><%= order.total_amount / 100 %></span>
+          <div class="packs-wrapper mb-4">
+            <div class="pack-card">
+              <%= image_tag(asset_path('components/packs-card/followers.png')) %>
+              <div class="d-flex align-items-center justify-content-between">
+                <h2>Starter Pack</h2>
+                <span class="price"><%= order.currency_symbol %><%= order.total_amount / 100 %></span>
+              </div>
+              <p>The best offers to get you started</p>
+              <ul>
+                <% order.items.each do |item| %>
+                  <li>  <i class='fas fa-check'></i>  <%= item.product.name %></li>
+                <% end %>
+              </ul>
             </div>
-            <p>The best offers to get you started</p>
-            <ul>
-              <% order.items.each do |item| %>
-                <li>  <i class='fas fa-check'></i>  <%= item.product.name %></li>
-              <% end %>
-            </ul>
+            <div class="cta-wrapper">
+              <span data-reflex="click->CartReflex#more_details">More details</span>
+              <span>|</span>
+              <%= link_to 'Buy now', new_shipping_path(order.id) %>
+            </div>
           </div>
-          <div class="cta-wrapper">
-            <span data-reflex="click->CartReflex#more_details">More details</span>
-            <span>|</span>
-            <%= link_to 'Buy now', new_shipping_path(order.id) %>
-          </div>
-        </div>
+          <%= link_to 'Back', new_cart_path, class:'btn-main-white w-100 mb-5' %>
         </div>
       </div>
     </div>
