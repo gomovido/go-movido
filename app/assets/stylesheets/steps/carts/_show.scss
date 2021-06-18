@@ -19,7 +19,7 @@
   display: block;
   text-align: center;
   img {
-    margin: 4%;
+    margin: 2%;
   }
 }
 
@@ -35,4 +35,14 @@
       margin-bottom: 0;
     }
   }
+  .partners-logos {
+    padding: 5%;
+    display: block;
+    text-align: center;
+    img {
+      margin: 2%;
+      width: 20%;
+    }
+  }
+
 }
