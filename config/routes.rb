@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     post "/onboarding/:resource" => "registrations#create", as: 'registration'
   end
 
+  # Update Passoword
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
+
   # Onboarding
   get 'onboarding/new-journey', to: 'user_preferences#new', as: 'new_user_preference'
   get 'onboarding/my-services', to: 'carts#new', as: 'new_cart'

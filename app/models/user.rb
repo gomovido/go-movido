@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
+  after_create :send_reset_password_email
+
   has_one :user_preference, dependent: :destroy
   has_many :orders, dependent: :destroy
 
@@ -18,6 +20,11 @@ class User < ApplicationRecord
 
   def current_draft_order
     orders.find_by(state: 'pending_payment')
+  end
+
+
+  def send_reset_password_email
+    send_reset_password_instructions
   end
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)

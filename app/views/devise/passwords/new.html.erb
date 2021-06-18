@@ -1,30 +1,26 @@
-<div class="container password-container mb-3 d-flex align-items-center justify-content-center">
-  <div class="bubbles">
-    <div class="bubble small-yellow-bubble"></div>
-    <div class="bubble small-blue-bubble"></div>
-    <div class="bubble small-yellow-bubble"></div>
-    <div class="bubble small-blue-bubble"></div>
-    <div class="bubble small-yellow-bubble"></div>
-    <div class="bubble small-blue-bubble"></div>
-    <div class="bubble small-yellow-bubble"></div>
-    <div class="bubble small-blue-bubble"></div>
-    <div class="bubble small-yellow-bubble"></div>
-    <div class="bubble small-blue-bubble"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="form-base">
-        <h4 class="mb-4"><%= t('.title') %></h4>
-        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<div class="flow-container background-size-cover sign-in d-flex mh-100" style="background-image:url(<%= asset_path 'pages/sign-in/background.png' %>);">
+  <div class="content-container d-flex align-items-center w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-5 offset-lg-3">
+        <div class="form-base d-flex flex-column align-items-center justify-content-center h-100">
+          <%= link_to root_path, class:'ps-3' do %>
+            <%= image_tag(asset_path("logos/movido-black.svg"), class:'movido-logo') %>
+          <% end %>
+          <div class="sign-in-box">
+            <h2 class="purple mb-3">Reset password</h2>
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= f.input :email,
                         required: false,
                         autofocus: true,
                         label: false,
                         input_html: { autocomplete: "email", placeholder: t('.placeholder') } %>
-          <div class="mt-4">
-            <%= f.button :submit, t('.confirm'), class:'btn-main w-100' %>
+                <%= f.button :submit, "Log in", class:'btn-main mb-2' %>
+            <% end %>
+            <p><%= link_to 'I dont have an account', new_user_registration_path, class:'link purple' %> </p>
           </div>
-        <% end %>
+        </div>
+        </div>
       </div>
     </div>
   </div>
