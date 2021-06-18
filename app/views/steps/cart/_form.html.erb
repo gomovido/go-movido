@@ -20,10 +20,18 @@
     <div class="custom-errors"><%= order.errors[:affiliate_link].present? ? user_preference.errors[:affiliate_link][0] : '' %></div>
   <% end %>
   <div class="p-2">
-    <p class="d-flex"><input class="custom-checkbox me-2" type="checkbox" value="0" style="width:45px" >I want to receive marketing communications and special offers from movido and partners</p>
-    <p class='m-0 d-flex'><%= f.check_box :terms, label: false, class: 'me-2', style: "width:26px;" %> I accept the Terms and Conditions of movido</p>
-    <div class="custom-errors mb-3"><%= user_preference.errors[:terms].present? ? user_preference.errors[:terms][0] : '' %></div>
-    <p class="mb-0">movido will process your personal data according to our <span class="purple">Privacy Policy</span>.</p>
+    <div class="d-flex">
+      <div>
+        <%= f.check_box :marketing, label: false, class: 'me-2 custom-checkbox' %>
+      </div>
+      <label for="terms">I want to receive marketing communications and special offers from movido and partners</label>
+    </div>
+    <div class="d-flex">
+      <div>
+        <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
+      </div>
+      <label for="marketing">I accept the Terms and Conditions of movido</label>
+    </div>
   </div>
   <hr>
   <%= f.button :submit, 'Continue' , class: 'btn-main w-100 mb-2' %>
