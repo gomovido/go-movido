@@ -20,8 +20,8 @@
         <div class="col-xs-12 col-lg-4 offset-lg-1">
           <div class="tracking text-center mb-3">
             <p class='title'>Your tracking link <i class="fas fa-truck"></i></p>
-            <p class='tracking-id'><%= @orders[-1].shipping.tracking_id || 'XMWZV7ES-WF' %></p>
-            <p class="tracking-link m-0">You can track your order <span class='purple'>here</span></p>
+            <p class='tracking-id'><%= @orders[-1].shipping.tracking_id || 'Processing...' %></p>
+              <p class="tracking-link m-0">You can track your order <%= link_to 'here', "https://www.dhl.com/fr-en/home/tracking.html", class:'purple', target: 'blank' %></p>
           </div>
           <p class="white">Need another Starter Pack or continue where you left? </p>
           <%= link_to 'Click Here', new_user_preference_path, class:'btn-main-white w-100' %>
