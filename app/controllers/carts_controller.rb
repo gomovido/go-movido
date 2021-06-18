@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   def new
     @user_preference = current_user.user_preference
     @order = current_user.current_draft_order || Order.new
-    @message = { content: "Almost done! Please select the services you need - you can pick and choose across packs if you like", delay: 0 }
+    @message = { content: "Almost done! Please select the services you need to get started in your new city", delay: 0 }
   end
 
   def show

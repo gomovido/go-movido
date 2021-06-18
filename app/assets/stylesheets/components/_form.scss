@@ -7,6 +7,9 @@
       top: 15px !important;
     }
   }
+  abbr[title="required"] {
+    display: none;
+  }
   label {
     font-size: 16px;
     color: $taupe;
