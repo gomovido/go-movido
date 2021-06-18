@@ -18,8 +18,7 @@
         </li>
       </ul>
     </div>
-  <% end %>
-  <% if current_user %>
+  <% elsif current_user %>
     <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
   <% end %>
 </div>
