@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :http_auth, unless: -> { @stimulus_reflex }
+  protect_from_forgery prepend: true
 
   private
 
