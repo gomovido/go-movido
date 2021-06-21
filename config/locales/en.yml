@@ -3,7 +3,7 @@ en:
     form:
       mobile_phone: 'Local phone number'
       trasportaion: 'Public transportation card'
-      pickup: "Airport pick-up to central city"
+      pickup: "Airport pick-up to central %{city}"
   mail:
     welcome_email: 'Welcome to movido!'
     subscription_under_review: 'Congratulations on your purchase'
@@ -71,7 +71,11 @@ en:
       user:
         first_name: 'First name'
         last_name: 'Last name'
-        email: 'E-mail'
+        email: 'Email'
+      order:
+        affiliate_link: 'Promo code'
+      user_preference:
+        stay_duration: 'Duration of stay'
   bookings:
     new:
       modal:

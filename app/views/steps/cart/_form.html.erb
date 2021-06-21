@@ -7,17 +7,17 @@
     <p>Delivered to your current home before you move</p>
     <ul>
       <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
-        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + t("cart.form.#{service.text}") } %></li>
+        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + t("cart.form.#{service.text}", city: user_preference.city) } %></li>
       <% end %>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true"  disabled="disabled" >+ free surprise 🍪</label></li>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true" disabled="disabled" >+ free shipping 📦</label></li>
     </ul>
     <p>*Estimated delivery time: 1 week</p>
+    <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
   </div>
   <%= simple_fields_for order do |p| %>
     <label>Do you have a PROMOCODE?</label>
     <%= p.input :affiliate_link, label: false, placeholder: 'PROMOCODE' %>
-    <div class="custom-errors"><%= order.errors[:affiliate_link].present? ? user_preference.errors[:affiliate_link][0] : '' %></div>
   <% end %>
   <div class="p-2">
     <div class="d-flex">
@@ -32,6 +32,7 @@
       </div>
       <label for="marketing">I accept the Terms and Conditions of movido</label>
     </div>
+    <div class="invalid-feedback d-block"><%= f.error(:terms) %></div>
   </div>
   <hr>
   <%= f.button :submit, 'Continue' , class: 'btn-main w-100 mb-2' %>
