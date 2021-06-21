@@ -7,7 +7,7 @@
     <p>Delivered to your current home before you move</p>
     <ul>
       <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
-        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + t("cart.form.#{service.text}") } %></li>
+        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox") + t("cart.form.#{service.text}", city: user_preference.city) } %></li>
       <% end %>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true"  disabled="disabled" >+ free surprise 🍪</label></li>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true" disabled="disabled" >+ free shipping 📦</label></li>

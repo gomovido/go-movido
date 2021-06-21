@@ -18,6 +18,10 @@ class UserPreference < ApplicationRecord
     errors.add(:arrival, "can't be in the past") if arrival.present? && arrival < Time.zone.now
   end
 
+  def city
+    country.code == 'fr' ? 'Paris' : 'London'
+  end
+
   def pickup?
     user_services.find_by(user_preference: self, service: Service.find_by(name: 'pickup')).present?
   end
