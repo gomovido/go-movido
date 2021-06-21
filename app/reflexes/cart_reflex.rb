@@ -3,23 +3,22 @@ class CartReflex < ApplicationReflex
 
   def create
     if terms_not_checked?(user_preference_params[:terms])
-      current_user.user_preference.errors.add(:terms, 'required')
+      current_user.user_preference.errors.add(:terms, 'You need to accept the conditions')
       morph '.form-base', render(partial: "steps/cart/form", locals: { order: current_user.current_draft_order || Order.new, user_preference: current_user.user_preference })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
       order = current_user.current_draft_order || Order.new
-      order.errors.add(:affiliate_link, 'Promocode not valid')
+      order.errors.add(:affiliate_link, 'not valid')
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
+    elsif !user_preference_params[:service_ids]
+      order = current_user.current_draft_order || Order.new
+      current_user.user_preference.errors.add(:base, "Please select at least one service")
       morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
     else
-      if user_preference_params[:service_ids]
-        initialize_order
-        initialize_cart
-        init_user_services
-        generate_items
-        morph '.flow-container', render(partial: "steps/spinner", locals: { message: { content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 } })
-      else
-        order = current_user.current_draft_order || Order.new
-        morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
-      end
+      initialize_order
+      initialize_cart
+      init_user_services
+      generate_items
+      morph '.flow-container', render(partial: "steps/spinner", locals: { message: { content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 } })
     end
   end
 

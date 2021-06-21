@@ -22,7 +22,6 @@ class User < ApplicationRecord
     orders.find_by(state: 'pending_payment')
   end
 
-
   def send_welcome_email
     UserMailer.with(user: self, locale: 'en').welcome_email.deliver_now
   end

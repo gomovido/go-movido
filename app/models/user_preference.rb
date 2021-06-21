@@ -10,7 +10,6 @@ class UserPreference < ApplicationRecord
   validate :country_id_present
   attr_accessor :terms, :marketing
 
-
   def country_id_present
     errors.add(:country_id, "can't be blank") if country_id.blank?
   end
