@@ -30,7 +30,7 @@
       <div>
         <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
       </div>
-      <label for="marketing">I accept the Terms and Conditions of movido</label>
+      <label for="marketing">I accept the <%= link_to 'Terms and Conditions', terms_path, class:'purple', target: 'blank'%> of movido</label>
     </div>
     <div class="invalid-feedback d-block"><%= f.error(:terms) %></div>
   </div>
