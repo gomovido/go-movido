@@ -29,8 +29,8 @@
       </span>
     </div>
     <hr>
-    <%= f.button :submit, 'Complete payment', class: 'btn-main mb-2 w-100', id: 'stripe-submit', data: {disable_with: false} %>
-    <%= link_to 'Back', new_shipping_path(order.id), class:'btn-main-white w-100' %>
+    <%= f.button :submit, 'Complete payment', class: 'btn-main mb-2', id: 'stripe-submit', data: {disable_with: false} %>
+    <%= link_to 'Back', new_shipping_path(order.id), class:'btn-main-white' %>
   </div>
   <div class="powered text-center">
     <p>Powered by Stripe</p>
