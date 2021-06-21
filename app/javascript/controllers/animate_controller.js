@@ -12,6 +12,9 @@ export default class extends Controller {
     if (document.querySelector('.chat-container')) {
       this.messageTarget.classList.add('animate__animated', 'animate__fadeInLeft', `animate__delay-${this.messageTarget.dataset.delay}s`)
     }
+    if (document.querySelector('.coming-soon-banner')) {
+      document.querySelector('.coming-soon-banner').classList.add('animate__animated', 'animate__fadeInLeft', `animate__delay-${document.querySelector('.coming-soon-banner').dataset.delay}s`)
+    }
     this.contentContainerTarget.classList.add('animate__animated', 'animate__fadeInLeft', `animate__delay-${this.contentContainerTarget.dataset.delay}s`);
   }
 

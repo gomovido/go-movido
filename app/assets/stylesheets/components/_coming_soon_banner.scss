@@ -1,4 +1,4 @@
-.comming-soon-banner {
+.coming-soon-banner {
   background: $purple;
   padding: 4%;
   .title {
@@ -19,7 +19,7 @@
 }
 
 @include media-breakpoint-down(md) {
-.comming-soon-banner {
+.coming-soon-banner {
   .title {
     font-size: 24px;
   }
