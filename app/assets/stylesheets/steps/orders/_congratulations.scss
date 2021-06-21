@@ -17,7 +17,7 @@
     margin-top: 1.5rem;
   }
 }
-.comming-soon {
+.coming-soon {
   background: $grey-snow;
   color: #18191f96;
   border-bottom-left-radius: 16px;
@@ -26,6 +26,13 @@
 }
 .product-card {
   box-shadow: none;
+  .product-details {
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 
 .link-social {
@@ -33,10 +40,6 @@
   .social-media {
     width: 90%;
   }
-}
-
-.arrival {
-  margin-top: 10rem;
 }
 
 
