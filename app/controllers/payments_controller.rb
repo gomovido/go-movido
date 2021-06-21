@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :redirect_if_order_is_paid, only: [:new]
-  before_action :set_order, only: %i[new create create_billing]
+  before_action :set_order, only: %i[new create initialize_billing]
 
   def new
     redirect_to new_shipping_path(@order.id) and return unless @order.ready_to_checkout?
@@ -12,8 +12,8 @@ class PaymentsController < ApplicationController
   def create
     redirect_to dashboard_path and return if @order.paid?
 
-    @billing = create_billing
-    if @billing.address
+    @billing = initialize_billing
+    if @billing.save
       proceed_payment(params[:stripeToken], @order)
     else
       @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
@@ -21,12 +21,11 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def create_billing
+  def initialize_billing
     billing = @order.billing || Billing.new
     billing.assign_attributes(billing_params)
     billing.order = @order
-    billing.save
-    billing
+    return billing
   end
 
   def proceed_payment(stripe_token, order)
