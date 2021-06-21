@@ -81,6 +81,20 @@
   }
 }
 
+.rounded-button {
+  display: block;
+  background: #F9F2FF;
+  border-radius: 26px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  width: 270px;
+  height: 48px;
+  line-height: 48px;
+  color: #4E2D92;
+}
+
 @include media-breakpoint-down(md) {
   .btn-main {
     width: 100% !important;
