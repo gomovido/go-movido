@@ -1,9 +1,9 @@
 <div class="flow-container dashboard-container">
   <div class="banner-purple">
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-around">
         <h2 class="title">Your orders</h2>
-        <div class="col-xs-12 col-lg-4 offset-lg-1">
+        <div class="col-xs-12 col-lg-4">
           <div class="checkboxes-wrapper">
             <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
             <div class="checkboxes">
@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-lg-4 offset-lg-1">
+        <div class="col-xs-12 col-lg-4">
           <div class="tracking text-center mb-3">
             <p class='title'>Your tracking link <i class="fas fa-truck"></i></p>
             <p class='tracking-id'><%= @orders[-1].shipping.tracking_id || 'Processing...' %></p>
@@ -30,10 +30,10 @@
     </div>
   </div>
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-lg-4 offset-lg-1 mb-5">
+    <div class="row justify-content-around align-items-center">
+      <div class="col-xs-12 col-lg-4">
         <div class="product-card mb-5">
-          <%= image_tag(asset_path('components/comming-soon-banner/card.png'), class:'top-img') %>
+          <%= image_tag(asset_path('components/coming-soon-banner/card.png'), class:'top-img') %>
           <div class="content">
             <h3 class="name black">Settle in Pack</h3>
             <p>Customized offers to get you settled after arrival</p>
@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-lg-4 offset-lg-1 mb-5 arrival">
+      <div class="col-xs-12 col-lg-4 arrival">
         <h3 class="purple">Coming soon</h3>
         <p>Looking for WiFi, utilities, insurance, and more? Customize your subscription bundle in one simple Settle in Pack - all in 1 monthly bill with the option to cancel anytime. </p>
         <p class="purple">Pre-register now and benefit from exclusive discounts!</p>

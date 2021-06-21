@@ -9,6 +9,10 @@
       p.desc {
         color: white;
       }
+    .step-top, .step-bottom {
+      display: flex;
+      align-items: center;
+    }
     .step-top {
       margin-top: -2rem;
       margin-bottom: -2rem;
