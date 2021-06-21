@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   # Static pages
   root 'pages#home'
-  get 'privacy', to: 'pages#privacy'
+  get 'privacy', to: 'pages#privacy', as: 'privacy'
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms', as: 'terms'
   get 'how_it_works', to: 'pages#how_it_works'
