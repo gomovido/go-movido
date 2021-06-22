@@ -4,12 +4,14 @@
   min-height: 40vh;
   background-size: cover;
   img {
-    max-width: 350px;
+    max-width: 500px;
     margin: auto;
   }
   h1 {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 32px;
+    font-weight: 600;
     font-family: 'Poppins';
   }
   a {
@@ -28,11 +30,17 @@
 @include media-breakpoint-down(md) {
   .banner {
     margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    br {
+      display: none;
+    }
     img {
       max-width: 330px;
     }
     h1 {
       text-align: center;
+      font-size: 24px;
     }
     .content .row {
       justify-content: center;
