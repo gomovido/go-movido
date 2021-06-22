@@ -68,7 +68,7 @@
       <%= link_to 'See more details', pricing_path, class: 'link white' %>
     </div>
   </div>
-  <div class="container mb-5">
+  <div class="container mb-5 d-none d-md-block">
     <div class="row">
       <div class="col-12 mb-4">
         <table>
@@ -110,6 +110,42 @@
               <td data-label="Due Date" class="d-none d-sm-block"></td>
               <td data-label="France">Free</td>
               <td data-label="United Kingdom" class="custom-r-radius">Free</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <%= link_to "Get started", onboarding_path, class: 'rounded-button purple-bg' %>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5 d-block d-md-none">
+    <div class="row">
+
+      <div class="col-12 mb-4">
+        <p><strong>France pricing</strong></p>
+        <table>
+          <tbody>
+            <tr class="custom-tr">
+              <td data-label="Local SIM card" class="text-left custom-l-radius">€39.90</td>
+              <td data-label="Public transportation">€16.90</td>
+              <td data-label="Airport Pickup" class="custom-r-radius">€55.00</td>
+              <td data-label="Shipping" class="custom-r-radius">Free</td>
+              <td data-label="Surprise" class="custom-r-radius">Free</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 mb-4">
+        <p><strong>United Kingdom pricing</strong></p>
+        <table>
+          <tbody>
+            <tr class="custom-tr">
+              <td data-label="Local SIM card" class="text-left custom-l-radius">£1</td>
+              <td data-label="Public transportation">£15</td>
+              <td data-label="Airport Pickup" class="custom-r-radius">£60.00</td>
+              <td data-label="Shipping" class="custom-r-radius">Free</td>
+              <td data-label="Surprise" class="custom-r-radius">Free</td>
             </tr>
           </tbody>
         </table>
