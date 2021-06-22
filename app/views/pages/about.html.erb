@@ -1,76 +1,74 @@
 <% content_for :meta_title, "movido | Meet the international movido team" %>
 <% content_for :meta_description, "We are a diverse group of people. However, all of us are dedicated to creating a smart marketplace and wallet for everyone’s admin contracts" %>
-<div class="static-container about-container">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10 mb-5">
-        <h2>Meet the team that will accompany you during your move</h2>
-        <p>We at movido have relocated over 20 times (!) during the past couple of years and we know exactly how you feel today.</p>
-        <p>Where do I sign up to utilities? How do I open a bank account? Why do I need housing insurance? Do I really have to call customer service again? Trust us, we have also asked ourselves these questions many times!</p>
-        <p class="mb-4">This is why we have made it our mission to make your life as easy as possible when you move to a new city. Not only do we offer simple and customizable contract bundles perfectly adapted to your situation, our team of experts is also available to answer any question you may have (and remember: there are no stupid questions 😄)</p>
-        <p class="text-center mb-4">supported by:</p>
-        <div class="d-flex justify-content-around align-items-center">
-          <%= image_tag(asset_path('logos/station-f.png'), class:'partner') %>
-          <%= image_tag(asset_path('logos/boconi.png'), class:'partner') %>
-        </div>
+<div class="container about-container">
+  <div class="row align-items-end mb-5">
+    <div class="col-12 col-lg-7">
+      <h2>Meet the team that will <br>accompany you during your <br>move</h2>
+      <p>We at movido have relocated over 20 times (!) during the past couple of years and we know exactly how you feel today.</p>
+      <p class="purple">Where do I sign up to utilities? How do I open a bank account? Why do I need housing insurance? Do I really have to call customer service again? Trust us, we have also asked ourselves these questions many times!</p>
+      <p class="mb-4 mb-lg-0">This is why we have made it our mission to make your life as easy as possible when you move to a new city. Not only do we offer simple and customizable contract bundles perfectly adapted to your situation, our team of experts is also available to answer any question you may have (and remember: there are no stupid questions 😄)</p>
+    </div>
+    <div class="col-12 col-lg-5">
+      <p class="supported">supported by:</p>
+      <div class="d-flex align-items-center">
+        <%= image_tag(asset_path('logos/station-f.png'), class:'partner me-4') %>
+        <%= image_tag(asset_path('logos/boconi.png'), class:'partner') %>
       </div>
     </div>
   </div>
-  <div class="container-fluid px-0">
-    <div class="team-container">
-        <h3 class="text-center p-3">Our team</h3>
-        <div class="team-wrapper">
-          <div class="team-card ps-4 pe-2">
-            <div class="d-flex flex-column justify-content-center">
-              <span class="name">Alice Strecker</span>
-              <span class="role">Co-founder</span>
-              <span class="location">From London to Movido</span>
-            </div>
-            <%= image_tag(asset_path('team/alice.png'), class:'team-img') %>
+  <div class="team-container">
+      <h3>Our team</h3>
+      <div class="team-wrapper row">
+        <div class="team-card ps-4 pe-2 ms-0 col-md-12 col-lg-4">
+          <div class="d-flex flex-column justify-content-center">
+            <span class="name">Alice Strecker</span>
+            <span class="role">Co-founder</span>
+            <span class="location">From London to Movido</span>
           </div>
-          <div class="team-card ps-2 pe-4">
-            <%= image_tag(asset_path('team/tim.png'), class:'team-img') %>
-            <div class="d-flex flex-column justify-content-center">
-              <span class="name">Tim Grobshäuser</span>
-              <span class="role">Co-founder</span>
-              <span class="location">From Zurich to Movido</span>
-            </div>
-          </div>
-          <div class="team-card ps-4 pe-2">
-            <div class="d-flex flex-column justify-content-center">
-              <span class="name">Jordan Demmouche</span>
-              <span class="role">Developer</span>
-              <span class="location">From Paris to Movido</span>
-            </div>
-            <%= image_tag(asset_path('team/jordan.png'), class:'team-img') %>
+          <%= image_tag(asset_path('team/alice.png'), class:'team-img') %>
+        </div>
+        <div class="team-card ps-2 pe-4 col-md-12 col-lg-4">
+          <%= image_tag(asset_path('team/tim.png'), class:'team-img') %>
+          <div class="d-flex flex-column justify-content-center">
+            <span class="name">Tim Grobshäuser</span>
+            <span class="role">Co-founder</span>
+            <span class="location">From Zurich to Movido</span>
           </div>
         </div>
-        <div class="team-wrapper">
-          <div class="team-card ps-2 pe-4">
-            <%= image_tag(asset_path('team/yoni.png'), class:'team-img') %>
-            <div class="d-flex flex-column justify-content-center">
-              <span class="name">Yoni Touboul</span>
-              <span class="role">Developer</span>
-              <span class="location">From Paris to Movido</span>
-            </div>
+        <div class="team-card ps-4 pe-2 col-md-12 col-lg-4">
+          <div class="d-flex flex-column justify-content-center">
+            <span class="name">Jordan Demmouche</span>
+            <span class="role">Developer</span>
+            <span class="location">From Paris to Movido</span>
           </div>
-          <div class="team-card ps-4 pe-2">
-            <div class="d-flex flex-column justify-content-center">
-              <span class="name">Diogo Lacerba</span>
-              <span class="role">Marketing</span>
-              <span class="location">From Lisbon to Movido</span>
-            </div>
-            <%= image_tag(asset_path('team/diogo.png'), class:'team-img') %>
-          </div>
-          <div class="team-card ps-2 pe-4">
-            <%= image_tag(asset_path('team/monique.png'), class:'team-img') %>
-            <div class="d-flex flex-column justify-content-center">
-              <span class="name">Monique Bayama</span>
-              <span class="role">Marketing</span>
-              <span class="location">From Paris to Movido</span>
-            </div>
+          <%= image_tag(asset_path('team/jordan.png'), class:'team-img') %>
+        </div>
+      </div>
+      <div class="team-wrapper row">
+        <div class="team-card ps-2 pe-4 ms-0 col-md-12 col-lg-4">
+          <%= image_tag(asset_path('team/yoni.png'), class:'team-img') %>
+          <div class="d-flex flex-column justify-content-center">
+            <span class="name">Yoni Touboul</span>
+            <span class="role">Developer</span>
+            <span class="location">From Paris to Movido</span>
           </div>
         </div>
-    </div>
+        <div class="team-card ps-4 pe-2 col-md-12 col-lg-4">
+          <div class="d-flex flex-column justify-content-center">
+            <span class="name">Diogo Lacerba</span>
+            <span class="role">Marketing</span>
+            <span class="location">From Lisbon to Movido</span>
+          </div>
+          <%= image_tag(asset_path('team/diogo.png'), class:'team-img') %>
+        </div>
+        <div class="team-card ps-2 pe-4 col-md-12 col-lg-4">
+          <%= image_tag(asset_path('team/monique.png'), class:'team-img') %>
+          <div class="d-flex flex-column justify-content-center">
+            <span class="name">Monique Bayama</span>
+            <span class="role">Marketing</span>
+            <span class="location">From Paris to Movido</span>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
