@@ -6,4 +6,8 @@ class Country < ApplicationRecord
   def currency
     code == 'fr' ? 'EUR' : 'GBP'
   end
+
+  def currency_symbol
+    code == 'fr' ? '€' : '£'
+  end
 end
