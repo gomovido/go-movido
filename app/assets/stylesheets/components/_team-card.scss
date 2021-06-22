@@ -1,65 +1,44 @@
 .team-container {
-  background: $purple;
-  h3 {
-    color: $white;
-  }
   .team-wrapper {
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     .team-card {
-      background: $white;
-      width: 290px;
+      background: $purple;
+      max-width: 340px;
       border-radius: 58px;
+      height: 117px;
       display: flex;
       justify-content: space-between;
       padding-top: 5px;
       padding-bottom: 5px;
-      margin: 2%;
+      margin-bottom: 40px;
+      color: $white;
       align-items: center;
-      .name {
-        color: $purple;
-      }
       .role {
         font-weight: 300;
+        font-size: 18px;
+        margin-bottom: 17px;
+      }
+      .name {
         font-size: 16px;
+        font-weight: bold;
       }
       .location {
-        color: $purple;
-        font-weight: 600;
-        font-size: 12px;
+        font-weight: 300;
+        font-size: 14px;
       }
       img.team-img {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
       }
     }
   }
 }
 @include media-breakpoint-down(md) {
   .team-container {
-    background: $white;
-    h3 {
-      color: $black;
-    }
     .team-wrapper {
-      display: grid;
+      justify-content: center;
       .team-card {
-        background: $purple;
-        margin: 3% 0%;
-        .name {
-          color: $white;
-          font-weight: 600;
-        }
-        .role {
-          font-weight: 300;
-          font-size: 14px;
-          color: $white;
-        }
-        .location {
-          color: $white;
-          font-weight: 600;
-          font-size: 12px;
-        }
+        margin-bottom: 17px;
       }
     }
   }
