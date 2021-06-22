@@ -1,17 +1,22 @@
-<section class="banner container d-flex align-items-center">
-  <div class="row">
-    <div class="col-md-6 d-flex align-items-center">
+<section class="banner container">
+  <div class="row align-items-center">
+    <div class="col-md-5 d-flex align-items-center">
       <div class="content">
-        <div class="headline mb-2">
-          <h1 class="mb-3">Your companion for everything you need to get settled in your new city!</h1>
-          <p class="subheadline">Get your SIM card, local transport, WiFi, utilities and more - <br class="d-none d-md-block">all in 5 mins, online and without fees</p>
+        <h1>Get all your contracts <br>in one customizable <br>bundle</h1>
+        <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class:'d-block d-md-none') %>
+        <div class="row mb-4">
+          <div class="col-6 feature"><i class="far fa-check me-3"></i>all in 1 bill</div>
+          <div class="col-5 feature"><i class="far fa-check me-3"></i>without fees</div>
         </div>
-        <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class:'d-block d-md-none mb-3') %>
-        <%= link_to 'Get Started', onboarding_path, class: 'btn-main mb-5' %>
+        <div class="row mb-3">
+          <div class="col-6 feature"><i class="far fa-check me-3"></i>no commitment</div>
+          <div class="col-5 feature"><i class="far fa-check me-3"></i>in 5 mins</div>
+        </div>
+        <%= link_to 'Customize your bundle', onboarding_path, class: 'btn-main mb-5 mb-md-0 mt-md-5' %>
       </div>
     </div>
-    <div class="col-md-6 d-none d-md-block text-end">
-      <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class: 'iphone-img') %>
+    <div class="col-md-7 d-none d-md-block text-end">
+      <%= image_tag(asset_path('components/homepage/product-iphone-view.png')) %>
     </div>
   </div>
 </section>
