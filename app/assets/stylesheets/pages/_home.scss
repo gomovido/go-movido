@@ -39,9 +39,9 @@
       color: $white;
     }
     p.subline {
-      font-family: 'Roboto';
-      font-size: 20px;
-      opacity: 0.5;
+      font-weight: 600;
+      font-size: 15px;
+      opacity: 0.4;
       color: $white;
     }
     .details {
@@ -50,9 +50,7 @@
         font-weight: 600;
         font-size: 14px;
         color: $white;
-        &:hover {
-          text-decoration: underline;
-        }
+        text-decoration: underline;
       }
     }
     .cards {
@@ -85,9 +83,6 @@
     .pricing {
       h2.title {
         font-size: 35px;
-      }
-      p.subline {
-        font-size: 17px;
       }
       padding: 2rem 0;
     }
