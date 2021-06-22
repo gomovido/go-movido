@@ -3,7 +3,7 @@ class CartReflex < ApplicationReflex
 
   def create
     if terms_not_checked?(user_preference_params[:terms])
-      current_user.user_preference.errors.add(:terms, 'You need to accept the conditions')
+      current_user.user_preference.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
       morph '.form-base', render(partial: "steps/cart/form", locals: { order: current_user.current_draft_order || Order.new, user_preference: current_user.user_preference })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
       order = current_user.current_draft_order || Order.new
