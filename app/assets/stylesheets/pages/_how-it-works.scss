@@ -1,22 +1,41 @@
 .how-it-works-container {
+  padding-top: 5rem;
+  h2 {
+    font-weight: 600;
+    font-size: 36px;
+    font-family: 'Poppins';
+    margin-bottom: 40px;
+  }
   img.iphone-illustration {
     width: 55%;
   }
   p.title {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 400;
+    color: $purple;
+    margin-bottom: 30px;
   }
   p.description {
-    color: #94A2B3;
+    color: $black;
+    font-weight: 400;
+    font-size: 18px;
   }
 }
 @include media-breakpoint-down(md) {
   .how-it-works-container {
+    padding-top: 1rem;
     img.iphone-illustration {
       margin-bottom: 1rem;
     }
-    p.title {
-      text-align: center;
+    .content {
+      background: $purple;
+      padding: 1rem;
+      p {
+        color: $white;
+      }
+    }
+    .picture {
+      margin-bottom: -80px;
     }
   }
 }
