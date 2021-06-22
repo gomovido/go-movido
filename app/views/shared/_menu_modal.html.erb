@@ -1,0 +1,29 @@
+<div class="modal fade" tabindex="-1" id="menuModal" aria-labelledby="menuModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-body menu-modal" style="background-image:url(<%= asset_path 'components/menu/background.png' %>);">
+        <div class="header">
+          <%= image_tag(asset_path("logos/movido-black.svg"), width: 110, class: 'logo') %>
+          <div id="hamburger" class="open" type="button" data-bs-dismiss="modal" data-bs-target="#menuModal">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="content">
+          <%= link_to 'HOME', root_path %>
+          <%= link_to 'OFFERS', pricing_path %>
+          <%= link_to 'HOW IT WORKS', how_it_works_path %>
+          <%= link_to 'BLOG', "https://blog.go-movido.com/" %>
+          <%= link_to 'ABOUT US', about_path %>
+          <% if current_user %>
+            <%= link_to 'LOGOUT', destroy_user_session_path, method: 'delete', class: 'purple' %>
+          <% else %>
+            <%= link_to 'LOGIN', dashboard_path, class: 'purple' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

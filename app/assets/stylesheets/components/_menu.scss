@@ -1,0 +1,45 @@
+.menu-modal {
+  background-size: cover;
+  padding: 0 !important;
+  .header {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4em 2em;
+    .logo {
+      padding-top: 0.3125rem;
+      padding-bottom: 0.3125rem;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+  }
+  .content {
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    a {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 32px;
+      border-bottom: 1px solid $black;
+      padding: 15px 0;
+      width: 190px;
+      text-align: center;
+      &:last-child {
+        border-bottom: none;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .menu-modal {
+    display: none;
+  }
+}
