@@ -13,6 +13,10 @@ class Order < ApplicationRecord
     items.includes([:product]).sum { |item| item.product.activation_price_cents }
   end
 
+  def total_amount_display
+    total_amount.to_f / 100
+  end
+
   def ready_to_checkout?
     user.user_preference.pickup? ? shipping && pickup : shipping
   end
