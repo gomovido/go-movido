@@ -2,12 +2,15 @@
 <div class="checkboxes-wrapper">
   <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
   <%= simple_form_for user_preference, url: new_cart_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
-  <div class="checkboxes">
-    <h2>Starter Pack</h2>
+  <div class="checkboxes" data-controller="cart">
+    <div class="d-flex justify-content-between">
+      <h2>Starter Pack</h2>
+      <h2><%= current_user.user_preference.country.currency_symbol %><span data-cart-target="price" data-value="0">0</span></h2>
+    </div>
     <p>Delivered to your current home before you move</p>
     <ul>
       <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
-        <li><%= service.label { service.check_box(checked: true, class: "custom-checkbox") + t("cart.form.#{service.text}", city: user_preference.city) } %></li>
+        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox", data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(current_user.user_preference.country)}) + t("cart.form.#{service.text}", city: user_preference.city) } %></li>
       <% end %>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true"  disabled="disabled" >+ free surprise 🍪</label></li>
       <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true" disabled="disabled" >+ free shipping 📦</label></li>
