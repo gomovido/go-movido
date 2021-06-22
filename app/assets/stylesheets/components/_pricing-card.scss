@@ -62,6 +62,10 @@
       }
     }
   }
+  span.subline {
+    color: $white;
+    font-size: 11px;
+  }
 }
 
 @include media-breakpoint-down(md) {
