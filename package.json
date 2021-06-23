@@ -10,6 +10,7 @@
     "@rails/webpacker": "4.3.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.0.1",
+    "countup.js": "^2.0.7",
     "flatpickr": "^4.6.6",
     "forest-cli": "^2.1.0",
     "intl-tel-input": "^17.0.8",
