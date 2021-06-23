@@ -4,7 +4,7 @@ class LeadReflex < ApplicationReflex
   before_reflex do
     @lead = Lead.new(email: current_user.email, campaign_type: 'pre_register_settle_in')
 
-    throw :abort unless @lead.valid?
+    # throw :abort unless @lead.valid?
   end
 
   def submit

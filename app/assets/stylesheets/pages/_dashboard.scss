@@ -1,11 +1,4 @@
-.banner-purple {
-  background: $purple;
-  padding: 5%;
-  h2.title {
-    color: $white;
-  }
-}
-.dashboard-container  {
+.dashboard-container {
   .checkboxes-wrapper {
     border-radius: 6px;
     background: $white;
@@ -23,24 +16,38 @@
       }
     }
   }
-}
-.tracking {
+  .tracking {
   background: $white;
-  border-radius: 6px;
-  margin-top: 8rem;
-  padding: 5%;
-  .title {
-    color: $purple;
-    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 8rem;
+    padding: 5%;
+    .title {
+      color: $purple;
+      font-weight: bold;
+    }
+    .tracking-id {
+      font-size: 22px;
+    }
   }
-  .tracking-id {
-    font-size: 22px;
+  .banner-purple {
+    background: $purple;
+    padding: 5%;
+    h2.title {
+      color: $white;
+    }
+  }
+  #pre-registered {
+    background: $green;
+    cursor: unset;
   }
 }
+
 
 
 @include media-breakpoint-down(md) {
-  .tracking {
-    margin-top: auto;
+  .dashboard-container {
+    .tracking {
+      margin-top: auto;
+    }
   }
 }

@@ -55,7 +55,11 @@
         <h3 class="purple">Coming soon</h3>
         <p>Looking for WiFi, utilities, insurance, and more? Customize your subscription bundle in one simple Settle in Pack - all in 1 monthly bill with the option to cancel anytime. </p>
         <p class="purple">Pre-register now and benefit from exclusive discounts!</p>
-        <span class="btn-main mb-5 w-100" data-action="click->lead#submit" data-controller="lead" data-lead-target="button">Pre-register for the Settle in Pack</span>
+        <% if Lead.find_by(email: current_user.email, campaign_type: 'pre_register_settle_in') %>
+          <span class="btn-main mb-5 w-100" id="pre-registered">You are already pre-registered</span>
+        <% else %>
+          <span class="btn-main mb-5 w-100" data-action="click->lead#submit" data-controller="lead" data-lead-target="button">Pre-register for the Settle in Pack</span>
+        <% end %>
       </div>
     </div>
   </div>
