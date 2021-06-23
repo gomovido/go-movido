@@ -1,27 +1,25 @@
 import { Controller } from "stimulus";
-import StimulusReflex from 'stimulus_reflex';
-import numeral from 'numeral'
+import numeral from 'numeral';
+import { CountUp } from 'countup.js';
 
 export default class extends Controller {
 
   static targets = ["price"]
 
-  connect() {
-    StimulusReflex.register(this);
-
-  }
-
 
   updatePrice(e) {
-    let OldPrice = parseInt(this.priceTarget.dataset.value, 10);
+    let oldPrice = parseInt(this.priceTarget.dataset.value, 10);
+    let startValCountUp = numeral(oldPrice / 100).format('0.00')
     let price = parseInt(e.currentTarget.dataset.price, 10)
     let newPrice = 0
-    if (e.target.checked == true) {
-      newPrice = OldPrice += price
-    } else {
-      newPrice = OldPrice -= price
-    }
+    newPrice = e.target.checked == true ? oldPrice += price : oldPrice -= price
     this.priceTarget.dataset.value = newPrice
-    this.priceTarget.innerHTML = numeral(newPrice / 100).format('0.00');
+    var options = {
+      "decimalPlaces": 2,
+      "startVal": startValCountUp,
+      "useGrouping": false,
+    };
+    const countUp = new CountUp(this.priceTarget, numeral(newPrice / 100).format('0.00'), options);
+    countUp.start();
   }
 }
