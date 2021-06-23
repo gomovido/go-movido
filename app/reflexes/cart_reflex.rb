@@ -2,15 +2,14 @@ class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
   def create
+    order = current_user.current_draft_order || Order.new
     if terms_not_checked?(user_preference_params[:terms])
       current_user.user_preference.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: current_user.current_draft_order || Order.new, user_preference: current_user.user_preference })
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
-      order = current_user.current_draft_order || Order.new
       order.errors.add(:affiliate_link, 'not valid')
       morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
     elsif !user_preference_params[:service_ids]
-      order = current_user.current_draft_order || Order.new
       current_user.user_preference.errors.add(:base, "Please select at least one service")
       morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
     else

@@ -1,20 +1,14 @@
 class LeadReflex < ApplicationReflex
-  delegate :uuid, to: :connection
+  delegate :current_user, to: :connection
 
   before_reflex do
-    @lead = Lead.new(campaign_type: 'simplicity_stressful')
-    @lead.assign_attributes(lead_params)
+    @lead = Lead.new(email: current_user.email, campaign_type: 'pre_register_settle_in')
 
-    throw :abort unless @lead.valid?
+    # throw :abort unless @lead.valid?
   end
 
   def submit
     @lead.save
-  end
-
-  private
-
-  def lead_params
-    params.require(:lead).permit(:email)
+    morph :nothing
   end
 end

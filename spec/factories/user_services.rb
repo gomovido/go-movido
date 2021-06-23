@@ -1,4 +1,3 @@
 FactoryBot.define do
-  factory :user_service do
-  end
+  factory :user_service
 end

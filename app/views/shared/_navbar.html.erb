@@ -27,7 +27,7 @@
           <%= link_to t('shared.navbar_visitor.about_us'), about_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Login', dashboard_path, class: 'nav-link' %>
+          <%= link_to (current_user ? 'Dashboard' : 'Login'), dashboard_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'Get Started', onboarding_path, class: 'btn-main' %>
