@@ -16,16 +16,17 @@ export default class extends Controller {
     setTimeout(e => {
       this.buttonTarget.style.background = '#2FAB73';
       this.buttonTarget.innerText = "Congrats! We'll contact you very soon";
+      this.buttonTarget.classList.add('disabled')
     }, 2000)
   }
 
 
-  reflexHalted() {
-    setTimeout(e => {
-      this.buttonTarget.style.background = '#FF6C6C';
-      this.buttonTarget.innerText = 'You are already pre-registered';
-    }, 2000)
-  }
+  // reflexHalted() {
+  //   setTimeout(e => {
+  //     this.buttonTarget.style.background = '#2FAB73';
+  //     this.buttonTarget.innerText = "You are already pre-registered";
+  //   }, 2000)
+  // }
 
   submit(e) {
     this.buttonTarget.style.background = '#8C30F5';
