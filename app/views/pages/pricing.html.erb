@@ -1,74 +1,26 @@
-<div class="static-container how-it-works-container">
-  <div class="container">
-    <h2>What bundles does Movido offer?</h2>
-    <div class="row align-items-center">
-      <div class="col-12 col-lg-6">
-        <p><span class="purple">Starter Pack:</span> customizable bundle shipped to your current home before you move.</p>
-      </div>
-      <div class="col-12 col-lg-6">
-        <p><span class="purple">Settle in Pack:</span> customizable bundle which includes all the subscriptions you need in your new home in one monthly bill.</p>
-      </div>
-      <div class="col-12">
-        <p>Both Pack are available in the UK and in France. </p>
-      </div>
+<div class="static-container pricing-container container">
+  <h1>What bundles does Movido offer?</h1>
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-6">
+      <p><span class="purple">Starter Pack:</span> customizable bundle shipped to your current home before you move.</p>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p><span class="purple">Settle in Pack:</span> customizable bundle which includes all the subscriptions you need in your new home in one monthly bill.</p>
+    </div>
+    <div class="col-12">
+      <p>Both Pack are available in the UK and in France. </p>
     </div>
   </div>
-  <div class="container mt-5">
-    <div class="cards">
-      <div class="row">
-        <div class="col-12 col-lg-5 pricing-card mb-5 mb-lg-0">
-          <h3 class="title black">Starter Pack</h3>
-          <h4 class="desc black">Delivered to your current home before you move</h4>
-          <div class="card starter mb-3">
-            <div>
-              <span class="price">£1*</span>
-              <p class="desc">Everything you need to start in the good way</p>
-              <ul>
-                <li><i class="fas fa-check"></i>Local phone number</li>
-                <li><i class="fas fa-check"></i>Public transportation card</li>
-                <li><i class="fas fa-check"></i>Airport pick-up to city center</li>
-                <li><i class="fas fa-check"></i>Everything you need <u>before</u> you arrive</li>
-                <li><i class="fas fa-check"></i>Delivered to your current home</li>
-                <li><i class="fas fa-check"></i>Without fees</li>
-              </ul>
-            </div>
-            <%= link_to "Get started", onboarding_path, class: 'rounded-button' %>
-          </div>
-          <span class="subline black">* Depending on your choice of products</span>
-        </div>
-        <div class="col-12 col-lg-7 pricing-card">
-          <h3 class="title black">Settle-in Pack</h3>
-          <h4 class="desc black">Customized offers to get you settled after arrival</h4>
-          <div class="card settle-in mb-3">
-            <div>
-              <span class="price">€10/month*</span>
-              <p class="desc">Get setup in your new home</p>
-              <ul class="row">
-                <div class="col-12 col-lg-6">
-                  <li><i class="fas fa-check"></i>WiFi at home</li>
-                  <li><i class="fas fa-check"></i>Utilities at home</li>
-                  <li><i class="fas fa-check"></i>Mobile phone contract</li>
-                  <li><i class="fas fa-check"></i>Housing insurance</li>
-                  <li><i class="fas fa-check"></i>Guarantor (Paris only)</li>
-                  <li><i class="fas fa-check"></i>Customize your own bundle</li>
-                </div>
-                <div class="col-12 col-lg-6">
-                  <li><i class="fas fa-check"></i>All in 1 bill each month</li>
-                  <li><i class="fas fa-check"></i>No commitment! Cancel your bundle anytime</li>
-                </div>
-              </ul>
-            </div>
-            <span class="rounded-button">Coming soon!</span>
-          </div>
-          <span class="subline black">* Depending on your choice of products</span>
-        </div>
-      </div>
+  <div class="mt-5 cards">
+    <div class="row">
+      <%= render 'shared/starter_pack_card' %>
+      <%= render 'shared/settle_in_pack_card' %>
     </div>
     <div class="details">
       <%= link_to 'See more details', pricing_path, class: 'link white' %>
     </div>
   </div>
-  <div class="container mb-5 d-none d-md-block">
+  <div class="mb-5 d-none d-md-block">
     <div class="row">
       <div class="col-12 mb-4">
         <table>
@@ -115,15 +67,14 @@
         </table>
       </div>
       <div class="col-12 d-flex justify-content-end">
-        <%= link_to "Get started", onboarding_path, class: 'rounded-button purple-bg' %>
+        <%= link_to "Get started", onboarding_path, class: 'btn-main' %>
       </div>
     </div>
   </div>
-  <div class="container mb-5 d-block d-md-none">
+  <div class="mb-5 d-block d-md-none">
     <div class="row">
-
       <div class="col-12 mb-4">
-        <p><strong>France pricing</strong></p>
+        <p><strong>France</strong></p>
         <table>
           <tbody>
             <tr class="custom-tr">
@@ -137,7 +88,7 @@
         </table>
       </div>
       <div class="col-12 mb-4">
-        <p><strong>United Kingdom pricing</strong></p>
+        <p><strong>United Kingdom</strong></p>
         <table>
           <tbody>
             <tr class="custom-tr">
@@ -151,7 +102,7 @@
         </table>
       </div>
       <div class="col-12 d-flex justify-content-end">
-        <%= link_to "Get started", onboarding_path, class: 'rounded-button purple-bg' %>
+        <%= link_to "Get started", onboarding_path, class: 'btn-main' %>
       </div>
     </div>
   </div>

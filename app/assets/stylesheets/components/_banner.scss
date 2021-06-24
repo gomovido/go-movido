@@ -8,19 +8,15 @@
     margin: auto;
   }
   h1 {
-    font-size: 54px;
-    line-height: 50px;
     margin-bottom: 32px;
+  }
+  p {
     font-weight: 600;
-    font-family: 'Poppins';
   }
   a {
     width: 100%;
   }
   .feature {
-    font-weight: 600;
-    font-size: 14px;
-    font-family: 'Poppins';
     i {
       color: $purple;
     }
@@ -40,7 +36,6 @@
     }
     h1 {
       text-align: center;
-      font-size: 24px;
     }
     .content .row {
       justify-content: center;
