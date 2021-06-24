@@ -46,9 +46,8 @@
   background: $purple;
   box-shadow: 0px 10px 30px rgba(103, 48, 245, 0.3);
   border-radius: 7px;
-  font-family: 'Roboto';
-  font-weight: 900;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 18px;
   text-align: center;
   width: 270px;
   height: 48px;
@@ -66,9 +65,8 @@
   background: $white;
   box-shadow: 0px 10px 30px rgba(103, 48, 245, 0.3);
   border-radius: 7px;
-  font-family: 'Roboto';
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 18px;
   text-align: center;
   width: 270px;
   height: 48px;
@@ -98,6 +96,10 @@
 @include media-breakpoint-down(md) {
   .btn-main {
     width: 100% !important;
+    font-size: 16px;
+  }
+  .btn-main-white {
+    font-size: 16px;
   }
   .rounded-button {
     width: 100%;
