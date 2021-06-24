@@ -18,6 +18,7 @@ a {
 ul {
   padding: 0;
 }
+
 li {
   list-style: none;
 }
@@ -35,16 +36,8 @@ button {
   background-size: cover;
 }
 
-.m-auto {
-  margin: 0 auto;
-}
-
 .mh-100 {
   min-height: 100vh  !important;
-}
-
-.bot-0 {
-  bottom: 0;
 }
 
 .white {
@@ -60,17 +53,10 @@ button {
   padding: 0;
 }
 
-.black {
-  color: #18191F !important;
-}
-
 .padded {
   padding: 12.5%;
 }
 
-.background-size-cover {
-  background-size: cover;
-}
 
 .iti__flag {background-image: asset-url("flags/flags.png") !important;}
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -87,10 +73,6 @@ button {
 }
 
 
-.w-25 {
-  width: 25% !important;
-}
-
 .w-10 {
   width: 10% !important;
 }
@@ -103,20 +85,12 @@ button {
   -webkit-appearance: none !important;
 }
 
-.wrapper{
+.wrapper {
   flex: 1 !important;
 }
 
 .termly-style-cookie-preference-44d002 {
   font-size: 14px !important;
-}
-
-.background-white {
-  background: $white !important;
-}
-
-.white {
-  color: $white;
 }
 
 .green {

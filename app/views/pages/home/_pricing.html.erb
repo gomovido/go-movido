@@ -4,50 +4,8 @@
     <p class="subline">Get your SIM card, local transportation card, WiFi, utilities and more - all in 5 mins, online and without fees. Customize your own contract bundle.</p>
     <div class="cards">
       <div class="row">
-        <div class="col-12 col-lg-5 pricing-card mb-5 mb-lg-0">
-          <h3 class="title">Starter Pack</h3>
-          <h4 class="desc">Envelope delivered to your current home <u>before</u> you move</h4>
-          <div class="card starter">
-            <div>
-              <span class="price">£1*</span>
-              <p class="desc">Everything you need to get started in your new home</p>
-              <ul>
-                <li><i class="fas fa-check"></i>Local phone number</li>
-                <li><i class="fas fa-check"></i>Public transportation card</li>
-                <li><i class="fas fa-check"></i>Airport pick-up</li>
-                <hr>
-                <li><span class="purple">Free shipping</span></li>
-                <li><span class="purple">No added fees</span></li>
-              </ul>
-            </div>
-            <%= link_to "Customize your bundle", onboarding_path, class: 'btn-main' %>
-          </div>
-          <span class="subline">* One-off price depending on bundle selection</span>
-        </div>
-        <div class="col-12 col-lg-7 pricing-card">
-          <h3 class="title">Settle-in Pack</h3>
-          <h4 class="desc">Customizable bundle including all subscriptions you need in 1 monthly bill</h4>
-          <div class="card settle-in blue-bg">
-            <div>
-              <span class="price">€10/month*</span>
-              <p class="desc">Everything you need to get settled in your new home</p>
-              <ul class="row">
-                <div class="col-12 col-lg-6">
-                  <li><i class="fas fa-check"></i>WiFi at home</li>
-                  <li><i class="fas fa-check"></i>Utilities at home</li>
-                  <li><i class="fas fa-check"></i>Mobile phone contract</li>
-                  <li><i class="fas fa-check"></i>Housing insurance</li>
-                  <li><i class="fas fa-check"></i>Guarantor (Paris only)</li>
-                  <hr>
-                  <li><span class="white">All in 1 bill</span></li>
-                  <li><span class="white">Cancel anytime</span></li>
-                </div>
-              </ul>
-            </div>
-            <span class="btn-main-white">Coming soon - Pre-register</span>
-          </div>
-          <span class="subline">* Monthly price depending on bundle selection</span>
-        </div>
+        <%= render 'shared/starter_pack_card' %>
+        <%= render 'shared/settle_in_pack_card' %>
       </div>
     </div>
     <div class="details">

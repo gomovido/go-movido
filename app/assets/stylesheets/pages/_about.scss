@@ -1,12 +1,5 @@
 .about-container {
-  padding-top: 5rem;
-  h2 {
-    font-weight: 600;
-    font-size: 36px;
-    font-family: 'Poppins';
-  }
   p {
-    font-size: 18px;
     margin-bottom: 30px;
   }
   p.supported {
@@ -16,9 +9,7 @@
     width: 128px;
   }
   .team-container {
-    h3 {
-      font-weight: bold;
-      font-size: 20px;
+    h2 {
       color: $purple;
       margin-bottom: 20px;
     }
@@ -27,12 +18,10 @@
 
 @include media-breakpoint-down(md) {
   .about-container {
-    padding-top: 1rem;
     br {
       display: none;
     }
-    h2 {
-      font-size: 26px;
+    h1 {
       margin-bottom: 15px;
     }
   }

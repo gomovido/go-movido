@@ -1,11 +1,7 @@
 .home-container {
-  padding-top: 5rem;
   .why {
-    h2.title {
-      font-size: 24px;
-      font-family: 'Poppins';
+    h2{
       margin-bottom: 1.5rem;
-      font-weight: 600;
     }
     .reason {
       display: flex;
@@ -13,17 +9,6 @@
       margin-bottom: 19px;
       img {
         margin-right: 32px;
-      }
-      h3.headline {
-        font-weight: 600;
-        font-size: 18px;
-        font-family: 'Poppins';
-        margin-bottom: 4px;
-      }
-      p.desc {
-        font-size: 16px;
-        font-weight: 200;
-        color: $black;
       }
     }
     a {
@@ -33,14 +18,10 @@
   .pricing {
     background: $purple;
     padding: 3rem;
-    h2.title {
-      font-size: 48px;
-      font-weight: bold;
+    h2 {
       color: $white;
     }
     p.subline {
-      font-weight: 600;
-      font-size: 15px;
       opacity: 0.4;
       color: $white;
     }
@@ -58,11 +39,8 @@
     }
   }
   .partners {
-    h2.title {
+    h3 {
       color: $light-grey;
-      font-weight: 400;
-      font-family: 'Poppins';
-      font-size: 16px;
     }
     .companies {
       display: flex;
@@ -74,16 +52,12 @@
 
 @include media-breakpoint-down(md) {
   .home-container {
-    padding-top: 1rem;
     .why {
       a {
         width: 100%;
       }
     }
     .pricing {
-      h2.title {
-        font-size: 35px;
-      }
       padding: 2rem 0;
     }
     .partners {
