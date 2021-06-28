@@ -7,8 +7,8 @@ RSpec.describe Order, type: :model do
   let(:shipping) { create(:shipping) }
   let(:billing) { create(:billing) }
   let(:charge) { create(:charge) }
-  let(:user_preference) { create(:user_preference, user: user, country: country) }
-  let(:cart) { create(:cart, user_preference: user_preference) }
+  let(:house) { create(:house, user: user, country: country) }
+  let(:cart) { create(:cart, house: house) }
 
   describe 'associations' do
     %i[charge billing shipping].each do |field|

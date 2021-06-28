@@ -3,15 +3,15 @@ class CartReflex < ApplicationReflex
 
   def create
     order = current_user.current_draft_order || Order.new
-    if terms_not_checked?(user_preference_params[:terms])
-      current_user.user_preference.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
+    if terms_not_checked?(house_params[:terms])
+      current_user.house.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, house: current_user.house })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
       order.errors.add(:affiliate_link, 'not valid')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
-    elsif !user_preference_params[:service_ids]
-      current_user.user_preference.errors.add(:base, "Please select at least one service")
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, user_preference: current_user.user_preference })
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, house: current_user.house })
+    elsif !house_params[:service_ids]
+      current_user.house.errors.add(:base, "Please select at least one service")
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, house: current_user.house })
     else
       initialize_order
       initialize_cart
@@ -35,20 +35,20 @@ class CartReflex < ApplicationReflex
   end
 
   def initialize_cart
-    @cart = @order.cart || Cart.create(user_preference: current_user.user_preference)
+    @cart = @order.cart || Cart.create(house: current_user.house)
   end
 
   def init_user_services
-    UserService.where(user_preference: current_user.user_preference).destroy_all
-    user_preference_params[:service_ids].each do |service_id|
-      UserService.create(service_id: service_id, user_preference: current_user.user_preference)
+    UserService.where(house: current_user.house).destroy_all
+    house_params[:service_ids].each do |service_id|
+      UserService.create(service_id: service_id, house: current_user.house)
     end
   end
 
   def generate_items
     @cart.items.destroy_all
-    current_user.user_preference.reload.user_services.each do |user_service|
-      product = Product.find_by(category: user_service.service.category, country: current_user.user_preference.country)
+    current_user.house.reload.user_services.each do |user_service|
+      product = Product.find_by(category: user_service.service.category, country: current_user.house.country)
       Item.create(cart: @cart, product: product, order: @order)
     end
   end
@@ -61,7 +61,7 @@ class CartReflex < ApplicationReflex
     morph '.flow-container', render(partial: "steps/cart/show", locals: { cart: current_user.current_draft_order.cart })
   end
 
-  def user_preference_params
-    params.require(:user_preference).permit(:terms, service_ids: [])
+  def house_params
+    params.require(:house).permit(:terms, service_ids: [])
   end
 end

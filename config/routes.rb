@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   # Onboarding
-  get 'onboarding/new-journey', to: 'user_preferences#new', as: 'new_user_preference'
+  get 'onboarding/new-journey', to: 'houses#new', as: 'new_house'
   get 'onboarding/my-services', to: 'carts#new', as: 'new_cart'
   get 'onboarding/my-services/starter-pack/:order_id', to: 'carts#show', as: 'starter_pack'
   get 'onboarding/my-services/packs/:order_id', to: 'packs#index', as: 'packs'

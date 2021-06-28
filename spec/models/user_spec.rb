@@ -8,7 +8,7 @@ RSpec.describe User do
   end
 
   describe 'associations' do
-    it { is_expected.to have_one(:user_preference) }
+    it { is_expected.to have_one(:house) }
     it { is_expected.to have_many(:orders) }
   end
 
