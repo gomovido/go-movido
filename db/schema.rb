@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_112719) do
+ActiveRecord::Schema.define(version: 2021_06_28_102051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 2021_06_15_112719) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "pack_id"
     t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["pack_id"], name: "index_categories_on_pack_id"
     t.index ["sku"], name: "index_categories_on_sku", unique: true
   end
 
@@ -92,6 +94,12 @@ ActiveRecord::Schema.define(version: 2021_06_15_112719) do
     t.index ["charge_id"], name: "index_orders_on_charge_id"
     t.index ["shipping_id"], name: "index_orders_on_shipping_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "packs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pickups", force: :cascade do |t|
@@ -184,6 +192,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_112719) do
   end
 
   add_foreign_key "carts", "user_preferences"
+  add_foreign_key "categories", "packs"
   add_foreign_key "items", "carts"
   add_foreign_key "items", "orders"
   add_foreign_key "items", "products"

@@ -4,10 +4,12 @@ RSpec.describe Category, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:products) }
     it { is_expected.to have_one(:service) }
+    it { is_expected.to belong_to(:pack) }
   end
 
   describe 'validations' do
-    let(:category) { build(:category, :mobile) }
+    let(:pack) { create(:pack) }
+    let(:category) { build(:category, :mobile, pack: pack) }
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
