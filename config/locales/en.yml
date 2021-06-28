@@ -74,8 +74,6 @@ en:
         email: 'Email'
       order:
         affiliate_link: 'Promocode'
-      user_preference:
-        stay_duration: 'Duration of stay'
   bookings:
     new:
       modal:

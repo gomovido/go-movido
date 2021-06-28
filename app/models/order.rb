@@ -18,7 +18,7 @@ class Order < ApplicationRecord
   end
 
   def ready_to_checkout?
-    user.user_preference.pickup? ? shipping && pickup : shipping
+    user.house.pickup? ? shipping && pickup : shipping
   end
 
   def currency

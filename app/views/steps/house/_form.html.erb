@@ -1,0 +1,5 @@
+<%= simple_form_for house, url: new_house_path, data: {reflex: "submit->HouseReflex#create", reflex_serialize_form: true  } do |f| %>
+  <%= f.input :country_id, as: :radio_buttons, collection: Country.all.map {|country| [image_tag(asset_path("flags/#{country.code}.svg") , width: 200) + t("country.#{country.code}"), country.id]}, legend_tag: false, checked: house.country.id || Country.first.id %>
+  <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
+  <%= link_to 'Back', destroy_user_session_path, method: :delete, class:'btn-main-white mb-5' %>
+<% end %>
