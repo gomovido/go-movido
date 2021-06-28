@@ -9,7 +9,8 @@ RSpec.describe Service, type: :model do
   describe 'validations' do
     subject { build(:service, :mobile, category: category) }
 
-    let(:category) { create(:category, :mobile) }
+    let(:pack) { create(:pack) }
+    let(:category) { create(:category, :mobile, pack: pack) }
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
