@@ -2,10 +2,10 @@ import { Controller } from "stimulus";
 import numeral from 'numeral';
 import { CountUp } from 'countup.js';
 
+
 export default class extends Controller {
 
   static targets = ["price"]
-
 
   updatePrice(e) {
     let oldPrice = parseInt(this.priceTarget.dataset.value, 10);
@@ -22,4 +22,12 @@ export default class extends Controller {
     const countUp = new CountUp(this.priceTarget, numeral(newPrice / 100).format('0.00'), options);
     countUp.start();
   }
+
+  updateCountry(e) {
+    document.querySelectorAll('.checkboxes-banner').forEach((el) => {
+      // Do stuff here
+      el.classList.toggle('d-none')
+    });
+  }
+
 }

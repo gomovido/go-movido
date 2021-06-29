@@ -1,0 +1,26 @@
+<div class="form-base">
+  <div class="checkboxes-wrapper">
+    <%= simple_form_for UserPreference.new, url: new_cart_path do |f| %>
+    <div class="checkboxes" data-controller="cart">
+      <div class="d-flex justify-content-between">
+        <h2 class="m-0">Starter Pack</h2>
+        <div class="d-flex">
+          <h2 class='m-0'><%= country.currency_symbol %></h2>
+          <h2 class='m-0' data-cart-target="price" data-value="0">0</h2>
+        </div>
+      </div>
+      <p>Delivered to your current home before you move</p>
+      <ul>
+        <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
+          <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox", data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(country)}) + t("cart.form.#{service.text}", city: city) } %></li>
+        <% end %>
+      </ul>
+      <p>*Estimated delivery time: 1 week</p>
+      <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
+    </div>
+    <% f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
+    <% end %>
+    <%= link_to 'Get started', onboarding_path, class:'btn-main mb-3' %>
+  </div>
+  <hr class="mb-5">
+</div>
