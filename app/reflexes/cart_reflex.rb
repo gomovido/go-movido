@@ -57,10 +57,6 @@ class CartReflex < ApplicationReflex
     morph '.flow-container', render(partial: "steps/packs", locals: { order: current_user.current_draft_order, message: { content: "Thanks for waiting, please find your customized pack below.", delay: 0 } })
   end
 
-  def more_details
-    morph '.flow-container', render(partial: "steps/cart/show", locals: { cart: current_user.current_draft_order.cart })
-  end
-
   def house_params
     params.require(:house).permit(:terms, service_ids: [])
   end

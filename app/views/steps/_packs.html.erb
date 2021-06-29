@@ -6,12 +6,12 @@
       <%= render 'shared/chat', message: message %>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" data-delay="2" data-animate-target="contentContainer">
       <div class="col-xs-12 col-lg-6">
-        <div class="content-container" data-delay="2" data-animate-target="contentContainer">
+        <div class="content-container" >
           <div class="packs-wrapper mb-4">
+            <div class="w-100 text-center"><%= image_tag(asset_path('components/next-step-banner/cards.png')) %></div>
             <div class="pack-card">
-              <%= image_tag(asset_path('components/packs-card/followers.png')) %>
               <div class="d-flex align-items-center justify-content-between">
                 <h2>Starter Pack</h2>
                 <span class="price"><%= order.currency_symbol %><%= order.total_amount_display %></span>
@@ -21,19 +21,73 @@
                 <% order.items.each do |item| %>
                   <li>  <i class='fas fa-check'></i>  <%= item.product.name %></li>
                 <% end %>
+                <li ><i class="fas fa-plus invisible"></i> + free surprise 🍪</li>
+                <li ><i class="fas fa-plus invisible"></i> + free shipping 📦</li>
               </ul>
             </div>
             <div class="cta-wrapper">
-              <span data-reflex="click->CartReflex#more_details">More details</span>
-              <span>|</span>
               <%= link_to 'Buy now', new_shipping_path(order.id) %>
             </div>
           </div>
           <%= link_to 'Back', new_cart_path, class:'btn-main-white w-100 mb-5' %>
         </div>
       </div>
+      <div class="row justify-content-center">
+        <div class="col-xs-12 col-lg-6 testimonials-packs ">
+          <h2>They liked us</h2>
+          <div class="testimonials-wrapper">
+            <div class="testimonial d-flex align-items-start">
+              <%= image_tag(asset_path('components/packs-card/testimonial-1.png'), width: 40) %>
+              <div class="content">
+                <div class="stars d-flex align-items-center">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p>I was excited for my trip to London but also a little scared. This pack helped me to have some basics settled early on. </p>
+                <span>Shane - June 27, 2021</span>
+              </div>
+            </div>
+            <div class="testimonial d-flex align-items-start">
+              <%= image_tag(asset_path('components/packs-card/testimonial-2.png'), width: 40) %>
+              <div class="content">
+                <div class="stars d-flex align-items-center">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half"></i>
+                </div>
+                <p>The pack was nice but guys, the suprise is definitely hilarious. </p>
+                <span>Robert - June 19, 2021</span>
+              </div>
+            </div>
+            <div class="testimonial d-flex align-items-start">
+              <%= image_tag(asset_path('components/packs-card/testimonial-3.png'), width: 40) %>
+              <div class="content">
+                <div class="stars d-flex align-items-center mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p>I arrived with 2 suitcases in Charles de Gaulle airport. Glad I was picked-up, this would have been a nightmare otherwise. </p>
+                <span class="mb-4">Vladimir - June 13, 2021</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <%= render 'shared/components/coming_soon_banner' %>
+    <div class="coming-soon-banner" data-delay="2">
+      <div class="container">
+        <p class="title">Understand the pricing </p>
+        <p class="subtitle"><strong>movido is 100% free!</strong> We do not charge you any fees for the offers you choose or for our service. The costs that you see are 100% transparent and reflect the actual retail prices of our partners.</p>
+      </div>
+  </div>
 </div>
 

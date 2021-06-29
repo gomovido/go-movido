@@ -1,12 +1,10 @@
 .packs-wrapper {
-  margin-top: 3rem;
   margin-bottom: 3rem;
+  img {
+    width: 260px;
+    margin-bottom: -20px;
+  }
   .pack-card {
-    img {
-      position: absolute;
-      top: -10%;
-      right: 0;
-    }
     i {
       color: $purple;
     }
