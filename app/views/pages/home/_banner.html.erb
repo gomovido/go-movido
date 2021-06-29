@@ -3,19 +3,16 @@
     <div class="col-md-5 d-flex align-items-center">
       <div class="content">
         <h1>Get all your contracts in one customizable bundle</h1>
-        <p>Choose your destination</p>
-        <div data-controller='banner' class='form-base'>
-          <select name="countries" id="country-select" data-action="change->banner#updateCountry" class='custom-select w-100 mb-3'>
-              <option value="uk">United Kingdom</option>
-              <option value="fr">France</option>
-          </select>
-          <div class='checkboxes-banner d-none'>
-            <%= render 'shared/components/checkboxes', city: 'Paris', country: Country.find_by(code: 'fr') %>
-          </div>
-          <div class="checkboxes-banner">
-            <%= render 'shared/components/checkboxes', city: 'London', country: Country.find_by(code: 'gb') %>
-          </div>
+        <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class:'d-block d-md-none') %>
+        <div class="row mb-4">
+          <p class="col-6 feature"><i class="far fa-check me-3"></i>all in 1 bill</p>
+          <p class="col-5 feature"><i class="far fa-check me-3"></i>without fees</p>
         </div>
+        <div class="row mb-3">
+          <p class="col-6 feature"><i class="far fa-check me-3"></i>no commitment</p>
+          <p class="col-5 feature"><i class="far fa-check me-3"></i>in 5 mins</p>
+        </div>
+        <%= link_to 'Get Stated', onboarding_path, class: 'btn-main mb-5 mb-md-0 mt-md-5' %>
       </div>
     </div>
     <div class="col-md-7 d-none d-md-block text-end">

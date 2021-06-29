@@ -14,4 +14,8 @@ class Country < ApplicationRecord
   def title
     code == 'fr' ? 'France' : 'United Kingdom'
   end
+
+  def city
+    code == 'fr' ? 'Paris' : 'London'
+  end
 end
