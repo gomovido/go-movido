@@ -9,4 +9,8 @@ class Service < ApplicationRecord
   def price(country)
     (category.products.find_by(country: country).activation_price.to_d * 100).to_i
   end
+
+  def product(country)
+    category.products.find_by(country: country)
+  end
 end

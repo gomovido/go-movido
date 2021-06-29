@@ -1,21 +1,24 @@
-<div class="padded"></div>
-<div class="checkboxes-wrapper">
-  <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
+<div class="carts-new-container" data-controller="cart">
   <%= simple_form_for house, url: new_cart_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
-  <div class="checkboxes" data-controller="cart">
-    <div class="d-flex justify-content-between">
-      <h2>Starter Pack</h2>
-      <h2><%= house.country.currency_symbol %><span data-cart-target="price" data-value="0">0</span></h2>
-    </div>
-    <p>Delivered to your current home before you move</p>
-    <ul>
-      <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
-        <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox", data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(house.country)}) + t("cart.form.#{service.text}", city: house.city) } %></li>
-      <% end %>
-      <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true"  disabled="disabled" >+ free surprise 🍪</label></li>
-      <li><label><input class="custom-checkbox" type="checkbox" value="1" checked="true" disabled="disabled" >+ free shipping 📦</label></li>
-    </ul>
-    <p>*Estimated delivery time: 1 week</p>
+  <div class="product-cards-wrapper">
+    <%= f.collection_check_boxes(:service_ids, Service.all.includes([:category]), :id, :name, include_hidden: false) do |service| %>
+      <% product = service.object.product(house.country) %>
+      <div class="product-card">
+        <%= service.label { service.check_box(checked: false, data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(house.country)})} %>
+        <h3 class="name"><%= product.name %></h3>
+        <p class="description"><%= product.description %></p>
+        <% product.product_details.each do |product_detail| %>
+          <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
+        <% end %>
+        <div class="bottom-part">
+          <div class="left">
+            <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= product.activation_price %></span> </span>
+          </div>
+          <%= image_tag(asset_path(product.company.logo_url)) %>
+        </div>
+      </div>
+    <% end %>
+    <h2 class="total-price"><%= house.country.currency_symbol %><span data-cart-target="price" data-value="0">0</span></h2>
     <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
   </div>
   <%= simple_fields_for order do |p| %>
