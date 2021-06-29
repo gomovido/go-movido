@@ -1,0 +1,17 @@
+<section class="banner container">
+  <div class="row align-items-center">
+    <div class="col-md-5 d-flex align-items-center">
+      <div class="content">
+        <h1>Get all your contracts in one customizable bundle</h1>
+        <div class='form-base'>
+          <div class='checkboxes-banner'>
+            <%= render 'shared/components/checkboxes', country: @country %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 d-none d-md-block text-end">
+      <%= image_tag(asset_path('components/homepage/product-iphone-view.png')) %>
+    </div>
+  </div>
+</section>

@@ -23,11 +23,4 @@ export default class extends Controller {
     countUp.start();
   }
 
-  updateCountry(e) {
-    document.querySelectorAll('.checkboxes-banner').forEach((el) => {
-      // Do stuff here
-      el.classList.toggle('d-none')
-    });
-  }
-
 }
