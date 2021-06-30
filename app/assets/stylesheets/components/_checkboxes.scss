@@ -49,14 +49,3 @@
     }
   }
 }
-
-
-@include media-breakpoint-only(xs) {
-  .checkboxes-wrapper {
-    img {
-      top: -15%;
-      left: 15%;
-      width: 60%;
-    }
-  }
-}
