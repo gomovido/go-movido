@@ -1,7 +1,7 @@
 <div class="form-base">
   <div class="checkboxes-wrapper">
     <%= image_tag(asset_path('components/homepage/envelope.png')) %>
-    <%= simple_form_for UserPreference.new, url: new_cart_path do |f| %>
+    <%= simple_form_for House.new, url: root_path do |f| %>
     <div class="checkboxes" data-controller="cart">
       <div class="d-flex justify-content-between">
         <h2 class="m-0">Starter Pack</h2>
