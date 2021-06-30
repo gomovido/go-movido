@@ -8,6 +8,16 @@ export default class extends Controller {
 
 
   updatePrice(e) {
+    const productNode = e.currentTarget.parentNode.parentNode
+    const icon = productNode.querySelector('#check')
+    productNode.classList.toggle('active');
+    if (icon.classList.contains('fa-plus')) {
+      icon.classList.remove('fa-plus')
+      icon.classList.add('fa-check')
+    } else {
+      icon.classList.remove('fa-check')
+      icon.classList.add('fa-plus')
+    }
     let oldPrice = parseInt(this.priceTarget.dataset.value, 10);
     let startValCountUp = numeral(oldPrice / 100).format('0.00')
     let price = parseInt(e.currentTarget.dataset.price, 10)

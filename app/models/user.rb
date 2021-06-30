@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
-  has_one :user_preference, dependent: :destroy
+  has_one :house, dependent: :destroy
   has_many :orders, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
