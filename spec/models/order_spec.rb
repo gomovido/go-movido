@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
   let(:user) { create(:user) }
+  let(:pack) { create(:pack) }
   let(:country) { create(:country, :fr) }
   let(:shipping) { create(:shipping) }
   let(:billing) { create(:billing) }
   let(:charge) { create(:charge) }
-  let(:user_preference) { create(:user_preference, user: user, country: country) }
-  let(:cart) { create(:cart, user_preference: user_preference) }
+  let(:house) { create(:house, user: user, country: country) }
+  let(:cart) { create(:cart, house: house) }
 
   describe 'associations' do
     %i[charge billing shipping].each do |field|
@@ -33,10 +34,10 @@ RSpec.describe Order, type: :model do
 
   describe 'model methods' do
     let(:mobile_company) { create(:company, :mobile) }
-    let(:mobile_category) { create(:category, :mobile) }
+    let(:mobile_category) { create(:category, :mobile, pack: pack) }
     let(:mobile_product) { create(:product, :mobile, country: country, company: mobile_company, category: mobile_category) }
     let(:transportation_company) { create(:company, :transportation) }
-    let(:transportation_category) { create(:category, :transportation) }
+    let(:transportation_category) { create(:category, :transportation, pack: pack) }
     let(:transportation_product) { create(:product, :transportation, country: country, company: transportation_company, category: transportation_category) }
     let(:order) { create(:order, user: user, charge: charge, billing: billing, shipping: shipping) }
     let!(:mobile_item) { create(:item, product: mobile_product, cart: cart, order: order) }

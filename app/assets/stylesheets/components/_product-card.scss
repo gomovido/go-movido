@@ -1,57 +1,83 @@
+.product-card {
+  position: relative;
+  height: 320px;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  transition-duration: 0.5s;
+  label {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  h3.name {
+    font-size: 22px;
+    font-weight: 300;
 
-  .product-card {
-    padding: 100px 30px 30px 30px;
-    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), rgba(224, 213, 239, 0.5);
-    border: 1px solid rgba(217, 219, 225, 0.8);
-    box-shadow: -8px 8px 16px rgba(117, 115, 115, 0.25);
-    border-radius: 16px;
-    position: relative;
-    margin-top: 110px;
-    p {
-      color: #979797;
-    }
-    .top-img {
-      position: absolute;
-      margin: 0 auto;
-      left: 0;
-      border-radius: 8px;
-      right: 0;
-      height: 160px;
-      top: -80px;
-    }
-    .checkboxes {
-      width: 1.3em;
-    }
-    .content {
-      .name {
-        font-family: 'Poppins';
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: $purple;
-      }
-      .product-details {
-        .detail {
-          font-family: 'Poppins';
-          letter-spacing: 0.05em;
-          font-size: 16px;
-          font-weight: 300;
-          line-height: 24px;
-          margin-bottom: 20px;
-          color: $black;
-          i {
-            color: $purple;
-            margin-right: 0.3rem;
-          }
-        }
-      }
-      .description {
-        font-family: 'Poppins';
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        color: $grey;
-      }
+  }
+  p.description {
+    font-weight: 600;
+    font-size: 12px;
+  }
+  p.detail {
+    font-size: 12px;
+    i {
+      color: $purple;
+      font-size: 16px;
+      margin-right: 0.5rem;
     }
   }
+  .bottom-part {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span.price {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    i {
+      color: $green;
+      border: 2px solid $green;
+      border-radius: 50%;
+      padding: 4px 6px;
+      margin-right: 0.9rem;
+      font-size: 16px;
+      }
+      img {
+        height: 100px;
+        width: auto;
+      }
+    }
 
+}
+
+.product-card.active {
+  background: #22055D;
+  box-shadow: none;
+  * {
+    color: $white;
+  }
+  p.detail {
+    i {
+      color: $white;
+    }
+  }
+  img {
+    filter: invert(1);
+  }
+  .bottom-part {
+    i {
+      padding: 4px;
+      background: $green;
+      color: $white;
+    }
+  }
+}

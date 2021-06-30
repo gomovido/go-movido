@@ -10,15 +10,16 @@ RSpec.describe Item, type: :model do
 
   describe 'validations' do
     let(:user) { create(:user) }
+    let(:pack) { create(:pack) }
     let(:country) { create(:country, :fr) }
     let(:company) { create(:company, :mobile) }
-    let(:category) { create(:category, :mobile) }
+    let(:category) { create(:category, :mobile, pack: pack) }
     let(:shipping) { create(:shipping) }
     let(:billing) { create(:billing) }
     let(:charge) { create(:charge) }
     let(:product) { create(:product, :mobile, country: country, company: company, category: category) }
-    let(:user_preference) { create(:user_preference, user: user, country: country) }
-    let(:cart) { create(:cart, user_preference: user_preference) }
+    let(:house) { create(:house, user: user, country: country) }
+    let(:cart) { create(:cart, house: house) }
     let(:order) { create(:order, user: user, charge: charge, billing: billing, shipping: shipping) }
     let(:pikcup) { create(:pickup, order: order) }
     let(:item) { build(:item, product: product, cart: cart, order: order) }
