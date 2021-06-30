@@ -33,9 +33,6 @@ Rails.application.routes.draw do
   post 'payments/:order_id', to: 'payments#create', as: 'payments'
   get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
 
-
-  post 'user_preferences/init', to: 'user_preferences#init', as: 'init_user_preferences'
-
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
 
