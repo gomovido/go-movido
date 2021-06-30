@@ -10,4 +10,12 @@ class Country < ApplicationRecord
   def currency_symbol
     code == 'fr' ? '€' : '£'
   end
+
+  def title
+    code == 'fr' ? 'France' : 'United Kingdom'
+  end
+
+  def city
+    code == 'fr' ? 'Paris' : 'London'
+  end
 end
