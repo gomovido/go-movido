@@ -9,13 +9,18 @@
           <h2 class='m-0' data-cart-target="price" data-value="0">0</h2>
         </div>
       </div>
-      <p>Delivered to your current home before you move</p>
+      <p class="black m-0">First, choose your destination</p>
       <ul>
-        <li><%= f.select :country, options_for_select(Country.all.map {|c| [c.title, c.code]}, selected: country.code), {}, {data: { reflex: 'change->calculatorReflex#updateCountry'}} %></li>
+        <li><%= f.select :country, options_for_select(Country.all.map {|c| [c.title, c.code]}, selected: country.code), {}, {data: { reflex: 'change->calculatorReflex#updateCountry'}} %>
+        </li>
+      </ul>
+      <p class="black">Now, please choose the services you need</p>
+      <ul>
         <%= f.collection_check_boxes(:service_ids, Service.all, :id, :name, include_hidden: false) do |service| %>
           <li><%= service.label { service.check_box(checked: false, class: "custom-checkbox", data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(country)}) + t("cart.form.#{service.text}", city: country.city) } %></li>
         <% end %>
       </ul>
+      <p class='black'>Free shipping included</p>
       <p>*Estimated delivery time: 1 week</p>
       <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
     </div>
