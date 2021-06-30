@@ -1,6 +1,6 @@
 .product-card {
   position: relative;
-  height: 320px;
+  height: 285px;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 1rem;
@@ -14,6 +14,7 @@
     left: 0;
     bottom: 0;
     right: 0;
+    cursor: pointer;
   }
   input[type="checkbox"] {
     display: none;
@@ -25,10 +26,10 @@
   }
   p.description {
     font-weight: 600;
-    font-size: 12px;
+    font-size: 16px;
   }
   p.detail {
-    font-size: 12px;
+    font-size: 14px;
     i {
       color: $purple;
       font-size: 16px;
@@ -78,6 +79,17 @@
       padding: 4px;
       background: $green;
       color: $white;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .product-card {
+    p.description {
+      font-size: 12px;
+    }
+    p.detail {
+      font-size: 12px;
     }
   }
 }
