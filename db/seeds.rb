@@ -1,5 +1,5 @@
 if Category.all.blank?
-  starter_pack = Pack.first_or_create(name: 'starter')
+  starter_pack = Pack.where(name: 'starter').first_or_create
   mobile_phone_category = Category.create(name: 'mobile_phone', pack: starter_pack)
   transportation_category = Category.create(name: 'transportation', pack: starter_pack)
   pickup_category = Category.create(name: 'pickup', pack: starter_pack)
@@ -46,8 +46,8 @@ if Category.all.blank?
   ProductDetail.create(product: bolt_product, content: 'Benefit from reduced movido fares')
 end
 
-starter_pack = Pack.first_or_create(name: 'starter')
-settle_in_pack = Pack.create(name: 'settle_in')
+starter_pack = Pack.where(name: 'starter').first_or_create
+settle_in_pack = Pack.where(name: 'settle_in').first_or_create
 
 Category.all.each { |category| category.update(pack: starter_pack) }
 
