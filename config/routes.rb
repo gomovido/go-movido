@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
+
+  #landing
+  get 'homepage2', to: 'pages#homepage_calculator'
+
+
+
   # Onboarding
   get 'onboarding/new-journey', to: 'houses#new', as: 'new_house'
   get 'onboarding/my-services', to: 'carts#new', as: 'new_cart'

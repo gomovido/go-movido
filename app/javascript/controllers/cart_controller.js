@@ -2,10 +2,10 @@ import { Controller } from "stimulus";
 import numeral from 'numeral';
 import { CountUp } from 'countup.js';
 
+
 export default class extends Controller {
 
   static targets = ["price"]
-
 
   updatePrice(e) {
     const productNode = e.currentTarget.parentNode.parentNode
@@ -32,4 +32,5 @@ export default class extends Controller {
     const countUp = new CountUp(this.priceTarget, numeral(newPrice / 100).format('0.00'), options);
     countUp.start();
   }
+
 }

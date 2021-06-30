@@ -5,8 +5,8 @@
         <div class="reason">
           <%= image_tag(asset_path('icons/timer.png'), width: '40px') %>
           <div class="content">
-            <h3 class="headline">5 mins setup</h3>
-            <p class="desc">Get all the contracts you need within 5 mins and fully online.</p>
+            <h3 class="headline">Ready to use</h3>
+            <p class="desc">All services come with credit –use them as soon as you arrive.</p>
           </div>
         </div>
       </div>
@@ -15,7 +15,16 @@
           <%= image_tag(asset_path('icons/money.png'), width: '40px') %>
           <div class="content">
             <h3 class="headline">Save money</h3>
-            <p class="desc">Our offers are customizable to your needs to make sure you get the best package for the best price.</p>
+            <p class="desc">We negotiated the best prices for the best offers for you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5">
+        <div class="reason ">
+          <i class="fal fa-clock purple"></i>
+          <div class="content">
+            <h3 class="headline">Save time</h3>
+            <p class="desc">Get everything you need within 5mins and fully online.</p>
           </div>
         </div>
       </div>
@@ -24,19 +33,10 @@
           <%= image_tag(asset_path('icons/support.png'), width: '40px') %>
           <div class="content">
             <h3 class="headline">Dedicated support</h3>
-            <p class="desc">Our team of experts is available to answer all of your questions. We are here to help you out!</p>
+            <p class="desc">Our team of experts is available to answer all of your questions.</p>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md-5">
-        <div class="reason ">
-          <%= image_tag(asset_path('icons/commitment.png'), width: '40px') %>
-          <div class="content">
-            <h3 class="headline">No commitment</h3>
-            <p class="desc">Our packages have no commitment period. You can cancel anytime at no extra cost.</p>
-          </div>
-        </div>
-      <%= link_to 'Customize your bundle', onboarding_path, class: 'btn-main mb-5 mb-md-0' %>
+        <%= link_to 'Get started', onboarding_path, class: 'btn-main mb-5 mb-md-0' %>
       </div>
     </div>
   </section>

@@ -1,4 +1,20 @@
 .form-base {
+  #user_preference_country {
+    height: 50px;
+    border-radius: 7px;
+    font-weight: 300;
+    background: white;
+    width: 100%;
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: space-between;
+    font-size: 16px;
+    color: black;
+    border: none;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    box-shadow: none;
+  }
   width: 100%;
   .mapboxgl-ctrl {
     width: 100% !important;
