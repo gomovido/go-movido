@@ -1,5 +1,6 @@
 <div class="form-base">
   <div class="checkboxes-wrapper">
+    <%= image_tag(asset_path('components/homepage/envelope.png')) %>
     <%= simple_form_for UserPreference.new, url: new_cart_path do |f| %>
     <div class="checkboxes" data-controller="cart">
       <div class="d-flex justify-content-between">

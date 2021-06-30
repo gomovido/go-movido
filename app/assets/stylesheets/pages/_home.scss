@@ -52,6 +52,17 @@
       justify-content: space-between;
     }
   }
+  .checkboxes-wrapper {
+    img {
+      top: -15%;
+      left: 25%;
+      width: 35%;
+    }
+    .checkboxes {
+      padding-top: 6rem;
+      margin-top: 6rem;
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {
@@ -71,6 +82,17 @@
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 10px;
         align-items: center;
+      }
+    }
+    .checkboxes-wrapper {
+      img {
+        top: -15%;
+        left: 25%;
+        width: 50%;
+      }
+      .checkboxes {
+        padding-top: 6rem;
+        margin-top: 6rem;
       }
     }
   }
