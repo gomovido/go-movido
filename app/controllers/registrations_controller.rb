@@ -21,6 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def after_sign_up_path_for(_resource)
-    new_user_preference_path
+    new_house_path
   end
 end

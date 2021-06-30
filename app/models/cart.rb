@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
-  belongs_to :user_preference
+  belongs_to :house
   has_many :items, dependent: :destroy
 end

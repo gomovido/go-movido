@@ -19,7 +19,7 @@ class ShippingReflex < ApplicationReflex
   end
 
   def morph_to_next_step
-    if current_user.user_preference.pickup?
+    if current_user.house.pickup?
       morph '.flow-container', render(partial: "steps/pickup/new", locals: { order: @order, pickup: @order.pickup || Pickup.new, message: { content: "Alright, almost done! I just need your flight details to arrange your airport pickup. ", delay: 0 } })
     else
       morph '.flow-container', render(partial: "steps/checkout/new", locals: { order: @order, billing: (@order.billing || Billing.new), message: { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 } })
