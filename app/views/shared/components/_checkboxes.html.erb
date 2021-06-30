@@ -12,8 +12,7 @@
       </div>
       <p class="black m-0">First, choose your destination</p>
       <ul>
-        <li><%= f.select :country, options_for_select(Country.all.map {|c| [c.title, c.code]}, selected: country.code), {}, {data: { reflex: 'change->calculatorReflex#updateCountry'}} %>
-        </li>
+        <li><%= f.input :country, collection: Country.all.map {|c| [c.title, c.code]}, selected: country.code, label: false, input_html: {class: 'custom-select', data: {reflex: 'change->calculatorReflex#update_country', reflex_serialize_form: true}}%></li>
       </ul>
       <p class="black">Now, please choose the services you need</p>
       <ul>
@@ -25,7 +24,6 @@
       <p>*Estimated delivery time: 1 week</p>
       <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
     </div>
-    <% f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
     <% end %>
     <%= link_to 'Get started', onboarding_path, class:'btn-main mb-3' %>
   </div>
