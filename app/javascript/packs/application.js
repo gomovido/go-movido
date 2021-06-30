@@ -35,13 +35,11 @@ import AnimateCSS from 'animate.css';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import cookie from './cookie_banner';
 
 document.addEventListener('turbolinks:load', () => {
   if (process.env.RAILS_ENV === 'production') {
     gtag('config', process.env.GOOGLE_TAG_ID, {'page_location': event.data.url});
   }
-  cookie();
 });
 
 
