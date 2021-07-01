@@ -1,5 +1,11 @@
 .landing-container {
   .static-container {
+    .banner h1 {
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 26px;
+      font-weight: 700;
+    }
     h3 {
       font-size: 23px;
       font-weight: 700;
@@ -14,6 +20,7 @@
       background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
       color: white;
       padding-top: 2rem;
+      padding-bottom: 2rem;
     }
     .banner-bot {
       margin-top: -2rem;
