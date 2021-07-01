@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   #landing
   get 'homepage2', to: 'pages#homepage_calculator'
+  get 'homepage3', to: 'pages#homepage_3'
 
 
 
