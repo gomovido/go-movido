@@ -3,6 +3,8 @@
     h3 {
       font-size: 23px;
       font-weight: 700;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
     }
     padding-top: 0;
     .banner-top {
@@ -17,15 +19,24 @@
       margin-top: -2rem;
       min-height: 45vh;
     }
+    .banner-desktop {
+      margin-top: 10rem;
+      .banner h1 {
+        font-weight: 700;
+      }
+    }
     .comments {
       i {
         font-size: 12px;
       }
-      .name {
-        color: $grey;
-      }
-      .date {
-        color: $grey;
+      .content {
+        width: 100%;
+        .name {
+          color: $grey;
+        }
+        .date {
+          color: $grey;
+        }
       }
     }
     .product-card-home {
@@ -44,6 +55,9 @@
         margin-bottom: 5px;
         font-size: 22px;
         font-weight: 600;
+      }
+      .description {
+        font-size: 12px;
       }
     }
     .reason h3 {
