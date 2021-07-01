@@ -1,0 +1,71 @@
+.landing-container {
+  .static-container {
+    h3 {
+      font-size: 23px;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+    padding-top: 0;
+    .banner-top {
+      min-height: auto;
+      margin-top: 0px;
+      background-color: #9921e8;
+      background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+      color: white;
+      padding-top: 2rem;
+    }
+    .banner-bot {
+      margin-top: -2rem;
+      min-height: 45vh;
+    }
+    .banner-desktop {
+      margin-top: 10rem;
+      .banner h1 {
+        font-weight: 700;
+      }
+    }
+    .comments {
+      i {
+        font-size: 12px;
+      }
+      img {
+        width: 40px;
+      }
+      .content {
+        width: 100%;
+        .name {
+          color: $grey;
+        }
+        .date {
+          color: $grey;
+        }
+      }
+    }
+    .product-card-home {
+      height: 180px;
+      background: linear-gradient( 180deg, #8330F5 0%, #3B008C 100%);
+      border: 1px solid #DEDEDE;
+      box-sizing: border-box;
+      border-radius: 10px;
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5%;
+      margin-bottom: 5%;
+      .title {
+        margin-bottom: 5px;
+        font-size: 22px;
+        font-weight: 600;
+      }
+      .description {
+        font-size: 12px;
+      }
+    }
+    .reason h3 {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+  }
+}
