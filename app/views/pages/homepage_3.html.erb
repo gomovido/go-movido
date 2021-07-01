@@ -1,0 +1,143 @@
+<div class="landing-container">
+  <div class="home-container static-container">
+    <div class="banner banner-top">
+      <div class="container">
+        <h1>Local SIM card, transportation and more - <br> everything you need before you arrive</h1>
+        <p>Start your adventure abroad with peace of mind.</p>
+      </div>
+    </div>
+    <div class="banner banner-bot" style="background-image: url(<%= asset_path('components/homepage/banner-graph.png') %>);">
+      <div class="container d-flex justify-content-end flex-column">
+      </div>
+    </div>
+    <div class="container">
+      <%= link_to 'Get started', onboarding_path, class:'btn-main' %>
+    </div>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="users-comments">
+            <div class="comments-wrapper">
+              <h3 class="title">What our users are saying</h3>
+              <div class="comments d-flex">
+                <div class="me-2">
+                  <%= image_tag(asset_path('components/homepage/comments/avatar_1.png')) %>
+                </div>
+                <div class="content">
+                  <% 5.times do %>
+                    <i class='fas fa-star gold'></i>
+                  <% end  %>
+                  <p>It took me 2 mins to order my Starter Pack and it made my life so much easier in France</p>
+                  <div class="d-flex justify-content-between">
+                    <p class='name'>Mateo</p>
+                    <p class='date'>Apr 23, 2021</p>
+                  </div>
+                </div>
+              </div>
+              <div class="comments d-flex">
+                <div class="me-2">
+                  <%= image_tag(asset_path('components/homepage/comments/avatar_2.png')) %>
+                </div>
+                <div class="content">
+                  <% 5.times do %>
+                    <i class='fas fa-star gold'></i>
+                  <% end  %>
+                  <p>I am still using my Oyster card and giffgaff SIM every day!</p>
+                  <div class="d-flex justify-content-between">
+                    <p class='name'>Mariana</p>
+                    <p class='date'>Feb 14, 2021</p>
+                  </div>
+                </div>
+              </div>
+              <div class="comments d-flex">
+                <div class="me-2">
+                  <%= image_tag(asset_path('components/homepage/comments/avatar_2.png')) %>
+                </div>
+                <div class="content">
+                  <% 5.times do %>
+                    <i class='fas fa-star gold'></i>
+                  <% end  %>
+                  <p>I am still using my Oyster card and giffgaff SIM every day!</p>
+                  <div class="d-flex justify-content-between">
+                    <p class='name'>Mariana</p>
+                    <p class='date'>Feb 14, 2021</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= link_to 'Get started', onboarding_path, class:'btn-main' %>
+        </div>
+        <hr>
+        <div class="col-12">
+          <h3 class='title'>What’s included in the Starter Pack?</h3>
+          <div class="product-card-home">
+            <p class="title">Local phone number</p>
+            <p class='description'>Get a SIM card ready to use on day 1 with data and calls and text credit!</p>
+          </div>
+          <div class="product-card-home">
+            <p class="title">Transportation card </p>
+            <p>Get around the city as soon as you step off the plane with your pre-charged public transportation card!</p>
+          </div>
+          <div class="product-card-home">
+            <p class="title">Airport pickup</p>
+            <p>Need someone to pick you up from the airport at arrival? Our trusted drivers are here to bring you to your new home. 100% safe and fully reliable</p>
+          </div>
+          <%= link_to 'Get started', onboarding_path, class:'btn-main' %>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <h3 class="title">Why choose movido</h3>
+        <div class="list justify-content-between">
+          <div class="col-12 col-md-5">
+            <div class="reason d-flex align-items-center">
+              <%= image_tag(asset_path('icons/timer.png'), width: '40px', class:'me-3') %>
+              <div class="content">
+                <h3 class="headline">Ready to use</h3>
+                <p class="desc">All services come with credit –use them as soon as you arrive.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="reason d-flex align-items-center">
+              <%= image_tag(asset_path('icons/money.png'), width: '40px', class:'me-3') %>
+              <div class="content">
+                <h3 class="headline">Save money</h3>
+                <p class="desc">We negotiated the best prices for the best offers for you.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="reason d-flex align-items-center">
+              <i class="fal fa-clock purple me-3" style="font-size: 40px;"></i>
+              <div class="content">
+                <h3 class="headline">Save time</h3>
+                <p class="desc">Get everything you need within 5mins and fully online.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="reason d-flex align-items-center">
+              <%= image_tag(asset_path('icons/support.png'), width: '40px', class: 'me-3') %>
+              <div class="content">
+                <h3 class="headline">Dedicated support</h3>
+                <p class="desc">Our team of experts is available to answer all of your questions.</p>
+              </div>
+            </div>
+            <%= link_to 'Get started', onboarding_path, class: 'btn-main mb-5 mb-md-0' %>
+          </div>
+        </div>
+      </div>
+      <section class="container partners">
+        <h3 class="title">In collaboration with:</h3>
+        <div class="companies">
+          <% @companies_logo_urls.each do |url| %>
+          <%= image_tag(asset_path(url), width: '80px') %>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
