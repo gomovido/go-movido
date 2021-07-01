@@ -32,11 +32,15 @@
       display: none;
     }
     img {
-      max-width: 330px;
+      max-width: 340px;
     }
     h1 {
       text-align: left;
-      margin-bottom: 22px;
+      margin-bottom: 5px;
+      font-size: 22px;
+    }
+    p {
+      margin-bottom: 0;
     }
     .content .row {
       justify-content: center;
