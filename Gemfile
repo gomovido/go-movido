@@ -45,6 +45,9 @@ gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
 gem 'travis'
 
+# Lazy loading
+gem "lazyload-rails"
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'shoulda-matchers'
