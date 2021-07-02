@@ -25,6 +25,7 @@ require("flatpickr")
 
 // External imports
 import "bootstrap";
+import "./lazyload.js";
 import "flatpickr/dist/flatpickr.min.css"
 import 'intl-tel-input/build/css/intlTelInput.css';
 import 'swiper/swiper-bundle.min.css'
@@ -37,6 +38,7 @@ import AnimateCSS from 'animate.css';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+   $('img').lazyload({ threshold: 500, effect: 'fadeIn' })
   if (process.env.RAILS_ENV === 'production') {
     gtag('config', process.env.GOOGLE_TAG_ID, {'page_location': event.data.url});
   }
