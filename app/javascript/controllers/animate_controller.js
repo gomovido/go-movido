@@ -1,12 +1,17 @@
 import { Controller } from "stimulus";
 import StimulusReflex from 'stimulus_reflex';
+import phoneInput from '../packs/phone-input';
+
 
 export default class extends Controller {
 
-  static targets = ["contentContainer", "message"]
+  static targets = ["contentContainer", "message", "phone"]
 
   connect() {
     StimulusReflex.register(this);
+    if (document.getElementById('user_phone')) {
+      phoneInput(this.phoneTarget);
+    }
     this.lazyload()
     window.scroll({ top: 0, behavior: 'smooth' });
     this.toggleSpinner(document.querySelector('.spinner-container'), 2000)

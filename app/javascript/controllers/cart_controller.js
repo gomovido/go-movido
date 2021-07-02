@@ -30,6 +30,7 @@ export default class extends Controller {
       "decimalPlaces": 2,
       "startVal": startValCountUp,
       "useGrouping": false,
+      "duration": 0.3
     };
     const countUp = new CountUp(this.priceTarget, numeral(newPrice / 100).format('0.00'), options);
     countUp.start();
