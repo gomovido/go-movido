@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-body menu-modal" style="background-image:url(<%= asset_path 'components/menu/background.png' %>);">
         <div class="header">
-          <%= image_tag(asset_path("logos/movido-black.svg"), width: 110, class: 'logo') %>
+          <%= image_tag(asset_path("logos/movido-black.svg"), width: 110, class: 'logo', lazy: false) %>
           <div id="hamburger" class="open" type="button" data-bs-dismiss="modal" data-bs-target="#menuModal">
             <span></span>
             <span></span>
