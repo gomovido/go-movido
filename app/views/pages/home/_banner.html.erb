@@ -2,15 +2,17 @@
   <div class="row align-items-center">
     <div class="col-md-5 d-flex align-items-center">
       <div class="content">
-        <h1>Local SIM card, transportation card, housingsearch –all you need before you arrive in your new home</h1>
-        <%= image_tag(asset_path('components/homepage/product-iphone-view.png'), class:'d-block d-md-none') %>
-        <div class="row mb-0 mb-md-4">
-          <p class="col-6 feature"><i class="far fa-check me-3"></i>Sent to your current home</p>
-          <p class="col-5 feature"><i class="far fa-check me-3"></i>without fees</p>
-        </div>
-        <div class="row mb-0 mb-md-3">
-          <p class="col-6 feature"><i class="far fa-check me-3"></i>Exclusive offers</p>
-          <p class="col-5 feature mb-2"><i class="far fa-check me-3"></i>in 5 mins</p>
+        <h1>Local SIM card, transportation card, housing search – all you need before you arrive in your new home</h1>
+        <%= image_tag(asset_path('components/homepage/banner-iphone.png'), class:'d-block d-md-none', style:"margin-bottom: -2rem !important;") %>
+        <div class="mb-3">
+          <div class="row mb-0 mb-md-5">
+            <p class="col-6 feature"><i class="far fa-check me-3"></i>free shipping</p>
+            <p class="col-5 feature"><i class="far fa-check me-3"></i>without fees</p>
+          </div>
+          <div class="row mb-0 mb-md-5">
+            <p class="col-6 feature"><i class="far fa-check me-3"></i>exclusive offers</p>
+            <p class="col-5 feature mb-2"><i class="far fa-check me-3"></i>in 5 mins</p>
+          </div>
         </div>
         <%= link_to 'Get Started', onboarding_path, class: 'btn-main mb-5 mb-md-0 mt-md-5' %>
       </div>
