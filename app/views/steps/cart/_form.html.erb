@@ -14,6 +14,11 @@
           <div class="left">
             <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= product.activation_price %></span> </span>
           </div>
+          <% if product.undiscounted_price %>
+            <div class="center">
+              <span class="price"><strike><%= product.country.currency_symbol %><%= product.undiscounted_price %></strike></span>
+            </div>
+          <% end %>
           <%= image_tag(asset_path(product.company.logo_url)) %>
         </div>
       </div>
