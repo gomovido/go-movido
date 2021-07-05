@@ -44,9 +44,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
 gem 'travis'
-
-# Lazy loading
-gem "lazyload-rails"
+gem 'rack-cors'
 
 group :development, :test do
   gem 'pry-byebug'
