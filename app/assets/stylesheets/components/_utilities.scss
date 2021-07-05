@@ -15,6 +15,26 @@ a {
   }
 }
 
+s,
+strike {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+s:after,
+strike:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid red;
+  height: 45%;
+  height: calc(50% - 1px);
+  width: 100%;
+  transform: rotateZ(-6deg);
+}
+
 img {
   background-size: 100%;
 }
