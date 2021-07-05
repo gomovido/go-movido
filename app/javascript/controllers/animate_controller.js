@@ -12,7 +12,6 @@ export default class extends Controller {
     if (document.getElementById('user_phone')) {
       phoneInput(this.phoneTarget);
     }
-    this.lazyload()
     window.scroll({ top: 0, behavior: 'smooth' });
     this.toggleSpinner(document.querySelector('.spinner-container'), 2000)
     if (document.querySelector('.chat-container')) {
@@ -42,9 +41,5 @@ export default class extends Controller {
       }, spinner_duration)
 
     }
-  }
-
-  lazyload() {
-    $('img').lazyload({ threshold: 500, effect: 'fadeIn' })
   }
 }
