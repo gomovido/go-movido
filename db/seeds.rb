@@ -54,3 +54,18 @@ Category.all.each { |category| category.update(pack: starter_pack) }
 ['gas', 'mobile_phone_contract', 'energy', 'wifi'].each do |category_name|
   Category.create(name: category_name, pack: settle_in_pack)
 end
+
+
+category = Category.create(name: 'housing', pack: Pack.find_by(name: 'starter'))
+Service.create(name: 'housing', category: category)
+company = Company.create(name: 'Movido', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1625487533/Frame_2185.png')
+housing_product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "Personalized housing search support from our team of local experts", name: 'Housing search support', activation_price: 19.90, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1624026837/Group_2345.png')
+ProductDetail.create(product: housing_product, content: 'Personalized 1-week long support to help you find the perfect flat')
+ProductDetail.create(product: housing_product, content: 'Dedicated advisor available to you over phone or e-mail')
+ProductDetail.create(product: housing_product, content: 'Get the first proposals within 24 hours of ordering our service')
+
+
+housing_product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "Personalized housing search support from our team of local experts", name: 'Housing search support', activation_price: 19.90, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1624026837/Group_2345.png')
+ProductDetail.create(product: housing_product, content: 'Personalized 1-week long support to help you find the perfect flat')
+ProductDetail.create(product: housing_product, content: 'Dedicated advisor available to you over phone or e-mail')
+ProductDetail.create(product: housing_product, content: 'Get the first proposals within 24 hours of ordering our service')
