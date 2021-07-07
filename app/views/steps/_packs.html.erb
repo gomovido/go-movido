@@ -14,7 +14,7 @@
             <div class="pack-card">
               <div class="d-flex align-items-center justify-content-between">
                 <h2>Starter Pack</h2>
-                <span class="price"><%= order.currency_symbol %><%= order.total_amount_display %></span>
+                <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
               </div>
               <p>The best offers to get you started</p>
               <ul>
