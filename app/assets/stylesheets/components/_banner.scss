@@ -11,10 +11,13 @@
     margin-bottom: 32px;
   }
   p {
-    font-weight: 600;
+    font-weight: normal;
   }
   a {
     width: 100%;
+  }
+  .trustpilot {
+    width: 250px !important;
   }
   .feature {
     i {
@@ -35,12 +38,13 @@
       max-width: 340px;
     }
     h1 {
-      text-align: left;
+      text-align: center;
       margin-bottom: 5px;
-      font-size: 22px;
+      font-size: 38px;
     }
     p {
       margin-bottom: 0;
+      text-align: center;
     }
     .content .row {
       justify-content: center;

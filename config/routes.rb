@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   #landing
   get 'homepage2', to: 'pages#homepage_calculator'
   get 'homepage3', to: 'pages#homepage_3'
+  get 'homepage4', to: 'pages#homepage_4'
+  get 'homepage5', to: 'pages#homepage_5'
+  get 'homepage6', to: 'pages#homepage_6'
+  get 'homepage7', to: 'pages#homepage_7'
 
 
 
