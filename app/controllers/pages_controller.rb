@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing homepage_calculator homepage_3]
-  before_action :setup_homepage, only: %i[home homepage_calculator homepage_3]
+  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing homepage_calculator homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
+  before_action :setup_homepage, only: %i[home homepage_calculator homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
   def home
   end
 
@@ -17,6 +17,14 @@ class PagesController < ApplicationController
   def about; end
 
   def homepage_3; end
+
+  def homepage_4; end
+
+  def homepage_5; end
+
+  def homepage_6; end
+
+  def homepage_7; end
 
   def homepage_calculator
     @country = Country.find_by(code: 'gb')
