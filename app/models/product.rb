@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :name, :activation_price, :subscription_price, :image_url, :description, presence: true
 
   def activation_price_cents
-    (activation_price * 100).to_i
+    (activation_price * 10 * 10).to_i
   end
 
   def set_sku
