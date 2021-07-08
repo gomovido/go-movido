@@ -31,6 +31,7 @@ import 'swiper/swiper-bundle.min.css'
 import "controllers"
 import 'mapbox-gl/dist/mapbox-gl.css';
 import AnimateCSS from 'animate.css';
+import cookie from './cookie_banner';
 
 
 // Internal imports, e.g:
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   if (process.env.RAILS_ENV === 'production') {
     gtag('config', process.env.GOOGLE_TAG_ID, {'page_location': event.data.url});
   }
+  cookie();
 });
 
 
