@@ -6,7 +6,7 @@ Rails.application.configure do
   compress: true,
   pool_size: 5,
   expire_after: 1.year
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method     = :postmark
   config.action_mailer.postmark_settings   = { api_token: Rails.application.credentials.staging[:postmark][:api_token] }
   config.action_mailer.default_url_options = { host: "https://movido-app-staging.herokuapp.com/" }
   config.action_controller.default_url_options = { host: "https://movido-app-staging.herokuapp.com/" }
