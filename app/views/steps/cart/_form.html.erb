@@ -33,18 +33,12 @@
   <div class="p-2">
     <div class="d-flex">
       <div>
-        <%= f.check_box :marketing, label: false, class: 'me-2 custom-checkbox' %>
-      </div>
-      <label for="terms">I want to receive marketing communications and special offers from movido and partners</label>
-    </div>
-    <div class="d-flex">
-      <div>
         <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
       </div>
       <label for="marketing">I accept the <%= link_to 'Terms and Conditions', terms_path, class:'purple', target: 'blank'%> of movido</label>
     </div>
     <div class="invalid-feedback d-block"><%= f.error(:terms) %></div>
-    <label>movido will process your personal data according to our <%= link_to 'Privacy Policy', privacy_path, class: 'link purple' %></label>
+    <span class="legals">By clicking 'Continue', you accept to receive selected marketing communication. movido will process your personal data according to our <%= link_to 'Privacy Policy', privacy_path, class: 'link purple' %></span>
   </div>
 
   <hr>
