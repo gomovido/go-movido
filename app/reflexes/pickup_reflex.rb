@@ -1,7 +1,7 @@
 class PickupReflex < ApplicationReflex
   delegate :current_user, to: :connection
   before_reflex do
-    @order = Order.find(params[:order_id])
+    @order = current_user.current_draft_order
     morph_if_paid(@order.id)
   end
 
