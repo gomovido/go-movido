@@ -2,22 +2,22 @@ class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
   def create
-    order = current_user.current_draft_order || Order.new
+    @order = current_user.current_draft_order || Order.new
     if terms_not_checked?(house_params[:terms])
       current_user.house.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, house: current_user.house })
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
-      order.errors.add(:affiliate_link, 'not valid')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, house: current_user.house })
+      @order.errors.add(:affiliate_link, 'not valid')
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house })
     elsif !house_params[:service_ids]
       current_user.house.errors.add(:base, "Please select at least one service")
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: order, house: current_user.house })
+      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house })
     else
       initialize_order
       initialize_cart
       init_user_services
       generate_items
-      morph '.flow-container', render(partial: "steps/spinner", locals: { message: { content: "Amazing! Please wait a few seconds  as I put together your customized pack.", delay: 0 } })
+      morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
     end
   end
 
