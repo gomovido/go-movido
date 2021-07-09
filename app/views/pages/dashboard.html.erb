@@ -21,7 +21,7 @@
           <div class="tracking text-center mb-3">
             <p class='title'>Your tracking link <i class="fas fa-truck"></i></p>
             <p class='tracking-id'><%= @orders[-1].shipping.tracking_id || 'Processing...' %></p>
-              <p class="tracking-link m-0">You can track your order <%= link_to 'here', "https://www.dhl.com/fr-en/home/tracking.html", class:'purple', target: 'blank' %></p>
+              <p class="tracking-link m-0">You can track your order <%= link_to 'here', "https://www.laposte.fr/outils/track-a-parcel", class:'purple', target: 'blank' %></p>
           </div>
           <p class="white">Need another Starter Pack or continue where you left? </p>
           <%= link_to 'Click Here', new_house_path, class:'btn-main-white w-100' %>
