@@ -1,6 +1,6 @@
 :schedule:
   marketing_scheduler:
-    cron: '0 * * * * *'   # Runs once per minute
+    cron: '0 0 * * * *'   # Runs once every hour
     class: MarketingScheduler
 :concurrency: 3
 :timeout: 60
