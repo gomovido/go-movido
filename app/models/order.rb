@@ -21,6 +21,19 @@ class Order < ApplicationRecord
     user.house.pickup? ? shipping && pickup : shipping
   end
 
+  def slack_notification
+    return unless Rails.env.production?
+
+    slack_notification = "
+    💸 Boom! New starter pack purchased 💸\n
+    User's email : #{user.email}. \n
+    Arrival country : #{user.house.country.title} \n
+    Price : #{currency_symbol}#{total_amount_display} \n
+    Items : #{items.map { |item| item.product.category.name.titlecase }.join(', ')} \n
+    [Forest Admin link](https://app.forestadmin.com/go-movido/#{Rails.env.capitalize}/Movido/data/Order/index/record/Order/#{id}/details)"
+    SlackNotifier::CLIENT.ping slack_notification
+  end
+
   def currency
     items.first.product.country.currency
   end

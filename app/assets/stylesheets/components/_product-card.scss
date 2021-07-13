@@ -1,6 +1,6 @@
 .product-card {
   position: relative;
-  height: 285px;
+  height: 315px;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 1rem;
@@ -85,6 +85,9 @@
 
 @include media-breakpoint-down(md) {
   .product-card {
+    .product-card {
+      height: 300px;
+    }
     p.description {
       font-size: 12px;
     }
