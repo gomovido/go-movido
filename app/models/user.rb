@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_one :house, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_one :user_marketing, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :email, uniqueness: { case_sensitive: false }

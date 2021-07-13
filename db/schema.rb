@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_160858) do
+ActiveRecord::Schema.define(version: 2021_07_13_111507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 2021_07_05_160858) do
     t.index ["email"], name: "index_leads_on_email", unique: true
   end
 
+  create_table "order_marketings", force: :cascade do |t|
+    t.string "title"
+    t.string "step"
+    t.boolean "sent"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_marketings_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "state"
@@ -167,6 +177,16 @@ ActiveRecord::Schema.define(version: 2021_07_05_160858) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_marketings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.string "step"
+    t.boolean "sent"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_marketings_on_user_id"
+  end
+
   create_table "user_services", force: :cascade do |t|
     t.bigint "service_id", null: false
     t.bigint "house_id", null: false
@@ -198,6 +218,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_160858) do
   add_foreign_key "items", "carts"
   add_foreign_key "items", "orders"
   add_foreign_key "items", "products"
+  add_foreign_key "order_marketings", "orders"
   add_foreign_key "orders", "billings"
   add_foreign_key "orders", "charges"
   add_foreign_key "orders", "shippings"
@@ -208,6 +229,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_160858) do
   add_foreign_key "products", "companies"
   add_foreign_key "products", "countries"
   add_foreign_key "services", "categories"
+  add_foreign_key "user_marketings", "users"
   add_foreign_key "user_services", "houses"
   add_foreign_key "user_services", "services"
 end

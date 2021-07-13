@@ -1,0 +1,18 @@
+:schedule:
+  order_marketing_scheduler:
+    cron: '0 * * * * *'   # Runs once per minute
+    class: OrderMarketingScheduler
+  user_marketing_scheduler:
+    cron: '0 * * * * *'   # Runs once per minute
+    class: UserMarketingScheduler
+:concurrency: 3
+:timeout: 60
+:verbose: true
+:queues:
+  # Queue priority:
+  # https://github.com/mperham/sidekiq/wiki/Advanced-Options
+  # https://mikerogers.io/2019/06/06/rails-6-sidekiq-queues
+  - default
+  - mailers
+  - active_storage_analysis
+  - active_storage_purge
