@@ -12,6 +12,7 @@ RSpec.describe "Payment via Stripe", type: :feature do
     let(:shipping) { create(:shipping) }
     let!(:order) { create(:order, user: user, state: 'pending_payment', shipping: shipping) }
     let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
+    let!(:product_detail) {create(:product_detail, product: product)}
     let!(:item) { create(:item, product: product, cart: cart, order: order) }
 
     before do
