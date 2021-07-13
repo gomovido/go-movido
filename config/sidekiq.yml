@@ -1,10 +1,7 @@
 :schedule:
-  order_marketing_scheduler:
+  marketing_scheduler:
     cron: '0 * * * * *'   # Runs once per minute
-    class: OrderMarketingScheduler
-  user_marketing_scheduler:
-    cron: '0 * * * * *'   # Runs once per minute
-    class: UserMarketingScheduler
+    class: MarketingScheduler
 :concurrency: 3
 :timeout: 60
 :verbose: true

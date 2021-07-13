@@ -14,11 +14,11 @@ class OrderMarketingEmailsJob < ApplicationJob
 
   def manage_emails
     OrderMarketing.where(title: 'orders_sequence', step: 'retarget').each do |marketing|
-      OrderMarketingMailer.with(user: marketing.order.user).retarget.deliver_now
+      OrderMarketingMailer.with(user: marketing.order.user).retarget.deliver_later
       marketing.update(step: 'last_call')
     end
     OrderMarketing.where(title: 'orders_sequence', step: 'last_call', sent: false).where('created_at < ?', 24.hours.ago).each do |marketing|
-      OrderMarketingMailer.with(user: marketing.order.user).last_call.deliver_now
+      OrderMarketingMailer.with(user: marketing.order.user).last_call.deliver_later
       marketing.update(sent: true)
     end
   end
