@@ -21,7 +21,7 @@ class UserMarketingEmailsJob < ApplicationJob
       UserMarketingMailer.with(user: marketing.user).second_call.deliver_now
       marketing.update(step: 'last_call')
     end
-    UserMarketing.where(title: 'users_sequence', step: 'last_call').where('created_at < ?', 72.hours.ago).each do |marketing|
+    UserMarketing.where(title: 'users_sequence', step: 'last_call', sent: false).where('created_at < ?', 72.hours.ago).each do |marketing|
       UserMarketingMailer.with(user: marketing.user).second_call.deliver_now
       marketing.update(sent: true)
     end
