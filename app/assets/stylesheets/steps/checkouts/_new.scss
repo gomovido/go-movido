@@ -1,10 +1,40 @@
 .pricing {
-  font-size: 28px;
-  font-weight: 300;
-  margin-bottom: 2rem;
-  span.price {
-    font-weight: bold;
-    font-size: 32px;
+  font-size: 14px;
+  .pricing-card {
+    color: #18191fa6;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    .product-img {
+      margin-right: 12px;
+      img {
+        width: 50px;
+      }
+    }
+    .product-name {
+      text-align: left;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .name {
+        font-weight: bold;
+      }
+    }
+    .product-price {
+      font-weight: bold;
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+  .total-price {
+    color: #18191fa6;
+    margin-bottom: 1rem;
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+    }
   }
 }
 .legals {
