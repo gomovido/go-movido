@@ -3,7 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-xs-12 col-lg-6">
         <div class="content-container" data-delay="2" data-animate-target="contentContainer">
-          <h3 class="my-3">Order summary</h3>
+          <h3 class="my-3">Your Starter Pack</h3>
+          <span>directly in the <%= t("country.capital.#{order.items.first.product.country.code}") %> city</span>
           <hr class="w-50">
           <div class="pricing d-flex flex-column text-center">
             <% order.items.includes([:product]).each do |item| %>
@@ -13,7 +14,7 @@
                 </div>
                 <div class="product-name">
                   <span class="name"><%= item.product.name %></span>
-                  <span class="description"><%= item.product.description %></span>
+                  <span class="description"><%= item.product.product_details.first.content %></span>
                 </div>
                 <div class="product-price">
                   <span class="price-lite"><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></span>

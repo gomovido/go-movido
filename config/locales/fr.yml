@@ -873,6 +873,9 @@ fr:
     gb: 'Royaume-Uni'
     eur: '€'
     gbp: '£'
+    capital:
+      fr: 'Paris'
+      gb: 'Londres'
   mobile:
     pages:
       home:
