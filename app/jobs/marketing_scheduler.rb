@@ -5,6 +5,7 @@ class MarketingScheduler
   include Sidekiq::Worker
 
   def perform
-    MarketingEmailsJob.perform_later
+    OrderMarketingEmailsJob.perform_later
+    UserMarketingEmailsJob.perform_later
   end
 end
