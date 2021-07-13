@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   belongs_to :shipping, optional: true
   has_one :pickup, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_one :order_marketing, dependent: :destroy
 
   validates :state, presence: true
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
@@ -44,4 +45,5 @@ class Order < ApplicationRecord
   def gb?
     items.first.product.country.code == 'gb'
   end
+
 end
