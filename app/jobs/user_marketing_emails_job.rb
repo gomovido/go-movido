@@ -9,7 +9,7 @@ class UserMarketingEmailsJob < ApplicationJob
   end
 
   def manage_users
-    User.where.not(id: Order.all.pluck(:user_id)).where('created_at > ?', 48.hours.ago).each do |user|
+    User.where.not(id: Order.all.pluck(:user_id)).where('created_at < ?', 48.hours.ago).each do |user|
      UserMarketing.create(user: user, title: 'users_sequence', step: 'retarget') if UserMarketing.find_by(user: user).nil?
     end
   end
