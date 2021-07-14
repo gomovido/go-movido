@@ -6,14 +6,15 @@ Rails.application.configure do
   compress: true,
   pool_size: 5,
   expire_after: 1.year
+
   config.action_mailer.delivery_method     = :postmark
-  config.action_mailer.postmark_settings   = { api_token: Rails.application.credentials.staging[:postmark][:api_token] }
+  config.action_mailer.postmark_settings   = { api_token:  ''}
   config.action_mailer.default_url_options = { host: "https://movido-app-staging.herokuapp.com/" }
   config.action_controller.default_url_options = { host: "https://movido-app-staging.herokuapp.com/" }
   config.action_mailer.asset_host = 'https://movido-app-staging.herokuapp.com/'
   config.action_controller.asset_host = 'https://movido-app-staging.herokuapp.com/'
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_mailer.perform_deliveries = false
   # Code is not reloaded between requests.
   config.cache_classes = true
 
