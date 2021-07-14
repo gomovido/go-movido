@@ -3,8 +3,8 @@ class OrderMarketingEmailsJob < ApplicationJob
 
   def perform(*args)
     manage_orders
-    send_retarget
-    send_last_call
+    retarget
+    last_call
   end
 
   def manage_orders
@@ -13,17 +13,26 @@ class OrderMarketingEmailsJob < ApplicationJob
     end
   end
 
-  def send_last_call
+  def last_call
     OrderMarketing.where(title: 'orders_sequence', step: 'last_call', sent: false).where('created_at < ?', 24.hours.ago).each do |marketing|
       OrderMarketingMailer.with(user: marketing.order.user).last_call.deliver_later
       marketing.update(sent: true)
     end
   end
 
-  def send_retarget
+  def retarget
     OrderMarketing.where(title: 'orders_sequence', step: 'retarget').each do |marketing|
+      marketing.update(step: 'last_call', bounced: false) if send_email_retarget(marketing)
+    end
+  end
+
+  def send_email_retarget(marketing)
+    begin
       OrderMarketingMailer.with(user: marketing.order.user).retarget.deliver_later
-      marketing.update(step: 'last_call')
+      return true
+    rescue
+      marketing.update(bounced: true)
+      return false
     end
   end
 end
