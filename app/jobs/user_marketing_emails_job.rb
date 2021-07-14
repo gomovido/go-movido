@@ -9,15 +9,24 @@ class UserMarketingEmailsJob < ApplicationJob
   end
 
   def manage_users
-    User.where.not(id: Order.all.pluck(:user_id)).where('created_at < ?', 48.hours.ago).each do |user|
+    User.where.not(id: Order.all.pluck(:user_id)).where('created_at > ?', 48.hours.ago).each do |user|
      UserMarketing.create(user: user, title: 'users_sequence', step: 'retarget') if UserMarketing.find_by(user: user).nil?
     end
   end
 
   def retarget
     UserMarketing.where(title: 'users_sequence', step: 'retarget').each do |marketing|
-      UserMarketingMailer.with(user: marketing.user).retarget.deliver_later
-      marketing.update(step: 'second_call')
+      marketing.update(step: 'second_call', bounced: false) if send_email_retarget(marketing)
+    end
+  end
+
+  def send_email_retarget(marketing)
+    begin
+      UserMarketingMailer.with(user: marketing.user.z).retarget.deliver_later
+      return true
+    rescue
+      marketing.update(bounced: true)
+      return false
     end
   end
 
