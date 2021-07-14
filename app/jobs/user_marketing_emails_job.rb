@@ -22,7 +22,7 @@ class UserMarketingEmailsJob < ApplicationJob
 
   def send_email_retarget(marketing)
     begin
-      UserMarketingMailer.with(user: marketing.user.z).retarget.deliver_later
+      UserMarketingMailer.with(user: marketing.user).retarget.deliver_later
       return true
     rescue
       marketing.update(bounced: true)
