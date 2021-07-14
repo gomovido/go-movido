@@ -13,7 +13,7 @@ class OrderMarketingEmailsJob < ApplicationJob
     end
   end
 
-  def last_call
+  def send_last_call
     OrderMarketing.where(title: 'orders_sequence', step: 'last_call', sent: false).where('created_at < ?', 24.hours.ago).each do |marketing|
       OrderMarketingMailer.with(user: marketing.order.user).last_call.deliver_later
       marketing.update(sent: true)
