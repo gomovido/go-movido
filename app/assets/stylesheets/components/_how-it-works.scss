@@ -1,0 +1,44 @@
+.how-it-works {
+  .swiper-container {
+    border-radius: 0;
+    z-index: unset !important;
+    .swiper-pagination-bullet {
+      background: $grey !important;
+    }
+    .swiper-pagination-bullet-active {
+      background: $purple !important;
+    }
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    flex-direction: initial;
+    border: none;
+    text-align: left;
+    .number {
+      margin-right: 2rem;
+      width: 100px;
+      background: #F9F5FF;
+      height: 130px;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $purple;
+      font-weight: bold;
+      font-size: 24px !important;
+      span {
+        font-size: 30px !important;
+        font-weight: 500;
+      }
+    }
+    .content {
+      .title {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
