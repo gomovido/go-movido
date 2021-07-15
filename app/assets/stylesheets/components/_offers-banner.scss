@@ -1,0 +1,64 @@
+.offers-banner {
+  background: rgb(170,14,232);
+  background: linear-gradient(320deg, rgba(170,14,232,1) 0%, rgba(170,14,232,0.9318102240896359) 44%, rgba(103,14,232,1) 100%);
+  justify-content: space-evenly;
+  color: $white;
+  p {
+    font-size: 22px;
+    margin: 0;
+  }
+
+  .product-card {
+    h3 {
+      margin-bottom: 0;
+      font-size: 20px;
+    }
+    .description {
+      font-style: italic;
+      font-size: 14px;
+      margin-bottom: 0.3rem;
+    }
+    p.detail {
+      font-size: 14px;
+    }
+    color: $black;
+    background: $white;
+    height: auto;
+    margin-top: 2rem;
+    .name {
+      font-weight: bold;
+    }
+    .bottom-part {
+      justify-content: flex-end;
+      margin-top: 1rem;
+      img {
+        width: 20%;
+        height: 20%;
+      }
+    }
+  }
+}
+
+
+
+@include media-breakpoint-down(md) {
+  .offers-banner {
+    flex-direction: column;
+    padding: 1.5rem 0;
+    p {
+      text-align: left;
+    }
+    span.subline {
+      font-size: 16px;
+    }
+    .cta-call {
+      margin-top: 9px;
+      border-radius: 7px;
+      border: 1px solid $white;
+      font-size: 16px;
+      font-weight: bold;
+      color: $white;
+      padding: 1rem 1.5rem;
+    }
+  }
+}
