@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing homepage_calculator homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
-  before_action :setup_homepage, only: %i[home homepage_calculator homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
+  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing homepage_2 homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
+  before_action :setup_homepage, only: %i[home homepage_2 homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
   def home
   end
 
@@ -26,9 +26,7 @@ class PagesController < ApplicationController
 
   def homepage_7; end
 
-  def homepage_calculator
-    @country = Country.find_by(code: 'gb')
-  end
+  def homepage_2; end
 
   def dashboard
     redirect_to onboarding_path if Order.where(user: current_user, state: 'succeeded').blank?
