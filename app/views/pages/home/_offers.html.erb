@@ -1,0 +1,60 @@
+<section class="offers-banner w-100 mb-4">
+  <div class="container">
+    <h2>The Movido offer</h2>
+    <span class='text-center'>Moving to France or the UK doesn’t have to be stressful & expensive! With Movido simply choose what you need and get it shipped to your home anywhere in the world – 100% stress free and with no added fees</span>
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <div class="product-card">
+          <h3 class="name">Housing Search Support</h3>
+          <p class="description">Personalized help from local experts</p>
+          <p class="detail"><i class="far fa-check"></i>Support to find your dream flat</p>
+          <p class="detail"><i class="far fa-check"></i>First proposals sent within 24h</p>
+          <div class="bottom-part">
+            <%= image_tag(asset_path('logos/movido-black.svg')) %>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="product-card">
+          <h3 class="name">Local SIM Card</h3>
+          <p class="description">User your phone as soon as you arrive</p>
+          <p class="detail"><i class="far fa-check"></i>Data, calls & texts included </p>
+          <p class="detail"><i class="far fa-check"></i>No contract, cancel anytime</p>
+          <div class="bottom-part">
+            <%= image_tag(asset_path('logos/giffgaff.png')) %>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="product-card">
+          <h3 class="name">Local Public Transportation Card</h3>
+          <p class="description">Directly use the tube/metro at arrival</p>
+          <p class="detail"><i class="far fa-check"></i>Credit included for your first rides</p>
+          <p class="detail"><i class="far fa-check"></i>Top up later at any station </p>
+          <div class="bottom-part">
+            <%= image_tag(asset_path('logos/navigo.png')) %>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="product-card">
+          <h3 class="name">Personal Airport Pick-Up</h3>
+          <p class="description">Get stress-free to the city center</p>
+          <p class="detail"><i class="far fa-check"></i>Pick-up with designated driver</p>
+          <p class="detail"><i class="far fa-check"></i>Flights monitored for delays</p>
+          <div class="bottom-part">
+            <%= image_tag(asset_path('logos/bolt.png')) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <%= link_to 'Get started for free', onboarding_path, class: 'btn-main-white mb-3 mb-md-0 mt-4 w-100' %>
+      </div>
+      <div class="col-12 text-center">
+        <%= link_to 'See more details', onboarding_path, class: 'underline white mb-3 mb-md-0 mt-4 w-100' %>
+      </div>
+    </div>
+  </div>
+</section>
