@@ -1,8 +1,23 @@
 class RegistrationsController < Devise::RegistrationsController
+
+  def new_starter
+    build_resource
+    yield resource if block_given?
+    respond_with resource
+  end
+
+  def new_settle_in
+    build_resource
+    yield resource if block_given?
+    respond_with resource
+  end
+
   def create
     build_resource(sign_up_params)
-    generated_password = Devise.friendly_token.first(8)
-    resource.password = generated_password
+    if params[:pack] == 'starter'
+      generated_password = Devise.friendly_token.first(8)
+      resource.password = generated_password
+    end
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -21,6 +36,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def after_sign_up_path_for(_resource)
-    new_house_path
+    new_house_path(pack: params[:pack])
   end
 end

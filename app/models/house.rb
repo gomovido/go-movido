@@ -6,7 +6,7 @@ class House < ApplicationRecord
   has_many :services, through: :user_services
 
   validate :country_id_present
-  attr_accessor :terms, :marketing
+  attr_accessor :terms, :marketing, :pack
 
   def country_id_present
     errors.add(:country_id, "can't be blank") if country_id.blank?

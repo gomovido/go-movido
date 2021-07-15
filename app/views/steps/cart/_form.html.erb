@@ -1,7 +1,7 @@
 <div class="carts-new-container" data-controller="cart">
-  <%= simple_form_for house, url: new_cart_path, data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
+  <%= simple_form_for house, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
   <div class="product-cards-wrapper">
-    <%= f.collection_check_boxes(:service_ids, Service.all.includes([:category]), :id, :name, include_hidden: false) do |service| %>
+    <%= f.collection_check_boxes(:service_ids, Pack.find_by(name: pack).services.includes([:category]), :id, :name, include_hidden: false) do |service| %>
       <% product = service.object.product(house.country) %>
       <div class="product-card">
         <%= service.label { service.check_box(checked: false, data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(house.country)})} %>
@@ -43,6 +43,6 @@
 
   <hr>
   <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
-  <%= link_to 'Back', new_house_path, class:'btn-main-white mb-5' %>
+  <%= link_to 'Back', new_house_path(pack), class:'btn-main-white mb-5' %>
   <% end %>
 </div>

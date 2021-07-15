@@ -2,8 +2,13 @@ require 'rails_helper'
 
 RSpec.describe HouseReflex, type: :reflex do
   let(:user) { create(:user) }
+  let(:pack) { create(:pack) }
   let(:country) { create(:country, :fr) }
-  let(:reflex) { build_reflex(url: new_house_url, connection: { current_user: user }, params: { house: { country_id: country.id } }) }
+  let(:company) { create(:company, :mobile) }
+  let(:category) { create(:category, :mobile, pack: pack) }
+  let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
+  let!(:service) { create(:service, :mobile, category: category) }
+  let(:reflex) { build_reflex(url: new_house_url(pack: 'starter'), connection: { current_user: user }, params: { house: { country_id: country.id, pack: 'starter'} }) }
 
   describe '#create' do
     context 'when record is valid' do
