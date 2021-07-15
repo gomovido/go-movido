@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users, controllers: { sessions: "sessions", registrations: 'registrations'}
   devise_scope :user do
-    get "/onboarding" => "registrations#new", as: "onboarding"
+    get "/onboarding/starter-pack" => "registrations#new_starter", as: "onboarding_starter_pack"
+    get "/onboarding/settle-in-pack" => "registrations#new_settle_in", as: "onboarding_settle_in"
     post "/onboarding/:resource" => "registrations#create", as: 'registration'
   end
 
@@ -28,8 +29,8 @@ Rails.application.routes.draw do
 
 
   # Onboarding
-  get 'onboarding/new-journey', to: 'houses#new', as: 'new_house'
-  get 'onboarding/my-services', to: 'carts#new', as: 'new_cart'
+  get 'onboarding/new-journey/:pack', to: 'houses#new', as: 'new_house'
+  get 'onboarding/my-services/:pack', to: 'carts#new', as: 'new_cart'
   get 'onboarding/my-services/packs/:order_id', to: 'packs#index', as: 'packs'
   get 'onboarding/starter-pack/:order_id/shipping', to: 'shippings#new', as: 'new_shipping'
   get 'onboarding/starter-pack/:order_id/pickup', to: 'pickups#new', as: 'new_pickup'
