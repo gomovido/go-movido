@@ -7,7 +7,7 @@ export const mapBoxAutocomplete = (element, localevalue) => {
   const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     autocomplete: true,
-    types: 'address',
+    types: 'address, place, postcode, locality, region',
     language: 'en'
   });
   geocoder.addTo(element);
