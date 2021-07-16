@@ -5,13 +5,17 @@
         <div class="content">
           <h1>Get ready for your new home</h1>
           <p>Housing, local SIM, transportation, airport pick-up and more - everything you need before you arrive</p>
-          <%= image_tag(asset_path('components/homepage/iphone-banner-no-bg.png'), class:'d-block d-md-none') %>
-          <%= link_to 'Get started for free', onboarding_path, class: 'btn-main mb-3 mb-md-0 mt-md-5' %>
+
+          <%= image_tag(asset_path('components/homepage/background-color.png'), class:"position-absolute w-100") %>
+          <div class="d-flex justify-content-center">
+            <%= image_tag(asset_path('components/homepage/banner-img-phone-product.png'), class:'d-block d-md-none iphone z-1') %>
+          </div>
+          <%= link_to 'Get started for free', onboarding_path, class: 'btn-main mb-3 mb-md-0 mt-md-5 position-relative z-0' %>
           <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-100 mb-5 trustpilot' ) %>
         </div>
       </div>
       <div class="col-md-7 d-none d-md-block text-end">
-        <%= image_tag(asset_path('components/homepage/iphone-banner-no-bg.png')) %>
+        <%= image_tag(asset_path('components/homepage/banner-img-phone-product.png'), class:'mb-2') %>
       </div>
     </div>
   </section>
