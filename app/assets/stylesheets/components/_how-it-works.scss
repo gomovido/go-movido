@@ -37,7 +37,10 @@
       background: #F9F5FF;
       height: 130px;
       width: 130px;
-      border-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -67,10 +70,12 @@
     border: none;
     text-align: left;
     .number {
-      width: 100px;
-      height: 130px;
-      border-top-right-radius: 50px;
-      border-bottom-right-radius: 50px;
+      width: 100px !important;
+      height: 130px !important;
+      border-top-right-radius: 50px !important;
+      border-bottom-right-radius: 50px !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
       span {
         font-size: 30px !important;
         font-weight: 500;

@@ -48,5 +48,12 @@
     .content .row {
       justify-content: center;
     }
+    .iphone {
+      margin-bottom: -2em;
+      z-index: 0;
+      position: relative;
+      margin-top: 2rem;
+      max-width: 300px;
+    }
   }
 }
