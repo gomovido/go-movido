@@ -39,6 +39,14 @@ img {
   background-size: 100%;
 }
 
+.text-left {
+  text-align: left !important;
+}
+
+.h-auto {
+  height: auto !important;
+}
+
 ul {
   padding: 0;
 }
@@ -69,7 +77,6 @@ hr {
 
 button {
   outline-style: none !important;
-  border: none !important;
 }
 
 .background-size-cover {

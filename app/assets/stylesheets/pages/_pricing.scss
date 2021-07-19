@@ -4,4 +4,17 @@
       color: $black;
     }
   }
+  .benefits {
+    background: $purple;
+    color: white;
+    text-align: left;
+    padding: 5%;
+    border-radius: 1rem;
+    i {
+      margin-right: 0.5rem;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+  }
 }
