@@ -6,7 +6,6 @@
   margin-bottom: 1rem;
   padding: 1rem;
   transition-duration: 0.5s;
-  min-height: 325px;
   label {
     position: absolute;
     height: 100%;
@@ -39,7 +38,6 @@
   }
   .bottom-part {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     .top {
       display: flex;
@@ -67,6 +65,7 @@
 
 }
 
+
 .product-card.active {
   background: #22055D;
   box-shadow: none;
@@ -89,7 +88,6 @@
     }
   }
 }
-
 @include media-breakpoint-down(md) {
   .product-card {
     p.description {
