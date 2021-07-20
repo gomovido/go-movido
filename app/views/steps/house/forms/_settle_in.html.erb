@@ -1,4 +1,4 @@
-<%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseReflex#create", reflex_serialize_form: true, controller: "address"   } do |f| %>
+<%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseDetailReflex#create", reflex_serialize_form: true, controller: "address"   } do |f| %>
   <%= f.input :country_id, collection: Country.all.map {|country| [t("country.#{country.code}"), country.id]}, prompt: 'Select a country', label: 'Country of destination', input_html: {class: 'custom-select'}%>
 
   <%= simple_fields_for house_detail do |p| %>

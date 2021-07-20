@@ -69,3 +69,16 @@ housing_product = Product.create(country: Country.find_by(code: 'gb'), company: 
 ProductDetail.create(product: housing_product, content: 'Personalized 1-week long support to help you find the perfect flat')
 ProductDetail.create(product: housing_product, content: 'Dedicated advisor available to you over phone or e-mail')
 ProductDetail.create(product: housing_product, content: 'Get the first proposals within 24 hours of ordering our service')
+
+
+
+
+category = Category.create(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
+Service.create(name: 'utilities', category: category)
+company = Company.create(name: 'Total energy', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+utilities_product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "utilities for you house", name: 'utilities energy', activation_price: 0, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+
+
+
+
+
