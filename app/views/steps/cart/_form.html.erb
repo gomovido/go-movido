@@ -23,7 +23,10 @@
             <%= image_tag(asset_path(product.company.logo_url)) %>
           </div>
           <div class="bot">
-            <p class="detail red">only <%= rand(1...5) %> offers left at this price.</p>
+            <% if product.category.name != 'transportation' %>
+              <% rand = rand(1...5) %>
+              <p class="detail red">only <%= rand %> offer<%= 's' if rand > 1 %> left at this price.</p>
+            <% end %>
           </div>
         </div>
 
