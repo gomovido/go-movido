@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_123249) do
+ActiveRecord::Schema.define(version: 2021_07_19_122005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 2021_07_14_123249) do
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "house_details", force: :cascade do |t|
+    t.bigint "house_id", null: false
+    t.integer "tenants"
+    t.integer "size"
+    t.string "address"
+    t.datetime "contract_starting_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["house_id"], name: "index_house_details_on_house_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -215,6 +226,7 @@ ActiveRecord::Schema.define(version: 2021_07_14_123249) do
 
   add_foreign_key "carts", "houses"
   add_foreign_key "categories", "packs"
+  add_foreign_key "house_details", "houses"
   add_foreign_key "houses", "countries"
   add_foreign_key "houses", "users"
   add_foreign_key "items", "carts"

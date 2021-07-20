@@ -1,12 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def new_starter
+    return redirect_to new_house_path(pack: 'starter') if current_user
     build_resource
     yield resource if block_given?
     respond_with resource
   end
 
   def new_settle_in
+    return redirect_to new_house_path(pack: 'settle_in') if current_user
     build_resource
     yield resource if block_given?
     respond_with resource
