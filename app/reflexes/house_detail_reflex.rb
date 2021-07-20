@@ -8,7 +8,7 @@ class HouseDetailReflex < ApplicationReflex
     @house.user = current_user
     if @house.save
       @house_detail = create_house_detail(@house)
-      if @house_detail
+      if @house_detail.save
         morph '.flow-container', render(partial: "steps/cart/new", locals: { order: current_user.current_draft_order || Order.new, house: @house, pack: @pack, message: { content: "Almost done! Please select the services you need to get started in your new city", delay: 0 } })
       else
         morph '.form-base', render(partial: "steps/house/forms/#{@pack}", locals: { house: @house, pack: @pack, house_detail: @house_detail })
@@ -22,7 +22,7 @@ class HouseDetailReflex < ApplicationReflex
     house_detail = house.house_detail || HouseDetail.new
     house_detail.assign_attributes(house_detail_params)
     house_detail.house = house
-    house_detail.save
+    house_detail
   end
 
   private
