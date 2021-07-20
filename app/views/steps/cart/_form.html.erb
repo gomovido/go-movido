@@ -10,7 +10,7 @@
         <% product.product_details.each do |product_detail| %>
           <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
         <% end %>
-        <div class="bottom-part">
+        <div class="bottom-part flex-column">
           <div class="top">
             <div class="left">
               <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span> </span>
