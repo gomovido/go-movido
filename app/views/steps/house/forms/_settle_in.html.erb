@@ -1,5 +1,22 @@
-<%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseReflex#create", reflex_serialize_form: true  } do |f| %>
-  <%= f.input :country_id, as: :radio_buttons, collection: Country.all.map {|country| [image_tag(asset_path("flags/#{country.code}.svg") , width: 200) + t("country.#{country.code}"), country.id]}, legend_tag: false, checked: house.country&.id || Country.first.id %>
+<%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseReflex#create", reflex_serialize_form: true, controller: "address"   } do |f| %>
+  <%= f.input :country_id, collection: Country.all.map {|country| [t("country.#{country.code}"), country.id]}, prompt: 'Select a country', label: 'Country of destination', input_html: {class: 'custom-select'}%>
+
+  <%= simple_fields_for house_detail do |p| %>
+    <label>Your current address</label>
+    <div data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
+    </div>
+    <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
+    <%= p.hidden_field :address, required: true, data: { address_target: 'addressInput' } %>
+    <div class="lines-input d-flex justify-content-between">
+      <%= p.input :tenants, collection: [1, 2, 3, 4, 5, 6, 7], prompt: 'Choose', label: 'Number of tenants', input_html: {class: 'custom-select'} %>
+      <%= p.input :size, collection: ['20 to 30m2', '30 to 40m2'], prompt: 'Choose', label: 'Flat size', input_html: {class: 'custom-select'} %>
+    </div>
+    <label for="tenants">Contract starting date</label>
+    <%= p.input :contract_starting_date, as: :string, label: false,
+               required: true,
+               input_html: { class:'datepicker', data: {
+                controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
+  <% end %>
   <%= f.hidden_field :pack, value: pack %>
   <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
   <%= link_to 'Back', destroy_user_session_path, method: :delete, class:'btn-main-white mb-5' %>
