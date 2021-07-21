@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_122005) do
+ActiveRecord::Schema.define(version: 2021_07_21_111605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,31 @@ ActiveRecord::Schema.define(version: 2021_07_19_122005) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_leads_on_email", unique: true
+  end
+
+  create_table "option_types", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_option_types_on_product_id"
+  end
+
+  create_table "option_value_variants", force: :cascade do |t|
+    t.bigint "variant_id", null: false
+    t.bigint "option_value_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_value_id"], name: "index_option_value_variants_on_option_value_id"
+    t.index ["variant_id"], name: "index_option_value_variants_on_variant_id"
+  end
+
+  create_table "option_values", force: :cascade do |t|
+    t.bigint "option_type_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_type_id"], name: "index_option_values_on_option_type_id"
   end
 
   create_table "order_marketings", force: :cascade do |t|
@@ -224,6 +249,14 @@ ActiveRecord::Schema.define(version: 2021_07_19_122005) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_variants_on_product_id"
+  end
+
   add_foreign_key "carts", "houses"
   add_foreign_key "categories", "packs"
   add_foreign_key "house_details", "houses"
@@ -232,6 +265,10 @@ ActiveRecord::Schema.define(version: 2021_07_19_122005) do
   add_foreign_key "items", "carts"
   add_foreign_key "items", "orders"
   add_foreign_key "items", "products"
+  add_foreign_key "option_types", "products"
+  add_foreign_key "option_value_variants", "option_values"
+  add_foreign_key "option_value_variants", "variants"
+  add_foreign_key "option_values", "option_types"
   add_foreign_key "order_marketings", "orders"
   add_foreign_key "orders", "billings"
   add_foreign_key "orders", "charges"
@@ -246,4 +283,5 @@ ActiveRecord::Schema.define(version: 2021_07_19_122005) do
   add_foreign_key "user_marketings", "users"
   add_foreign_key "user_services", "houses"
   add_foreign_key "user_services", "services"
+  add_foreign_key "variants", "products"
 end

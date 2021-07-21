@@ -9,5 +9,5 @@
   <%= f.input :instructions, required: true, label: false, placeholder: 'Type a message for us' %>
   <hr>
   <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
-  <%= link_to 'Back', packs_path(order.id), class:'btn-main-white mb-5' %>
+  <%= link_to 'Back', new_cart_path(pack: pack), class:'btn-main-white mb-5' %>
 <% end %>
