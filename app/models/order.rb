@@ -11,7 +11,7 @@ class Order < ApplicationRecord
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
 
   def total_amount
-    items.includes([:product]).sum { |item| item.product.activation_price_cents }
+    items.includes([:product]).sum {|item| item.product.category.is_utilities? ? item.product.price(self.user.house) : item.product.activation_price_cents}
   end
 
   def total_amount_display

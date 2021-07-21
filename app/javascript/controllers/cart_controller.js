@@ -21,6 +21,7 @@ export default class extends Controller {
       }
     }
     let oldPrice = parseInt(this.priceTarget.dataset.value, 10);
+
     let startValCountUp = numeral(oldPrice / 100).format('0.00')
     let price = parseInt(e.currentTarget.dataset.price, 10)
     let newPrice = 0

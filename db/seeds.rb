@@ -76,8 +76,11 @@ ProductDetail.create(product: housing_product, content: 'Get the first proposals
 category = Category.create(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
 Service.create(name: 'utilities', category: category)
 company = Company.create(name: 'Total energy', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
-utilities_product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "utilities for you house", name: 'utilities energy', activation_price: 0, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
-
+product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "utilities for you house", name: 'utilities energy', activation_price: 0, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+variant = Variant.create(price: 20, product: product)
+option_type = OptionType.create(product: product, name: 'tenants')
+option_value = OptionValue.create(option_type: option_type, name: '3')
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
 
 
 

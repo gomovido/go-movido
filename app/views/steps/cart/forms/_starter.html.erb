@@ -1,10 +1,11 @@
 <div class="carts-new-container" data-controller="cart">
   <%= simple_form_for house, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
+  <%= f.hidden_field :pack, value: pack %>
   <div class="product-cards-wrapper">
     <%= f.collection_check_boxes(:service_ids, Pack.find_by(name: pack).services.includes([:category]), :id, :name, include_hidden: false) do |service| %>
       <% product = service.object.product(house.country) %>
       <div class="product-card">
-        <%= service.label { service.check_box(checked: false, data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(house.country)})} %>
+        <%= service.label { service.check_box(checked: false, data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(house)})} %>
         <h3 class="name"><%= product.name %></h3>
         <p class="description"><%= product.description %></p>
         <% product.product_details.each do |product_detail| %>
