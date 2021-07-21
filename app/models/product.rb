@@ -19,9 +19,12 @@ class Product < ApplicationRecord
     (activation_price * 10 * 10).to_i
   end
 
+  def variant_activation_price(house)
+    (option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.activation_price * 10 * 10).to_i
+  end
 
-  def price(house)
-    (option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.price * 10 * 10).to_i
+  def variant_subscription_price(house)
+    (option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price * 10 * 10).to_i
   end
 
   def set_sku

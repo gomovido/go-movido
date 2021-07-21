@@ -38,6 +38,10 @@ Rails.application.routes.draw do
   post 'payments/:order_id', to: 'payments#create', as: 'payments'
   get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
 
+
+  # Subscription
+  get 'onboarding/settle-in-pack/subscription/', to: 'subscriptions#new', as: 'new_subscription'
+
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
 

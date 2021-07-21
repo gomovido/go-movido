@@ -1,11 +1,11 @@
 <div class="carts-new-container" data-controller="cart">
-  <%= simple_form_for house, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
+  <%= simple_form_for house, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create_settle_in", reflex_serialize_form: true  } do |f| %>
   <div class="product-cards-wrapper">
     <%= f.hidden_field :pack, value: pack %>
     <%= f.collection_check_boxes(:service_ids, Pack.find_by(name: pack).services.includes([:category]), :id, :name, include_hidden: false) do |service| %>
       <% product = service.object.product(house.country) %>
       <div class="product-card">
-        <%= service.label { service.check_box(checked: false, data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).price(house)})} %>
+        <%= service.label { service.check_box(checked: false, data: {action: 'change->cart#updatePrice', price: Service.find_by(name: service.text).subscription_price(house)})} %>
         <h3 class="name"><%= product.name %></h3>
         <p class="description"><%= product.description %></p>
         <% product.product_details.each do |product_detail| %>
@@ -13,7 +13,7 @@
         <% end %>
         <div class="bottom-part">
           <div class="left">
-            <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.price %>
+            <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
             <span class="price">
               <i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
             </span>
@@ -30,21 +30,6 @@
     <h2 class="total-price"><%= house.country.currency_symbol %><span data-cart-target="price" data-value="0">0</span></h2>
     <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
   </div>
-  <%= simple_fields_for order do |p| %>
-    <label>Do you have a PROMOCODE?</label>
-    <%= p.input :affiliate_link, label: false, placeholder: 'PROMOCODE' %>
-  <% end %>
-  <div class="p-2">
-    <div class="d-flex">
-      <div>
-        <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
-      </div>
-      <label for="marketing">I accept the <%= link_to 'Terms and Conditions', terms_path, class:'purple', target: 'blank'%> of movido</label>
-    </div>
-    <div class="invalid-feedback d-block"><%= f.error(:terms) %></div>
-    <span class="legals">By clicking 'Continue', you accept to receive selected marketing communication. movido will process your personal data according to our <%= link_to 'Privacy Policy', privacy_path, class: 'link purple' %></span>
-  </div>
-
   <hr>
   <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
   <%= link_to 'Back', new_house_path(pack), class:'btn-main-white mb-5' %>

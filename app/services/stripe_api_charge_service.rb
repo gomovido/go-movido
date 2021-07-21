@@ -8,7 +8,7 @@ class StripeApiChargeService
     order = Order.find(@order_id)
     begin
       stripe_charge = Stripe::Charge.create({
-                                              amount: order.total_amount,
+                                              amount: order.total_activation_amount,
                                               currency: order.currency,
                                               source: @stripe_token,
                                               description: "This is payment for user #{order.user.email} - Order #-#{order.id}"
