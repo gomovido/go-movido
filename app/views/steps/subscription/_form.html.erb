@@ -1,0 +1,10 @@
+<%= simple_form_for subscription, url: new_subscription_path, data: {reflex: "submit->SubscriptionReflex#create", reflex_serialize_form: true  } do |f| %>
+  <%= f.hidden_field :order_id, value: order.id %>
+  <label for="">I accept the Terms and Conditions of Movido</label>
+  <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
+  <div class="invalid-feedback d-block"><%= f.error(:terms) %></div>
+  <label for="">I accept the Terms and Conditions of Movido providers</label>
+  <%= f.check_box :terms_provider, label: false, class: 'me-2 custom-checkbox' %>
+  <div class="invalid-feedback d-block"><%= f.error(:terms_provider) %></div>
+  <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
+<% end %>

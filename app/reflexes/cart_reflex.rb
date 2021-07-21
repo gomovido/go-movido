@@ -18,12 +18,18 @@ class CartReflex < ApplicationReflex
       initialize_cart
       init_user_services
       generate_items
-      if @pack == 'starter'
-        morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, pack: @pack, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
-      elsif @pack == 'settle_in'
-        morph '.flow-container', render(partial: "steps/legal/new", locals: { order: @order, pack: @pack, message: { content: "This is legals stuff", delay: 0 } })
-      end
+      morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, pack: @pack, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
     end
+  end
+
+
+  def create_settle_in
+    @pack = house_params[:pack]
+    @order = Order.where(user: current_user, state: 'pending_payment').first_or_create
+    initialize_cart
+    init_user_services
+    generate_items
+    morph '.flow-container', render(partial: "steps/subscription/new", locals: { order: @order, subscription: (@order.subscription || Subscription.new), message: { content: "This is legals stuff", delay: 0 } })
   end
 
   def terms_not_checked?(terms)
