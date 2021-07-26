@@ -5,7 +5,6 @@ class Order < ApplicationRecord
   belongs_to :shipping, optional: true
   has_one :pickup, dependent: :destroy
   has_one :subscription, dependent: :destroy
-  has_one :movido_subscriptions, through: :subscription
   has_many :items, dependent: :destroy
   has_many :products, through: :items
   has_one :order_marketing, dependent: :destroy

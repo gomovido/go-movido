@@ -38,7 +38,15 @@ class PaymentsController < ApplicationController
 
 
   def settle_in_payment(stripe_token, order)
-    response = StripeApiBillingService.new(stripe_token: stripe_token, subscription_id: order.subscription.id).proceed_payment
+    response = StripeApiBillingService.new(order_id: order.id, stripe_token: stripe_token).proceed_payment
+    if response[:error].nil?
+      order.subscription.update(state: 'paid')
+      flash[:notice] = 'Payment success!'
+      redirect_to congratulations_path(order.id)
+    else
+      flash[:alert] = "#{response[:error]}"
+      render :new
+    end
   end
 
   def starter_pack_payment(stripe_token, order)
