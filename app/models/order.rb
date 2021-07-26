@@ -7,6 +7,7 @@ class Order < ApplicationRecord
   has_one :subscription, dependent: :destroy
   has_one :movido_subscriptions, through: :subscription
   has_many :items, dependent: :destroy
+  has_many :products, through: :items
   has_one :order_marketing, dependent: :destroy
 
   validates :state, presence: true
@@ -24,8 +25,16 @@ class Order < ApplicationRecord
     total_activation_amount.to_f / 100
   end
 
+  def total_subscription_amount_display
+    total_subscription_amount.to_f / 100
+  end
+
   def ready_to_checkout?
-    user.house.pickup? ? shipping && pickup : shipping
+    if pack == 'settle_in'
+      true
+    else
+      user.house.pickup? ? shipping && pickup : shipping
+    end
   end
 
   def currency
@@ -34,6 +43,10 @@ class Order < ApplicationRecord
 
   def currency_symbol
     fr? ? '€' : '£'
+  end
+
+  def pack
+    products.first.category.pack.name
   end
 
   def cart

@@ -1786,6 +1786,22 @@
       "widget": null,
       "validations": []
     }, {
+      "field": "products",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Product.id",
+      "inverse_of": null,
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
+    }, {
       "field": "order_marketing",
       "type": "Number",
       "default_value": null,
@@ -2874,7 +2890,22 @@
       "widget": null,
       "validations": []
     }, {
-      "field": "price_cents",
+      "field": "activation_price_cents",
+      "type": "Number",
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": true,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": null,
+      "inverse_of": null,
+      "widget": null,
+      "validations": []
+    }, {
+      "field": "subscription_price_cents",
       "type": "Number",
       "default_value": null,
       "enums": null,

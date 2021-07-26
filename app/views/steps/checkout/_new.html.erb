@@ -3,39 +3,9 @@
     <div class="row justify-content-center">
       <div class="col-xs-12 col-lg-6">
         <div class="content-container" data-delay="2" data-animate-target="contentContainer">
-          <h3 class="my-3">Your Starter Pack</h3>
-          <span>directly in the <%= t("country.capital.#{order.items.first.product.country.code}") %> city</span>
-          <hr class="w-50">
-          <div class="pricing d-flex flex-column text-center">
-            <% order.items.includes([:product]).each do |item| %>
-              <div class="pricing-card">
-                <div class="product-img">
-                  <%= image_tag(asset_path(item.product.company.logo_url)) %>
-                </div>
-                <div class="product-name">
-                  <span class="name"><%= item.product.name %></span>
-                  <span class="description"><%= item.product.product_details.first.content %></span>
-                </div>
-                <div class="product-price">
-                  <span class="price-lite"><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></span>
-                </div>
-              </div>
-            <% end %>
-            <hr>
-            <div class="total-price">
-              <div class="d-flex justify-content-between">
-                <span>Shipping</span>
-                <span class="price">FREE</span>
-              </div>
-              <div class="d-flex justify-content-between total">
-                <span>Total price</span>
-                <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
-              </div>
-            </div>
-            <hr>
-          </div>
+          <%= render "steps/checkout/summaries/#{order.pack}", order: order, house: order.user.house %>
           <div class="form-base">
-            <%= render 'steps/checkout/form', order: order, billing: billing %>
+            <%= render "steps/checkout/form", order: order, billing: billing %>
           </div>
         </div>
       </div>

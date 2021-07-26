@@ -11,8 +11,8 @@ class SubscriptionReflex < ApplicationReflex
       @subscription.errors.add(:terms_provider, 'You need to accept the Terms and Conditions of providers')
       morph '.form-base', render(partial: "steps/subscription/form", locals: { order: @order, subscription: @subscription, message: { content: "This is legals stuff", delay: 0 } })
     else
-      init_subscription(@order)
-      init_movido_subscription
+      @subscription = init_subscription(@order)
+      morph '.flow-container', render(partial: "steps/checkout/new", locals: { order: @order, billing: (@order.billing || Billing.new), subscription: @subscription, message: { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 } })
     end
   end
 
@@ -20,12 +20,12 @@ class SubscriptionReflex < ApplicationReflex
   def init_subscription(order)
     Subscription.create(
       order: order,
-      price_cents: order.total_subscription_amount,
+      subscription_price_cents: order.total_subscription_amount,
+      activation_price_cents: order.total_activation_amount,
       starting_date: current_user.house.house_detail.contract_starting_date,
-      state: "pending_payment")
+      state: "pending_payment"
+      )
   end
-
-
 
   def terms_not_checked?(terms)
     terms == '0'

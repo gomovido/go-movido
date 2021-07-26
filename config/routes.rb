@@ -34,13 +34,10 @@ Rails.application.routes.draw do
   get 'onboarding/my-services/packs/:order_id', to: 'packs#index', as: 'packs'
   get 'onboarding/starter-pack/:order_id/shipping', to: 'shippings#new', as: 'new_shipping'
   get 'onboarding/starter-pack/:order_id/pickup', to: 'pickups#new', as: 'new_pickup'
-  get 'onboarding/starter-pack/:order_id/checkout', to: 'payments#new', as: 'checkout'
+  get 'onboarding/:order_id/checkout', to: 'payments#new', as: 'checkout'
   post 'payments/:order_id', to: 'payments#create', as: 'payments'
   get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
 
-
-  # Subscription
-  get 'onboarding/settle-in-pack/subscription/', to: 'subscriptions#new', as: 'new_subscription'
 
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
