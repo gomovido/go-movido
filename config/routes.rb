@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'how_it_works', to: 'pages#how_it_works'
   get 'about', to: 'pages#about'
   get 'pricing', to: 'pages#pricing', as: "pricing"
+  get 'thankyou', to: 'pages#thank_you', as: 'thankyou'
 
   # Lead generation
   resources :leads, only: [:create]
