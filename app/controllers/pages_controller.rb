@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing homepage_2 homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
+  skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing homepage_2 homepage_3 homepage_4 homepage_5 homepage_6 homepage_7 thank_you]
   before_action :setup_homepage, only: %i[home homepage_2 homepage_3 homepage_4 homepage_5 homepage_6 homepage_7]
   def home
   end
@@ -15,6 +15,8 @@ class PagesController < ApplicationController
   def pricing; end
 
   def about; end
+
+  def thank_you; end
 
   def homepage_3; end
 
