@@ -223,7 +223,8 @@ ActiveRecord::Schema.define(version: 2021_07_21_144638) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "state"
-    t.integer "price_cents"
+    t.integer "activation_price_cents"
+    t.integer "subscription_price_cents"
     t.bigint "movido_subscription_id"
     t.bigint "order_id", null: false
     t.datetime "starting_date"

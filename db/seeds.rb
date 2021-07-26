@@ -85,6 +85,7 @@ option_value_variant = OptionValueVariant.create(option_value: option_value, var
 variant = Variant.create(subscription_price: 20, activation_price: 80, product: product)
 option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
 
-
-
-
+category = Category.create(name: 'phone', pack: Pack.find_by(name: 'settle_in'))
+Service.create(name: 'phone', category: category)
+company = Company.create(name: 'Free', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "phone contract", name: 'phone contract', activation_price: 10, subscription_price: 29.90, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')

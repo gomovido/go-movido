@@ -13,7 +13,11 @@
         <% end %>
         <div class="bottom-part">
           <div class="left">
-            <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
+            <% if product.category.is_utilities? %>
+              <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
+            <% else %>
+              <% price = product.subscription_price %>
+            <% end %>
             <span class="price">
               <i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
             </span>
