@@ -80,8 +80,8 @@ product = Product.create(country: Country.find_by(code: 'fr'), company: company,
 option_type = OptionType.create(product: product, name: 'tenants')
 option_value = OptionValue.create(option_type: option_type, name: '3')
 variant = Variant.create(subscription_price: 30, activation_price: 80, product: product)
-option_value = OptionValue.create(option_type: option_type, name: '2')
 option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '2')
 variant = Variant.create(subscription_price: 20, activation_price: 80, product: product)
 option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
 

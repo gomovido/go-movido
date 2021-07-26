@@ -1,4 +1,4 @@
-<%= simple_form_for subscription, url: new_subscription_path, data: {reflex: "submit->SubscriptionReflex#create", reflex_serialize_form: true  } do |f| %>
+<%= simple_form_for subscription, url: checkout_path(order.id), data: {reflex: "submit->SubscriptionReflex#create", reflex_serialize_form: true  } do |f| %>
   <%= f.hidden_field :order_id, value: order.id %>
   <label for="">I accept the Terms and Conditions of Movido</label>
   <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>

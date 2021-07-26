@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_144638) do
+ActiveRecord::Schema.define(version: 2021_07_26_150244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,13 +99,6 @@ ActiveRecord::Schema.define(version: 2021_07_21_144638) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_leads_on_email", unique: true
-  end
-
-  create_table "movido_subscriptions", force: :cascade do |t|
-    t.float "price"
-    t.string "stripe_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "option_types", force: :cascade do |t|
@@ -223,14 +216,13 @@ ActiveRecord::Schema.define(version: 2021_07_21_144638) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "state"
+    t.string "stripe_id"
     t.integer "activation_price_cents"
     t.integer "subscription_price_cents"
-    t.bigint "movido_subscription_id"
     t.bigint "order_id", null: false
     t.datetime "starting_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["movido_subscription_id"], name: "index_subscriptions_on_movido_subscription_id"
     t.index ["order_id"], name: "index_subscriptions_on_order_id"
   end
 
@@ -265,6 +257,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_144638) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
+    t.string "stripe_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -301,7 +294,6 @@ ActiveRecord::Schema.define(version: 2021_07_21_144638) do
   add_foreign_key "products", "companies"
   add_foreign_key "products", "countries"
   add_foreign_key "services", "categories"
-  add_foreign_key "subscriptions", "movido_subscriptions"
   add_foreign_key "subscriptions", "orders"
   add_foreign_key "user_marketings", "users"
   add_foreign_key "user_services", "houses"
