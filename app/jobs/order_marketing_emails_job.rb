@@ -5,6 +5,7 @@ class OrderMarketingEmailsJob < ApplicationJob
     manage_orders
     retarget
     last_call
+    feedback
   end
 
   def manage_orders
@@ -18,6 +19,10 @@ class OrderMarketingEmailsJob < ApplicationJob
       OrderMarketingMailer.with(user: marketing.order.user).last_call.deliver_later
       marketing.update(sent: true)
     end
+  end
+
+  def feedback
+    OrderMarketing.where(title: 'orders_sequence', step: 'feedback')
   end
 
   def retarget

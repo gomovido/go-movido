@@ -8,4 +8,9 @@ class OrderMarketingMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: "✨ #{@user.first_name}, hurry up and get ready for your stay abroad! ✈️")
   end
+
+  def feedback
+    @user = params[:user]
+    mail(to: @user.email, subject: "#{@user.first_name}, your feedback is important to us! 🙏")
+  end
 end
