@@ -1,12 +1,12 @@
-<%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseDetailReflex#create", reflex_serialize_form: true, controller: "address"   } do |f| %>
-  <%= f.input :country_id, collection: Country.all.map {|country| [t("country.#{country.code}"), country.id]}, prompt: 'Select a country', label: 'Country of destination', input_html: {class: 'custom-select'}%>
-
+<%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseDetailReflex#create", reflex_serialize_form: true, controller: "country" } do |f| %>
+  <%= f.hidden_field :country_code, required: true, data: { country_target: 'countryInput' } %>
   <%= simple_fields_for house_detail do |p| %>
     <label>Your current address</label>
-    <div data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
+    <div data-country-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->country#cleanCountryCode' >
     </div>
+    <div class="invalid-feedback d-block"><%= f.full_error(:country) %></div>
     <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
-    <%= p.hidden_field :address, required: true, data: { address_target: 'addressInput' } %>
+    <%= p.hidden_field :address, required: true, data: { country_target: 'addressInput' } %>
     <div class="lines-input d-flex justify-content-between">
       <%= p.input :tenants, collection: [1, 2, 3, 4, 5, 6, 7], prompt: 'Choose', label: 'Number of tenants', input_html: {class: 'custom-select'} %>
       <%= p.input :size, collection: ['20 to 30m2', '30 to 40m2'], prompt: 'Choose', label: 'Flat size', input_html: {class: 'custom-select'} %>

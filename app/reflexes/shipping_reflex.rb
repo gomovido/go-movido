@@ -7,14 +7,14 @@ class ShippingReflex < ApplicationReflex
 
   def create
     return if @order.paid?
-
+    @pack = @order.pack
     @shipping = @order.shipping || Shipping.new
     @shipping.assign_attributes(shipping_params)
     @shipping.state = 'initiated'
     if @shipping.save && @order.update(shipping: @shipping)
       morph_to_next_step
     else
-      morph '.form-base', render(partial: "steps/shipping/form", locals: { shipping: @shipping, order: @order })
+      morph '.form-base', render(partial: "steps/shipping/form", locals: { shipping: @shipping, order: @order, pack: @pack })
     end
   end
 

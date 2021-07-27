@@ -7,7 +7,7 @@ class House < ApplicationRecord
   has_one :house_detail, dependent: :destroy
 
   validate :country_id_present
-  attr_accessor :terms, :marketing, :pack
+  attr_accessor :terms, :marketing, :pack, :country_code
 
   def country_id_present
     errors.add(:country_id, "can't be blank") if country_id.blank?

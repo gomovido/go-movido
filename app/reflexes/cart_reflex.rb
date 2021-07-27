@@ -6,13 +6,13 @@ class CartReflex < ApplicationReflex
     @order = current_user.current_draft_order || Order.new
     if terms_not_checked?(house_params[:terms])
       current_user.house.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house, pack: @pack })
+      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
       @order.errors.add(:affiliate_link, 'not valid')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house, pack: @pack })
+      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     elsif !house_params[:service_ids]
       current_user.house.errors.add(:base, "Please select at least one service")
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house, pack: @pack })
+      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     else
       initialize_order
       initialize_cart
