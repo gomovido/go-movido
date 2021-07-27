@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
 
   def proceed_payment(stripe_token, order)
     if order.pack == 'starter'
-      starter_payment(stripe_token, order)
+      starter_pack_payment(stripe_token, order)
     else
       settle_in_payment(stripe_token, order)
     end

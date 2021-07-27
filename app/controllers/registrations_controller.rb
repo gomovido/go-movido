@@ -31,9 +31,14 @@ class RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      if params[:pack] == 'starter'
+        render :new_starter
+      else
+        render :new_settle_in
+      end
     end
   end
+
 
   private
 

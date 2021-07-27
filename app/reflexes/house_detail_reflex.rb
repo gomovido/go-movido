@@ -6,6 +6,9 @@ class HouseDetailReflex < ApplicationReflex
     @house = current_user.house || House.new
     @house.assign_attributes(house_params)
     @house.user = current_user
+    @house.country = Country.find_by(code: house_params[:country_code])
+    p 'THIS IS PARAMS'
+    p house_params
     if @house.save
       @house_detail = create_house_detail(@house)
       if @house_detail.save
@@ -14,7 +17,7 @@ class HouseDetailReflex < ApplicationReflex
         morph '.form-base', render(partial: "steps/house/forms/#{@pack}", locals: { house: @house, pack: @pack, house_detail: @house_detail })
       end
     else
-      morph '.form-base', render(partial: "steps/house/forms/#{@pack}", locals: { house: @house, pack: @pack, house_detail: @house_detail })
+      morph '.form-base', render(partial: "steps/house/forms/#{@pack}", locals: { house: @house, pack: @pack, house_detail: @house.house_detail || HouseDetail.new })
     end
   end
 
@@ -28,7 +31,7 @@ class HouseDetailReflex < ApplicationReflex
   private
 
   def house_params
-    params.require(:house).permit(:country_id, :pack)
+    params.require(:house).permit(:country_code, :pack)
   end
 
   def house_detail_params

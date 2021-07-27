@@ -44,7 +44,7 @@ RSpec.describe Order, type: :model do
     let!(:transportation_item) { create(:item, product: transportation_product, cart: cart, order: order) }
 
     it 'displays the right amount' do
-      expect(order.total_amount).to eq(mobile_item.product.activation_price_cents + transportation_item.product.activation_price_cents)
+      expect(order.total_activation_amount).to eq(mobile_item.product.activation_price_cents + transportation_item.product.activation_price_cents)
     end
 
     it 'has the right currency' do
