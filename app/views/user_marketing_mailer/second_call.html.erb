@@ -470,7 +470,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                                              ✨ <%= @user.first_name %>, get prepared for your stay abroad  ✈️
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
@@ -488,20 +488,16 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h1>Hi <%= @user.first_name %>,</h1>
-                                                <span>do you already have an apartment for your stay abroad? Do you know how to get into the city after arrival? Can you call someone for help with a local phone number? If your answer is “no” to any of these questions - let us help you and make your move as simple as it can get. </span> <br /><br />
-                                                <span>Here’s how it works:</span><br />
-                                                <ul>
-                                                  <li>1. <strong>You choose what you want: </strong>Housing, local phone number, public transportation, airport-pickup and more: just choose what you need, and get it all in one personalized bundle.</li>
-                                                  <li>2. <strong>You pay for what you need: </strong>The price of this bundle is completely customizable: you only pay for the services you choose, there are no added fees.</li>
-                                                  <li>3. <strong>Your order is shipped to your current home for free: </strong>We’ll send your customized bundle with everything you need before you arrive directly to your current home. And the best part:: the shipping is completely free!.</li>
-                                                </ul>
-                                                <span>Easy, right? 🙌</span>
+                                                <h1>Hi <%= @user.first_name %>, it’s me again 👋!</h1>
+                                                <span>A few days ago, I sent you an email explaining how Movido can help you prepare for your stay abroad…</span> <br /><br />
+                                                <span>Now, you probably have questions about it:</span><br /><br />
+                                                <span> <i>“How does the housing service support work? How many GB of data is in the SIM card?”</i></span><br /><br />
+                                                <span>Well, you’re lucky, because not only do we have an entire page with more details about the service, but also, if you reply to this email, I will answer all your questions! </span>
                                                 <br />
                                                 <br />
-                                                <%= link_to 'Get your Starter Pack now', onboarding_url, class:'btn-main', target: 'blank' %>
+                                                <%= link_to 'Learn more about Movido', pricing_url, class:'btn-main', target: 'blank' %>
                                                 <br />
-                                                <span>Have an awesome day,</span>
+                                                <span>Looking forward to talking to you,</span>
                                                 <br />
                                                 <span>Alice from Movido</span>
 

@@ -461,7 +461,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                                              <span><%= @user.first_name %>, studying abroad next fall?</span>
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
@@ -479,15 +479,17 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h1>Hi <%= @user.first_name %>, welcome to the Movido family! 👋</h1>
-                                                <span>Over the next few days, I will show you how Movido makes your move abroad simple... Stay tuned.</span> <br /><br />
-                                                <span>Before we get started, I just want to know your #1 thing I can already help you prepare for your move abroad.</span>
-                                                <br /><br />
-                                                <span>Reply right to this email - I will get back to you in no time, promised. 🤞</span>
-                                                <br />
-                                                <br />
+                                                <h1>Hi <%= @user.first_name %>, thanks for signing up to Movido!</h1>
+                                                <span>Since you’re new here, let me just give you a brief introduction on how the Movido service works: </span> <br /><br />
+                                                <ul>
+                                                  <li>1. <strong>You choose what you want: </strong>Housing, local phone number, public transportation, airport-pickup and more: just choose what you need, and get it all in one personalized bundle.</li>
+                                                  <li>2. <strong>You pay for what you need: </strong>The price of this bundle is completely customizable: you only pay for the services you choose, there are no added fees.</li>
+                                                  <li>3. <strong>Your order is shipped to your current home for free: </strong>We’ll send your customized bundle with everything you need before you arrive directly to your current home. And the best part: the shipping is completely free!</li>
+                                                </ul>
                                                 <%= link_to 'Get your Starter Pack now', onboarding_url, class:'btn-main', target: 'blank' %>
-                                                <br />
+                                                <br /><br/>
+                                                <span>Easy, right? 🙌</span>
+                                                <br /><br />
                                                 <span>Have an awesome day,</span>
                                                 <br />
                                                 <span>Alice from Movido</span>
