@@ -487,11 +487,8 @@
                                                 <span>Password: <%= @user.password %></span>
                                                 <br />
                                                 <br />
-                                                <span>You can use them to access your Movido dashboard, or finish your Starter Pack purchase if you didn't have the time to complete it.</span>
-                                                <br /><br />
-                                                <span>Have an awesome day,</span>
-                                                <br />
-                                                <span>Alice from Movido</span>
+                                                <span>You can use them to access your Movido dashboard, or finish your Starter Pack purchase if you didn't have the time to complete it.</span><br /><br />
+                                                <%= link_to 'Change my password', edit_user_url, class:'btn-main', target: 'blank' %>
                                             </td>
                                         </tr>
                                     </table>
