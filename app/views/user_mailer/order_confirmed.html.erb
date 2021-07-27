@@ -1,668 +1,524 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="x-apple-disable-message-reformatting" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="supported-color-schemes" content="light dark" />
-    <title></title>
-    <!--
-    The style block is collapsed on page load to save you some scrolling.
-    Postmark automatically inlines all CSS properties for maximum email client
-    compatibility. You can just update styles here, and Postmark does the rest.
-  -->
-    <style type="text/css" rel="stylesheet" media="all">
-    /* Base ------------------------------ */
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>*|MC:SUBJECT|*</title>
+        <style type="text/css">
+      /* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+      #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
+      .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+      body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+      table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+      img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
 
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
-    body {
-      font-family: "Manrope", sans-serif;
-      width: 100% !important;
-      height: 100%;
-      margin: 0;
-      -webkit-text-size-adjust: none;
-    }
+      /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+      body{margin:0; padding:0;}
+      img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+      table{border-collapse:collapse !important;}
+      body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
 
-    a {
-      color: #fffff !important;
-    }
+      /* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
 
-    a img {
-      border: none;
-    }
+      /* ========== Page Styles ========== */
 
-    td {
-      word-break: break-word;
-    }
-    .image {
-      text-align: center;
-    }
-    .image img {
-      max-width: 100% !important;
-    }
-    .preheader {
-      display: none !important;
-      visibility: hidden;
-      mso-hide: all;
-      font-size: 1px;
-      line-height: 1px;
-      max-height: 0;
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-    }
-    /* Type ------------------------------ */
+      #bodyCell{padding:20px;}
+      #templateContainer{width:600px;}
 
-    body,
-    td,
-    th {
-      font-family: "Manrope", sans-serif;
-    }
-
-    h1 {
-      margin-top: 0;
-      color: #333333;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #333333;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    h3 {
-      margin-top: 0;
-      color: #333333;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    td,
-    th {
-      font-size: 16px;
-    }
-
-    p,
-    ul,
-    ol,
-    blockquote {
-      margin: .4em 0 1.1875em;
-      font-size: 16px;
-      line-height: 1.625;
-    }
-
-    p.sub {
-      font-size: 13px;
-    }
-    /* Utilities ------------------------------ */
-
-    .align-right {
-      text-align: right;
-    }
-
-    .sup-div {
-      width: 115px;
-    }
-
-    .align-left {
-      text-align: left;
-    }
-
-    .align-center {
-      text-align: center;
-    }
-
-    .no-r-padding {
-      padding-right: 0 !important;
-    }
-
-    .no-l-padding {
-      padding-left: 0 !important;
-    }
-
-    .no-padding {
-      padding: 0 !important;
-    }
-
-    .h-100 {
-      height: 100px;
-    }
-
-    .w-100 {
-      width: 100%;
-    }
-
-    .d-table {
-      display: table !important;
-    }
-
-    .centered-large-padding {
-      padding-left: 25%;
-    }
-
-    .centered-lite-padding {
-      padding-left: 14%;
-    }
-
-    /* Buttons ------------------------------ */
-
-    .button {
-      color: #ffffff !important;
-      background: #8C30F5;
-      padding: 11px 51.5px;
-      font-weight: 700;
-      font-size: 20px;
-      border-radius: 20px;
-      border-bottom: 5px solid #6408CD !important;
-      transition: all 0.3s ease;
-      text-decoration: none !important;
-    }
-
-    .purple {
-      color: #8C30F5 !important;
-    }
-
-    .black {
-      color: #000000 !important;
-    }
-
-    .button--green {
-      background-color: #22BC66;
-      border-top: 10px solid #22BC66;
-      border-right: 18px solid #22BC66;
-      border-bottom: 10px solid #22BC66;
-      border-left: 18px solid #22BC66;
-      color: #ffffff !important;
-    }
-
-    .button--red {
-      background-color: #FF6136;
-      border-top: 10px solid #FF6136;
-      border-right: 18px solid #FF6136;
-      border-bottom: 10px solid #FF6136;
-      border-left: 18px solid #FF6136;
-    }
-
-    @media only screen and (max-width: 500px) {
-      .button {
-        width: 100% !important;
-        text-align: center !important;
+      /**
+      * @tab Page
+      * @section background style
+      * @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
+      * @theme page
+      */
+      body, #bodyTable{
+        /*@editable*/ background-color:#DEE0E2;
       }
-    }
-    /* Attribute list ------------------------------ */
 
-    .attributes {
-      margin: 0 0 21px;
-    }
-
-    .attributes_content {
-      background-color: #fff;
-      padding: 25px;
-      border-radius: 10px !important;
-    }
-
-    .attributes_item {
-      padding: 0;
-    }
-
-    .related {
-      width: 100%;
-      margin: 0;
-      padding: 25px 0 0 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .related_item {
-      padding: 10px 0;
-      color: #CBCCCF;
-      font-size: 15px;
-      line-height: 18px;
-    }
-
-    .related_item-title {
-      display: block;
-      margin: .5em 0 0;
-    }
-
-    .related_item-thumb {
-      display: block;
-      padding-bottom: 10px;
-    }
-
-    .related_heading {
-      border-top: 1px solid #CBCCCF;
-      text-align: center;
-      padding: 25px 0 10px;
-    }
-    /* Discount Code ------------------------------ */
-
-    .discount {
-      width: 100%;
-      margin: 0;
-      padding: 24px;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      background-color: #F4F4F7;
-      border: 2px dashed #CBCCCF;
-    }
-
-    .discount_heading {
-      text-align: center;
-    }
-
-    .discount_body {
-      text-align: center;
-      font-size: 15px;
-    }
-    /* Social Icons ------------------------------ */
-
-    .social {
-      width: auto;
-    }
-
-    .social td {
-      padding: 0;
-      width: auto;
-    }
-
-    .social_icon {
-      height: 20px;
-      margin: 0 8px 10px 8px;
-      padding: 0;
-    }
-    /* Data table ------------------------------ */
-
-    .purchase {
-      width: 100%;
-      margin: 0;
-      padding: 35px 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .purchase_content {
-      width: 100%;
-      margin: 0;
-      padding: 25px 0 0 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .purchase_item {
-      padding: 10px 0;
-      color: #51545E;
-      font-size: 15px;
-      line-height: 18px;
-    }
-
-    .body-cell {
-      padding: 0px 35px;
-    }
-
-    .purchase_heading {
-      padding-bottom: 8px;
-      border-bottom: 1px solid #EAEAEC;
-    }
-
-    .purchase_heading p {
-      margin: 0;
-      color: #85878E;
-      font-size: 12px;
-    }
-
-    .purchase_footer {
-      padding-top: 15px;
-      border-top: 1px solid #EAEAEC;
-    }
-
-    .purchase_total {
-      margin: 0;
-      text-align: right;
-      font-weight: bold;
-      color: #333333;
-    }
-    .text-center {
-      text-align: center;
-    }
-    .purchase_total--label {
-      padding: 0 15px 0 0;
-    }
-
-    body {
-      background-color: #F2F4F6;
-      color: #51545E;
-    }
-
-    p {
-      color: #51545E;
-    }
-
-    .email-wrapper {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      background-color: #F2F4F6;
-    }
-
-    .email-content {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-    /* Masthead ----------------------- */
-
-    .email-masthead {
-      background: #fff;
-      color: #ffffff !important;
-      text-align: left;
-      font-weight: bold;
-      padding: 12px !important;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #80808030;
-      justify-content: space-between;
-    }
-
-    .email-masthead img {
-      width: 100px;
-    }
-
-    .email-masthead_logo {
-      width: 94px;
-    }
-
-    .card-link img {
-      width: 130px;
-      margin: 10px;
-    }
-
-    .email-masthead_name {
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff !important;
-      text-decoration: none;
-      text-shadow: 0 1px 0 #fffff;
-    }
-    /* Body ------------------------------ */
-
-    .email-body {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .email-body_inner {
-      width: 570px;
-      margin: 0 auto;
-      padding: 0;
-      -premailer-width: 570px;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      background-color: #FFF;
-    }
-
-    .email-footer {
-      width: 570px;
-      margin: 0 auto;
-      padding: 0;
-      -premailer-width: 570px;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      text-align: center;
-    }
-
-    .email-cards {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .email-cards tr {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .email-cards tr td {
-      padding: 0 !important;
-    }
-
-    .email-footer p {
-      color: #A8AAAF;
-    }
-
-    .d-flex {
-      display: flex;
-    }
-
-    .justify-content-center {
-      justify-content: center;
-    }
-
-    .align-items-center {
-      align-items: center;
-    }
-
-    .marketing-row {
-      display: flex;
-      width: 570px;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      justify-content: center;
-    }
-
-    .marketing-inputs {
-      margin-top: 1rem;
-      display: flex;
-    }
-
-    .marketing-inputs-flex {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .marketing-inputs img, .marketing-inputs-no-flex img {
-      width: 35px !important;
-      height: 35px !important;
-    }
-
-    .support-links {
-      font-size: 12px;
-      margin: 0 1rem;
-    }
-
-    .mr-1 {
-      margin-right: 1rem;
-    }
-
-    .mt-1 {
-      margin-top: 1rem !important;
-    }
-
-    .mr-15 {
-     margin-right: 1.5rem;
-    }
-
-    .ml-15 {
-     margin-left: 1.5rem;
-    }
-
-    .mb-1 {
-      margin-bottom: 1rem !important;
-    }
-
-    .body-action {
-
-      width: 570px;
-      margin: 30px auto;
-      padding: 0;
-      text-align: center;
-      margin-bottom: 0;
-      margin-top: 0;
-      background: #ffffff;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      text-align: center;
-    }
-
-    .body-sub {
-      margin-top: 25px;
-      padding-top: 25px;
-      border-top: 1px solid #EAEAEC;
-    }
-
-    .content-cell {
-      padding: 0px 0px;
-    }
-
-    .content-cell-min {
-      padding: 0px 15px;
-    }
-    /*Media Queries ------------------------------ */
-
-    @media only screen and (max-width: 600px) {
-      .email-body_inner,
-      .email-footer {
-        width: 100% !important;
+      /**
+      * @tab Page
+      * @section background style
+      * @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
+      * @theme page
+      */
+      #bodyCell{
+        /*@editable*/ border-top:4px solid #BBBBBB;
       }
-    }
 
-    @media (prefers-color-scheme: dark) {
-      body,
-      .email-body,
-      .email-body_inner,
-      .email-content,
-      .email-wrapper,
-      .email-footer {
-        color: #ffffff !important;
-        background-color: #ffffff00 !important;
+      /**
+      * @tab Page
+      * @section email border
+      * @tip Set the border for your email.
+      */
+      #templateContainer{
+        /*@editable*/ border:1px solid #BBBBBB;
       }
-      p,
-      ul,
-      ol,
-      blockquote,
-      h1,
-      h2,
-      h3 {
-        color: #ffffff !important;
-      }
-      .email-body {
-        color: #ffffff !important;
-      }
-      .black {
-        color: #ffffff !important;
-      }
-      .attributes_content,
-      .discount {
-        background-color: #ffffff00 !important;
-      }
-      .attributes_item {
-        color: #ffffff !important;
-        background-color: #ffffff00 !important;
-      }
-      .email-masthead_name {
-        text-shadow: none !important;
-      }
-    }
 
-    :root {
-      color-scheme: light dark;
-      supported-color-schemes: light dark;
-    }
-    </style>
-    <!--[if mso]>
-    <style type="text/css">
-      .f-fallback  {
-        font-family: Arial, sans-serif;
+      /**
+      * @tab Page
+      * @section heading 1
+      * @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+      * @style heading 1
+      */
+      h1{
+        /*@editable*/ color:#202020 !important;
+        display:block;
+        /*@editable*/ font-family: "roboto";
+        /*@editable*/ font-size:26px;
+        /*@editable*/ font-style:normal;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ letter-spacing:normal;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
       }
-      .centered-lite-padding {
-        padding-left: 13%;
+
+      /**
+      * @tab Page
+      * @section heading 2
+      * @tip Set the styling for all second-level headings in your emails.
+      * @style heading 2
+      */
+      h2{
+        /*@editable*/ color:#404040 !important;
+        display:block;
+        /*@editable*/ font-family: "roboto";
+        /*@editable*/ font-size:20px;
+        /*@editable*/ font-style:normal;
+        /*@editable*/ font-weight: normal;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ letter-spacing:normal;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 3
+      * @tip Set the styling for all third-level headings in your emails.
+      * @style heading 3
+      */
+      h3{
+        /*@editable*/ color:#606060 !important;
+        display:block;
+        /*@editable*/ font-family: "roboto";
+        /*@editable*/ font-size:16px;
+        /*@editable*/ font-style:normal;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ letter-spacing:normal;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 4
+      * @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+      * @style heading 4
+      */
+      h4{
+        /*@editable*/ color:#808080 !important;
+        display:block;
+        /*@editable*/ font-family: "poppins";
+        /*@editable*/ font-size:14px;
+        /*@editable*/ font-style:normal;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ letter-spacing:normal;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+      }
+
+      /* ========== Header Styles ========== */
+
+      /**
+      * @tab Header
+      * @section preheader style
+      * @tip Set the background color and bottom border for your email's preheader area.
+      * @theme header
+      */
+      #templatePreheader{
+        /*@editable*/ background-color:#F4F4F4;
+      }
+
+      /**
+      * @tab Header
+      * @section preheader text
+      * @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
+      */
+      .preheaderContent{
+        /*@editable*/ color:#808080;
+        /*@editable*/ font-family: "poppins";
+        /*@editable*/ font-size:10px;
+        /*@editable*/ line-height:125%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Header
+      * @section preheader link
+      * @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
+      */
+      .preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#606060;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      /**
+      * @tab Header
+      * @section header style
+      * @tip Set the background color and borders for your email's header area.
+      * @theme header
+      */
+      #templateHeader{
+        /*@editable*/ background-color:#F4F4F4;
+      }
+
+      /**
+      * @tab Header
+      * @section header text
+      * @tip Set the styling for your email's header text. Choose a size and color that is easy to read.
+      */
+      .headerContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family: "poppins";
+        /*@editable*/ font-size:20px;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ padding-top:0;
+        /*@editable*/ padding-right:0;
+        /*@editable*/ padding-bottom:0;
+        /*@editable*/ padding-left:0;
+        /*@editable*/ text-align:left;
+        /*@editable*/ vertical-align:middle;
+      }
+
+      /**
+      * @tab Header
+      * @section header link
+      * @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
+      */
+      .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#EB4102;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      #headerImage{
+        height:auto;
+        max-width:600px;
+      }
+
+      /* ========== Body Styles ========== */
+
+      /**
+      * @tab Body
+      * @section body style
+      * @tip Set the background color and borders for your email's body area.
+      */
+      #templateBody{
+        /*@editable*/ background-color:#F4F4F4;
+        border-radius:  7px;
+      }
+
+      /**
+      * @tab Body
+      * @section body text
+      * @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.
+      * @theme main
+      */
+      .bodyContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family: "roboto";
+        /*@editable*/ font-size:14px;
+        /*@editable*/ line-height:160%;
+        padding-top:20px;
+        padding-right:20px;
+        padding-bottom:20px;
+        padding-left:20px;
+        font-weight:  600 !important;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Body
+      * @section body link
+      * @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
+      */
+      .bodyContent a:link, .bodyContent a:visited, /* Yahoo! Mail Override */ .bodyContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color: #8C30F5;
+        /*@editable*/ font-weight:normal;
+      }
+
+      .bodyContent img{
+        display:inline;
+        height:auto;
+        max-width:560px;
+      }
+      .btn-main {
+        display: block;
+        background: #8C30F5;
+        box-shadow: 0px 10px 30px rgba(103, 48, 245, 0.3);
+        border-radius: 7px;
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+        width: 270px;
+        height: 48px;
+        cursor: pointer;
+        line-height: 48px;
+        color: $white;
+        transition: background 0s;
+        color: white !important;
+        text-decoration: none !important;
+        font-weight:  bold !important;
+      }
+
+      /* ========== Footer Styles ========== */
+
+      /**
+      * @tab Footer
+      * @section footer style
+      * @tip Set the background color and borders for your email's footer area.
+      * @theme footer
+      */
+      #templateFooter{
+        /*@editable*/ background-color:#F4F4F4;
+        border-radius: 7px;
+      }
+
+      /**
+      * @tab Footer
+      * @section footer text
+      * @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
+      * @theme footer
+      */
+      .footerContent{
+        /*@editable*/ color:#808080;
+        /*@editable*/ font-family: "poppins";
+        /*@editable*/ font-size:10px;
+        /*@editable*/ line-height:150%;
+        padding-top:20px;
+        padding-right:20px;
+        padding-bottom:20px;
+        padding-left:20px;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Footer
+      * @section footer link
+      * @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+      */
+      .footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! Mail Override */{
+        /*@editable*/ color:#606060;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      /* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+
+            @media only screen and (max-width: 480px){
+        /* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
+        body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;} /* Prevent Webkit platforms from changing default text sizes */
+                body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */
+
+        /* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
+        #bodyCell{padding:10px !important;}
+
+        /* /\/\/\/\/\/\/ MOBILE TEMPLATE STYLES /\/\/\/\/\/\/ */
+
+        /* ======== Page Styles ======== */
+
+        /**
+        * @tab Mobile Styles
+        * @section template width
+        * @tip Make the template fluid for portrait or landscape view adaptability. If a fluid layout doesn't work for you, set the width to 300px instead.
+        */
+        #templateContainer{
+          max-width:600px !important;
+          /*@editable*/ width:100% !important;
+        }
+
+        /**
+        * @tab Mobile Styles
+        * @section heading 1
+        * @tip Make the first-level headings larger in size for better readability on small screens.
+        */
+        h1{
+          /*@editable*/ font-size:24px !important;
+          /*@editable*/ line-height:100% !important;
+        }
+
+        /**
+        * @tab Mobile Styles
+        * @section heading 2
+        * @tip Make the second-level headings larger in size for better readability on small screens.
+        */
+        h2{
+          /*@editable*/ font-size:20px !important;
+          /*@editable*/ line-height:100% !important;
+        }
+
+        /**
+        * @tab Mobile Styles
+        * @section heading 3
+        * @tip Make the third-level headings larger in size for better readability on small screens.
+        */
+        h3{
+          /*@editable*/ font-size:18px !important;
+          /*@editable*/ line-height:100% !important;
+        }
+
+        /**
+        * @tab Mobile Styles
+        * @section heading 4
+        * @tip Make the fourth-level headings larger in size for better readability on small screens.
+        */
+        h4{
+          /*@editable*/ font-size:16px !important;
+          /*@editable*/ line-height:100% !important;
+        }
+
+        /* ======== Header Styles ======== */
+
+        #templatePreheader{display:none !important;} /* Hide the template preheader to save space */
+
+        /**
+        * @tab Mobile Styles
+        * @section header image
+        * @tip Make the main header image fluid for portrait or landscape view adaptability, and set the image's original width as the max-width. If a fluid setting doesn't work, set the image width to half its original size instead.
+        */
+        #headerImage{
+          height:auto !important;
+          /*@editable*/ max-width:600px !important;
+          /*@editable*/ width:100% !important;
+        }
+
+        /**
+        * @tab Mobile Styles
+        * @section header text
+        * @tip Make the header content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+        */
+        .headerContent{
+          /*@editable*/ font-size:20px !important;
+          /*@editable*/ line-height:125% !important;
+        }
+
+        /* ======== Body Styles ======== */
+
+        /**
+        * @tab Mobile Styles
+        * @section body text
+        * @tip Make the body content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+        */
+        .bodyContent{
+          /*@editable*/ font-size:16px !important;
+          /*@editable*/ line-height:160% !important;
+          font-weight:  600 !important;
+        }
+
+        /* ======== Footer Styles ======== */
+
+        /**
+        * @tab Mobile Styles
+        * @section footer text
+        * @tip Make the body content text larger in size for better readability on small screens.
+        */
+        .footerContent{
+          /*@editable*/ font-size:14px !important;
+          /*@editable*/ line-height:115% !important;
+        }
+
+        .footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
       }
     </style>
-  <![endif]-->
-  </head>
-    <body>
-      <table class="email-wrapper" width="570" cellpadding="0" cellspacing="0" role="presentation">
-        <tr>
-          <td align="center">
-            <table class="email-content" width="570" cellpadding="0" cellspacing="0" role="presentation">
+    </head>
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+      <center>
+          <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
               <tr>
-                <td class="email-masthead">
-                  <a href="<%= root_url %>" class="f-fallback email-masthead_name" target="_blank">
-                    <%= image_tag(asset_path('logos/movido-black.svg')) %>
-                  </a>
-                  <a href="" class="purple">View in browser</a>
-                </td>
-              </tr>
-              <!-- Email Body -->
-              <tr>
-                <td class="email-body" width="570" cellpadding="0" cellspacing="0">
-                  <table class="email-body_inner align-left" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                    <!-- Body content -->
-                    <tr>
-                      <td class="content-cell">
-                        <div class="f-fallback body-cell">
-                          <h1>Hey <%= @user.first_name %>,</h1>
-                          <p>We got your order! Your Starter Pack will arrive in 4 to 5 business days, with a little extra surprise 😍</p>
-                          <p>Sign up to your dashboard to find the tracking link for your order.</p>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <tr>
-                    <td class="text-center mt-1" align="center">
-                      <table class="email-body_inner h-100" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                          <td>
-                            <a href="<%= dashboard_url %>" class="button button--" target="_blank">Track your order</a>
-                          </td>
-                        </tr>
-                      </table>
+                  <td align="center" valign="top" id="bodyCell">
+                      <!-- BEGIN TEMPLATE // -->
+                      <table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+                          <tr>
+                              <td align="center" valign="top">
+                                  <!-- BEGIN PREHEADER // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
+                                        <tr>
+                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
+                                              <!-- Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients. -->
+                                            </td>
+                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
+                                                Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
+                                            </td>
+                                            <!-- *|END:IF|* -->
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                          <tr>
+                              <td align="center" valign="top">
+                                  <!-- BEGIN BODY // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+                                        <tr>
+                                            <td valign="top" class="bodyContent" mc:edit="body_content">
+                                                <h1>Hey <%= @user.first_name %>,</h1>
+                                                <span>We got your order! Your Starter Pack will arrive in 4 to 5 business days, with a little extra surprise 😍</span><br /><br />
+                                                <span>Sign up to your dashboard to find the tracking link for your order.</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                          <tr>
+                              <td align="center" valign="top">
+                                  <!-- BEGIN FOOTER // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+                                        <tr>
+                                            <td valign="top" class="footerContent" mc:edit="footer_content00">
+                                                <a href="https://www.instagram.com/go_movido/">Follow on Instagram</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Movido-107959797828212">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
+                                                <em>Copyright movido France SAS, All rights reserved.</em>
+                                                <br />
+                                                608 Boulevard des Horizons, 06220 Vallauris
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="footerContent" style="padding-top:0; padding-bottom:40px;" mc:edit="footer_content02">
+                                              <a href="*|UNSUB|*">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
                     </td>
-                  </tr>
-                </td>
-              </tr>
-                <td align="center">
-                  <table class="email-footer align-center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr align="center">
-                      <td class="content-cell" align="center">
-                        <p class="f-fallback sub align-center">movido France SAS 608 Boulevard des Horizons, 06220 Vallauris Company registered in France</p>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
+                </tr>
             </table>
-          </td>
-        </tr>
-      </table>
+        </center>
     </body>
 </html>
