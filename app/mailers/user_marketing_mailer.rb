@@ -1,7 +1,7 @@
 class UserMarketingMailer < ApplicationMailer
   def retarget
     @user = params[:user]
-    mail(to: @user.email, subject: "✨ #{@user.first_name}, welcome to movido")
+    mail(to: @user.email, subject: "#{@user.first_name}, studying abroad this fall ?")
   end
 
   def second_call
