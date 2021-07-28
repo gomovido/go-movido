@@ -4,23 +4,21 @@ class StripeApiBillingService
     @stripe_token = params[:stripe_token]
   end
 
-
   def proceed_payment
     order = Order.find(@order_id)
-    if order.user.stripe_id
-      response = update_customer(order.user.stripe_id, @stripe_token)
-    else
-      response = create_customer
-    end
+    response = create_or_update_customer
     if response[:error].nil?
-      order.user.update(stripe_id: response[:customer].id)
-      response = create_charge if !order.paid?
-      update_order(response[:stripe_charge]) if response[:error].nil?
-      response = create_plan
-      create_subscription(response[:plan]) if response[:error].nil?
+      response = create_charge unless order.paid?
+      response[:error].nil? ? response = create_plan : response[:error]
+      response[:error].nil? ? create_subscription(response[:plan]) : response[:error]
     else
       response
     end
+  end
+
+  def create_or_update_customer
+    order = Order.find(@order_id)
+    order.user.stripe_id ? update_customer(order.user.stripe_id) : create_customer
   end
 
   def update_order(stripe_charge)
@@ -39,13 +37,13 @@ class StripeApiBillingService
         name: "#{order.user.first_name} #{order.user.last_name}",
         source: @stripe_token
       })
+      order.user.update(stripe_id: customer.id)
       {error: nil, customer: customer}
     rescue Stripe::StripeError => error
       {error: error, customer: nil}
     end
 
   end
-
 
   def create_charge
     order = Order.find(@order_id)
@@ -56,12 +54,12 @@ class StripeApiBillingService
                                               customer: order.user.stripe_id,
                                               description: "This is payment for user #{order.user.email} - Order #-#{order.id}"
                                             })
+      update_order(stripe_charge)
       {stripe_charge: stripe_charge, error: nil}
     rescue Stripe::StripeError => e
       return { stripe_charge: nil, error: error }
     end
   end
-
 
   def create_subscription(plan)
     order = Order.find(@order_id)
@@ -80,7 +78,6 @@ class StripeApiBillingService
     end
   end
 
-
   def create_plan
     order = Order.find(@order_id)
     begin
@@ -96,13 +93,11 @@ class StripeApiBillingService
     end
   end
 
-
-
-  def update_customer(stripe_id, stripe_token)
+  def update_customer(stripe_id)
     begin
       customer = Stripe::Customer.update(
         stripe_id,
-        source: stripe_token,
+        source: @stripe_token,
       )
       {customer: customer, error: nil}
     rescue Stripe::StripeError => error
@@ -110,7 +105,4 @@ class StripeApiBillingService
     end
 
   end
-
-
-
 end
