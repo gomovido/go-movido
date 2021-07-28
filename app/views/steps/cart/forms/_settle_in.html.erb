@@ -37,6 +37,7 @@
     <% end %>
     <h2 class="total-price"><%= house.country.currency_symbol %><span data-cart-target="subscriptionPrice" data-value="0">0</span>/month</h2>
     <h4 class="text-center">+<%= house.country.currency_symbol %><span data-cart-target="activationPrice" data-value="0">0</span> one-time setup fee</h4>
+    <p class='setup'>Your setup fee will be included in your first invoice. You can cancel your bundle anytime at no extra cost. </p>
     <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
   </div>
   <hr>

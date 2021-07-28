@@ -50,9 +50,7 @@ if Category.all.blank?
 
   Category.all.each { |category| category.update(pack: starter_pack) }
 
-  ['mobile_phone_contract', 'utilities', 'wifi'].each do |category_name|
-   Category.create(name: category_name, pack: settle_in_pack)
-  end
+
   category = Category.create(name: 'housing', pack: Pack.find_by(name: 'starter'))
   Service.create(name: 'housing', category: category)
   company = Company.create(name: 'movido', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1625487533/Frame_2185.png')
@@ -69,6 +67,9 @@ if Category.all.blank?
 end
 
 
+['mobile_phone_contract', 'utilities', 'wifi'].each do |category_name|
+ Category.create(name: category_name, pack: Pack.find_by(name: 'settle_in'))
+end
 
 #FRANCE UTILITIES
 category = Category.find_by(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
