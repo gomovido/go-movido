@@ -5,8 +5,6 @@ export default class extends Controller {
   static targets = ["geocoder", "addressInput", "countryInput"]
 
   connect() {
-    this.addressInputTarget.value = ""
-    this.countryInputTarget.value = ""
     const geocoder = mapBoxRestrictedAutocomplete(this.geocoderTarget)
     document.querySelector('input.mapboxgl-ctrl-geocoder--input').classList.add('form-control', 'string', 'required')
     document.querySelector('input.mapboxgl-ctrl-geocoder--input').setAttribute('required', 'required')
@@ -14,6 +12,7 @@ export default class extends Controller {
       document.querySelector('input.mapboxgl-ctrl-geocoder--input').setAttribute('name', 'billing[address_mapbox]')
       document.querySelector('input.mapboxgl-ctrl-geocoder--input').id = 'billing_address_mapbox'
     }
+    document.querySelector('input.mapboxgl-ctrl-geocoder--input').value = this.addressInputTarget.value
     this.geocoderTarget.addEventListener('change', (e) => {
       const response = JSON.parse(geocoder.lastSelected)
       if (response) {

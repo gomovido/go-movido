@@ -48,7 +48,7 @@ class StripeApiBillingService
     end
   end
 
-  def create_charge
+  def create_charge(order)
     begin
       stripe_charge = Stripe::Charge.create({
                                               amount: order.total_activation_amount,
