@@ -50,8 +50,8 @@ if Category.all.blank?
 
   Category.all.each { |category| category.update(pack: starter_pack) }
 
-  ['gas', 'mobile_phone_contract', 'energy', 'wifi'].each do |category_name|
-  Category.create(name: category_name, pack: settle_in_pack)
+  ['mobile_phone_contract', 'utilities', 'wifi'].each do |category_name|
+   Category.create(name: category_name, pack: settle_in_pack)
   end
   category = Category.create(name: 'housing', pack: Pack.find_by(name: 'starter'))
   Service.create(name: 'housing', category: category)
@@ -70,20 +70,91 @@ end
 
 
 
-
-category = Category.create(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
+#FRANCE UTILITIES
+category = Category.find_by(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
 Service.create(name: 'utilities', category: category)
-company = Company.create(name: 'Total energy', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+company = Company.create(name: 'total energy', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
 product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "utilities for you house", name: 'utilities energy', activation_price: 0, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
 option_type = OptionType.create(product: product, name: 'tenants')
-option_value = OptionValue.create(option_type: option_type, name: '3')
-variant = Variant.create(subscription_price: 30, activation_price: 80, product: product)
+option_value = OptionValue.create(option_type: option_type, name: '1')
+variant = Variant.create(subscription_price: 80, activation_price: 0, product: product)
 option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
 option_value = OptionValue.create(option_type: option_type, name: '2')
-variant = Variant.create(subscription_price: 20, activation_price: 80, product: product)
+variant = Variant.create(subscription_price: 80, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '3')
+variant = Variant.create(subscription_price: 140, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '4')
+variant = Variant.create(subscription_price: 140, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '5')
+variant = Variant.create(subscription_price: 180, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '6')
+variant = Variant.create(subscription_price: 180, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '7')
+variant = Variant.create(subscription_price: 180, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '8')
+variant = Variant.create(subscription_price: 180, activation_price: 0, product: product)
 option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
 
-category = Category.create(name: 'phone', pack: Pack.find_by(name: 'settle_in'))
-Service.create(name: 'phone', category: category)
+#UK UTILITIES
+category = Category.find_by(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
+Service.create(name: 'utilities', category: category)
+company = Company.create(name: 'octopus', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "utilities for you house", name: 'utilities energy', activation_price: 0, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+option_type = OptionType.create(product: product, name: 'tenants')
+option_value = OptionValue.create(option_type: option_type, name: '1')
+variant = Variant.create(subscription_price: 75, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '2')
+variant = Variant.create(subscription_price: 75, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '3')
+variant = Variant.create(subscription_price: 130, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '4')
+variant = Variant.create(subscription_price: 130, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '5')
+variant = Variant.create(subscription_price: 160, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '6')
+variant = Variant.create(subscription_price: 160, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '7')
+variant = Variant.create(subscription_price: 160, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+option_value = OptionValue.create(option_type: option_type, name: '8')
+variant = Variant.create(subscription_price: 160, activation_price: 0, product: product)
+option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
+
+
+
+
+#FR WIFI
+category = Category.find_by(name: 'wifi', pack: Pack.find_by(name: 'settle_in'))
+service = Service.create(name: 'wifi', category: category)
 company = Company.create(name: 'Free', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
-product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "phone contract", name: 'phone contract', activation_price: 10, subscription_price: 29.90, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "wifi at home", name: 'wifi at home', activation_price: 0, subscription_price: 29.90, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+
+
+
+#UK WIFI
+company = Company.create(name: 'Cukoo', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "wifi at home", name: 'wifi at home', activation_price: 80, subscription_price: 29.99, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+
+
+
+#FR MOBILE PHONE CONTRACT
+category = Category.find_by(name: 'mobile_phone_contract', pack: Pack.find_by(name: 'settle_in'))
+Service.create(name: 'mobile_phone_contract', category: category)
+company = Company.find_by(name: 'Bouygues')
+product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "mobile phone contract", name: 'Mobile Phone contract', activation_price: 10, subscription_price: 29.90, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+
+#FR MOBILE PHONE CONTRACT
+company = Company.find_by(name: 'GiffGaff')
+product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "mobile phone contract", name: 'Mobile Phone contract', activation_price: 1, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
