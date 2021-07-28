@@ -518,7 +518,7 @@
                                         </tr>
                                         <tr>
                                             <td valign="top" class="footerContent" style="padding-top:0; padding-bottom:40px;" mc:edit="footer_content02">
-                                              <a href="*|UNSUB|*">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;
+                                              <%= link_to 'Unsubscribe', unsubscribe_confirmation_url(Base64.encode64(@user.id.to_s)), target: 'blank' %>
                                             </td>
                                         </tr>
                                     </table>
