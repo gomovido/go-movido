@@ -19,8 +19,6 @@ Rails.application.routes.draw do
 
 
   #Unsubscribe email
-
-
   get 'unsubscribe/confimation/:user_id', to: 'user_marketings#unsubscribe_confimation', as: 'unsubscribe_confirmation'
   put 'unsubscribe/:user_id', to: 'user_marketings#unsubscribe', as: 'unsubscribe'
 
