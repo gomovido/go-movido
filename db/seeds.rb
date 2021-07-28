@@ -104,7 +104,7 @@ option_value_variant = OptionValueVariant.create(option_value: option_value, var
 #UK UTILITIES
 category = Category.find_by(name: 'utilities', pack: Pack.find_by(name: 'settle_in'))
 Service.create(name: 'utilities', category: category)
-company = Company.create(name: 'octopus', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
+company = Company.create(name: 'octopus', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1627475996/octoenergy.png')
 product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "utilities for you house", name: 'utilities energy', activation_price: 0, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626797920/3b527cd7-4a53-435c-8453-554fd53f2e17.png')
 option_type = OptionType.create(product: product, name: 'tenants')
 option_value = OptionValue.create(option_type: option_type, name: '1')
@@ -132,9 +132,6 @@ option_value = OptionValue.create(option_type: option_type, name: '8')
 variant = Variant.create(subscription_price: 160, activation_price: 0, product: product)
 option_value_variant = OptionValueVariant.create(option_value: option_value, variant: variant)
 
-
-
-
 #FR WIFI
 category = Category.find_by(name: 'wifi', pack: Pack.find_by(name: 'settle_in'))
 service = Service.create(name: 'wifi', category: category)
@@ -142,11 +139,9 @@ company = Company.create(name: 'Free', logo_url: 'https://res.cloudinary.com/dxo
 product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "wifi at home", name: 'wifi at home', activation_price: 0, subscription_price: 29.90, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
 
 
-
 #UK WIFI
-company = Company.create(name: 'Cukoo', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+company = Company.create(name: 'Cuckoo', logo_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1627475501/CUCKOO-logo-copy.png')
 product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "wifi at home", name: 'wifi at home', activation_price: 80, subscription_price: 29.99, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
-
 
 
 #FR MOBILE PHONE CONTRACT
