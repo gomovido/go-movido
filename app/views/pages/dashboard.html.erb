@@ -7,24 +7,15 @@
           <div class="checkboxes-wrapper">
             <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
             <div class="checkboxes">
-              <h2>Starter Pack</h2>
+              <h2><%= @orders[-1].pack %> Pack</h2>
               <p>The best offers to get you started</p>
               <ul>
-                <% @orders[-1].cart.items.includes([:product]).each do |item| %>
-                  <li><label><%= item.product.name %><i class="fas fa-check purple"></i></label></li>
+                <% @orders[-1].products.each do |product| %>
+                  <li><label><%= product.name %><i class="fas fa-check purple"></i></label></li>
                 <% end %>
               </ul>
             </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-lg-4">
-          <div class="tracking text-center mb-3">
-            <p class='title'>Your tracking link <i class="fas fa-truck"></i></p>
-            <p class='tracking-id'><%= @orders[-1].shipping.tracking_id || 'Processing...' %></p>
-              <p class="tracking-link m-0">You can track your order <%= link_to 'here', "https://www.laposte.fr/outils/track-a-parcel", class:'purple', target: 'blank' %></p>
-          </div>
-          <p class="white">Need another Starter Pack or continue where you left? </p>
-          <%= link_to 'Click Here', new_house_path, class:'btn-main-white w-100' %>
         </div>
       </div>
     </div>

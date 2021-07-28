@@ -9,14 +9,13 @@
     <%= p.hidden_field :address, required: true, data: { country_target: 'addressInput' } %>
     <div class="lines-input d-flex justify-content-between">
       <%= p.input :tenants, collection: [1, 2, 3, 4, 5, 6, 7], prompt: 'Choose', label: 'Number of tenants', input_html: {class: 'custom-select'} %>
-      <%= p.input :size, collection: ['20 to 30m2', '30 to 40m2'], prompt: 'Choose', label: 'Flat size', input_html: {class: 'custom-select'} %>
+      <%= p.input :contract_starting_date, as: :string, label: 'Contract starting date',
+                 required: true,
+                 input_html: { class:'datepicker', data: {
+                  controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
     </div>
-    <label for="tenants">Contract starting date</label>
-    <%= p.input :contract_starting_date, as: :string, label: false,
-               required: true,
-               input_html: { class:'datepicker', data: {
-                controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
   <% end %>
+  <hr>
   <%= f.hidden_field :pack, value: pack %>
   <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
   <%= link_to 'Back', destroy_user_session_path, method: :delete, class:'btn-main-white mb-5' %>

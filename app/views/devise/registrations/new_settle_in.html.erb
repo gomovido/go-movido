@@ -15,7 +15,7 @@
                       required: true, autofocus: true, placeholder: 'John' %>
             <%= f.input :last_name,
                       required: true, placeholder: 'Doe', label: 'Surname' %>
-            <%= f.input :phone, required: false, input_html: {data: { animate_target: 'phone' }, placeholder: 'phone number', id: 'user_phone'} %>
+            <%= f.input :phone, required: false, input_html: {data: { animate_target: 'phone' }, placeholder: 'phone number', id: 'user_phone'}, label:'Phone (optional)' %>
             <%= f.input :email,
               required: true,
               input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com', label: 'Email' %>
