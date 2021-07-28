@@ -2575,7 +2575,7 @@
     }, {
       "field": "subscribed",
       "type": "Boolean",
-      "default_value": null,
+      "default_value": "true",
       "enums": null,
       "integration": null,
       "is_filterable": true,
