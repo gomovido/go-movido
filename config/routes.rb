@@ -10,12 +10,19 @@ Rails.application.routes.draw do
     post "/onboarding/:resource" => "registrations#create", as: 'registration'
   end
 
-  # Update Passoword
+  # Update Password
   resource :user, only: [:edit] do
     collection do
       patch 'update_password'
     end
   end
+
+
+  #Unsubscribe email
+
+
+  get 'unsubscribe/confimation/:user_id', to: 'user_marketings#unsubscribe_confimation', as: 'unsubscribe_confirmation'
+  put 'unsubscribe/:user_id', to: 'user_marketings#unsubscribe', as: 'unsubscribe'
 
 
   #landing
