@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_marketings/unsubscribe'
   # Forest Admin
   mount ForestLiana::Engine => '/forest'
 
