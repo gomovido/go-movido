@@ -5,9 +5,19 @@ import { CountUp } from 'countup.js';
 
 export default class extends Controller {
 
-  static targets = ["price"]
+  static targets = ["subscriptionPrice", "activationPrice"]
 
   updatePrice(e) {
+    this.animateCard(e)
+    if (e.currentTarget.dataset.subscriptionPrice) {
+      this.calculate(e, e.currentTarget.dataset.subscriptionPrice, this.subscriptionPriceTarget)
+    }
+    if (e.currentTarget.dataset.activationPrice) {
+      this.calculate(e, e.currentTarget.dataset.activationPrice, this.activationPriceTarget)
+    }
+  }
+
+  animateCard(e) {
     if (document.querySelector('.carts-new-container')) {
       const productNode = e.currentTarget.parentNode.parentNode
       const icon = productNode.querySelector('#check')
@@ -20,20 +30,22 @@ export default class extends Controller {
         icon.classList.add('fa-plus')
       }
     }
-    let oldPrice = parseInt(this.priceTarget.dataset.value, 10);
+  }
 
+  calculate(event, price, target) {
+    let oldPrice = parseInt(target.dataset.value, 10);
     let startValCountUp = numeral(oldPrice / 100).format('0.00')
-    let price = parseInt(e.currentTarget.dataset.price, 10)
+    var price = parseInt(price, 10)
     let newPrice = 0
-    newPrice = e.target.checked == true ? oldPrice += price : oldPrice -= price
-    this.priceTarget.dataset.value = newPrice
+    newPrice = event.target.checked == true ? oldPrice += price : oldPrice -= price
+    target.dataset.value = newPrice
     var options = {
       "decimalPlaces": 2,
       "startVal": startValCountUp,
       "useGrouping": false,
       "duration": 0.3
     };
-    const countUp = new CountUp(this.priceTarget, numeral(newPrice / 100).format('0.00'), options);
+    const countUp = new CountUp(target, numeral(newPrice / 100).format('0.00'), options);
     countUp.start();
   }
 

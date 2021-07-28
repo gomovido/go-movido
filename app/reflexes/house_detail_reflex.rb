@@ -7,8 +7,6 @@ class HouseDetailReflex < ApplicationReflex
     @house.assign_attributes(house_params)
     @house.user = current_user
     @house.country = Country.find_by(code: house_params[:country_code])
-    p 'THIS IS PARAMS'
-    p house_params
     if @house.save
       @house_detail = create_house_detail(@house)
       if @house_detail.save
