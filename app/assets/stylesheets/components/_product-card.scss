@@ -38,8 +38,13 @@
   }
   .bottom-part {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
     span.price {
       font-weight: 600;
       font-size: 16px;
@@ -59,6 +64,7 @@
     }
 
 }
+
 
 .product-card.active {
   background: #22055D;
@@ -82,7 +88,6 @@
     }
   }
 }
-
 @include media-breakpoint-down(md) {
   .product-card {
     p.description {

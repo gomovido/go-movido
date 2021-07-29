@@ -15,10 +15,7 @@
           <%= link_to 'Home', root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Offers', pricing_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('shared.navbar_visitor.how_it_works'), how_it_works_path, class: "nav-link" %>
+          <%= link_to 'Starter pack', pricing_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Blog", "https://blog.go-movido.com", target: 'blank', class: "nav-link" %>
@@ -30,7 +27,7 @@
           <%= link_to (current_user ? 'Dashboard' : 'Login'), dashboard_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Get Started', onboarding_settle_in_path, class: 'btn-main' %>
+          <%= link_to 'Get Started for free', onboarding_starter_pack, class: 'btn-main' %>
         </li>
       </ul>
     </div>

@@ -1,4 +1,13 @@
 .home-container {
+  .partners-logos {
+    padding: 5%;
+    display: block;
+    text-align: center;
+    img {
+      margin: 2%;
+      width: 5%;
+    }
+  }
   .why {
     h2{
       margin-bottom: 1.5rem;
@@ -14,9 +23,6 @@
         font-size: 40px;
         margin-right: 32px;
       }
-    }
-    a {
-      width: 70%;
     }
   }
   .pricing {
@@ -96,6 +102,12 @@
       .checkboxes {
         padding-top: 6rem;
         margin-top: 6rem;
+      }
+    }
+    .partners-logos {
+      img {
+        margin: 2%;
+        width: 25%;
       }
     }
   }

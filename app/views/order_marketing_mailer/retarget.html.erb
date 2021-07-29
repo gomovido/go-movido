@@ -461,7 +461,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                                                ✨ <%= @user.first_name %>, forgot something?
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
@@ -480,10 +480,14 @@
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
                                                 <h1>Hi <%= @user.first_name %>,</h1>
-                                                <h3>you have started to buy the Starter Pack, but you haven’t finished…</h3>
-                                                <span>You’re almost there!</span> <br /><br />
-                                                <span>Don’t miss out and get ready for your stay abroad in less than 5mins. ✈️</span>
-                                                <br /><br />
+                                                <span>You have started to buy the Starter Pack, but you haven’t finished…</span><br /><br />
+                                                <span>You’re almost there! Don’t miss out and get ready for your stay abroad in less than 5mins. ✈️</span> <br /><br />
+                                                <span>With The Movido Starter Pack:</span><br />
+                                                <ul>
+                                                  <li>You only pay for what you need.</li>
+                                                  <li>You get the best rates on the market.</li>
+                                                </ul>
+                                                <br />
                                                 <span>If you have any questions about the Starter Pack, feel free to reply back to this email! We will also try to reach you via phone to see if you need any help in the coming days. Please let us know if you do not want this service.</span>
                                                 <br />
                                                 <br />
@@ -518,7 +522,7 @@
                                         </tr>
                                         <tr>
                                             <td valign="top" class="footerContent" style="padding-top:0; padding-bottom:40px;" mc:edit="footer_content02">
-                                              <a href="*|UNSUB|*">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;
+                                              <%= link_to 'Unsubscribe', unsubscribe_confirmation_url(Base64.encode64(@user.id.to_s)), target: 'blank' %>
                                             </td>
                                         </tr>
                                     </table>
