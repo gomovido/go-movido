@@ -4,9 +4,10 @@ class House < ApplicationRecord
   has_many :carts, dependent: :destroy
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
+  has_one :house_detail, dependent: :destroy
 
   validate :country_id_present
-  attr_accessor :terms, :marketing
+  attr_accessor :terms, :marketing, :pack, :country_code
 
   def country_id_present
     errors.add(:country_id, "can't be blank") if country_id.blank?

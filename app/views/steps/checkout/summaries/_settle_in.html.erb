@@ -1,0 +1,36 @@
+<h3 class="my-3">Your Settle in Pack</h3>
+<span>directly in the <%= t("country.capital.#{order.items.first.product.country.code}") %> city</span>
+<hr class="w-50">
+<div class="pricing d-flex flex-column text-center">
+  <% order.products.includes([:company], [:country], [:category]).each do |product| %>
+    <div class="pricing-card">
+      <div class="product-img">
+        <%= image_tag(asset_path(product.company.logo_url)) %>
+      </div>
+      <div class="product-name">
+        <span class="name"><%= product.name %></span>
+        <span class="description"><%= product.name %></span>
+      </div>
+      <% if product.category.is_utilities? %>
+        <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
+      <% else %>
+        <% price = product.subscription_price %>
+      <% end %>
+      <div class="product-price">
+        <span class="price-lite"><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
+      </div>
+    </div>
+  <% end %>
+  <hr>
+  <div class="total-price">
+    <div class="d-flex justify-content-between total">
+      <span>Total setup price</span>
+      <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
+    </div>
+    <div class="d-flex justify-content-between total">
+      <span>Total monthly price</span>
+      <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %></span>
+    </div>
+  </div>
+  <hr>
+</div>

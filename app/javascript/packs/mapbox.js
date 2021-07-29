@@ -13,3 +13,18 @@ export const mapBoxAutocomplete = (element, localevalue) => {
   geocoder.addTo(element);
   return geocoder
 }
+
+
+export const mapBoxRestrictedAutocomplete = (element, localevalue) => {
+  mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
+  const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    autocomplete: true,
+    types: 'address',
+    language: 'en',
+    countries: 'fr, gb',
+  });
+  geocoder.addTo(element);
+  return geocoder
+}
+
