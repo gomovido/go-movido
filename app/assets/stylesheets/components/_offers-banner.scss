@@ -10,7 +10,8 @@
   .product-card {
     color: $black;
     background: $white;
-    height: 290px;
+    min-height: 235px;
+    height: 250px;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
