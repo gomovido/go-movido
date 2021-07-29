@@ -152,6 +152,6 @@ Service.create(name: 'mobile_phone_contract', category: category)
 company = Company.find_by(name: 'Bouygues')
 product = Product.create(country: Country.find_by(code: 'fr'), company: company, category: category, description: "mobile phone contract", name: 'Mobile Phone contract', activation_price: 10, subscription_price: 29.90, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
 
-#FR MOBILE PHONE CONTRACT
+#UK MOBILE PHONE CONTRACT
 company = Company.find_by(name: 'GiffGaff')
 product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "mobile phone contract", name: 'Mobile Phone contract', activation_price: 1, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
