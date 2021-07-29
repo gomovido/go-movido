@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_085129) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "bounced"
-    t.boolean "subscribed"
+    t.boolean "subscribed", default: true
     t.index ["user_id"], name: "index_user_marketings_on_user_id"
   end
 
