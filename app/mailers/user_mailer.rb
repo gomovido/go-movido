@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
   def password_email
     @user = User.find(params[:user_id])
     @locale = "en"
-    mail(to: @user.email, subject: "✨ #{@user.first_name}, welcome to movido !")
+    mail(to: @user.email, subject: "✨ #{@user.first_name}, your movido credentials")
   end
 
   def order_confirmed
