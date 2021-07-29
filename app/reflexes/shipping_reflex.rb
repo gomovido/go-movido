@@ -20,8 +20,10 @@ class ShippingReflex < ApplicationReflex
 
   def morph_to_next_step
     if current_user.house.pickup?
+      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_pickup_path(@order))
       morph '.flow-container', render(partial: "steps/pickup/new", locals: { order: @order, pickup: @order.pickup || Pickup.new, message: { content: "Alright, almost done! I just need your flight details to arrange your airport pickup. ", delay: 0 } })
     else
+      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.checkout_path(@order))
       morph '.flow-container', render(partial: "steps/checkout/new", locals: { order: @order, billing: (@order.billing || Billing.new), message: { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 } })
     end
   end

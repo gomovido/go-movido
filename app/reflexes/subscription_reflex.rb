@@ -12,6 +12,7 @@ class SubscriptionReflex < ApplicationReflex
       morph '.form-base', render(partial: "steps/subscription/form", locals: { order: @order, subscription: @subscription, message: { content: "This is legals stuff", delay: 0 } })
     else
       @subscription = init_subscription(@order)
+      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.checkout_path(@order))
       morph '.flow-container', render(partial: "steps/checkout/new", locals: { order: @order, billing: (@order.billing || Billing.new), subscription: @subscription, message: { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 } })
     end
   end

@@ -55,6 +55,14 @@ hr {
   color: gold;
 }
 
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 button {
   outline-style: none !important;
   border: none !important;
@@ -123,6 +131,10 @@ button {
 
 .green {
   color: $green;
+}
+
+.blue {
+  color: $blue;
 }
 
 .grey {
