@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_marketings/unsubscribe'
   # Forest Admin
   mount ForestLiana::Engine => '/forest'
 
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
     post "/onboarding/:resource" => "registrations#create", as: 'registration'
   end
 
-  # Update Passoword
+  # Update Password
   resource :user, only: [:edit] do
     collection do
       patch 'update_password'
@@ -18,14 +19,18 @@ Rails.application.routes.draw do
   end
 
 
+  #Unsubscribe email
+  get 'unsubscribe/confimation/:user_id', to: 'user_marketings#unsubscribe_confimation', as: 'unsubscribe_confirmation'
+  put 'unsubscribe/:user_id', to: 'user_marketings#unsubscribe', as: 'unsubscribe'
+
+
   #landing
-  get 'homepage2', to: 'pages#homepage_calculator'
+  get 'homepage2', to: 'pages#homepage_2'
   get 'homepage3', to: 'pages#homepage_3'
   get 'homepage4', to: 'pages#homepage_4'
   get 'homepage5', to: 'pages#homepage_5'
   get 'homepage6', to: 'pages#homepage_6'
   get 'homepage7', to: 'pages#homepage_7'
-
 
 
   # Onboarding
@@ -56,6 +61,7 @@ Rails.application.routes.draw do
   get 'how_it_works', to: 'pages#how_it_works'
   get 'about', to: 'pages#about'
   get 'pricing', to: 'pages#pricing', as: "pricing"
+  get 'thankyou', to: 'pages#thank_you', as: 'thank_you'
 
   # Lead generation
   resources :leads, only: [:create]

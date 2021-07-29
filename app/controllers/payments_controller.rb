@@ -55,7 +55,7 @@ class PaymentsController < ApplicationController
     if response[:error].nil? && response[:stripe_charge]
       charge.update(state: response[:stripe_charge].status, stripe_charge_id: response[:stripe_charge].id)
       order.update(state: 'succeeded', charge: charge, billing: @billing)
-      UserMailer.with(user: current_user, locale: 'en').order_confirmed.deliver_now
+      UserMailer.with(user: current_user, locale: 'en').order_confirmed.deliver_later
       flash[:notice] = 'Payment success!'
       redirect_to congratulations_path(order.id)
     else

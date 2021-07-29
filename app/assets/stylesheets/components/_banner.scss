@@ -1,6 +1,4 @@
-
 .banner {
-  margin-bottom: 2rem;
   min-height: 40vh;
   background-size: cover;
   img {
@@ -14,7 +12,7 @@
     font-weight: normal;
   }
   a {
-    width: 100%;
+    width: 60%;
   }
   .trustpilot {
     width: 250px !important;
@@ -49,6 +47,13 @@
     }
     .content .row {
       justify-content: center;
+    }
+    .iphone {
+      margin-bottom: -2em;
+      z-index: 0;
+      position: relative;
+      margin-top: 2rem;
+      max-width: 300px;
     }
   }
 }

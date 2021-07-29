@@ -11,17 +11,26 @@
         <% product.product_details.each do |product_detail| %>
           <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
         <% end %>
-        <div class="bottom-part">
-          <div class="left">
-            <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span> </span>
-          </div>
-          <% if product.undiscounted_price %>
-            <div class="center">
-              <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
+        <div class="bottom-part flex-column">
+          <div class="top">
+            <div class="left">
+              <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span> </span>
             </div>
-          <% end %>
-          <%= image_tag(asset_path(product.company.logo_url)) %>
+            <% if product.undiscounted_price %>
+              <div class="center">
+                <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
+              </div>
+            <% end %>
+            <%= image_tag(asset_path(product.company.logo_url)) %>
+          </div>
+          <div class="bot">
+            <% if product.category.name != 'transportation' %>
+              <% rand = rand(1...5) %>
+              <p class="detail red">only <%= rand %> offer<%= 's' if rand > 1 %> left at this price.</p>
+            <% end %>
+          </div>
         </div>
+
       </div>
     <% end %>
     <h2 class="total-price"><%= house.country.currency_symbol %><span data-cart-target="activationPrice" data-value="0">0</span></h2>

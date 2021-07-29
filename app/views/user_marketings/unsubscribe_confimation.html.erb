@@ -1,0 +1,9 @@
+<div class="container about-container static-container">
+  <div class="row align-items-end mb-5">
+    <div class="col-12 col-lg-7">
+      <h1>Are you leaving us ? :(</h1>
+      <p class="my-5">Are you sure you want to unsubscribe to Movido's newsletter ?</p>
+      <%= link_to 'Confirm', unsubscribe_path(Base64.encode64(@user.id.to_s)), target: 'blank', method: 'put', class:'btn-main' %>
+    </div>
+  </div>
+</div>

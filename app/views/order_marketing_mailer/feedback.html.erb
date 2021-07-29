@@ -461,7 +461,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                              <!-- Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients. -->
+                                                <span><%= @user.first_name %>, your feedback is important to us! 🙏</span>
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
@@ -479,10 +479,20 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h1>Hey <%= @user.first_name %>,</h1>
-                                                <span>We got your order! Your Starter Pack will arrive in 4 to 5 business days, with a little extra surprise 😍</span><br /><br />
-                                                <span>Sign up to your dashboard to find the tracking link for your order.</span><br /><br />
-                                                <%= link_to 'Track your order now', dashboard_url, class:'btn-main', target: 'blank' %>
+                                                <h1>Hello <%= @user.first_name %>,</h1>
+                                                <span>I hope you have already received your Starter Pack (if not, it’s a matter of hours now).</span> <br /><br />
+                                                <span>Nobody’s perfect but we’re always looking for ways to improve. This is why we would be grateful for your quick feedback on your Movido experience so far. 💐</span>
+                                                <br /><br />
+                                                <span>How can we make it even more helpful for you?</span>
+                                                <br />
+                                                <br />
+                                                <span>To answer, just reply to this email, or if you feel like talking, click on the button below to book a quick call with us.</span><br /><br />
+                                                <%= link_to 'Let\'s talk', 'https://calendly.com/alice_movido/movido-introcall', class:'btn-main', target: 'blank' %>
+                                                <br /><br />
+                                                <span>Looking forward to hearing from you,</span>
+                                                <br />
+                                                <span>Alice from Movido</span>
+
                                             </td>
                                         </tr>
                                     </table>

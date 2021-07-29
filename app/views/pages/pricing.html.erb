@@ -1,108 +1,135 @@
-<div class="static-container pricing-container container">
-  <h1>What bundles does Movido offer?</h1>
-  <div class="row align-items-center">
-    <div class="col-12 col-lg-6">
-      <p><span class="purple">Starter Pack:</span> customizable bundle shipped to your current home before you move.</p>
+<div class="static-container pricing-container container text-center">
+  <h1>Starter Pack</h1>
+  <div class="row justify-content-center mb-4">
+    <div class="col-12">
+      <p>The Movido Starter Pack helps you with your move to the UK or France. Simply customize your bundle with everything you need abroad and have it shipped to your current home.</p>
     </div>
-    <div class="col-12 col-lg-6">
-      <p><span class="purple">Settle in Pack:</span> customizable bundle which includes all the subscriptions you need in your new home in one monthly bill.</p>
+    <div class="col-12 d-flex justify-content-center mb-3">
+      <ul class="nav nav-tabs w-100 text-center justify-content-around" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">France</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">UK</button>
+        </li>
+      </ul>
     </div>
     <div class="col-12">
-      <p>Both Pack are available in the UK and in France. </p>
+      <div class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="product-cards-wrapper row row-cols-lg-2 justify-content-lg-center mx-1 mb-2">
+            <% Service.all.each do |service| %>
+              <% product = service.product(Country.find_by(code: 'fr')) %>
+              <div class="product-card text-left h-auto col-12 col-lg-4 m-lg-2">
+                <h3 class="name"><%= product.name %></h3>
+                <p class="description"><%= product.description %></p>
+                <% product.product_details.each do |product_detail| %>
+                  <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
+                <% end %>
+                <div class="bottom-part">
+                  <div class="left">
+                    <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span> </span>
+                  </div>
+                  <% if product.undiscounted_price %>
+                    <div class="center">
+                      <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
+                    </div>
+                  <% end %>
+                  <%= image_tag(asset_path(product.company.logo_url)) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="product-cards-wrapper row row-cols-lg-2 justify-content-lg-center mx-1 mb-2">
+            <% Service.all.each do |service| %>
+              <% product = service.product(Country.find_by(code: 'gb')) %>
+              <div class="product-card text-left h-auto col-12 col-lg-4 m-lg-2">
+                <h3 class="name"><%= product.name %></h3>
+                <p class="description"><%= product.description %></p>
+                <% product.product_details.each do |product_detail| %>
+                  <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
+                <% end %>
+                <div class="bottom-part">
+                  <div class="left">
+                    <span class="price"><i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span> </span>
+                  </div>
+                  <% if product.undiscounted_price %>
+                    <div class="center">
+                      <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
+                    </div>
+                  <% end %>
+                  <%= image_tag(asset_path(product.company.logo_url)) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <%= link_to 'Get Started for free', onboarding_path, class:'btn-main' %>
     </div>
   </div>
-  <div class="mt-5 cards">
-    <div class="row">
-      <%= render 'shared/starter_pack_card' %>
-      <%= render 'shared/settle_in_pack_card' %>
-    </div>
-    <div class="details">
-      <%= link_to 'See more details', pricing_path, class: 'link white' %>
-    </div>
-  </div>
-  <div class="mb-5 d-none d-md-block">
-    <div class="row">
-      <div class="col-12 mb-4">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col">France</th>
-              <th scope="col">United Kingdom</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="custom-tr purple-bg">
-              <td data-label="Product" class="text-left custom-l-radius">Local SIM Card</td>
-              <td data-label="Due Date" class="d-none d-sm-block"></td>
-              <td data-label="France">€39.90</td>
-              <td data-label="United Kingdom" class="custom-r-radius">£1</td>
-            </tr>
-            <tr class="custom-tr">
-              <td scope="row" data-label="Product" class="text-left">Public transportation</td>
-              <td data-label="Due Date" class="d-none d-sm-block"></td>
-              <td data-label="France">€16.90</td>
-              <td data-label="United Kingdom">£15</td>
-            </tr>
-            <tr class="custom-tr purple-bg">
-              <td scope="row" data-label="Product" class="text-left custom-l-radius">Airport Pickup</td>
-              <td data-label="Due Date" class="d-none d-sm-block"></td>
-              <td data-label="France">€55.00</td>
-              <td data-label="United Kingdom" class="custom-r-radius">£60</td>
-            </tr>
-            <tr class="custom-tr">
-              <td scope="row" data-label="Product" class="text-left">Shipping</td>
-              <td data-label="Due Date" class="d-none d-sm-block"></td>
-              <td data-label="France">Free</td>
-              <td data-label="United Kingdom">Free</td>
-            </tr>
-            <tr class="custom-tr purple-bg">
-              <td scope="row" data-label="Product" class="text-left custom-l-radius">Surprise</td>
-              <td data-label="Due Date" class="d-none d-sm-block"></td>
-              <td data-label="France">Free</td>
-              <td data-label="United Kingdom" class="custom-r-radius">Free</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-12 d-flex justify-content-end">
-        <%= link_to "Get started", onboarding_path, class: 'btn-main' %>
+  <div class="row">
+    <div class="col-12 col-lg-6 mb-3">
+      <div class="benefits">
+        <h2 class="mb-2">Starter Pack benefits</h2>
+        <ul>
+          <li><i class="fas fa-check"></i>Don’t spend hours searching for the best providers – we did it for you</li>
+          <li><i class="fas fa-check"></i>Offers already come with credit – use them directly upon arrival</li>
+          <li><i class="fas fa-check"></i>Only one-off payments without long-term commitment </li>
+          <li><i class="fas fa-check"></i>Exclusive discounts available only on Movido</li>
+          <li><i class="fas fa-check"></i>Shipped to your current home – worldwide and entirely for free</li>
+        </ul>
       </div>
     </div>
-  </div>
-  <div class="mb-5 d-block d-md-none">
-    <div class="row">
-      <div class="col-12 mb-4">
-        <p><strong>France</strong></p>
-        <table>
-          <tbody>
-            <tr class="custom-tr">
-              <td data-label="Local SIM card" class="text-left custom-l-radius">€39.90</td>
-              <td data-label="Public transportation">€16.90</td>
-              <td data-label="Airport Pickup" class="custom-r-radius">€55.00</td>
-              <td data-label="Shipping" class="custom-r-radius">Free</td>
-              <td data-label="Surprise" class="custom-r-radius">Free</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-12 mb-4">
-        <p><strong>United Kingdom</strong></p>
-        <table>
-          <tbody>
-            <tr class="custom-tr">
-              <td data-label="Local SIM card" class="text-left custom-l-radius">£1</td>
-              <td data-label="Public transportation">£15</td>
-              <td data-label="Airport Pickup" class="custom-r-radius">£60.00</td>
-              <td data-label="Shipping" class="custom-r-radius">Free</td>
-              <td data-label="Surprise" class="custom-r-radius">Free</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-12 d-flex justify-content-end">
-        <%= link_to "Get started", onboarding_path, class: 'btn-main' %>
+    <div class="col-12 col-lg-6 testimonials-packs">
+      <h2 class="text-left">They liked us</h2>
+      <div class="testimonials-wrapper">
+        <div class="testimonial d-flex align-items-start">
+          <%= image_tag(asset_path('components/packs-card/testimonial-1.png'), width: 40) %>
+          <div class="content">
+            <div class="stars d-flex align-items-center">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class='text-left'>I was excited for my trip to London but also a little scared. This pack helped me to have some basics settled early on. </p>
+            <span>Shane - June 27, 2021</span>
+          </div>
+        </div>
+        <div class="testimonial d-flex align-items-start">
+          <%= image_tag(asset_path('components/packs-card/testimonial-2.png'), width: 40) %>
+          <div class="content">
+            <div class="stars d-flex align-items-center">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half"></i>
+            </div>
+            <p class='text-left'>The pack was nice but guys, the suprise is definitely hilarious. </p>
+            <span>Robert - June 19, 2021</span>
+          </div>
+        </div>
+        <div class="testimonial d-flex align-items-start">
+          <%= image_tag(asset_path('components/packs-card/testimonial-3.png'), width: 40) %>
+          <div class="content">
+            <div class="stars d-flex align-items-center mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class='text-left'>I arrived with 2 suitcases in Charles de Gaulle airport. Glad I was picked-up, this would have been a nightmare otherwise. </p>
+            <span class="mb-4">Vladimir - June 13, 2021</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
