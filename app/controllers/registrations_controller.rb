@@ -28,8 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        raise
-        UserMailer.with(user: resource.id, locale: 'en').password_email.deliver_later
+        UserMailer.with(user_id: resource.id, locale: 'en').password_email.deliver_now
         respond_with resource, location: after_sign_up_path_for(resource)
       end
     else
