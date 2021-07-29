@@ -2,11 +2,10 @@
 <span>directly in the <%= t("country.capital.#{order.items.first.product.country.code}") %> city</span>
 <hr class="w-50">
 <div class="pricing d-flex flex-column text-center">
-  <% order.items.includes([:product]).each do |item| %>
-  <%= product = item.product %>
+  <% order.products.includes([:company], [:country], [:category]).each do |product| %>
     <div class="pricing-card">
       <div class="product-img">
-        <%= image_tag(asset_path(item.product.company.logo_url)) %>
+        <%= image_tag(asset_path(product.company.logo_url)) %>
       </div>
       <div class="product-name">
         <span class="name"><%= product.name %></span>
@@ -18,7 +17,7 @@
         <% price = product.subscription_price %>
       <% end %>
       <div class="product-price">
-        <span class="price-lite"><%= item.product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
+        <span class="price-lite"><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
       </div>
     </div>
   <% end %>
