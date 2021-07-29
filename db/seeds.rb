@@ -64,11 +64,12 @@ if Category.all.blank?
   ProductDetail.create(product: housing_product, content: 'Personalized 1-week long support to help you find the perfect flat')
   ProductDetail.create(product: housing_product, content: 'Dedicated advisor available to you over phone or e-mail')
   ProductDetail.create(product: housing_product, content: 'Get the first proposals within 24 hours of ordering our service')
-end
 
 
-['mobile_phone_contract', 'utilities', 'wifi'].each do |category_name|
- Category.create(name: category_name, pack: Pack.find_by(name: 'settle_in'))
+  ['mobile_phone_contract', 'utilities', 'wifi'].each do |category_name|
+   Category.create(name: category_name, pack: Pack.find_by(name: 'settle_in'))
+  end
+
 end
 
 #FRANCE UTILITIES
