@@ -10,7 +10,7 @@
       <div class="col-xs-12 col-lg-6">
         <div class="content-container" data-delay="2" data-animate-target="contentContainer">
           <div class="form-base">
-            <%= render 'steps/house/form', house: house %>
+            <%= render "steps/house/forms/#{pack}", house: house, pack: pack, house_detail: house_detail %>
           </div>
         </div>
       </div>

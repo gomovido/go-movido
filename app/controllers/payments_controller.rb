@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
 
   def new
     redirect_to new_shipping_path(@order.id) and return unless @order.ready_to_checkout?
-
+    @pack = @order.pack
     @billing = @order.billing || Billing.new
     @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
   end
@@ -29,6 +29,27 @@ class PaymentsController < ApplicationController
   end
 
   def proceed_payment(stripe_token, order)
+    if order.pack == 'starter'
+      starter_pack_payment(stripe_token, order)
+    else
+      settle_in_payment(stripe_token, order)
+    end
+  end
+
+
+  def settle_in_payment(stripe_token, order)
+    response = StripeApiBillingService.new(order_id: order.id, stripe_token: stripe_token).proceed_payment
+    if response[:error].nil?
+      order.subscription.update(state: 'paid')
+      flash[:notice] = 'Payment success!'
+      redirect_to congratulations_path(order.id)
+    else
+      flash[:alert] = "#{response[:error]}"
+      render :new
+    end
+  end
+
+  def starter_pack_payment(stripe_token, order)
     response = StripeApiChargeService.new(stripe_token: stripe_token, order_id: order.id).proceed_payment
     charge = order.charge || Charge.new
     if response[:error].nil? && response[:stripe_charge]

@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users, controllers: { sessions: "sessions", registrations: 'registrations'}
   devise_scope :user do
-    get "/onboarding" => "registrations#new", as: "onboarding"
+    get "/onboarding/starter-pack" => "registrations#new_starter", as: "onboarding_starter_pack"
+    get "/onboarding/settle-in-pack" => "registrations#new_settle_in", as: "onboarding_settle_in"
     post "/onboarding/:resource" => "registrations#create", as: 'registration'
   end
 
@@ -33,14 +34,17 @@ Rails.application.routes.draw do
 
 
   # Onboarding
-  get 'onboarding/new-journey', to: 'houses#new', as: 'new_house'
-  get 'onboarding/my-services', to: 'carts#new', as: 'new_cart'
+  get 'onboarding/new-journey/:pack', to: 'houses#new', as: 'new_house'
+  get 'onboarding/my-services/:pack', to: 'carts#new', as: 'new_cart'
   get 'onboarding/my-services/packs/:order_id', to: 'packs#index', as: 'packs'
   get 'onboarding/starter-pack/:order_id/shipping', to: 'shippings#new', as: 'new_shipping'
   get 'onboarding/starter-pack/:order_id/pickup', to: 'pickups#new', as: 'new_pickup'
-  get 'onboarding/starter-pack/:order_id/checkout', to: 'payments#new', as: 'checkout'
+  get 'onboarding/:order_id/checkout', to: 'payments#new', as: 'checkout'
   post 'payments/:order_id', to: 'payments#create', as: 'payments'
   get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
+  get 'congratulations/starter/:order_id', to: 'orders#starter', as: 'starter_congratulations'
+  get 'congratulations/settle-in/:order_id', to: 'orders#settle_in', as: 'settle_in_congratulations'
+  get 'onboarding/legal/subscriptions/:order_id', to: 'subscriptions#new', as: 'new_subscription'
 
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'

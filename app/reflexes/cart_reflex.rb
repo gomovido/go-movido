@@ -2,23 +2,36 @@ class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
   def create
+    @pack = house_params[:pack]
     @order = current_user.current_draft_order || Order.new
     if terms_not_checked?(house_params[:terms])
       current_user.house.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house })
+      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
       @order.errors.add(:affiliate_link, 'not valid')
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house })
+      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     elsif !house_params[:service_ids]
       current_user.house.errors.add(:base, "Please select at least one service")
-      morph '.form-base', render(partial: "steps/cart/form", locals: { order: @order, house: current_user.house })
+      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     else
       initialize_order
       initialize_cart
       init_user_services
       generate_items
-      morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
+      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_shipping_path(@order))
+      morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, pack: @pack, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
     end
+  end
+
+
+  def create_settle_in
+    @pack = house_params[:pack]
+    @order = Order.where(user: current_user, state: 'pending_payment').first_or_create
+    initialize_cart
+    init_user_services
+    generate_items
+    cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_subscription_path(@order))
+    morph '.flow-container', render(partial: "steps/subscription/new", locals: { order: @order, subscription: (@order.subscription || Subscription.new), message: { content: "This is legals stuff", delay: 0 } })
   end
 
   def terms_not_checked?(terms)
@@ -58,6 +71,6 @@ class CartReflex < ApplicationReflex
   end
 
   def house_params
-    params.require(:house).permit(:terms, service_ids: [])
+    params.require(:house).permit(:terms, :pack, service_ids: [])
   end
 end

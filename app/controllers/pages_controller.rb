@@ -31,8 +31,8 @@ class PagesController < ApplicationController
   def homepage_2; end
 
   def dashboard
-    redirect_to onboarding_path if Order.where(user: current_user, state: 'succeeded').blank?
-    @orders = Order.where(state: "succeeded", user: current_user).includes([:shipping])
+    redirect_to root_path if Order.where(user: current_user, state: 'succeeded').blank?
+    @orders = Order.where(user: current_user).includes([:products], [:items], [:user], [:shipping], [:subscription])
   end
 
 
