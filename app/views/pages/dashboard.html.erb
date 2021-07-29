@@ -1,57 +1,113 @@
 <div class="flow-container dashboard-container">
-  <div class="banner-purple">
-    <div class="container">
-      <div class="row justify-content-around">
-        <h2 class="title">Your orders</h2>
-        <div class="col-xs-12 col-lg-4">
-          <div class="checkboxes-wrapper">
-            <%= image_tag(asset_path('components/checkboxes/cards.png')) %>
-            <div class="checkboxes">
-              <h2><%= @orders[-1].pack %> Pack</h2>
-              <p>The best offers to get you started</p>
-              <ul>
-                <% @orders[-1].products.each do |product| %>
-                  <li><label><%= product.name %><i class="fas fa-check purple"></i></label></li>
-                <% end %>
-              </ul>
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-xs-12 col-lg-4">
+        <h1 class="mt-3"><span class='purple bold'>Movi</span>board</h1>
+        <p class='mb-3'>Manage all your services.</p>
+      </div>
+      <div class="col-xs-12 col-lg-4">
+        <div class="user-profil">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fal fa-id-badge"></i>
+            <div class="d-flex flex-column">
+              <span class="name"><%= current_user.first_name %> <%= current_user.last_name %></span>
+              <% if current_user.house.house_detail %>
+                <span class="address"><%= current_user.house.house_detail.address %></span>
+              <% else %>
+                <span class="address">Going to <%= t("country.#{current_user.house.country.code}") %></span>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <hr>
   <div class="container">
     <div class="row justify-content-around align-items-center">
-      <div class="col-xs-12 col-lg-4">
-        <div class="ticks-card mb-5">
-          <%= image_tag(asset_path('components/coming-soon-banner/card.png'), class:'top-img') %>
-          <div class="content">
-            <h3 class="name black">Settle in Pack</h3>
-            <p>Customized offers to get you settled after arrival</p>
-            <div class="product-details">
-              <p class="detail d-flex align-items-center justify-content-between">WiFi at home
-               <i class="fas fa-check purple"></i></p>
-              <p class="detail d-flex align-items-center justify-content-between">Gas, water, electricity at home
-               <i class="fas fa-check purple"></i></p>
-              <p class="detail d-flex align-items-center justify-content-between">Mobile phone contract <i class="fas fa-check purple"></i></p>
-              <p class="detail d-flex align-items-center justify-content-between">Housing insurance
-               <i class="fas fa-check purple"></i></p>
-              <p class="detail d-flex align-items-center justify-content-between">Guarantor
-               <i class="fas fa-check purple"></i></p>
+      <h1>Services</h1>
+      <p class='mb-3'>Summary of your movido services.</p>
+      <% @orders.each do |order| %>
+        <div class="col-xs-12 col-lg-4">
+          <div class="subscription-card d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="title"><%= order.pack.capitalize %> pack</span>
+              <div class="status"><%= order.state == 'succeeded' ? "<i class='fad fa-broadcast-tower green'></i>".html_safe : "<i class='fad fa-broadcast-tower red'></i>".html_safe %></div>
+            </div>
+            <hr>
+            <% if order.subscription %>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Started</span>
+                <span><%= order.subscription.starting_date.strftime('%m/%d/%Y') %></span>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Next due</span>
+                <span><%= order.currency_symbol %><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %></span>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Status</span>
+                <span class='green'>active</span>
+              </div>
+            <% else %>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Started</span>
+                <span><%= order.created_at.strftime('%m/%d/%Y') %></span>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Total</span>
+                <span><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Tracking</span>
+                <% if order.shipping %>
+                  <span><%= order.shipping.tracking_id ? order.shipping.tracking_id : 'Processing' %></span>
+                <% else %>
+                  <%= link_to 'Add tracking', new_shipping_path(order.id), class:'red link' %>
+                <% end %>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pricing">
+                <span>Status</span>
+                <% if order.state == 'succeeded' %>
+                  <span>paid</span>
+                <% else %>
+                  <%= link_to 'Proceed payment', checkout_path(order.id), class:'red link' %>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="controls-wrapper d-flex align-items-center justify-content-around">
+              <i class="fad fa-tasks-alt green"></i>
+              <i class="fas fa-info-square blue"></i>
+              <i class="far fa-window-close red"></i>
+            </div>
+            <div class="products-wrapper">
+              <hr>
+              <% order.products.each do |product| %>
+                <div class="product my-2">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span><%= t("cart.form.#{product.category.name}", city: current_user.house.country.city) %></span>
+                    <div class="img-box">
+                      <%= image_tag(product.company.logo_url, class:'logo') %>
+                    </div>
+                  </div>
+                  <% if order.state == 'succeeded' %>
+                    <div class="progress">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  <% else %>
+                    <div class="progress">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-lg-4 arrival">
-        <h3 class="purple">Coming soon</h3>
-        <p>Looking for WiFi, utilities, insurance, and more? Customize your subscription bundle in one simple Settle in Pack - all in 1 monthly bill with the option to cancel anytime. </p>
-        <p class="purple">Pre-register now and benefit from exclusive discounts!</p>
-        <% if Lead.find_by(email: current_user.email, campaign_type: 'pre_register_settle_in') %>
-          <span class="btn-main mb-5 w-100" id="pre-registered">You are already pre-registered</span>
-        <% else %>
-          <span class="btn-main mb-5 w-100" data-action="click->lead#submit" data-controller="lead" data-lead-target="button">Pre-register for the Settle in Pack</span>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+  <section class="book-a-call-banner w-100 d-flex d-md-none">
+    <span class="subline"><strong>Need some help?</strong> Speak to us.</span>
+    <%= link_to "<i class='fas fa-headphones-alt me-1'></i> Contact us".html_safe, 'https://calendly.com/alice_movido/movido-introcall', class: 'cta-call d-block py-1' %>
+  </section>
 </div>

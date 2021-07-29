@@ -9,8 +9,8 @@
         <%= image_tag(asset_path(item.product.company.logo_url)) %>
       </div>
       <div class="product-name">
-        <span class="name"><%= item.product.name %></span>
-        <span class="description"><%= item.product.name %></span>
+        <span class="name"><%= product.name %></span>
+        <span class="description"><%= product.name %></span>
       </div>
       <% if product.category.is_utilities? %>
         <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>

@@ -1,21 +1,22 @@
 .dashboard-container {
-  .checkboxes-wrapper {
-    border-radius: 6px;
-    background: $white;
-    img {
-      top: -30%;
+  .user-profil {
+      padding: 5%;
+      padding-left: 0;
+      font-weight: 500;
+    i {
+      margin-right: 1rem;
+      font-size: 40px;
     }
-    .checkboxes {
-      margin-top: 8rem;
-      label {
-        align-items: center;
-        justify-content: flex-end;
-        i {
-          margin-right: 1rem;
-        }
-      }
+    .name {
+      font-size: 14px;
+    }
+    .address {
+      font-size: 12px;
+      color: $grey;
+
     }
   }
+
   .tracking {
   background: $white;
     border-radius: 6px;
