@@ -477,14 +477,8 @@
                                       <td valign="top" class="bodyContent" mc:edit="body_content">
                                           <h1>Hello <%= @user.first_name %>,</h1>
                                           <span>I'm Alice, Movido's co-founder, and I just wanted to welcome you to Movido! </span><br /><br />
-                                          <span>Here are your login details : </span> <br /><br />
-                                          <span>Email: <%= @user.email %></span>
-                                          <br />
-                                          <span>Password: <%= @user.password %></span>
-                                          <br />
-                                          <br />
                                           <span>You can use them to access your Movido dashboard, or finish your Starter Pack purchase if you didn't have the time to complete it.</span><br /><br />
-                                          <%= link_to 'Change my password', edit_user_url, class:'btn-main', target: 'blank' %>
+                                          <%= link_to 'Get started now', onboarding_starter_pack_url, class:'btn-main', target: 'blank' %>
                                       </td>
                                   </tr>
                               </table>
