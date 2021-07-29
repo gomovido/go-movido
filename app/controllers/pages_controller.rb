@@ -12,7 +12,9 @@ class PagesController < ApplicationController
 
   def how_it_works; end
 
-  def pricing; end
+  def pricing
+    @services = Pack.find_by(name: 'starter').services.includes([:category])
+  end
 
   def about; end
 
