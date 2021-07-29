@@ -81,7 +81,7 @@
             </div>
             <div class="products-wrapper">
               <hr>
-              <% order.products.each do |product| %>
+              <% order.products.includes([:category], [:company], [:country]).each do |product| %>
                 <div class="product my-2">
                   <div class="d-flex align-items-center justify-content-between">
                     <span><%= t("cart.form.#{product.category.name}", city: current_user.house.country.city) %></span>

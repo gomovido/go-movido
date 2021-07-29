@@ -3,6 +3,10 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.with(user: User.first).welcome_email
   end
 
+  def password_email
+    UserMailer.with(user: User.first).welcome_email
+  end
+
   def welcome_email_without_confirmation
     UserMailer.with(user: User.first).welcome_email_without_confirmation
   end
