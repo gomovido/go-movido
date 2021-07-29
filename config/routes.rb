@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get 'onboarding/:order_id/checkout', to: 'payments#new', as: 'checkout'
   post 'payments/:order_id', to: 'payments#create', as: 'payments'
   get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
-
+  get 'onboarding/legals/subscriptions/:order_id', to: 'subscriptions#new', as: 'new_subscription'
 
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
