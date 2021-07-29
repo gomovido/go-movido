@@ -7,6 +7,7 @@ class HouseReflex < ApplicationReflex
     @house.assign_attributes(house_params)
     @house.user = current_user
     if @house.save
+      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_cart_path(@pack))
       morph '.flow-container', render(partial: "steps/cart/new", locals: { order: current_user.current_draft_order || Order.new, house: @house, pack: @pack, message: { content: "Almost done! Please select the services you need to get started in your new city", delay: 0 } })
     else
       morph '.form-base', render(partial: "steps/house/forms/#{@pack}", locals: { house: @house, pack: @pack })

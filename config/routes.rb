@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get 'congratulations/:order_id', to: 'orders#congratulations', as: 'congratulations'
   get 'congratulations/starter/:order_id', to: 'orders#starter', as: 'starter_congratulations'
   get 'congratulations/settle-in/:order_id', to: 'orders#settle_in', as: 'settle_in_congratulations'
-
+  get 'onboarding/legal/subscriptions/:order_id', to: 'subscriptions#new', as: 'new_subscription'
 
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'

@@ -10,6 +10,7 @@ class HouseDetailReflex < ApplicationReflex
     if @house.save
       @house_detail = create_house_detail(@house)
       if @house_detail.save
+        cable_ready.push_state(cancel: false, url:     Rails.application.routes.url_helpers.new_cart_path(@pack))
         morph '.flow-container', render(partial: "steps/cart/new", locals: { order: current_user.current_draft_order || Order.new, house: @house, pack: @pack, message: { content: "Almost done! Please select the services you need to get started in your new city", delay: 0 } })
       else
         morph '.form-base', render(partial: "steps/house/forms/#{@pack}", locals: { house: @house, pack: @pack, house_detail: @house_detail })
