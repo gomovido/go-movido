@@ -24,7 +24,7 @@ class SubscriptionReflex < ApplicationReflex
       subscription_price_cents: order.total_subscription_amount,
       activation_price_cents: order.total_activation_amount,
       starting_date: current_user.house.house_detail.contract_starting_date,
-      state: "pending_payment"
+      state: "active"
       )
   end
 
