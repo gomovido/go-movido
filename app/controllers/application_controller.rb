@@ -36,7 +36,12 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_if_order_is_paid
-    redirect_to dashboard_path if Order.find(params[:order_id]).paid?
+    order = Order.find(params[:order_id])
+    if order.pack == 'starter' && order.paid?
+      redirect_to dashboard_path
+    elsif order.pack == 'settle_in' && order.subscription.state == 'paid'
+      redirect_to dashboard_path
+    end
   end
 
   protected
