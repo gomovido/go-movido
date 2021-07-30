@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    redirect_to dashboard_path and return if @order.paid?
+    redirect_to dashboard_path and return if @order.pack == 'starter' && @order.paid?
 
     @billing = initialize_billing
     if @billing.save

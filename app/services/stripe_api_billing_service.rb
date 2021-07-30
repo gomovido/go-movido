@@ -2,6 +2,22 @@ class StripeApiBillingService
   def initialize(params)
     @order_id = params[:order_id]
     @stripe_token = params[:stripe_token]
+    @subscription_id = params[:subscription_id]
+  end
+
+  def cancel_subscription
+    subscription = Subscription.find(@subscription_id)
+    begin
+      Stripe::Subscription.update(
+       subscription.stripe_id,
+        cancel_at_period_end: true,
+        trial_end: (Time.now + 30.days).to_i
+      )
+      subscription.update(state: 'cancelled')
+      {subscription: subscription, error: nil}
+    rescue Stripe::StripeError => error
+      {subscription: nil, error: error}
+    end
   end
 
   def proceed_payment
@@ -51,11 +67,11 @@ class StripeApiBillingService
   def create_charge(order)
     begin
       stripe_charge = Stripe::Charge.create({
-                                              amount: order.total_activation_amount,
-                                              currency: order.currency,
-                                              customer: order.user.stripe_id,
-                                              description: "This is payment for user #{order.user.email} - Order #-#{order.id}"
-                                            })
+        amount: order.total_activation_amount,
+        currency: order.currency,
+        customer: order.user.stripe_id,
+        description: "This is payment for user #{order.user.email} - Order #-#{order.id}"
+      })
       update_order(stripe_charge)
       {stripe_charge: stripe_charge, error: nil}
     rescue Stripe::StripeError => error
@@ -71,10 +87,9 @@ class StripeApiBillingService
     order.update(state: 'succeeded', charge: charge)
   end
 
-
   def create_subscription(plan)
     order = Order.find(@order_id)
-    order.subscription.starting_date.today? ? starting_date = Time.now.to_i : starting_date = order.subscription.starting_date.to_i
+    order.subscription.starting_date.today? || order.subscription.starting_date.past? ? starting_date = (Time.now + 5.seconds).to_i : starting_date = order.subscription.starting_date.to_i
     begin
       subscription = Stripe::Subscription.create({
         customer: order.user.stripe_id,
@@ -83,6 +98,7 @@ class StripeApiBillingService
         ],
         trial_end: starting_date
       })
+      order.subscription.update(stripe_id: subscription.id)
       {subscription: subscription, error: nil}
     rescue Stripe::StripeError => error
       {subscription: nil, error: error}
