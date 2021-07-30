@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    redirect_to dashboard_path and return if @order.paid?
+    redirect_to dashboard_path and return if @order.pack == 'starter' && @order.paid?
 
     @billing = initialize_billing
     if @billing.save
@@ -40,7 +40,7 @@ class PaymentsController < ApplicationController
   def settle_in_payment(stripe_token, order)
     response = StripeApiBillingService.new(order_id: order.id, stripe_token: stripe_token).proceed_payment
     if response[:error].nil?
-      order.subscription.update(state: 'paid')
+      order.subscription.update(paid: true, state: 'active')
       flash[:notice] = 'Payment success!'
       redirect_to congratulations_path(order.id)
     else
