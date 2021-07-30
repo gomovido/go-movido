@@ -52,19 +52,15 @@
               </div>
               <div class="d-flex align-items-center justify-content-between pricing">
                 <span>Payment status</span>
-                <% if order.subscription.state != 'paid' %>
-                  <%= link_to 'Proceed payment', checkout_path(order.id), class:'red link' %>
+                <% if order.subscription.paid && order.subscription.state != 'cancelled' %>
+                  <span class='green'>Paid</span>
                 <% else %>
-                    <%= order.subscription.state %>
+                  <%= link_to 'Proceed payment', checkout_path(order.id), class:'red link' %>
                 <% end %>
               </div>
               <div class="d-flex align-items-center justify-content-between pricing">
                 <span>Subscription status</span>
-                <% if order.subscription.state == 'cancelled' %>
-                  <span class="red"><%= order.subscription.state %></span>
-                <% else %>
-                  <span class="green">active</span>
-                <% end %>
+                <span class=<%= order.subscription.state == 'cancelled' ? 'red' : 'green' %>><%= order.subscription.state %></span>
               </div>
             <% else %>
               <div class="d-flex align-items-center justify-content-between pricing">
