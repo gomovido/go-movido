@@ -1,0 +1,36 @@
+.faq-card {
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10%;
+  margin-bottom: 2rem;
+  .question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    i {
+      transition: 0.3s;
+    }
+    .rotate-smouth {
+      transform: rotate(90deg);
+    }
+    .content {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 27px;
+    }
+    i {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+  .answer {
+    .content {
+      font-style: italic;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 27px;
+      color: #626262;
+    }
+  }
+}

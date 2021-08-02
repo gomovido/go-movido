@@ -24,15 +24,6 @@ Rails.application.routes.draw do
   put 'unsubscribe/:user_id', to: 'user_marketings#unsubscribe', as: 'unsubscribe'
 
 
-  #landing
-  get 'homepage2', to: 'pages#homepage_2'
-  get 'homepage3', to: 'pages#homepage_3'
-  get 'homepage4', to: 'pages#homepage_4'
-  get 'homepage5', to: 'pages#homepage_5'
-  get 'homepage6', to: 'pages#homepage_6'
-  get 'homepage7', to: 'pages#homepage_7'
-
-
   # Onboarding
   get 'onboarding/new-journey/:pack', to: 'houses#new', as: 'new_house'
   get 'onboarding/my-services/:pack', to: 'carts#new', as: 'new_cart'
@@ -63,7 +54,8 @@ Rails.application.routes.draw do
   get 'terms', to: 'pages#terms', as: 'terms'
   get 'how_it_works', to: 'pages#how_it_works'
   get 'about', to: 'pages#about'
-  get 'pricing', to: 'pages#pricing', as: "pricing"
+  get 'pricing/starter-pack', to: 'pages#starter_pack', as: "pricing_starter_pack"
+  get 'pricing/settle-in-pack', to: 'pages#settle_in', as: "pricing_settle_in"
   get 'thankyou', to: 'pages#thank_you', as: 'thank_you'
 
   # Lead generation

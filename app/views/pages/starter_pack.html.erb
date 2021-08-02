@@ -1,0 +1,20 @@
+<div class="pricing-container static-container" data-controller="lead">
+  <%= render "pages/pricing/banner",
+    headline: "The Movido Starter Pack",
+    subheadline: 'Housing, local SIM, transportation, and airport pick-up - get everything you need before you arrive. Stress-free, in 5mins, and without added fees.',
+    background: 'background-color',
+    img: 'starter-pack-banner-img-phone',
+    cta_link: onboarding_starter_pack_path
+  %>
+  <%= render "pages/pricing/benefits", title: 'the Starter in Pack', benefits: @benefits %>
+  <%= render 'pages/pricing/services', cta_link: onboarding_starter_pack_path %>
+  <%= render 'pages/home/how_it_works_mobile', slides: @slides %>
+  <%= render 'shared/components/faqs', faqs: @faqs %>
+  <section class="book-a-call-banner w-100 d-flex d-md-none">
+    <span class="subline"><strong>Any questions?</strong> Speak to us.</span>
+    <%= link_to "<i class='fas fa-headphones-alt me-1'></i> Book a call".html_safe, 'https://calendly.com/alice_movido/movido-introcall', class: 'cta-call d-block py-1' %>
+  </section>
+</div>
+
+
+
