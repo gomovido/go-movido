@@ -17,7 +17,7 @@
         <% end %>
         <div class="bottom-part">
           <div class="left">
-            <% if product.category.utilities?? %>
+            <% if product.category.utilities? %>
               <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
             <% else %>
               <% price = product.subscription_price %>
