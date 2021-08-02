@@ -35,8 +35,16 @@ strike:after {
   transform: rotateZ(-6deg);
 }
 
+strong {
+  font-weight: bold;
+}
+
 img {
   background-size: 100%;
+}
+
+.lite {
+  font-weight: 300 !important;
 }
 
 .text-left {

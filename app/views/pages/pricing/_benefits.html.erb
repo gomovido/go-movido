@@ -1,0 +1,13 @@
+<section class="container">
+  <div class="row align-items-center">
+    <h2>The benefits of<br> <%= title %></h2>
+    <% benefits.each do |benefit| %>
+      <div class="col-12">
+        <div class="benefits-card">
+          <%= image_tag(asset_path("components/pricing/#{benefit[:icon]}.png")) %>
+          <span class="content"><%= benefit[:content].html_safe %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
