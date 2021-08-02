@@ -30,3 +30,45 @@
   0% {opacity:0;}
   100% {opacity:1;}
 }
+
+.plus {
+  background: white;
+  width: 35px;
+  height: 35px;
+  border: 0;
+  font-size: 1.5em;
+  position: relative;
+}
+
+.plus .span {
+  position: absolute;
+  background: $purple;
+  transition: 100ms;
+  border-radius: 2px;
+}
+
+/* Create the "+" shape by positioning the spans absolutely */
+.plus .span:first-child {
+  top: 25%;
+  bottom: 25%;
+  width: 10%;
+  left: 45%;
+}
+
+.plus .span:last-child {
+  left: 25%;
+  right: 25%;
+  height: 10%;
+  top: 45%;
+}
+
+/* Morph the shape when the .plus is hovered over */
+.plus-active .span {
+  transform: rotate(90deg);
+}
+
+.plus-active .span:last-child {
+  left: 50%;
+  right: 50%;
+}
+
