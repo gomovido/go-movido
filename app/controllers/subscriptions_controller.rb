@@ -10,7 +10,6 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-
   def cancel
     subscription = Order.find_by(id: params[:order_id], user: current_user).subscription
     if subscription

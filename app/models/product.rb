@@ -10,7 +10,6 @@ class Product < ApplicationRecord
 
   validates :name, :activation_price, :subscription_price, :image_url, :description, presence: true
 
-
   def subscription_price_cents
     (subscription_price * 10 * 10).to_i
   end
@@ -20,11 +19,11 @@ class Product < ApplicationRecord
   end
 
   def variant_activation_price(house)
-    (option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.activation_price * 10 * 10).to_i
+    (option_types.find_by(name: 'tenants').option_values.find_by(name: house.house_detail.tenants).option_value_variant.variant.activation_price * 10 * 10).to_i
   end
 
   def variant_subscription_price(house)
-    (option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price * 10 * 10).to_i
+    (option_types.find_by(name: 'tenants').option_values.find_by(name: house.house_detail.tenants).option_value_variant.variant.subscription_price * 10 * 10).to_i
   end
 
   def set_sku

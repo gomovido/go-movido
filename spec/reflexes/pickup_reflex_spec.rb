@@ -10,7 +10,7 @@ RSpec.describe PickupReflex, type: :reflex do
   let(:cart) { create(:cart, house: house) }
   let!(:order) { create(:order, user: user, state: 'pending_payment') }
   let!(:product) { create(:product, :mobile, country: country, company: company, category: category) }
-  let!(:product_detail) {create(:product_detail, product: product)}
+  let!(:product_detail) { create(:product_detail, product: product) }
   let!(:item) { create(:item, product: product, cart: cart, order: order) }
   let(:reflex) { build_reflex(url: new_pickup_url(order), connection: { current_user: user }, params: { pickup: { uncomplete: false, arrival: Faker::Date.forward(days: 30), flight_number: 'XXX1234', airport: "Paris CDG" } }) }
 
