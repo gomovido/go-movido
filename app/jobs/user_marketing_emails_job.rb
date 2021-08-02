@@ -1,7 +1,7 @@
 class UserMarketingEmailsJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(*_args)
     manage_users
     retarget
     second_call
@@ -10,7 +10,7 @@ class UserMarketingEmailsJob < ApplicationJob
 
   def manage_users
     User.where.not(id: Order.all.pluck(:user_id)).where('created_at < ?', 48.hours.ago).each do |user|
-     UserMarketing.create(user: user, title: 'users_sequence', step: 'retarget') if UserMarketing.find_by(user: user).nil?
+      UserMarketing.create(user: user, title: 'users_sequence', step: 'retarget') if UserMarketing.find_by(user: user).nil?
     end
   end
 
@@ -21,17 +21,15 @@ class UserMarketingEmailsJob < ApplicationJob
   end
 
   def send_email_retarget(marketing)
-    begin
-      UserMarketingMailer.with(user: marketing.user).retarget.deliver_later
-      return true
-    rescue
-      marketing.update(bounced: true)
-      return false
-    end
+    UserMarketingMailer.with(user: marketing.user).retarget.deliver_later
+    return true
+  rescue StandardError
+    marketing.update(bounced: true)
+    return false
   end
 
   def second_call
-    UserMarketing.where(title: 'users_sequence', step: 'second_call', subscribed: true).where('created_at < ?',72.hours.ago).each do |marketing|
+    UserMarketing.where(title: 'users_sequence', step: 'second_call', subscribed: true).where('created_at < ?', 72.hours.ago).each do |marketing|
       UserMarketingMailer.with(user: marketing.user).second_call.deliver_later
       marketing.update(step: 'last_call')
     end
@@ -43,5 +41,4 @@ class UserMarketingEmailsJob < ApplicationJob
       marketing.update(sent: true)
     end
   end
-
 end

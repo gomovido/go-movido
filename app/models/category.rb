@@ -10,7 +10,7 @@ class Category < ApplicationRecord
     update(sku: name.tr(' ', '_').downcase) if name
   end
 
-  def is_utilities?
+  def utilities?
     name == 'utilities'
   end
 end

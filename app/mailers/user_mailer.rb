@@ -1,11 +1,9 @@
 class UserMailer < ApplicationMailer
-
   def welcome_email
     @user = User.find(params[:user_id])
     @locale = "en"
     mail(to: @user.email, subject: "✨ #{@user.first_name}, welcome to movido !")
   end
-
 
   def password_email
     @user = User.find(params[:user_id])
