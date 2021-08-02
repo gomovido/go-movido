@@ -1,7 +1,7 @@
 class OrderMarketingEmailsJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(*_args)
     manage_orders
     retarget
     last_call
@@ -14,7 +14,7 @@ class OrderMarketingEmailsJob < ApplicationJob
   end
 
   def order_unpaid
-    Order.where(state: 'pending_payment').where('created_at < ?', 1.hours.ago).each do |order|
+    Order.where(state: 'pending_payment').where('created_at < ?', 1.hour.ago).each do |order|
       OrderMarketing.create(order: order, title: 'orders_sequence', step: 'retarget', sent: false) if OrderMarketing.find_by(order: order).nil?
     end
   end
@@ -46,12 +46,10 @@ class OrderMarketingEmailsJob < ApplicationJob
   end
 
   def send_email_retarget(marketing)
-    begin
-      OrderMarketingMailer.with(user: marketing.order.user).retarget.deliver_later
-      return true
-    rescue
-      marketing.update(bounced: true)
-      return false
-    end
+    OrderMarketingMailer.with(user: marketing.order.user).retarget.deliver_later
+    return true
+  rescue StandardError
+    marketing.update(bounced: true)
+    return false
   end
 end

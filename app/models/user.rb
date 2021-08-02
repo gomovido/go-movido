@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def send_welcome_email
-    UserMailer.with(user_id: self.id, locale: 'en').welcome_email.deliver_later
+    UserMailer.with(user_id: id, locale: 'en').welcome_email.deliver_later
   end
   # rubocop:enable Naming/VariableNumber
   # def self.from_omniauth_google(access_token)

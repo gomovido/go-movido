@@ -45,12 +45,10 @@ gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1"
 gem 'travis'
 
-
 # Jobs & Cron Jobs
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq-scheduler'
-
 
 group :development, :test do
   gem 'pry-byebug'
