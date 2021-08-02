@@ -13,11 +13,11 @@ class Order < ApplicationRecord
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
 
   def total_activation_amount
-    items.includes([:product]).sum {|item| item.product.category.is_utilities? ? item.product.variant_activation_price(self.user.house) : item.product.activation_price_cents}
+    items.includes([:product]).sum { |item| item.product.category.utilities? ? item.product.variant_activation_price(user.house) : item.product.activation_price_cents }
   end
 
   def total_subscription_amount
-    items.includes([:product]).sum {|item| item.product.category.is_utilities? ? item.product.variant_subscription_price(self.user.house) : item.product.subscription_price_cents}
+    items.includes([:product]).sum { |item| item.product.category.utilities? ? item.product.variant_subscription_price(user.house) : item.product.subscription_price_cents }
   end
 
   def total_amount_display
@@ -63,5 +63,4 @@ class Order < ApplicationRecord
   def gb?
     items.first.product.country.code == 'gb'
   end
-
 end

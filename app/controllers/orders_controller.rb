@@ -10,15 +10,12 @@ class OrdersController < ApplicationController
     end
   end
 
-
   def starter
     @message = { content: "Congratulations #{current_user.first_name}! Your movido Starter Pack is already on its way to you 🎉 ", delay: 0 }
   end
 
-
   def settle_in
   end
-
 
   def set_order
     @order = Order.find_by(user: current_user, id: params[:order_id])

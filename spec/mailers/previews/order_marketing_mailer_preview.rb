@@ -10,5 +10,4 @@ class OrderMarketingMailerPreview < ActionMailer::Preview
   def feedback
     OrderMarketingMailer.with(user: Order.last.user).feedback
   end
-
 end

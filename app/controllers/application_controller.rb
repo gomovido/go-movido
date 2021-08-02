@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :http_auth, unless: -> { @stimulus_reflex }
   protect_from_forgery with: :exception, prepend: true
 
-
   private
 
   def http_auth
@@ -37,11 +36,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_order_is_paid
     order = Order.find(params[:order_id])
-    if order.pack == 'starter' && order.paid?
-      redirect_to dashboard_path
-    elsif order.pack == 'settle_in' && order.subscription.state == 'paid'
-      redirect_to dashboard_path
-    end
+    redirect_to dashboard_path if order.pack == 'starter' && order.paid?
   end
 
   protected
