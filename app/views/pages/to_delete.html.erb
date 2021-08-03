@@ -1,0 +1,83 @@
+<div class="home-container static-container" data-controller="lead">
+  <section class="banner container">
+    <div class="row align-items-center">
+      <div class="col-md-5 d-flex align-items-center">
+        <div class="content">
+          <h1>Get ready for your new home</h1>
+          <p>Housing, local SIM, transportation, airport pick-up and more - everything you need before you arrive</p>
+
+          <%= image_tag(asset_path('components/homepage/background-color.png'), class:"position-absolute w-100") %>
+          <div class="d-flex justify-content-center">
+            <%= image_tag(asset_path('components/homepage/banner-img-phone-product.png'), class:'d-block d-md-none iphone z-1') %>
+          </div>
+          <%= link_to 'Get started for free', onboarding_starter_pack_path, class: 'btn-main mb-3 mb-md-0 mt-md-5 position-relative z-0' %>
+          <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-100 mb-5 trustpilot' ) %>
+        </div>
+      </div>
+      <div class="col-md-7 d-none d-md-block text-end">
+        <%= image_tag(asset_path('components/homepage/banner-img-phone-product.png'), class:'mb-2') %>
+      </div>
+    </div>
+  </section>
+  <%= render 'pages/home/offers' %>
+  <%= render 'pages/home/how_it_works_desktop' %>
+  <section class="why container my-5">
+    <h2 class="title">Why choose movido</h2>
+    <div class="list row justify-content-between">
+      <div class="col-12 col-md-5">
+        <div class="reason d-flex flex-column align-items-center text-center justify-content-center">
+          <%= image_tag(asset_path('icons/timer.png'), width: '40px', class:'me-0') %>
+          <div class="content">
+            <h3 class="headline">5 mins setup</h3>
+            <p class="desc">Get all the contracts you need within 5 mins and fully online.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5">
+        <div class="reason d-flex flex-column align-items-center text-center justify-content-center">
+          <%= image_tag(asset_path('icons/money.png'), width: '40px', class:'me-0') %>
+          <div class="content">
+            <h3 class="headline">Save money</h3>
+            <p class="desc">Our offers are customizable to your needs to make sure you get the best package for the best price.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5">
+        <div class="reason d-flex flex-column align-items-center text-center justify-content-center ">
+          <%= image_tag(asset_path('icons/commitment.png'), width: '40px', class:'me-0') %>
+          <div class="content">
+            <h3 class="headline">No commitment </h3>
+            <p class="desc">Our packages have no commitment period. You can cancel anytime at no extra cost.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5">
+        <div class="reason d-flex flex-column align-items-center text-center justify-content-center">
+          <%= image_tag(asset_path('icons/support.png'), width: '40px', class:'me-0') %>
+          <div class="content">
+            <h3 class="headline">Dedicated support</h3>
+            <p class="desc">Our team of experts is available to answer all of your questions. We are here to help you out!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-3">
+        <%= link_to 'Get started for free', onboarding_starter_pack_path, class: 'btn-main mb-3 mb-md-0' %>
+      </div>
+    </div>
+  </section>
+
+  <%= render 'pages/home/testimonials_mobile' %>
+  <%= render 'pages/home/testimonials_desktop' %>
+  <%= render 'pages/home/contact_banner_mobile' %>
+  <%= render 'pages/home/contact_banner_desktop' %>
+  <div class="partners-logos">
+    <%= image_tag(asset_path('logos/oyster.png')) %>
+    <%= image_tag(asset_path('logos/giffgaff.png')) %>
+    <%= image_tag(asset_path('logos/bolt.png')) %>
+    <%= image_tag(asset_path('logos/navigo.png')) %>
+    <%= image_tag(asset_path('logos/bouygues.png')) %>
+    <%= image_tag(asset_path('logos/g7.png')) %>
+  </div>
+</div>

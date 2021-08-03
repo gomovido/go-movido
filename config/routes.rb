@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   get '/500', to: 'errors#internal_server'
 
   # Static pages
-  root 'pages#home_2'
+  root 'pages#home'
   get 'privacy', to: 'pages#privacy', as: 'privacy'
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms', as: 'terms'
