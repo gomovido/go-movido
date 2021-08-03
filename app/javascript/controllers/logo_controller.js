@@ -1,19 +1,32 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "need" ]
+  static targets = [ "word", 'count' ]
+
   connect() {
-    const speed = 50;
-    let i = 0;
-    const word = "Housing";
-    const typeWriter = () => {
-      if (i < word.length) {
-      console.log(word[i]);
-      document.getElementById("need").innerHTML += word.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
+    setInterval(this.updateTitle.bind(this), 2000);
   }
-    typeWriter();
-  };
+
+  updateTitle() {
+    let index = [1 + (+this.countTarget.value)]
+    if (index >= 6) { index = 0 }
+    this.typeSentence(['Public Transportation','Housing', 'Sim Card', 'Wifi at home', 'Airport Pickup', 'Gaz', 'Energy'][index])
+    this.countTarget.value = index
+  }
+
+  async typeSentence(sentence, delay = 70) {
+    const letters = sentence.split("");
+    this.wordTarget.innerText = ''
+    let i = 0;
+    while(i < letters.length) {
+      await this.waitForMs(delay);
+      this.wordTarget.append(letters[i]);
+      i++
+    }
+    return;
+  }
+
+  waitForMs(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
 };
