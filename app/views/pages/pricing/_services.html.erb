@@ -1,7 +1,7 @@
-<section class="container my-3">
+<section class="container my-3" data-controller="cards">
   <div class="row align-items-center">
     <h2>What’s included?</h2>
-    <p class="text-center">The Starter Pack is currently available for the UK and France - simply select where you are moving to</p>
+    <p class="text-center">The <%= pack %> Pack is currently available for the UK and France - simply select where you are moving to</p>
     <div class="col-12 d-flex justify-content-center mb-3">
       <ul class="nav nav-tabs w-100 text-center justify-content-around" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -18,49 +18,15 @@
           <div class="product-cards-wrapper row row-cols-lg-2 justify-content-lg-center mx-1 mb-2">
             <% @services.each do |service| %>
               <% product = service.product(Country.find_by(code: 'fr')) %>
-              <div class="product-card text-left h-auto col-12 col-lg-4 m-lg-2">
-                <h3 class="name"><%= product.name %></h3>
-                <p class="description"><%= product.description %></p>
-                <% product.product_details.each do |product_detail| %>
-                  <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
-                <% end %>
-                <div class="bottom-part align-items-center">
-                  <div class="left">
-                    <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span>
-                  </div>
-                  <% if product.undiscounted_price %>
-                    <div class="center">
-                      <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
-                    </div>
-                  <% end %>
-                  <%= image_tag(asset_path(product.company.logo_url)) %>
-                </div>
-              </div>
+              <%= render 'shared/product-card', product: product %>
             <% end %>
           </div>
         </div>
         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="product-cards-wrapper row row-cols-lg-2 justify-content-lg-center mx-1 mb-2">
-            <% @services.all.each do |service| %>
+            <% @services.each do |service| %>
               <% product = service.product(Country.find_by(code: 'gb')) %>
-              <div class="product-card text-left h-auto col-12 col-lg-4 m-lg-2">
-                <h3 class="name"><%= product.name %></h3>
-                <p class="description"><%= product.description %></p>
-                <% product.product_details.each do |product_detail| %>
-                  <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
-                <% end %>
-                <div class="bottom-part">
-                  <div class="left">
-                    <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span>
-                  </div>
-                  <% if product.undiscounted_price %>
-                    <div class="center">
-                      <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
-                    </div>
-                  <% end %>
-                  <%= image_tag(asset_path(product.company.logo_url)) %>
-                </div>
-              </div>
+              <%= render 'shared/product-card', product: product %>
             <% end %>
           </div>
         </div>
