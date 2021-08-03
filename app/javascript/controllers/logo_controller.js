@@ -10,7 +10,7 @@ export default class extends Controller {
   updateTitle() {
     let index = [1 + (+this.countTarget.value)]
     if (index >= 6) { index = 0 }
-    this.typeSentence(['Public Transportation','Housing', 'Sim Card', 'Wifi at home', 'Airport Pickup', 'Gaz', 'Energy'][index])
+    this.typeSentence(['Public Transportation?','Housing?', 'Sim Card?', 'Wifi at home?', 'Airport Pickup?', 'Gaz?', 'Energy?'][index])
     this.countTarget.value = index
   }
 
