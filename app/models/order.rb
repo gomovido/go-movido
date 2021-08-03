@@ -7,8 +7,9 @@ class Order < ApplicationRecord
   has_one :subscription, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :products, through: :items
+  has_many :services, through: :products, source: :items
   has_one :order_marketing, dependent: :destroy
-
+  attr_accessor :terms, :marketing
   validates :state, presence: true
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
 

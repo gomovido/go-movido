@@ -49,6 +49,10 @@ en:
               invalid: "is not valid"
             address:
               blank: "can't be blank"
+        house:
+          attributes:
+            country:
+              blank: "Our service is currently only available in the UK and France"
         user:
           attributes:
             first_name:

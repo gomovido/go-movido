@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xs-12 col-lg-6">
-        <%= render 'shared/chat', message: {content: "Hello! I’m Alice and I will help you get settled in your new city. Let's get to know each other a little better", delay: 0} %>
+        <%= render 'shared/chat', message: {content: "Hello! I’m Alice and I will help you get your contracts for your new home. First of all, tell me a bit more about yourself", delay: 0} %>
       </div>
     </div>
       <div class="row justify-content-center">
@@ -19,7 +19,7 @@
             <%= f.input :email,
               required: true,
               input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com', label: 'Email' %>
-            <%= f.input :password, placeholder: '*******', label: 'Password' %>
+            <%= f.input :password, placeholder: '*******', label: 'Create your password' %>
             <hr>
             <%= f.button :submit, 'Continue' , class: 'btn-main w-100 mb-2' %>
           <% end %>
