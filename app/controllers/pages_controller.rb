@@ -4,14 +4,14 @@ class PagesController < ApplicationController
   def home
     @logos =
       [
-        { url: 'Sorbonne_logo' },
-        { url: 'UCL_logo' },
-        { url: 'Revolut_logo' },
-        { url: 'ESCP_logo' },
-        { url: 'Kings_college_logo' },
-        { url: 'Bocconi_logo' },
-        { url: 'Bouygues_Telecom_logo' },
-        { url: 'ESN_logo' }
+        { url: 'sorbonne_logo' },
+        { url: 'ucl_logo' },
+        { url: 'revolut_logo' },
+        { url: 'escp_logo' },
+        { url: 'kings_college_logo' },
+        { url: 'bocconi_logo' },
+        { url: 'bouygues_telecom_logo' },
+        { url: 'esn_logo' }
       ]
     @faqs =
       [{
