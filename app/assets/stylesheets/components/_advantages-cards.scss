@@ -1,0 +1,31 @@
+.advantages-cards {
+  .advantage {
+    color: white;
+    font-weight: 400;
+    padding: 8%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    span.description {
+      font-size: 17px;
+      padding: 10% 2%;
+    }
+  }
+  .bg-blue {
+    background: #0046AD;
+  }
+
+  .bg-purple-1 {
+    background: #8330F5;
+  }
+
+  .bg-purple-2 {
+    background: #B68EF9;
+  }
+
+  .bg-purple-3 {
+    background: #22055D;
+  }
+
+}
