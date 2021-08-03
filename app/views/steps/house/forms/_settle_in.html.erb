@@ -1,15 +1,14 @@
 <%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseDetailReflex#create", reflex_serialize_form: true, controller: "country" } do |f| %>
   <%= f.hidden_field :country_code, required: true, data: { country_target: 'countryInput' }, value: house&.country&.code %>
   <%= simple_fields_for house_detail do |p| %>
-    <label>Your current address</label>
+    <label>Your home address</label>
     <div data-country-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->country#cleanCountryCode' >
     </div>
-    <div class="invalid-feedback d-block"><%= f.full_error(:country) %></div>
-    <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
+    <div class="invalid-feedback d-block"><%= f.full_error(:invalid_country) %></div>
     <%= p.hidden_field :address, required: true, data: { country_target: 'addressInput' } %>
     <div class="lines-input d-flex justify-content-between">
-      <%= p.input :tenants, collection: [1, 2, 3, 4, 5, 6, 7], prompt: 'Choose', label: 'Number of tenants', input_html: {class: 'custom-select'} %>
-      <%= p.input :contract_starting_date, as: :string, label: 'Starting date',
+      <%= p.input :tenants, collection: [1, 2, 3, 4, 5, 6, 7], prompt: 'Choose', label: 'Tenants in your home', input_html: {class: 'custom-select'} %>
+      <%= p.input :contract_starting_date, as: :string, label: 'Start date of contract',
                  required: true,
                  input_html: { class:'datepicker', data: {
                   controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>

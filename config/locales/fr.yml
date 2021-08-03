@@ -125,7 +125,7 @@ fr:
         first_name: 'Prénom'
         last_name: 'Nom'
         email: 'E-mail'
-        password: 'Mot de passe'
+        password: 'Password'
         password_confirmation: 'Confirmation du mot de passe'
         current_password: 'Mot de passe actuel'
       person:

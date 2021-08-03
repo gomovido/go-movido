@@ -18,6 +18,9 @@
           <%= link_to 'BLOG', "https://blog.go-movido.com/" %>
           <%= link_to 'ABOUT US', about_path %>
           <% if current_user %>
+            <% if current_user.orders.find_by(state: 'succeeded') %>
+              <%= link_to 'DASHBOARD', dashboard_path %>
+            <% end %>
             <%= link_to 'LOGOUT', destroy_user_session_path, method: 'delete', class: 'purple' %>
           <% else %>
             <%= link_to 'LOGIN', dashboard_path, class: 'purple' %>

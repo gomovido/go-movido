@@ -48,6 +48,10 @@
   .bottom-part {
     display: flex;
     justify-content: space-between;
+    .left {
+      display: flex;
+      align-items: center;
+    }
     .top {
       display: flex;
       justify-content: space-between;
@@ -65,6 +69,11 @@
       padding: 4px 6px;
       margin-right: 0.9rem;
       font-size: 16px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       }
       img {
         height: 100%;

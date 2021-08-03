@@ -1696,6 +1696,22 @@
       "widget": null,
       "validations": []
     }, {
+      "field": "services",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "Item.id",
+      "inverse_of": "order",
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
+    }, {
       "field": "order_marketing",
       "type": "Number",
       "default_value": null,
