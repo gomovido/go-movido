@@ -1,11 +1,11 @@
 <div class="carts-new-container" data-controller="cart">
-  <%= simple_form_for house, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create_settle_in", reflex_serialize_form: true  } do |f| %>
+  <%= simple_form_for order, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create_settle_in", reflex_serialize_form: true  } do |f| %>
   <div class="product-cards-wrapper">
     <%= f.hidden_field :pack, value: pack %>
     <%= f.collection_check_boxes(:service_ids, Pack.find_by(name: pack).services.includes([:category]), :id, :name, include_hidden: false) do |service| %>
       <% product = service.object.product(house.country) %>
-      <div class="product-card">
-        <%= service.label { service.check_box(checked: false, data: {
+      <div class="product-card <%= order.products.include?(product) ? 'active' : '' %>">
+        <%= service.label { service.check_box(checked: order.products.include?(product), data: {
           action: 'change->cart#updatePrice',
           subscription_price: Service.find_by(name: service.text).subscription_price(house),
           activation_price: Service.find_by(name: service.text).activation_price(house)
@@ -15,15 +15,22 @@
         <% product.product_details.each do |product_detail| %>
           <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
         <% end %>
-        <div class="bottom-part">
+        <div class="bottom-part align-items-center">
           <div class="left">
             <% if product.category.utilities? %>
               <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
             <% else %>
               <% price = product.subscription_price %>
             <% end %>
+            <span class="icon-box">
+              <% if order.products.include?(product) %>
+                <i class="far fa-check" id="check"></i>
+              <% else %>
+                <i class="far fa-plus" id="check"></i>
+              <% end %>
+            </span>
             <span class="price">
-              <i class="far fa-plus" id="check"></i><span><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %></span>
+              <span><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %></span>
             </span>
           </div>
           <% if product.undiscounted_price %>
@@ -35,9 +42,10 @@
         </div>
       </div>
     <% end %>
-    <h2 class="total-price"><%= house.country.currency_symbol %><span data-cart-target="subscriptionPrice" data-value="0">0</span>/month</h2>
-    <h4 class="text-center">+<%= house.country.currency_symbol %><span data-cart-target="activationPrice" data-value="0">0</span> one-time setup fee</h4>
-    <p class='setup'>Your setup fee will be included in your first invoice. You can cancel your bundle anytime at no extra cost. </p>
+    <h2 class="total-price"><%= house.country.currency_symbol %><span data-cart-target="subscriptionPrice" data-value=<%= order.total_subscription_amount %>><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %></span>/month</h2>
+
+    <h4 class="text-center">+<%= house.country.currency_symbol %><span data-cart-target="activationPrice" data-value=<%= order.total_activation_amount %>><%= number_to_currency(order.total_amount_display, :unit => '') %></span> one-time setup cost</h4>
+    <p class='setup'>Your setup cost will be included in your first invoice. You can cancel your bundle anytime at no extra cost. </p>
     <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
   </div>
   <hr>
