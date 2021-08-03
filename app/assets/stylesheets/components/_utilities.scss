@@ -59,6 +59,14 @@ ul {
   padding: 0;
 }
 
+.rotate-smouth {
+  transform: rotate(180deg);
+}
+
+i {
+  transition: 0.3s;
+}
+
 .red {
   color: red !important;
 }

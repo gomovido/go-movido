@@ -7,6 +7,10 @@ export default class extends Controller {
     this.inputTargets[e.currentTarget.dataset.id].classList.toggle('plus-active');
   }
 
+  displayFullDescription(e) {
+    this.boxTargets.filter(target => target.dataset.id === e.currentTarget.dataset.id)[0].classList.toggle('d-none')
+  }
+
   rotate(e) {
     document.querySelector(`i.chevron_${e.currentTarget.dataset.id}`).classList.toggle("rotate-smouth")
   }
