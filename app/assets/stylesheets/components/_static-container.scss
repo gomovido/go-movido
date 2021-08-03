@@ -34,7 +34,7 @@
 
 @include media-breakpoint-down(md) {
   .static-container {
-    padding-top: 1rem;
+    padding-top: 0rem;
     h1 {
       font-size: 30px;
     }
