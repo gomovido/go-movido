@@ -1,26 +1,14 @@
 .banner {
-  min-height: 40vh;
+  min-height: 41vh;
   background-size: cover;
-  img {
-  //   max-width: 500px;
-    margin: auto;
-  }
   h1 {
     margin-bottom: 32px;
   }
   p {
     font-weight: normal;
   }
-  a {
-    width: 60%;
-  }
   .trustpilot {
     width: 250px !important;
-  }
-  .feature {
-    i {
-      color: $purple;
-    }
   }
 }
 
