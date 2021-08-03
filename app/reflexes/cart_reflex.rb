@@ -23,7 +23,6 @@ class CartReflex < ApplicationReflex
     end
   end
 
-
   def create_settle_in
     @pack = house_params[:pack]
     @order = Order.where(user: current_user, state: 'pending_payment').first_or_create

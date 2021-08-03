@@ -7,6 +7,7 @@ class ShippingReflex < ApplicationReflex
 
   def create
     return if @order.paid?
+
     @pack = @order.pack
     @shipping = @order.shipping || Shipping.new
     @shipping.assign_attributes(shipping_params)

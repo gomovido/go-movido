@@ -13,5 +13,4 @@ class UserMarketingMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: "✨ #{@user.first_name}, last call for your move abroad 🛫")
   end
-
 end

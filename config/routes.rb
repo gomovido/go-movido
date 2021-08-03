@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   get 'congratulations/settle-in/:order_id', to: 'orders#settle_in', as: 'settle_in_congratulations'
   get 'onboarding/legal/subscriptions/:order_id', to: 'subscriptions#new', as: 'new_subscription'
 
+
+  put 'cancel-subscription/:order_id', to: 'subscriptions#cancel', as: 'cancel_subscription'
+
   # Dashboard
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
 
