@@ -1,42 +1,26 @@
-<div class="col-12 mb-3">
-  <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
-    <div class="swiper-wrapper">
-    
-      <div class="swiper-slide col-12 d-flex">
-        <div class="logo-card col-6 d-block p-3">
-          <div class="content m-auto p-3">
-            <%= image_tag(asset_path('components/homepage/logos/Sorbonne_logo.svg'))%>
-          </div>
+  <section class="collab d-block d-md-none my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 p-4">
+          <h2 class="title purple lite">In collaboration with</h2>
         </div>
-        <div class="logo-card col-6 d-block p-3">
-          <div class="content">
-            <%= image_tag(asset_path('components/homepage/logos/UCL_logo.svg'))%>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide text-center col-12 d-flex">
-        <div class="logo-card col-6 d-block p-3">
-          <div class="content">
-            <%= image_tag(asset_path('components/homepage/logos/Revolut_logo.svg'))%>
-          </div>
-        </div>
-        <div class="logo-card col-6 d-block p-3">
-          <div class="content">
-            <%= image_tag(asset_path('components/homepage/logos/ESCP_logo.svg'))%>
+        <div class="col-12 p-0">
+          <div data-controller="carousel" class="swiper-container justify-content-center pb-2" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+            <div class="swiper-wrapper">
+              <% logos.each_slice(2) do |logos| %>
+                <div class="swiper-slide d-flex align-items-center justify-content-around">
+                  <% logos.each do |logo| %>
+                    <div class="logo-card d-flex align-items-center justify-content-center">
+                      <div class="content m-auto">
+                        <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="swiper-slide text-center col-12 d-flex">
-        <div class="logo-card col-6 d-block p-3">
-          <div class="content">
-            <%= image_tag(asset_path('components/homepage/logos/Bouygues_Telecom_logo.svg'))%>
-          </div>
-        </div>
-      </div>
-
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
+  </section>

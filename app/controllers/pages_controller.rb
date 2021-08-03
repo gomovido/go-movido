@@ -2,6 +2,30 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home terms privacy cookies how_it_works about pricing starter_pack settle_in thank_you]
   before_action :setup_homepage, only: %i[home]
   def home
+    @logos =
+      [
+        { url: 'Sorbonne_logo' },
+        { url: 'UCL_logo' },
+        { url: 'Revolut_logo' },
+        { url: 'ESCP_logo' },
+        { url: 'Bouygues_Telecom_logo' },
+        { url: 'Bouygues_Telecom_logo' },
+        { url: 'Bouygues_Telecom_logo' },
+        { url: 'Bouygues_Telecom_logo' }
+      ]
+    @faqs =
+      [{
+        question: "How much does it cost?",
+        answer: "Prices depend on the products you choose. Most of them <strong>come with credit included</strong>, which is only what you pay - <strong>we do not charge anything on top</strong> for our services. On the contrary, working on a B2B basis with our providers, we can often <strong>even offer great discounts.</strong> Prices for our UK giffgaff SIM card start at £1 for instance. Click on the packs to see more."
+      },
+       {
+         question: "How does it work? ",
+         answer: "You can <strong>customize your own packs</strong> - choose what you want and only pay for what you need. The <strong>Starter Pack</strong> is a physical envelope with all pay-as-you go items sent to your current home while the <strong>Settle-in Pack</strong> digitally simply bundles all your subscriptions in 1 monthly bill."
+       },
+       {
+         question: "Who are your providers?",
+         answer: "Over time, we have identified the one provider that is best for the respective service. In the UK and France, <strong>we only work with reputable providers</strong> who are ranked top in the industry and provide a very <strong>reliable service</strong> for a <strong>good value-to-money ratio.</strong>"
+       }]
   end
 
   def privacy; end
@@ -16,106 +40,105 @@ class PagesController < ApplicationController
 
   def starter_pack
     @benefits =
-      [ {
-          icon: 'idea',
-          content: "<strong>Don’t spend hours searching for the best providers</strong> – we did it for you"
-        },
-        {
-          icon: 'dollar',
-          content: "<strong>All offers already come with credit</strong> – use them directly upon arrival",
-        },
-        {
-          icon: 'credit-card',
-          content: "Only <strong>one-off payments</strong>without any long-term commitment</span>"
-        },
-        {
-          icon: 'tag',
-          content: "<strong>Exclusive discounts</strong>on most offers available only on Movido</span>"
-        },
-        {
-          icon: 'house',
-          content: "<strong>Shipped to your current home</strong> worldwide and entirely for free"
-        } ]
+      [{
+        icon: 'idea',
+        content: "<strong>Don’t spend hours searching for the best providers</strong> – we did it for you"
+      },
+       {
+         icon: 'dollar',
+         content: "<strong>All offers already come with credit</strong> – use them directly upon arrival"
+       },
+       {
+         icon: 'credit-card',
+         content: "Only <strong>one-off payments</strong>without any long-term commitment</span>"
+       },
+       {
+         icon: 'tag',
+         content: "<strong>Exclusive discounts</strong>on most offers available only on Movido</span>"
+       },
+       {
+         icon: 'house',
+         content: "<strong>Shipped to your current home</strong> worldwide and entirely for free"
+       }]
     @slides =
-      [ {
-          title: "Get Started",
-          content: "Get started by filling-in only a few necessary details about yourself"
-        },
-        {
-          title: "Choose your offer",
-          content: "Select everything you need abroad and benefit from great discounts"
-        },
-        {
-          title: "Wait for your shipment",
-          content: "An envelope is directly sent to your current home - worldwide and with free shipping."
-        } ]
+      [{
+        title: "Get Started",
+        content: "Get started by filling-in only a few necessary details about yourself"
+      },
+       {
+         title: "Choose your offer",
+         content: "Select everything you need abroad and benefit from great discounts"
+       },
+       {
+         title: "Wait for your shipment",
+         content: "An envelope is directly sent to your current home - worldwide and with free shipping."
+       }]
     @faqs =
-      [ {
-          question: "Do I need the full pack?",
-          answer: "You can simply <strong>choose the offers that are most relevant to you</strong> - no need to take the entire bundle."
-        },
-        {
-          question: "How does shipping work?",
-          answer: "We send our envelopes <strong>worldwide and without any shipping costs.</strong> You can then track your delivery in your dashboard. Depending on your location, shipping can take up to 7 business days - so don’t wait until last minute but get started right away."
-        },
-        {
-          question: "Housing search guarantee?",
-          answer: "We do our best to find your dream flat. So far, we have always been able to provide our users with their perfect apartment -  > 1,200 students in Paris and London alone. However, for EUR 19.90/GBP 19.90 we simply cannot guarantee it."
-        } ]
+      [{
+        question: "Do I need the full pack?",
+        answer: "You can simply <strong>choose the offers that are most relevant to you</strong> - no need to take the entire bundle."
+      },
+       {
+         question: "How does shipping work?",
+         answer: "We send our envelopes <strong>worldwide and without any shipping costs.</strong> You can then track your delivery in your dashboard. Depending on your location, shipping can take up to 7 business days - so don’t wait until last minute but get started right away."
+       },
+       {
+         question: "Housing search guarantee?",
+         answer: "We do our best to find your dream flat. So far, we have always been able to provide our users with their perfect apartment -  > 1,200 students in Paris and London alone. However, for EUR 19.90/GBP 19.90 we simply cannot guarantee it."
+       }]
     @services = Pack.find_by(name: 'starter').services.includes([:category])
   end
 
   def settle_in
     @benefits =
-      [ {
-          icon: 'idea',
-          content: "<strong>Don’t spend hours searching for the best providers</strong> – we did it for you"
-        },
-        {
-          icon: 'folder',
-          content: "<strong>We deal with the admin part</strong> – simply select the services you need",
-        },
-        {
-          icon: 'page-flip',
-          content: "Customize your bundle into <strong>1 simple monthly bill</span>"
-        },
-        {
-          icon: 'tag',
-          content: "<strong>Exclusive discounts</strong>on most offers available only on Movido</span>"
-        },
-        {
-          icon: 'chrono',
-          content: "<strong>No long-term commitment</strong> - you can cancel anytime you like"
-        } ]
+      [{
+        icon: 'idea',
+        content: "<strong>Don’t spend hours searching for the best providers</strong> – we did it for you"
+      },
+       {
+         icon: 'folder',
+         content: "<strong>We deal with the admin part</strong> – simply select the services you need"
+       },
+       {
+         icon: 'page-flip',
+         content: "Customize your bundle into <strong>1 simple monthly bill</span>"
+       },
+       {
+         icon: 'tag',
+         content: "<strong>Exclusive discounts</strong>on most offers available only on Movido</span>"
+       },
+       {
+         icon: 'chrono',
+         content: "<strong>No long-term commitment</strong> - you can cancel anytime you like"
+       }]
     @slides =
-      [ {
-          title: "Get Started",
-          content: "Get started by filling-in only a few necessary details about yourself"
-        },
-        {
-          title: "Choose your offer",
-          content: "Select everything you need abroad and benefit from great discounts"
-        },
-        {
-          title: "1 simple monthly bill",
-          content: "Only pay us 1 monthly bill - we take care of all the boring admin stuff. You can also cancel anytime"
-        } ]
+      [{
+        title: "Get Started",
+        content: "Get started by filling-in only a few necessary details about yourself"
+      },
+       {
+         title: "Choose your offer",
+         content: "Select everything you need abroad and benefit from great discounts"
+       },
+       {
+         title: "1 simple monthly bill",
+         content: "Only pay us 1 monthly bill - we take care of all the boring admin stuff. You can also cancel anytime"
+       }]
     @faqs =
-      [ {
-          question: "How to cancel contracts",
-          answer: "You can <strong>cancel the contract towards the end of each month</strong> - there is no 24-months lock-up as you normally see. Simply write us an email or click on “cancel” in your dashboard and we will do all the admin around your cancellation."
-        },
-        {
-          question: "Do you charge extra fees?",
-          answer: "Our most important goal is customer satisfaction and transparency that goes along with it. <strong>The prices you see are what you will pay</strong> - no hidden fees. We do not charge anything extra. So how do we make money? We work on a commission based system - so the provider pays us."
-        },
-        {
-          question: "Who are your providers?",
-          answer: "Over time, we have identified the one provider that is best for the respective service. In the UK and France, <strong>we only work with reputable providers</strong> who are ranked top in the industry and provide a very <strong>reliable service</strong> for a <strong>good value-to-money ratio.</strong>"
-        } ]
+      [{
+        question: "How to cancel contracts",
+        answer: "You can <strong>cancel the contract towards the end of each month</strong> - there is no 24-months lock-up as you normally see. Simply write us an email or click on “cancel” in your dashboard and we will do all the admin around your cancellation."
+      },
+       {
+         question: "Do you charge extra fees?",
+         answer: "Our most important goal is customer satisfaction and transparency that goes along with it. <strong>The prices you see are what you will pay</strong> - no hidden fees. We do not charge anything extra. So how do we make money? We work on a commission based system - so the provider pays us."
+       },
+       {
+         question: "Who are your providers?",
+         answer: "Over time, we have identified the one provider that is best for the respective service. In the UK and France, <strong>we only work with reputable providers</strong> who are ranked top in the industry and provide a very <strong>reliable service</strong> for a <strong>good value-to-money ratio.</strong>"
+       }]
     @services = Pack.find_by(name: 'settle_in').services.includes([:category])
   end
-
 
   def about; end
 
