@@ -1,0 +1,42 @@
+<div class="col-12 mb-3">
+  <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+    <div class="swiper-wrapper">
+    
+      <div class="swiper-slide col-12 d-flex">
+        <div class="logo-card col-6 d-block p-3">
+          <div class="content m-auto p-3">
+            <%= image_tag(asset_path('components/homepage/logos/Sorbonne_logo.svg'))%>
+          </div>
+        </div>
+        <div class="logo-card col-6 d-block p-3">
+          <div class="content">
+            <%= image_tag(asset_path('components/homepage/logos/UCL_logo.svg'))%>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide text-center col-12 d-flex">
+        <div class="logo-card col-6 d-block p-3">
+          <div class="content">
+            <%= image_tag(asset_path('components/homepage/logos/Revolut_logo.svg'))%>
+          </div>
+        </div>
+        <div class="logo-card col-6 d-block p-3">
+          <div class="content">
+            <%= image_tag(asset_path('components/homepage/logos/ESCP_logo.svg'))%>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide text-center col-12 d-flex">
+        <div class="logo-card col-6 d-block p-3">
+          <div class="content">
+            <%= image_tag(asset_path('components/homepage/logos/Bouygues_Telecom_logo.svg'))%>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
