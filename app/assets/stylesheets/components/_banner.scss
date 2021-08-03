@@ -1,5 +1,5 @@
 .banner {
-  min-height: 41vh;
+  min-height: 32vh;
   background-size: cover;
   h1 {
     margin-bottom: 32px;
@@ -9,6 +9,11 @@
   }
   .trustpilot {
     width: 250px !important;
+  }
+  .animation {
+    width: 71%;
+    top: 174px;
+    left: 55px;
   }
 }
 
@@ -26,7 +31,7 @@
     h1 {
       text-align: center;
       margin-bottom: 5px;
-      font-size: 38px;
+      font-size: 30px;
       font-weight: 600;
     }
     p {
