@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   get '/500', to: 'errors#internal_server'
 
   # Static pages
-  root 'pages#home'
+  root 'pages#home_2'
   get 'privacy', to: 'pages#privacy', as: 'privacy'
   get 'cookies', to: 'pages#cookies'
   get 'terms', to: 'pages#terms', as: 'terms'
@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   get 'pricing/starter-pack', to: 'pages#starter_pack', as: "pricing_starter_pack"
   get 'pricing/settle-in-pack', to: 'pages#settle_in', as: "pricing_settle_in"
   get 'thankyou', to: 'pages#thank_you', as: 'thank_you'
+  get 'home', to:"pages#home"
 
   # Lead generation
   resources :leads, only: [:create]

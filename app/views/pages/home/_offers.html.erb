@@ -5,41 +5,61 @@
     <div class="row">
       <div class="col-12 col-md-3">
         <div class="product-card">
+          <div class="container mx-auto d-flex justify-content-center">
+            <%= image_tag(asset_path('components/homepage/visual-assets/Envelope.svg'))%>
+          </div>
           <div class="top">
-            <h3 class="name">Housing Search Support</h3>
-            <p class="description">Personalized help from local experts</p>
-            <p class="detail"><i class="far fa-check"></i>Support to find your dream flat</p>
-            <p class="detail"><i class="far fa-check"></i>First proposals sent within 24h</p>
+            <h3 class="name purple">Starter Pack</h3>
+            <br />
+            <p class="detail">Everything you need <strong>before you move</strong> - sent to your current home</p>
+            <br />
+            <p class="detail"><i class="far fa-check"></i>Housing search support</p>
+            <hr>
+            <p class="detail"><i class="far fa-check"></i>Local SIM card with credit</p>
+            <hr>
+            <p class="detail"><i class="far fa-check"></i>Local public transportation</p>
+            <hr>
+            <p class="detail"><i class="far fa-check"></i>Airport pick-up to city center</p>
+          </div>
+          <div class="container mt-4">
+            <div class="row d-flex justify-content-center">
+              <div class="col-12 text-center col-md-3">
+                <%= link_to 'See more details', pricing_path, class: 'underline mb-3 mb-md-0 mt-4 w-100' %>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="col-12 text-center col-md-3">
+                <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mb-3 mb-md-0 mt-4 w-100' %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-3">
         <div class="product-card">
           <div class="top">
-            <h3 class="name">Local SIM Card</h3>
-            <p class="description">User your phone as soon as you arrive</p>
-            <p class="detail"><i class="far fa-check"></i>Data, calls & texts included </p>
-            <p class="detail"><i class="far fa-check"></i>No contract, cancel anytime</p>
+            <h3 class="name purple">Settle in Pack</h3>
+            <br />
+            <p class="detail">All subscriptions in one simple monthly bill <strong>once in your new home</strong></p>
+            <br />
+            <p class="detail"><i class="far fa-check"></i>WiFi at home</p>
+            <hr>
+            <p class="detail"><i class="far fa-check"></i>Gas, water, electricity at home</p>
+            <hr>
+            <p class="detail"><i class="far fa-check"></i>Mobile phone contract</p>
+            <hr>
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="product-card">
-          <div class="top">
-            <h3 class="name">Personal Airport Pick-Up</h3>
-            <p class="description">Get stress-free to the city center</p>
-            <p class="detail"><i class="far fa-check"></i>Pick-up with designated driver</p>
-            <p class="detail"><i class="far fa-check"></i>Flights monitored for delays</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="product-card">
-          <div class="top">
-            <h3 class="name">Local Public Transportation Card</h3>
-            <p class="description">Directly use the tube/metro at arrival</p>
-            <p class="detail"><i class="far fa-check"></i>Credit included for your first rides</p>
-            <p class="detail"><i class="far fa-check"></i>Top up later at any station </p>
+          <div class="container mt-4">
+            <div class="row d-flex justify-content-center">
+              <div class="col-12 text-center col-md-3">
+                <%= link_to 'See more details', pricing_path, class: 'underline mb-3 mb-md-0 mt-4 w-100' %>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="col-12 text-center col-md-3">
+                <%= link_to 'Get started now', onboarding_settle_in_path, class: 'btn-main mb-3 mb-md-0 mt-4 w-100' %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
