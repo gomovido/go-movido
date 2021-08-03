@@ -1,4 +1,6 @@
 .how-it-works {
+  background: $purple;
+  color: white;
   .swiper-container {
     border-radius: 0;
     z-index: unset !important;
@@ -8,6 +10,9 @@
     .swiper-pagination-bullet-active {
       background: $purple !important;
     }
+  }
+  .subheadline {
+    font-size: 18px;
   }
   .line_1 {
     width: 11%;
@@ -31,10 +36,12 @@
     flex-direction: initial;
     border: none;
     text-align: left;
+    background: $purple;
+    color: white;
     .number {
       margin-right: 2rem;
       width: 100px;
-      background: #F9F5FF;
+      background: #B68EF9;
       height: 130px;
       width: 130px;
       border-top-right-radius: 50%;
@@ -44,7 +51,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: $purple;
+      color: white;
       font-weight: bold;
       font-size: 24px !important;
       span {
@@ -70,10 +77,10 @@
     border: none;
     text-align: left;
     .number {
-      width: 100px !important;
-      height: 130px !important;
-      border-top-right-radius: 50px !important;
-      border-bottom-right-radius: 50px !important;
+      width: 125px !important;
+      height: 140px !important;
+      border-top-right-radius: 160px !important;
+      border-bottom-right-radius: 160px !important;
       border-top-left-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
       span {

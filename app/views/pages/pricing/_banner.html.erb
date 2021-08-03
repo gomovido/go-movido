@@ -1,0 +1,19 @@
+<section class="banner container">
+  <div class="row align-items-center">
+    <div class="col-md-5 d-flex align-items-center">
+      <div class="content">
+        <h1 class="pricing-title"><%= headline %></h1>
+        <p><%= subheadline %></p>
+        <%= image_tag(asset_path("components/homepage/background-color.png"), class:"position-absolute w-100") %>
+        <div class="d-flex justify-content-center">
+          <%= image_tag(asset_path("components/homepage/#{img}.png"), class:'d-block d-md-none iphone z-1') %>
+        </div>
+        <%= link_to 'Get started', cta_link, class: 'btn-main mb-3 mb-md-0 mt-md-5 position-relative z-0' %>
+        <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-100 mb-5 trustpilot' ) %>
+      </div>
+    </div>
+    <div class="col-md-7 d-none d-md-block text-end">
+      <%= image_tag(asset_path("components/homepage/#{img}.png"), class:'mb-2') %>
+    </div>
+  </div>
+</section>

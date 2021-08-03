@@ -1,0 +1,19 @@
+<section class="container" data-controller="cards">
+  <div class="row align-items-center">
+    <h2 class='purple mb-5 lite'>FAQs</h2>
+    <div class="col-12">
+      <% faqs.each_with_index do |f, i| %>
+        <div class="faq-card">
+          <div class="question" data-cards-target='input' data-action="click->cards#show click->cards#rotate" data-id=<%= i %>>
+            <span class="content"><%= f[:question] %></span>
+            <i class="far fa-chevron-right chevron_<%= i %>"></i>
+          </div>
+          <div class="answer d-none fade-in" data-cards-target='box'>
+            <hr>
+            <span class="content"><%= f[:answer].html_safe %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
