@@ -36,7 +36,7 @@ RSpec.describe CartReflex, type: :reflex do
     end
 
     context 'without items' do
-      let(:reflex) { build_reflex(url: new_cart_url(pack: 'starter'), connection: { current_user: user }, params: { house: { terms: '1', pack: 'starter'}, order: { affiliate_link: '' } }) }
+      let(:reflex) { build_reflex(url: new_cart_url(pack: 'starter'), connection: { current_user: user }, params: { house: { terms: '1', pack: 'starter' }, order: { affiliate_link: '' } }) }
 
       it 'sticks on the same page if no service is checked' do
         expect(reflex.run(:create)).to morph(".form-base")

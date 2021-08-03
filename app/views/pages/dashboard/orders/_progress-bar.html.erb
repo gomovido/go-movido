@@ -1,0 +1,11 @@
+<div class="product my-2">
+  <div class="d-flex align-items-center justify-content-between">
+    <span><%= t("cart.form.#{product.category.name}", city: current_user.house.country.city) %></span>
+    <div class="img-box">
+      <%= image_tag(product.company.logo_url, class:'logo') %>
+    </div>
+  </div>
+  <div class="progress">
+    <div class="<%= active ? 'progress-bar bg-success' : 'progress-bar bg-warning' %>" role="progressbar" style="<%= active ? 'width: 100%' : 'width: 20%' %>" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</div>

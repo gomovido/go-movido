@@ -17,7 +17,6 @@ class SubscriptionReflex < ApplicationReflex
     end
   end
 
-
   def init_subscription(order)
     Subscription.create(
       order: order,
@@ -25,7 +24,7 @@ class SubscriptionReflex < ApplicationReflex
       activation_price_cents: order.total_activation_amount,
       starting_date: current_user.house.house_detail.contract_starting_date,
       state: "active"
-      )
+    )
   end
 
   def terms_not_checked?(terms)
@@ -37,7 +36,4 @@ class SubscriptionReflex < ApplicationReflex
   def subscription_params
     params.require(:subscription).permit(:terms, :terms_provider, :order_id)
   end
-
-
 end
-
