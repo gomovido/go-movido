@@ -1,0 +1,20 @@
+<div class="pricing-container static-container" data-controller="lead">
+  <%= render "pages/pricing/banner",
+    headline: "The Movido Settle-in Pack",
+    subheadline: 'Combine all your subscriptions in one simple monthly bill for your new home. Stress-free, in 5mins, and with the option to cancel anytime.',
+    background: 'background-color',
+    img: 'settle-in-pack-banner-img-phone',
+    cta_link: onboarding_settle_in_path
+  %>
+  <%= render "pages/pricing/benefits", title: 'the Settle in Pack', benefits: @benefits %>
+  <%= render 'pages/pricing/services', cta_link: onboarding_settle_in_path %>
+  <%= render 'pages/home/how_it_works_mobile', slides: @slides %>
+  <%= render 'shared/components/faqs', faqs: @faqs %>
+  <section class="book-a-call-banner w-100 d-flex d-md-none">
+    <span class="subline"><strong>Any questions?</strong> Speak to us.</span>
+    <%= link_to "<i class='fas fa-headphones-alt me-1'></i> Book a call".html_safe, 'https://calendly.com/alice_movido/movido-introcall', class: 'cta-call d-block py-1' %>
+  </section>
+</div>
+
+
+

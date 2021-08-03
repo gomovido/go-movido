@@ -1,46 +1,26 @@
-  <section class="how-it-works d-block d-md-none mb-5">
+  <section class="how-it-works d-block d-md-none my-5">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 p-4">
           <h2 class="title">How it works</h2>
-          <p>Get everything you need before you arrive in three simple steps.</p>
+          <p class="text-center subheadline"> Make sure that you’re ready as soon as you step off the plane in three simple steps.</p>
         </div>
         <div class="col-12 p-0">
           <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
             <div class="swiper-wrapper">
-              <div class="swiper-slide text-center">
-                <div class="card">
-                  <div class="number">
-                    <span>1</span>
-                  </div>
-                  <div class="content">
-                    <p class="title">You choose what you want</p>
-                    <p class="description">Get started and choose the offers you want – all in one personalized bundle.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide text-center">
-                <div class="card">
-                  <div class="number">
-                    <span>2</span>
-                  </div>
-                  <div class="content">
-                    <p class="title">You only pay for what you need</p>
-                    <p class="description">The price of your bundle is completely customizable–there are no added fees.</p>
+              <% slides.each_with_index do |slide, i| %>
+                <div class="swiper-slide text-center">
+                  <div class="card">
+                    <div class="number">
+                      <span><%= i + 1 %></span>
+                    </div>
+                    <div class="content">
+                      <p class="title"><%= slide[:title] %></p>
+                      <p class="description"><%= slide[:content] %></p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide text-center">
-                <div class="card">
-                  <div class="number">
-                    <span>3</span>
-                  </div>
-                  <div class="content">
-                    <p class="title">We ship it to your current home</p>
-                    <p class="description">We’ll send your bundle directly to your current home - for free and worldwide.</p>
-                  </div>
-                </div>
-              </div>
+              <% end %>
             </div>
             <div class="swiper-pagination position-relative"></div>
           </div>
