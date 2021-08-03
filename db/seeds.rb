@@ -157,24 +157,59 @@ end
 
 
 #Create product details for settle in pack
-
 product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'wifi at home')
-product.update(description: 'Fibre broadband on monthly rolling contract', name: 'WiFi contract')
-ProductDetail.create(product: product, content: 'Super-fast 67 Mb/s avg. dowload speed')
-ProductDetail.create(product: product, content: '1 month rolling contract without lock-up')
-ProductDetail.create(product: product, content: 'Fast and simple set-up')
+product.update(description: 'Plug and Play WiFi (no appointment needed)', name: 'Broadband')
+ProductDetail.create(product: product, content: 'Super-fast 5 Gbit/s avg. dowload speed')
+ProductDetail.create(product: product, content: 'No commitment - cancel anytime')
+ProductDetail.create(product: product, content: 'Fast and simple set-up without technician appointment')
 
 
 product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'Mobile Phone contract')
-product.update(description: 'Use your phone as soon as you arrive', name: 'Phone contract')
-ProductDetail.create(product: product, content: 'Incl. 20 GB data in France & Europe')
+product.update(description: 'Mobile phone contract (SIM only)', name: 'Mobile')
+ProductDetail.create(product: product, content: '25 GB data in France & Europe')
 ProductDetail.create(product: product, content: 'Unltd. calls & text in France & Europe')
-ProductDetail.create(product: product, content: 'Activate once in France, top up after 30 days')
+ProductDetail.create(product: product, content: 'Cancel anytime at no extra cost')
 
 product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'utilities energy')
-product.update(description: 'Use the metro or bus directly in Paris city center ', name: 'Phone contract')
-ProductDetail.create(product: product, content: 'Incl. 20 GB data in France & Europe')
-ProductDetail.create(product: product, content: 'Unltd. calls & text in France & Europe')
-ProductDetail.create(product: product, content: 'Activate once in France, top up after 30 days')
+product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity')
+ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
+ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
+ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
+
+
+
+product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'wifi at home')
+product.update(description: 'Fibre broadband on monthly rolling contract', name: 'WiFi contract')
+ProductDetail.create(product: product, content: 'Super-fast 67 Mb/s avg. dowload speed')
+ProductDetail.create(product: product, content: 'No commitment - cancel anytime')
+ProductDetail.create(product: product, content: 'Fast and simple set-up')
+
+
+product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'Mobile Phone contract')
+product.update(description: 'SIM only - no monthly contract', name: 'SIM card')
+ProductDetail.create(product: product, content: '£5 bonus credit with your first top-up ')
+ProductDetail.create(product: product, content: 'Full flexibility without fixed contract')
+ProductDetail.create(product: product, content: 'All-in-one SIM size to fit all phones')
+
+product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'utilities energy')
+product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity')
+ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
+ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
+ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
+
+
+
+#Update full description for products
+Product.find_by(country: Country.find_by(code: 'fr'), name: 'Housing search support').update(full_description: "Once purchased, we will ask you a few questions necessary to find your dream flat (e.g. preferred area, budget, etc.). Our local flat hunters will then compile a list of suitable options (often from prprietary sources) and send them to you within 24hrs - we are also always available to answer any questions via call. Even though we cannot guarantee finding your flat for €19.90, we will do our best and hundreds of happy users are the best proof.")
+Product.find_by(country: Country.find_by(code: 'fr'), name: 'Local SIM Card').update(full_description: "When arriving in France, you will instantly need a local phone number to make calls yourself and to receive incoming French calls (e.g. from your landlord). Bouygues is one of France’s best providers. The SIM card fits all phones. And after the first month? Simply top up if you like.")
+Product.find_by(country: Country.find_by(code: 'fr'), name: 'Public Transportation Card').update(full_description: "Use your transportation card (“Navigo Card”) right away on the metro or the bus, a trip in the city center costs you €1.90. Using this Navigo card offer, you save a bit and have 10 rides in the Paris city center included. Also here you see, we do not add any extra fees but even help with discounts.")
+Product.find_by(country: Country.find_by(code: 'fr'), name: 'Personal airport Pick-up').update(full_description: "The last thing you want to do after a long flight is hoping to find a cab! With our airport pickup service, as soon as you have your flight details, send them to us. We arrange the pick-up for you so that your personal driver will pick you up upon arrival and drop you off at your new home. We have a fixed price to Paris city centre in place.")
+
+
+Product.find_by(country: Country.find_by(code: 'gb'), name: 'Housing search support').update(full_description: "Once purchased, we will ask you a few questions necessary to find your dream flat (e.g. preferred area, budget, etc.). Our local flat hunters will then compile a list of suitable options (often from proprietary sources) and send them to you within 24hrs - we are also always available to answer any questions via call. Even though we cannot guarantee finding your flat for £19.90, we will do our best and hundreds of happy users are the best proof.")
+Product.find_by(country: Country.find_by(code: 'gb'), name: 'Local SIM Card').update(full_description: "Upon arrival in the UK, you will instantly need a local phone number - to make/receive calls, for your National Insurance Number, or even your taxi. Giffgaff is continuously voted as the best UK phone provider. The SIM card fits all phones. Simply insert and top-up with the phone plan that is best for you. The card comes with £5 credit but costs only £1 - so it’s a no-brainer.")
+Product.find_by(country: Country.find_by(code: 'gb'), name: 'Public Transportation Card').update(full_description: "Use your London transportation card (“Oyster Card”) right away on the tube or bus. Arriving at Heathrow, you can for instance directly use it to get to London city centre. A trip costs you £2.40. The card comes with £5 deposit and £10 credit - so here again, we don’t charge any extra fees and even send it to your home free of charge.")
+Product.find_by(country: Country.find_by(code: 'gb'), name: 'Personal airport Pick-up').update(full_description: "The last thing you want to do after a long flight is hoping to find a cab! With our airport pickup service, as soon as you have your flight details, send them to us. We arrange the pick-up for you so that your personal driver will pick you up upon arrival and drop you off at your new home. We have a fixed price to London city centre in place.")
+
 
 

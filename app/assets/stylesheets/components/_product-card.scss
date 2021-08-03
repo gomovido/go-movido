@@ -36,6 +36,15 @@
       margin-right: 0.5rem;
     }
   }
+  .full-description {
+    span {
+      font-style: italic;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: #979797;
+    }
+  }
   .bottom-part {
     display: flex;
     justify-content: space-between;
