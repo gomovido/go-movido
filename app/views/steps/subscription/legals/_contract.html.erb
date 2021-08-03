@@ -1,0 +1,24 @@
+<div class="legal-card mb-5 mx-auto">
+  <h3>Contract Terms and conditions</h3>
+    <div class="card">
+      <div class="legal content overflow-auto" style="max-height: 440px">
+        <div class="text">
+            <strong>Your combined fee quote is <%= order.currency_symbol %><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %> per month. The combined set-up cost is <%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %> one-off.</strong><br>
+            <span>You're about to sign up to a legally binding contract for the Selected Services below:</span>
+            <ul>
+              <% order.products.each do |product| %>
+                <%= render "steps/subscription/legals/providers/#{product.sku}", product: product, house: order.user.house %>
+              <% end %>
+            </ul>
+            <span>
+            By completing the order, you agree to appoint Movido to act on your behalf in all matters concerning the selected subscription. This means Movido will act as your agent for the supply of the Selected Services. You will deal with and pay Movido under the contracts you choose
+            </span>
+            <div class="d-flex flex-column">
+              <% order.products.each do |product| %>
+                <%= render "steps/subscription/legals/providers/cancellations/#{product.sku}"%>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
