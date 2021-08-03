@@ -1,31 +1,54 @@
 .offers-banner {
-  background: linear-gradient(320deg, #8B3AF7 100%, #A65BFD 0%);
+  background-size: cover;
   justify-content: space-evenly;
   color: $white;
-  p {
-    font-size: 22px;
-    margin: 0;
+  h2 {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 24px;
+  }
+  .subtitle {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 18px;
   }
   .product-card {
     color: $black;
     background: $white;
     min-height: 235px;
     height: 250px;
-    margin-top: 2rem;
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .icon {
+      width: 25px;
+      height: 25px;
+    }
+    .top {
+      margin-top: 6rem;
+    }
+
     h3 {
+      font-family: 'Poppins';
+      font-weight: 700;
       margin-bottom: 0;
-      font-size: 24px;
+      font-size: 18px;
     }
     .description {
       font-style: italic;
       font-size: 14px;
       margin-bottom: 0.3rem;
     }
-    p.detail {
+    p {
+      font-family: 'Poppins';
+      font-weight: 400;
+      font-size: 16px;
+      margin-bottom: 0;
+      .detail {
       font-size: 14px;
+      }
     }
     .name {
       font-weight: bold;
@@ -38,6 +61,14 @@
         height: 50%;
       }
     }
+    img {
+      left: 47%;
+      transform: translate(-50%);
+      top: -13vh;
+    }
+    .movido-card {
+      top: -7vh;
+    }
   }
 }
 
@@ -47,18 +78,6 @@
     padding: 1.5rem 0;
     p {
       text-align: left;
-    }
-    span.subline {
-      font-size: 16px;
-    }
-    .cta-call {
-      margin-top: 9px;
-      border-radius: 7px;
-      border: 1px solid $white;
-      font-size: 16px;
-      font-weight: bold;
-      color: $white;
-      padding: 1rem 1.5rem;
     }
     .product-card {
       height: auto;

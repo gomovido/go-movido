@@ -8,10 +8,10 @@ class PagesController < ApplicationController
         { url: 'UCL_logo' },
         { url: 'Revolut_logo' },
         { url: 'ESCP_logo' },
+        { url: 'Kings_college_logo' },
+        { url: 'Bocconi_logo' },
         { url: 'Bouygues_Telecom_logo' },
-        { url: 'Bouygues_Telecom_logo' },
-        { url: 'Bouygues_Telecom_logo' },
-        { url: 'Bouygues_Telecom_logo' }
+        { url: 'ESN_logo' }
       ]
     @faqs =
       [{
