@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   def new
     @house = current_user.house
     @pack = params[:pack]
-    @order = current_user.current_draft_order || Order.new
+    @order = current_user.current_draft_order(@pack) || Order.new
     @message = generate_messages(@pack)
   end
 

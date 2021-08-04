@@ -145,8 +145,10 @@ class PagesController < ApplicationController
   def thank_you; end
 
   def dashboard
-    redirect_to root_path if Order.where(user: current_user, state: 'succeeded').blank?
-    @orders = Order.where(user: current_user).includes([:products], [:items], [:user], [:shipping], [:subscription])
+    redirect_to root_path if Order.where(user: current_user, state: 'succeeded').blank? && Order.where(user: current_user, state: 'pending_payment').blank?
+    orders = current_user.orders.includes([:products], [:items], [:user], [:shipping], [:subscription])
+    @live_orders = orders.reject{|o| (o.pack == 'settle_in' and o.subscription.nil?)}
+    @pending_orders = orders.filter{|o| o.subscription.nil?}
   end
 
   def setup_homepage
