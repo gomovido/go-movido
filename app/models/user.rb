@@ -19,8 +19,8 @@ class User < ApplicationRecord
     orders.where(state: 'succeeded').present?
   end
 
-  def current_draft_order
-    orders.find_by(state: 'pending_payment')
+  def current_draft_order(pack)
+    orders.filter{|order| order.pack == pack && order.state == 'pending_payment' }.first
   end
 
   def send_welcome_email
