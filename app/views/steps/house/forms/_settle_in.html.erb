@@ -8,7 +8,7 @@
     <%= p.hidden_field :address, required: true, data: { country_target: 'addressInput' } %>
     <div class="lines-input d-flex justify-content-between">
       <%= p.input :tenants, collection: [1, 2, 3, 4, 5, 6, 7], prompt: 'Choose', label: 'Tenants in your home', input_html: {class: 'custom-select'} %>
-      <%= p.input :contract_starting_date, as: :string, label: 'Start date of contract',
+      <%= p.input :contract_starting_date, as: :string, label: 'Contract start date',
                  required: true,
                  input_html: { class:'datepicker', data: {
                   controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
