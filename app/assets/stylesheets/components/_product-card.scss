@@ -6,6 +6,7 @@
   margin-bottom: 1rem;
   padding: 1rem;
   transition-duration: 0.5s;
+  background: white;
   label {
     position: absolute;
     height: 100%;
@@ -104,6 +105,8 @@
     }
   }
 }
+
+
 @include media-breakpoint-down(md) {
   .product-card {
     p.description {

@@ -4,13 +4,14 @@
     subheadline: 'Housing, local SIM, transportation, and airport pick-up - get everything you need before you arrive. Stress-free, in 5mins, and without added fees.',
     background: 'background-color',
     img: 'starter-pack-banner-img-phone',
+    desktop_img: 'desktop-iphone-banner-starter',
     cta_link: onboarding_starter_pack_path
   %>
   <%= render "pages/pricing/benefits", title: 'the Starter in Pack', benefits: @benefits %>
   <%= render 'pages/pricing/services', cta_link: onboarding_starter_pack_path, pack: 'Starter' %>
-  <%= render 'pages/home/how_it_works_mobile', slides: @slides %>
+  <%= render 'pages/home/how_it_works', slides: @slides %>
   <%= render 'shared/components/faqs', faqs: @faqs %>
-  <%= render 'pages/home/contact_banner_mobile' %>
+  <%= render 'pages/home/contact_banner' %>
 </div>
 
 

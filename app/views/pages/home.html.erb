@@ -1,14 +1,10 @@
 <div class='home static-container'>
-  <%= render 'pages/home/banner_mobile' %>
-  <%= render 'pages/home/banner_desktop' %>
+  <%= render 'pages/home/banner' %>
   <%= render 'pages/home/collab_carousel', logos: @logos %>
-  <%= render 'pages/home/collab_desktop', logos: @logos %>
   <%= render 'pages/home/advantages_cards' %>
-  <%= render 'pages/home/advantages_cards_desktop' %>
   <%= render 'pages/home/offers'%>
   <%= render 'shared/components/faqs', faqs: @faqs %>
-  <%= render 'pages/home/contact_banner_mobile' %>
-  <%= render 'pages/home/contact_banner_desktop' %>
+  <%= render 'pages/home/contact_banner' %>
 </div>
 <%= render 'shared/components/onboarding-modal-desktop' %>
 <%= render 'shared/components/onboarding-modal-mobile' %>

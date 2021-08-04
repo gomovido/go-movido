@@ -4,13 +4,14 @@
     subheadline: 'Combine all your subscriptions in one simple monthly bill for your new home. Stress-free, in 5mins, and with the option to cancel anytime.',
     background: 'background-color',
     img: 'settle-in-pack-banner-img-phone',
+    desktop_img: 'desktop-iphone-banner-starter',
     cta_link: onboarding_settle_in_path
   %>
   <%= render "pages/pricing/benefits", title: 'the Settle-in Pack', benefits: @benefits %>
   <%= render 'pages/pricing/services', cta_link: onboarding_settle_in_path, pack: 'Settle-in' %>
-  <%= render 'pages/home/how_it_works_mobile', slides: @slides %>
+  <%= render 'pages/home/how_it_works', slides: @slides %>
   <%= render 'shared/components/faqs', faqs: @faqs %>
-  <%= render 'pages/home/contact_banner_mobile' %>
+  <%= render 'pages/home/contact_banner' %>
 </div>
 
 

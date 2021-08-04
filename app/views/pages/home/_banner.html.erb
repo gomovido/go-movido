@@ -1,25 +1,68 @@
-<section class="banner container">
-  <div class="row align-items-center">
-    <div class="col-md-5 d-flex align-items-center">
-      <div class="content">
-        <h1>Local SIM card, transportation card, housing search – all you need before you arrive in your new home</h1>
-        <%= image_tag(asset_path('components/homepage/banner-iphone.png'), class:'d-block d-md-none', style:"margin-bottom: -2rem !important;") %>
-        <div class="mb-3">
-          <div class="row mb-0 mb-md-5">
-            <p class="col-6 feature"><i class="far fa-check me-3"></i>free shipping</p>
-            <p class="col-5 feature"><i class="far fa-check me-3"></i>without fees</p>
+<section class='d-block d-sm-none' data-controller="logo">
+  <div class="container-fluid p-0">
+    <div class="banner bg-position" style="background-image: url(<%= asset_path('components/homepage/bg_top_home.png') %>);">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="white p-4 pb-0">Get ready for your <br/>new home with</h1>
           </div>
-          <div class="row mb-0 mb-md-5">
-            <p class="col-6 feature"><i class="far fa-check me-3"></i>exclusive offers</p>
-            <p class="col-5 feature mb-2"><i class="far fa-check me-3"></i>in 5 mins</p>
+          <div class="col-12">
+            <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'))%>
           </div>
         </div>
-        <%= link_to 'Get starter pack', onboarding_starter_pack_path, class: 'btn-main mb-5 mb-md-0 mt-md-5' %>
-        <%= link_to 'Get settle in pack', onboarding_settle_in_path, class: 'btn-main mb-5 mb-md-0 mt-md-5' %>
       </div>
     </div>
-    <div class="col-md-7 d-none d-md-block text-end">
-      <%= image_tag(asset_path('components/homepage/banner-iphone.png')) %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex align-items-center justify-content-center">
+            <h3 class="me-1 mb-0">Need</h3>
+            <div class="typing-container d-flex">
+              <span class="sentence purple" data-logo-target="word">Housing?</span>
+              <span class="input-cursor"></span>
+            </div>
+          </div>
+          <input class="d-none" data-logo-target="count" value="0">
+          <p class="text-center px-5">Get the best offers in 5 minutes. Stress-free and without fees.</p>
+          <div class="col-8 mx-auto">
+              <div class="btn-main mb-4 mb-md-0 mt-md-5 mx-auto position-relative z-0" data-bs-toggle="modal" data-bs-target="#onboardingMobileModal">
+                Get started now
+              </div>
+          </div>
+          <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-75 mb-5 mx-auto trustpilot' ) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="d-none d-md-block" data-controller="logo">
+  <div class="homepage-banner bg-position mb-5 align-items-center d-flex flex-column" style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-6 d-flex align-items-center justify-content-end">
+          <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'), class:"animation")%>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-center">
+          <div class="d-flex flex-column h-100">
+            <h1 class="white mb-4">Get ready for your<br> new home with movido</h1>
+            <h2 class="white lite text-left mb-4 static-width">Need <span class='changing-word' data-logo-target="word">housing?</span></h2>
+            <input class="d-none" data-logo-target="count" value="0">
+            <h3 class="white lite">Get the best offer in 5mins, <br />stress-free and without fees.</h3>
+            <div class="col-4 mt-4">
+              <div class="btn-main mx-auto" data-bs-toggle="modal" data-bs-target="#onboardingDesktopModal">
+                Get started now
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <%= image_tag(asset_path('components/homepage/trustpilot-no-shadow.png'), class:'trustpilot' ) %>
+        </div>
+      </div>
     </div>
   </div>
 </section>
