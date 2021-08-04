@@ -19,9 +19,14 @@
     <% else %>
       <div class="left">
         <div class="d-flex flex-column">
-          <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.subscription_price, :unit => '') %>/month</span>
+          <% if !product.variants.blank? %>
+            <span class="price">starting <%= product.country.currency_symbol %><%= number_to_currency(product.variants.first.subscription_price, :unit => '') %>/month</span>
+            <span>*cost depending on flat size</span>
+          <% else %>
+            <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.subscription_price, :unit => '') %>/month</span>
+          <% end %>
           <% if product.activation_price > 0 %>
-            <span class="lite"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %> one-time cost.</span>
+            <span class="lite"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %> one-time cost</span>
           <% end %>
         </div>
       </div>

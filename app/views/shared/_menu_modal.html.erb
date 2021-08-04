@@ -14,11 +14,11 @@
         <div class="content">
           <%= link_to 'HOME', root_path %>
           <%= link_to 'STARTER PACK', pricing_starter_pack_path %>
-          <%= link_to 'SETTLE IN PACK', pricing_settle_in_path %>
+          <%= link_to 'SETTLE-IN PACK', pricing_settle_in_path %>
           <%= link_to 'BLOG', "https://blog.go-movido.com/" %>
           <%= link_to 'ABOUT US', about_path %>
           <% if current_user %>
-            <% if current_user.orders.find_by(state: 'succeeded') %>
+            <% if current_user.orders.find_by(state: 'succeeded') || current_user.orders.find_by(state: 'pending_payment') %>
               <%= link_to 'DASHBOARD', dashboard_path %>
             <% end %>
             <%= link_to 'LOGOUT', destroy_user_session_path, method: 'delete', class: 'purple' %>

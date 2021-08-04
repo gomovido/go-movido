@@ -30,7 +30,7 @@
               <% end %>
             </span>
             <span class="price">
-              <span><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %></span>
+              <span><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
             </span>
           </div>
           <% if product.undiscounted_price %>

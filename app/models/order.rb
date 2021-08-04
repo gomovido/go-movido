@@ -46,7 +46,7 @@ class Order < ApplicationRecord
   end
 
   def pack
-    products.first.category.pack.name
+    products&.first&.category&.pack&.name
   end
 
   def cart

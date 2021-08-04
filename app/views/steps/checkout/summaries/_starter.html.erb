@@ -1,6 +1,6 @@
 <h3 class="my-3">Your Starter Pack</h3>
 <span>directly in the <%= t("country.capital.#{order.items.first.product.country.code}") %> city</span>
-<hr class="w-50">
+<hr>
 <div class="pricing d-flex flex-column text-center">
   <% order.items.includes([:product]).each do |item| %>
     <div class="pricing-card">
