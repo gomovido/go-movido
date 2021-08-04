@@ -1,22 +1,24 @@
-<section class="faq container bg-position pt-4" data-controller="cards" style="background-image: url(<%= asset_path('components/homepage/background-splash.png') %>);">
+<section class="faq container bg-position pt-4 position-relative" data-controller="cards">
+  <%= image_tag(asset_path('components/homepage/background-splash.png'), class:'bg-position position-absolute') %>
   <div class="row align-items-center mt-md-5">
-    <h2 class='purple mb-5 lite text-center'>FAQs</h2>
-      <div class="row">
-        <% faqs.each_with_index do |f, i| %>
-          <div class=col-md-4>
-            <div class="faq-card">
-              <div class="question" data-cards-target='input' data-action="click->cards#show click->cards#rotate" data-id=<%= i %>>
-                <span class="content"><%= f[:question] %></span>
-                <i class="far fa-chevron-down chevron_<%= i %>"></i>
-              </div>
-              <div class="answer d-none fade-in" data-cards-target='box'>
-                <hr>
-                <span class="content"><%= f[:answer].html_safe %></span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-12">
+      <h2 class='purple mb-5 lite text-center'>FAQs</h2>
     </div>
+  </div>
+  <div class="row">
+    <% faqs.each_with_index do |f, i| %>
+      <div class="col-xs-12 col-md-4">
+        <div class="faq-card">
+          <div class="question" data-cards-target='input' data-action="click->cards#show click->cards#rotate" data-id=<%= i %>>
+            <span class="content"><%= f[:question] %></span>
+            <i class="far fa-chevron-down chevron_<%= i %>"></i>
+          </div>
+          <div class="answer fade-in <%= i == 0 ? '' : 'd-none' %>" data-cards-target='box'>
+            <hr>
+            <span class="content"><%= f[:answer].html_safe %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </section>

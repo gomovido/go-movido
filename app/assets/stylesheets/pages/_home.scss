@@ -22,15 +22,24 @@
   }
 }
 
+.static-width {
+  width: 495px;
+}
+
 .homepage-banner {
   background-size: cover;
   height: 75vh;
+  justify-content: center;
   p {
     font-weight: normal;
   }
   .trustpilot {
     width: 250px !important;
     margin-top: 125px;
+  }
+  .changing-word {
+    font-weight: 600;
+    font-size: 36px;
   }
   .animation {
     width: 460px;
@@ -53,5 +62,11 @@
       font-family: 'Poppins';
       font-size: 24px;
     }
+  }
+}
+
+@include media-breakpoint-down(md) {
+ .static-width {
+    width: 100%;
   }
 }
