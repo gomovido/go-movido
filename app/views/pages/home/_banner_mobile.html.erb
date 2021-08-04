@@ -25,7 +25,9 @@
           <input class="d-none" data-logo-target="count" value="0">
           <p class="text-center px-5">Get the best offers in 5 minutes. Stress-free and without fees.</p>
           <div class="col-8 mx-auto">
-            <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mb-4 mb-md-0 mt-md-5 mx-auto position-relative z-0' %>
+              <div class="btn-main mb-4 mb-md-0 mt-md-5 mx-auto position-relative z-0" data-bs-toggle="modal" data-bs-target="#onboardingMobileModal">
+                Get started now
+              </div>
           </div>
           <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-75 mb-5 mx-auto trustpilot' ) %>
         </div>
