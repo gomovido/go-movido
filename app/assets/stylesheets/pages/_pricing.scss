@@ -67,6 +67,9 @@
 
 @include media-breakpoint-down(md) {
   .pricing-container {
+    p.subheadline {
+      font-size: 16px;
+    }
     .services {
       .product-card {
         min-height: auto;

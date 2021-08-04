@@ -1,5 +1,5 @@
 .how-it-works {
-  background: #8330F5;
+  background: $purple;
   color: white;
   .swiper-container {
     border-radius: 0;
@@ -8,7 +8,7 @@
       background: $grey !important;
     }
     .swiper-pagination-bullet-active {
-      background: #8330F5 !important;
+      background: $purple !important;
     }
   }
   .subheadline {
@@ -36,7 +36,7 @@
     flex-direction: initial;
     border: none;
     text-align: left;
-    background: #8330F5;
+    background: $purple;
     color: white;
     .img-box {
       height: 100px;
@@ -47,6 +47,27 @@
       background-size: cover;
       span {
         font-size: 22px;
+      }
+    }
+    .number {
+      margin-right: 2rem;
+      width: 100px;
+      background: #B68EF9;
+      height: 130px;
+      width: 130px;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 24px !important;
+      span {
+        font-size: 30px !important;
+        font-weight: 500;
       }
     }
     .content {
