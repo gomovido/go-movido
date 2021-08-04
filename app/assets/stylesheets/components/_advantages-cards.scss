@@ -1,17 +1,55 @@
 .advantages-cards {
+  span {
+    font-family: 'Poppins';
+    font-size: 24px;
+  }
   .advantage {
     color: white;
     font-weight: 400;
-    padding: 8%;
     border-radius: 8px;
     display: flex;
     align-items: center;
+    text-align: center;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    span {
+      font-size: 17px;
+      padding: 10% 2%;
+    }
+  }
+  .bg-purple-4 {
+    background: #6c2ac8;
+  }
+
+  .bg-purple-5 {
+    background: #762fd4;
+  }
+
+  .bg-purple-6 {
+    background: #844add;
+  }
+
+  .bg-purple-7 {
+    background: #9466e7;
+  }
+
+
+
+}
+@include media-breakpoint-down(md) {
+  h2 {
+    font-size: 24px;
+    text-align: center
+  }
+  .advantage {
+    padding: 8%;
+    min-width: 0px;
+    display: flex;
     span.description {
       font-size: 17px;
       padding: 10% 2%;
     }
   }
+
   .bg-blue {
     background: #0046AD;
   }
@@ -27,5 +65,4 @@
   .bg-purple-3 {
     background: #22055D;
   }
-
 }
