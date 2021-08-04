@@ -1,11 +1,12 @@
-<section class="container">
+<section class="container benefits-wrapper">
   <div class="row align-items-center">
+    <%= image_tag(asset_path('components/homepage/visual-assets/bg-element.png'), class:'position-absolute bg-position z-0') %>
     <h2>The benefits of<br> <%= title %></h2>
     <% benefits.each do |benefit| %>
-      <div class="col-12">
+      <div class="col-12 z-1">
         <div class="benefits-card">
           <%= image_tag(asset_path("components/pricing/#{benefit[:icon]}.png")) %>
-          <span class="content"><%= benefit[:content].html_safe %></span>
+          <span class="content pe-3"><%= benefit[:content].html_safe %></span>
         </div>
       </div>
     <% end %>

@@ -4,23 +4,30 @@
       color: $black;
     }
   }
-  .benefits-card {
-    background: #512DA8;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, $purple, #512DA8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, $purple, #512DA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: white;
-    height: 94px;
-    margin-bottom: 1rem;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    padding: 0% 2.5%;
-    strong {
-      font-weight: 600;
+  .benefits-wrapper {
+    position: relative;
+    .bg-position {
+      width: 46%;
+      top: -62px;
     }
-    img {
-      width: 30px;
-      margin-right: 10px;
+    .benefits-card {
+      background: #512DA8;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, $purple, #512DA8);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, $purple, #512DA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color: white;
+      height: 94px;
+      margin-bottom: 1rem;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      padding: 0% 2.5%;
+      strong {
+        font-weight: 600;
+      }
+      img {
+        width: 30px;
+        margin-right: 10px;
+      }
     }
   }
 }
