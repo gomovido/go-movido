@@ -1,4 +1,15 @@
-<section class="book-a-call-banner d-none d-md-flex align-items-center">
-    <p><strong>Any questions?</strong> Book a call now and speak to us.</p>
-    <%= link_to 'Book a call now', 'https://calendly.com/alice_movido/movido-introcall', class:'btn-main-white' %>
+<section class="book-a-call-banner container d-none d-md-block my-5">
+  <div class="row justify-content-center">
+    <div class="col-6 d-flex align-items-end justify-content-center">
+      <div>
+        <h1 class="mb-5">Any questions?</h1>
+        <span>Our team is here to support you, either through the chat, phone or WhatsApp.</span>
+      </div>
+    </div>
+  <div class="col-6 d-flex align-items-center justify-content-center">
+    <div class="d-flex flex-column h-100 justify-content-center">
+      <%= image_tag(asset_path('components/homepage/thinking-woman.png'), size:'199x280', class:"m-auto")%>
+      <%= link_to "<i class='fas fa-headphones-alt me-1'></i> Book a call".html_safe, 'https://calendly.com/alice_movido/movido-introcall', class:'btn-main' %>
+    </div>
+  </div>
 </section>

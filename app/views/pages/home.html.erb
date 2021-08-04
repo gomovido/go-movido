@@ -30,13 +30,44 @@
             </div>
             <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-75 mb-5 mx-auto trustpilot' ) %>
           </div>
+          <input class="d-none" data-logo-target="count" value="0">
+          <p>Get the best offers in 5 minutes. Stress-free and without fees.</p>
+          <div class="col-8 mx-auto">
+            <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mb-4 mb-md-0 mt-md-5 mx-auto position-relative z-0' %>
+          </div>
+          <%= image_tag(asset_path('components/homepage/trustpilot-no-shadow.png'), class:'d-block d-md-none w-75 mb-5 mx-auto trustpilot' ) %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="d-none d-md-block">
+    <div class="homepage-banner bg-position mb-5"  style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-6 d-flex align-items-center justify-content-center">
+            <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'), class:"animation")%>
+          </div>
+          <div class="col-6 d-flex align-items-center justify-content-center">
+            <div class="d-flex flex-column h-100">
+              <h1 class="white">Get ready for your new home with</h1>
+              <h2 class="white lite text-left">Need Transportation?</h2>
+              <h3 class="white lite">Get the best offer in 5mins, <br />stress-free and without fees.</h3>
+              <div class="col-4 mt-4">
+                <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mx-auto' %>
+              </div>
+            </div>
+          </div>
+          <%= image_tag(asset_path('components/homepage/trustpilot-no-shadow.png'), class:'trustpilot' ) %>
         </div>
       </div>
     </div>
   </section>
   <%= render 'pages/home/collab_carousel', logos: @logos %>
+  <%= render 'pages/home/collab_desktop', logos: @logos %>
   <%= render 'pages/home/advantages_cards' %>
+  <%= render 'pages/home/advantages_cards_desktop' %>
   <%= render 'pages/home/offers'%>
   <%= render 'shared/components/faqs', faqs: @faqs %>
   <%= render 'pages/home/contact_banner_mobile' %>
+  <%= render 'pages/home/contact_banner_desktop' %>
 </div>
