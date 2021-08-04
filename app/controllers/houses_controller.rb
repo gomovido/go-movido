@@ -14,7 +14,7 @@ class HousesController < ApplicationController
       }
     else
       @message = {
-        content: "Great, #{current_user.first_name}! Now let’s talk about your homeand the desired start date for your contracts",
+        content: "Great, #{current_user.first_name}! Now let’s talk about your home and the desired start date for your contracts",
         delay: 0
       }
     end

@@ -11,19 +11,7 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.with(user: User.first).welcome_email_without_confirmation
   end
 
-  def subscription_under_review_email
-    UserMailer.with(user: User.first, subscription: Subscription.last, locale: 'en').subscription_under_review_email
-  end
-
-  def subscription_confirmed_email
-    UserMailer.with(user: User.first, subscription: Subscription.last, locale: 'en').subscription_confirmed_email
-  end
-
-  def booking_under_review_email
-    UserMailer.with(user: User.first, locale: 'en').booking_under_review_email
-  end
-
-  def booking_confirmed_email
-    UserMailer.with(user: User.first, booking: Booking.first, locale: 'en').booking_confirmed_email
+  def contract_agreed
+    UserMailer.with(user_id: User.first.id, order_id: Order.last.id, locale: 'en').contract_agreed
   end
 end

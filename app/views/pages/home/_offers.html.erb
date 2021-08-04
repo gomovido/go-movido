@@ -2,10 +2,10 @@
   <div class="container text-center">
     <h2 class="mt-mb-5">The Movido offer</h2>
     <span class='subtitle'>We have created <b>two packages</b> that will help you get ready for your new home - 100% stress free and with no added fees:</span>
-    <div class="row my-md-4">
-      <div class="col-12 col-md-6">
-        <div class="product-card position-relative text-left">
-          <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="product-card position-relative text-left p-1">
+          <div class="container mb-2">
             <%= image_tag(asset_path('components/homepage/visual-assets/envelope.svg'), class:'position-absolute')%>
           </div>
           <div class="top">
@@ -48,9 +48,11 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6">
-        <div class="product-card position-relative text-left">
-          <%= image_tag(asset_path('components/homepage/visual-assets/all-in-one-card.svg'), class:'position-absolute movido-card')%>
+      <div class="col-12">
+        <div class="product-card position-relative text-left p-2">
+          <div class="container mb-2">
+            <%= image_tag(asset_path('components/homepage/visual-assets/all-in-one-card.svg'), class:'position-absolute movido-card')%>
+          </div>
           <div class="top">
             <div class="container">
               <h3 class="name purple">Settle in Pack</h3>
