@@ -171,7 +171,7 @@ ProductDetail.create(product: product, content: 'Unltd. calls & text in France &
 ProductDetail.create(product: product, content: 'Cancel anytime at no extra cost')
 
 product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'utilities energy')
-product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity'; full_description: "Getting your utilties set-up has never been easier. Simply subscribe to a fixed monthly plan and we will do the rest for you. And if you wish to cancel, you can do so in one click on your personal Movido page. Don’t worry, we won’t charge you any cancellation fees! And by the way, the electricity comes from 100% renewable sources like sun, wind and water.")
+product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity', full_description: "Getting your utilties set-up has never been easier. Simply subscribe to a fixed monthly plan and we will do the rest for you. And if you wish to cancel, you can do so in one click on your personal Movido page. Don’t worry, we won’t charge you any cancellation fees! And by the way, the electricity comes from 100% renewable sources like sun, wind and water.")
 ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
 ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
 ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
