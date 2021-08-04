@@ -21,3 +21,36 @@
     100% {opacity: 0;}
   }
 }
+
+.homepage-banner {
+  background-size: cover;
+  height: 67vh;
+  p {
+    font-weight: normal;
+  }
+  .trustpilot {
+    width: 250px !important;
+  }
+  .animation {
+    width: 460px;
+  }
+  .content {
+    h1 {
+      font-family: 'Poppins';
+      font-size: 36px;
+      font-weight: bold;
+    }
+    h2 {
+      font-family: 'Poppins';
+      font-size: 36px;
+      text-align: left;
+      b {
+        font-weight: 600;
+      }
+    }
+    h3 {
+      font-family: 'Poppins';
+      font-size: 24px;
+    }
+  }
+}
