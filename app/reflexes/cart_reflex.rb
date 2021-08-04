@@ -3,7 +3,7 @@ class CartReflex < ApplicationReflex
 
   def create
     @pack = order_params[:pack]
-    @order = current_user.current_draft_order || Order.new
+    @order = current_user.current_draft_order(@pack) || Order.new
     if terms_not_checked?(order_params[:terms])
       current_user.house.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
       morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
@@ -25,7 +25,7 @@ class CartReflex < ApplicationReflex
 
   def create_settle_in
     @pack = order_params[:pack]
-    @order = Order.where(user: current_user, state: 'pending_payment').first_or_create
+    @order = current_user.current_draft_order(@pack) || Order.create(user: current_user, state: 'pending_payment')
     initialize_cart
     init_user_services
     generate_items
@@ -38,7 +38,7 @@ class CartReflex < ApplicationReflex
   end
 
   def initialize_order
-    @order = Order.where(user: current_user, state: 'pending_payment').first_or_create
+    @order = current_user.current_draft_order(@pack) || Order.create(user: current_user, state: 'pending_payment')
     @order.update(affiliate_link: params[:order][:affiliate_link]) if params[:order][:affiliate_link].present? && promocode_is_valid?(params[:order][:affiliate_link])
   end
 
@@ -66,7 +66,7 @@ class CartReflex < ApplicationReflex
   end
 
   def generate_packs
-    morph '.flow-container', render(partial: "steps/packs", locals: { order: current_user.current_draft_order, message: { content: "Thanks for waiting, please find your customized pack below.", delay: 0 } })
+    morph '.flow-container', render(partial: "steps/packs", locals: { order: current_user.current_draft_order(@pack), message: { content: "Thanks for waiting, please find your customized pack below.", delay: 0 } })
   end
 
   def order_params
