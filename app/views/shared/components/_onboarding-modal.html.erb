@@ -1,0 +1,56 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <div class="row mb-3">
+            <div class="d-flex justify-content-between">
+              <h3 class="title">What do you need?</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <span class='subtitle'>To provide you with the best service, please tell us if: </span>
+          </div>
+          <div class="row">
+            <div class="col-6 d-flex justify-content-end">
+              <%= link_to onboarding_starter_pack_path do  %>
+                <div class="onboarding-card">
+                  <div class="d-flex w-100 justify-content-center">
+                    <%= image_tag(asset_path('components/onboarding-modal/lucide_plane.png')) %>
+                  </div>
+                    <span class="mb-1">Are <b>about to move</b> abroad and need:</span>
+                  <div class="list">
+                  <ul>
+                    <li>- Housing</li>
+                    <li>- Local SIM card</li>
+                    <li>- Airport pick-up</li>
+                    <li>- Transportation</li>
+                  </ul>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-6 justify-content-start d-flex">
+              <%= link_to onboarding_settle_in_path do  %>
+                <div class="onboarding-card">
+                  <div class="d-flex w-100 justify-content-center">
+                    <%= image_tag(asset_path('components/onboarding-modal/house.png')) %>
+                  </div>
+                  <span class="mb-1">You are <b>already in your new home</b> and need:</span>
+                  <div class="list">
+                    <ul>
+                      <li>- WiFi</li>
+                      <li>- Phone</li>
+                      <li>- Gaz</li>
+                      <li>- Energy</li>
+                    </ul>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
