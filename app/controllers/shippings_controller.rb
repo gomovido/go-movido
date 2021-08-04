@@ -1,6 +1,5 @@
 class ShippingsController < ApplicationController
   before_action :redirect_if_order_is_paid, only: [:new]
-
   def new
     @order = Order.find(params[:order_id])
     @shipping = @order.shipping || Shipping.new

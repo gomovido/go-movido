@@ -152,64 +152,64 @@ if Category.all.blank?
   #UK MOBILE PHONE CONTRACT
   company = Company.find_by(name: 'GiffGaff')
   product = Product.create(country: Country.find_by(code: 'gb'), company: company, category: category, description: "mobile phone contract", name: 'Mobile Phone contract', activation_price: 1, subscription_price: 0, image_url: 'https://res.cloudinary.com/dxoeedsno/image/upload/v1626956764/1024px-Free_logo.svg.png')
+
+  #Create product details for settle in pack
+  product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'wifi at home')
+  product.update(description: 'Plug and Play WiFi (no appointment needed)', name: 'Broadband', full_description: "We have pre-selected the best and fastest broadband deal for you. You will always pay the same monthly fee (just €29.90/month). We will send the router to your current home. There is no long-term commitment required - this is a flexible 1 month rolling contract. The average speed of 5Gbit/s is perfect for gaming, downloading, and streaming HD TV on multiple devices.")
+  ProductDetail.create(product: product, content: 'Super-fast 5 Gbit/s avg. dowload speed')
+  ProductDetail.create(product: product, content: 'No commitment - cancel anytime')
+  ProductDetail.create(product: product, content: 'Fast and simple set-up without technician appointment')
+
+
+  product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'Mobile Phone contract')
+  product.update(description: 'Mobile phone contract (SIM only)', name: 'Mobile', full_description: "Bouygues is constantly voted as one of the best French mobile network providers. We have negotiated an exclusive mobile deal which is available for you at just €29.90/month and without any commitment - meaning you can cancel anytime. The plan comes with 25GB of data across Europe (perfect for your travels!) and unlimited calls and texts.")
+  ProductDetail.create(product: product, content: '25 GB data in France & Europe')
+  ProductDetail.create(product: product, content: 'Unltd. calls & text in France & Europe')
+  ProductDetail.create(product: product, content: 'Cancel anytime at no extra cost')
+
+  product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'utilities energy')
+  product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity', full_description: "Getting your utilties set-up has never been easier. Simply subscribe to a fixed monthly plan and we will do the rest for you. And if you wish to cancel, you can do so in one click on your personal Movido page. Don’t worry, we won’t charge you any cancellation fees! And by the way, the electricity comes from 100% renewable sources like sun, wind and water.")
+  ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
+  ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
+  ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
+
+
+
+  product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'wifi at home')
+  product.update(description: 'Fibre broadband on monthly rolling contract', name: 'WiFi contract', full_description: "We have pre-selected the best and fastest broadband deal for you. You will always pay the same monthly fee (just £29.99/month) and a one-off £80 set-up charge. We will send the router to your current home. There is no long-term commitment required - this is a flexible 1 month rolling contract. The average speed of 67Mb/s is perfect for gaming, downloading, and streaming HD TV on multiple devices.")
+  ProductDetail.create(product: product, content: 'Super-fast 67 Mb/s avg. dowload speed')
+  ProductDetail.create(product: product, content: 'No commitment - cancel anytime')
+  ProductDetail.create(product: product, content: 'Fast and simple set-up')
+
+
+  product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'Mobile Phone contract')
+  product.update(description: 'SIM only - no monthly contract', name: 'SIM card', full_description: "Giffgaff is constantly voted as one of the best UK phone providers - it is the budget brand of O2, offering flexible goodybag bundles starting from £6/month but also great pay-as-you-go deals. As the phone needs of our users are particularly diverse, we decided to leave it up to you what plan works best. This is not a monthly contract - simply get the SIM card for £1 (with £5 credit on it) and select your preferred plan afterwards.")
+  ProductDetail.create(product: product, content: '£5 bonus credit with your first top-up ')
+  ProductDetail.create(product: product, content: 'Full flexibility without fixed contract')
+  ProductDetail.create(product: product, content: 'All-in-one SIM size to fit all phones')
+
+  product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'utilities energy')
+  product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity', full_description: "Getting your utilties set-up has never been easier. Simply subscribe to a fixed monthly plan and we will do the rest for you. And if you wish to cancel, you can do so in one click on your personal Movido page. Don’t worry, we won’t charge you any cancellation fees! And by the way, the electricity comes from 100% renewable sources like sun, wind and water.")
+  ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
+  ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
+  ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
+
+
+
+  #Update full description for products
+  Product.find_by(country: Country.find_by(code: 'fr'), name: 'Housing search support').update(full_description: "Once purchased, we will ask you a few questions necessary to find your dream flat (e.g. preferred area, budget, etc.). Our local flat hunters will then compile a list of suitable options (often from prprietary sources) and send them to you within 24hrs - we are also always available to answer any questions via call. Even though we cannot guarantee finding your flat for €19.90, we will do our best and hundreds of happy users are the best proof.")
+  Product.find_by(country: Country.find_by(code: 'fr'), name: 'Local SIM Card').update(full_description: "When arriving in France, you will instantly need a local phone number to make calls yourself and to receive incoming French calls (e.g. from your landlord). Bouygues is one of France’s best providers. The SIM card fits all phones. And after the first month? Simply top up if you like.")
+  Product.find_by(country: Country.find_by(code: 'fr'), name: 'Public Transportation Card').update(full_description: "Use your transportation card (“Navigo Card”) right away on the metro or the bus, a trip in the city center costs you €1.90. Using this Navigo card offer, you save a bit and have 10 rides in the Paris city center included. Also here you see, we do not add any extra fees but even help with discounts.")
+  Product.where(country: Country.find_by(code: 'fr'), name: 'Personal airport Pick-up').update(full_description: "The last thing you want to do after a long flight is hoping to find a cab! With our airport pickup service, as soon as you have your flight details, send them to us. We arrange the pick-up for you so that your personal driver will pick you up upon arrival and drop you off at your new home. We have a fixed price to Paris city centre in place.")
+
+
+  Product.find_by(country: Country.find_by(code: 'gb'), name: 'Housing search support').update(full_description: "Once purchased, we will ask you a few questions necessary to find your dream flat (e.g. preferred area, budget, etc.). Our local flat hunters will then compile a list of suitable options (often from proprietary sources) and send them to you within 24hrs - we are also always available to answer any questions via call. Even though we cannot guarantee finding your flat for £19.90, we will do our best and hundreds of happy users are the best proof.")
+  Product.find_by(country: Country.find_by(code: 'gb'), name: 'Local SIM Card').update(full_description: "Upon arrival in the UK, you will instantly need a local phone number - to make/receive calls, for your National Insurance Number, or even your taxi. Giffgaff is continuously voted as the best UK phone provider. The SIM card fits all phones. Simply insert and top-up with the phone plan that is best for you. The card comes with £5 credit but costs only £1 - so it’s a no-brainer.")
+  Product.find_by(country: Country.find_by(code: 'gb'), name: 'Public Transportation Card').update(full_description: "Use your London transportation card (“Oyster Card”) right away on the tube or bus. Arriving at Heathrow, you can for instance directly use it to get to London city centre. A trip costs you £2.40. The card comes with £5 deposit and £10 credit - so here again, we don’t charge any extra fees and even send it to your home free of charge.")
+  Product.find_by(country: Country.find_by(code: 'gb'), name: 'Personal airport Pick-up').update(full_description: "The last thing you want to do after a long flight is hoping to find a cab! With our airport pickup service, as soon as you have your flight details, send them to us. We arrange the pick-up for you so that your personal driver will pick you up upon arrival and drop you off at your new home. We have a fixed price to London city centre in place.")
+
 end
 
-
-
-#Create product details for settle in pack
-product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'wifi at home')
-product.update(description: 'Plug and Play WiFi (no appointment needed)', name: 'Broadband', full_description: "We have pre-selected the best and fastest broadband deal for you. You will always pay the same monthly fee (just €29.90/month). We will send the router to your current home. There is no long-term commitment required - this is a flexible 1 month rolling contract. The average speed of 5Gbit/s is perfect for gaming, downloading, and streaming HD TV on multiple devices.")
-ProductDetail.create(product: product, content: 'Super-fast 5 Gbit/s avg. dowload speed')
-ProductDetail.create(product: product, content: 'No commitment - cancel anytime')
-ProductDetail.create(product: product, content: 'Fast and simple set-up without technician appointment')
-
-
-product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'Mobile Phone contract')
-product.update(description: 'Mobile phone contract (SIM only)', name: 'Mobile', full_description: "Bouygues is constantly voted as one of the best French mobile network providers. We have negotiated an exclusive mobile deal which is available for you at just €29.90/month and without any commitment - meaning you can cancel anytime. The plan comes with 25GB of data across Europe (perfect for your travels!) and unlimited calls and texts.")
-ProductDetail.create(product: product, content: '25 GB data in France & Europe')
-ProductDetail.create(product: product, content: 'Unltd. calls & text in France & Europe')
-ProductDetail.create(product: product, content: 'Cancel anytime at no extra cost')
-
-product = Product.find_by(country: Country.find_by(code: 'fr'), name: 'utilities energy')
-product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity', full_description: "Getting your utilties set-up has never been easier. Simply subscribe to a fixed monthly plan and we will do the rest for you. And if you wish to cancel, you can do so in one click on your personal Movido page. Don’t worry, we won’t charge you any cancellation fees! And by the way, the electricity comes from 100% renewable sources like sun, wind and water.")
-ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
-ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
-ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
-
-
-
-product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'wifi at home')
-product.update(description: 'Fibre broadband on monthly rolling contract', name: 'WiFi contract', full_description: "We have pre-selected the best and fastest broadband deal for you. You will always pay the same monthly fee (just £29.99/month) and a one-off £80 set-up charge. We will send the router to your current home. There is no long-term commitment required - this is a flexible 1 month rolling contract. The average speed of 67Mb/s is perfect for gaming, downloading, and streaming HD TV on multiple devices.")
-ProductDetail.create(product: product, content: 'Super-fast 67 Mb/s avg. dowload speed')
-ProductDetail.create(product: product, content: 'No commitment - cancel anytime')
-ProductDetail.create(product: product, content: 'Fast and simple set-up')
-
-
-product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'Mobile Phone contract')
-product.update(description: 'SIM only - no monthly contract', name: 'SIM card', full_description: "Giffgaff is constantly voted as one of the best UK phone providers - it is the budget brand of O2, offering flexible goodybag bundles starting from £6/month but also great pay-as-you-go deals. As the phone needs of our users are particularly diverse, we decided to leave it up to you what plan works best. This is not a monthly contract - simply get the SIM card for £1 (with £5 credit on it) and select your preferred plan afterwards.")
-ProductDetail.create(product: product, content: '£5 bonus credit with your first top-up ')
-ProductDetail.create(product: product, content: 'Full flexibility without fixed contract')
-ProductDetail.create(product: product, content: 'All-in-one SIM size to fit all phones')
-
-product = Product.find_by(country: Country.find_by(code: 'gb'), name: 'utilities energy')
-product.update(description: 'Utilities in one click for your new home', name: 'Gas & Electricity', full_description: "Getting your utilties set-up has never been easier. Simply subscribe to a fixed monthly plan and we will do the rest for you. And if you wish to cancel, you can do so in one click on your personal Movido page. Don’t worry, we won’t charge you any cancellation fees! And by the way, the electricity comes from 100% renewable sources like sun, wind and water.")
-ProductDetail.create(product: product, content: 'Fixed payments each month depending on your estimated consumption')
-ProductDetail.create(product: product, content: 'No additional fees - fully transparent and simple pricing')
-ProductDetail.create(product: product, content: '1 min set-up time and cancel in just one click')
-
-
-
-#Update full description for products
-Product.find_by(country: Country.find_by(code: 'fr'), name: 'Housing search support').update(full_description: "Once purchased, we will ask you a few questions necessary to find your dream flat (e.g. preferred area, budget, etc.). Our local flat hunters will then compile a list of suitable options (often from prprietary sources) and send them to you within 24hrs - we are also always available to answer any questions via call. Even though we cannot guarantee finding your flat for €19.90, we will do our best and hundreds of happy users are the best proof.")
-Product.find_by(country: Country.find_by(code: 'fr'), name: 'Local SIM Card').update(full_description: "When arriving in France, you will instantly need a local phone number to make calls yourself and to receive incoming French calls (e.g. from your landlord). Bouygues is one of France’s best providers. The SIM card fits all phones. And after the first month? Simply top up if you like.")
-Product.find_by(country: Country.find_by(code: 'fr'), name: 'Public Transportation Card').update(full_description: "Use your transportation card (“Navigo Card”) right away on the metro or the bus, a trip in the city center costs you €1.90. Using this Navigo card offer, you save a bit and have 10 rides in the Paris city center included. Also here you see, we do not add any extra fees but even help with discounts.")
-Product.find_by(country: Country.find_by(code: 'fr'), name: 'Personal airport Pick-up').update(full_description: "The last thing you want to do after a long flight is hoping to find a cab! With our airport pickup service, as soon as you have your flight details, send them to us. We arrange the pick-up for you so that your personal driver will pick you up upon arrival and drop you off at your new home. We have a fixed price to Paris city centre in place.")
-
-
-Product.find_by(country: Country.find_by(code: 'gb'), name: 'Housing search support').update(full_description: "Once purchased, we will ask you a few questions necessary to find your dream flat (e.g. preferred area, budget, etc.). Our local flat hunters will then compile a list of suitable options (often from proprietary sources) and send them to you within 24hrs - we are also always available to answer any questions via call. Even though we cannot guarantee finding your flat for £19.90, we will do our best and hundreds of happy users are the best proof.")
-Product.find_by(country: Country.find_by(code: 'gb'), name: 'Local SIM Card').update(full_description: "Upon arrival in the UK, you will instantly need a local phone number - to make/receive calls, for your National Insurance Number, or even your taxi. Giffgaff is continuously voted as the best UK phone provider. The SIM card fits all phones. Simply insert and top-up with the phone plan that is best for you. The card comes with £5 credit but costs only £1 - so it’s a no-brainer.")
-Product.find_by(country: Country.find_by(code: 'gb'), name: 'Public Transportation Card').update(full_description: "Use your London transportation card (“Oyster Card”) right away on the tube or bus. Arriving at Heathrow, you can for instance directly use it to get to London city centre. A trip costs you £2.40. The card comes with £5 deposit and £10 credit - so here again, we don’t charge any extra fees and even send it to your home free of charge.")
-Product.find_by(country: Country.find_by(code: 'gb'), name: 'Personal airport Pick-up').update(full_description: "The last thing you want to do after a long flight is hoping to find a cab! With our airport pickup service, as soon as you have your flight details, send them to us. We arrange the pick-up for you so that your personal driver will pick you up upon arrival and drop you off at your new home. We have a fixed price to London city centre in place.")
 
 
 
