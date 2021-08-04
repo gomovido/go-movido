@@ -50,11 +50,11 @@ class PagesController < ApplicationController
        },
        {
          icon: 'credit-card',
-         content: "Only <strong>one-off payments</strong>without any long-term commitment</span>"
+         content: "Only <strong>one-off payments</strong> without any long-term commitment</span>"
        },
        {
          icon: 'tag',
-         content: "<strong>Exclusive discounts</strong>on most offers available only on Movido</span>"
+         content: "<strong>Exclusive discounts</strong> on most offers available only on Movido</span>"
        },
        {
          icon: 'house',
@@ -84,7 +84,7 @@ class PagesController < ApplicationController
        },
        {
          question: "Housing search guarantee?",
-         answer: "We do our best to find your dream flat. So far, we have always been able to provide our users with their perfect apartment -  > 1,200 students in Paris and London alone. However, for EUR 19.90/GBP 19.90 we simply cannot guarantee it."
+         answer: "We do our best to find your dream flat. So far, we have always been able to provide our users with their perfect apartment -  > 1,200 students in Paris and London alone. However, for  €19.90 / £19.90 we simply cannot guarantee it."
        }]
     @services = Pack.find_by(name: 'starter').services.includes([:category])
   end
@@ -105,7 +105,7 @@ class PagesController < ApplicationController
        },
        {
          icon: 'tag',
-         content: "<strong>Exclusive discounts</strong>on most offers available only on Movido</span>"
+         content: "<strong>Exclusive discounts</strong> on most offers available only on Movido</span>"
        },
        {
          icon: 'chrono',
