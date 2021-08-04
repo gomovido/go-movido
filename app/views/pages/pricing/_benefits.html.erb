@@ -1,14 +1,38 @@
-<section class="container benefits-wrapper">
-  <div class="row align-items-center">
-    <%= image_tag(asset_path('components/homepage/visual-assets/bg-element.png'), class:'position-absolute bg-position z-0') %>
-    <h2>The benefits of<br> <%= title %></h2>
-    <% benefits.each do |benefit| %>
-      <div class="col-12 z-1">
-        <div class="benefits-card">
-          <%= image_tag(asset_path("components/pricing/#{benefit[:icon]}.png")) %>
-          <span class="content pe-3"><%= benefit[:content].html_safe %></span>
+<section class="d-block d-md-none">
+  <div class="container benefits-wrapper">
+    <div class="row align-items-center">
+      <%= image_tag(asset_path('components/homepage/visual-assets/bg-element.png'), class:'position-absolute bg-position z-0') %>
+      <h2>The benefits of<br> <%= title %></h2>
+      <% benefits.each do |benefit| %>
+        <div class="col-12 z-1">
+          <div class="benefits-card">
+            <%= image_tag(asset_path("components/pricing/#{benefit[:icon]}.png")) %>
+            <span class="content pe-3"><%= benefit[:content].html_safe %></span>
+          </div>
         </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<section class="d-none d-md-block linear-purple py-5">
+  <div class="container benefits-wrapper">
+    <div class="row mb-5">
+      <div class="col-10 offset-2">
+        <h2 class="white text-left pb-3 title">The benefits of <%= title %></h2>
+        <p class='white subheadline'>You’re in the right place! With Movido, make your move abroad as easy<br> as making a cup of tea.</p>
       </div>
-    <% end %>
+    </div>
+    <div class="row align-items-center justify-content-around">
+      <% benefits.each do |benefit| %>
+        <div class="col-2 z-1">
+          <div class="benefits-card flex-column justify-content-center align-items-center text-center">
+            <div class="img-box position-relative" style="background-image: url(<%= asset_path("components/pricing/#{benefit[:icon]}-layer.png") %>);">
+              <%= image_tag(asset_path("components/pricing/#{benefit[:icon]}.png")) %>
+            </div>
+            <span class="content pe-3"><%= benefit[:content].html_safe %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>

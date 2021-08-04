@@ -13,7 +13,7 @@
             <span class="content"><%= f[:question] %></span>
             <i class="far fa-chevron-down chevron_<%= i %>"></i>
           </div>
-          <div class="answer fade-in <%= i == 0 ? '' : 'd-none' %>" data-cards-target='box'>
+          <div class="answer fade-in <%= i == 1 ? '' : 'd-none' %>" data-cards-target='box'>
             <hr>
             <span class="content"><%= f[:answer].html_safe %></span>
           </div>

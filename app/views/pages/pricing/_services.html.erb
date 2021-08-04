@@ -1,21 +1,33 @@
-<section class="container my-3" data-controller="cards">
-  <div class="row align-items-center">
-    <h2>What’s included?</h2>
-    <p class="text-center">The <%= pack %> Pack is currently available<br> for the UK and France - simply select<br> where you are moving to</p>
-    <div class="col-12 d-flex justify-content-center mb-3">
-      <ul class="nav nav-tabs w-100 text-center justify-content-around" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">France</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">UK</button>
-        </li>
-      </ul>
+<section class="my-sm-3 services my-md-5" data-controller="cards">
+  <div class="container">
+    <div class="row mb-5 d-none d-md-block ">
+      <div class="col-10 offset-2">
+        <h2 class="purple text-left pb-3 title">What’s included?</h2>
+        <p class='black subheadline'>The <%= pack %> Pack is currently available for the UK and France - simply<br> select where you are moving to</p>
+      </div>
     </div>
-    <div class="col-12">
+    <div class="row align-items-center">
+      <div class="col-12 d-block d-md-none">
+        <h2 class="title purple">What’s included?</h2>
+        <p class="text-center subheadline black">The <%= pack %> Pack is currently available<br> for the UK and France - simply select<br> where you are moving to</p>
+      </div>
+      <div class="col-12 d-flex justify-content-center mb-3">
+        <ul class="nav nav-tabs w-100 text-center justify-content-around" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">France</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">UK</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mb-md-5">
+    <div class="row">
       <div class="tab-content">
         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <div class="product-cards-wrapper row row-cols-lg-2 justify-content-lg-center mx-1 mb-2">
+          <div class="product-cards-wrapper row justify-content-lg-center mx-1 mb-2">
             <% @services.each do |service| %>
               <% product = service.product(Country.find_by(code: 'fr')) %>
               <%= render 'shared/product-card', product: product %>
@@ -23,7 +35,7 @@
           </div>
         </div>
         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <div class="product-cards-wrapper row row-cols-lg-2 justify-content-lg-center mx-1 mb-2">
+          <div class="product-cards-wrapper row justify-content-lg-center mx-1 mb-2">
             <% @services.each do |service| %>
               <% product = service.product(Country.find_by(code: 'gb')) %>
               <%= render 'shared/product-card', product: product %>
@@ -32,8 +44,12 @@
         </div>
       </div>
     </div>
-    <div class="col-12">
-      <%= link_to 'Get Started now', cta_link, class:'btn-main' %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 offset-md-4">
+        <%= link_to 'Get Started now', cta_link, class:'btn-main' %>
+      </div>
     </div>
   </div>
 </section>
