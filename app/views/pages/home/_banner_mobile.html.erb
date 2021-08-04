@@ -1,0 +1,35 @@
+<section class='d-block d-sm-none'>
+  <div class="container-fluid p-0">
+    <div class="banner bg-position" style="background-image: url(<%= asset_path('components/homepage/bg_top_home.png') %>);">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="white p-4 pb-0">Get ready for your <br/>new home with</h1>
+          </div>
+          <div class="col-12">
+            <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'))%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex align-items-center justify-content-center">
+            <h3 class="me-1 mb-0">Need</h3>
+            <div class="typing-container d-flex">
+              <span class="sentence purple" data-logo-target="word">Housing?</span>
+              <span class="input-cursor"></span>
+            </div>
+          </div>
+          <input class="d-none" data-logo-target="count" value="0">
+          <p class="text-center px-5">Get the best offers in 5 minutes. Stress-free and without fees.</p>
+          <div class="col-8 mx-auto">
+            <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mb-4 mb-md-0 mt-md-5 mx-auto position-relative z-0' %>
+          </div>
+          <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'d-block d-md-none w-75 mb-5 mx-auto trustpilot' ) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
