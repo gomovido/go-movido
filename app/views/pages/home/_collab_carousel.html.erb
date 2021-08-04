@@ -1,19 +1,18 @@
-  <section class="collab d-block d-md-none my-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 p-4">
-          <h2 class="title purple lite">In collaboration with</h2>
-        </div>
-        <div class="col-12 p-0">
-          <div data-controller="carousel" class="swiper-container justify-content-center pb-2" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
-            <div class="swiper-wrapper">
-              <% logos.each_slice(2) do |logos| %>
-                <div class="swiper-slide d-flex align-items-center justify-content-around">
-                  <% logos.each do |logo| %>
-                    <div class="logo-card d-flex align-items-center justify-content-center">
-                      <div class="content m-auto">
-                        <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
-                      </div>
+<section class="collab d-block d-md-none my-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 p-4">
+        <h2 class="title purple lite">In collaboration with</h2>
+      </div>
+      <div class="col-12 p-0">
+        <div data-controller="carousel" class="swiper-container justify-content-center pb-2" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+          <div class="swiper-wrapper">
+            <% logos.each_slice(2) do |logos| %>
+              <div class="swiper-slide d-flex align-items-center justify-content-around">
+                <% logos.each do |logo| %>
+                  <div class="logo-card d-flex align-items-center justify-content-center">
+                    <div class="content m-auto">
+                      <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
                     </div>
                   </div>
                 <% end %>
