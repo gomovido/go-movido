@@ -1,21 +1,28 @@
-<section class="d-none d-md-block">
-  <div class="homepage-banner bg-position mb-5 align-items-center d-flex" style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-6 d-flex align-items-center justify-content-center">
+<section class="d-none d-md-block" data-controller="logo">
+  <div class="homepage-banner bg-position mb-5 align-items-center d-flex flex-column" style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-6 d-flex align-items-center justify-content-end">
           <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'), class:"animation")%>
         </div>
         <div class="col-6 d-flex align-items-center justify-content-center">
           <div class="d-flex flex-column h-100">
-            <h1 class="white">Get ready for your new home with</h1>
-            <h2 class="white lite text-left">Need Transportation?</h2>
+            <h1 class="white mb-4">Get ready for your<br> new home with movido</h1>
+            <h2 class="white lite text-left mb-4 static-width">Need <span class='changing-word' data-logo-target="word">housing?</span></h2>
+            <input class="d-none" data-logo-target="count" value="0">
             <h3 class="white lite">Get the best offer in 5mins, <br />stress-free and without fees.</h3>
             <div class="col-4 mt-4">
               <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mx-auto' %>
             </div>
           </div>
         </div>
-        <%= image_tag(asset_path('components/homepage/trustpilot-no-shadow.png'), class:'trustpilot' ) %>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <%= image_tag(asset_path('components/homepage/trustpilot-no-shadow.png'), class:'trustpilot' ) %>
+        </div>
       </div>
     </div>
   </div>

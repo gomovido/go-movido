@@ -1,24 +1,20 @@
 <section class="collab d-none d-md-block">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-12 p-4">
         <h2 class="title purple lite">In collaboration with</h2>
       </div>
-      <div class="col-12 p-0">
-        <div class="justify-content-center pb-2">
-            <% logos.each_slice(6) do |logos| %>
-              <div class=" d-flex align-items-center justify-content-around">
-                <% logos.each do |logo| %>
-                  <div class="logo-card d-flex align-items-center justify-content-center">
-                    <div class="content m-auto">
-                      <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
     </div>
+    <% logos.each_slice(6) do |logos| %>
+      <div class="row justify-content-center">
+        <% logos.each do |logo| %>
+          <div class="col-2 logo-card d-flex align-items-center justify-content-center m-2">
+            <div class="content m-auto">
+              <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </section>

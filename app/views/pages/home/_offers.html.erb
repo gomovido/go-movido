@@ -1,9 +1,15 @@
-<section class="offers-banner" style="background-image: url(<%= asset_path('components/homepage/offers-bg.png') %>)">
+<section class="offers-banner">
+  <%= image_tag(asset_path('components/homepage/visual-assets/bg-element.png'), class:'position-absolute bg-position-1 z-0') %>
+  <%= image_tag(asset_path('components/homepage/visual-assets/bg-element.png'), class:'position-absolute bg-position-2 z-0') %>
   <div class="container text-center">
-    <h2 class="mt-mb-5">The Movido offer</h2>
-    <span class='subtitle'>We have created <b>two packages</b> that will help you get ready for your new home - 100% stress free and with no added fees:</span>
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
+        <h2 class="mt-mb-5">The Movido offer</h2>
+        <span class='subtitle'>We have created <b>two packages</b> that will help you get ready for your new home - 100% stress free and with no added fees:</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 d-flex justify-content-center">
         <div class="product-card position-relative text-left p-1">
           <div class="container mb-2">
             <%= image_tag(asset_path('components/homepage/visual-assets/envelope.svg'), class:'position-absolute')%>
@@ -48,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-sm-12 col-md-6 d-flex justify-content-center">
         <div class="product-card position-relative text-left p-2">
           <div class="container mb-2">
             <%= image_tag(asset_path('components/homepage/visual-assets/all-in-one-card.svg'), class:'position-absolute movido-card')%>

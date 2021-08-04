@@ -3,6 +3,11 @@
     font-family: 'Poppins';
     font-size: 24px;
   }
+  .bg-position {
+    width: 20%;
+    left: 15%;
+    top: -60%;
+  }
   .advantage {
     color: white;
     font-weight: 400;
@@ -31,10 +36,9 @@
   .bg-purple-7 {
     background: #9466e7;
   }
-
-
-
 }
+
+
 @include media-breakpoint-down(md) {
   h2 {
     font-size: 24px;

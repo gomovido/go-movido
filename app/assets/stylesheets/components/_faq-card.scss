@@ -1,5 +1,11 @@
 .faq {
   min-height: 59vh;
+  .bg-position {
+    width: 100%;
+    top: -100%;
+    left: -40%;
+    z-index: -1;
+  }
 }
 
 .faq-card {
@@ -8,7 +14,7 @@
   padding: 6%;
   margin-bottom: 2rem;
   background: white;
-  min-width: 350px;
+  cursor: pointer;
   .question {
     display: flex;
     align-items: center;
@@ -35,6 +41,13 @@
   }
 }
 @include media-breakpoint-down(md) {
+.faq {
+  .bg-position {
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
   .faq-card {
     padding: 10%;
   }
