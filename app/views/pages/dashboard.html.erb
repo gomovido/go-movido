@@ -3,7 +3,7 @@
     <div class="row justify-content-around">
       <div class="col-xs-12">
         <h1 class="mt-3"><span class='purple bold'>Movi</span>board</h1>
-        <p class='mb-3'>Manage all your services.</p>
+        <p class='mb-3'>Manage your contract.</p>
       </div>
       <div class="col-xs-12">
         <div class="user-profil">
@@ -25,8 +25,8 @@
   <hr>
   <div class="container">
     <div class="row">
-      <h1>Services</h1>
-      <p class='mb-3'>Summary of your movido services.</p>
+      <h1>Contract</h1>
+      <p class='mb-3'>Summary of your movido contract.</p>
       <% @orders.each do |order| %>
         <%= render "pages/dashboard/orders/#{order.pack}", order: order%>
       <% end %>
