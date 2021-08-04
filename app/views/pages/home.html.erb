@@ -1,6 +1,6 @@
 <div class='home static-container' data-controller="logo">
   <section>
-    <div class="banner container-fluid" style="background-image: url(<%= asset_path('components/homepage/bg_top_home.png') %>);">
+    <div class="banner container-fluid d-md-none" style="background-image: url(<%= asset_path('components/homepage/bg_top_home.png') %>);">
       <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'), class:"animation position-absolute")%>
       <div class="row">
         <div class="mt-4">
@@ -10,7 +10,26 @@
         </div>
       </div>
     </div>
-    <div class="container mt-5">
+    <div class="banner container d-none d-md-block" style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
+      <div class="row justify-content-center">
+        <div class="container col-6">
+          <div class="d-flex justify-content-center h-100">
+            <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'), class:"animation")%>
+          </div>
+        </div>
+        <div class="content container col-6">
+          <div class="d-flex flex-column h-100 justify-content-center">
+            <h1 class="white">Get ready for your new home with</h1>
+            <h2 class="white lite">Need <b>Transportation</b>?</h2>
+            <h3 class="white lite">Get the best offer in 5mins, <br />stress-free and without fees.</h3>
+            <div class="col-4 mt-4">
+              <%= link_to 'Get started now', onboarding_starter_pack_path, class: 'btn-main mx-auto' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5 d-md-none">
       <div class="row">
         <div class="text-center mt-5">
           <div class="d-flex align-items-center justify-content-center">
@@ -31,6 +50,7 @@
     </div>
   </section>
   <%= render 'pages/home/collab_carousel', logos: @logos %>
+  <%= render 'pages/home/collab_desktop', logos: @logos %>
   <%= render 'pages/home/advantages_cards' %>
   <%= render 'pages/home/offers'%>
   <%= render 'shared/components/faqs', faqs: @faqs %>
