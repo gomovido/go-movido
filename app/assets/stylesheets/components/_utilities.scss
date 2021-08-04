@@ -120,10 +120,6 @@ button {
   background-size: cover;
 }
 
-.mh-100 {
-  min-height: 100vh  !important;
-}
-
 .white {
   color: $white !important;
 }
@@ -159,6 +155,10 @@ button {
 
 .w-10 {
   width: 10% !important;
+}
+
+.mh-100 {
+  min-height: 100%;
 }
 
 .ap-input-icon {

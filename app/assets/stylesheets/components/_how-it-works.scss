@@ -38,6 +38,17 @@
     text-align: left;
     background: $purple;
     color: white;
+    .img-box {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      background-size: cover;
+      span {
+        font-size: 22px;
+      }
+    }
     .number {
       margin-right: 2rem;
       width: 100px;
