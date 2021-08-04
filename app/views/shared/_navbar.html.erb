@@ -27,7 +27,9 @@
           <%= link_to (current_user ? 'Dashboard' : 'Login'), dashboard_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Get Started for free', onboarding_starter_pack_path, class: 'btn-main' %>
+          <div class="btn-main mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Get started now
+          </div>
         </li>
       </ul>
     </div>
