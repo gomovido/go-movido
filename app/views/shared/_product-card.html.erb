@@ -1,41 +1,47 @@
-<div class="product-card text-left h-auto col-12 col-lg-4 m-lg-2" data-cards-target='input' data-action="click->cards#displayFullDescription click->cards#rotate" data-id=<%= product.id %>>
-  <div class="d-flex align-items-center justify-content-between">
-    <h3 class="name"><%= product.name %></h3>
-    <i class="far fa-chevron-down chevron_<%= product.id %>"></i>
-  </div>
-  <p class="description"><%= product.description %></p>
-  <% product.product_details.each do |product_detail| %>
-    <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
-  <% end %>
-  <div class="full-description fade-in d-none" data-cards-target='box' data-id=<%= product.id %>>
-    <span><%= product.full_description %></span>
-    <hr>
-  </div>
-  <div class="bottom-part align-items-center">
-    <% if product.starter_pack? %>
-      <div class="left">
-        <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span>
+<div class="col-12 col-md-3">
+  <div class="product-card d-flex flex-column justify-content-around text-left h-auto" data-cards-target='input' data-action="click->cards#displayFullDescription click->cards#rotate" data-id=<%= product.id %>>
+    <div class="top">
+      <div class="d-flex align-items-center justify-content-between">
+        <h3 class="name"><%= product.name %></h3>
+        <i class="far fa-chevron-down chevron_<%= product.id %>"></i>
       </div>
-    <% else %>
-      <div class="left">
-        <div class="d-flex flex-column">
-          <% if !product.variants.blank? %>
-            <span class="price">starting <%= product.country.currency_symbol %><%= number_to_currency(product.variants.first.subscription_price, :unit => '') %>/month</span>
-            <span>*cost depending on flat size</span>
-          <% else %>
-            <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.subscription_price, :unit => '') %>/month</span>
-          <% end %>
-          <% if product.activation_price > 0 %>
-            <span class="lite"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %> one-time cost</span>
-          <% end %>
+      <p class="description"><%= product.description %></p>
+    </div>
+    <div class="mid">
+      <% product.product_details.each do |product_detail| %>
+        <p class="detail"><i class="far fa-check"></i><%= product_detail.content %></p>
+      <% end %>
+      <div class="full-description fade-in d-none" data-cards-target='box' data-id=<%= product.id %>>
+        <span><%= product.full_description %></span>
+        <hr>
+      </div>
+    </div>
+    <div class="bottom-part align-items-center">
+      <% if product.starter_pack? %>
+        <div class="left">
+          <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span>
         </div>
-      </div>
-    <% end %>
-    <% if product.undiscounted_price %>
-      <div class="center">
-        <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
-      </div>
-    <% end %>
-    <%= image_tag(asset_path(product.company.logo_url)) %>
+      <% else %>
+        <div class="left">
+          <div class="d-flex flex-column">
+            <% if !product.variants.blank? %>
+              <span class="price">starting <%= product.country.currency_symbol %><%= number_to_currency(product.variants.first.subscription_price, :unit => '') %>/month</span>
+              <span>*cost depending on flat size</span>
+            <% else %>
+              <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.subscription_price, :unit => '') %>/month</span>
+            <% end %>
+            <% if product.activation_price > 0 %>
+              <span class="lite"><%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %> one-time cost</span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if product.undiscounted_price %>
+        <div class="center">
+          <span class="price"><strike><%= product.country.currency_symbol %><%= number_to_currency(product.undiscounted_price, :unit => '') %></strike></span>
+        </div>
+      <% end %>
+      <%= image_tag(asset_path(product.company.logo_url)) %>
+    </div>
   </div>
 </div>

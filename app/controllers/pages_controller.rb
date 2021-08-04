@@ -105,7 +105,7 @@ class PagesController < ApplicationController
        },
        {
          icon: 'page-flip',
-         content: "Customize your bundle into <strong>1 simple monthly bill</span>"
+         content: "Customize your bundle into <strong>1 simple monthly bill</strong>"
        },
        {
          icon: 'tag',

@@ -1,0 +1,51 @@
+<section class="how-it-works d-block d-md-none mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 p-4">
+        <h2 class="title">How it works</h2>
+        <p class="text-center subheadline"> Make sure that you’re ready as soon as you step off the plane in three simple steps.</p>
+      </div>
+      <div class="col-12 p-0">
+        <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"pagination": {"el": ".swiper-pagination"}, "autoplay": { "delay": 3000, "disableOnInteraction": false}}'>
+          <div class="swiper-wrapper">
+            <% slides.each_with_index do |slide, i| %>
+              <div class="swiper-slide text-center">
+                <div class="card">
+                  <div class="number">
+                    <span><%= i + 1 %></span>
+                  </div>
+                  <div class="content">
+                    <p class="title"><%= slide[:title] %></p>
+                    <p class="description"><%= slide[:content] %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="swiper-pagination position-relative"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="how-it-works d-none d-md-block mb-5 py-5">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-12 mb-4">
+        <h2 class="title">How it works</h2>
+        <p class='text-center'> Make sure that you’re ready as soon as you step off the plane in three simple steps.</p>
+      </div>
+      <% slides.each_with_index do |slide, i| %>
+        <div class="col-4 card flex-column text-center">
+          <div class="img-box position-relative" style="background-image: url(<%= asset_path("components/pricing/how-it-works-layer-#{i + 1}.png") %>);">
+            <span><%= i + 1 %></span>
+          </div>
+          <div class="content d-flex flex-column">
+            <span class='title'><%= slide[:title] %></span>
+            <span class='description px-3'><%= slide[:content] %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
