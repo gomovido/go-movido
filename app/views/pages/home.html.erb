@@ -31,7 +31,7 @@
     </div>
   </section>
   <section class="d-none d-md-block">
-    <div class="homepage-banner bg-position"  style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
+    <div class="homepage-banner bg-position mb-5"  style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col-6 d-flex align-items-center justify-content-center">
@@ -47,6 +47,7 @@
               </div>
             </div>
           </div>
+          <%= image_tag(asset_path('components/homepage/trustpilot.png'), class:'trustpilot' ) %>
         </div>
       </div>
     </div>
@@ -54,7 +55,9 @@
   <%= render 'pages/home/collab_carousel', logos: @logos %>
   <%= render 'pages/home/collab_desktop', logos: @logos %>
   <%= render 'pages/home/advantages_cards' %>
+  <%= render 'pages/home/advantages_cards_desktop' %>
   <%= render 'pages/home/offers'%>
   <%= render 'shared/components/faqs', faqs: @faqs %>
   <%= render 'pages/home/contact_banner_mobile' %>
+  <%= render 'pages/home/contact_banner_desktop' %>
 </div>
