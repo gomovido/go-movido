@@ -44,17 +44,6 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-.back {
-  background-color: #B68EF9;
-  height: 5vh;
-  border-radius: 8px;
-}
-
-.button {
-  background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
-  border-radius: 8px;
-}
-
 @include media-breakpoint-down(md) {
   .navbar {
     height: 75px;
