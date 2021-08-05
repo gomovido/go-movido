@@ -35,6 +35,12 @@
         <h2 class="title">How it works</h2>
         <p class='text-center'> Make sure that you’re ready as soon as you step off the plane in three simple steps.</p>
       </div>
+      <div class="position-absolute white-line-1">
+        <%= image_tag(asset_path('components/pricing/white-line-1.png'), size:"318x10")%>
+      </div>
+      <div class="position-absolute white-line-2">
+        <%= image_tag(asset_path('components/pricing/white-line-2.png'), size:"318x10")%>
+      </div>
       <% slides.each_with_index do |slide, i| %>
         <div class="col-4 card flex-column text-center">
           <div class="img-box position-relative" style="background-image: url(<%= asset_path("components/pricing/how-it-works-layer-#{i + 1}.png") %>);">
