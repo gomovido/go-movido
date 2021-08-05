@@ -1,0 +1,48 @@
+.france-uk-nav {
+  .back {
+    background-color: #dbd3ea;
+    border-radius: 6px;
+    .chevron-1 {
+      top: 28%;
+      left: 45%;
+    }
+    .chevron-2 {
+      top: 28%;
+      right: 45%;
+    }
+  }
+  .nav-item {
+    margin: 0;
+  }
+  .nav-link {
+    color: $purple !important;
+    &:hover {
+      color: white !important;
+    }
+    &.active {
+      color: white !important;
+      background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .chevron-1 {
+    left: 43% !important;
+    transform:scale(0.8)
+  }
+  .chevron-2 {
+    right: 43% !important;
+    transform:scale(0.8)
+  }
+}
+@include media-breakpoint-down(md) {
+  .chevron-1 {
+    left: 40% !important;
+    transform:scale(0.6)
+  }
+  .chevron-2 {
+    right: 40% !important;
+    transform:scale(0.6)
+  }
+}
