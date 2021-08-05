@@ -491,7 +491,7 @@
                                                 <span>If you have any questions about the Starter Pack, feel free to reply back to this email! We will also try to reach you via phone to see if you need any help in the coming days. Please let us know if you do not want this service.</span>
                                                 <br />
                                                 <br />
-                                                <%= link_to 'Finish your purchase', checkout_url(@user.current_draft_order), class:'btn-main', target: 'blank' %>
+                                                <%= link_to 'Finish your purchase', checkout_url(@user.current_draft_order(@order.pack)), class:'btn-main', target: 'blank' %>
                                                 <br />
                                                 <span>Have an awesome day,</span>
                                                 <br />
