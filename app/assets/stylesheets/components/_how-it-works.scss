@@ -94,7 +94,7 @@
 @include media-breakpoint-down(xxl) {
   .white-line-1 {
     top: 50% !important;
-    left: 27vh !important;
+    left: 19% !important;
     transform: scale(0.9, 1);
   }
   .white-line-2 {
@@ -106,7 +106,7 @@
 @include media-breakpoint-down(xl) {
   .white-line-1 {
     top: 50% !important;
-    left: 20vh !important;
+    left: 16% !important;
     transform: scale(0.7, 0.8);
   }
   .white-line-2 {
@@ -118,7 +118,7 @@
 @include media-breakpoint-down(lg) {
   .white-line-1 {
     top: 47% !important;
-    left: 10vh !important;
+    left: 10% !important;
     transform: scale(0.4, 0.5);
   }
   .white-line-2 {
