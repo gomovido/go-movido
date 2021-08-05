@@ -483,7 +483,7 @@
                                                 <span>When you arrive abroad, all tired from your flight, the last thing you will want to do is to figure out how to get a metro card or a taxi into the city center. Believe us, we have been in this situation before.</span> <br /><br />
                                                 <span>So, do yourself a favor and get your Starter Pack now! 🚀✈️</span>
                                                 <br /><br />
-                                                <%= link_to 'Finish your purchase', checkout_url(@user.current_draft_order), class:'btn-main', target: 'blank' %>
+                                                <%= link_to 'Finish your purchase', checkout_url(@user.current_draft_order(@order.pack)), class:'btn-main', target: 'blank' %>
                                                 <br />
                                                 <span>Have an awesome day,</span>
                                                 <br />
