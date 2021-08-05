@@ -33,7 +33,7 @@ class OrderMarketingEmailsJob < ApplicationJob
 
   def last_call
     OrderMarketing.where(title: 'orders_sequence', step: 'last_call', sent: false).where('created_at < ?', 24.hours.ago).each do |marketing|
-      OrderMarketingMailer.with(user: marketing.order.user).last_call.deliver_later
+      OrderMarketingMailer.with(user: marketing.order.user, order: marketing.order).last_call.deliver_later
       marketing.update(sent: true)
     end
   end
@@ -46,7 +46,7 @@ class OrderMarketingEmailsJob < ApplicationJob
   end
 
   def send_email_retarget(marketing)
-    OrderMarketingMailer.with(user: marketing.order.user).retarget.deliver_later
+    OrderMarketingMailer.with(user: marketing.order.user, order: marketing.order).retarget.deliver_later
     return true
   rescue StandardError
     marketing.update(bounced: true)
