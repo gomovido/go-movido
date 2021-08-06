@@ -101,11 +101,11 @@ class PagesController < ApplicationController
       },
        {
          icon: 'folder',
-         content: "<strong>We deal with the admin part</strong> – simply select the services you need"
+         content: "Simply select the subscriptions you need <strong>and let us deal with the admin work</strong>"
        },
        {
          icon: 'page-flip',
-         content: "Customize your bundle into <strong>1 simple monthly bill</strong>"
+         content: "Customize your subscription bundle into <strong>1 simple monthly bill</strong>"
        },
        {
          icon: 'tag',
