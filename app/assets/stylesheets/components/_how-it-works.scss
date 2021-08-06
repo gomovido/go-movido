@@ -5,10 +5,10 @@
     border-radius: 0;
     z-index: unset !important;
     .swiper-pagination-bullet {
-      background: $grey !important;
+      background: $light-grey !important;
     }
     .swiper-pagination-bullet-active {
-      background: $purple !important;
+      background: $hover-button !important;
     }
   }
   .subheadline {
