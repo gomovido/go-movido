@@ -26,10 +26,10 @@
       <% benefits.each do |benefit| %>
         <div class="col-2 z-1">
           <div class="benefits-card flex-column justify-content-center align-items-center text-center">
-            <div class="img-box position-relative" style="background-image: url(<%= asset_path("components/pricing/#{benefit[:icon]}-layer.png") %>);">
+            <div class="img-box" style="background-image: url(<%= asset_path("components/pricing/#{benefit[:icon]}-layer.png") %>);">
               <%= image_tag(asset_path("components/pricing/#{benefit[:icon]}.png")) %>
             </div>
-            <span class="content pe-3"><%= benefit[:content].html_safe %></span>
+            <span class="content px-2"><%= benefit[:content].html_safe %></span>
           </div>
         </div>
       <% end %>
