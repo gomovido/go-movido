@@ -12,7 +12,7 @@ class PagesController < ApplicationController
         { url: 'bocconi_logo' },
         { url: 'bouygues_telecom_logo' },
         { url: 'bnyou_logo' },
-        { url: 'transferwise_logo' },
+        { url: 'cuckoo_logo' },
         { url: 'total_direct_logo' },
         { url: 'uni_acco_logo' },
         { url: 'uniplaces_logo' }
