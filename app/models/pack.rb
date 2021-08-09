@@ -8,5 +8,4 @@ class Pack < ApplicationRecord
   def starter?
     name == 'starter'
   end
-
 end

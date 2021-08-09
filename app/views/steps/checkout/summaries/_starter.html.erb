@@ -2,7 +2,7 @@
 <span>directly in the <%= t("country.capital.#{order.items.first.product.country.code}") %> city</span>
 <hr>
 <div class="pricing d-flex flex-column text-center">
-  <% order.items.includes([:product]).each do |item| %>
+  <% order.items.includes([product: [:company, :country, :category]]).each do |item| %>
     <div class="pricing-card">
       <div class="product-img">
         <%= image_tag(asset_path(item.product.company.logo_url)) %>
@@ -24,8 +24,20 @@
     </div>
     <div class="d-flex justify-content-between total">
       <span>Total price</span>
-      <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
+      <div>
+        <% if order.affiliate_link.present? %>
+          <strike class="old-price"><%= order.currency_symbol %><%= number_to_currency(order.total_activation_amount.to_f / 100, :unit => '') %></strike>
+        <% end %>
+        <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
+      </div>
     </div>
+    <br>
+    <% if order.affiliate_link.present? %>
+      <div class="d-flex justify-content-between">
+        <span>Promocode</span>
+        <span class="price"><%= order.affiliate_link.upcase %></span>
+      </div>
+    <% end %>
   </div>
   <hr>
 </div>
