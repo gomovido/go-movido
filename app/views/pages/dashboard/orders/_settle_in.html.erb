@@ -15,10 +15,12 @@
       <span>Started</span>
       <span><%= order.subscription.starting_date.strftime('%m/%d/%Y') %></span>
     </div>
-    <div class="d-flex align-items-center justify-content-between pricing">
-      <span>Next due</span>
-      <span><%= order.currency_symbol %><%= number_to_currency(order.subscription.next_due_amount, :unit => '') %></span>
-    </div>
+    <% if order.subscription.state != 'cancelled' %>
+      <div class="d-flex align-items-center justify-content-between pricing">
+        <span>Next due</span>
+          <span><%= order.currency_symbol %><%= number_to_currency(order.subscription.next_due_amount, :unit => '') %></span>
+      </div>
+    <% end %>
     <div class="d-flex align-items-center justify-content-between pricing">
       <span>Payment status</span>
       <% if order.subscription.paid && order.subscription.state != 'cancelled' %>
