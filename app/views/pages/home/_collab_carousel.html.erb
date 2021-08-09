@@ -11,8 +11,8 @@
               <div class="swiper-slide d-flex align-items-center justify-content-around">
                 <% logos.each do |logo| %>
                   <div class="logo-card d-flex align-items-center justify-content-center">
-                    <div class="content m-auto">
-                      <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
+                    <div class="content m-auto d-flex justify-content-center">
+                      <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.png"))%>
                     </div>
                   </div>
                 <% end %>
@@ -35,8 +35,8 @@
       <div class="row justify-content-center">
         <% logos.each do |logo| %>
           <div class="col-2 logo-card d-flex align-items-center justify-content-center m-2">
-            <div class="content m-auto">
-              <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.svg"))%>
+            <div class="content m-auto d-flex justify-content-center">
+              <%= image_tag(asset_path("components/homepage/logos/#{logo[:url]}.png"))%>
             </div>
           </div>
         <% end %>
