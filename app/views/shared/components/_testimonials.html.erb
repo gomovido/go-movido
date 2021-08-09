@@ -1,18 +1,28 @@
-<section class="testimonials container mt-4 mb-5 text-center">
-  <h3 class="purple"><i class="fas fa-heart purple me-2"></i>Don't just take our word for it...</h3>
-  <div class="row justify-content-center">
-    <div class="testimonial-card col-10 col-md-6 mx-auto d-flex flex-column justify-content-center align-content-center text-center">
-      <h3>From Delhi to London</h3>
-      <iframe src="https://www.youtube.com/embed/cneu8_K140M" class="mt-4 mx-auto video" title="Karan Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <div class="name-desc mt-5">
-        <h2>Karan</h2>
-        <p>"movido helped me settle in even before arriving in Paris for my semester abroad"</p>
+<section class="testimonials container mt-4 mb-5 text-center position-relative">
+  <h3 class="purple mb-3"><i class="fas fa-heart purple me-2"></i>Don't just take our word for it...</h3>
+  <div data-controller="carousel" class="swiper-container justify-content-center py-3" data-carousel-options-value='{"autoplay": false, "pagination": {"el": ".swiper-pagination"}}'>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="testimonial-card col-10 col-md-6 mx-auto d-flex flex-column justify-content-center align-content-center text-center">
+          <h3>From Delhi to Nice</h3>
+          <iframe src="https://www.youtube.com/embed/cneu8_K140M" class="mt-4 mx-auto video" title="Karan Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="name-desc mt-5">
+            <h2>Karan</h2>
+            <p>"movido helped me settle in even before arriving in Paris for my semester abroad"</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testimonial-card col-10 col-md-6 mx-auto d-flex flex-column justify-content-center align-content-center text-center">
+          <h3>From Indonesia to London</h3>
+          <iframe src="https://www.youtube.com/embed/9MbXD6UgvvU" class="mt-4 mx-auto video" title="Menahim Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="name-desc mt-5">
+            <h2>Menahim</h2>
+            <p>"movido helped me settle in even before arriving in Paris for my semester abroad"</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-8 mx-auto mt-5">
-    <div class="btn-main mb-4 mb-md-0 mt-md-5 mx-auto position-relative z-0" data-bs-toggle="modal" data-bs-target="#onboardingMobileModal">
-      Get started now
-    </div>
+    <div class="swiper-pagination position-relative mt-4"></div>
   </div>
 </section>
