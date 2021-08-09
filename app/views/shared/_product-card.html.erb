@@ -25,7 +25,7 @@
         <div class="left">
           <div class="d-flex flex-column">
             <% if !product.variants.blank? %>
-              <span class="price">starting <%= product.country.currency_symbol %><%= number_to_currency(product.variants.first.subscription_price, :unit => '') %>/month</span>
+              <span class="price">starting <%= product.country.currency_symbol %>30.00/month</span>
               <span>*cost depending on flat size</span>
             <% else %>
               <span class="price"><%= product.country.currency_symbol %><%= number_to_currency(product.subscription_price, :unit => '') %>/month</span>
