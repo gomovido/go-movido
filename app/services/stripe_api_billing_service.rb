@@ -85,16 +85,20 @@ class StripeApiBillingService
 
   def create_subscription(plan)
     order = Order.find(@order_id)
+    coupon = Coupon.find_by(name: '20-percent-settle-in-pack')
     order.subscription.starting_date.today? || order.subscription.starting_date.past? ? starting_date = (Time.zone.now + 5.seconds).to_i : starting_date = order.subscription.starting_date.to_i
+    subscription_params = {
+      customer: order.user.stripe_id,
+      items: [
+        { price: plan.id }
+      ],
+      trial_end: starting_date
+    }
+    subscription_params[:coupon] = coupon.stripe_id if order.affiliate_link.present?
     begin
-      subscription = Stripe::Subscription.create({
-                                                   customer: order.user.stripe_id,
-                                                   items: [
-                                                     { price: plan.id }
-                                                   ],
-                                                   trial_end: starting_date
-                                                 })
+      subscription = Stripe::Subscription.create(subscription_params)
       order.subscription.update(stripe_id: subscription.id)
+      order.subscription.update(coupon: coupon) if order.affiliate_link.present?
       { subscription: subscription, error: nil }
     rescue Stripe::StripeError => e
       { subscription: nil, error: e }

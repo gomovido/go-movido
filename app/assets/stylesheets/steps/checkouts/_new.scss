@@ -22,7 +22,7 @@
         font-weight: bold;
       }
       .description {
-        padding-right: 0.90em;
+        padding-right: 0.9em;
       }
     }
     .product-price {
@@ -37,6 +37,10 @@
       font-size: 18px;
       font-weight: bold;
     }
+  }
+  .old-price {
+    font-weight: 200;
+    font-size: 16px;
   }
 }
 .legals {

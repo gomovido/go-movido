@@ -4,6 +4,9 @@
       <div class="legal content overflow-auto" style="max-height: 440px">
         <div class="text">
             <strong>Your combined fee quote is <%= order.currency_symbol %><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %> per month. The combined set-up cost is <%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %> one-off.</strong><br>
+            <% if order.affiliate_link.present? %>
+              <strong>Your first quote is <%= order.currency_symbol %><%= number_to_currency(order.discounted_subscription_amount(20).to_f / 100, :unit => '') %></strong><br>
+            <% end %>
             <span>You're about to sign up to a legally binding contract for the Selected Services below:</span>
             <ul>
               <% order.products.each do |product| %>
