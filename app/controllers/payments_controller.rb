@@ -39,6 +39,7 @@ class PaymentsController < ApplicationController
 
   def settle_in_payment(stripe_token, order)
     response = StripeApiBillingService.new(order_id: order.id, stripe_token: stripe_token).proceed_payment
+
     if response[:error].nil?
       order.subscription.update(paid: true, state: 'active')
       flash[:notice] = 'Payment success!'
@@ -53,7 +54,7 @@ class PaymentsController < ApplicationController
     response = StripeApiChargeService.new(stripe_token: stripe_token, order_id: order.id).proceed_payment
     charge = order.charge || Charge.new
     if response[:error].nil? && response[:stripe_charge]
-      charge.update(state: response[:stripe_charge].status, stripe_charge_id: response[:stripe_charge].id)
+      charge.update(state: response[:stripe_charge].status, stripe_charge_id: response[:stripe_charge].id, coupon: Coupon.find_by(name: '20-percent-starter-pack'))
       order.update(state: 'succeeded', charge: charge, billing: @billing)
       UserMailer.with(user_id: current_user.id, locale: 'en').order_confirmed.deliver_later
       flash[:notice] = 'Payment success!'
