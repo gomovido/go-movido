@@ -44,6 +44,9 @@
     .swiper-pagination-bullet-active {
       background: $hover-button !important;
     }
+    .arrow {
+      color: $purple;
+    }
   }
 }
 
@@ -54,5 +57,14 @@
       width: 100% !important;
       height: 40% !important;
     }
+  }
+  .swiper-button-next {
+    right: -5px !important;
+  }
+  .swiper-button-prev {
+    left: -5px !important;
+  }
+  .arrow {
+    transform: scale(0.5);
   }
 }

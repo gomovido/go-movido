@@ -19,7 +19,7 @@
             <%= f.input :email,
               required: true,
               input_html: { autocomplete: "email"}, placeholder: 'johndoe@gmail.com', label: 'Email' %>
-            <%= f.input :password, placeholder: '*******', label: 'Create your password' %>
+            <%= f.input :password, placeholder: 'minimum of 6 characters', label: 'Create your password' %>
             <hr>
             <%= f.button :submit, 'Continue' , class: 'btn-main w-100 mb-2' %>
           <% end %>
