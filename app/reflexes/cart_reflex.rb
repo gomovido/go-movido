@@ -1,6 +1,10 @@
 class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
+  before_reflex only: [:promocode] do
+    throw :abort unless promocode_is_valid?(element.value)
+  end
+
   def create
     @pack = order_params[:pack]
     @order = current_user.current_draft_order(@pack) || Order.new
@@ -11,7 +15,7 @@ class CartReflex < ApplicationReflex
       @order.errors.add(:affiliate_link, 'not valid')
       morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     elsif !order_params[:service_ids]
-      current_user.house.errors.add(:base, "Please select at least one service")
+      @order.errors.add(:base, "Please select at least one service")
       morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
     else
       initialize_order
@@ -25,12 +29,21 @@ class CartReflex < ApplicationReflex
 
   def create_settle_in
     @pack = order_params[:pack]
-    @order = current_user.current_draft_order(@pack) || Order.create(user: current_user, state: 'pending_payment')
-    initialize_cart
-    init_user_services
-    generate_items
-    cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_subscription_path(@order))
-    morph '.flow-container', render(partial: "steps/subscription/new", locals: { order: @order, subscription: (@order.subscription || Subscription.new), message: { content: "Now the final step is to go through the legal stuff and then we are done 😁", delay: 0 } })
+    @order = current_user.current_draft_order(@pack) || Order.new
+    if params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
+      @order.errors.add(:affiliate_link, 'not valid')
+      morph '.form-base', render(partial: "steps/cart/forms/settle_in", locals: { order: @order, house: current_user.house, pack: @pack })
+    elsif !order_params[:service_ids]
+      @order.errors.add(:base, "Please select at least one service")
+      morph '.form-base', render(partial: "steps/cart/forms/settle_in", locals: { order: @order, house: current_user.house, pack: @pack })
+    else
+      initialize_order
+      initialize_cart
+      init_user_services
+      generate_items
+      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_subscription_path(@order))
+      morph '.flow-container', render(partial: "steps/subscription/new", locals: { order: @order, subscription: (@order.subscription || Subscription.new), message: { content: "Now the final step is to go through the legal stuff and then we are done 😁", delay: 0 } })
+    end
   end
 
   def terms_not_checked?(terms)
@@ -43,9 +56,10 @@ class CartReflex < ApplicationReflex
   end
 
   def promocode_is_valid?(promocode)
-    # ['MOVIDO21', 'MANDY', 'CLOUDS', 'VIANCQA', 'KARINA1', 'KARINA2', 'SHUFFLE21', 'ESCP21', 'OPENUP21', 'PARISMUS21', 'IESEG21', 'KES21', 'UCL21', 'EARLYBIRD21', 'TEJAS', 'AISHINEE21', 'TOMOYA', 'YASH', 'MDX2021', 'KAITY', 'BISOUSMORGAN'].include?(promocode)
-    true
+    ['MOVIDO21', 'MANDY', 'CLOUDS', 'VIANCQA', 'KARINA1', 'KARINA2', 'SHUFFLE21', 'ESCP21', 'OPENUP21', 'PARISMUS21', 'IESEG21', 'KES21', 'UCL21', 'EARLYBIRD21', 'TEJAS', 'AISHINEE21', 'TOMOYA', 'YASH', 'MDX2021', 'KAITY', 'BISOUSMORGAN'].include?(promocode.upcase)
   end
+
+  def promocode; end
 
   def initialize_cart
     @cart = @order.cart || Cart.create(house: current_user.house)
@@ -71,6 +85,6 @@ class CartReflex < ApplicationReflex
   end
 
   def order_params
-    params.require(:order).permit(:terms, :pack, service_ids: [])
+    params.require(:order).permit(:terms, :pack, :affiliate_link, service_ids: [])
   end
 end
