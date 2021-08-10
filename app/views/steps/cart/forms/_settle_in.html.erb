@@ -55,7 +55,7 @@
     <div class="invalid-feedback d-block"><%= f.error(:base) %></div>
     <%= simple_fields_for order do |p| %>
       <label>Do you have a PROMOCODE?</label>
-      <%= p.input :affiliate_link, label: false, placeholder: 'PROMOCODE', readonly: order.affiliate_link.present?, input_html: { class: 'promocode', data: { reflex_root: ".order_affiliate_link", action: "keyup->animate#checkPromoCode", animate_target: "promocodeInput"}} %>
+      <%= p.input :affiliate_link, label: false, placeholder: 'PROMOCODE', readonly: order.affiliate_link.present?, input_html: { class: 'promocode', data: { reflex_root: ".order_affiliate_link", action: "#{'keyup->animate#checkPromoCode' unless order.affiliate_link.present?}", animate_target: "promocodeInput"}} %>
     <% end %>
   </div>
   <hr>

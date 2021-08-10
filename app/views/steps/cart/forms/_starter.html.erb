@@ -36,7 +36,7 @@
     <% end %>
     <h2 class="total-price"><%= house.country.currency_symbol %>
       <span data-cart-target="activationPrice" data-value=<%= order.total_activation_amount %>>
-        <%= number_to_currency(order.total_amount_display, :unit => '') %>
+        <%= number_to_currency(order.total_activation_amount.to_f / 100, :unit => '') %>
 
     </span>
   </h2>
@@ -44,7 +44,7 @@
   </div>
   <%= simple_fields_for order do |p| %>
     <label>Do you have a PROMOCODE?</label>
-    <%= p.input :affiliate_link, label: false, placeholder: 'PROMOCODE', readonly: order.affiliate_link.present? ,input_html: { class: 'promocode', data: { reflex_root: ".order_affiliate_link", action: "keyup->animate#checkPromoCode", animate_target: "promocodeInput"}} %>
+    <%= p.input :affiliate_link, label: false, placeholder: 'PROMOCODE', readonly: order.affiliate_link.present? ,input_html: { class: 'promocode', data: { reflex_root: ".order_affiliate_link", action: "#{'keyup->animate#checkPromoCode' unless order.affiliate_link.present?}", animate_target: "promocodeInput"}} %>
   <% end %>
   <div class="p-2">
     <div class="d-flex">
