@@ -30,6 +30,23 @@ class PagesController < ApplicationController
          question: "Who are your providers?",
          answer: "Over time, we have identified the one provider that is best for the respective service. In the UK and France, <strong>we only work with reputable providers</strong> who are ranked top in the industry and provide a very <strong>reliable service</strong> for a <strong>good value-to-money ratio.</strong>"
        }]
+
+    @testimonials = 
+      [{
+        name: "Karan",
+        country: "India",
+        destination: "Nice",
+        video_link: "cneu8_K140M",
+        quote: "Thanks to the Movido Starter Pack, I was 100% ready for my stay in Nice!"
+      },
+      {
+        name: "Menahim",
+        country: "Indonesia",
+        destination: "London",
+        video_link: "9MbXD6UgvvU",
+        quote: "Getting WiFi & electricity for my London stay took less than 5 minutes with Movido"
+      }]
+        
   end
 
   def privacy; end
