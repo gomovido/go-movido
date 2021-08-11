@@ -7,22 +7,30 @@ class Order < ApplicationRecord
   has_one :subscription, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :products, through: :items
-  has_many :services, through: :products, source: :items
   has_one :order_marketing, dependent: :destroy
   attr_accessor :terms, :marketing
+
   validates :state, presence: true
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
 
   def total_activation_amount
-    items.includes([:product]).sum { |item| item.product.category.utilities? ? item.product.variant_activation_price(user.house) : item.product.activation_price_cents }
+    items.includes([product: :category]).sum { |item| item.product.category.utilities? ? item.product.variant_activation_price(user.house) : item.product.activation_price_cents }
+  end
+
+  def discounted_activation_amount(discount)
+    total_activation_amount - ((total_activation_amount * discount) / 100)
   end
 
   def total_subscription_amount
     items.includes([:product]).sum { |item| item.product.category.utilities? ? item.product.variant_subscription_price(user.house) : item.product.subscription_price_cents }
   end
 
+  def discounted_subscription_amount(discount)
+    total_subscription_amount - ((total_subscription_amount * discount) / 100)
+  end
+
   def total_amount_display
-    total_activation_amount.to_f / 100
+    affiliate_link.present? && pack == 'starter' ? discounted_activation_amount(20).to_f / 100 : total_activation_amount.to_f / 100
   end
 
   def total_subscription_amount_display

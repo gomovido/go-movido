@@ -1,6 +1,6 @@
 fr:
   mail:
-    welcome_email: 'Bienvenue chez movido'
+    welcome_email: 'Bienvenue chez movido !'
     password_email: 'Vos données de connexion à movido'
     subscription_under_review: 'Abonnement - en cours de traitement'
     booking_under_review: 'Réservation - en cours de traitement'

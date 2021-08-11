@@ -19,8 +19,8 @@
     }
   }
   .coming-soon {
-    background: $grey-snow;
-    color: #18191f96;
+    background: $purple;
+    color: $white;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     font-weight: 600;
@@ -94,6 +94,9 @@
     }
     .btn-main-white {
       width: 100%;
+    }
+    .btn-main {
+      min-width: 160px !important;
     }
   }
 }

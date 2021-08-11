@@ -12,7 +12,7 @@ class PagesController < ApplicationController
         { url: 'bocconi_logo' },
         { url: 'bouygues_telecom_logo' },
         { url: 'bnyou_logo' },
-        { url: 'transferwise_logo' },
+        { url: 'cuckoo_logo' },
         { url: 'total_direct_logo' },
         { url: 'uni_acco_logo' },
         { url: 'uniplaces_logo' }
@@ -30,6 +30,23 @@ class PagesController < ApplicationController
          question: "Who are your providers?",
          answer: "Over time, we have identified the one provider that is best for the respective service. In the UK and France, <strong>we only work with reputable providers</strong> who are ranked top in the industry and provide a very <strong>reliable service</strong> for a <strong>good value-to-money ratio.</strong>"
        }]
+
+    @testimonials = 
+      [{
+        name: "Karan",
+        country: "India",
+        destination: "Nice",
+        video_link: "cneu8_K140M",
+        quote: "Thanks to the Movido Starter Pack, I was 100% ready for my stay in Nice!"
+      },
+      {
+        name: "Menahim",
+        country: "Indonesia",
+        destination: "London",
+        video_link: "9MbXD6UgvvU",
+        quote: "Getting WiFi & electricity for my London stay took less than 5 minutes with Movido"
+      }]
+        
   end
 
   def privacy; end
@@ -91,6 +108,21 @@ class PagesController < ApplicationController
          answer: "We do our best to find your dream flat. So far, we have always been able to provide our users with their perfect apartment -  > 1,200 students in Paris and London alone. However, for  €19.90 / £19.90 we simply cannot guarantee it."
        }]
     @services = Pack.find_by(name: 'starter').services.includes([:category])
+    @testimonials = 
+      [{
+        name: "Karan",
+        country: "India",
+        destination: "Nice",
+        video_link: "cneu8_K140M",
+        quote: "Thanks to the Movido Starter Pack, I was 100% ready for my stay in Nice!"
+      },
+      {
+        name: "Menahim",
+        country: "Indonesia",
+        destination: "London",
+        video_link: "9MbXD6UgvvU",
+        quote: "Getting WiFi & electricity for my London stay took less than 5 minutes with Movido"
+      }]
   end
 
   def settle_in
@@ -101,11 +133,11 @@ class PagesController < ApplicationController
       },
        {
          icon: 'folder',
-         content: "<strong>We deal with the admin part</strong> – simply select the services you need"
+         content: "Simply select the subscriptions you need <strong>and let us deal with the admin work</strong>"
        },
        {
          icon: 'page-flip',
-         content: "Customize your bundle into <strong>1 simple monthly bill</strong>"
+         content: "Customize your subscription bundle into <strong>1 simple monthly bill</strong>"
        },
        {
          icon: 'tag',
@@ -142,6 +174,21 @@ class PagesController < ApplicationController
          answer: "Over time, we have identified the one provider that is best for the respective service. In the UK and France, <strong>we only work with reputable providers</strong> who are ranked top in the industry and provide a very <strong>reliable service</strong> for a <strong>good value-to-money ratio.</strong>"
        }]
     @services = Pack.find_by(name: 'settle_in').services.includes([:category])
+    @testimonials = 
+      [{
+        name: "Karan",
+        country: "India",
+        destination: "Nice",
+        video_link: "cneu8_K140M",
+        quote: "Thanks to the Movido Starter Pack, I was 100% ready for my stay in Nice!"
+      },
+      {
+        name: "Menahim",
+        country: "Indonesia",
+        destination: "London",
+        video_link: "9MbXD6UgvvU",
+        quote: "Getting WiFi & electricity for my London stay took less than 5 minutes with Movido"
+      }]
   end
 
   def about; end
@@ -151,8 +198,8 @@ class PagesController < ApplicationController
   def dashboard
     redirect_to root_path if Order.where(user: current_user, state: 'succeeded').blank? && Order.where(user: current_user, state: 'pending_payment').blank?
     orders = current_user.orders.includes([:products], [:items], [:user], [:shipping], [:subscription])
-    @live_orders = orders.reject{|o| (o.pack == 'settle_in' and o.subscription.nil?)}
-    @pending_orders = orders.filter{|o| o.subscription.nil?}
+    @live_orders = orders.reject { |o| (o.pack == 'settle_in' and o.subscription.nil?) || o.items.blank? }
+    @pending_orders = orders.filter { |o| o.subscription.nil? }
   end
 
   def setup_homepage

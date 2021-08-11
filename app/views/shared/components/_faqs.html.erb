@@ -8,12 +8,12 @@
   <div class="row">
     <% faqs.each_with_index do |f, i| %>
       <div class="col-xs-12 col-md-4">
-        <div class="faq-card">
-          <div class="question" data-cards-target='input' data-action="click->cards#show click->cards#rotate" data-id=<%= i %>>
+        <div class="faq-card" data-action="click->cards#show click->cards#rotate" data-id=<%= i %>>
+          <div class="question" data-cards-target='input'>
             <span class="content"><%= f[:question] %></span>
             <i class="far fa-chevron-down chevron_<%= i %>"></i>
           </div>
-          <div class="answer fade-in <%= i == 1 ? '' : 'd-none' %>" data-cards-target='box'>
+          <div class="answer fade-in d-none" data-cards-target='box'>
             <hr>
             <span class="content"><%= f[:answer].html_safe %></span>
           </div>
