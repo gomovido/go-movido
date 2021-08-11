@@ -1,4 +1,4 @@
-<section class="my-sm-3 services my-md-5" data-controller="cards">
+<section class="my-sm-3 services my-md-5" data-controller="cards services">
   <div class="container">
     <div class="row d-none d-md-block ">
       <div class="col-10 offset-2">
@@ -11,7 +11,7 @@
         <h2 class="title black">What’s included?</h2>
         <p class="text-center subheadline black">The <%= pack %> Pack is currently available<br> for the UK and France - simply select<br> where you are moving to</p>
       </div>
-      <div class="col-12 d-flex justify-content-center france-uk-nav mb-3">
+      <div class="col-12 d-none d-md-flex justify-content-center france-uk-nav mb-3">
         <div class="col-6 d-flex justify-content-center back position-relative">
           <%= image_tag(asset_path('components/pricing/chevron-gauche.png'), width:"18", class: "position-absolute chevron-1") %>
           <%= image_tag(asset_path('components/pricing/chevron-droite.png'), width:"18", class: "position-absolute chevron-2") %>
@@ -24,6 +24,20 @@
             </li>
           </ul>
         </div>
+      </div>
+      <div class="col-12 d-flex d-md-none justify-content-center france-uk-nav-mobile">
+        <ul class="nav w-100 text-center justify-content-around" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" data-services-target="france" data-action="click->services#togglePurpleBar" type="button" role="tab" aria-controls="home" aria-selected="true">France</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" data-services-target="uk" data-action="click->services#togglePurpleBar" type="button" role="tab" aria-controls="profile" aria-selected="false">UK</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 position-relative mt-1 mb-3 d-block d-md-none">
+        <div class="purple-bar-1 w-50 position-absolute" data-services-target="purple"></div>
+        <div class="purple-bar-2 w-100 position-absolute"></div>
       </div>
     </div>
   </div>

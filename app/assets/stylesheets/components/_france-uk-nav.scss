@@ -1,30 +1,49 @@
-.france-uk-nav {
-  .back {
-    background-color: #dbd3ea;
-    border-radius: 6px;
-    .chevron-1 {
-      top: 26%;
-      left: 45%;
+.services {
+  .france-uk-nav {
+    .back {
+      background-color: #dbd3ea;
+      border-radius: 6px;
+      .chevron-1 {
+        top: 26%;
+        left: 45%;
+      }
+      .chevron-2 {
+        top: 26%;
+        right: 45%;
+      }
     }
-    .chevron-2 {
-      top: 26%;
-      right: 45%;
+    .nav-item {
+      margin: 0;
+    }
+    .nav-link {
+      color: $purple !important;
+      &:hover {
+        color: white !important;
+      }
+      &.active {
+        color: white !important;
+        background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
+      }
     }
   }
-  .nav-item {
-    margin: 0;
-  }
-  .nav-link {
-    color: $purple !important;
-    &:hover {
-      color: white !important;
-    }
+  .purple-bar-1 {
+    left: 0px;
+    bottom: 0px;
+    height: 6px;
+    background-color: $purple;
     &.active {
-      color: white !important;
-      background: linear-gradient(180deg, #4D1A87 0%, #6C2FB1 100%);
+      left: auto;
+      right: 0px;
     }
+  }
+  .purple-bar-2 {
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background-color: $purple;
   }
 }
+
 
 @include media-breakpoint-down(lg) {
   .chevron-1 {
