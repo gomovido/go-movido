@@ -1,0 +1,22 @@
+<section class="testimonials container mt-4 mb-3 text-center position-relative">
+  <h3 class="purple mb-3"><i class="fas fa-heart purple me-2"></i>Don't just take our word for it...</h3>
+  <div data-controller="carousel" class="swiper-container justify-content-center py-3" data-carousel-options-value='{"autoplay": false, "navigation": {"nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev"}, "pagination": {"el": ".swiper-pagination"}}'>
+    <div class="swiper-wrapper">
+      <% @testimonials.each do |t| %>
+        <div class="swiper-slide">
+          <div class="testimonial-card col-10 col-md-6 mx-auto d-flex flex-column justify-content-center align-content-center text-center">
+            <h3>From <%= t[:country] %> to <%= t[:destination] %></h3>
+            <iframe src="https://www.youtube.com/embed/<%= t[:video_link] %>" class="mt-4 mx-auto video" title="<%= t[:name] %> Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="name-desc mt-5">
+              <h2><%= t[:name] %></h2>
+              <p><%= t[:quote] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-pagination position-relative mt-4"></div>
+    <div class="swiper-button-next arrow ms-5"></div>
+    <div class="swiper-button-prev arrow"></div>
+  </div>
+</section>

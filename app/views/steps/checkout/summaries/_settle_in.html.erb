@@ -31,6 +31,20 @@
       <span>Total monthly fee</span>
       <span class="price"><%= order.currency_symbol %><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %></span>
     </div>
+     <% if order.affiliate_link.present? %>
+     <div class="d-flex justify-content-between total">
+      1st payment :
+      <div>
+        <strike class="old-price"><%= order.currency_symbol %><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %> </strike>
+        <%= order.currency_symbol %><%= number_to_currency(order.discounted_subscription_amount(20) / 100, :unit => '') %>
+      </div>
+    </div>
+     <br>
+      <div class="d-flex justify-content-between">
+        <span>Promocode</span>
+        <span class="price"><%= order.affiliate_link.upcase %></span>
+      </div>
+    <% end %>
   </div>
   <hr>
 </div>

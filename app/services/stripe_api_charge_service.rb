@@ -6,9 +6,10 @@ class StripeApiChargeService
 
   def proceed_payment
     order = Order.find(@order_id)
+    amount = order.affiliate_link.present? ? order.discounted_activation_amount(20) : order.total_activation_amount
     begin
       stripe_charge = Stripe::Charge.create({
-                                              amount: order.total_activation_amount,
+                                              amount: amount,
                                               currency: order.currency,
                                               source: @stripe_token,
                                               description: "This is payment for user #{order.user.email} - Order #-#{order.id}"
