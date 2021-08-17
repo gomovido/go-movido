@@ -51,7 +51,7 @@
       <div>
         <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
       </div>
-      <label for="marketing">I accept the <%= link_to 'Terms and Conditions', terms_path, class:'purple', target: 'blank'%> of movido</label>
+      <label for="marketing">I accept the <%= link_to 'Terms and Conditions', terms_path, class:'purple', target: 'blank'%> of movido and I explicitly accept the start of the service before withdrawal period end.</label>
     </div>
     <div class="invalid-feedback d-block"><%= f.error(:terms) %></div>
     <span class="legals">By clicking 'Continue', you accept to receive selected marketing communication. movido will process your personal data according to our <%= link_to 'Privacy Policy', privacy_path, class: 'link purple' %></span>
