@@ -109,3 +109,7 @@ gem "rubocop-rails", "~> 2.9"
 gem "rubocop-rspec", "~> 2.2"
 
 gem "stimulus_reflex_testing", "~> 0.3.0"
+
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
