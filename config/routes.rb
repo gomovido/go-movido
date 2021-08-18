@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   get 'thankyou', to: 'pages#thank_you', as: 'thank_you'
   get 'home', to:"pages#home"
 
+  # invoice
+  get 'invoice_starter', to: 'pages#invoice_starter'
   # Lead generation
   resources :leads, only: [:create]
 
