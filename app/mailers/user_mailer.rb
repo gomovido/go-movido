@@ -15,7 +15,6 @@ class UserMailer < ApplicationMailer
     @user = User.find(params[:user_id])
     @locale = "en"
     @order = Order.find_by(user: @user)
-    raise
     attachments["Movido_Starter_Pack_Invoice_#{@order.created_at.strftime("%Y_%m_%d")}.pdf"] = WickedPdf.new.pdf_from_string(
       render_to_string(template: 'layouts/invoice.html.erb', pdf: "Movido_Starter_Pack_Invoice_#{@order.created_at.strftime("%Y_%m_%d")}")
     )
