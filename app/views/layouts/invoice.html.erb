@@ -16,7 +16,7 @@
 									<%= image_tag(asset_path('logos/movido-black.svg'), class: 'movido-logo', size: '250x125') %>
 								</td>
 								<td>
-                <h1>Invoice - Starter Pack</h1>
+                <h1>Invoice - <%= @order.pack == "settle_in" ? "Settle In" : "Starter" %> Pack</h1>
 								</td>
 							</tr>
 						</table>
@@ -39,23 +39,35 @@
 				</tr>
 
         <tr class="customer-info">
-					<td colspan="3">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td>
-                  <h2>Ship to:</h2>
-                  <%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= @order.shipping.address %>
+                  <% if @order.pack == "settle_in" %>
+                    <h2>Contract for:</h2>
+                    <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
+                    <%= current_user.house.house_detail.address %></p>
+                  <% else %>
+                    <h2>Ship to:</h2>
+                    <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
+                    <%= @order.shipping.address %></p>
+                  <%end%>
                 </td>
                 <td>
                   <h2>Bill to:</h2>
-                  <%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= @order.billing.address %>
+                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
+                  <%= @order.billing.address %></p>
                 </td>
                 <td>
-                  <h2>Order date:</h2>
+                  <h2>Ordered:</h2>
                   <p><%= @order.created_at.strftime("%B %e, %Y") %></p>
                 </td>
+                <% if @order.pack == "settle_in" %>
+                  <td>
+                    <h2>Starting:</h2>
+                    <p><%= @order.subscription.starting_date.strftime("%B %e, %Y") %></p>
+                  </td>
+                <% end %>
               </tr>
             </table>
           </td>
@@ -69,20 +81,40 @@
         <% @order.items.each do |item| %>
           <tr class="item">
             <td><%= item.product.name %></td>
-            <td><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></td>
+            <% if item.product.settle_in_pack? %>
+              <td><%= @order.currency_symbol %><%= item.product.category.utilities? ? number_to_currency(item.product.variant_subscription_price(@order.user.house) / 100, :unit => '') : number_to_currency(item.product.subscription_price, :unit => '') %> / Month</td>
+            <% else %>
+              <td><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></td>
+            <% end %>
           </tr>
         <% end %>
         <% if @order.affiliate_link.present?%>
           <tr class="item">
             <td>Affiliate code</td>
-            <td><%= @order.affiliate_link.upcase %> (-10%)</td>
+            <td><%= @order.affiliate_link.upcase %> <%= @order.pack == "settle_in" ? "(-20%)" : "(-10%)" %></td>
           </tr>
         <% end %>
-				<tr class="total">
-					<td>Total:</td>
-
-					<td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_amount_display, :unit => '') %></strong></td>
-				</tr>
+          <% if @order.pack == "settle_in" %>
+            <% if (@order.total_activation_amount != 0)%>
+              <tr class="item">
+                <td>Total activation price:</td>
+                <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_activation_amount / 100, :unit => '') %></strong></td>
+              </tr>
+            <% end %>
+            <tr class="total">
+              <td>First month payment:</td>
+              <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.subscription.next_due_amount, :unit => '') %></strong></td>
+            </tr>
+            <tr class="total">
+              <td>After first payment:</td>
+              <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong> / Month</td>
+            </tr>
+          <% else %>
+            <tr class="total">
+              <td>Total:</td>
+              <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_amount_display, :unit => '') %></strong></td>
+            </tr>
+          <% end %>
 			</table>
 		</div>
 	</body>

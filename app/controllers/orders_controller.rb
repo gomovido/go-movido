@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
       format.html
       format.pdf do
         render template: "layouts/invoice.html.erb",
-          pdf: "Movido_Starter_Pack_#{current_user.first_name}_#{current_user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}"
+          pdf: "Movido_#{@order.pack == "starter" ? "Starter" : "Settle_In"}_Pack_#{current_user.first_name}_#{current_user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}"
       end
     end
   end
