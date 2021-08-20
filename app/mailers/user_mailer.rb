@@ -13,8 +13,8 @@ class UserMailer < ApplicationMailer
 
   def order_confirmed
     @user = User.find(params[:user_id])
-    @locale = "en"
     @order = Order.find(params[:order_id])
+    @locale = "en"
     attachments["Movido_Starter_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}.pdf"] = WickedPdf.new.pdf_from_string(
       render_to_string(template: 'layouts/invoice.html.erb', pdf: "Movido_Starter_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}")
     )
@@ -25,6 +25,9 @@ class UserMailer < ApplicationMailer
     @user = User.find(params[:user_id])
     @order = Order.find(params[:order_id])
     @locale = "en"
+    attachments["Movido_Settle_In_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}.pdf"] = WickedPdf.new.pdf_from_string(
+      render_to_string(template: 'layouts/invoice.html.erb', pdf: "Movido_Settle_In_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}")
+    )
     mail(to: @user.email, subject: "Your Movido Contract")
   end
 end
