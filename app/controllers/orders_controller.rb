@@ -20,4 +20,15 @@ class OrdersController < ApplicationController
   def set_order
     @order = Order.find_by(user: current_user, id: params[:order_id])
   end
+
+  def invoice
+    @order = Order.find_by(user: current_user, id: params[:order_id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render template: "layouts/invoice.html.erb",
+          pdf: "Movido_Starter_Pack_#{current_user.first_name}_#{current_user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}"
+      end
+    end
+  end
 end

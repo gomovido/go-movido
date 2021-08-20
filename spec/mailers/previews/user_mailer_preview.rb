@@ -8,7 +8,7 @@ class UserMailerPreview < ActionMailer::Preview
   end
 
   def order_confirmed
-    UserMailer.with(user_id: User.last.id).order_confirmed
+    UserMailer.with(user_id: User.last.id, order_id: Order.last.id).order_confirmed
   end
 
   def contract_agreed

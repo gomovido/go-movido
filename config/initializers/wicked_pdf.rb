@@ -23,5 +23,5 @@ WickedPdf.config = {
   # 'use_xvfb' flag. This will wrap all wkhtmltopdf commands around the
   # 'xvfb-run' command, in order to simulate an X server.
   #
-  use_xvfb: true,
+  use_xvfb: false,
 }

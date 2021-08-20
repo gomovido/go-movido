@@ -38,6 +38,7 @@
       <% order.products.includes([:category], [:company], [:country]).each do |product| %>
       <%= render 'pages/dashboard/orders/progress-bar', product: product, active: order.subscription ? order.subscription.active? : order.paid? %>
       <% end %>
+      <%= link_to 'Invoice', invoice_path(order_id: order.id, format: :pdf), class:'btn-main'%>
     </div>
   </div>
 </div>
