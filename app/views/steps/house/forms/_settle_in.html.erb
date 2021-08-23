@@ -1,7 +1,7 @@
 <%= simple_form_for house, url: new_house_path(pack), data: {reflex: "submit->HouseDetailReflex#create", reflex_serialize_form: true, controller: "country" } do |f| %>
   <%= f.hidden_field :country_code, required: true, data: { country_target: 'countryInput' }, value: house&.country&.code %>
   <%= simple_fields_for house_detail do |p| %>
-    <label>Your home address</label>
+    <label>Your new home address</label>
     <div data-country-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->country#cleanCountryCode' >
     </div>
     <div class="invalid-feedback d-block"><%= f.full_error(:invalid_country) %></div>
@@ -13,6 +13,7 @@
                  input_html: { class:'datepicker', data: {
                   controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
     </div>
+    <%= p.input :comment, label: 'Comments(optional)', placeholder: 'Name on the mailbox, building, stairs' %>
   <% end %>
   <hr>
   <%= f.hidden_field :pack, value: pack %>
