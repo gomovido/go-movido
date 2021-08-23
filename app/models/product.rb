@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   has_many :option_types, dependent: :destroy
   has_many :items, dependent: :destroy
   has_one :pack, through: :category
+  has_one :service, through: :category
   after_create :set_sku
 
   validates :name, :activation_price, :subscription_price, :image_url, :description, presence: true

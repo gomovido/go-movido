@@ -9,7 +9,7 @@
       </div>
       <div class="product-name">
         <span class="name"><%= product.name %></span>
-        <span class="description"><%= product.description %></span>
+        <span class="description"><%= t("checkout.summary.#{product.country.code}.#{product.service.name}") %></span>
       </div>
       <% if product.category.utilities? %>
         <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
