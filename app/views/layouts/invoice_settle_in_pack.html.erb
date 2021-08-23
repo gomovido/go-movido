@@ -45,7 +45,7 @@
 								<td>
                   <h2>Contract for:</h2>
                   <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= current_user.house.house_detail.address %></p>
+                  <%= @order.user.house.house_detail.address %></p>
                 </td>
                 <td>
                   <h2>Bill to:</h2>
@@ -93,11 +93,15 @@
             <td>First month payment:</td>
             <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.discounted_subscription_amount(20).to_f / 100, :unit => '') %></strong></td>
           </tr>
-        <% end %>
         <tr class="total">
           <td>After first payment:</td>
           <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong> / Month</td>
         </tr>
+        <% else %>
+        <td>Total monthly:</td>
+          <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong> / Month</td>
+        </tr>
+        <% end %>
 			</table>
 		</div>
 	</body>
