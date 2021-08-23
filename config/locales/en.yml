@@ -1,4 +1,22 @@
 en:
+  checkout:
+    summary:
+      fr:
+        mobile_phone: "Use your phone as soon as you arrive"
+        transportation: "Use the metro or bus directly in Paris city center"
+        pickup:
+        housing: "Personalized housing search support from our team of local experts"
+        utilities: "Utilities in one click for your new home"
+        wifi: "Plug and play - receive your WiFi router within 3 business days without technician appointment"
+        mobile_phone_contract: "Mobile phone contract (SIM only)"
+      en:
+        mobile_phone: "SIM only - no monthly contract"
+        transportation: "Use the tube directly to London city center"
+        pickup: "A designated driver will bring you to London city center"
+        housing: "Personalized housing search support from our team of local experts"
+        utilities: "Utilities in one click for your new home"
+        wifi: "Plug and play - receive your WiFi router within 3 business days without technician appointment"
+        mobile_phone_contract: "Mobile phone contract (SIM only)"
   cart:
     form:
       mobile_phone: 'Local phone number'
