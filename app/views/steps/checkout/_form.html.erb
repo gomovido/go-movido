@@ -1,5 +1,4 @@
 <%= simple_form_for order, url: payments_path(order), method: :post, data: { controller: "payment", locale: I18n.locale}, html: {id: 'payment-form'} do |f| %>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= simple_fields_for billing do |p| %>
     <div data-controller='address' >
       <label>Billing address</label>
