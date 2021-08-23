@@ -1,6 +1,7 @@
 <div class="carts-new-container" data-controller="cart">
-  <%= simple_form_for order, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create_settle_in", reflex_serialize_form: true  } do |f| %>
+  <%= simple_form_for order, url: new_cart_path(pack: pack), data: {reflex: "submit->CartReflex#create", reflex_serialize_form: true  } do |f| %>
   <div class="product-cards-wrapper">
+    <%= f.hidden_field :terms, label: false, class: 'me-2 custom-checkbox', value: true %>
     <%= f.hidden_field :pack, value: pack %>
     <%= f.collection_check_boxes(:service_ids, Pack.find_by(name: pack).services.includes([:category]), :id, :name, include_hidden: false) do |service| %>
       <% product = service.object.product(house.country) %>
