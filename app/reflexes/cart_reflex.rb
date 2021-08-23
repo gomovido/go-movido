@@ -8,58 +8,34 @@ class CartReflex < ApplicationReflex
   def create
     @pack = order_params[:pack]
     @order = current_user.current_draft_order(@pack) || Order.new
-    if terms_not_checked?(order_params[:terms])
-      current_user.house.errors.add(:terms, 'You need to accept the Terms and Conditions of movido')
-      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
-    elsif params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
-      @order.errors.add(:affiliate_link, 'not valid')
-      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
-    elsif !order_params[:service_ids]
+    if !order_params[:service_ids]
       @order.errors.add(:base, "Please select at least one service")
-      morph '.form-base', render(partial: "steps/cart/forms/starter", locals: { order: @order, house: current_user.house, pack: @pack })
+      morph '.form-base', render(partial: "steps/cart/forms/#{@pack}", locals: { order: @order, house: current_user.house, pack: @pack })
     else
-      initialize_order
-      initialize_cart
-      init_user_services
-      generate_items
-      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_shipping_path(@order))
-      morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, pack: @pack, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
+      @order = initialize_order
+      if @order.save
+        initialize_cart
+        init_user_services
+        generate_items
+        if @pack == 'starter'
+          cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_shipping_path(@order))
+          morph '.flow-container', render(partial: "steps/shipping/new", locals: { order: @order, pack: @pack, shipping: (@order.shipping || Shipping.new), message: { content: "Now please enter your current home address details for the shipment of your Starter Pack", delay: 0 } })
+        else
+          cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_subscription_path(@order))
+          morph '.flow-container', render(partial: "steps/subscription/new", locals: { order: @order, subscription: (@order.subscription || Subscription.new), message: { content: "Now the final step is to go through the legal stuff and then we are done 😁", delay: 0 } })
+        end
+      else
+        morph '.form-base', render(partial: "steps/cart/forms/#{@pack}", locals: { order: @order, house: current_user.house, pack: @pack })
+      end
     end
-  end
-
-  def create_settle_in
-    @pack = order_params[:pack]
-    @order = current_user.current_draft_order(@pack) || Order.new
-    if params[:order][:affiliate_link].present? && !promocode_is_valid?(params[:order][:affiliate_link])
-      @order.errors.add(:affiliate_link, 'not valid')
-      morph '.form-base', render(partial: "steps/cart/forms/settle_in", locals: { order: @order, house: current_user.house, pack: @pack })
-    elsif !order_params[:service_ids]
-      @order.errors.add(:base, "Please select at least one service")
-      morph '.form-base', render(partial: "steps/cart/forms/settle_in", locals: { order: @order, house: current_user.house, pack: @pack })
-    else
-      initialize_order
-      initialize_cart
-      init_user_services
-      generate_items
-      cable_ready.push_state(cancel: false, url: Rails.application.routes.url_helpers.new_subscription_path(@order))
-      morph '.flow-container', render(partial: "steps/subscription/new", locals: { order: @order, subscription: (@order.subscription || Subscription.new), message: { content: "Now the final step is to go through the legal stuff and then we are done 😁", delay: 0 } })
-    end
-  end
-
-  def terms_not_checked?(terms)
-    terms == '0'
   end
 
   def initialize_order
-    @order = current_user.current_draft_order(@pack) || Order.create(user: current_user, state: 'pending_payment')
-    @order.update(affiliate_link: params[:order][:affiliate_link]) if params[:order][:affiliate_link].present? && promocode_is_valid?(params[:order][:affiliate_link])
+    @order = current_user.current_draft_order(@pack) || @order = Order.new(order_params)
+    @order.user = current_user
+    @order.state = 'pending_payment'
+    @order
   end
-
-  def promocode_is_valid?(promocode)
-    ['MOVIDO21', 'MANDY', 'CLOUDS', 'VIANCQA', 'KARINA1', 'KARINA2', 'SHUFFLE21', 'ESCP21', 'OPENUP21', 'PARISMUS21', 'IESEG21', 'KES21', 'UCL21', 'EARLYBIRD21', 'TEJAS', 'AISHINEE21', 'TOMOYA', 'YASH', 'MDX2021', 'KAITY', 'BISOUSMORGAN', 'INDOFRENCHLIFE', 'LATINAYFRANCES', 'AUGUST20OFF', 'AIESEC21', 'BRITINDIANS', 'START20OFF', 'SETTLE20OFF', 'DAUPHINE21', 'STUDENTHUBUK', 'ANGELA', 'YASHDUA', 'JASHANDEEP'].include?(promocode.upcase)
-  end
-
-  def promocode; end
 
   def initialize_cart
     @cart = @order.cart || Cart.create(house: current_user.house)

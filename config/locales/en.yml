@@ -39,6 +39,16 @@ en:
   activerecord:
     errors:
       models:
+        order:
+          attributes:
+            terms:
+              blank: "You need to accept the Terms and Conditions of movido"
+              invalid: "You need to accept the Terms and Conditions of movido"
+              acceptance: "You need to accept the Terms and Conditions of movido"
+            affiliate_link:
+              invalid: "not valid"
+              inclusion: "not valid"
+
         billing:
           attributes:
             account_number:
