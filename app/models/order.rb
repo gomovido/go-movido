@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  PROMOCODE = %w(MOVIDO21 MANDY CLOUDS VIANCQA KARINA1 KARINA2 SHUFFLE21 ESCP21 OPENUP21 PARISMUS21 IESEG21 KES21 UCL21 EARLYBIRD21 TEJAS AISHINEE21 TOMOYA YASH MDX2021 KAITY BISOUSMORGAN INDOFRENCHLIFE LATINAYFRANCES AUGUST20OFF AIESEC21 BRITINDIANS START20OFF SETTLE20OFF DAUPHINE21 STUDENTHUBUK ANGELA YASHDUA JASHANDEEP)
   belongs_to :user
   belongs_to :charge, optional: true
   belongs_to :billing, optional: true
@@ -8,10 +9,14 @@ class Order < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :products, through: :items
   has_one :order_marketing, dependent: :destroy
-  attr_accessor :terms, :marketing
 
-  validates :state, presence: true
+  attr_accessor :pack, :service_ids
+
+  validates :state, :terms, presence: true
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
+  validates :affiliate_link,
+          inclusion: {in: PROMOCODE, allow_blank: true}
+
 
   def total_activation_amount
     items.includes([product: :category]).sum { |item| item.product.category.utilities? ? item.product.variant_activation_price(user.house) : item.product.activation_price_cents }
