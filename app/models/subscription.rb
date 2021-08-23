@@ -14,7 +14,11 @@ class Subscription < ApplicationRecord
   end
 
   def next_due_amount
-    customer = Stripe::Customer.retrieve(order.user.stripe_id)
-    Stripe::Invoice.upcoming({customer: customer.id}).amount_due.to_f / 100
+    begin
+      customer = Stripe::Customer.retrieve(order.user.stripe_id)
+      Stripe::Invoice.upcoming({customer: customer.id}).amount_due.to_f / 100
+    rescue
+      0
+    end
   end
 end
