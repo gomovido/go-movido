@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_134601) do
     t.datetime "contract_starting_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comment"
     t.index ["house_id"], name: "index_house_details_on_house_id"
   end
 
