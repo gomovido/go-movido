@@ -3,7 +3,8 @@ class UserMarketingsController < ApplicationController
 
   def unsubscribe_confimation
     @user = User.find(Base64.decode64(params[:user_id]).to_i)
-    redirect_to root_path unless @user.user_marketing.subscribed
+    @user_marketing = UserMarketing.find_by(user: @user) if @user
+    redirect_to root_path if @user_marketing.nil?
   end
 
   def unsubscribe
