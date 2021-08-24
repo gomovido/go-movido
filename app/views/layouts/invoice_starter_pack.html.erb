@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+    <%= wicked_pdf_stylesheet_link_tag 'bootstrap' %>
+  </head>
+  <body>
+		<div class="invoice-box">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									<%= image_tag(asset_path('logos/movido-black.svg'), class: 'movido-logo', size: '250x125') %>
+								</td>
+								<td>
+                <h1>Invoice - Starter Pack</h1>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									<p><strong>Movido France SAS</strong><br />
+                  608 Boulevard des Horizons,<br />
+                  06220 Vallauris <br />
+                  Company registered in France</p>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+        <tr class="customer-info">
+					<td colspan="4">
+						<table>
+							<tr>
+								<td>
+                  <h2>Ship to:</h2>
+                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
+                  <%= @order.shipping.address %></p>
+                </td>
+                <td>
+                  <h2>Bill to:</h2>
+                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
+                  <%= @order.billing.address %></p>
+                </td>
+                <td>
+                  <h2>Ordered:</h2>
+                  <p><%= @order.created_at.strftime("%B %e, %Y") %></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+				<tr class="heading">
+					<td><strong>Items</strong></td>
+
+					<td><strong>Price</strong></td>
+				</tr>
+        <% @order.items.each do |item| %>
+          <tr class="item">
+            <td><%= item.product.name %></td>
+            <td><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></td>
+          </tr>
+        <% end %>
+        <% if @order.affiliate_link.present?%>
+          <tr class="item">
+            <td>Affiliate code</td>
+            <td><%= @order.affiliate_link.upcase %> (-10%)</td>
+          </tr>
+        <% end %>
+          <tr class="total">
+            <td>Total:</td>
+            <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_amount_display, :unit => '') %></strong></td>
+          </tr>
+			</table>
+		</div>
+	</body>
+</html>
