@@ -26,27 +26,27 @@
 
 				<tr class="information">
 					<td>
-						<p class='company'><strong>Movido France SAS</strong><br />
+						<span class='company'><strong>Movido France SAS</strong><br />
             608 Boulevard des Horizons,<br />
             06220 Vallauris <br />
-            Company registered in France</p>
+            Company registered in France</span>
 					</td>
 				</tr>
 
         <tr class="customer-info">
 					<td>
             <span class='title'><strong>Customer contact email</strong></span><br />
-            <p><%= @order.user.email %></p>
+            <span><%= @order.user.email %></span>
           </td>
           <td>
             <span class="title"><strong>Customer address</strong></span><br />
-            <p><%= @order.user.house.house_detail.address %></p>
+            <span><%= @order.user.house.house_detail.address %></span>
           </td>
         </tr>
         <tr class="customer-info">
           <td>
             <span class="title"><strong>Customer Id</strong></span><br />
-            <p><%= @order.id %></p>
+            <span><%= @order.id %></span>
           </td>
           <td>
             <span><strong>Service installation address</strong></span><br />
