@@ -5,101 +5,89 @@
     <%= wicked_pdf_stylesheet_link_tag "pdf" %>
     <%= wicked_pdf_stylesheet_link_tag 'bootstrap' %>
   </head>
+  <style>
+    span {
+      font-family: "Roboto", sans-serif;
+    }
+    p {
+     font-family: "Roboto", sans-serif;
+    }
+  </style>
   <body>
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0">
 				<tr class="top">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td class="title">
-									<%= image_tag(asset_path('logos/movido-black.svg'), class: 'movido-logo', size: '250x125') %>
-								</td>
-								<td>
-                <h1>Invoice - Settle In Pack</h1>
-								</td>
-							</tr>
-						</table>
+					<td class="title">
+						<%= image_tag(asset_path('logos/logo-black.png'), class: 'movido-logo') %>
+          </td>
+					<td class="invoice-id">
+            <span>Invoice - Settle In Pack</span>
 					</td>
 				</tr>
 
 				<tr class="information">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td>
-									<p><strong>Movido France SAS</strong><br />
-                  608 Boulevard des Horizons,<br />
-                  06220 Vallauris <br />
-                  Company registered in France</p>
-								</td>
-							</tr>
-						</table>
+					<td>
+						<p class='company'><strong>Movido France SAS</strong><br />
+            608 Boulevard des Horizons,<br />
+            06220 Vallauris <br />
+            Company registered in France</p>
 					</td>
 				</tr>
 
         <tr class="customer-info">
-					<td colspan="4">
-						<table>
-							<tr>
-								<td>
-                  <h2>Contract for:</h2>
-                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= @order.user.house.house_detail.address %></p>
-                </td>
-                <td>
-                  <h2>Bill to:</h2>
-                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= @order.billing.address %></p>
-                </td>
-                <td>
-                  <h2>Ordered:</h2>
-                  <p><%= @order.created_at.strftime("%B %e, %Y") %></p>
-                </td>
-                <td>
-                  <h2>Starting:</h2>
-                  <p><%= @order.subscription.starting_date.strftime("%B %e, %Y") %></p>
-                </td>
-              </tr>
-            </table>
+					<td>
+            <span class='title'><strong>Customer contact email</strong></span><br />
+            <p><%= @order.user.email %></p>
+          </td>
+          <td>
+            <span class="title"><strong>Customer address</strong></span><br />
+            <p><%= @order.user.house.house_detail.address %></p>
           </td>
         </tr>
-
-				<tr class="heading">
-					<td><strong>Items</strong></td>
-
-					<td><strong>Price</strong></td>
-				</tr>
+        <tr class="customer-info">
+          <td>
+            <span class="title"><strong>Customer Id</strong></span><br />
+            <p><%= @order.id %></p>
+          </td>
+          <td>
+            <span><strong>Service installation address</strong></span><br />
+            <span><%= @order.user.house.house_detail.address %></span>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr class="heading">
+          <th><span><strong>movido services from <%= @order.created_at.strftime('%A %e %B %Y') %></strong></span></th>
+          <th class='text-right'><span><strong>Price</strong>/month</span></th>
+        </tr>
         <% @order.items.each do |item| %>
           <tr class="item">
-            <td><%= item.product.name %></td>
-              <td><%= @order.currency_symbol %><%= item.product.category.utilities? ? number_to_currency(item.product.variant_subscription_price(@order.user.house) / 100, :unit => '') : number_to_currency(item.product.subscription_price, :unit => '') %> / Month</td>
+            <td><span><%= item.product.name %></span></td>
+            <td class="text-right"><span><%= @order.currency_symbol %><%= item.product.category.utilities? ? number_to_currency(item.product.variant_subscription_price(@order.user.house) / 100, :unit => '') : number_to_currency(item.product.subscription_price, :unit => '') %></span></td>
           </tr>
         <% end %>
         <% if @order.affiliate_link.present?%>
           <tr class="item">
-            <td>Affiliate code</td>
+            <td><span>Discount code</span></td>
             <td><%= @order.affiliate_link.upcase %> (-20%)</td>
           </tr>
         <% end %>
-        <% if (@order.total_activation_amount != 0)%>
-          <tr class="item">
-            <td>Total activation price:</td>
-            <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_activation_amount / 100, :unit => '') %></strong></td>
-          </tr>
-        <% end %>
+        <tr class="item">
+          <td><span>Setup cost</span></td>
+          <td class='text-right'><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_activation_amount / 100, :unit => '') %></strong></span></td>
+        </tr>
         <% if @order.affiliate_link.present?%>
-          <tr class="total">
-            <td>First month payment:</td>
-            <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.discounted_subscription_amount(20).to_f / 100, :unit => '') %></strong></td>
+          <tr class="item total">
+            <td><span>First month payment:</span></td>
+            <td><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.discounted_subscription_amount(20).to_f / 100, :unit => '') %></strong></span></td>
           </tr>
-        <tr class="total">
+        <tr class="item total">
           <td>After first payment:</td>
           <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong> / Month</td>
         </tr>
         <% else %>
-        <td>Total monthly:</td>
-          <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong> / Month</td>
+        <td><span><strong>Total:</strong></span></td>
+          <td class='text-right'><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong></span></td>
         </tr>
         <% end %>
 			</table>
