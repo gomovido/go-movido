@@ -12,11 +12,16 @@ class Order < ApplicationRecord
 
   attr_accessor :pack, :service_ids
 
+  before_validation :upcase_fields
   validates :state, :terms, presence: true
   validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
   validates :affiliate_link,
           inclusion: {in: PROMOCODE, allow_blank: true}
 
+
+  def upcase_fields
+    affiliate_link.upcase!
+  end
 
   def total_activation_amount
     items.includes([product: :category]).sum { |item| item.product.category.utilities? ? item.product.variant_activation_price(user.house) : item.product.activation_price_cents }
