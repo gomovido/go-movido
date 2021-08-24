@@ -1,10 +1,6 @@
 class CartReflex < ApplicationReflex
   delegate :current_user, to: :connection
 
-  before_reflex only: [:promocode] do
-    throw :abort unless promocode_is_valid?(element.value)
-  end
-
   def create
     @pack = order_params[:pack]
     @order = current_user.current_draft_order(@pack) || Order.new
