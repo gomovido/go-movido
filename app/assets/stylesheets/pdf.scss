@@ -1,0 +1,64 @@
+.invoice-box {
+  margin: auto;
+  padding: 30px;
+  font-size: 16px;
+  line-height: 24px;
+  table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+    border: 1px white;
+    td {
+      padding: 5px;
+      vertical-align: top;
+    }
+    .customer-info {
+      table td {
+      text-align: left !important;
+      padding-bottom: 30px;
+      padding-right: 50px;
+      }
+    }
+    tr {
+      td:nth-child(2) {
+        text-align: right;
+      }
+      .top table td {
+        padding-bottom: 20px;
+        .title {
+          font-size: 45px;
+          line-height: 45px;
+          color: #333;
+        }
+      }
+      .information table td {
+        padding-bottom: 40px;
+      }
+      .heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+      }
+      .item td {
+        border-bottom: 1px solid #eee;
+        .item.last td {
+          border-bottom: none;
+        }
+      }
+      .total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
