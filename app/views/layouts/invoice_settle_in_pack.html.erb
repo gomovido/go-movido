@@ -68,27 +68,21 @@
         <% if @order.affiliate_link.present?%>
           <tr class="item">
             <td><span>Discount code</span></td>
-            <td><%= @order.affiliate_link.upcase %> (-20%)</td>
+            <td class="text-right"><span><%= @order.affiliate_link.upcase %> (-20%)</span></td>
           </tr>
-        <% end %>
-        <tr class="item">
-          <td><span>Setup cost</span></td>
-          <td class='text-right'><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_activation_amount / 100, :unit => '') %></strong></span></td>
-        </tr>
-        <% if @order.affiliate_link.present?%>
           <tr class="item total">
-            <td><span>First month payment:</span></td>
-            <td><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.discounted_subscription_amount(20).to_f / 100, :unit => '') %></strong></span></td>
+            <td><strong><span>Subscription amount</span></strong></td>
+            <td class="text-right"><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.discounted_subscription_amount(20).to_f / 100, :unit => '') %></strong></span></td>
           </tr>
-        <tr class="item total">
-          <td>After first payment:</td>
-          <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong> / Month</td>
-        </tr>
         <% else %>
-        <td><span><strong>Total:</strong></span></td>
+        <td><span><strong>Recurring total</strong></span></td>
           <td class='text-right'><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_subscription_amount_display, :unit => '') %></strong></span></td>
         </tr>
         <% end %>
+        <tr class="item">
+          <td><span>Setup cost</span></td>
+          <td class='text-right'><span><%= @order.currency_symbol %><%= number_to_currency(@order.total_activation_amount / 100, :unit => '') %></span></td>
+        </tr>
 			</table>
 		</div>
 	</body>
