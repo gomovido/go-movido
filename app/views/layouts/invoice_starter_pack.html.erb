@@ -5,84 +5,78 @@
     <%= wicked_pdf_stylesheet_link_tag "pdf" %>
     <%= wicked_pdf_stylesheet_link_tag 'bootstrap' %>
   </head>
+  <style>
+    span {
+      font-family: "Roboto", sans-serif;
+    }
+    p {
+     font-family: "Roboto", sans-serif;
+    }
+  </style>
   <body>
-		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
-				<tr class="top">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td class="title">
-									<%= image_tag(asset_path('logos/movido-black.svg'), class: 'movido-logo', size: '250x125') %>
-								</td>
-								<td>
-                <h1>Invoice - Starter Pack</h1>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-
-				<tr class="information">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td>
-									<p><strong>Movido France SAS</strong><br />
-                  608 Boulevard des Horizons,<br />
-                  06220 Vallauris <br />
-                  Company registered in France</p>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-
-        <tr class="customer-info">
-					<td colspan="4">
-						<table>
-							<tr>
-								<td>
-                  <h2>Ship to:</h2>
-                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= @order.shipping.address %></p>
-                </td>
-                <td>
-                  <h2>Bill to:</h2>
-                  <p><%= @order.user.first_name %> <%=@order.user.last_name%><br />
-                  <%= @order.billing.address %></p>
-                </td>
-                <td>
-                  <h2>Ordered:</h2>
-                  <p><%= @order.created_at.strftime("%B %e, %Y") %></p>
-                </td>
-              </tr>
-            </table>
+    <div class="invoice-box">
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td class="title">
+            <%= image_tag(asset_path('logos/logo-black.png'), class: 'movido-logo') %>
+          </td>
+          <td class="invoice-id">
+            <span>Invoice - Starter Pack</span>
           </td>
         </tr>
 
-				<tr class="heading">
-					<td><strong>Items</strong></td>
+        <tr class="information">
+          <td>
+            <p class='company'><strong>Movido France SAS</strong><br />
+            608 Boulevard des Horizons,<br />
+            06220 Vallauris <br />
+            Company registered in France</p>
+          </td>
+        </tr>
 
-					<td><strong>Price</strong></td>
-				</tr>
+        <tr class="customer-info">
+          <td>
+            <span class='title'><strong>Customer contact email</strong></span><br />
+            <p><%= @order.user.email %></p>
+          </td>
+          <td>
+            <span class="title"><strong>Shipping address</strong></span><br />
+            <p><%= @order.shipping.address %></p>
+          </td>
+        </tr>
+        <tr class="customer-info">
+          <td>
+            <span class="title"><strong>Customer Id</strong></span><br />
+            <p><%= @order.id %></p>
+          </td>
+          <td>
+            <span><strong>Billing address</strong></span><br />
+            <span><%= @order.billing.address %></span>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr class="heading">
+          <th><span><strong>movido starter pack ordered <%= @order.created_at.strftime('%A %e %B %Y') %></strong></span></th>
+          <th class='text-right'><span><strong>Price</strong>(<%= @order.currency_symbol %>)</span></th>
+        </tr>
         <% @order.items.each do |item| %>
           <tr class="item">
-            <td><%= item.product.name %></td>
-            <td><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></td>
+            <td><span><%= item.product.name %></span></td>
+            <td class="text-right"><span><%= number_to_currency(item.product.activation_price, :unit => '') %></span></td>
           </tr>
         <% end %>
         <% if @order.affiliate_link.present?%>
           <tr class="item">
-            <td>Affiliate code</td>
-            <td><%= @order.affiliate_link.upcase %> (-10%)</td>
+            <td><span>Discount code</span></td>
+            <td><%= @order.affiliate_link.upcase %> (-20%)</td>
           </tr>
         <% end %>
-          <tr class="total">
-            <td>Total:</td>
-            <td><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_amount_display, :unit => '') %></strong></td>
-          </tr>
-			</table>
-		</div>
-	</body>
+        <tr class="item">
+        <td><span><strong>Total:</strong></span></td>
+          <td class='text-right'><span><strong><%= @order.currency_symbol %><%= number_to_currency(@order.total_amount_display, :unit => '') %></strong></span></td>
+        </tr>
+      </table>
+    </div>
+  </body>
 </html>
