@@ -8,7 +8,7 @@ Rails.application.configure do
   expire_after: 1.year
 
   config.action_mailer.delivery_method     = :postmark
-  config.action_mailer.postmark_settings   = { api_token:  ''}
+  config.action_mailer.postmark_settings   = { api_token:  Rails.application.credentials.production[:postmark][:api_token]}
   config.action_mailer.default_url_options = { host: "https://movido-app-staging.herokuapp.com/" }
   config.action_controller.default_url_options = { host: "https://movido-app-staging.herokuapp.com/" }
   config.action_mailer.asset_host = 'https://movido-app-staging.herokuapp.com/'
