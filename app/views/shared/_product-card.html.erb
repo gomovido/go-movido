@@ -43,5 +43,8 @@
       <% end %>
       <%= image_tag(asset_path(product.company.logo_url)) %>
     </div>
+    <% if product.settle_in_pack? %>
+      <span class="commitment">no commitment and cancel anytime</span>
+    <% end %>
   </div>
 </div>
