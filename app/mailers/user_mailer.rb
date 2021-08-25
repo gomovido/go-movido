@@ -18,6 +18,7 @@ class UserMailer < ApplicationMailer
     attachments["Movido_Starter_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}.pdf"] = WickedPdf.new.pdf_from_string(
       render_to_string(template: 'layouts/invoice_starter_pack.html.erb', pdf: "Movido_Starter_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}")
     )
+    attachments["Movido_T&Cs_2021.pdf"] = File.read('app/assets/files/2021 08 TCs Movido.pdf')
     mail(to: @user.email, subject: "✨ #{@user.first_name}, your Starter Pack is on its way !")
   end
 
@@ -28,6 +29,7 @@ class UserMailer < ApplicationMailer
     attachments["Movido_Settle_In_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}.pdf"] = WickedPdf.new.pdf_from_string(
       render_to_string(template: 'layouts/invoice_settle_in_pack.html.erb', pdf: "Movido_Settle_In_Pack_#{@user.first_name}_#{@user.last_name}_#{@order.created_at.strftime("%Y_%m_%d")}")
     )
+    attachments["Movido_T&Cs_2021.pdf"] = File.read('app/assets/files/2021 08 TCs Movido.pdf')
     mail(to: @user.email, subject: "Your Movido Contract")
   end
 end
