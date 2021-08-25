@@ -1,3 +1,4 @@
+
 <%= simple_form_for subscription, url: checkout_path(order.id), data: {reflex: "submit->SubscriptionReflex#create", reflex_serialize_form: true  } do |f| %>
   <%= f.hidden_field :order_id, value: order.id %>
   <div class="d-flex">
@@ -14,5 +15,7 @@
     <label for="">I accept the Terms and Conditions of Movido providers</label>
   </div>
   <div class="invalid-feedback d-block"><%= f.error(:terms_provider) %></div>
-  <%= f.button :submit, 'Continue' , class: 'btn-main mb-2' %>
+  <hr>
+  <%= f.button :submit, 'Continue' , class: 'btn-main mb-5' %>
 <% end %>
+
