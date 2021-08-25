@@ -39,7 +39,9 @@
       <%= render 'pages/dashboard/orders/progress-bar', product: product, active: order.subscription ? order.subscription.active? : order.paid? %>
       <% end %>
     </div>
-    <%= link_to 'Track your order', "https://www.laposte.fr/outils/track-a-parcel", class:'btn-main my-3', target: 'blank' %>
-    <%= link_to 'Invoice', invoice_path(order_id: order.id, format: :pdf), class:'btn-main', target: 'blank' %>
+    <% if order.paid? %>
+      <%= link_to 'Track your order', "https://www.laposte.fr/outils/track-a-parcel", class:'btn-main my-3', target: 'blank' %>
+      <%= link_to 'Invoice', invoice_path(order_id: order.id, format: :pdf), class:'btn-main', target: 'blank' %>
+    <% end %>
   </div>
 </div>
