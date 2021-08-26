@@ -4,7 +4,7 @@
   </div>
   <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
   <%= f.hidden_field :address, required: true, data: { address_target: 'addressInput' } %>
-  <label class="mb-3">Please make sure you will be at this address for at least 1 more week to ensure you receive your Starter Pack</label>
+  <label class="mb-3">Please make sure you will be at this address for at least 2 weeks to ensure you receive your Starter Pack</label>
   <label>Any other delivery instructions? (optional)</label>
   <%= f.input :instructions, required: true, label: false, placeholder: 'Type a message for us' %>
   <hr>
