@@ -1,7 +1,7 @@
 class Subscription < ApplicationRecord
   belongs_to :order
   belongs_to :coupon, optional: true
-  has_many :plans
+  has_many :plans, dependent: :destroy
   attr_accessor :terms, :terms_provider
 
   after_create :send_contract_agreed_email
