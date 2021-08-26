@@ -11,7 +11,7 @@
       <%= p.input :contract_starting_date, as: :string, label: 'Contract start date',
                  required: true,
                  input_html: { class:'datepicker', data: {
-                  controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now} } %>
+                  controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now + 10.days} } %>
     </div>
     <%= p.input :comment, label: "Is your name on the door?", placeholder: 'Name on the door sign, building, stairs' %>
   <% end %>
