@@ -1,0 +1,35 @@
+.starter-card {
+  border-radius: 8px;
+  box-shadow: 0px 16px 40px 0px #A6A3AD33;
+  font-family: 'Poppins';
+  .title, .total-price {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    color:$purple;
+  }
+  .price {
+    font-weight: 400;
+    font-size: 15px
+  }
+  .category {
+    font-size: 10px;
+  }
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+  .track-button {
+    background: #8330F5;
+    width: 100%;
+    color: white;
+    text-align: left;
+    border-radius: 8px;
+  }
+  hr {
+    color: #8330F5;
+  }
+}
