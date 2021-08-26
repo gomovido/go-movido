@@ -1,4 +1,9 @@
 en:
+  dashboard:
+    product_category:
+      mobile_phone: 'Mobile Phone'
+      transportation: 'Transportation'
+      housing: 'Housing'
   checkout:
     summary:
       fr:
@@ -19,7 +24,7 @@ en:
         mobile_phone_contract: "Mobile phone contract (SIM only)"
   cart:
     form:
-      mobile_phone: 'Local phone number'
+      mobile_phone: 'Local Phone Number'
       transportation: 'Public transportation card'
       pickup: "Airport pick-up to central %{city}"
   mail:
