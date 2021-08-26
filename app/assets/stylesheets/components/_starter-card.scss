@@ -1,0 +1,50 @@
+.starter-card {
+  border-radius: 8px;
+  box-shadow: 0px 16px 40px 0px #A6A3AD33;
+  font-family: 'Poppins';
+  .title {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .total-price {
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    color:$purple;
+  }
+  .price {
+    font-weight: 400;
+    font-size: 15px
+  }
+  .category {
+    font-size: 10px;
+  }
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+  .button {
+    background: linear-gradient(90deg, $purple 85%, rgba(255,255,255,1) 85%);
+    width: 100%;
+    color: white;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0px 0px 16px rgba(140, 48, 245, 0.2);
+  }
+  hr {
+    color: #8330F5;
+    margin: 0;
+  }
+  .products {
+    background: #f9f6fe;
+  }
+  .top {
+    height: 70px;
+  }
+  .product {
+    height:75px;
+  }
+}

@@ -63,8 +63,8 @@ Rails.application.routes.draw do
   # Generate invoice
   get 'dashboard/invoice/:order_id', to: 'orders#invoice', as: 'invoice'
 
- # Temporary route for dashboard new components integration
- get 'new_dashboard', to: 'pages#new_dashboard'
+  # Temporary route for dashboard new components integration
+  get 'new_dashboard', to: 'pages#new_dashboard'
 
   # Lead generation
   resources :leads, only: [:create]
