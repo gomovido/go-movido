@@ -1,0 +1,43 @@
+<% @live_orders.each do |order| %>
+  <% if order.pack == "starter" %>
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-12 col-md-4 starter-card">
+          <div class="top d-flex align-items-center justify-content-between py-2 px-3">
+            <span class="title">Starter Pack</span>
+            <span class="total-price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
+          </div>
+          <div class="products d-flex flex-column px-3">
+            <% order.products.each do |product| %>
+              <div class="d-flex justify-content-between align-items-center product">
+                <%= image_tag(product.company.logo_url, class:'logo me-5') %>
+                <div class="d-flex flex-column justify-content-start flex-fill">
+                  <span class="category"><%= t("dashboard.product_category.#{product.category.name}") %></span>
+                  <span class="title"><%= product.company.name %></span>
+                </div>
+                <span class="price"><%= order.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span>
+              </div>
+              <hr>
+            <% end %>
+          </div>
+          <div class="bottom d-flex flex-column py-3 px-3">
+            <span class="subtitle">Tracking ID: <%= order.shipping.tracking_id ? order.shipping.tracking_id : 'processing' %></span>
+            <%= link_to "https://www.laposte.fr/outils/track-a-parcel", target: 'blank' do %>
+              <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+                <span>Track your order</span>
+                <%= image_tag(asset_path('icons/arrow-purple'), size: "12x12", class:'me-1') %>
+              </div>
+            <% end %>
+            <%= link_to invoice_path(order_id: order.id, format: :pdf), target: 'blank' do %>
+              <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+                <span>Download your invoice</span>
+                <%= image_tag(asset_path('icons/file_icon'), size: '18x24') %>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

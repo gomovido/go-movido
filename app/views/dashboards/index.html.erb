@@ -1,49 +1,31 @@
-<div class="flow-container dashboard-container">
-  <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-xs-12">
-        <h1 class="mt-3"><span class='purple bold'>Movi</span>board</h1>
-        <p class='mb-3'>Manage your contract.</p>
-      </div>
-      <div class="col-xs-12">
-        <div class="user-profil">
-          <div class="d-flex align-items-center mb-3">
-            <i class="fal fa-id-badge"></i>
-            <div class="d-flex flex-column">
-              <span class="name"><%= current_user.first_name %> <%= current_user.last_name %></span>
-              <% if current_user.house.house_detail %>
-                <span class="address"><%= current_user.house.house_detail.address %></span>
-              <% else %>
-                <span class="address">Going to <%= t("country.#{current_user.house.country.code}") %></span>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="dashboard container position-relative" data-controller="dashboard">
+  <%= image_tag(asset_path('pages/dashboard/round-back'), class:"round position-absolute", size: "330x330") %>
+  <% image_tag(asset_path('pages/dashboard/waves-back'), class:"waves position-absolute", size:"500x700") %>
+  <div class="col-12 d-flex flex-column mb-2">
+    <span class="address text-start purple"><i class="fas fa-map-marker-alt purple me-1"></i><%= current_user.house.house_detail.address %></span>
+    <h2 class="title text-start mt-3">Hello <%= current_user.first_name%>,</h2>
+    <h4 class="subtitle text-start">welcome back!</h4>
+  </div>
+  <div class="col-12 d-flex d-md-none justify-content-center pack-nav-mobile">
+    <ul class="nav w-100 text-center justify-content-around" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="true">Starter Pack</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="settle-in" aria-selected="false">Settle In Pack</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-12 position-relative mt-1 mb-3 d-block">
+    <div class="purple-bar-1 w-50 position-absolute" data-dashboard-target="purple"></div>
+    <div class="purple-bar-2 w-100 position-absolute"></div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane active" id="starter" role="tabpanel" aria-labelledby="starter-tab">
+      <%= render "dashboards/orders/cards/starter", invoice: @invoice %>
+    </div>
+    <div class="tab-pane" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
+      <span>Stuff about your settle in pack</span>
     </div>
   </div>
-  <hr>
-  <div class="container">
-    <div class="row">
-      <h1>Contract</h1>
-      <p class='mb-3'>Summary of your movido contract.</p>
-      <% if !@live_orders.blank? %>
-        <% @live_orders.each do |order| %>
-          <%= render "dashboards/orders/#{order.pack}", order: order%>
-        <% end %>
-      <% else %>
-          <% @pending_orders.each do |order| %>
-            <% order.pack == 'starter' ? url = onboarding_starter_pack_path : url = onboarding_settle_in_path %>
-            <div class="col-12 my-3">
-              <p>You have a pending order</p>
-              <%= link_to 'Continue your purchase', url, class:'btn-main' %>
-            </div>
-          <% end %>
-      <% end %>
-    </div>
-  </div>
-  <section class="book-a-call-banner w-100 d-flex d-md-none">
-    <span class="subline white"><strong>Need some help?</strong> Speak to us.</span>
-    <%= link_to "<i class='fas fa-headphones-alt me-1'></i> Contact us".html_safe, 'https://calendly.com/alice_movido/movido-introcall', class: 'cta-call d-block py-1' %>
-  </section>
 </div>
