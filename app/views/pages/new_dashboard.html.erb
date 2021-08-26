@@ -1,0 +1,33 @@
+<div class="dashboard container position-relative" data-controller="dashboard">
+  <%= image_tag(asset_path('pages/dashboard/round-back'), class:"round position-absolute", size: "330x330") %>
+  <%=# image_tag(asset_path('pages/dashboard/waves-back'), class:"waves position-absolute", size:"500x700") %>
+  <div class="col-12 d-flex flex-column mb-2">
+    <span class="address text-start purple"><i class="fas fa-map-marker-alt purple me-1"></i><%= current_user.house.house_detail.address %></span>
+    <h2 class="title text-start mt-3">Hello <%= current_user.first_name%>,</h2>
+    <h4 class="subtitle text-start">welcome back!</h4>
+  </div>
+  <div class="col-12 d-flex d-md-none justify-content-center pack-nav-mobile">
+    <ul class="nav w-100 text-center justify-content-around" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="true">Starter Pack</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="settle-in" aria-selected="false">Settle In Pack</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-12 position-relative mt-1 mb-3 d-block">
+    <div class="purple-bar-1 w-50 position-absolute" data-dashboard-target="purple"></div>
+    <div class="purple-bar-2 w-100 position-absolute"></div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane active" id="starter" role="tabpanel" aria-labelledby="starter-tab">
+      <%# render Starter cards else%>
+      <span>Stuff about your starter pack</span>
+    </div>
+    <div class="tab-pane" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
+      <%# render Settle-in cards %>
+      <span>Stuff about your settle in pack</span>
+    </div>
+  </div>
+</div>
