@@ -41,8 +41,9 @@ Rails.application.routes.draw do
   put 'cancel-subscription/:order_id', to: 'subscriptions#cancel', as: 'cancel_subscription'
 
   # Dashboard
-  get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
-
+  get 'dashboard', to: 'dashboards#index', as: 'dashboard'
+  get 'dashboard/profile', to: 'users#profile', as: 'update_profile'
+  put 'dashboard/profile/update', to: 'users#update', as: 'dashboard_update_profile'
   # HTTP errors
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'

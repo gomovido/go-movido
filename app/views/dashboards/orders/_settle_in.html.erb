@@ -41,7 +41,7 @@
     <div class="products-wrapper">
       <hr>
       <% order.products.includes([:category], [:company], [:country]).each do |product| %>
-        <%= render 'pages/dashboard/orders/progress-bar', product: product, active: order.subscription ? order.subscription.active? : order.paid? %>
+        <%= render 'dashboards/orders/progress-bar', product: product, active: order.subscription ? order.subscription.active? : order.paid? %>
       <% end %>
     </div>
     <% if order.paid? %>

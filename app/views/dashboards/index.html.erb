@@ -1,0 +1,49 @@
+<div class="flow-container dashboard-container">
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-xs-12">
+        <h1 class="mt-3"><span class='purple bold'>Movi</span>board</h1>
+        <p class='mb-3'>Manage your contract.</p>
+      </div>
+      <div class="col-xs-12">
+        <div class="user-profil">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fal fa-id-badge"></i>
+            <div class="d-flex flex-column">
+              <span class="name"><%= current_user.first_name %> <%= current_user.last_name %></span>
+              <% if current_user.house.house_detail %>
+                <span class="address"><%= current_user.house.house_detail.address %></span>
+              <% else %>
+                <span class="address">Going to <%= t("country.#{current_user.house.country.code}") %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <h1>Contract</h1>
+      <p class='mb-3'>Summary of your movido contract.</p>
+      <% if !@live_orders.blank? %>
+        <% @live_orders.each do |order| %>
+          <%= render "dashboards/orders/#{order.pack}", order: order%>
+        <% end %>
+      <% else %>
+          <% @pending_orders.each do |order| %>
+            <% order.pack == 'starter' ? url = onboarding_starter_pack_path : url = onboarding_settle_in_path %>
+            <div class="col-12 my-3">
+              <p>You have a pending order</p>
+              <%= link_to 'Continue your purchase', url, class:'btn-main' %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <section class="book-a-call-banner w-100 d-flex d-md-none">
+    <span class="subline white"><strong>Need some help?</strong> Speak to us.</span>
+    <%= link_to "<i class='fas fa-headphones-alt me-1'></i> Contact us".html_safe, 'https://calendly.com/alice_movido/movido-introcall', class: 'cta-call d-block py-1' %>
+  </section>
+</div>
