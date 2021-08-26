@@ -1,20 +1,12 @@
 <% @live_orders.each do |order| %>
   <% if order.pack == "starter" %>
-    <div class="container my-3">
-      <div class="col-12 starter-card py-2 px-3">
-        <div class="top col-12 d-flex align-items-center justify-content-between mb-3">
-          <div class="d-flex flex-column align-items-center">
-            <span class="title">Starter Pack</span>
-            <span class="subtitle">Something here</span>
-          </div>
-          <div class="d-flex flex-column align-items-center mt-2">
-            <%= link_to invoice_path(order_id: order.id, format: :pdf), class: 'ms-auto mb-1' do %>
-              <%= image_tag(asset_path('icons/file_icon'), size: '18x24') %>
-            <% end %>
-            <span class="total-price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
-          </div>
+    <div class="container my-5">
+      <div class="col-12 col-md-4 starter-card">
+        <div class="top d-flex align-items-center justify-content-between py-2 px-3">
+          <span class="title">Starter Pack</span>
+          <span class="total-price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
         </div>
-        <div class="products">
+        <div class="products d-flex flex-column px-3">
           <% order.products.each do |product| %>
             <div class="d-flex justify-content-between align-items-center product">
               <%= image_tag(product.company.logo_url, class:'logo me-5') %>
@@ -27,13 +19,21 @@
             <hr>
           <% end %>
         </div>
-        <div class="bottom">
+        <div class="bottom d-flex flex-column py-3 px-3">
+          <span class="subtitle">Tracking ID: <%= order.shipping.tracking_id%></span>
           <%= link_to "https://www.laposte.fr/outils/track-a-parcel", target: 'blank' do %>
-            <div class="track-button d-flex justify-content-between align-items-center px-3 py-1 my-2">
+            <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
               <span>Track your order</span>
-              <%= image_tag(asset_path('icons/arrow'), size: "20x20") %>
+              <%= image_tag(asset_path('icons/arrow-purple'), size: "12x12", class:'me-1') %>
             </div>
           <% end %>
+          <%= link_to invoice_path(order_id: order.id, format: :pdf), target: 'blank' do %>
+            <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+              <span>Download your invoice</span>
+              <%= image_tag(asset_path('icons/file_icon'), size: '18x24') %>
+            </div>
+          <% end %>
+          
         </div>
       </div>
     </div>
