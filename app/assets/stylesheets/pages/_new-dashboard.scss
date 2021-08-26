@@ -1,6 +1,7 @@
 .dashboard {
   font-family: 'Poppins';
-
+  min-height: 85vh;
+  padding-top: 4.5rem;
   .address {
     font-size: 12px;
     font-weight: semibold;
@@ -40,3 +41,8 @@
   }
 }
   
+@include media-breakpoint-down(md) {
+ .dashboard {
+    padding-top: 0;
+  }
+}
