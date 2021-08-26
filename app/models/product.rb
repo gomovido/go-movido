@@ -28,6 +28,10 @@ class Product < ApplicationRecord
     (option_types.find_by(name: 'tenants').option_values.find_by(name: house.house_detail.tenants).option_value_variant.variant.subscription_price * 10 * 10).to_i
   end
 
+  def plan_price_cents(house)
+    variants.blank? ?  subscription_price_cents : variant_subscription_price(house)
+  end
+
   def set_sku
     update(sku: "#{country.code}_#{company.name.tr(' ', '_')}_#{category.sku}_#{name.tr(' ', '_')}".downcase)
   end
