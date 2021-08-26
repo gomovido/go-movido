@@ -1,0 +1,42 @@
+.dashboard {
+  font-family: 'Poppins';
+
+  .address {
+    font-size: 12px;
+    font-weight: semibold;
+  }
+  .title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 30px;
+    font-weight: 400;
+  } 
+  .purple-bar-1 {
+    left: 0px;
+    bottom: 0px;
+    height: 6px;
+    background-color: $purple;
+    &.active {
+      left: auto;
+      right: 0px;
+    }
+  }
+  .purple-bar-2 {
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background-color: $purple;
+  }
+  .round {
+    left: 35px;
+    top: -70px;
+    z-index: -1;
+  }
+  .waves {
+    top: -70%;
+    left: -20%;
+  }
+}
+  
