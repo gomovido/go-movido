@@ -25,8 +25,8 @@ class StripeApiBillingService
     response = create_or_update_customer
     if response[:error].nil?
       response = proceed_activation_payment unless order.paid?
-      response[:error].nil? ? response = create_plan : response[:error]
-      response[:error].nil? ? create_subscription(response[:plan]) : response[:error]
+      response[:error].nil? ? response = create_plans : response[:error]
+      response[:error].nil? ? create_subscription : response[:error]
     else
       response
     end
@@ -83,17 +83,12 @@ class StripeApiBillingService
     order.update(state: 'succeeded', charge: charge)
   end
 
-  def create_subscription(plan)
+  def create_subscription
     order = Order.find(@order_id)
     coupon = Coupon.find_by(name: '20-percent-settle-in-pack')
     order.subscription.starting_date.today? || order.subscription.starting_date.past? ? starting_date = (Time.zone.now + 5.seconds).to_i : starting_date = order.subscription.starting_date.to_i
-    subscription_params = {
-      customer: order.user.stripe_id,
-      items: [
-        { price: plan.id }
-      ],
-      trial_end: starting_date
-    }
+    subscription_params = { customer: order.user.stripe_id, trial_end: starting_date }
+    subscription_params[:items] = order.subscription.plans.map{|p| {price: p.stripe_id}}
     subscription_params[:coupon] = coupon.stripe_id if order.affiliate_link.present?
     begin
       subscription = Stripe::Subscription.create(subscription_params)
@@ -105,19 +100,24 @@ class StripeApiBillingService
     end
   end
 
-  def create_plan
+  def create_plans
     order = Order.find(@order_id)
-    begin
-      plan = Stripe::Plan.create({
-                                   amount: order.total_subscription_amount,
+    response = []
+    order.subscription.plans.each do |plan|
+      begin
+        stripe_plan = Stripe::Plan.create({
+                                   amount: plan.price.to_i,
                                    currency: order.currency,
                                    interval: 'month',
-                                   product: { name: "movido subscription for services #{order.products.map { |p| p.company.name }}" }
+                                   product: { name: plan.name }
                                  })
-      { plan: plan, error: nil }
-    rescue Stripe::StripeError => e
-      { plan: nil, error: e }
+        plan.update(stripe_id: stripe_plan.id)
+        response = {plan: stripe_plan, error: nil}
+      rescue Stripe::StripeError => e
+        response = {plan: nil, error: e}
+      end
     end
+    response
   end
 
   def update_customer(stripe_id)
