@@ -4,7 +4,6 @@ class PaymentsController < ApplicationController
 
   def new
     redirect_to new_shipping_path(@order.id) and return unless @order.ready_to_checkout?
-
     @pack = @order.pack
     @billing = @order.billing || Billing.new
     @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
