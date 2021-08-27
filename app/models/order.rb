@@ -20,7 +20,7 @@ class Order < ApplicationRecord
 
 
   def upcase_fields
-    affiliate_link.upcase!
+    affiliate_link.upcase! if affiliate_link
   end
 
   def total_activation_amount
