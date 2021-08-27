@@ -14,7 +14,7 @@ class Order < ApplicationRecord
 
   before_validation :upcase_fields
   validates :state, :terms, presence: true
-  validates :state, inclusion: { in: ["canceled", "pending_payment", "succeeded"] }
+  validates :state, inclusion: { in: ["cancelled", "pending_payment", "succeeded"] }
   validates :affiliate_link,
           inclusion: {in: PROMOCODE, allow_blank: true}
 
