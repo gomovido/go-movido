@@ -1,0 +1,13 @@
+<div class="products d-flex flex-column px-3">
+  <% products.each do |product| %>
+    <div class="d-flex justify-content-between align-items-center product">
+      <%= image_tag(product.company.logo_url, class:'logo me-5') %>
+      <div class="d-flex flex-column justify-content-start flex-fill">
+        <span class="category"><%= t("dashboard.product_category.#{product.category.name}") %></span>
+        <span class="title"><%= product.company.name %></span>
+      </div>
+      <span class="price"><%= order.currency_symbol %><%= number_to_currency((product.plan_price_cents(order.user.house) / 100), :unit => '') %></span>
+    </div>
+    <hr>
+  <% end %>
+</div>

@@ -29,7 +29,7 @@
       <p class='mb-3'>Summary of your movido contract.</p>
       <% if !@live_orders.blank? %>
         <% @live_orders.each do |order| %>
-          <%= render "pages/dashboard/orders/#{order.pack}", order: order%>
+          <%= render "pages/dashboard/orders/#{order.pack}", order: order %>
         <% end %>
       <% else %>
           <% @pending_orders.each do |order| %>
