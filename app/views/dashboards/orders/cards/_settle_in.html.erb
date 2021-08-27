@@ -2,7 +2,7 @@
   <div class="row">
     <% @live_orders.each do |order| %>
       <% if order.pack == "settle_in" %>
-        <div class="col-12 col-md-5 dashboard-card">
+        <div class="col-12 col-md-5 dashboard-card mb-3">
           <div class="top d-flex align-items-center justify-content-between py-2 px-3">
             <div class="d-flex flex-column">
               <span class="title">Settle in Pack - #<%= current_user.first_name[0].upcase %><%= current_user.last_name[1].upcase %><%= order.id %></span>
@@ -23,7 +23,7 @@
                 <%= image_tag(asset_path('icons/file_icon.png'), size: '18x24') %>
               </div>
             <% end %>
-            <% if !order.paid? %>
+            <% if !order.paid? || !order.active? %>
               <%= link_to checkout_path(order.id) do %>
                 <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
                   <span>Pay your invoice</span>
