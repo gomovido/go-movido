@@ -14,17 +14,20 @@
     color: grey;
   }
   .status {
+    text-align: right;
     .cancelled {
       border: 1px solid orange;
-      padding: 2% 5%;
+      padding: 2% 10%;
       font-size: 12px;
       color: orange;
+      border-radius: 7px;
     }
     .active {
       border: 1px solid green;
-      padding: 2% 5%;
+      padding: 2% 10%;
       font-size: 12px;
       color: green;
+      border-radius: 7px;
     }
   }
   .title {
