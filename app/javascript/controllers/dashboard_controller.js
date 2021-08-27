@@ -14,20 +14,8 @@ export default class extends Controller {
     if (this.subscriptionPriceTarget.dataset.stripeId) {
       this.fetchStripeSubscription(stripeUrl, secretKey, this.subscriptionPriceTarget.dataset.stripeId)
       .then(response => {
-          this.stimulate("DashboardReflex#subscriptions",  response)
+          //this.stimulate("DashboardReflex#subscriptions",  response)
         })
-    }
-  }
-
-  invoiceStatus(response) {
-    if (response.paid == true) {
-      var newElement = document.createElement('div');
-      newElement.innerHTML = "<i class='fa fa-check green'></i>";
-      this.subscriptionPaidTarget.appendChild(newElement);
-    } else {
-      var newElement = document.createElement('div');
-      newElement.innerHTML = "<i class='fa fa-times red'></i>";
-      this.subscriptionPaidTarget.appendChild(newElement);
     }
   }
 
@@ -49,7 +37,6 @@ export default class extends Controller {
       return error
     }
   }
-
 
   togglePurpleBar() {
     const purpleBar = this.purpleTarget;
