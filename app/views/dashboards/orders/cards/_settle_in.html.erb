@@ -2,7 +2,7 @@
   <div class="row">
     <% @live_orders.each do |order| %>
       <% if order.pack == "settle_in" %>
-        <div class="col-12 col-md-5 dashboard-card <%= order.active? ? 'border-active' : 'border-inactive' %>">
+        <div class="col-12 col-md-5 dashboard-card">
           <div class="top d-flex align-items-center justify-content-between py-2 px-3">
             <div class="d-flex flex-column">
               <span class="title">Settle in Pack - #<%= current_user.first_name[0].upcase %><%= current_user.last_name[1].upcase %><%= order.id %></span>
