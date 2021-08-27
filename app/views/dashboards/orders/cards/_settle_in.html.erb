@@ -1,0 +1,33 @@
+<% @live_orders.each do |order| %>
+  <% if order.pack == "settle_in" %>
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-12 col-md-4 dashboard-card">
+          <div class="top d-flex align-items-center justify-content-between py-2 px-3">
+            <span class="title">Starter Pack</span>
+            <div class="d-flex flex-column">
+              <div class="total-price"><span><%= order.currency_symbol %></span><span data-dashboard-target="subscriptionPrice" data-stripe-id=<%= order.subscription.stripe_id %>><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %></span></div>
+            </div>
+          </div>
+          <%= render 'dashboards/orders/cards/products', products: order.products, order: order %>
+          <div class="bottom d-flex flex-column py-3 px-3">
+            <%= link_to invoice_path(order_id: order.id, format: :pdf), target: 'blank' do %>
+              <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+                <span>Download your invoice</span>
+                <%= image_tag(asset_path('icons/file_icon'), size: '18x24') %>
+              </div>
+            <% end %>
+            <% if !order.paid? %>
+              <%= link_to checkout_path(order.id) do %>
+                <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+                  <span>Pay your invoice</span>
+                  <%= image_tag(asset_path('icons/file_icon'), size: '18x24') %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

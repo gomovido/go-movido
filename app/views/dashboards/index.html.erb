@@ -9,10 +9,10 @@
   <div class="col-12 d-flex justify-content-center pack-nav-mobile">
     <ul class="nav w-100 text-center justify-content-around" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="true">Starter Pack</a>
+        <a class="nav-link active" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="true">Settle in Pack</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="settle-in" aria-selected="false">Settle In Pack</a>
+        <a class="nav-link" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="false">Starter Pack</a>
       </li>
     </ul>
   </div>
@@ -21,11 +21,11 @@
     <div class="purple-bar-2 w-100 position-absolute"></div>
   </div>
   <div class="tab-content">
-    <div class="tab-pane active" id="starter" role="tabpanel" aria-labelledby="starter-tab">
-      <%= render "dashboards/orders/cards/starter", invoice: @invoice %>
+    <div class="tab-pane active" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
+      <%= render "dashboards/orders/cards/settle_in", invoice: @invoice %>
     </div>
-    <div class="tab-pane" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
-      <span>..</span>
+    <div class="tab-pane" id="starter" role="tabpanel" aria-labelledby="starter-tab">
+      <%= render "dashboards/orders/cards/starter", invoice: @invoice %>
     </div>
   </div>
 </div>
