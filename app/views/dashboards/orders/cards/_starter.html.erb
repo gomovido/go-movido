@@ -2,7 +2,7 @@
   <% if order.pack == "starter" %>
     <div class="container my-5">
       <div class="row">
-        <div class="col-12 col-md-5 dashboard-card">
+        <div class="col-12 col-md-5 dashboard-card mb-3">
           <div class="top d-flex align-items-center justify-content-between py-2 px-3">
             <span class="title">Starter Pack</span>
             <span class="total-price"><%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %></span>
