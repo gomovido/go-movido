@@ -1,11 +1,17 @@
-<% @live_orders.each do |order| %>
-  <% if order.pack == "settle_in" %>
-    <div class="container my-5">
-      <div class="row">
-        <div class="col-12 col-md-4 dashboard-card">
+<div class="container my-5">
+  <div class="row">
+    <% @live_orders.each do |order| %>
+      <% if order.pack == "settle_in" %>
+        <div class="col-12 col-md-5 dashboard-card <%= order.active? ? 'border-active' : 'border-inactive' %>">
           <div class="top d-flex align-items-center justify-content-between py-2 px-3">
-            <span class="title">Starter Pack</span>
             <div class="d-flex flex-column">
+              <span class="title">Settle in Pack - #<%= current_user.first_name[0].upcase %><%= current_user.last_name[1].upcase %><%= order.id %></span>
+              <span class="grey"><%= order.created_at.strftime('%d.%m.%y') %></span>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="status">
+                <span class=<%= order.subscription.state %>><%= order.subscription.state %></span>
+              </div>
               <div class="total-price"><span><%= order.currency_symbol %></span><span data-dashboard-target="subscriptionPrice" data-stripe-id=<%= order.subscription.stripe_id %>><%= number_to_currency(order.total_subscription_amount_display, :unit => '') %></span></div>
             </div>
           </div>
@@ -25,9 +31,10 @@
                 </div>
               <% end %>
             <% end %>
+            <%= link_to 'Cancel subscription', cancel_subscription_path(order.id), method: :put, class:'text-center link' %>
           </div>
         </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

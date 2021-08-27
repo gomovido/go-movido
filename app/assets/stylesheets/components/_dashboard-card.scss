@@ -1,7 +1,32 @@
+.border-active {
+  box-shadow: 0px 1px 1px 1px #2fab737d !important
+}
+.border-inactive {
+  box-shadow: 0px 1px 1px 1px #ff6c6c40 !important
+}
 .dashboard-card {
   border-radius: 8px;
   box-shadow: 0px 16px 40px 0px #A6A3AD33;
   font-family: 'Poppins';
+  .link {
+    margin-top: 1rem;
+    font-size: 12px;
+    color: grey;
+  }
+  .status {
+    .cancelled {
+      border: 1px solid orange;
+      padding: 2% 5%;
+      font-size: 12px;
+      color: orange;
+    }
+    .active {
+      border: 1px solid green;
+      padding: 2% 5%;
+      font-size: 12px;
+      color: green;
+    }
+  }
   .title {
     font-weight: 700;
     font-size: 18px !important;
