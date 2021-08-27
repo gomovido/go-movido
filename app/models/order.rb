@@ -63,6 +63,10 @@ class Order < ApplicationRecord
     fr? ? '€' : '£'
   end
 
+  def active?
+    subscription.state == 'active'
+  end
+
   def pack
     products&.first&.category&.pack&.name
   end
