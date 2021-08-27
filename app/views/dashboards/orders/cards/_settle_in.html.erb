@@ -31,7 +31,7 @@
                 </div>
               <% end %>
             <% end %>
-            <%= link_to 'Cancel subscription', cancel_subscription_path(order.id), method: :put, class:'text-center link' %>
+            <%= link_to 'Cancel subscription', cancel_subscription_path(order.id), method: :put, class:'text-center link', data: {confirm: 'Your subscriptions at every services are going to be cancelled are you sure ?'} %>
           </div>
         </div>
       <% end %>

@@ -15,6 +15,7 @@ class SubscriptionsController < ApplicationController
     if subscription
       response = StripeApiBillingService.new(subscription_id: subscription.id).cancel_subscription
       if response[:error].nil?
+        subscription.order.update(state: 'cancelled')
         subscription.update(state: 'cancelled')
         flash[:notice] = "Your subscription is now cancelled."
       else
