@@ -26,7 +26,7 @@ class StripeApiBillingService
     if response[:error].nil?
       response = proceed_activation_payment unless order.paid?
       response[:error].nil? ? response = create_plans : response[:error]
-      response[:error].nil? ? create_subscription : response[:error]
+      response[:error].nil? ? create_subscription : response
     else
       response
     end
@@ -121,12 +121,14 @@ class StripeApiBillingService
   end
 
   def update_customer(stripe_id)
-    customer = Stripe::Customer.update(
-      stripe_id,
-      source: @stripe_token
-    )
-    { customer: customer, error: nil }
-  rescue Stripe::StripeError => e
-    { customer: nil, error: e }
+    begin
+      customer = Stripe::Customer.update(
+        stripe_id,
+        source: @stripe_token
+      )
+      { customer: customer, error: nil }
+    rescue Stripe::StripeError => e
+      { customer: nil, error: e }
+    end
   end
 end
