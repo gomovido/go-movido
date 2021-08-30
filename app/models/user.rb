@@ -19,6 +19,14 @@ class User < ApplicationRecord
     orders.where(state: 'succeeded').present?
   end
 
+  def has_ongoing_orders?
+    paid_orders? or pending_orders?
+  end
+
+  def pending_orders?
+    orders.where(state: 'pending_payment').present?
+  end
+
   def current_draft_order(pack)
     orders.includes([:subscription]).filter { |order| order.pack == pack && order.state == 'pending_payment' && order&.subscription&.state != 'active' }.first
   end
