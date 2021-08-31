@@ -12,7 +12,7 @@ export default class extends Controller {
   connect() {
     StimulusReflex.register(this);
     if (this.containerTarget.dataset.stripeId) {
-      this.fetchStripeCards(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
+      this.fetchStripeCustomer(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
       .then(response => {
           this.stimulate("DashboardReflex#payment_details",  response)
         })
@@ -56,11 +56,11 @@ export default class extends Controller {
     }
   }
 
-  async fetchStripeCards(stripeUrl, secretKey, stripeId) {
-    let invoice;
+  async fetchStripeCustomer(stripeUrl, secretKey, stripeId) {
+    let customer;
     const apiKey = "Bearer " + secretKey
     try {
-      invoice = await fetch((stripeUrl + "customers/" + stripeId + "?expand[]=sources"), {
+      customer = await fetch((stripeUrl + "customers/" + stripeId + "?expand[]=sources"), {
         method: "get",
         headers: {
           Accept: "application/json",
@@ -68,7 +68,7 @@ export default class extends Controller {
           Authorization: apiKey,
         },
       });
-      return await invoice.json()
+      return await customer.json()
     }
     catch (error) {
       return error
