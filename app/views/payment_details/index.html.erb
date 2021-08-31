@@ -7,7 +7,7 @@
   <label>Your cards</label>
   <div data-controller="stripe-cards"  data-stripe-cards-target="container" data-stripe-id=<%= current_user.stripe_id %>>
     <div class="cards-wrapper">
-      <%= render 'dashboards/users/cards', cards: @cards, default_source: @default_source %>
+      <%= render 'payment_details/cards', cards: @cards, default_source: @default_source %>
     </div>
   </div>
 </div>

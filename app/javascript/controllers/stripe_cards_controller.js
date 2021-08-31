@@ -3,14 +3,14 @@ import numeral from "numeral";
 import { Stripe } from "stripe";
 import StimulusReflex from "stimulus_reflex";
 
+const stripeUrl = "https://api.stripe.com/v1/";
+const secretKey = process.env.STRIPE_SECRET_KEY
+
 export default class extends Controller {
   static targets = [ "container"]
 
-
   connect() {
     StimulusReflex.register(this);
-    var stripeUrl = "https://api.stripe.com/v1/";
-    var secretKey = process.env.STRIPE_SECRET_KEY
     if (this.containerTarget.dataset.stripeId) {
       this.fetchStripeCards(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
       .then(response => {
@@ -20,14 +20,39 @@ export default class extends Controller {
   }
 
   setCardToDefault(element) {
-    var radio = document.getElementById(element.currentTarget.dataset.source)
-    if (radio.checked) {
-      radio.checked = false }
-    else {
-      Array.prototype.forEach.call(document.getElementsByClassName('radio'), function(el) {
-        el.checked = false
+    this.updateCustomerSource(stripeUrl, secretKey, this.containerTarget.dataset.stripeId, element.currentTarget.dataset.source)
+    .then(response => {
+      this.updateRadioButton(document.getElementById(`${response.default_source}_`), document.getElementsByClassName('radio'))
+    })
+  }
+
+  async updateCustomerSource(stripeUrl, secretKey, stripeId, sourceId) {
+    let customer;
+    const params = {'default_source': sourceId}
+    const apiKey = "Bearer " + secretKey
+    try {
+      customer = await fetch((stripeUrl + "customers/" + stripeId), {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: apiKey,
+        },
+        body: Object.keys(params).map(key => key + '=' + params[key]).join('&')
       });
-      radio.checked = true
+      return await customer.json()
+    }
+    catch (error) {
+      return error
+    }
+  }
+
+  updateRadioButton(element, radioInputs) {
+    if (element.checked) {
+      element.checked = false
+    } else {
+      Array.prototype.forEach.call(radioInputs, function(radio) { radio.checked = false });
+      element.checked = true
     }
   }
 
