@@ -1,6 +1,5 @@
 <div class="products d-flex flex-column px-3">
-  <% settle_in_products = Product.where(country_id: current_user.house.country.id, category: Category.where(pack: Pack.find_by(name: 'settle_in'))) %>
-  <% unsub_products = settle_in_products - products %>
+  <% unsub_products = Product.where(country_id: current_user.house.country.id, category: Category.where(pack: Pack.find_by(name: pack))) - products %>
   <% products.each do |product| %>
     <div class="d-flex justify-content-between align-items-center product">
       <%= image_tag(product.company.logo_url, class:'logo me-5') %>
