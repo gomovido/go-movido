@@ -13,6 +13,7 @@
                  input_html: { class:'datepicker', data: {
                   controller: "flatpickr", flatpickr_date_format: "d-m-Y", flatpickr_min_date: Time.zone.now + 10.days} } %>
     </div>
+    <%= p.input :floor, label: "On which floor is your home?", collection: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], prompt: 'Choose', input_html: {class: 'custom-select'} %>
     <%= p.input :comment, label: "Is your name on the door?", placeholder: 'Name on the door sign, building, stairs' %>
   <% end %>
   <hr>
