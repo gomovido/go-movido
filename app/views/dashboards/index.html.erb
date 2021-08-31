@@ -10,10 +10,10 @@
   <div class="col-12 d-flex justify-content-center pack-nav-mobile">
     <ul class="nav w-100 text-center justify-content-around" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <div class="nav-link active" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="true">Settle in Pack</div>
+        <div class="nav-link <%= @live_orders[0].pack == "settle_in" ? "active" : "" %>" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="settle-in-tab" aria-selected="true">Settle in Pack</div>
       </li>
-      <li class="nav-item" role="presentation">
-        <div class="nav-link" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter" aria-selected="false">Starter Pack</div>
+      <li class="nav-item <%= @live_orders[0].pack == "settle_in" ? "" : "active" %>" role="presentation">
+        <div class="nav-link" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter-tab" aria-selected="false">Starter Pack</div>
       </li>
     </ul>
   </div>
