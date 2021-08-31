@@ -1,0 +1,25 @@
+<% if cards.blank? %>
+  <%= render 'shared/components/loader' %>
+<% else %>
+  <div class="form-base mb-5">
+    <% cards.each do |card| %>
+      <div class="payment-card d-flex justify-content-around align-items-center my-3" data-action="click->stripe-cards#setCardToDefault" data-source="<%= card['id'] %>_">
+        <div class="d-flex align-items-center">
+          <%= radio_button_tag(card['id'], '', checked = (default_source == card['id']), options = {class:'radio'})  %>
+        </div>
+        <div class="d-flex flex-column">
+          <span class="brand"><%= card['brand'] %></span>
+          <span class="number"><%= "**** **** **** #{card['last4']}" %></span>
+          <span class="date"><%= "#{card['exp_month']}/#{card['exp_year']}" %></span>
+        </div>
+        <%= image_tag(asset_path("logos/#{card['brand'].downcase}.png"), class:'logo') %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to new_payment_details_path do %>
+    <div class="button-lite d-flex justify-content-between align-items-center px-3 py-2 my-2">
+      <span>Add a new card</span>
+      <i class="fas fa-arrow-right purple"></i>
+    </div>
+  <% end %>
+<% end %>
