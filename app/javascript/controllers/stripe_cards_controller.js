@@ -59,6 +59,7 @@ export default class extends Controller {
   async fetchStripeCustomer(stripeUrl, secretKey, stripeId) {
     let customer;
     const apiKey = "Bearer " + secretKey
+    console.log(apiKey);
     try {
       customer = await fetch((stripeUrl + "customers/" + stripeId + "?expand[]=sources"), {
         method: "get",
