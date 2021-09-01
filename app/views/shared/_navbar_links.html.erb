@@ -1,0 +1,34 @@
+<% if controller_name == "pages" %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Home', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Starter pack', pricing_starter_pack_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Settle-in pack', pricing_settle_in_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Blog", "https://blog.go-movido.com", target: 'blank', class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to (current_user ? 'Dashboard' : 'Login'), dashboard_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <div class="btn-main mx-auto" data-bs-toggle="modal" data-bs-target="#onboardingDesktopModal">
+          Get started
+        </div>
+      </li>
+    </ul>
+  </div>
+<% elsif current_user %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Log out', destroy_user_session_path, method: 'delete', class:'navbar-link' %>
+      </li>
+    </ul>
+  </div>
+<% end %>

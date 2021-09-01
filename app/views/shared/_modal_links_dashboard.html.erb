@@ -1,0 +1,9 @@
+<% if controller_name == "dashboards" || controller_name == "users" || controller_name == "payment_details" %>
+  <%= link_to 'HOME', root_path %>
+  <%= link_to 'DASHBOARD', dashboard_path %>
+  <%= link_to 'PROFILE', update_profile_path %>
+  <% if current_user.stripe_id %>
+    <%= link_to 'PAYMENT DETAILS', payment_details_path %>
+  <% end %>
+  <%= link_to 'LOGOUT', destroy_user_session_path, method: 'delete', class: 'purple' %>
+<% end %>
