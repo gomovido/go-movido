@@ -1160,7 +1160,11 @@
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": null,
+        "type": "is greater than",
+        "value": 0
+      }]
     }],
     "segments": [],
     "actions": []
