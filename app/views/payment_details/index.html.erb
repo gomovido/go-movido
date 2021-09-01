@@ -1,13 +1,19 @@
-<div class="p-3 profile"
-  style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
-  <%= link_to dashboard_path do %>
-    <i class='fas fa-arrow-left black'></i>
-  <% end %>
-  <h2 class="title text-start purple mb-3">Payment Methods</h2>
-  <label>Your cards</label>
-  <div data-controller="stripe-cards" data-stripe-cards-target="container" data-stripe-id=<%= current_user.stripe_id %>>
-    <div class="cards-wrapper">
-      <%= render 'payment_details/cards', cards: @cards, default_source: @default_source %>
+<div class="container mt-md-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-lg-6">
+      <div class="p-3 profile"
+        style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
+        <%= link_to dashboard_path do %>
+          <i class='fas fa-arrow-left black'></i>
+        <% end %>
+        <h2 class="title text-start purple mb-3">Payment Methods</h2>
+        <label>Your cards</label>
+        <div data-controller="stripe-cards" data-stripe-cards-target="container" data-stripe-id="<%= current_user.stripe_id %>">
+          <div class="cards-wrapper">
+            <%= render 'payment_details/cards', cards: @cards, default_source: @default_source %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
