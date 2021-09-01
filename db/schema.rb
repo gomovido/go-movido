@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_131409) do
+ActiveRecord::Schema.define(version: 2021_09_01_124205) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +191,8 @@ ActiveRecord::Schema.define(version: 2021_08_31_131409) do
     t.bigint "subscription_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_plans_on_product_id"
     t.index ["subscription_id"], name: "index_plans_on_subscription_id"
   end
 
@@ -319,6 +322,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_131409) do
   add_foreign_key "orders", "shippings"
   add_foreign_key "orders", "users"
   add_foreign_key "pickups", "orders"
+  add_foreign_key "plans", "products"
   add_foreign_key "plans", "subscriptions"
   add_foreign_key "product_details", "products"
   add_foreign_key "products", "categories"
