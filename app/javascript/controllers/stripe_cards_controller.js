@@ -1,6 +1,5 @@
 import { Controller } from "stimulus";
 import numeral from "numeral";
-import { Stripe } from "stripe";
 import StimulusReflex from "stimulus_reflex";
 
 const stripeUrl = "https://api.stripe.com/v1/";
@@ -11,11 +10,11 @@ export default class extends Controller {
 
   connect() {
     StimulusReflex.register(this);
-    if (this.containerTarget.dataset.stripeId) {
+    if (this.containerTarget) {
       this.fetchStripeCustomer(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
       .then(response => {
-          this.stimulate("DashboardReflex#payment_details",  response)
-        })
+        this.stimulate("DashboardReflex#payment_details",  response)
+      })
     }
   }
 
@@ -74,14 +73,5 @@ export default class extends Controller {
       return error
     }
   }
-
-  togglePurpleBar() {
-    const purpleBar = this.purpleTarget;
-    if (this.starterTarget.classList.contains("active") && !this.settleInTarget.classList.contains("active")) {
-      purpleBar.classList.add("active");
-    } else {
-      purpleBar.classList.remove("active");
-    };
-  };
 
 }

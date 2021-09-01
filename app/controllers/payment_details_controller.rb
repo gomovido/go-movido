@@ -1,11 +1,12 @@
 class PaymentDetailsController < ApplicationController
+
   def new
     @user = current_user
   end
 
   def index
     @cards = []
-    @default = ''
+    @default_source = ''
     @user = current_user
   end
 
