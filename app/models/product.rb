@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :country
   has_many :product_details, dependent: :destroy
+  has_many :plans, dependent: :destroy
   has_many :variants, dependent: :destroy
   has_many :option_types, dependent: :destroy
   has_many :items, dependent: :destroy
