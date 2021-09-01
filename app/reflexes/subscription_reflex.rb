@@ -35,6 +35,7 @@ class SubscriptionReflex < ApplicationReflex
   def init_plans(subscription)
     subscription.order.products.each do |product|
       Plan.create(
+        product: product,
         subscription: subscription,
         name: "#{product.company.name} - #{product.name}".upcase,
         price: product.plan_price_cents(subscription.order.user.house),
