@@ -35,6 +35,6 @@ class HouseDetailReflex < ApplicationReflex
   end
 
   def house_detail_params
-    params.require(:house_detail).permit(:size, :tenants, :contract_starting_date, :address, :comment)
+    params.require(:house_detail).permit(:size, :tenants, :contract_starting_date, :address, :comment, :floor)
   end
 end
