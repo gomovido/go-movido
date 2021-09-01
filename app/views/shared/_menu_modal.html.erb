@@ -22,7 +22,7 @@
               <%= link_to 'DASHBOARD', dashboard_path %>
               <%= link_to 'PROFILE', update_profile_path %>
               <% if current_user.stripe_id %>
-                <%= link_to 'PAYMENT DETAILS', payment_details_path %>
+                <%= link_to 'PAYMENT DETAILS', payment_details_path, data: { turbolinks: false } %>
               <% end %>
             <% end %>
             <%= link_to 'LOGOUT', destroy_user_session_path, method: 'delete', class: 'purple' %>
