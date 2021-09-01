@@ -13,7 +13,7 @@ class SubscriptionsController < ApplicationController
   def cancel
     subscription = Order.find_by(id: params[:order_id], user: current_user).subscription
     if subscription
-      response = StripeApiBillingService.new(subscription_id: subscription.id).cancel_subscription
+      response = StripeApiSubscriptionService.new(subscription_id: subscription.id).cancel
       if response[:error].nil?
         subscription.order.update(state: 'cancelled')
         subscription.update(state: 'cancelled')

@@ -64,9 +64,9 @@ class PaymentsController < ApplicationController
   end
 
   def settle_in_process(order)
-    response = StripeApiBillingService.new(order_id: order.id).create_plans
+    response = StripeApiPlanService.new(order_id: order.id).create
     if response[:error].nil?
-      response = StripeApiBillingService.new(order_id: order.id).create_subscription
+      response = StripeApiSubscriptionService.new(order_id: order.id).create
       if response[:error].nil?
         order.subscription.update(paid: true, state: 'active', stripe_id: response[:subscription].id)
         order.subscription.update(coupon_id: response[:coupon_id].to_i) if order.affiliate_link.present?
