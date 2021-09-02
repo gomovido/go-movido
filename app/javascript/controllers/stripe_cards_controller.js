@@ -10,12 +10,10 @@ export default class extends Controller {
 
   connect() {
     StimulusReflex.register(this);
-    if (this.containerTarget) {
-      this.fetchStripeCustomer(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
-      .then(response => {
-        this.stimulate("DashboardReflex#payment_details",  response)
-      })
-    }
+    this.fetchStripeCustomer(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
+    .then(response => {
+      this.stimulate("DashboardReflex#payment_details",  response)
+    })
   }
 
   setCardToDefault(element) {
