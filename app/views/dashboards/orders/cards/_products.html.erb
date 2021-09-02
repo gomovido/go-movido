@@ -1,4 +1,5 @@
 <div class="products d-flex flex-column px-3">
+  <% unsub_products = Product.where(country_id: current_user.house.country.id, category: Category.where(pack: Pack.find_by(name: pack))) - products %>
   <% products.each do |product| %>
     <div class="d-flex justify-content-between align-items-center product">
       <%= image_tag(product.company.logo_url, class:'logo me-5') %>
@@ -7,6 +8,22 @@
         <span class="title"><%= product.company.name.capitalize %></span>
       </div>
       <span class="price"><%= order.currency_symbol %><%= number_to_currency((product.plan_price_cents(order.user.house) / 100), :unit => '') %></span>
+    </div>
+    <hr>
+  <% end %>
+  <% unsub_products.each do |product| %>
+    <div class="d-flex justify-content-between align-items-center product">
+      <%= image_tag(product.company.logo_url, class:'logo me-5 opacity-50') %>
+      <div class="d-flex flex-column justify-content-start flex-fill opacity-50">
+        <span class="category"><%= t("dashboard.product_category.#{product.category.name}") %></span>
+        <span class="title"><%= product.company.name.capitalize %></span>
+      </div>
+      <div class="d-flex flex-column align-items-end">
+        <span class="price opacity-50"><%= order.currency_symbol %><%= number_to_currency((product.plan_price_cents(order.user.house) / 100), :unit => '') %></span>
+        <%= link_to "", class:"add-service" do%>
+          <span>Add service</span>
+        <% end %>
+      </div>
     </div>
     <hr>
   <% end %>
