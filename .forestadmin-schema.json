@@ -1148,7 +1148,7 @@
       "validations": []
     }, {
       "field": "floor",
-      "type": "Number",
+      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -1162,8 +1162,8 @@
       "widget": null,
       "validations": [{
         "message": null,
-        "type": "is greater than",
-        "value": 0
+        "type": "is shorter than",
+        "value": 30
       }]
     }],
     "segments": [],
