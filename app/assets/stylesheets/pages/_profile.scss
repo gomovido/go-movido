@@ -1,0 +1,17 @@
+.profile {
+  background-position: bottom;
+  background-size: 380px;
+  background-repeat: no-repeat;
+  min-height: 85vh;
+  .title {
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .button {
+    width: 100%;
+    color: white;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0px 0px 16px rgba(140, 48, 245, 0.2);
+  }
+}

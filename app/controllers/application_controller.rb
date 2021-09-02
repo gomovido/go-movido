@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.paid_orders?
+    if resource.has_ongoing_orders?
       dashboard_path
     elsif resource.orders.present?
       new_house_path(pack: resource.orders.last.pack)

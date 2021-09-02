@@ -20,14 +20,14 @@
             <%= link_to invoice_path(order_id: order.id, format: :pdf), target: 'blank' do %>
               <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
                 <span>Download your invoice</span>
-                <%= image_tag(asset_path('icons/file_icon.png'), size: '18x24') %>
+                <i class="fad fa-file-alt purple"></i>
               </div>
             <% end %>
             <% if !order.paid? || !order.active? %>
               <%= link_to checkout_path(order.id) do %>
                 <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
                   <span>Pay your invoice</span>
-                  <%= image_tag(asset_path('icons/file_icon.png'), size: '18x24') %>
+                  <i class="fad fa-file-alt purple"></i>
                 </div>
               <% end %>
             <% end %>

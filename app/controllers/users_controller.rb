@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_current_user, only: [:profile, :update, :edit, :update_password]
 
-  def profile
-    @user = current_user
-  end
+  def profile; end
 
   def update
-    @user = current_user
     if @user.update(user_params)
       flash[:notice] = 'Profile updated :)'
       redirect_to dashboard_path
@@ -16,12 +14,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = current_user
-  end
+  def edit; end
 
   def update_password
-    @user = current_user
     if @user.update(user_params)
       bypass_sign_in(@user)
       redirect_to root_path
@@ -31,6 +26,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_current_user
+    @user = current_user
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone)
