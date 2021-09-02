@@ -42,8 +42,12 @@ Rails.application.routes.draw do
 
   # Dashboard
   get 'dashboard', to: 'dashboards#index', as: 'dashboard'
+  get 'dashboard/payment-details', to: 'payment_details#index', as: 'payment_details'
+  get 'dashboard/add-payment-details', to: 'payment_details#new', as: 'new_payment_details'
   get 'dashboard/profile', to: 'users#profile', as: 'update_profile'
   put 'dashboard/profile/update', to: 'users#update', as: 'dashboard_update_profile'
+  post 'dashboard/add-payment-details', to: 'payment_details#create', as: 'payment_detail'
+
   # HTTP errors
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server'

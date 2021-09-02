@@ -1,11 +1,20 @@
-<div class="form-base p-3" data-controller="animate">
-  <h2>Update profile</h2>
-  <%= simple_form_for @user, url: dashboard_update_profile_path, method: :put do |f| %>
-  <%= f.input :email %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :phone, required: false, input_html: {data: { animate_target: 'phone' }, placeholder: 'phone number', id: 'user_phone'}, label:'Phone (optional)' %>
-  <%= f.error(:base) %>
-  <%= f.submit 'Update profile', class:'btn btn-main my-3' %>
-  <% end %>
+<div class="container mt-md-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-lg-6">
+      <div class="form-base p-3 profile" style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
+        <%= link_to dashboard_path do %>
+          <i class='fas fa-arrow-left black'></i>
+        <% end %>
+        <h2 class="title text-start purple mb-3">Update profile</h2>
+        <%= simple_form_for @user, url: dashboard_update_profile_path, method: :put do |f| %>
+        <%= f.input :email %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :phone, required: false, input_html: {data: { animate_target: 'phone' }, placeholder: 'phone number', id: 'user_phone'}, label:'Phone (optional)' %>
+        <%= f.error(:base) %>
+        <%= f.submit 'Update profile', class:'btn btn-main mt-4 mb-3' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

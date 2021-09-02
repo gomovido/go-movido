@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+
   def new_starter
-    return redirect_to dashboard_path if Order.where(state: 'succeeded', user: current_user).map(&:pack).include?('starter')
     return redirect_to new_house_path(pack: 'starter') if current_user
 
     build_resource
@@ -9,7 +9,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def new_settle_in
-    return redirect_to dashboard_path if Order.where(state: 'succeeded', user: current_user).map(&:pack).include?('settle_in')
     return redirect_to new_house_path(pack: 'settle_in') if current_user
 
     build_resource
