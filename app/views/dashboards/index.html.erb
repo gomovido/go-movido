@@ -22,8 +22,8 @@
     <div class="purple-bar-2 w-100 position-absolute"></div>
   </div>
   <div class="tab-content">
-    <div class="tab-pane <%= @live_orders[0].pack == "settle_in" ? "active" : "" %>" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
-      <%= render "dashboards/orders/cards/settle_in", invoice: @invoice %>
+    <div class="tab-pane active" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
+      <%= render "dashboards/orders/cards/settle_in", invoice: @invoice, pack: 'settle_in' %>
     </div>
     <div class="tab-pane <%= @live_orders[0].pack == "settle_in" ? "" : "active" %>" id="starter" role="tabpanel" aria-labelledby="starter-tab">
       <%= render "dashboards/orders/cards/starter", invoice: @invoice %>
