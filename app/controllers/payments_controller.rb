@@ -9,26 +9,45 @@ class PaymentsController < ApplicationController
 
   def test_proceed_payment
     order = Order.find(params[:order_id])
-
-    response = stripe_charge(params[:stripeToken], order)
-
-    if response[:error]
-      flash[:alert] = response[:error].message
-      redirect_to test_payment_path(order.id)
+    response = stripe_customer(params[:stripeToken])
+    if response[:error].nil?
+      current_user.update(stripe_id: response[:customer].id)
+      response = stripe_charge(current_user.stripe_id, order)
+      if response[:error]
+        flash[:alert] = response[:error].message
+        redirect_to test_payment_path(order.id)
+      else
+        order.update(state: response[:charge].status)
+        flash[:notice] = 'Payment success!'
+        redirect_to root_path
+      end
     else
-      order.update(state: response[:charge].status)
-      flash[:notice] = 'Payment success!'
+      flash[:notice] = 'Payment failed!'
       redirect_to root_path
     end
   end
 
 
-  def stripe_charge(stripe_token, order)
+  def stripe_customer(stripe_token)
+    begin
+      customer = Stripe::Customer.create({
+        name: "#{current_user.first_name} #{current_user.last_name}",
+        email: current_user.email,
+        source: stripe_token
+      })
+      return {customer: customer, error: nil}
+    rescue Stripe::StripeError => error
+      return {customer: nil, error: error}
+    end
+  end
+
+
+  def stripe_charge(customer_id, order)
     begin
       charge = Stripe::Charge.create({
         amount: order.total_activation_amount,
         currency: order.currency,
-        source: stripe_token,
+        customer: customer_id,
         description: "This is payment for order #{order.id}",
       })
       return { charge: charge, error: nil }
