@@ -19,6 +19,14 @@ Rails.application.routes.draw do
   end
 
 
+  #Payment testing
+
+  get 'payment/test/:order_id', to: 'payments#test', as:'test_payment'
+  post 'payments/proceed/:order_id', to: 'payments#test_proceed_payment', as: 'test_proceed_payment'
+
+
+
+
   #Unsubscribe email
   get 'unsubscribe/confimation/:user_id', to: 'user_marketings#unsubscribe_confimation', as: 'unsubscribe_confirmation'
   put 'unsubscribe/:user_id', to: 'user_marketings#unsubscribe', as: 'unsubscribe'

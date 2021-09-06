@@ -2,6 +2,41 @@ class PaymentsController < ApplicationController
   before_action :redirect_if_order_is_paid, only: [:new]
   before_action :set_order, only: %i[new create initialize_billing]
 
+
+  def test
+    @order = Order.find(params[:order_id])
+  end
+
+  def test_proceed_payment
+    order = Order.find(params[:order_id])
+
+    response = stripe_charge(params[:stripeToken], order)
+
+    if response[:error]
+      flash[:alert] = response[:error].message
+      redirect_to test_payment_path(order.id)
+    else
+      order.update(state: response[:charge].status)
+      flash[:notice] = 'Payment success!'
+      redirect_to root_path
+    end
+  end
+
+
+  def stripe_charge(stripe_token, order)
+    begin
+      charge = Stripe::Charge.create({
+        amount: order.total_activation_amount,
+        currency: order.currency,
+        source: stripe_token,
+        description: "This is payment for order #{order.id}",
+      })
+      return { charge: charge, error: nil }
+    rescue Stripe::StripeError => error
+      return { charge: nil, error: error }
+    end
+  end
+
   def new
     redirect_to new_shipping_path(@order.id) and return unless @order.ready_to_checkout?
     @pack = @order.pack
@@ -14,7 +49,7 @@ class PaymentsController < ApplicationController
 
     @billing = initialize_billing
     if @billing.save
-      proceed_payment(params[:stripeToken], @order, @billing)
+      #proceed_payment(params[:stripeToken], @order, @billing)
     else
       @message = { content: "Thanks #{current_user.first_name}, now please enter your payment details to finalize the order of your Starter Pack", delay: 0 }
       render :new
