@@ -17,7 +17,7 @@ class StripeApiChargeService
                                             })
       return { stripe_charge: stripe_charge, error: nil }
     rescue Stripe::StripeError => e
-      return { stripe_charge: stripe_charge, error: e }
+      return { stripe_charge: nil, error: e }
     end
   end
 end
