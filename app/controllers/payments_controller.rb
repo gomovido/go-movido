@@ -52,7 +52,7 @@ class PaymentsController < ApplicationController
 
   def handle_error(charge, order, billing, error)
     charge.update(state: 'payment_failed')
-    update_order(charge, order, billing)
+    order.update(state: 'pending_payment', charge: charge, billing: billing)
     flash[:alert] = (error).to_s
     render :new
   end
