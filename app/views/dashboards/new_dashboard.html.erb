@@ -4,8 +4,8 @@
     <span class="title-price mb-2"><%= number_to_currency(@starter_order.total_amount_display, :unit => '')%><%= @starter_order.currency_symbol %></span>
     <span class="order-date"><%= @starter_order.created_at.strftime("%d/%m/%Y")%></span>
   </div>
-  <div class="col-10 timeline my-4">
-
+  <div class="col-12 progress-starter my-4">
+    <%= render 'dashboards/starter_steps', order: @starter_order%>
   </div>
   <div class="col-12 products d-flex flex-column mb-2">
     <h1 class="products-title">Products</h2>

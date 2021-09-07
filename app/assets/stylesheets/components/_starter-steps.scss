@@ -1,0 +1,28 @@
+.progress-bar-starter {
+  .step-box {
+    width: 55px;
+  }
+  .progress-bar {
+    width: 65px;
+    height: 2px;
+    border-radius: 6px;
+    background-color: #B68EF9;
+    &.active {
+      background-color: $purple;
+    }
+  }
+  .ellipse {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #B68EF9;
+    &.active {
+      background-color: $purple;
+    }
+  }
+  .step {
+    font-size: 10px;
+    font-weight: 400;
+    color: #979797;
+  }
+}
