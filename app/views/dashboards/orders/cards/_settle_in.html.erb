@@ -5,7 +5,7 @@
         <div class="col-12 col-md-5 dashboard-card mb-3">
           <div class="top d-flex align-items-center justify-content-between py-2 px-3">
             <div class="d-flex flex-column">
-              <span class="title">Settle in Pack - #<%= current_user.first_name[0].upcase %><%= current_user.last_name[1].upcase %><%= order.id %></span>
+              <span class="title">Settle in Pack - #<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= order.id %></span>
               <span class="grey"><%= order.created_at.strftime('%d.%m.%y') %></span>
             </div>
             <div class="d-flex flex-column">
@@ -34,6 +34,7 @@
             <%= link_to 'Cancel subscription', cancel_subscription_path(order.id), method: :put, class:'text-center link', data: {confirm: 'Your subscriptions at every services are going to be cancelled are you sure ?'} %>
           </div>
         </div>
+        <%= render "dashboards/orders/cards/promo_card_settle_in" %>
       <% end %>
     <% end %>
   </div>

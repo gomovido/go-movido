@@ -1,0 +1,25 @@
+.promo-card {
+  box-shadow: 0px 16px 40px rgba(166, 163, 173, 0.2);
+  .texts {
+    font-family: 'Poppins';
+    .time {
+      font-size: 10px;
+      font-weight: 500;
+      color: #B68EF9;
+      margin-bottom: 0;
+    }
+    .product-title {
+      text-align: left;
+      font-size: 20px;
+      font-weight: bold;
+      color: $purple;
+      margin-bottom: 0px;
+    }
+    .product-description {
+      font-size: 14px;
+      font-weight: normal;
+      color: #979797;
+      margin-bottom: 0;
+    }
+  }
+}
