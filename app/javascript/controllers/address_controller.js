@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import { mapBoxAutocomplete } from '../packs/mapbox';
 
 export default class extends Controller {
-  static targets = ["geocoder", "addressInput"]
+  static targets = ["geocoder", "addressInput", "noAddress"]
 
   connect() {
     this.addressInputTarget.value = ""
@@ -19,6 +19,15 @@ export default class extends Controller {
         this.addressInputTarget.value = response.place_name_en
       }
     })
+  }
+
+  manualAddress() {
+    let address = document.getElementById('shipping_address');
+    address.classList.toggle("d-none");
+    address.value = "";
+    address.type = "text";
+    document.querySelector('.mapboxgl-ctrl').classList.toggle('d-none');
+    document.querySelector('i.fa-chevron-down').classList.toggle("rotate-smouth")
   }
 
   cleanCountryCode(e) {
