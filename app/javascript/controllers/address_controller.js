@@ -23,11 +23,11 @@ export default class extends Controller {
 
   manualAddress() {
     let address = document.getElementById('shipping_address');
-    address.classList.remove("d-none");
+    address.classList.toggle("d-none");
     address.value = "";
     address.type = "text";
-    document.querySelector('.mapboxgl-ctrl').classList.add('d-none');
-    document.querySelector('i.fa-chevron-down').classList.add("rotate-smouth")
+    document.querySelector('.mapboxgl-ctrl').classList.toggle('d-none');
+    document.querySelector('i.fa-chevron-down').classList.toggle("rotate-smouth")
   }
 
   cleanCountryCode(e) {
