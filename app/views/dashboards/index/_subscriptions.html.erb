@@ -1,0 +1,25 @@
+<div class="subscription" data-controller='stripe-dashboard' data-stripe-dashboard-target="container">
+  <div class="total-amount text-center">
+    <h2 data-stripe-dashboard-target="subscriptionTotalPrice"><%= number_to_currency(ongoing_subscription['amount_due'] / 100, :unit => '') %></h2>
+    <span>Current invoice</span>
+    <span>From xxx to xxx</span>
+  </div>
+  <hr>
+  <span>Services active</span>
+  <div class="active-services">
+    <% ongoing_subscription['lines']['data'].each do |service|%>
+      <% plan = Plan.find_by(stripe_id: service['plan']['id']) %>
+      <%= link_to "#{plan.name}", dashboard_plan_path(plan.id) %>
+    <% end %>
+  </div>
+  <hr>
+  <span>History</span>
+  <div class="history">
+    <% subscriptions.each do |subscription| %>
+      <%= subscription['id'] %>
+    <% end %>
+  </div>
+  <hr>
+  <span>Next invoice</span><br>
+  <%= number_to_currency(order.total_subscription_amount / 100, :unit => '') %>
+</div>

@@ -1,0 +1,9 @@
+<div class="total-amount">
+  <h2><%= number_to_currency(invoice['amount_due'] / 100, :unit => '') %></h2>
+</div>
+<p>Active services</p>
+<div class="active-services">
+  <% invoice['lines']['data'].each do |service|%>
+    <%= Plan.find_by(stripe_id: service['plan']['stripe_id']).name %>
+  <% end %>
+</div>
