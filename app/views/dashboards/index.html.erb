@@ -1,32 +1,9 @@
 <div class="dashboard container position-relative" data-controller="dashboard">
-  <%= image_tag(asset_path('pages/dashboard/round-back.png'), class:"round position-absolute", size: "330x330") %>
-  <div class="col-12 d-flex flex-column mb-2">
-    <h2 class="title text-start mt-3">Hello <%= current_user.first_name %>,</h2>
-    <h4 class="subtitle text-start">welcome back!</h4>
-    <% if current_user.house.house_detail %>
-      <span class="address text-start purple"><i class="fas fa-map-marker-alt purple me-1"></i><%= current_user.house.house_detail.address %></span>
+  <div class="subscriptions-wrapper" data-controller='stripe-dashboard' data-stripe-dashboard-target="container" data-stripe-id=<%= current_user.stripe_id %>>
+    <% if @subscriptions.blank? %>
+      <p>Loading</p>
+    <% else %>
+      <%= render 'dashboards/index/subscriptions', subscriptions: @subscriptions, ongoing_subscription: @ongoing_subscription, order: @order %>
     <% end %>
-  </div>
-  <div class="col-12 d-flex justify-content-center pack-nav-mobile">
-    <ul class="nav w-100 text-center justify-content-around" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <div class="nav-link <%= @live_orders[0].pack == "settle_in" ? "active" : "" %>" id="settle-in-tab" data-bs-toggle="tab" data-bs-target="#settle-in" data-dashboard-target="settleIn" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="settle-in-tab" aria-selected="true">Settle in Pack</div>
-      </li>
-      <li class="nav-item <%= @live_orders[0].pack == "settle_in" ? "" : "active" %>" role="presentation">
-        <div class="nav-link" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter" data-dashboard-target="starter" data-action="click->dashboard#togglePurpleBar" type="button" role="tab" aria-controls="starter-tab" aria-selected="false">Starter Pack</div>
-      </li>
-    </ul>
-  </div>
-  <div class="col-12 position-relative mt-1 mb-3 d-block">
-    <div class="purple-bar-1 w-50 position-absolute <%= @live_orders[0].pack == "settle_in" ? "" : "active" %>" data-dashboard-target="purple"></div>
-    <div class="purple-bar-2 w-100 position-absolute"></div>
-  </div>
-  <div class="tab-content">
-    <div class="tab-pane active" id="settle-in" role="tabpanel" aria-labelledby="settle-in-tab">
-      <%= render "dashboards/orders/cards/settle_in", invoice: @invoice, pack: 'settle_in' %>
-    </div>
-    <div class="tab-pane <%= @live_orders[0].pack == "settle_in" ? "" : "active" %>" id="starter" role="tabpanel" aria-labelledby="starter-tab">
-      <%= render "dashboards/orders/cards/starter", invoice: @invoice %>
-    </div>
   </div>
 </div>
