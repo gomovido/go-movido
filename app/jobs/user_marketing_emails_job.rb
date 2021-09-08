@@ -29,14 +29,14 @@ class UserMarketingEmailsJob < ApplicationJob
   end
 
   def second_call
-    UserMarketing.where(title: 'users_sequence', step: 'second_call', subscribed: true).where('created_at < ?', 72.hours.ago).each do |marketing|
+    UserMarketing.where(title: 'users_sequence', step: 'second_call', subscribed: true).where('created_at < ?', 24.hours.ago).each do |marketing|
       UserMarketingMailer.with(user: marketing.user).second_call.deliver_later
       marketing.update(step: 'last_call')
     end
   end
 
   def last_call
-    UserMarketing.where(title: 'users_sequence', step: 'last_call', sent: false, subscribed: true).where('created_at < ?', 72.hours.ago).each do |marketing|
+    UserMarketing.where(title: 'users_sequence', step: 'last_call', sent: false, subscribed: true).where('created_at < ?', 24.hours.ago).each do |marketing|
       UserMarketingMailer.with(user: marketing.user).second_call.deliver_later
       marketing.update(sent: true)
     end
