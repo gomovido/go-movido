@@ -6,12 +6,16 @@ class DashboardsController < ApplicationController
     @subscriptions = []
     @ongoing_invoice = nil
     @products = []
-    @order = current_user.orders.filter{|o| o.subscription.state == 'active'}[0]
+    @order = current_user.orders.filter{|o| o&.subscription&.state == 'active'}[0]
   end
 
 
   def plan
     @plan = Plan.find(params[:plan_id])
+  end
+
+  def orders
+    @order = current_user.orders.detect {|o| o.pack == 'starter'}
   end
 
 end

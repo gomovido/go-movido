@@ -48,8 +48,8 @@ Rails.application.routes.draw do
   put 'dashboard/profile/update', to: 'users#update', as: 'dashboard_update_profile'
   post 'dashboard/add-payment-details', to: 'payment_details#create', as: 'payment_detail'
 
-
   get 'dashboard/active-services/:plan_id', to: 'dashboards#plan', as: 'dashboard_plan'
+  get 'dashboard/orders', to: 'dashboards#orders', as: 'dashboard_orders'
 
   # HTTP errors
   get '/404', to: 'errors#not_found'
