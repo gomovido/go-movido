@@ -5,7 +5,7 @@
     <span class="order-date"><%= @starter_order.created_at.strftime("%d/%m/%Y")%></span>
   </div>
   <div class="col-12 progress-starter my-4">
-    <%= render 'dashboards/starter_steps', order: @starter_order%>
+    <%= render 'dashboards/starter_steps', order: @starter_order, state: @starter_order.shipping.state %>
   </div>
   <div class="col-12 products d-flex flex-column mb-2">
     <h1 class="products-title">Products</h2>
