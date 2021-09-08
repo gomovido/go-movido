@@ -11,12 +11,12 @@
       <span class="nav-title">Payment</span>
     </div>
   <% end %>
-  <%# link_to "" do %>
-    <div class="button d-flex flex-column justify-content-center align-items-center mt-2">
+  <%= link_to dashboard_orders_path(active_tab: 'orders') do %>
+    <div class="button d-flex flex-column justify-content-center align-items-center mt-2 <%= params[:active_tab] == 'orders' ? 'active' : '' %>">
       <i class="fad fa-bags-shopping"></i>
       <span class="nav-title">Orders</span>
     </div>
-  <%# end %>
+  <% end %>
   <%# link_to "" do %>
     <div class="button d-flex flex-column justify-content-center align-items-center mt-2">
       <i class="fad fa-file-invoice"></i>

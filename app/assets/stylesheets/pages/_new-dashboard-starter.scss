@@ -1,0 +1,32 @@
+.starter-dashboard {
+  font-family: 'Poppins';
+  .pack-title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .title-price {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .order-date {
+    font-size: 16px;
+    font-weight: 400;
+    color: #626262;
+  }
+  .products-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .product {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .button {
+    background: linear-gradient(90deg, $purple 85%, rgba(255,255,255,1) 85%);
+    width: 100%;
+    color: white;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0px 0px 16px rgba(140, 48, 245, 0.2);
+  }
+}
