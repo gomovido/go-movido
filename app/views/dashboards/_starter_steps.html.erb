@@ -1,31 +1,39 @@
 <div class="progress-bar-starter d-flex justify-content-evenly align-items-center">
   <div class="step-box d-flex flex-column align-items-center">
-    <div class="ellipse text-center <%= order.paid? ? 'active' : 'ongoing'%>">
-      <%= order.paid? ? "<i class='fas fa-check white'></i>".html_safe : "<i class='fad fa-spinner-third white'></i>".html_safe %>
+    <div class="ellipse text-center active">
+      <i class='fas fa-check white'></i>
     </div>
     <span class="step">Ordered</span>
   </div>
-  <div class="progress-bar mb-3 <%= order.paid? ? 'active' : ''%>">
+  <div class="progress-bar mb-3 active">
   </div>
   <div class="step-box d-flex flex-column align-items-center">
-    <div class="ellipse text-center <%= order.shipping.state == "initiated" ? "active" : "" %>">
-      <%= order.shipping.state == "delivering" ? "<i class='fas fa-check white'></i>".html_safe : "<i class='fad fa-spinner-third white'></i>".html_safe %>
+    <div class="ellipse text-center active">
+      <% if state == "delivering" || state == "delivered" %>
+        <i class='fas fa-check white'></i>
+      <% else %> 
+        <i class='fad fa-spinner-third white'></i>
+      <% end %>
     </div>
     <span class="step">Processing</span>
   </div>
-  <div class="progress-bar mb-3 <%= order.shipping.state == "delivering" ? "active" : "" %>">
+  <div class="progress-bar mb-3 <%= state == "delivering" || state == "delivered" ? "active" : "" %>">
   </div>
   <div class="step-box d-flex flex-column align-items-center">
-    <div class="ellipse text-center <%= order.shipping.state == "delivering" ? "active" : "" %>">
-      <%= order.shipping.state == "delivering" ? "<i class='fas fa-check white'></i>".html_safe : "<i class='fad fa-spinner-third white'></i>".html_safe %>
+    <div class="ellipse text-center <%= state == "delivering" || state == "delivered" ? "active" : "" %>">
+      <% if state == "delivering" %>
+        <i class='fad fa-spinner-third white'></i>
+      <% elsif state == "delivered" %>
+        <i class='fas fa-check white'></i>
+      <% end %>
     </div>
     <span class="step">Sending</span>
   </div>
-  <div class="progress-bar mb-3 <%= order.shipping.state == "delivered" ? "active" : "" %>">
+  <div class="progress-bar mb-3 <%= state == "delivered" ? "active" : "" %>">
   </div>
   <div class="step-box d-flex flex-column align-items-center">
-    <div class="ellipse text-center <%= order.shipping.state == "delivered" ? "active" : "" %>">
-      <%= order.shipping.state == "delivered" ? "<i class='fas fa-check white'></i>".html_safe : "<i class='fad fa-spinner-third white'></i>".html_safe %>
+    <div class="ellipse text-center <%= state == "delivered" ? "active" : "" %>">
+      <%= state == "delivered" ? "<i class='fas fa-check white'></i>".html_safe : "" %>
     </div>
     <span class="step">Arrived</span>
   </div>
