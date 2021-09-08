@@ -1,5 +1,5 @@
 <div class="dashboard container position-relative" data-controller="dashboard">
-  <div class="subscriptions-wrapper" data-controller='stripe-dashboard' data-stripe-dashboard-target="container" data-stripe-id=<%= current_user.stripe_id %>>
+  <div class="subscriptions-wrapper" data-controller='stripe-dashboard' data-stripe-dashboard-target="container" data-stripe-id="<%= current_user.stripe_id %>">
     <% if @subscriptions.blank? %>
       <p>Loading</p>
     <% else %>
@@ -7,3 +7,4 @@
     <% end %>
   </div>
 </div>
+<%= render 'shared/components/dashboard_navbar' %>

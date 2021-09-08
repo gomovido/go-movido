@@ -1,15 +1,16 @@
 <div class="dashboard-navbar col-12 d-flex justify-content-evenly align-items-center">
-  <%# link_to "" do %>
-    <div class="button d-flex flex-column justify-content-center align-items-center mt-2">
+  <%= link_to update_profile_path(active_tab: 'profile') do %>
+    <div class="button d-flex flex-column justify-content-center align-items-center mt-2 <%= params[:active_tab] == 'profile' ? 'active' : '' %>">
       <i class="fad fa-user-alt"></i>
       <span class="nav-title">Profile</span>
     </div>
-  <%# end %>
-  <%# link_to "" do %>
-    <div class="button d-flex flex-column justify-content-center align-items-center mt-2">
+  <% end %>
+  <%= link_to payment_details_path(active_tab: 'payment') do %>
+    <div class="button d-flex flex-column justify-content-center align-items-center mt-2 <%= params[:active_tab] == 'payment' ? 'active' : '' %>">
       <i class="fad fa-usd-circle"></i>
       <span class="nav-title">Payment</span>
     </div>
+  <% end %>
   <%# link_to "" do %>
     <div class="button d-flex flex-column justify-content-center align-items-center mt-2">
       <i class="fad fa-bags-shopping"></i>
