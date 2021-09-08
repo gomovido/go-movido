@@ -19,28 +19,6 @@ export default class extends Controller {
     }
   }
 
-
-  async fetchCustomerNextDueInvoice(stripeUrl, secretKey, stripeId) {
-    let invoice;
-    const apiKey = "Bearer " + secretKey
-    try {
-      invoice = await fetch((stripeUrl + "invoices/upcoming?customer=" + stripeId), {
-        method: "get",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: apiKey,
-        },
-      });
-      return await invoice.json()
-    }
-    catch (error) {
-      return error
-    }
-  }
-
-
-
   async fetchCustomerSubscriptions(stripeUrl, secretKey, stripeId) {
     let subscription;
     const apiKey = "Bearer " + secretKey
