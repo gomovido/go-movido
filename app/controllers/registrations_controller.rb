@@ -9,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def new_settle_in
+    return redirect_to dashboard_path if current_user && Order.where(user: current_user).filter{|order| order&.subscription&.state == 'active'}.present?
     return redirect_to new_house_path(pack: 'settle_in') if current_user
 
     build_resource

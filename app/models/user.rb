@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def current_draft_order(pack)
-    orders.includes([:subscription]).filter { |order| order.pack == pack && order.state == 'pending_payment' && order&.subscription&.state != 'active' }.first
+    orders.includes([:subscription]).filter { |order| order.pack == pack && order.state == 'pending_payment' }.first
   end
 
   def send_welcome_email
