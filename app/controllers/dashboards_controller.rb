@@ -8,4 +8,10 @@ class DashboardsController < ApplicationController
     @pending_orders = orders.filter { |o| o.subscription.nil? }
   end
 
+  def new_dashboard
+    @orders = Order.where(user: current_user)
+    @starter_order = @orders.detect {|o| o.pack == 'starter'}
+    @settle_in_order = @orders.detect {|o| o.pack == 'settle_in'}
+  end
+
 end
