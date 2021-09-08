@@ -40,7 +40,7 @@ class Order < ApplicationRecord
   end
 
   def total_amount_display
-    affiliate_link.present? && pack == 'starter' ? discounted_activation_amount(10).to_f / 100 : total_activation_amount.to_f / 100
+    affiliate_link.present? && pack == 'starter' ? discounted_activation_amount(20).to_f / 100 : total_activation_amount.to_f / 100
   end
 
   def total_subscription_amount_display
