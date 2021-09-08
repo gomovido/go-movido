@@ -5,31 +5,31 @@
     </div>
     <span class="step">Ordered</span>
   </div>
-  <div class="progress-bar mb-3 active">
+  <div class="progress-bar active">
   </div>
   <div class="step-box d-flex flex-column align-items-center">
     <div class="ellipse text-center active">
       <% if state == "delivering" || state == "delivered" %>
         <i class='fas fa-check align-middle white'></i>
       <% else %> 
-        <i class='fad fa-spinner-third white'></i>
+        <i class='fad fa-spinner-third align-middle white'></i>
       <% end %>
     </div>
     <span class="step">Processing</span>
   </div>
-  <div class="progress-bar mb-3 <%= state == "delivering" || state == "delivered" ? "active" : "" %>">
+  <div class="progress-bar <%= state == "delivering" || state == "delivered" ? "active" : "" %>">
   </div>
   <div class="step-box d-flex flex-column align-items-center">
     <div class="ellipse text-center <%= state == "delivering" || state == "delivered" ? "active" : "" %>">
       <% if state == "delivering" %>
-        <i class='fad fa-spinner-third white'></i>
+        <i class='fad fa-spinner-third align-middle white'></i>
       <% elsif state == "delivered" %>
         <i class='fas fa-check align-middle white'></i>
       <% end %>
     </div>
     <span class="step">Sending</span>
   </div>
-  <div class="progress-bar mb-3 <%= state == "delivered" ? "active" : "" %>">
+  <div class="progress-bar <%= state == "delivered" ? "active" : "" %>">
   </div>
   <div class="step-box d-flex flex-column align-items-center">
     <div class="ellipse text-center <%= state == "delivered" ? "active" : "" %>">
