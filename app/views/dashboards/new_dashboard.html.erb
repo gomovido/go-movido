@@ -1,0 +1,43 @@
+<div class="starter-dashboard container mt-4">
+  <div class="col-12 d-flex flex-column mb-3">
+    <h1 class="pack-title purple">Starter Pack</h1>
+    <span class="title-price mb-2"><%= number_to_currency(@starter_order.total_amount_display, :unit => '')%><%= @starter_order.currency_symbol %></span>
+    <span class="order-date"><%= @starter_order.created_at.strftime("%d/%m/%Y")%></span>
+  </div>
+  <div class="col-12 progress-starter my-4">
+    <%= render 'dashboards/starter_steps', order: @starter_order, state: @starter_order.shipping.state %>
+  </div>
+  <div class="col-12 products d-flex flex-column mb-2">
+    <h1 class="products-title">Products</h2>
+      <% @starter_order.products.each do |product| %>
+        <span class="product mb-1"><%= product.name %></span>
+      <% end %>
+  </div>
+  <div class="col-12 tracking d-flex justify-content-between mt-4">
+    <span class="subtitle">Tracking ID:</span>
+    <span><%= @starter_order.shipping.tracking_id ? @starter_order.shipping.tracking_id : 'processing' %></span>
+  </div>
+  <div class="buttons my-5">
+    <% if @starter_order.paid? %>
+      <%= link_to "https://www.laposte.fr/outils/track-a-parcel", target: 'blank' do %>
+        <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+          <span>Track your order</span>
+          <i class="fas fa-arrow-right purple"></i>
+        </div>
+      <% end %>
+      <%= link_to invoice_path(order_id: @starter_order.id, format: :pdf), target: 'blank' do %>
+        <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+          <span>Download your invoice</span>
+          <i class="fad fa-file-alt purple"></i>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to checkout_path(@starter_order.id) do %>
+        <div class="button d-flex justify-content-between align-items-center px-3 py-2 my-2">
+          <span>Finish your purchase</span>
+          <i class="fas fa-arrow-right purple"></i>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
