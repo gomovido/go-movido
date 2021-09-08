@@ -1,7 +1,7 @@
 <div class="progress-bar-starter d-flex justify-content-evenly align-items-center">
   <div class="step-box d-flex flex-column align-items-center">
     <div class="ellipse text-center active">
-      <i class='fas fa-check white'></i>
+      <i class='fas fa-check align-middle white'></i>
     </div>
     <span class="step">Ordered</span>
   </div>
@@ -10,7 +10,7 @@
   <div class="step-box d-flex flex-column align-items-center">
     <div class="ellipse text-center active">
       <% if state == "delivering" || state == "delivered" %>
-        <i class='fas fa-check white'></i>
+        <i class='fas fa-check align-middle white'></i>
       <% else %> 
         <i class='fad fa-spinner-third white'></i>
       <% end %>
@@ -24,7 +24,7 @@
       <% if state == "delivering" %>
         <i class='fad fa-spinner-third white'></i>
       <% elsif state == "delivered" %>
-        <i class='fas fa-check white'></i>
+        <i class='fas fa-check align-middle white'></i>
       <% end %>
     </div>
     <span class="step">Sending</span>
@@ -33,7 +33,7 @@
   </div>
   <div class="step-box d-flex flex-column align-items-center">
     <div class="ellipse text-center <%= state == "delivered" ? "active" : "" %>">
-      <%= state == "delivered" ? "<i class='fas fa-check white'></i>".html_safe : "" %>
+      <%= state == "delivered" ? "<i class='fas fa-check align-middle white'></i>".html_safe : "" %>
     </div>
     <span class="step">Arrived</span>
   </div>
