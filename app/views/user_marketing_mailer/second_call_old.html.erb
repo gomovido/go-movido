@@ -35,6 +35,15 @@
         /*@editable*/ background-color:#DEE0E2;
       }
 
+      ul {
+        list-style: none;
+        padding: 0 !important;
+      }
+
+      li {
+        margin-bottom: 12px;
+      }
+
       /**
       * @tab Page
       * @section background style
@@ -456,58 +465,75 @@
                       <!-- BEGIN TEMPLATE // -->
                       <table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
                           <tr>
-                            <td align="center" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
-                                <tr>
-                                  <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                    <!-- Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients. -->
-                                  </td>
-                                  <!-- *|IFNOT:ARCHIVE_PAGE|* -->
-                                  <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                      Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
+                              <td align="center" valign="top">
+                                  <!-- BEGIN PREHEADER // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
+                                        <tr>
+                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
+                                              ✨ <%= @user.first_name %>, get prepared for your stay abroad  ✈️
+                                            </td>
+                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
+                                                Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
+                                            </td>
+                                            <!-- *|END:IF|* -->
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
                           <tr>
-                            <td align="center" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
-                                  <tr>
-                                      <td valign="top" class="bodyContent" mc:edit="body_content">
-                                          <h1>Hello <%= @user.first_name %>,</h1>
-                                          <span>I'm Alice, Movido's co-founder, and I just wanted to welcome you to Movido! </span><br /><br />
-                                          <span>Finish your purchase if you didn't have the time to complete it.</span><br /><br />
-                                          <%= link_to 'Get started now', onboarding_starter_pack_url, class:'btn-main', target: 'blank' %>
-                                      </td>
-                                  </tr>
-                              </table>
-                            </td>
-                          </tr>
+                              <td align="center" valign="top">
+                                  <!-- BEGIN BODY // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+                                        <tr>
+                                            <td valign="top" class="bodyContent" mc:edit="body_content">
+                                              <h1>Hi <%= @user.first_name %>, it’s me again 👋!</h1>
+                                              <span>A few days ago, I sent you an email explaining how Movido can help you prepare for your stay abroad…</span> <br /><br />
+                                              <span>Now, you probably have questions about it:</span><br /><br />
+                                              <span> <i>“How does the housing service support work? How many GB of data is in the SIM card?”</i></span><br /><br />
+                                              <span>Well, you’re lucky, because not only do we have an entire page with more details about the service, but also, if you reply to this email, I will answer all your questions! </span>
+                                              <br />
+                                              <br />
+                                              <%= link_to 'Learn more about Movido', root_url, class:'btn-main', target: 'blank' %>
+                                              <br />
+                                              <span>Looking forward to talking to you,</span>
+                                              <br />
+                                              <span>Alice from Movido</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
                           <tr>
-                            <td align="center" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
-                                  <tr>
-                                      <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                          <a href="https://www.instagram.com/go_movido/">Follow on Instagram</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Movido-107959797828212">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
-                                          <em>Copyright movido France SAS, All rights reserved.</em>
-                                          <br />
-                                          608 Boulevard des Horizons, 06220 Vallauris
-                                          <br />
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td valign="top" class="footerContent" style="padding-top:0; padding-bottom:40px;" mc:edit="footer_content02">
-                                      </td>
-                                  </tr>
-                              </table>
-                              </td>
+                              <td align="center" valign="top">
+                                  <!-- BEGIN FOOTER // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+                                        <tr>
+                                            <td valign="top" class="footerContent" mc:edit="footer_content00">
+                                                <a href="https://www.instagram.com/go_movido/">Follow on Instagram</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Movido-107959797828212">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
+                                                <em>Copyright movido France SAS, All rights reserved.</em>
+                                                <br />
+                                                608 Boulevard des Horizons, 06220 Vallauris
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="footerContent" style="padding-top:0; padding-bottom:40px;" mc:edit="footer_content02">
+                                              <%= link_to 'Unsubscribe', unsubscribe_confirmation_url(Base64.encode64(@user.id.to_s)), target: 'blank' %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
                             </tr>
                         </table>
+                        <!-- // END TEMPLATE -->
                     </td>
                 </tr>
             </table>
