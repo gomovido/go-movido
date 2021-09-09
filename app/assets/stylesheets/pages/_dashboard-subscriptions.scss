@@ -1,0 +1,39 @@
+.subscription {
+  .user-id {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .subscription-total-price {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .current-period {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .period {
+    font-size: 14px;
+    font-weight: 400;
+    color: #626262;
+  }
+  .category {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .subscription-plan {
+    .plan {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+  .price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .history {
+    .user-id {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}

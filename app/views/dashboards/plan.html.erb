@@ -1,0 +1,46 @@
+<div class="plan-details container">
+  <div class="top d-flex flex-column mb-4">
+    <span class="plan-title purple"><%= @plan.product.name %></span>
+    <span class="plan-price"><%= number_to_currency(@plan.price / 100, :unit => '') %><%= @order.currency_symbol %></span>
+    <span class="period">Subscribed at <%= @plan.created_at.strftime("%d/%m/%Y") %><span>
+  </div>
+  <div class="buttons d-flex justify-content-evenly mb-3">
+    <%# link_to '' do %>
+      <div class="d-flex flex-column align-items-center">
+        <div class="button d-flex justify-content-center align-items-center">
+          <i class="fad fa-question purple"></i>
+        </div>
+        <span class="button-desc">Help</span>
+      </div>
+    <%# end %>
+    <%# link_to '' do %>
+      <div class="d-flex flex-column align-items-center">
+        <div class="button d-flex justify-content-center align-items-center">
+          <i class="fad fa-file-contract purple"></i>
+        </div>
+        <span class="button-desc">Contracts</span>
+      </div>
+    <%# end %>
+    <%# link_to '' do %>
+      <div class="d-flex flex-column align-items-center">
+        <div class="button d-flex justify-content-center align-items-center">
+          <i class="fad fa-trash purple"></i>
+        </div>
+        <span class="button-desc">Cancel</span>
+      </div>
+    <%# end %>
+  </div>
+  <div class="details d-flex flex-column mb-4">
+    <span class="details-title">Details</span>
+    <span class="details-text">Provided by <%= @plan.product.company.name %></span>
+    <span class="details-text"><%= @order.user.house.house_detail.address %></span>
+    <span class="details-text-alt">Lorem ipsum</span>
+  </div>
+  <div class="details d-flex flex-column mb-4">
+    <span class="details-title">Active subscription</span>
+    <span class="details-text">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= @order.id %></span>
+    <span class="details-text"><%= @order.user.house.house_detail.address %></span>
+    <span class="details-text-alt">Lorem ipsum</span>
+  </div>
+</div>
+<%= render 'shared/components/dashboard_navbar' %>
