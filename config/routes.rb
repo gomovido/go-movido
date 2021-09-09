@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   put 'cancel-subscription/:order_id', to: 'subscriptions#cancel', as: 'cancel_subscription'
 
   # Dashboard
-  get 'dashboard', to: 'dashboards#index', as: 'dashboard'
+  get 'dashboard', to: 'dashboards#index', as: 'dashboard', active_tab: 'dashboard'
   get 'dashboard/payment-details', to: 'payment_details#index', as: 'payment_details'
   get 'dashboard/add-payment-details', to: 'payment_details#new', as: 'new_payment_details'
   get 'dashboard/profile', to: 'users#profile', as: 'update_profile'
