@@ -4,6 +4,7 @@ class StripeApiSubscriptionService
     @order_id = params[:order_id]
     @subscription_id = params[:subscription_id]
     @subscription_stripe_id = params[:subscription_stripe_id]
+    @product_id = params[:product_id]
   end
 
   def create
@@ -30,6 +31,22 @@ class StripeApiSubscriptionService
         trial_end: (Time.zone.now + 30.days).to_i
       )
       subscription.update(state: 'cancelled')
+      { subscription: subscription, error: nil }
+    rescue Stripe::StripeError => e
+      { subscription: nil, error: e }
+    end
+  end
+
+  def update
+    subscription = Subscription.find(@subscription_id)
+    plan = Plan.find_by(product_id: @product_id, subscription: subscription)
+    begin
+      subscription = Stripe::Subscription.update(
+        subscription.stripe_id,
+        items: [{
+          price: plan.stripe_id
+        }]
+      )
       { subscription: subscription, error: nil }
     rescue Stripe::StripeError => e
       { subscription: nil, error: e }

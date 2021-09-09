@@ -1,0 +1,52 @@
+<div class="pricing">
+  <div class="pricing-card">
+    <div class="product-img">
+      <%= image_tag(asset_path(product.company.logo_url), width: 50) %>
+    </div>
+    <div class="product-name">
+      <span class="name"><%= product.name %></span>
+      <span class="description"><%= t("checkout.summary.#{product.country.code}.#{product.service.name}") %></span>
+    </div>
+    <% if product.category.utilities? %>
+      <% price = product.option_types.find_by(name: 'tenants').option_values.find_by(name: current_user.house&.house_detail.tenants).option_value_variant.variant.subscription_price %>
+    <% else %>
+      <% price = product.subscription_price %>
+    <% end %>
+    <div class="product-price">
+      <span class="price-lite"><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
+    </div>
+  </div>
+  <div class="payment text-left d-flex flex-column">
+    <span class="title text-start purple">Choose your payment method</span>
+      <div data-controller="stripe-cards" data-stripe-cards-target="container" data-stripe-id="<%= current_user.stripe_id %>">
+      <div class="cards-wrapper">
+        <%= render 'payment_details/cards', cards: @cards, default_source: @default_source %>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-details text-left my-3">
+    <span class="legals">
+      Your combined fee quote is <%= order.currency_symbol %><%= number_to_currency(price, :unit => '') %> per month. The combined set-up cost is <%= order.currency_symbol %><%= number_to_currency(order.total_amount_display, :unit => '') %> one-off.
+    </span>
+  </div>
+  <%= simple_form_for subscription, url: dashboard_path, data: {reflex: "submit->DashboardReflex#add_service_to_subscription", reflex_serialize_form: true  } do |f| %>
+    <%= f.hidden_field :order_id, value: order.id %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <div class="d-flex">
+      <div>
+        <%= f.check_box :terms, label: false, class: 'me-2 custom-checkbox' %>
+      </div>
+      <label for="" class="text-left legals">I accept the Terms and Conditions of Movido and I explicitly accept the start of the service before withdrawal period end.</label>
+    </div>
+    <div class="invalid-feedback d-block text-left"><%= f.error(:terms) %></div>
+    <div class="d-flex">
+      <div>
+        <%= f.check_box :terms_provider, label: false, class: 'me-2 custom-checkbox' %>
+      </div>
+      <label for="" class="text-left legals">I accept the Terms and Conditions of Movido providers</label>
+    </div>
+    <div class="invalid-feedback d-block text-left"><%= f.error(:terms_provider) %></div>
+    <hr>
+    <%= f.button :submit, 'Continue' , class: 'btn-main mb-5' %>
+  <% end %>
+</div>
