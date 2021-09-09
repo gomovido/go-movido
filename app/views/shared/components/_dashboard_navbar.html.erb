@@ -1,4 +1,10 @@
 <div class="dashboard-navbar col-12 d-flex justify-content-evenly align-items-center">
+  <%= link_to dashboard_path(active_tab: 'dashboard') do %>
+    <div class="button d-flex flex-column justify-content-center align-items-center mt-2 <%= params[:active_tab] == 'dashboard' ? 'active' : '' %>">
+      <i class="fad fa-tasks-alt"></i>
+      <span class="nav-title">Dashboard</span>
+    </div>
+  <% end %>
   <%= link_to update_profile_path(active_tab: 'profile') do %>
     <div class="button d-flex flex-column justify-content-center align-items-center mt-2 <%= params[:active_tab] == 'profile' ? 'active' : '' %>">
       <i class="fad fa-user-alt"></i>
