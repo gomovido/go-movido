@@ -1,7 +1,12 @@
 .dashboard {
-  font-family: 'Poppins';
+  font-family: 'Roboto';
   min-height: 85vh;
   padding-top: 4.5rem;
+  .loader {
+    position: absolute;
+    top: 30%;
+    left: 0%
+  }
   .address {
     font-size: 12px;
     font-weight: semibold;

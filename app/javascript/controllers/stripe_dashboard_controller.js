@@ -13,6 +13,7 @@ export default class extends Controller {
     if (this.containerTarget.dataset.stripeId) {
       this.fetchCustomerSubscriptions(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
       .then(response => {
+        console.log(response)
         this.stimulate("DashboardReflex#subscriptions",  response)
       })
     }
