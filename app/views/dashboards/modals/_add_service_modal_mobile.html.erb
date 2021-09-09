@@ -1,4 +1,4 @@
-<div class="modal fade mobile-modal dashboard-mobile-modal" id="addServiceModalMobile" tabindex="-1" aria-labelledby="addServiceModalMobileLabel" aria-hidden="true" data-controller="dashboard-modal">
+<div class="modal fade mobile-modal dashboard-mobile-modal" id="addServiceModalMobile" tabindex="-1" aria-labelledby="addServiceModalMobileLabel" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen-sm-down" id="dialog">
     <div class="modal-content">
       <div class="modal-body">
@@ -14,7 +14,7 @@
           <div class="row">
             <% @inactive_products.each do |product| %>
               <div class="col-12 my-2">
-                <div class="card-service" data-dashboard-modal-target='card' data-id="<%= product.id %>" data-action="click->dashboard-modal#selectService">
+                <div class="card-service" data-dashboard-target='card' data-id="<%= product.id %>" data-action="click->dashboard#openModal">
                   <img src=<%= asset_path("components/service-card/#{product.category.name}.png") %> />
                   <div class="card-service-infos">
                     <h2><%= product.name %></h2>

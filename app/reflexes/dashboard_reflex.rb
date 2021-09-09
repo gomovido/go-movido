@@ -8,6 +8,7 @@ class DashboardReflex < ApplicationReflex
   end
 
   def subscriptions(arg)
+
     @subscriptions = arg['data']
     @ongoing_subscription = @subscriptions[0]
     @subscription_items = @subscriptions[0]['subscription']['items']['data']
@@ -33,34 +34,39 @@ class DashboardReflex < ApplicationReflex
       @subscription.errors.add(:terms_provider, 'You need to accept the Terms and Conditions of providers')
       morph '.add-service-form', render(partial: "dashboards/modals/steps/new", locals: { product: @product, order: @order, subscription: @subscription } )
     else
-      amount = @product.activation_price * 10 * 10
-      response = StripeApiChargeService.new(amount: amount.to_i, customer_id: current_user.stripe_id, order_id: @order.id).create
+      response = StripeApiChargeService.new(amount: (@product.activation_price * 10 * 10).to_i, customer_id: current_user.stripe_id, order_id: @order.id).create
       if response[:error].nil?
         init_user_services(@product)
         generate_items(@order, @product)
-        init_plan(@subscription, @product)
-        update_subscription(@order, @subscription)
-        response = StripeApiPlanService.new(order_id: @order.id, product_id: @product.id).create
+        response = init_plan(@subscription, @product)
         if response[:error].nil?
-          response = StripeApiSubscriptionService.new(subscription_id: @subscription.id, product_id: @product.id).update
-          p "THIS IS RESPONSE"
-          p response
+          response = update_subscription(@order, @product)
+          if response[:error].nil?
+            morph '.pricing', render(partial: "dashboards/modals/steps/congratulations" )
+          else
+            @subscription.errors.add(:stripe, response[:error].message)
+            morph '.add-service-form', render(partial: "dashboards/modals/steps/new", locals: { product: @product, order: @order, subscription: @subscription } )
+          end
+        else
+          @subscription.errors.add(:stripe, response[:error].message)
+          morph '.add-service-form', render(partial: "dashboards/modals/steps/new", locals: { product: @product, order: @order, subscription: @subscription } )
         end
       else
-        p "THIS IS RESPONSE ERROR"
-        p response[:error].message
+        @subscription.errors.add(:stripe, response[:error].message)
+        morph '.add-service-form', render(partial: "dashboards/modals/steps/new", locals: { product: @product, order: @order, subscription: @subscription } )
       end
     end
   end
 
-  def update_subscription(order, subscription)
-    subscription.update(
+  def update_subscription(order, product)
+    order.subscription.update(
       order: order,
       subscription_price_cents: order.total_subscription_amount,
       activation_price_cents: order.total_activation_amount,
       starting_date: current_user.house.house_detail.contract_starting_date,
       state: "active"
     )
+    StripeApiSubscriptionService.new(subscription_id: order.subscription.id, product_id: product.id).update
   end
 
   def init_plan(subscription, product)
@@ -71,6 +77,7 @@ class DashboardReflex < ApplicationReflex
       price: product.plan_price_cents(subscription.order.user.house),
       state: 'active'
     )
+    StripeApiPlanService.new(order_id: subscription.order.id, product_id: product.id).create
   end
 
   def terms_not_checked?(terms)

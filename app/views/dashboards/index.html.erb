@@ -1,12 +1,8 @@
-<div class="dashboard container position-relative" data-controller="dashboard">
-  <div class="subscriptions-wrapper" data-controller='stripe-dashboard' data-stripe-dashboard-target="container" data-stripe-id="<%= current_user.stripe_id %>">
-    <% if @subscriptions.blank? %>
-      <%= render 'shared/components/loader' %>
-    <% else %>
-      <%= render 'dashboards/index/subscriptions', subscriptions: @subscriptions, ongoing_subscription: @ongoing_subscription, order: @order,
-      subscription_items: @subscription_items %>
-    <% end %>
+<div data-controller="dashboard" data-dashboard-target="container" data-stripe-id="<%= current_user.stripe_id %>">
+  <div class="dashboard-wrapper-container">
+    <%= render 'dashboards/index/dashboard', subscriptions: @subscriptions, ongoing_subscription: @ongoing_subscription, order: @order,
+        subscription_items: @subscription_items %>
   </div>
+  <%= render 'shared/components/dashboard_navbar' %>
+  <%= render 'dashboards/modals/add_service_modal_mobile' %>
 </div>
-<%= render 'shared/components/dashboard_navbar' %>
-<%= render 'dashboards/modals/add_service_modal_mobile' %>
