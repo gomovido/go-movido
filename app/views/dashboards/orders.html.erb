@@ -1,5 +1,5 @@
 <% if @order %>
-<div class="starter-dashboard container mt-4">
+<div class="starter-dashboard container mt-4 dashboard">
   <div class="col-12 d-flex flex-column mb-3">
     <h1 class="pack-title purple">Starter Pack</h1>
     <span class="title-price mb-2"><%= number_to_currency(@order.total_amount_display, :unit => '')%><%= @order.currency_symbol %></span>
@@ -43,7 +43,9 @@
   </div>
 </div>
 <% else %>
- <p>You don't have ordered any starter pack yet</p>
- <%= link_to 'get my starter pack now', onboarding_starter_pack_url, class:'btn-main' %>
+  <div class="container dashboard">
+   <p>You don't have ordered any starter pack yet</p>
+   <%= link_to 'get my starter pack now', onboarding_starter_pack_url, class:'btn-main' %>
+  </div>
 <% end %>
 <%= render 'shared/components/dashboard_navbar' %>

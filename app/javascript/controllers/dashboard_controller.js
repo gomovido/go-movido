@@ -1,19 +1,19 @@
 import { Controller } from "stimulus";
-import numeral from "numeral";
 import StimulusReflex from "stimulus_reflex";
 
 const stripeUrl = "https://api.stripe.com/v1/";
 const secretKey = process.env.STRIPE_SECRET_KEY
 
 export default class extends Controller {
-  static targets = [ "container", "subscriptionTotalPrice"]
+  static targets = [ "card", "container"]
 
   connect() {
+
     StimulusReflex.register(this);
-    if (this.containerTarget.dataset.stripeId) {
+    const cached = document.documentElement.hasAttribute("data-turbolinks-preview")
+    if (this.containerTarget.dataset.stripeId && !cached) {
       this.fetchCustomerSubscriptions(stripeUrl, secretKey, this.containerTarget.dataset.stripeId)
       .then(response => {
-        console.log(response)
         this.stimulate("DashboardReflex#subscriptions",  response)
       })
     }
@@ -36,6 +36,19 @@ export default class extends Controller {
     catch (error) {
       return error
     }
+  }
+
+  openModal(e) {
+    Array.prototype.forEach.call(document.getElementsByClassName('card-service'), function(e) {
+      e.classList.remove('active')
+      e.classList.add('small')
+    });
+    Array.prototype.forEach.call(document.getElementsByClassName('description'), function(e) {
+      e.classList.add('d-none')
+    });
+    e.currentTarget.classList.toggle('active')
+    document.getElementById('dialog').classList.add('active')
+    this.stimulate("DashboardReflex#add_service_modal",  e.currentTarget.dataset.id)
   }
 
 }
