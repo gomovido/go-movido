@@ -13,6 +13,7 @@ class DashboardsController < ApplicationController
 
   def plan
     @plan = Plan.find(params[:plan_id])
+    @order = current_user.orders.filter{|o| o&.subscription&.state == 'active'}[0]
   end
 
   def orders
