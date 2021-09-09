@@ -1,9 +1,10 @@
 <div class="dashboard container position-relative" data-controller="dashboard">
   <div class="subscriptions-wrapper" data-controller='stripe-dashboard' data-stripe-dashboard-target="container" data-stripe-id="<%= current_user.stripe_id %>">
     <% if @subscriptions.blank? %>
-      <p>Loading</p>
+      <%= render 'shared/components/loader' %>
     <% else %>
-      <%= render 'dashboards/index/subscriptions', subscriptions: @subscriptions, ongoing_subscription: @ongoing_subscription, order: @order %>
+      <%= render 'dashboards/index/subscriptions', subscriptions: @subscriptions, ongoing_subscription: @ongoing_subscription, order: @order,
+      subscription_items: @subscription_items %>
     <% end %>
   </div>
 </div>
