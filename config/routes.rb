@@ -41,15 +41,15 @@ Rails.application.routes.draw do
   put 'cancel-subscription/:order_id', to: 'subscriptions#cancel', as: 'cancel_subscription'
 
   # Dashboard
-  get 'dashboard', to: 'dashboards#index', as: 'dashboard'
+  get 'dashboard', to: 'dashboards#index', as: 'dashboard', active_tab: 'dashboard'
   get 'dashboard/payment-details', to: 'payment_details#index', as: 'payment_details'
   get 'dashboard/add-payment-details', to: 'payment_details#new', as: 'new_payment_details'
   get 'dashboard/profile', to: 'users#profile', as: 'update_profile'
   put 'dashboard/profile/update', to: 'users#update', as: 'dashboard_update_profile'
   post 'dashboard/add-payment-details', to: 'payment_details#create', as: 'payment_detail'
 
-  # Temporary new dashboard
-  get 'new_dashboard', to: 'dashboards#new_dashboard'
+  get 'dashboard/active-services/:plan_id', to: 'dashboards#plan', as: 'dashboard_plan'
+  get 'dashboard/orders', to: 'dashboards#orders', as: 'dashboard_orders'
 
   # HTTP errors
   get '/404', to: 'errors#not_found'
