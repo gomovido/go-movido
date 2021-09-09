@@ -1,5 +1,4 @@
 .dashboard-navbar {
-  height: 65px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   position: sticky;
   bottom: 0px;
@@ -7,6 +6,17 @@
   z-index: 10;
   i {
     font-size: 21px;
+  }
+  .menu {
+    height: 65px;
+  }
+  .add-service {
+    top: -15px;
+    right: 46%;
+    i {
+      font-size: 38px;
+      color: $purple;
+    }
   }
   .button {
     .nav-title {

@@ -7,9 +7,10 @@
   <hr>
   <span>Services active</span>
   <div class="active-services">
+    <%= subscriptions[0]['lines']['data'].count %>
     <% ongoing_subscription['lines']['data'].each do |service|%>
       <% plan = Plan.find_by(stripe_id: service['plan']['id']) %>
-      <%= link_to "#{plan.name}", dashboard_plan_path(plan.id) %>
+      <%= link_to "#{plan.name}", dashboard_plan_path(plan.id) if plan%>
     <% end %>
   </div>
   <hr>
@@ -21,5 +22,5 @@
   </div>
   <hr>
   <span>Next invoice</span><br>
-  <%= number_to_currency(order.total_subscription_amount / 100, :unit => '') %>
+  <%= number_to_currency(order.total_subscription_amount_display, :unit => '') %>
 </div>

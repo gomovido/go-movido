@@ -1,7 +1,7 @@
 <% if cards.blank? %>
   <%= render 'shared/components/loader' %>
 <% else %>
-  <div class="form-base mb-5">
+  <div class="form-base">
     <% cards.each do |card| %>
       <div class="payment-card d-flex justify-content-around align-items-center my-3" data-action="click->stripe-cards#setCardToDefault" data-source="<%= card['id'] %>">
         <div class="d-flex align-items-center">
