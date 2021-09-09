@@ -23,7 +23,7 @@ export default class extends Controller {
     let subscription;
     const apiKey = "Bearer " + secretKey
     try {
-      subscription = await fetch((stripeUrl + "invoices?customer=" + stripeId), {
+      subscription = await fetch((stripeUrl + "invoices?customer=" + stripeId + "&expand[]=data.subscription"), {
         method: "get",
         headers: {
           Accept: "application/json",
