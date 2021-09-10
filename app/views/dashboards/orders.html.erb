@@ -43,9 +43,9 @@
   </div>
 </div>
 <% else %>
-  <div class="container dashboard">
-   <p>You don't have ordered any starter pack yet</p>
-   <%= link_to 'get my starter pack now', onboarding_starter_pack_url, class:'btn-main' %>
+  <div class="no-order container mt-5 d-flex flex-column align-items-center text-center">
+    <span class="message">You haven't ordered a Starter Pack yet.</span>
+    <%= link_to 'Get my Starter Pack now', onboarding_starter_pack_url, class:'btn-main my-5 onboarding-btn' %>
   </div>
 <% end %>
 <%= render 'shared/components/dashboard_navbar' %>
