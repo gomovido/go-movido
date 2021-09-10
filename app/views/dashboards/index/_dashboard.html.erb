@@ -1,0 +1,10 @@
+<div class="dashboard container position-relative">
+  <div class="subscriptions-wrapper">
+    <% if subscriptions.blank? %>
+      <%= render 'dashboards/index/offline_dashboard' %>
+    <% else %>
+      <%= render 'dashboards/index/subscriptions', subscriptions: subscriptions, ongoing_subscription: ongoing_subscription, order: order,
+      subscription_items: subscription_items %>
+    <% end %>
+  </div>
+</div>

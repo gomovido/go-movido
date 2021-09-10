@@ -3,14 +3,14 @@ class StripeApiChargeService
     @order_id = params[:order_id]
     @stripe_token = params[:stripe_token]
     @customer_id = params[:customer_id]
+    @amount = params[:amount]
   end
 
   def create
     order = Order.find(@order_id)
-    amount = order.affiliate_link.present? ? order.discounted_activation_amount(20) : order.total_activation_amount
     begin
       stripe_charge = Stripe::Charge.create({
-                                              amount: amount,
+                                              amount: @amount.to_i,
                                               currency: order.currency,
                                               customer: @customer_id,
                                               description: "This is payment for user #{order.user.email} - Order #-#{order.id}"
@@ -20,4 +20,5 @@ class StripeApiChargeService
       return { stripe_charge: nil, error: e }
     end
   end
+
 end

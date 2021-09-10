@@ -1,5 +1,5 @@
 <% if @order %>
-<div class="starter-dashboard container mt-4">
+<div class="starter-dashboard container mt-4 dashboard">
   <div class="col-12 d-flex flex-column mb-3">
     <h1 class="pack-title purple">Starter Pack</h1>
     <span class="title-price mb-2"><%= number_to_currency(@order.total_amount_display, :unit => '')%><%= @order.currency_symbol %></span>

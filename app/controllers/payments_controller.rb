@@ -33,7 +33,8 @@ class PaymentsController < ApplicationController
     charge = init_charge(order)
     if response[:error].nil?
       update_user_with_stripe_id(response[:customer])
-      response = StripeApiChargeService.new(order_id: order.id, customer_id: current_user.stripe_id).create
+      amount = order.affiliate_link.present? ? order.discounted_activation_amount(20) : order.total_activation_amount
+      response = StripeApiChargeService.new(amount: amount, customer_id: current_user.stripe_id, order_id: order.id).create
       if response[:error].nil? && response[:stripe_charge]
         charge = update_charge(charge, response[:stripe_charge], order)
         update_order(charge, order, billing)
@@ -64,7 +65,7 @@ class PaymentsController < ApplicationController
   end
 
   def settle_in_process(order)
-    response = StripeApiPlanService.new(order_id: order.id).create
+    response = StripeApiPlanService.new(order_id: order.id).create_plans
     if response[:error].nil?
       response = StripeApiSubscriptionService.new(order_id: order.id).create
       if response[:error].nil?
