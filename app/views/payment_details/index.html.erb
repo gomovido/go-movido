@@ -6,7 +6,7 @@
         <%= link_to dashboard_path do %>
           <i class='fas fa-arrow-left black'></i>
         <% end %>
-        <h2 class="title text-start purple mb-3">Payment Methods</h2>
+        <h2 class="title-primary text-start purple mb-3">Payment Methods</h2>
         <label>Your cards</label>
           <div data-controller="stripe-cards" data-stripe-cards-target="container" data-stripe-id="<%= current_user.stripe_id %>">
           <div class="cards-wrapper">
