@@ -5,7 +5,7 @@
         <%= link_to dashboard_path do %>
           <i class='fas fa-arrow-left black'></i>
         <% end %>
-        <h2 class="title text-start purple mb-3">Update profile</h2>
+        <h2 class="title-primary text-start purple mb-3">Update profile</h2>
         <%= simple_form_for @user, url: dashboard_update_profile_path, method: :put do |f| %>
         <%= f.input :email %>
         <%= f.input :first_name %>
