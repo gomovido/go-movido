@@ -1,5 +1,5 @@
 <div data-controller="dashboard" data-dashboard-target="container" data-stripe-id="<%= current_user.stripe_id %>">
-  <div class="dashboard-wrapper-container">
+  <div class="dashboard-wrapper-container background-waves" style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
     <%= render 'dashboards/index/dashboard', subscriptions: @subscriptions, ongoing_subscription: @ongoing_subscription, order: @order,
         subscription_items: @subscription_items %>
   </div>
