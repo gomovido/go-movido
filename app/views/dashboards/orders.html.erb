@@ -1,4 +1,4 @@
-<div class="starter-dashboard container mt-mb-5">
+<div class="starter-dashboard container mt-mb-5 background-waves" style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6">
       <div class="p-3">
@@ -8,8 +8,8 @@
           <% end %>
           <div class="col-12 d-flex flex-column mb-3">
             <h1 class="title-primary purple">Starter Pack</h1>
-            <span class="title-price mb-2"><%= number_to_currency(@order.total_amount_display, :unit => '')%><%= @order.currency_symbol %></span>
-            <span class="order-date"><%= @order.created_at.strftime("%d/%m/%Y")%></span>
+            <span class="price-primary mb-2"><%= number_to_currency(@order.total_amount_display, :unit => '')%><%= @order.currency_symbol %></span>
+            <span class="period">Ordered on <%= @order.created_at.strftime("%d/%m/%Y")%></span>
           </div>
           <div class="col-12 progress-starter my-4">
             <%= render 'dashboards/starter_steps', order: @order, state: @order.shipping.state %>
@@ -17,7 +17,7 @@
           <div class="col-12 products d-flex flex-column mb-2">
             <h1 class="title-secondary">Products</h2>
               <% @order.products.each do |product| %>
-                <span class="product mb-1"><%= product.name %></span>
+                <span class="description mb-1"><%= product.name %></span>
               <% end %>
           </div>
           <div class="col-12 tracking d-flex justify-content-between mt-4">

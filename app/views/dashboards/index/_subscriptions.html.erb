@@ -4,20 +4,20 @@
     <div class="col-12 col-md-6">
       <div class="p-3">
         <div class="total-amount text-center mt-4 mb-3">
-          <span class="user-id">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= order.id %></span>
-          <h2 data-stripe-dashboard-target="subscriptionTotalPrice" class="subscription-total-price"><%= number_to_currency(ongoing_subscription['amount_due'] / 100, :unit => '') %><%= order.currency_symbol %></h2>
+          <span class="title-description">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= order.id %></span>
+          <h2 data-stripe-dashboard-target="subscriptionTotalPrice" class="price-primary"><%= number_to_currency(ongoing_subscription['amount_due'] / 100, :unit => '') %><%= order.currency_symbol %></h2>
           <span class="current-period">Current invoice</span><br/>
           <span class="period">From <%= Time.at(ongoing_subscription['subscription']['current_period_start']).strftime("%d/%m/%Y") %> to <%= Time.at(ongoing_subscription['subscription']['current_period_end']).strftime("%d/%m/%Y") %></span>
         </div>
-        <span class="category purple">Active services</span>
+        <span class="title-secondary purple">Active services</span>
         <div class="active-services mb-4 mt-2">
           <% subscription_items.each do |service|%>
             <% plan = Plan.find_by(stripe_id: service['plan']['id']) %>
             <%= link_to dashboard_plan_path(plan.id) do %>
               <div class="subscription-plan col-12">
                 <div class="d-flex justify-content-between">
-                  <span class="plan"><%= plan.product.name.capitalize %></span>
-                  <span class="price"><%= number_to_currency(plan.price / 100, :unit => '') %><%= order.currency_symbol %></span>
+                  <span class="title-description"><%= plan.product.name.capitalize %></span>
+                  <span class="price-secondary"><%= number_to_currency(plan.price / 100, :unit => '') %><%= order.currency_symbol %></span>
                 </div>
                 <span class="period">Subscribed at <%= plan.created_at.strftime("%d/%m/%Y") %><span>
               </div>
@@ -25,23 +25,23 @@
             <hr class="purple">
           <% end %>
         </div>
-        <span class="category purple">History</span>
+        <span class="title-secondary purple">History</span>
         <div class="history mb-4 mt-2">
           <% subscriptions.each do |subscription| %>
             <div class="subscription-history col-12">
               <div class="d-flex justify-content-between">
-                <span class="user-id">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= order.id %></span><br/>
-                <span class="price"><%= number_to_currency(ongoing_subscription['amount_due'] / 100, :unit => '') %><%= order.currency_symbol %></span>
+                <span class="title-description">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= order.id %></span><br/>
+                <span class="price-secondary"><%= number_to_currency(ongoing_subscription['amount_due'] / 100, :unit => '') %><%= order.currency_symbol %></span>
               </div>
               <span class="period">From <%= Time.at(ongoing_subscription['subscription']['current_period_start']).strftime("%d/%m/%Y") %> to <%= Time.at(ongoing_subscription['subscription']['current_period_end']).strftime("%d/%m/%Y") %></span>
             </div>
           <% end %>
           <hr class="purple">
         </div>
-        <span class="category purple">Next invoice</span><br>
-        <div class="next-period d-flex justify-content-between mt-2 mb-3">
+        <span class="title-secondary purple">Next invoice</span><br>
+        <div class="next-period d-flex justify-content-between align-items-center mt-2 mb-3">
           <span class="period">Available starting <%= Time.at(ongoing_subscription['subscription']['current_period_end']).strftime("%d/%m/%Y") %></span>
-          <span class="price"><%= number_to_currency(order.total_subscription_amount.to_f / 100, :unit => '') %><%= order.currency_symbol %></span>
+          <span class="price-secondary"><%= number_to_currency(order.total_subscription_amount.to_f / 100, :unit => '') %><%= order.currency_symbol %></span>
         </div>
       </div>
     </div>
