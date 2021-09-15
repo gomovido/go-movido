@@ -1,12 +1,13 @@
-<section class='d-block d-sm-none' data-controller="logo">
+<section class='d-block d-md-none' data-controller="logo">
   <div class="container-fluid p-0">
-    <div class="banner bg-position" style="background-image: url(<%= asset_path('components/homepage/bg_top_home.png') %>);">
+    <div class="banner bg-position position-relative overflow-hidden">
+      <%= render 'pages/home/bg-top'%>
       <div class="container">
         <div class="row">
           <div class="col-12">
             <h1 class="white p-4 pb-0 text-center">All you contracts in 1 bill and 20% cheaper </h1>
           </div>
-          <div class="col-12">
+          <div class="col-12 position-relative">
             <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'))%>
           </div>
         </div>
@@ -36,7 +37,8 @@
   </div>
 </section>
 <section class="d-none d-md-block" data-controller="logo">
-  <div class="homepage-banner bg-position mb-5 align-items-center d-flex flex-column" style="background-image: url(<%= asset_path('components/homepage/bg-top-desktop.png') %>);">
+  <div class="homepage-banner mb-5 align-items-center d-flex flex-column position-relative overflow-hidden">
+    <%= render 'pages/home/bg-top'%>
     <div class="container-fluid">
       <div class="row align-items-center top-part">
         <div class="col-6 d-flex align-items-center justify-content-end">
