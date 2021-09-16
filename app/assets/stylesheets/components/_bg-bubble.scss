@@ -1,0 +1,45 @@
+.bg-bubble {
+  width: 200px;
+  height: 200px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 3px,
+    white 3px,
+    white 6px
+  );
+  -webkit-mask-image: linear-gradient(
+    135deg, 
+    rgba(0,0,0,0.5) 0%, 
+    rgba(0,0,0,0.05) 70%
+  );
+  mask-image: linear-gradient(
+    135deg, 
+    rgba(0,0,0,0.5) 0%, 
+    rgba(0,0,0,0.05) 70%
+  );
+  border-radius: 50%;
+}
+.bg-bubble.purple {
+  width: 200px;
+  height: 200px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 3px,
+    $purple 3px,
+    $purple 6px
+  );
+  -webkit-mask-image: linear-gradient(
+    -45deg, 
+    rgba(0,0,0,0.1) 0%, 
+    rgba(0,0,0,0.05) 70%
+  );
+  mask-image: linear-gradient(
+    -45deg, 
+    rgba(0,0,0,0.2) 0%, 
+    rgba(0,0,0,0.05) 70%
+  );
+  border-radius: 50%;
+}
+
