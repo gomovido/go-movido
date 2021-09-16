@@ -1,0 +1,46 @@
+.bg-top {
+  width: 100%;
+  z-index: -1;
+}
+.ball-1 {
+  position: absolute;
+  width: 150%;
+  height: 1200px;
+  background-color: #F1E9FE;
+  border-radius: 50%;
+  top: -730px;
+  left: -120px;
+}
+.ball-2 {
+  position: absolute;
+  width: 150%;
+  height: 1100px;
+  top: -630px;
+  background: linear-gradient(90deg, rgba(97,49,158,1) 0%, rgba(145,104,202,1) 30%, rgba(164,92,228,1) 70%);
+  border-radius: 50%
+}
+
+@include media-breakpoint-down(md) {
+  .bg-top {
+    position: absolute;
+  }
+  .ball-1 {
+    position: absolute;
+    width: 164%;
+    height: 590px;
+    background-color: #F1E9FE;
+    border-radius: 50%;
+    top: -270px;
+    left: -180px;
+  }
+  .ball-2 {
+    position: absolute;
+    width: 164%;
+    height: 590px;
+    left: -50px;
+    background: linear-gradient(90deg, #a45ce4 0%, #9168ca 70%, #61319e 100%);
+    border-radius: 50%;
+    left: -250px;
+    top: -270px;
+  }
+}
