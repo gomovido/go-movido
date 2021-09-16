@@ -1,7 +1,6 @@
 .banner {
   min-height: 93vh;
   max-width: 100%;
-  background-size: cover;
   img.xl-img {
     position: relative;
     top: -10rem;
@@ -12,9 +11,6 @@
   }
   .trustpilot {
     width: 250px !important;
-  }
-  .animation {
-    width: 460px;
   }
   .content {
     h1 {

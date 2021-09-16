@@ -12,6 +12,15 @@
     }
   }
   .services {
+    .bg-position-1 {
+      position: absolute;
+      left: 10%;
+    }
+    .bg-position-2 {
+      position: absolute;
+      bottom: 0px;
+      right: 20%;
+    }
     .product-card {
       min-height: 470px;
     }
@@ -79,6 +88,16 @@
       font-size: 16px;
     }
     .services {
+      .bg-position-1 {
+        position: absolute;
+        top: 100px;
+        left: -60px;
+      }
+      .bg-position-2 {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+      }
       .product-card {
         min-height: auto;
       }

@@ -7,11 +7,13 @@
   background: rgb(131,48,245);
   background: linear-gradient(8deg, rgba(131,48,245,1) 0%, rgba(157,86,255,1) 93%);
   .bg-position-1 {
+    position: absolute;
     bottom: 20%;
   }
   .bg-position-2 {
+    position: absolute;
     right: 0;
-    top: 14%;
+    top: 20%;
   }
   h2 {
     font-family: 'Poppins';
