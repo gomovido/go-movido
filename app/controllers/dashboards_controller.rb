@@ -17,4 +17,14 @@ class DashboardsController < ApplicationController
     @order = current_user.orders.detect {|o| o.pack == 'starter'}
   end
 
+  def cancel_plan
+    response = StripeApiBillingService.new(plan_id: params[:plan_id]).update_subscription_plan
+    if response
+      flash[:success] = 'Plan was succesfully cancelled.'
+    else
+      flash[:alert] = 'Something went wrong, please try again later.'
+    end
+    redirect_to dashboard_path
+  end
+
 end
