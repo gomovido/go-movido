@@ -3,6 +3,7 @@ class StripeApiCustomerService
   def initialize(params)
     @order_id = params[:order_id]
     @stripe_token = params[:stripe_token]
+    @user_id = params[:user_id]
   end
 
   def create_or_update_customer
@@ -38,5 +39,19 @@ class StripeApiCustomerService
     end
   end
 
+
+  def create_customer_without_source
+    user = User.find(@user_id)
+    begin
+      customer = Stripe::Customer.create({
+                                           email: user.email,
+                                           description: "Customer ##{user.id} - #{user.email}",
+                                           name: "#{user.first_name} #{user.last_name}"
+                                         })
+      { error: nil, customer: customer }
+    rescue Stripe::StripeError => e
+      { error: e, customer: nil }
+    end
+  end
 
 end

@@ -20,7 +20,7 @@
           <% if current_user %>
             <% if current_user.orders.find_by(state: 'succeeded') || current_user.orders.find_by(state: 'pending_payment') %>
               <%= link_to 'DASHBOARD', dashboard_path %>
-              <%= link_to 'ORDERS', dashboard_orders_path %>
+              <%= link_to 'ORDERS', dashboard_orders_path(active_tab: 'orders') %>
             <% end %>
             <%= link_to 'LOGOUT', destroy_user_session_path, method: 'delete', class: 'purple' %>
           <% else %>

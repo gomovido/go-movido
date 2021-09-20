@@ -11,6 +11,7 @@ class PaymentDetailsController < ApplicationController
   end
 
   def create
+    create_customer if current_user.stripe_id.nil?
     response = StripeApiCardService.new(customer_id: current_user.stripe_id, stripe_token: params['stripeToken']).add_card
     if response[:error].nil?
       response = StripeApiCardService.new(customer_id: current_user.stripe_id, source_id: response[:customer][:id]).update_customer
@@ -27,5 +28,10 @@ class PaymentDetailsController < ApplicationController
       @user = current_user
       render :new
     end
+  end
+
+  def create_customer
+    response = StripeApiCustomerService.new(user_id: current_user.id).create_customer_without_source
+    current_user.update(stripe_id: response[:customer].id) if response[:customer]
   end
 end
