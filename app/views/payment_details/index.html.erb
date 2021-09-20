@@ -7,10 +7,19 @@
         <% end %>
         <h2 class="title-primary text-start purple mb-3">Payment Methods</h2>
         <label>Your cards</label>
-          <div data-controller="stripe-cards" data-stripe-cards-target="container" data-stripe-id="<%= current_user.stripe_id %>">
-          <div class="cards-wrapper">
-            <%= render 'payment_details/cards', cards: @cards, default_source: @default_source %>
-          </div>
+          <% if current_user.stripe_id.nil? %>
+            <%= link_to new_payment_details_path do %>
+              <div class="button-lite d-flex justify-content-between align-items-center px-3 py-2 my-2">
+                <span>Add a new card</span>
+                <i class="fas fa-arrow-right purple"></i>
+              </div>
+            <% end %>
+          <% else %>
+            <div data-controller="stripe-cards" data-stripe-cards-target="container" data-stripe-id="<%= current_user.stripe_id %>">
+            <div class="cards-wrapper">
+              <%= render 'payment_details/cards', cards: @cards, default_source: @default_source %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
