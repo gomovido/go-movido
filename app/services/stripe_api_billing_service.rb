@@ -14,7 +14,7 @@ class StripeApiBillingService
         subscription_items = response[:subscription].items.data.filter{|a| a.plan.id == plan.stripe_id}
         subscription = subscription_items[0]
         subscription_item_id = subscription.id if subscription
-        if subscription_items.length >= 1
+        if response[:subscription].items.data.length > 1
           delete_subscription_item(subscription_item_id) if subscription_item_id
         else
           delete_subscription(response[:subscription].id)
@@ -28,9 +28,9 @@ class StripeApiBillingService
   end
 
   def delete_subscription(subscription_stripe_id)
-    subscription = Subscription.find(stripe_id: subscription_stripe_id)
+    subscription = Subscription.find_by(stripe_id: subscription_stripe_id)
     begin
-      subscription = Stripe::Subscription.delete(subscription_stripe_id)
+      Stripe::Subscription.delete(subscription_stripe_id)
       subscription.update(state: 'cancelled')
       {subscription: subscription, error: nil}
     rescue  Stripe::StripeError => e
