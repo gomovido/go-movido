@@ -39,7 +39,6 @@ class StripeApiBillingService
   end
 
   def delete_service_from_subscription
-    subscription = Subscription.find(@subscription_id)
     plan = Plan.find(@plan_id)
     plan.product.items.select{|i| i.cart == plan.subscription.order.cart }[0].destroy
   end

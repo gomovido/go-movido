@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
   get 'dashboard/active-services/:plan_id', to: 'dashboards#plan', as: 'dashboard_plan'
   get 'dashboard/orders', to: 'dashboards#orders', as: 'dashboard_orders'
+  put 'dashboard/cancel-plan/:plan_id', to: 'dashboards#cancel_plan', as: 'cancel_plan'
 
   # HTTP errors
   get '/404', to: 'errors#not_found'
