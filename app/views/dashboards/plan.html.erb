@@ -11,42 +11,38 @@
           <span class="period">Subscribed at <%= @plan.created_at.strftime("%d/%m/%Y") %><span>
         </div>
         <div class="buttons d-flex justify-content-evenly mb-3">
-          <%# link_to '' do %>
+          <%= link_to 'https://calendly.com/alice_movido/movido-introcall' do %>
             <div class="d-flex flex-column align-items-center">
               <div class="button-plan d-flex justify-content-center align-items-center">
                 <i class="fad fa-question purple"></i>
               </div>
               <span class="button-desc">Help</span>
             </div>
-          <%# end %>
-          <%# link_to '' do %>
+          <% end %>
+          <%= link_to invoice_path(order_id: @order.id, format: :pdf) do %>
             <div class="d-flex flex-column align-items-center">
               <div class="button-plan d-flex justify-content-center align-items-center">
                 <i class="fad fa-file-contract purple"></i>
               </div>
               <span class="button-desc">Contracts</span>
             </div>
-          <%# end %>
-          <%# link_to '' do %>
+          <% end %>
+          <%= link_to cancel_plan_path, plan_id: @plan.id, method: :put do %>
             <div class="d-flex flex-column align-items-center">
               <div class="button-plan d-flex justify-content-center align-items-center">
                 <i class="fad fa-trash purple"></i>
               </div>
               <span class="button-desc">Cancel</span>
             </div>
-          <%# end %>
+          <% end %>
         </div>
         <div class="details d-flex flex-column mb-4">
           <span class="title-secondary">Details</span>
           <span class="description">Provided by <%= @plan.product.company.name %></span>
           <span class="description"><%= @order.user.house.house_detail.address %></span>
-          <span class="description grey">Lorem ipsum</span>
         </div>
         <div class="details d-flex flex-column mb-4">
-          <span class="title-secondary">Active subscription</span>
-          <span class="description">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= @order.id %></span>
-          <span class="description"><%= @order.user.house.house_detail.address %></span>
-          <span class="description grey">Lorem ipsum</span>
+          <span class="title-secondary purple">Active subscription</span>
         </div>
       </div>
     </div>
