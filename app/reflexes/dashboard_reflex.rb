@@ -8,7 +8,6 @@ class DashboardReflex < ApplicationReflex
   end
 
   def subscriptions(arg)
-
     @subscriptions = arg['data']
     @ongoing_subscription = @subscriptions[0]
     @subscription_items = @subscriptions[0]['subscription']['items']['data']
