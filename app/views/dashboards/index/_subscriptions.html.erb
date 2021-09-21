@@ -1,9 +1,9 @@
 
 <div class="subscription" data-controller='stripe-dashboard' data-stripe-dashboard-target="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-9 col-lg-6">
       <div class="p-3">
-        <div class="total-amount text-center mt-4 mb-3">
+        <div class="total-amount text-center mb-3">
           <span class="title-description">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %><%= order.id %></span>
           <h2 data-stripe-dashboard-target="subscriptionTotalPrice" class="price-primary"><%= number_to_currency(ongoing_subscription['amount_due'] / 100, :unit => '') %><%= order.currency_symbol %></h2>
           <span class="current-period">Current invoice</span><br/>
