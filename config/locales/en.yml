@@ -28,7 +28,7 @@ en:
       transportation: 'Public transportation card'
       pickup: "Airport pick-up to central %{city}"
   mail:
-    welcome_email: 'Welcome to movido!'
+    welcome_email: 'Welcome to movido'
     password_email: 'Your credentials to movido'
     subscription_under_review: 'Congratulations on your purchase'
     booking_under_review: 'Congratulations on your booking'
