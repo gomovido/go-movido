@@ -1,6 +1,6 @@
-<div class="starter-dashboard container mt-mb-5 background-waves" style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
+<div class="starter-dashboard dashboard container mt-mb-5 background-waves" style="background-image:url(<%= asset_path 'pages/dashboard/waves-back.png' %>);">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-9 col-lg-6">
       <div class="p-3">
         <% if @order %>
           <%= link_to dashboard_path do %>
@@ -48,7 +48,7 @@
             <% end %>
           </div>
         <% else %>
-          <div class="no-order container mt-5 d-flex flex-column align-items-center text-center">
+          <div class="no-order dashboard container mt-5 d-flex flex-column align-items-center text-center">
             <span class="message">You haven't ordered a Starter Pack yet.</span>
             <%= link_to 'Get my Starter Pack now', onboarding_starter_pack_url, class:'btn-main my-5 onboarding-btn' %>
           </div>

@@ -32,7 +32,6 @@
 .mobile-modal {
   .modal-dialog {
     height: 55%;
-    position: absolute;
     bottom: 0;
     .modal-content {
       .modal-body {
@@ -53,6 +52,14 @@
           color: #626262;
         }
       }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .mobile-modal {
+    .modal-dialog {
+      position: absolute;
     }
   }
 }

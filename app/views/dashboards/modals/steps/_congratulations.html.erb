@@ -1,2 +1,19 @@
-<p>Congratulations</p>
-<%= link_to 'Continue', dashboard_path, class: 'btn-main' %>
+<div class="congrats-modal">
+  <div class="row d-flex flex-column justify-content-center align-items-center text-center">
+    <div class="decorations d-flex flex-column align-items-center position-relative">
+      <div class="top">
+      </div>
+      <div class="triangles d-flex">
+        <div class="triangle-1"></div>
+        <div class="triangle-2"></div>
+
+      </div>
+      <%= image_tag(asset_path('components/homepage/movido_homepage_animation_responsive.svg'), size: "200x200", class: "logo")%>
+    </div>
+    <div class="congrats-text px-3">
+      <h2>Congratulations!</h2>
+      <span>Thanks for trusting movido with another subscription!</span>
+    </div>
+    <%= link_to 'Continue', dashboard_path, class: 'btn-main mt-3 mb-2' %>
+  </div>
+</div>

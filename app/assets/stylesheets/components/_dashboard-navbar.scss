@@ -11,8 +11,11 @@
     height: 65px;
   }
   .add-service {
+    position: absolute;
     top: -15px;
-    right: 45%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     i {
       font-size: 38px;
       color: $purple;
