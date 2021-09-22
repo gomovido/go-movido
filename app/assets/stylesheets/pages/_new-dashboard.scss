@@ -10,6 +10,7 @@
   h1.price {
     font-size: 24px;
     font-weight: 600;
+    margin: 0px;
   }
   h2 {
     font-size: 20px;
@@ -19,6 +20,7 @@
   h2.price {
     font-size: 16px;
     font-weight: 600;
+    margin: 0px;
   }
   h3 {
     font-size: 16px;
@@ -39,14 +41,6 @@
     top: 30%;
     left: 0%
   }
-  .address {
-    font-size: 12px;
-    font-weight: semibold;
-  }
-  .subtitle {
-    font-size: 30px;
-    font-weight: 400;
-  } 
   .purple-bar-1 {
     left: 0px;
     bottom: 0px;
