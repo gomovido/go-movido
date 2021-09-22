@@ -12,12 +12,23 @@
             <span class="period">Ordered on <%= @order.created_at.strftime("%d/%m/%Y")%></span>
           </div>
           <div class="col-12 progress-starter my-4">
-            <%= render 'dashboards/starter_steps', order: @order, state: @order.shipping.state %>
+            <%= render 'dashboards/starter_steps', shipping: @order.shipping, state: @order.shipping.state %>
           </div>
           <div class="col-12 products d-flex flex-column mb-2">
             <h2>Products</h2>
               <% @order.products.each do |product| %>
-                <span class="description mb-1"><%= product.name %></span>
+                <div class="d-flex">
+                  <% if product.category.id == 1 %>
+                    <i class="fad fa-sim-card purple me-3 text-center"></i>
+                  <% elsif product.category.id == 2 %>
+                    <i class="fad fa-plane-arrival purple me-3 text-center"></i>
+                  <% elsif product.category.id == 3 %>
+                    <i class="fad fa-subway purple me-3 text-center"></i>
+                  <% else %>
+                    <i class="fad fa-house purple me-3 text-center"></i>
+                  <% end %>
+                  <span class="description mb-1"><%= product.name %></span>
+                </div>
               <% end %>
           </div>
           <div class="col-12 tracking d-flex justify-content-between mt-4">
@@ -50,6 +61,20 @@
         <% else %>
           <div class="no-order dashboard container d-flex flex-column align-items-center text-center">
             <span class="message">You haven't ordered a Starter Pack yet.</span>
+            <div class="onboarding-card mt-3">
+                <div class="d-flex w-100 justify-content-center">
+                  <%= image_tag(asset_path('components/onboarding-modal/lucide_plane.png')) %>
+                </div>
+                  <span class="mb-1">You are <b>about to move</b> abroad and need:</span>
+                <div class="list">
+                <ul>
+                  <li>- Housing</li>
+                  <li>- Local SIM card</li>
+                  <li>- Airport pick-up</li>
+                  <li>- Transportation</li>
+                </ul>
+                </div>
+              </div>
             <%= link_to 'Get my Starter Pack now', onboarding_starter_pack_url, class:'btn-main my-5 onboarding-btn' %>
           </div>
         <% end %>

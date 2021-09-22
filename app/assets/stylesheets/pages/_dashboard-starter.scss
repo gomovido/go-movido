@@ -1,9 +1,16 @@
-.no-order {
-  .message {
-    font-size: 24px;
-    font-weight: 600;
+.starter-dashboard {
+  .products {
+    .fad {
+      width: 25px;
+    }
   }
-  .onboarding-btn {
-    width: 80% !important;
+  .no-order {
+    .message {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .onboarding-btn {
+      width: 80% !important;
+    }
   }
 }
