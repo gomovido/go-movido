@@ -2,6 +2,38 @@
   font-family: 'Roboto';
   min-height: 85vh;
   padding-top: 4.5rem;
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+  }
+  h1.price {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+  }
+  h2.price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  }
+  span.description {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  span.period {
+    font-size: 12px;
+    font-weight: 400;
+    color: #626262;
+  }
   .loader {
     position: absolute;
     top: 30%;

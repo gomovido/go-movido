@@ -7,15 +7,15 @@
             <i class='fas fa-arrow-left black'></i>
           <% end %>
           <div class="col-12 d-flex flex-column mb-3">
-            <h1 class="title-primary purple">Starter Pack</h1>
-            <span class="price-primary mb-2"><%= number_to_currency(@order.total_amount_display, :unit => '')%><%= @order.currency_symbol %></span>
+            <h1 class="purple">Starter Pack</h1>
+            <h1 class="price mb-2"><%= number_to_currency(@order.total_amount_display, :unit => '')%><%= @order.currency_symbol %></h1>
             <span class="period">Ordered on <%= @order.created_at.strftime("%d/%m/%Y")%></span>
           </div>
           <div class="col-12 progress-starter my-4">
             <%= render 'dashboards/starter_steps', order: @order, state: @order.shipping.state %>
           </div>
           <div class="col-12 products d-flex flex-column mb-2">
-            <h1 class="title-secondary">Products</h2>
+            <h2>Products</h2>
               <% @order.products.each do |product| %>
                 <span class="description mb-1"><%= product.name %></span>
               <% end %>

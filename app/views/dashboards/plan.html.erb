@@ -6,7 +6,7 @@
           <i class='fas fa-arrow-left black'></i>
         <% end %>
         <div class="top d-flex flex-column mb-4">
-          <span class="title-primary purple"><%= @plan.product.name %></span>
+          <h1 class="purple"><%= @plan.product.name %></h1>
           <span class="price-primary"><%= number_to_currency(@plan.price / 100, :unit => '') %><%= @order.currency_symbol %></span>
           <span class="period">Subscribed at <%= @plan.created_at.strftime("%d/%m/%Y") %><span>
         </div>
