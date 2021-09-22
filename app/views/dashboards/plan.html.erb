@@ -6,8 +6,8 @@
           <i class='fas fa-arrow-left black'></i>
         <% end %>
         <div class="top d-flex flex-column mb-4">
-          <span class="title-primary purple"><%= @plan.product.name %></span>
-          <span class="price-primary"><%= number_to_currency(@plan.price / 100, :unit => '') %><%= @order.currency_symbol %></span>
+          <h1 class="purple"><%= @plan.product.name %></h1>
+          <h1 class="price"><%= number_to_currency(@plan.price / 100, :unit => '') %><%= @order.currency_symbol %></h1>
           <span class="period">Subscribed at <%= @plan.created_at.strftime("%d/%m/%Y") %><span>
         </div>
         <div class="buttons d-flex justify-content-evenly mb-3">
@@ -37,12 +37,12 @@
           <% end %>
         </div>
         <div class="details d-flex flex-column mb-4">
-          <span class="title-secondary">Details</span>
+          <h2>Details</h2>
           <span class="description">Provided by <%= @plan.product.company.name %></span>
           <span class="description"><%= @order.user.house.house_detail.address %></span>
         </div>
         <div class="details d-flex flex-column mb-4">
-          <span class="title-secondary purple">Active subscription</span>
+          <h2 class="purple">Active subscription</h2>
         </div>
       </div>
     </div>

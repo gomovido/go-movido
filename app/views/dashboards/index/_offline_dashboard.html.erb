@@ -4,42 +4,42 @@
       <div class="p-3">
         <div class="total-amount text-center mb-3">
           <span class="user-id">#<%= current_user.first_name[0].upcase %><%= current_user.last_name[0].upcase %></span>
-          <h2 data-stripe-dashboard-target="subscriptionTotalPrice" class="price-primary">--.--</h2>
+          <h1 data-stripe-dashboard-target="subscriptionTotalPrice" class="price text-center">--.--</h1>
           <span class="current-period">Current invoice</span><br/>
           <span class="period">From --/--/-- to --/--/--</span>
         </div>
-        <span class="title-secondary purple">Active services</span>
+        <h2 class="purple">Active services</h2>
         <div class="active-services mb-4 mt-2">
           <div class="subscription-plan col-12">
             <div class="d-flex justify-content-between">
-              <span class="title-description">---------------------</span>
-              <span class="price-secondary">--.--</span>
+              <h3>---------------------</h3>
+              <h2 class="price">--.--</h2>
             </div>
             <span class="period">----------------------------------<span>
           </div>
           <hr class="purple">
         </div>
-        <span class="title-secondary purple">History</span>
+        <h2 class="purple">History</h2>
         <div class="history mb-4 mt-2">
           <div class="subscription-history col-12">
             <div class="d-flex justify-content-between">
               <span class="user-id">--</span><br/>
-              <span class="price-secondary">--.--</span>
+              <h2 class="price">--.--</h2>
             </div>
             <span class="period">From --/--/-- to --/--/--</span>
           </div>
           <hr class="purple">
         </div>
-        <span class="title-secondary purple">Next invoice</span><br>
+        <h2 class="purple">Next invoice</h2><br>
         <div class="next-period d-flex justify-content-between mt-2 mb-3">
           <span class="period">Available starting --/--/--</span>
-          <span class="price-secondary">--.--</span>
+          <h2 class="price">--.--</h2>
         </div>
         <hr class="purple">
-        <span class="title-secondary purple">Next invoice</span><br>
+        <h2 class="purple">Next invoice</h2>
         <div class="next-period d-flex justify-content-between mt-2 mb-3">
           <span class="period">Available starting --/--/--</span>
-          <span class="price-secondary">--.--</span>
+          <h2 class="price">--.--</h2>
         </div>
       </div>
     </div>
