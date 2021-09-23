@@ -46,10 +46,14 @@
             </div>
             <hr>
           <% end %>
-          <div class="d-flex justify-content-between">
-            <h3>Total subscription fee</h3>
-            <h2 class="price"><%= number_to_currency(order.total_activation_amount / 100, :unit => '') %><%= order.currency_symbol %></h2>
-          </div>
+          <% order.products.each do |p| %>
+            <div class="d-flex justify-content-between">
+              <h3>Subscription fee - <%= p.name %></h3>
+              <h2 class="price"><%= number_to_currency(p.activation_price, :unit => '') %><%= order.currency_symbol %></h2>
+            </div>
+            <span class="period"> Paid <%= Time.at(order.charge.created_at).strftime("%d/%m/%Y") %></span>
+            <hr>
+          <% end %>
         </div>
       </div>
     </div>
