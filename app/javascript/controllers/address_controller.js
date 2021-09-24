@@ -27,7 +27,6 @@ export default class extends Controller {
     address.value = "";
     address.type = "text";
     document.querySelector('.mapboxgl-ctrl').classList.toggle('d-none');
-    document.querySelector('i.fa-chevron-down').classList.toggle("rotate-smouth")
   }
 
   cleanCountryCode(e) {

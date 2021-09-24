@@ -3,8 +3,9 @@
   <div data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
   </div>
   <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
-  <div data-address-target="noAddress" data-action="click->address#manualAddress">
-    <label><strong>I can't find my address <i class="fas fa-check purple ms-2"></i></label>
+  <div class="d-flex">
+    <input data-address-target="noAddress" data-action="click->address#manualAddress" type="checkbox" class="me-2"></input>
+    <label><strong>I can't find my address </label>
   </div>
   <%= f.hidden_field :address, required: true, class: 'form-control d-none mb-3', placeholder: "Manually type in your address", data: { address_target: 'addressInput' } %>
   <label class="mb-3">Please make sure you will be at this address for at least 2 more weeks to ensure you receive your Starter Pack</label>
