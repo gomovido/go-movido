@@ -48,8 +48,12 @@
           <% end %>
           <% order.products.each do |p| %>
             <div class="d-flex justify-content-between">
-              <h3>Subscription fee - <%= p.name %></h3>
-              <h2 class="price"><%= number_to_currency(p.activation_price, :unit => '') %><%= order.currency_symbol %></h2>
+              <h3 class="text-left">Subscription fee - <%= p.name %></h3>
+              <% if p.category.name == 'utilities' %>
+                <h2 class="price"><%= number_to_currency(p.variant_activation_price(current_user.house) / 100, :unit => '') %><%= order.currency_symbol %></h2>
+              <% else %>
+                <h2 class="price"><%= number_to_currency(p.activation_price, :unit => '') %><%= order.currency_symbol %></h2>
+              <% end %>
             </div>
             <span class="period"> Paid <%= Time.at(order.charge.created_at).strftime("%d/%m/%Y") %></span>
             <hr>

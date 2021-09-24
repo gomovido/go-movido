@@ -33,7 +33,9 @@ class DashboardReflex < ApplicationReflex
       @subscription.errors.add(:terms_provider, 'You need to accept the Terms and Conditions of providers')
       morph '.add-service-form', render(partial: "dashboards/modals/steps/new", locals: { product: @product, order: @order, subscription: @subscription } )
     else
-      response = StripeApiChargeService.new(amount: (@product.activation_price * 10 * 10).to_i, customer_id: current_user.stripe_id, order_id: @order.id).create
+      response = StripeApiChargeService.new(
+        amount: @product.category.name == 'utilities' ?  @product.variant_activation_price(current_user.house) : @product.activation_price_cents,
+        customer_id: current_user.stripe_id, order_id: @order.id).create
       if response[:error].nil?
         init_user_services(@product)
         generate_items(@order, @product)
@@ -41,6 +43,8 @@ class DashboardReflex < ApplicationReflex
         if response[:error].nil?
           response = update_subscription(@order, @product)
           if response[:error].nil?
+            p "THIS IS RESPONSE"
+            p response
             morph '.pricing', render(partial: "dashboards/modals/steps/congratulations" )
           else
             @subscription.errors.add(:stripe, response[:error].message)

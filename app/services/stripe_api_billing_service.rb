@@ -19,6 +19,7 @@ class StripeApiBillingService
         else
           delete_subscription(response[:subscription].id)
         end
+        delete_service_from_subscription
       else
         delete_service_from_subscription
       end
