@@ -26,7 +26,7 @@ export default class extends Controller {
     address.classList.toggle("d-none");
     address.value = "";
     address.type = "text";
-    document.querySelector('.mapboxgl-ctrl').classList.toggle('d-none');
+    document.getElementById('mapbox').classList.toggle('d-none');
   }
 
   cleanCountryCode(e) {
