@@ -1,0 +1,29 @@
+<div class="modal fade change-address-modal" id="changeAddressModal" aria-labelledby="changeAddressModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-sm-down" id="dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container p-1">
+          <%= simple_form_for shipping, url: new_shipping_path(order), data: {reflex: "submit->ShippingReflex#create", reflex_serialize_form: true, controller: "address"  } do |f| %>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3>Change address</h3>
+              <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <label>Your current address</label>
+            <div data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
+            </div>
+            <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
+            <div class="d-flex">
+              <input data-address-target="noAddress" data-action="click->address#manualAddress" type="checkbox" class="me-2"></input>
+              <label><strong>I can't find my address </strong></label>
+            </div>
+            <%= f.hidden_field :address, required: true, class: 'form-control d-none mb-3', placeholder: "Manually type in your address", data: { address_target: 'addressInput' } %>
+            <label class="my-3">Please make sure you will be at this address for at least 2 more weeks to ensure you receive your Starter Pack</label>
+            <label>Any other delivery instructions? (optional)</label>
+            <%= f.input :instructions, required: true, label: false, placeholder: 'Type a message for us' %>
+            <button class="btn btn-main my-4" type="submit" data-bs-dismiss="modal" aria-label="Close">Continue</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

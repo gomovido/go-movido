@@ -25,9 +25,9 @@
   </div>
   <h3 class="text-left">Shipping address</h3>
   <div class="shipping mt-4 mb-3 d-flex justify-content-between align-items-center text-left">
-    <div class="col-6">
+    <div class="col-6 d-flex flex-column">
       <span class="text-left"><%= order.shipping.address%></span>
-      <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#changeAddressModal">Change</button>
+      <span class="purple pointer mt-4" data-bs-toggle="modal" data-bs-target="#changeAddressModal">Change</span>
     </div>
     <div class="col-2 text-end">
       <input type="radio" checked>

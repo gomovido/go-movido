@@ -6,6 +6,9 @@
           <%= render "steps/checkout/summaries/#{order.pack}", order: order, house: order.user.house %>
         </div>
         <%= render 'steps/checkout/payment_modal', order: order, billing: billing %>
+        <% if order.pack == "starter" %>
+          <%= render 'steps/checkout/change_address_modal', order: order, shipping: order.shipping %>
+        <% end %>
       </div>
     </div>
   </div>
