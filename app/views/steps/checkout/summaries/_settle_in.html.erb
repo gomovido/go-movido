@@ -1,6 +1,6 @@
-<h3 class="my-3">Your Settle in Pack</h3>
-<hr>
-<div class="pricing d-flex flex-column text-center">
+<div class="pricing d-flex flex-column text-left">
+  <h3 class="my-3">Your Settle in Pack</h3>
+  <div class="bg-bubble purple position-absolute"></div>
   <% order.products.includes([:company, :country, :category]).each do |product| %>
     <div class="pricing-card my-3">
       <div class="product-name">
@@ -11,20 +11,21 @@
           <% price = product.subscription_price %>
         <% end %>
         <span class="price-lite grey"><%= product.country.currency_symbol %><%= number_to_currency(price, :unit => '') %>/month</span>
-        <span class="price"><strong>Setup cost: <%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></strong></span>
+        <span class="price">Setup cost: <%= product.country.currency_symbol %><%= number_to_currency(product.activation_price, :unit => '') %></span>
       </div>
       <div class="product-img">
         <%= image_tag(asset_path("components/service-card/#{product.category.name}.png")) %>
       </div>
     </div>
   <% end %>
-  <div class="total text-left">
-    <span><strong>Total setup cost: <%= number_to_currency(order.total_amount_display, :unit => '') %><%= order.currency_symbol %></strong></span>
+  <div class="total-price text-left">
+    <span class="total">Total setup cost: <%= number_to_currency(order.total_amount_display, :unit => '') %><%= order.currency_symbol %></span>
   </div>
   <hr>
   <div class="subscription-details text-left mt-3 mb-4">
-    <h3>Subscription details</h3>
-    <span>This payment is a one-time only for setup cosrs. Your first service invoice will start after the service begins on <%= order.user.house.house_detail.contract_starting_date.strftime('%d/%m/%Y') %>.</span>
+    <h3 class="mb-3">Subscription details</h3>
+    <span class="details">This payment is a one-time only for setup costs. Your first service invoice will start after the service begins on <%= order.user.house.house_detail.contract_starting_date.strftime('%d/%m/%Y') %>.</span>
   </div>
+  <hr>
   <button class="btn btn-main mb-3" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <%= number_to_currency(order.total_amount_display, :unit => '') %><%= order.currency_symbol %></button>
 </div>

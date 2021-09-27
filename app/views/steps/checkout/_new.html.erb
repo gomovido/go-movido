@@ -5,7 +5,7 @@
         <div class="content-container" data-delay="0" data-animate-target="contentContainer">
           <%= render "steps/checkout/summaries/#{order.pack}", order: order, house: order.user.house %>
         </div>
-        <%= render 'steps/checkout/payment-modal', order: order, billing: billing %>
+        <%= render 'steps/checkout/payment_modal', order: order, billing: billing %>
       </div>
     </div>
   </div>

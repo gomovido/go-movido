@@ -1,12 +1,11 @@
 <div class="pricing d-flex flex-column text-left">
-<h3 class="my-3">Your Starter Pack</h3>
-<div class="bg-bubble purple position-absolute"></div>
-<hr>
+  <h3 class="my-3">Your Starter Pack</h3>
+  <div class="bg-bubble purple position-absolute"></div>
   <% order.items.includes([product: [:company, :country, :category]]).each do |item| %>
     <div class="pricing-card my-3">
       <div class="product-name">
         <span class="name"><%= item.product.name %></span>
-        <span class="description"><%= item.product.product_details.first.content %></span>
+        <span class="price-lite grey"><%= item.product.product_details.first.content %></span>
         <span class="price-lite"><%= item.product.country.currency_symbol %><%= number_to_currency(item.product.activation_price, :unit => '') %></span>
       </div>
       <div class="product-img">
@@ -28,12 +27,12 @@
   <div class="shipping mt-4 mb-3 d-flex justify-content-between align-items-center text-left">
     <div class="col-6">
       <span class="text-left"><%= order.shipping.address%></span>
-      <%# link_to 'change', something_path %>
+      <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#changeAddressModal">Change</button>
     </div>
     <div class="col-2 text-end">
       <input type="radio" checked>
     </div>
   </div>
   <hr>
-  <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <%= number_to_currency(order.total_amount_display, :unit => '') %><%= order.currency_symbol %></button>
+  <button class="btn btn-main mb-3" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay <%= number_to_currency(order.total_amount_display, :unit => '') %><%= order.currency_symbol %></button>
 </div>
