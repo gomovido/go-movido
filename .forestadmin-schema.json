@@ -4064,9 +4064,11 @@
     "actions": []
   }],
   "meta": {
-    "database_type": "postgresql",
     "liana": "forest-rails",
-    "liana_version": "6.4.0",
-    "orm_version": "6.1.3.2"
+    "liana_version": "7.2.2",
+    "stack": {
+      "database_type": "postgresql",
+      "orm_version": "6.1.4.1"
+    }
   }
 }
