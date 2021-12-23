@@ -1,7 +1,6 @@
 .pricing {
   font-size: 14px;
   .pricing-card {
-    color: #18191fa6;
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
@@ -10,6 +9,7 @@
       margin-right: 12px;
       img {
         width: 50px;
+        border-radius: 4px;
       }
     }
     .pricing-details {
@@ -25,10 +25,14 @@
       flex-direction: column;
       width: 100%;
       .name {
-        font-weight: bold;
+        font-weight: 500;
       }
       .description {
         padding-right: 0.9em;
+      }
+      .price {
+        font-weight: 700;
+        font-size: 13px;
       }
     }
     .product-price {
@@ -38,15 +42,28 @@
     }
   }
   .total-price {
-    color: #18191fa6;
     .total {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 700;
     }
   }
   .old-price {
     font-weight: 200;
     font-size: 16px;
+  }
+  .bg-bubble {
+    top: -10%;
+    left: -20%;
+  }
+  .subscription-details {
+    .details {
+      font-size: 14px;
+      font-weight: 400;
+      color: #3E3E3E;
+    }
+  }
+  .pointer {
+    cursor: pointer;
   }
 }
 .legals {

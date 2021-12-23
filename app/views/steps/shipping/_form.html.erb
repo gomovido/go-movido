@@ -1,6 +1,6 @@
 <%= simple_form_for shipping, url: new_shipping_path(order), data: {reflex: "submit->ShippingReflex#create", reflex_serialize_form: true, controller: "address"  } do |f| %>
   <label>Your current address</label>
-  <div data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
+  <div id="mapbox" data-address-target="geocoder" class="mb-3 form-group mb-0 string required shipping_address_mapbox position-relative" data-action='keydown->address#cleanCountryCode' >
   </div>
   <div class="invalid-feedback d-block"><%= f.full_error(:address) %></div>
   <div class="d-flex">
